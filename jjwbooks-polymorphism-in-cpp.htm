@@ -1,0 +1,489 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>《多型與虛擬》</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><font color="#808080"><strong><small><small>八刷 4500+430 冊&nbsp;&nbsp;</small></small></strong></font></h2>
+
+<h2 align="center"><font color="#800000">《多型與虛擬》<br>
+<small>Polymorphism in C++</small></font></h2>
+
+<h2 align="center"><font color="#800000"><small>侯捷 著</small></font></h2>
+
+<p align="center"><img src="g001.jpg" tppabs="http://jjhou.boolan.com/g001.jpg" width="235" height="288"
+alt="g001.jpg (11189 bytes)"></p>
+
+<p align="center"><a href="errata-polymorphism-in-cpp.htm" tppabs="http://jjhou.boolan.com/errata-polymorphism-in-cpp.htm" target="main">繁體版 勘誤</a></p>
+
+<p align="center">&nbsp;&nbsp;&nbsp;&nbsp;<a HREF="efile-mfclite.htm" tppabs="http://jjhou.boolan.com/efile-mfclite.htm" TARGET="main">書內程式源碼下載</a></p>
+
+<p align="center"><a HREF="qa-polymorphism-in-cpp.htm" tppabs="http://jjhou.boolan.com/qa-polymorphism-in-cpp.htm" TARGET="main">答客問</a></p>
+
+<hr>
+
+<blockquote>
+  <p><a name="【基本資料】"><font color="#FF0000">【基本資料】</font></a><br>
+  <br>
+  書名：<font color="#0000FF">多型與虛擬</font><br>
+  出版：松崗 1998.07<br>
+  ISBN：957-22-2947-8<br>
+  頁數： 6 章，348 頁<br>
+  定價：NT$ 480.0<font FACE="細明體" size="3"></p>
+  <p></font><a name="【自序】"><font color="#FF0000">【自序】</font></a><font
+  FACE="細明體" size="3"></p>
+  <p align="center"></font><font FACE="華康特粗明體" size="7">慮而後能得</font><font
+  FACE="細明體">（自序）</font><font FACE="細明體" size="3"></p>
+  <p></font><font FACE="細明體" size="3" color="#0000FF"><strong>故事</strong></font><font
+  FACE="細明體" size="3"></p>
+  <p ALIGN="JUSTIFY">接觸</font><font size="3"> C++ <font FACE="細明體">大約是</font> 
+  1989 <font FACE="細明體">年的事。那時候的</font> PC <font FACE="細明體">以現在的眼光看，除了「蠻荒」之外沒有更合適的形容詞了。橫掃千軍的</font> 
+  Windows 3.0 <font FACE="細明體">還沒有誕生，如今以</font> C++ <font
+  FACE="細明體">編譯器技術聞名於世的</font> Borland <font FACE="細明體">公司那個時候也還沒有踏進</font> 
+  C++ <font FACE="細明體">領域，遑論動作更慢的</font> Microsoft<font
+  FACE="細明體">。當時我用的編譯器是</font> Zortech C++<font FACE="細明體">。</p>
+  <p ALIGN="JUSTIFY">將近</font> 10 <font FACE="細明體">年的歷史，並不表示我在</font> 
+  C++ <font FACE="細明體">技術上就怎麼地超凡入聖了。事實上初期我很排斥這個語言。我沒有用心去體會，也就看不到其中的美好。我用數年的時間把心力全花在</font> 
+  Windows <font FACE="細明體">技術的鑽研。那時候</font> C++ <font
+  FACE="細明體">風潮未開，我也不以為意。</p>
+  <p ALIGN="JUSTIFY">決定好好研究</font> C++<font FACE="細明體">，不是為了要開發自己的</font> 
+  class library<font FACE="細明體">，而是為了要使用別人的</font> class library<font
+  FACE="細明體">。</font>92 <font FACE="細明體">年軟體界開始出現一些所謂的</font> 
+  application framework<font FACE="細明體">，是一種用來幫助程式員發展 
+  Windows 應用軟體的大型 C++ class library（如今也有非 C++ 
+  語言的類似產品）。為了運用這些有著巨大架構以及巨大能量的 C++ 
+  class library，我必須重拾 C++。然後，為了更能操控掌握那些複雜的架構，同時也因為對技術原理有一股強烈的好奇心，我開始看 
+  Microsoft Foundation Class（MFC） 的原始碼。</p>
+  <p ALIGN="JUSTIFY">這使我有了一種異於常人的學習經驗。我看的是行銷全世界、無數程式員使用、市場佔有率最高的一套</font> 
+  C++ class library <font FACE="細明體">的原始碼。從其中，我得到許多寶貴的知識與經驗。然後我慢慢體會了物件導向（</font>Object 
+  Oriented<font FACE="細明體">）之美、多型（</font>Polymorphism<font
+  FACE="細明體">）之美、虛擬（</font>Virtual<font FACE="細明體">）之美。</p>
+  <p ALIGN="JUSTIFY">學習的路線，不一定每個人都相同。但是黑暗中摸索的日子，實在不必人人走一遭。對於位居物件導向精髓地位的「多型與虛擬」觀念有了深刻體會之後，我有一股強烈的欲望，要把心得寫下來。</p>
+  <p ALIGN="JUSTIFY">於是我寫了這本書。</font></font><font FACE="華康粗黑體"
+  size="4"></p>
+  <p></font><font FACE="華康粗黑體" size="3" color="#0000FF"><strong>層次</strong></font><font
+  FACE="細明體" size="3"></p>
+  <p ALIGN="JUSTIFY">一般而言，</font><font size="3">C++ <font FACE="細明體">是一個難學易用的語言。</p>
+  <p ALIGN="JUSTIFY">C++ 
+  的難學，初始在於其重重的佈幕，佈幕之中編譯器對我們的程式碼做了太多的手腳，使我們慣於循序思考的工程腦袋一無所措。及長又面臨新的思維模式，使我們必須扭轉慣常的思考習慣。</p>
+  </font><p ALIGN="JUSTIFY">C++ <font FACE="細明體">的易用則在於其巨大的彈性，能夠以多型（</font>polymorphism<font
+  FACE="細明體">）、虛擬（</font>virtual<font FACE="細明體">）、模板（</font>template<font
+  FACE="細明體">）等種種方式，讓現有的碼去處理未知的、未來的資料型態。</p>
+  <p ALIGN="JUSTIFY">當然，易用必須先能用。用不好或不能用的話，「寫</font> 
+  C++ <font FACE="細明體">程式」最後就成了只是「使用</font> C++ <font
+  FACE="細明體">編譯器」，這是大家常拿來彼此調侃的笑話。</p>
+  <p ALIGN="JUSTIFY">在「難學」的背景下，「易用」是使我們依然前仆後繼的動力。愈來愈多的大學資訊科系把</font> 
+  C++ <font FACE="細明體">開在大一課程，這雖然說明</font> C++ <font
+  FACE="細明體">是多麼地重要，可也苦了資訊新兵們。</p>
+  <p ALIGN="JUSTIFY">其實「難學」的最大癥結，在於很難得有一本書，能夠一針見血地指出多型與虛擬的重要性；</font></font><font
+  FACE="華康粗黑體" size="3" color="#0000FF">在我們粗具語法基礎之後，直接把我們導引到最核心最重要的思想，並且在建立這個思想體系的過程中，提供足夠的必要基礎。</font><font
+  size="3"><font FACE="細明體"></p>
+  <p ALIGN="JUSTIFY">我希望這本書能夠做到這一點。</p>
+  <p ALIGN="JUSTIFY">同樣是使用</font> C++ <font FACE="細明體">語言，有人進入了物件導向的殿堂，有人只學到</font> 
+  C++ <font FACE="細明體">的語法；</p>
+  <p ALIGN="JUSTIFY">有人練書法；</p>
+  <p ALIGN="JUSTIFY">有人寫毛筆字；</p>
+  <p ALIGN="JUSTIFY">有人拿有毛的筆寫字。</p>
+  <p ALIGN="JUSTIFY">我們要向書法的境界挑戰，不要只是拿有毛的筆寫字。</font></font><font
+  FACE="華康粗黑體" size="4"></p>
+  <p></font><font FACE="華康粗黑體" size="3" color="#0000FF"><strong>定位</strong></font><font
+  FACE="細明體" size="3"></p>
+  <p ALIGN="JUSTIFY">講述</font><font size="3"> C++ <font FACE="細明體">語法（</font>syntax<font
+  FACE="細明體">）的書籍很多，</p>
+  <p ALIGN="JUSTIFY">講述</font> C++ <font FACE="細明體">語意（</font>semantics<font
+  FACE="細明體">）的書籍很少，</p>
+  <p ALIGN="JUSTIFY">講述</font> C++ <font FACE="細明體">物件導向（</font>object 
+  oriented<font FACE="細明體">）精神的書籍更少，</p>
+  <p ALIGN="JUSTIFY">深入</font> C++ <font FACE="細明體">物件模型（</font>object 
+  model<font FACE="細明體">）的書籍則幾乎沒有。</p>
+  <p ALIGN="JUSTIFY">這本書第一章對</font> C++ classes <font FACE="細明體">的語法和語意做了一個梗概整理。第二章談</font> 
+  C++ <font FACE="細明體">的物件模型，第三章談型別轉型（</font>RTTI <font
+  FACE="細明體">的重要服務），第四章談多型與虛擬的精神，第五章實作一個大型例子，示範如何在一個</font> 
+  class library <font FACE="細明體">中完成</font> RTTI<font FACE="細明體">、</font>Dynamic 
+  Creation<font FACE="細明體">、</font>Persistence <font FACE="細明體">等基礎建設。第六章為</font> 
+  Component Object Model<font FACE="細明體">（</font>COM<font FACE="細明體">）奠基。</p>
+  <p ALIGN="JUSTIFY">很容易看得出來，你不能夠完全依賴這本書學習 C++ 
+  語法（因為第一章不過才 <font COLOR="#ff0000">96</font> 
+  頁）。但是在學習了 C++ 
+  語法之後，你可以依賴這本書學習物件導向的精髓。</p>
+  <p ALIGN="JUSTIFY">我自己一直存在一個疑惑。別人常認為我寫的是高階技術書籍，我卻認為我寫的是高階技術的入門書籍。也許我挖掘得很深很廣，但，不就是要徹底瞭解重要的基礎知識，才得登堂入室嗎？</p>
+  <p ALIGN="JUSTIFY">這本書，我仍舊挖得很深，尤其是第二章和第五章。但是我想粗具</font> 
+  C++ <font FACE="細明體">語言基礎的人應該都能循序接受。我渴望證明，</font>C++ 
+  <font FACE="細明體">的難學，問題不在學生，而在老師。</p>
+  <p ALIGN="JUSTIFY">當然，本書的讀者，你，不能夠只是一位程式設計領域的全然新手。</font></font><font
+  FACE="華康粗黑體" size="4"></p>
+  <p></font><font FACE="華康粗黑體" size="3" color="#0000FF"><strong>厚薄</strong></font><font
+  FACE="細明體" size="3"></p>
+  <p ALIGN="JUSTIFY">每次完成一本書，抱著厚厚的一疊完稿北上，父親看到堆起來有</font><font
+  size="3"> 10 <font FACE="細明體">公分高的雪銅紙，總是對我說：『這麼厚的書，怎麼看』？而我總要解釋『這是雪銅紙，比較厚。而且單面印刷，厚度加倍。經過雷射印表機的高溫，它又有點捲</font>...<font
+  FACE="細明體">』。</p>
+  <p ALIGN="JUSTIFY">但是想想，</font>1000 <font FACE="細明體">頁左右的書籍，再怎麼東折西扣也是厚得嚇人。</p>
+  <p ALIGN="JUSTIFY">漸漸地父親不再問那個問題了，大概已經妥協於「電腦書都那麼厚」的印象之中。而我更是早就習慣看大部頭的書，寫大部頭的書。</p>
+  <p ALIGN="JUSTIFY">大家都習慣了吧！這兩年 <font FACE="Wingdings">K</font> 。</p>
+  <p ALIGN="JUSTIFY">書籍的厚薄，是因於內容的選擇，與讀者群的界定。很難得有這麼一個題材，我以</font> 
+  340 <font FACE="細明體">頁的篇幅完成了它。</p>
+  <p ALIGN="JUSTIFY">書籍很薄，又經過我精心的章節次序安排與起承轉合，您就不要跳著看了吧。耐著性子，一頁一頁，從頭到尾把它好好咀嚼消化一遍。然後，如果你願意，寫信給我，我希望聽到你的喜悅。</p>
+  <p ALIGN="JUSTIFY">批評也是我所歡迎的。</font></font><font
+  FACE="華康中黑體" size="4"></p>
+  <p ALIGN="left">侯俊傑</font><font size="3"> 1998.07.02 <font FACE="細明體">于新竹</font><font
+  FACE="Courier New"></p>
+  </font></font><p ALIGN="left">　</p>
+  <p ALIGN="left"><br>
+  <a name="【導讀】"><font color="#FF0000">【導讀】</font></a></p>
+  <font FACE="華康粗黑體" SIZE="7"><p ALIGN="CENTER">導</font><font SIZE="7"> </font><font
+  FACE="華康粗黑體" SIZE="7">讀</font><font FACE="細明體" SIZE="1"></p>
+  </font><font FACE="細明體" size="3"><p ALIGN="JUSTIFY">本書因為在章節的啟承轉合上有密切的配合，所以並不建議跳躍式閱讀。從第一頁循序看到最後一頁，是我以為比較好的方式。當然如果你對於某些主題十分熟稔，可以快速掠過。</font><font
+  FACE="華康粗黑體" size="4"></p>
+  <p>讀者基礎</font><font FACE="細明體" size="3"></p>
+  <p ALIGN="JUSTIFY">你需要一些</font><font size="3"> C++ <font FACE="細明體">語言基礎，以及程式設計領域的某種程度的經驗。這種經驗是很難加以量化的，你可試著找出本書各主題中你最感興趣或最有心得的一部份，試閱</font> 
+  3, 5 <font FACE="細明體">頁。如果讀來可喜，有所領悟，就帶回家去吧。</font></font><font
+  FACE="華康粗黑體" size="4"></p>
+  <p>章節劃分</font><font FACE="細明體" size="3"></p>
+  <p ALIGN="JUSTIFY">本書共分六章：</p>
+  <p><font color="#0000FF">第一章 C++ Classes 語法和語意（Classes' Syntax and 
+  Semantics）</font></p>
+  </font><font size="3"><font FACE="細明體"><p ALIGN="JUSTIFY">所有的內容都圍繞著</font> 
+  Classes <font FACE="細明體">打轉。本章對</font> C++ Classes <font
+  FACE="細明體">的重要性質做了一個梗概描述，算是搭起你（讀者）和我（作者）之間的共識。這些</font>C++ 
+  <font FACE="細明體">語法和語意大部份都是後續章節需要用到的。</p>
+  <p><font color="#0000FF">第二章 C++ 物件模型（C++ Object Model）</font></p>
+  </font><p ALIGN="JUSTIFY">C++ <font FACE="細明體">物件模型的技術涵蓋範圍很廣，本章只挑選和「多型與虛擬」有關的兩大主題：</font>(1) 
+  <font FACE="細明體">物件實體的佈局，</font>(2) <font FACE="細明體">虛擬機制的底層架構（</font>vptr 
+  <font FACE="細明體">和</font> vtbl<font FACE="細明體">）。這一章可以為你紮下非常好的底層基礎，使你在面對一個虛擬函式時，清楚知道它如何被喚起、它的額外負擔是什麼、以及為什麼能夠靠它達到多型的終極目標。</p>
+  <p><font color="#0000FF">第三章 型別轉換（Type Casting）</font></p>
+  <p ALIGN="JUSTIFY">一旦引入多型，物件指標就必須考慮</font> type-safe <font
+  FACE="細明體">的問題。本章介紹</font> C++ <font FACE="細明體">的三個轉型運算子，並把焦點放在和</font> 
+  RTTI <font FACE="細明體">有關的</font> <i>dynamic_cast</i> <font FACE="細明體">運算子身上。本章也介紹了</font> 
+  C/C++ Standard <font FACE="細明體">的</font> # <font FACE="細明體">和</font> ## <font
+  FACE="細明體">運算子（或者你可以稱它們為編譯器前置處理器），幫助我們利用巨集讓編譯器為我們「寫程式」。</font># 
+  <font FACE="細明體">和</font> ## <font FACE="細明體">這兩個運算子在第五章的程式實例中扮演重要角色。</p>
+  <p><font color="#0000FF">第四章 為什麼需要多型（Why Polymorphism）</font></p>
+  <p ALIGN="JUSTIFY">本章利用一個小例子，解說虛擬函式帶來的影響，以及多型（</font>polymorphism<font
+  FACE="細明體">）的無遠弗屆，以及泛型（</font>generalization<font
+  FACE="細明體">）的重要性。本書前三章著重於本職學能的建立，這一章則開始進入邏輯層次的思考階段。</p>
+  <p><font color="#0000FF">第五章 Polymorphism 的應用</font></p>
+  <p ALIGN="JUSTIFY">這一章以一個大型實例為主軸，一方面驗證虛擬和多型的應用，一方面又以程式設計來彌補目前任何</font>C++ 
+  <font FACE="細明體">編譯器都未曾提供的兩個物件導向重要特質：</font>Dynamic 
+  Creation <font FACE="細明體">和</font> Persistence<font FACE="細明體">。本章程式碼取材自</font> 
+  MFC source<font FACE="細明體">，再經我的刪減修飾而成，適用於任何作業平台，非常具有參考價值，對於</font> 
+  C++ programming <font FACE="細明體">技術可以帶來開闊的眼界。</p>
+  <p><font color="#0000FF">第六章 從 C++ Object Model 邁向 Component Object Model</font></p>
+  </font><p ALIGN="JUSTIFY">C++ <font FACE="細明體">有其可到之處，有其不可到之處。為了能夠跨編譯平台、跨語言平台、跨作業平台、跨網路傳輸，有必要把</font> 
+  C++ <font FACE="細明體">語言層面的封裝更進一步設計為二進位層面的封裝。</font>Component 
+  Object Model<font FACE="細明體">（</font>COM<font FACE="細明體">）就是這種思考下所制定的一個規格，而瞭解</font> 
+  C++ Object Model <font FACE="細明體">正是學習</font> Component Object Model <font
+  FACE="細明體">的最短路徑。本章以三個實例逐次完成封裝工作，使</font> 
+  C++ classes <font FACE="細明體">成為所謂的</font> components<font FACE="細明體">，亦即所謂的「軟體</font> 
+  IC<font FACE="細明體">」。</font></font><font FACE="華康粗黑體" size="4"></p>
+  <p>使用工具</font><font FACE="細明體" size="3"></p>
+  <p ALIGN="JUSTIFY">理論上，任何一個</font><font size="3"> C++ <font
+  FACE="細明體">編譯器，都可以編譯本書的任何一個程式。即使第五章那個脫胎自</font> 
+  Microsoft Foundation Classes<font FACE="細明體">（</font>MFC<font FACE="細明體">）的大型實例，經過我的修改，一樣可通過各家編譯器。我的實驗平台包括</font> 
+  Visual C++ <font FACE="細明體">和</font> Borland C++Builder <font FACE="細明體">兩套</font> 
+  C++ <font FACE="細明體">編譯器。</p>
+  <p ALIGN="JUSTIFY">前三章介紹各種語法或各種低階實驗性動作時，常會連帶把測試動作的編譯錯誤訊息列出（如果有的話）。我所列的是</font> 
+  Microsoft Visual C++ <font FACE="細明體">的錯誤訊息和代碼。</p>
+  <p ALIGN="JUSTIFY">目前</font> PC <font FACE="細明體">上任何一套</font> C++ <font
+  FACE="細明體">編譯器都提供有整合環境（</font>IDE<font FACE="細明體">）以及命令列（</font>command 
+  line<font FACE="細明體">）兩種模式。本書第二章</font> <font COLOR="#ff0000">p.150</font> 
+  <font FACE="細明體">和第五章</font> <font COLOR="#ff0000">p.233</font> <font
+  FACE="細明體">分別示範在</font> Visual C++ <font FACE="細明體">之下如何設定並使用這兩種模式。</font></font><font
+  FACE="華康粗黑體" size="4">　</p>
+  <p>程式碼</font><font FACE="細明體" size="3"></p>
+  <p ALIGN="JUSTIFY">第五章和第六章的範例程式，比較大也比較值得提供給讀者。我把它放在</font><font
+  FACE="華康中黑體" size="3">松崗出版公司的網站上（</font><font
+  FACE="Arial Black" size="3">http://www.unalis.com.tw</font><font FACE="華康中黑體"
+  size="3">）</font><font FACE="細明體" size="3">，請自由下載。至於分散本書各處的小小測試程式，非常多，非常小，非常細瑣，並不打算供應給讀者。</font><font
+  FACE="華康粗黑體" size="4"></p>
+  <p>用詞特色</font><font size="3"></p>
+  <p ALIGN="JUSTIFY">C++ <font FACE="細明體">以及物件導向領域中的一個特色就是，有著多如牛毛的術語，而且又臭又長。我決定儘量採用原文術語，目的有二：</p>
+  <ol>
+    <li>我清楚知道工程師們的習慣用語，我不想讓他們看這本書時，時時得把中文名詞倒譯回去，或時時得查閱中英名詞對照表。<br>
+    </li>
+    <li>學子們對於科技原文名詞的陌生度已經到了令我駭然的地步。我希望起一些引導作用。</li>
+  </ol>
+  <p ALIGN="JUSTIFY">當然，中英名詞的取捨與選擇，程度上的拿捏是很需要技巧的，而選擇是很帶個人色彩的。歡迎您給我意見，謝謝。</font></font><font
+  FACE="華康中黑體" size="4"></p>
+  <p ALIGN="left">侯俊傑</font><font size="3"> 1998.07.02 <font FACE="細明體">于新竹</font><font
+  FACE="Courier New"></p>
+  <p ALIGN="RIGHT"></font></font>　</p>
+  <p ALIGN="left"><a name="【目錄】"><font color="#FF0000">【目錄】</font></a></p>
+  <font FACE="華康粗黑體" SIZE="7"><p ALIGN="CENTER">目</font><font SIZE="7"> </font><font
+  FACE="華康粗黑體" SIZE="7">錄</font><font FACE="細明體" SIZE="1"></p>
+  <p ALIGN="JUSTIFY"></font><font FACE="細明體" size="3">慮而後能得（自序） </font><font
+  size="3">/ 003<font FACE="細明體"></p>
+  <p ALIGN="JUSTIFY">目</font> <font FACE="細明體">錄 </font>/ 009<font
+  FACE="細明體"></p>
+  <p ALIGN="JUSTIFY">第０章</font> <font FACE="細明體">導</font> <font
+  FACE="細明體">讀 </font>/ 019<font FACE="細明體"></p>
+  <p ALIGN="JUSTIFY"></font></font><strong><font color="#0000FF" FACE="細明體" size="3">第１章</font><font
+  size="3" color="#0000FF"> C++ Classes </font><font color="#0000FF" FACE="細明體"
+  size="3">的語法和語意（</font><font size="3" color="#0000FF">Classes' Syntax and 
+  Semantics</font><font color="#0000FF" FACE="細明體" size="3">）</font></strong><font
+  size="3"><font FACE="細明體"> </font>/ <font FACE="細明體"></p>
+  <p ALIGN="JUSTIFY"></font></font><strong><font color="#0000FF" FACE="細明體" size="3">第２章</font><font
+  size="3" color="#0000FF"> C++ </font><font color="#0000FF" FACE="細明體" size="3">物件模型（</font><font
+  size="3" color="#0000FF">C++ Object Model</font><font color="#0000FF" FACE="細明體"
+  size="3">）</font></strong><font size="3"><font FACE="細明體"> </font>/ 097</p>
+  <font FACE="細明體"><p ALIGN="JUSTIFY"></font></font><strong><font color="#0000FF"
+  FACE="細明體" size="3">第３章</font><font size="3"><font color="#0000FF"> <font
+  FACE="細明體">型別轉換（</font>Type Casting<font FACE="細明體">）</font></font></strong> 
+  / 163<font FACE="細明體"></p>
+  <p ALIGN="JUSTIFY"></font></font><strong><font color="#0000FF" FACE="細明體" size="3">第４章</font><font
+  size="3"><font color="#0000FF"> <font FACE="細明體">為什麼需要多型（</font>Why 
+  Polymorphism<font FACE="細明體">）</font></font></strong> / 187</p>
+  <font FACE="細明體"><p ALIGN="JUSTIFY"></font></font><strong><font color="#0000FF"
+  FACE="細明體" size="3">第５章</font><font size="3"><font color="#0000FF"> 
+  Polymorphism <font FACE="細明體">的應用</font></font></strong> / 227<font
+  FACE="細明體"></p>
+  <p ALIGN="JUSTIFY"></font></font><strong><font color="#0000FF" FACE="細明體" size="3">第６章</font><font
+  size="3"><font color="#0000FF"> <font FACE="細明體">從</font> C++ Object Model <font
+  FACE="細明體">邁向</font> Component Object Model</font></strong> / 299</p>
+  <font FACE="細明體"><p ALIGN="JUSTIFY">附錄</font>A <font FACE="細明體">參考書目 
+  </font>/ 339<br>
+  <font FACE="細明體">附錄</font>B <font FACE="細明體">C++ 的沉迷與愛戀 </font>/ 
+  341</font></p>
+  <p ALIGN="JUSTIFY">　</p>
+  <p ALIGN="left"><a name="【讀者來函】"><font color="#FF0000">【讀者來函】</font></a></p>
+  <font FACE="華康特粗明體" SIZE="7"><p ALIGN="CENTER">讀者來函</font><font
+  SIZE="7"> </font><font FACE="細明體" SIZE="1"></p>
+  </font><ul>
+    <li><b><font size="3">BBFISH &lt;h4584106@dec4000.cc.ncku.edu.tw&gt;</font></b></li>
+  </ul>
+  <font FACE="華康粗黑體" size="3"><p ALIGN="JUSTIFY">多型與虛擬</font><font
+  size="3"> <font FACE="細明體">一書中的多型與物件導向概念，在我的物件導向學習路上點燃了一盞明燈。我本非科班出身，因興趣使然，要投考資管所。在辛苦的</font> 
+  C <font FACE="細明體">語言路上，前半段走的甚為艱辛，後來因為要準備考試，再度學起</font> 
+  C <font FACE="細明體">語言。雖說考的只是觀念罷了，卻也讓我對</font> 
+  C <font FACE="細明體">語言燃起興趣。後來，在學長的介紹下看起您的書評，得知很多好書。物件導向的觀念，更有賴您的新書與</font> 
+  &lt;<font FACE="細明體">世紀末軟體革命２</font>&gt; <font FACE="細明體">一書，讓我得以很快進入狀況。雖說您的新書很多地方我還看不懂，不過我卻害怕缺貨，馬上就買了一本。</p>
+  </font></font><ul>
+    <li><font size="3"><b>ygwei@csie.nctu.edu.tw</b></font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">最近將您的那一本</font><font
+  size="3"> <font FACE="華康粗黑體">多型與虛擬</font> <font FACE="細明體">看了一下，發現真的對我有很大的幫助。幫我釐清了很多</font> 
+  C++ <font FACE="細明體">的問題。</font>compiler <font FACE="細明體">課程或系統程式課程，雖然有稍微提到有關方面的東西，但都很少，而且也不是以我熟悉的</font>C++ 
+  <font FACE="細明體">來解釋，因此不是很懂。有很多東西是看了您的書之後才豁然開朗的。　</p>
+  </font></font><ul>
+    <li><font size="3"><b>Kevin Lo &lt;fec@ms2.seeder.net&gt;</b></font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">我是你的讀者，住在台北。我是一個</font><font
+  size="3"> C++ programming <font FACE="細明體">新手，我剛讀完你的</font> <font
+  FACE="華康粗黑體">多型與虛擬</font> <font FACE="細明體">第一章，非常喜歡它。我要謝謝你，帶領我經歷</font> 
+  C++ <font FACE="細明體">的奇歷。順帶一提，我買了你截至目前所出版的所有書籍，有了它們，我有信心在短期的未來內，在</font> 
+  C++ programming <font FACE="細明體">以及</font> Windows programming <font
+  FACE="細明體">中獲得很大的進步。非常謝謝你，並祝你未來更成功。</p>
+  </font><ul>
+    <li><b>David &lt;yehdawei@ms11.hinet.net&gt; <font FACE="細明體">（耳鼻喉科執業醫師）</font></b></li>
+  </ul>
+  <p ALIGN="JUSTIFY">我知道書本上的</font> 1999 0928 <font FACE="細明體">是什麼意義，就想在</font>0928 
+  <font FACE="細明體">那天發一封</font>mail <font FACE="細明體">給您祝福一下。</font>... 
+  <font FACE="細明體">在一片書海中總是會無意識地自動搜尋那熟悉的人頭</font> 
+  mark<font FACE="細明體">，若有新發現總是欣喜地翻閱看看裡面寫了些什麼。自從我略略有了幼幼班程度的</font> 
+  C++ <font FACE="細明體">經驗後，大略可以猜猜您在做的動作。我對您的書籍好有一比，一般醫師只是拿起噴槍噴噴鼻子了事，我卻意外發現一本精美說明書，從此走岔了路陶醉在您的噴槍徹底分析裡頭，那可真是比噴噴鼻子有趣多了</font> 
+  -- <font FACE="細明體">只不過自我補強機械背景知識的過程中，讓我這學醫的人充滿了鬱鬱寡歡的挫折感。看了你</font> 
+  post <font FACE="細明體">的文章我覺得自己好像是披塊白布在吸人家的鼻涕而不是著醫師白袍在治療病患。</p>
+  <p ALIGN="JUSTIFY">對於耳鼻喉科刀法熟捻的教授們，我心中充滿尊敬，在醫學中心跟在他們身邊親炙大師的學術風範。日常應對則對一些前輩不自主地產生畏懼。但是很少有讓我又敬又畏的。... 
+  我回憶起在診所見到你的名字出現在候診單時的心頭一震...他就是寫出一篇篇文章的作者本人嗎？他就是讓你無數夜晚輾轉難眠的那人嗎？</p>
+  <p ALIGN="JUSTIFY">有時對自己花太多時間在電腦上也會有些不安。我不是應該多看一些本行的專業書籍嗎？或許我可以這麼安慰自己，我是利用其他醫生打高爾夫、唱卡拉</font> 
+  OK<font FACE="細明體">，喝酒的休閒時間來休閒我的電腦。這樣一想好像不會那麼罪惡感了。</font></p>
+  <p ALIGN="JUSTIFY">COM <font FACE="細明體">對我是個惡夢，它是</font> Chronic 
+  Otitis Media<font FACE="細明體">（慢性中耳炎）。</font>SOM<font
+  FACE="細明體">：</font>Serous Otitis Media<font FACE="細明體">（漿液性中耳炎）是另一個夢魘。門診裡很難根治的兩個疾病。</font>Polymorphism<font
+  FACE="細明體">？人與人的同源基因間都存在一些微常的差異，遺傳學上把這種差異叫做多形性（</font>Polymorphism<font
+  FACE="細明體">）。</font></p>
+  <p ALIGN="JUSTIFY">... <font FACE="細明體">我真希望哪一天我能夠寫信告訴您看了</font> 
+  <b>Polymorphism in C++</b> <font FACE="細明體">時的喜悅，但我還不能夠。</font>... 
+  <font FACE="細明體">雖然我們不常見面，當我寫一些醫普文章時，總覺得你就在身邊。祝您佳作連連。</p>
+  </font><ul>
+    <li><b>shincheng &lt;shincheng@ms11.accmail.com.tw&gt;</b></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">前幾天在書局看到侯老師所著的</font><font
+  size="3"> <font FACE="華康粗黑體">多型與虛擬</font> <font FACE="細明體">一書，因為一直有個希望有一天我也能成為一個練書法的人，所以我就把書買回家，看了二三十頁之後，覺得這本書沒有白買，學了不少以前不知道的觀念。謝謝你，也希望你為國內資訊界注入更多好書。如果有機會為我們這些新手寫些入門書，相信會幫助更多的人。</p>
+  </font></font><ul>
+    <li><font size="3"><b>p60036@ms14.hinet.net</b></font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">最近個人對</font><font size="3"> 
+  COM/DCOM <font FACE="細明體">非常有興趣，恰巧您最近出了一系列這方面的基礎書籍，由於個人非常喜歡您的著作與譯作，所以便全部買下。幾天Ｋ下來，獲益良多，以往在雜誌以及其他書籍所獲得的零碎知識總算可以獲得歸納與了解。侯先生的著作與譯作是國內作品中最棒的</font>...<font
+  FACE="細明體">。希望侯先生繼續加油，讓台灣的電腦出版界水平能夠與國外一較長短，甚至更上層樓。</p>
+  </font><ul>
+    <li><b>cmeng@pcb2.wwei.com.tw</b></li>
+  </ul>
+  <p ALIGN="JUSTIFY">Dear Hou, I was so happy to know that you had written a new book titled 
+  <b>Polymorphism in C++</b>. I love this book very much... Anyway, I love reading your 
+  books.<font FACE="細明體"></p>
+  </font></font><ul>
+    <li><font size="3"><b>skchen@ms6.url.com.tw</b></font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">八月底於書局買了本您的著作</font><font
+  size="3"> <font FACE="華康粗黑體">多型與虛擬</font> <font FACE="細明體">使我受益良多。</font>...<font
+  FACE="細明體">希望您能再出些書來造福我們這些讀者，因為我覺得學得他人的成功經驗比自己摸索來得快又有效率。</p>
+  </font></font><ul>
+    <li><font size="3"><b>belldandy</b></font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">我剛從傳統程序導向的</font><font
+  size="3"> programming <font FACE="細明體">轉入</font> OOP<font FACE="細明體">，</font> 
+  <font FACE="華康粗黑體">多型與虛擬</font> <font FACE="細明體">這本書讓我獲益良多，</font>THANKS!</p>
+  </font><ul>
+    <li><font size="3"><b>wking &lt;wkng77@163.net&gt;</b></font></li>
+  </ul>
+  <font FACE="華康粗黑體" size="3"><p ALIGN="JUSTIFY">多型與虛擬</font><font
+  size="3"> </font><font FACE="細明體" size="3">看得我心曠神怡，舒服得一塌糊塗，從來沒有看什麼書感覺這麼好過（包括您的</font><font
+  size="3"> <font FACE="華康粗黑體">深入淺出</font><font FACE="Arial Black">MFC</font><font
+  FACE="細明體">；</font><font FACE="華康粗黑體">多型與虛擬</font><font
+  FACE="細明體">看完，</font><font FACE="華康粗黑體">深入淺出</font><font
+  FACE="Arial Black">MFC</font><font FACE="細明體">的感覺估計也要出來了）。看您的書有種舉重若輕，行雲流水的感覺，美妙啊。完全是把艱深的學習變成了甜蜜的享受，把苦口的良藥煮出了咖啡的濃香。幸甚至哉，得遇先生。</p>
+  </font></font><ul>
+    <li><font size="3"><b>Tsuhan Lee &lt;josephl@sysware.com.tw&gt;</b></font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">我從前到現在買了您的一些</font><font
+  size="3"> MFC <font FACE="細明體">書籍，到現在的這本</font> <b>Polymorphism in 
+  C++</b><font FACE="細明體">，覺得這本最讓我收穫良多，因為它真的讓我的一些觀念更清楚，在開發程式的時候，更知道自己在幹什麼。而且這種內容的書好像多半是原文的，此書真是國內中文書讀者的一大福音</p>
+  </font></font><ul>
+    <li><font size="3"><b>hjs &lt;hjs@winlab.yzu.edu.w&gt;</b></font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">拜讀您的大作</font><font size="3"> 
+  <b>Polymorphism in C++</b><font FACE="細明體">，收益匪淺，減少了我在</font> 
+  C++ <font FACE="細明體">領域苦修好幾年。</p>
+  </font><ul>
+    <li><b>Patrick &lt;lshuang@mitt.com.tw&gt;</b></li>
+  </ul>
+  <p ALIGN="JUSTIFY">I just read the book last Sunday. Thanks for writing such a wonderful 
+  book about the C++ polymorphism. I really learned much from it.<font FACE="細明體"></p>
+  </font></font><ul>
+    <li><font size="3"><b>teacher Lo</b></font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">暑假中讀到你的新書</font><font
+  size="3"> <font FACE="華康粗黑體">多型與虛擬</font> <font FACE="細明體">及</font> 
+  <font FACE="華康粗黑體">深度探索</font> <font FACE="Arial Black">C++ </font><font
+  FACE="華康粗黑體">物件模型</font><font FACE="細明體">，就一直想寫信給你，感謝你的辛勞。</font><font
+  FACE="華康粗黑體">多型與虛擬</font> <font FACE="細明體">真是一本很好的書，讀了之後既佩服又感動，已很久沒有讀到這樣「延伸視野」的書了。</p>
+  <p ALIGN="JUSTIFY">你一向建議讀者要有命令列模式下的程式開發經驗，我非常認同。感激你在書中詳細解說如何編譯程式、如何使用</font> 
+  debugger<font FACE="細明體">。閱讀本書時我發現有些程式在命令列模式下編譯有問題，例如</font><font
+  COLOR="#ff0000">p.235</font> <font FACE="細明體">在</font> VC++ 5.0 <font
+  FACE="細明體">中根本無法編譯，但在</font> VC++ 4.0 <font FACE="細明體">則可順利通過。反過來有些程式在</font> 
+  VC++ 5.0 <font FACE="細明體">可編譯，在</font> 4.0 <font FACE="細明體">卻不行，相信是版本差異或安裝時的設定所致。我認為如果能夠在例題中儘量把編譯器版本註明清楚，對讀者的助益會更大。</p>
+  <p ALIGN="JUSTIFY"><font color="#0000FF">侯俊傑答覆</font>：感謝盧老師的建議，新版時我會依此建議檢討全書。此書範例全以</font> 
+  VC++ 5.0 <font FACE="細明體">編譯，因此您在</font> VC++ 5.0 <font
+  FACE="細明體">上的挫敗，可能正如所言，與環境設定有關，請參考本書</font><font
+  COLOR="#ff0000">p.233</font><font FACE="細明體">（其中之</font> PATH <font
+  FACE="細明體">設定需再加上</font> E:\DevStudio\SharedIDE\BIN<font
+  FACE="細明體">；本刷已修正）。我將於本書新版之中增加對編譯器與執行環境的介紹，如此或可使此類問題降至最低。</p>
+  </font></font><ul>
+    <li><font size="3"><b>Patrick &lt;lshuang@mitt.com.tw&gt;</b></font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">讀完</font><font size="3"> <font
+  FACE="華康粗黑體">多型與虛擬</font> <font FACE="細明體">一書，有種充實與飽滿的感覺，不僅喚起部份原已遺忘的記憶，同時也瞭解多型為何物，更體會出隱藏其後的運用機制，進而開始欣賞虛擬、多型與物件導向之美。每章以畫龍點睛的方式傳達意念，讀來確實是種享受。這是一本雅俗共賞，值得一讀的好書。我想現在的我可以開始進入書法的境界了。</p>
+  </font></font><ul>
+    <li><font size="3"><b>ufjudy &lt;ufjudy@ms10.hinet.net&gt;</b></font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">我在光華商場和資訊展分別購買了您所著的</font><font
+  size="3"> <b>Polymorphism in C++</b> <font FACE="細明體">和所譯的</font> <b>Inside 
+  The C++ Object Model</b><font FACE="細明體">，心中真是感觸萬千。依稀記得以前唸書時候的嚴謹與細緻的心境，而今見到閣下的著作，真是感動又有些許的感慨了</font>!!<font
+  FACE="細明體"></p>
+  </font><ul>
+    <li><b>wkc@mail.thu.edu.tw</b></li>
+  </ul>
+  <p ALIGN="JUSTIFY">Hi, dear Mr. Hou: I am an associate professor at TunhHai University. I 
+  am about to finish C++ course for our freshmen this semester. And I am searching a 
+  adequate book for next semester starting form February.</p>
+  <p ALIGN="JUSTIFY">I was so excited as I found your book entitled &quot;<b>polymorphism in 
+  C++</b>&quot;. It is not so huge in volume as other books, though most of OO books are not 
+  so deep enough, as you pointed. Besides, I agreed with you: the difficulty of learning C++ 
+  is not due to those learners, rather than the teachers.</p>
+  <p ALIGN="JUSTIFY">Now I have decided to use your book as my textbook, although I don't 
+  like that you often made use of the description style &quot;I ......&quot; I prefer to the 
+  stuff you covered and also the detail level you have <font FACE="新細明體">made</font></font><font
+  FACE="新細明體" size="4">.</font></p>
+  <ul>
+    <li><font size="3">ycchang</font></li>
+  </ul>
+  <font FACE="細明體" SIZE="1"><p ALIGN="JUSTIFY"></font><font FACE="細明體" size="3">開始讀《多型與虛擬》是在我得知大一下的課本是用侯老師您所著作的《多型與虛擬》</font><font
+  size="3"> <font FACE="細明體">一書於是我才趕緊買一本來研讀。第一次看感覺就是不一樣，有一定的深度，就好比外國作家寫的書一樣，很有說服力，很有自己的見解。雖然看到最後也讓我有點想放棄的感覺，因為我感覺到</font>C++ 
+  <font FACE="細明體">的背後又有那麼多小細節，甚至沒辦法和多型與虛擬融為一體，常會問</font> 
+  &quot;<font FACE="細明體">怎麼才能說算學完</font>C++<font FACE="細明體">，何時才能用</font>C++ 
+  <font FACE="細明體">寫龐大的</font>application<font FACE="細明體">呢</font>?&quot; 
+  </font><font SIZE="1"></p>
+  </font><ul>
+    <li><font size="3">&quot;chance&quot; &lt;chance@ccl.itri.org.tw&gt;</font></li>
+  </ul>
+  <p ALIGN="JUSTIFY"><font size="3">10 <font FACE="細明體">天前買的書，盡快地將其看完，跳過</font> 
+  133~166<font FACE="細明體">頁。已經很少有書給我這種感覺，幾乎可以說是歡喜讚嘆！現在只想再擠出時間來看第二遍，同時猶豫著是不是要也買</font><i>Essential 
+  COM</i><font FACE="細明體">來看。</font>sigh...</font></p>
+  <ul>
+    <li><font size="3">&quot;edward&quot; &lt;edward26@ms4.url.com.tw&gt;</font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">我買您的第一本書是《多型與虛擬》（其實這不算第一本，我第一本是買</font><font
+  size="3"> &quot;<font FACE="細明體">侯捷</font>&quot; <font FACE="細明體">的《無責任書評》，哈哈）。它所帶給我的不只是技術上的，更是使我知道了不少好書，也讓我知道是該多看點書了。接著下來就開始留意您的其他著作，呵，《大奧秘》也買了、《深入淺出</font>MFC<font
+  FACE="細明體">》、《</font>COM<font FACE="細明體">本質論》、另外也在圖書館借了《深度探索</font>C++<font
+  FACE="細明體">物件模型》、《</font>Inside VC++<font FACE="細明體">》、還有</font>VxD<font
+  FACE="細明體">那一本。《多型與虛擬》算是我看得最透徹的一本（除了後面模擬</font>MFC<font
+  FACE="細明體">三大機制）。</p>
+  <p ALIGN="JUSTIFY">買了這麼多書，卻是一本也看不完，但又想想您說的，好書不要錯過，就買了放架上了</font> 
+  <font FACE="Wingdings">J</font> <font FACE="細明體">。我還買了</font><i>Programming 
+  Windows 5/e</i> <font FACE="細明體">也還看不到十分之一，最近買了一本</font> 
+  MFC<font FACE="細明體">入門書，想先會用，再把您的《深入淺出</font>MFC<font
+  FACE="細明體">》看透徹。真是每天看哪看，恨不得趕快把這麼多書看完，精通十八般武藝。</font></font></p>
+  <ul>
+    <li><p ALIGN="JUSTIFY">David Bai &lt;carnage@ms7.hinet.<a
+      href="mailto:carnage@ms7.hinet.net">net&gt;</a></p>
+    </li>
+  </ul>
+  <p ALIGN="JUSTIFY">侯先生你好：<br>
+  我一直視你的書如電腦書籍中的瑰寶。你的書（不論是譯作或著作）<br>
+  養壞了我的胃口，使我在買書之前，必細心比較各書的內容及質感，<br>
+  讓我覺得有了些許和讀你書時相同的滿足感後，才肯動荷包。也因為你，<br>
+  我才想報考元智大學資訊研究所。百聞不如一見嘛！能上你的課<br>
+  想必是如沐春風。<br>
+  </p>
+  <ul>
+    <li><p ALIGN="JUSTIFY">&lt;zychang@csie.nctu.edu.tw&gt;</p>
+    </li>
+  </ul>
+  <p ALIGN="JUSTIFY">侯老師您好 ：<br>
+  <br>
+  讀過C++ Primer 3/e 版之後，我繼續讀您所作所譯的兩本書<br>
+  --《多型與虛擬 Polymorphism in C++》與《 深度探索C++ 物件模型》<br>
+  <br>
+  我是先讀 Lippman 的《 深度探索C++ 物件模型》(與原文書合看)...的確...如您所說...這是本「深奧如重山複水」之著。花了我大約三天的時間把內容讀完...自己評估一下...覺得大略懂了書中內容的七成...<br>
+  <br>
+  接著讀了 Polymorphism in C++，第一章到第三章的內容，感覺相當熟悉，<br>
+  許多內容都是與深度探索C++ 
+  物件模型相關，但我覺得您描述的相當容易懂。<br>
+  <br>
+  讀到此書第四章完，再回頭把深度探索C++ 
+  物件模型看了一遍，此時感覺豁然開朗，對於許多一知半解的關鍵處都一一地打通。此時覺得大概弄懂書中內容的九成了<br>
+  <br>
+  如果 「深奧如重山複水」的 Inside the C++ Object Model 當成是C++ Object 
+  Model 之「經」的話...我想您的 Polymorphism in C++ 就是最好的「注」了!!!<br>
+  </p>
+  <ul>
+    <li><p ALIGN="JUSTIFY">maa@im.fju.edu.tw</p>
+    </li>
+  </ul>
+  <p ALIGN="JUSTIFY">閱讀【多型與虛擬】前，我是個 C++ 
+  初學者（事實上我一直把 C++ 編譯器拿來寫 C 
+  程式），雖然在大學裏有修過 C++ 
+  的課程，但腦海中只留下粗略的繼承、封裝和多型概念；也許是翹課的關係吧，我實在想不起以前到底有沒有學過 
+  C++ 的虛擬 (virtual)，就連 Template 我都快忘光了，很懷疑修過 C++ 
+  代表著什麼意義 :(<br>
+  <br>
+  看了【多型與虛擬】一書，知道 C++ Object Model 的基本原理後，C++ 
+  的程式碼似乎在一夕間變得熟悉而不再陌生，一切都變得那樣簡單容易；不過我知道，就算在我念完這本書後，我仍然是個 
+  C++ 初學者，因為我還沒跟上 Application Framework (MFC、OWL、KDE..) 
+  滿天飛的時代，我還有 COM/DCOM、CORBA、Generic Programming、OOA/OOD... 
+  一大坨知識還沒吸收到。無論如何，這本書給我紮實的 C++/OOP 
+  基礎，我可以站穩馬步繼續練功了。 </p>
+</blockquote>
+
+<hr>
+
+<p>　</p>
+</body>
+</html>

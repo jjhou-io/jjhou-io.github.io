@@ -1,0 +1,1426 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>C++ Primer 答客問16~26</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="684">
+  <tr>
+    <td align="right" valign="top" width="23">&nbsp; <!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="bottom" width="619"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="23" bgcolor="#C0C0C0"><!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="top" width="619"><strong><big><a name="C++ Primer qa16">C++ Primer 答客問 
+    (16)</a>&nbsp; </big></strong>1999.12.11<br>
+    <br>
+    <br>
+    YU-SHU LIN wrote (1999/11/20) :<br>
+    <br>
+    <font color="#0000FF">&gt; 我學過 Pascal and visual Basic, 但是總覺得少了什麼?<br>
+    &gt; 所以想學C語言, 故想請教一下(先學C語言再學C++) or (直接學 C++) ?<br>
+    &gt; 也請你 介紹幾本好書(中文版).<br>
+    &gt; Thanks</font><br>
+    <br>
+    請看 http://www.jjhou.com，其中的無責任書評３、散文98、散文99，有許多相關文章。<br>
+    <br>
+    C++ 語言涵蓋 C 語言，所以所謂「直接學 C++」，其實是一種模糊的說法。我想，一位初學者，總是要從 
+    data types, expressions (statements), functions, variable scope, variable lifetime... 
+    開始學起，而這大約便是一般人歸類為 C 語言的部份；然後開始接觸 
+    classes, objects, overloaded functions/operators, inheritance, virtual functions...，而這是一般人歸類為 
+    C++ 語言的部份。<br>
+    <br>
+    所以不管你是「先學 C 再學 C++」，或是「直接學 C++」，就語法部份，學習次序都差不多一樣。你想問的，或說你應該問的，是「直接學 
+    OO paradigm」，或是「先學 procedural-based paradigm 再學 OO paradigm」。我的回答是，如果能夠在接觸了 
+    classes 相關語法後，就開始以 OO 
+    的方式來思考，來寫程式，那自然是比較好的。這要看各人接受程度而定。<br>
+    <br>
+    C++ 全貌型書籍，有三本很有名的書，深度很夠，分別是：<br>
+    <br>
+    (1) The C++ Programming Language 3/e<br>
+    (2) C++ Primer 3/e<br>
+    (3) Thinking in C++（2/e 尚未完成，目前有網路版供試閱）<br>
+    <br>
+    其中 (1) 和 (2) 
+    都有中譯本，口碑都不錯，不過中譯本在中英術語的處理態度上完全不同，你不妨到書店去親身體會體會。此外，(1) 
+    的用詞比較艱澀些，但一般公認最具權威，因為它的作者就是 C++ 
+    語言的創造者。<br>
+    <br>
+    ●聯想 1<br>
+    <br>
+    我並不認為朋友們拼命在網路上找免費的東西來看，是一種好的或值得鼓勵或仿效的行為。有一種東西，是作者一邊進行，一邊將半成品放在網路上供大家試閱。<font
+    color="#FF0000">除非你的程度已到了可以檢閱甚至評論的地步，否則，如果你還只是一個學習者的身份，我不建議你看那樣的東西</font>。你花心力下去閱讀，怎麼知道三天之後作者更改了什麼呢？更改的東西重要嗎？或許重要，或許不重要。比對，浪費時間；不比對，令人不安。何必呢？<br>
+    <br>
+    淺識者以為，只要不掏錢，就是佔便宜。我卻認為你機關算盡太聰明。網路使用不要付費嗎？列印不要耗材嗎？裝訂呢？來回忙碌、等待的時間呢？也許所謂的便宜，在這樣的人的觀念裡頭就是「不必付自己的錢」，至於需不需要其他項目的費用，或是不是時間比金錢更有價，都不在考慮之列。甚至最大可能的戕害：讀到半成品，在他們的觀念裡也不是很在乎了。<br>
+    <br>
+    我不認為所有的人都可以負擔許多的購書預算（所以選書是重要的），不過，絕大部份淺識的朋友，想想你花在吃的，穿的，用的上面，是否都比你購買精神糧食慷慨得多？<font
+    color="#FF0000">究其根本，你認為精神糧食在你的實際生活裡，是次要的，優先權不夠，所以捨不得為它花錢</font><font
+    color="#0000FF">。</font><br>
+    <br>
+    ●聯想 2<br>
+    <br>
+    回覆這封信的同時，我聯想到（但其實沒有關聯）碁峰的<br>
+    資訊展值班人員告訴我的訊息：<br>
+    <br>
+    <font color="#0000FF">&gt; 資訊展已經開始了，星期六我去會場值班，當天 
+    C++ Primer<br>
+    &gt; 狀況不錯，很巧的是有一些學生在逛。很多人翻閱這本書，<br>
+    &gt; 我一時興起就與他們聊了起來，向他們介紹這本書時，他們<br>
+    &gt; 擔心看不懂，而且真的很擔心；也擔心看不完，因為內容很多。</font><br>
+    <br>
+    這讓我聯想我在 BBS/News 
+    上看到的，以及我自己接觸到的，年輕朋友們的讀書態度。有一種態度我稱之為溫室裡的花朵（只是寫實描述，並無輕視或罵人之意），這樣的人看書需要噓寒問暖、百般呵護、千般撫慰、萬般導引，他們無法接受大部頭書籍（即使面對一本有著良好鋪陳的經典），因為那使他們未開卷先疲倦。他們喜歡從比較沒有壓力（或許只是看起來如此）的書開始。但是看過這樣很初級的書之後，他們之中很多人再也懶得繼續看較深入的書，或是根本就以為他們已經探索了全世界。<br>
+    <br>
+    每個人都需要這種噓寒問暖、百般呵護、千般撫慰、萬般導引的照顧 
+    -- 
+    在孩堤時候。如果你已經是個大專生，卻還停留在這種階段，我認為你需要再鍛鍊。這樣的求知習性畢竟太軟弱了。<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;<!--msthemeseparator--><p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa17"><big>C++ Primer 答客問 (17)</big></a> 1999.12.11<br>
+    <br>
+    sunrose wrote (1999/12/07)<br>
+    <br>
+    <font color="#0000FF">&gt; 侯捷大哥：<br>
+    &gt; 你好，目前我在國小任教職，我本科系是學工管的，<br>
+    &gt; 但是，我一直對於寫程式有很深的熱愛，可是我深<br>
+    &gt; 知自己的程度不夠好。在大二的時候曾修過程式語<br>
+    &gt; 言這門課，我們老師教的是C語言。我希望能重新<br>
+    &gt; 打好C++的基礎，但是不知如何下手，請問侯大哥<br>
+    &gt; ，建議我先買您出的那一本書呢？(我大學畢業第<br>
+    &gt; 二年了，也就是說，離程式語言的學習時間，過了<br>
+    &gt; 快四年了。老實講，我的C語言學的不夠紮實，所<br>
+    &gt; 以必須重新再打基礎，在此，麻煩侯大哥能幫我解<br>
+    &gt; 答，謝謝您！<br>
+    &gt; 祝 身體健康</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    老王賣瓜，自賣自誇。我推薦你先看：<br>
+    <br>
+    (1) 《C++ Primer 中文版》（侯捷譯/碁峰/1999）<br>
+    <br>
+    這本書內容詳盡，深度夠，譯筆也不錯 :)<br>
+    <br>
+    如果 1300 
+    頁的厚度使你還沒有翻開就先有了挫折感，或如果你想在短時間獲得物件導向中最精華的觀念：polymorphism（多型），我推薦你看：<br>
+    <br>
+    (2) 《多型與虛擬》- 物件導向的精髓」（侯俊傑著/松崗/1998）<br>
+    <br>
+    C++/OOP 
+    有其相當的難度，所以想像中應該是有相當的動機才會想學它，才能把它學好。我不知道你的動機為何，強度多少。但，無論如何，如果你還想更上層樓，我推薦你看：<br>
+    <br>
+    (3) Effective C++ 2/e (Scott Meyers, Addison Wesley, 1999)<br>
+    (4) More Effective C++ (Scott Meyers, Addison Wesley, 1996)<br>
+    <br>
+    這兩本書目前都沒有中譯本。(3) 的第一版有譯本，和碩出版。<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa18"><big>C++ Primer 答客問 (18)</big></a>&nbsp; 1999.12.11<br>
+    <br>
+    maxisam wrote (1999/12/08) :<br>
+    <br>
+    <font color="#0000FF">&gt; 侯先生您好：<br>
+    &gt;<br>
+    &gt; 我是一位18歲的科大新鮮人<br>
+    &gt; 為了以後想走程式組而打下基礎，我選擇了您所翻譯的 C++ Primer<br>
+    &gt; 我的英文不好，所以我非常感謝您有翻譯此書，而且在其中<br>
+    &gt; 使用大量的原文術語，這正是我想要的方式，因為我不可能<br>
+    &gt; 一輩子都看中文書，能盡量早接觸術語，對以後的求學生涯，<br>
+    &gt; 是有絕對正面的影響。<br>
+    &gt;<br>
+    &gt; 這本 C++ Primer 內有許多的練習題，請問有沒有這些練習<br>
+    &gt; 的詳解，好讓我自修時能有更好的效率和成果<br>
+    &gt;<br>
+    &gt; 再次感謝侯先生<br>
+    &gt; 對此書翻譯的理念，給我很大的幫助<br>
+    &gt;<br>
+    &gt; 還有對此書中所教的有任何疑問，是否也可以請教您？<br>
+    &gt;<br>
+    &gt; 謝謝！！</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    我很開心你肯定了我在這本書中對英文術語的處理方式。這樣的處理方式將在我的所有新書中繼續下去。<br>
+    <br>
+    你問：<br>
+    <br>
+    <font color="#0000FF">&gt; 這本 C++ Primer 
+    內有許多的練習題，請問有沒有這些練習<br>
+    &gt; 的詳解，好讓我自修時能有更好的效率和成果</font><br>
+    <br>
+    C++ Primer 的練習題，有一本題解，名為：《C++ Primer Answer Book》，Clovis 
+    L.Tondo 和 Bruce P.Leung 合著，Addison Wesley 出版，1999，ISBN 0201309939。臺灣有進口。截至目前沒看到中譯本。<br>
+    <br>
+    手上擁有一本題解，最大的壞處是，人常受不了誘惑地急著要去看解答，因而不願多動頭腦。希望你抗拒得了這種誘惑 
+    :)<br>
+    <br>
+    你問：<br>
+    <br>
+    <font color="#0000FF">&gt; 
+    對此書中所教的有任何疑問，是否也可以請教您？</font><br>
+    <br>
+    可以。但我不會（也無能為力）回覆每一封讀者來函。書上講得很明白的東西，我不會回；需要較多觀念上的討論的東西，或是比較具體，範圍較小一點的主題，比較能夠引起我的回信興趣 
+    :)<br>
+    <br>
+    <br>
+    ●聯想：<br>
+    <br>
+    BBS/News 
+    上常看到人家問：「什麼是物件導向」？「什麼是虛擬函式」？「什麼是多型」？大哉問，沒有任何自己的思想，更沒有任何思想後的反芻與疑問，就是這麼一句天大地大的問題。<br>
+    <br>
+    這種問題怎麼回！發問者根本應該去看書。捨棄千挑百選的經典好書不讀，斷簡殘篇地拼湊零零碎碎、正誤難分的牙慧，這是求知的正途嗎？<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa19"><big><big>C++ Primer 答客問 (19)</big></big>&nbsp;</a> 
+    1999.12.11<br>
+    <br>
+    最近開的一個課程（華邦公司內訓）中，教學相長，獲得了<br>
+    一些有趣的心得，記錄於下。<br>
+    <br>
+    ■const member function 可否改變其喚起者 ('this' object) 的 value? 
+    可否改變同一 class 轄下的「其他 objects」（非喚起此 member function 
+    者）的 value ?<br>
+    <br>
+    第一個答案顯而易見是 no. (C++ primer p632 下）。第二個答案則是 yes.甚至我們可透過某些詭計，讓 
+    const member function 修改其喚起者的 value，或甚至修改 const object 的 value。範例如下：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;iostream.h&gt;<br>
+    <br>
+    class A {<br>
+    public:<br>
+    &nbsp; A() : _i(5) { }<br>
+    &nbsp; void foo(A&amp; pa, int ival) const { pa._i = ival; }<br>
+    &nbsp; int geti() const { return _i; }<br>
+    <br>
+    &nbsp; // </font>利用 <font face="Courier New">const_cast, </font>改變 <font
+    face="Courier New">'this' </font>的 <font face="Courier New">constness,<br>
+    &nbsp; // </font>使其成為 <font face="Courier New">non-const, </font>進而在 <font
+    face="Courier New">const member function </font>中<br>
+    <font face="Courier New">&nbsp; // </font>改變原本為 <font face="Courier New">const 
+    object </font>之 <font face="Courier New">'this' object<br>
+    &nbsp; void foo2(int ival) const {<br>
+    &nbsp;&nbsp;&nbsp; A *pca = const_cast&lt;A*&gt;(this);<br>
+    &nbsp;&nbsp;&nbsp; pca-&gt;_i = ival;<br>
+    &nbsp; }<br>
+    <br>
+    private:<br>
+    &nbsp; int _i;<br>
+    };<br>
+    <br>
+    int main()<br>
+    {<br>
+    &nbsp; A a, a1;<br>
+    &nbsp; cout &lt;&lt; a.geti() &lt;&lt; endl; // 5<br>
+    &nbsp; cout &lt;&lt; a1.geti() &lt;&lt; endl; // 5<br>
+    &nbsp; a.foo(a1, 7);<br>
+    &nbsp; cout &lt;&lt; a.geti() &lt;&lt; endl; // 5<br>
+    &nbsp; cout &lt;&lt; a1.geti() &lt;&lt; endl; // 7<br>
+    &nbsp; a.foo(a, 7); // </font>注意，<font face="Courier New">foo() const </font>竟然改變了其喚起者的內容<br>
+    <font face="Courier New">&nbsp; cout &lt;&lt; a.geti() &lt;&lt; endl; // 7<br>
+    &nbsp; cout &lt;&lt; a1.geti() &lt;&lt; endl; // 7<br>
+    <br>
+    &nbsp; const A ca;<br>
+    &nbsp; ca.foo2(8); // </font>經由 <font face="Courier New">const object </font>喚起 <font
+    face="Courier New">foo2() const<br>
+    &nbsp; cout &lt;&lt; ca.geti() &lt;&lt; endl; // 8. </font>喔歐，<font
+    face="Courier New">_i </font>竟然被修改了。<br>
+    <font face="Courier New">}</font></small><br>
+    <br>
+    <br>
+    ■將一個 function object 傳給一個 generic algorithm，其語法如何解釋？例如：<small><font
+    face="Courier New">accumulate(first, last, plus&lt;int&gt;());</font></small><br>
+    <br>
+    實例：<br>
+    <br>
+    <small><font face="Courier New">list &lt;int&gt; ilist(...); // </font>有指定初值<br>
+    <font face="Courier New">accumulate(ilist.begin(), ilist.end(), 0, plus&lt;int&gt;());</font></small><br>
+    <br>
+    plus&lt;int&gt; 是一個 class template instantiation name，相當於一個 class name。後面緊跟的 
+    () 代表什麼語法呢？這樣的東西傳給 accumulate() 
+    做為引數，傳進去是個 object 還是個 function pointer 還是個…什麼？<br>
+    <br>
+    試看這個例子：<br>
+    <br>
+    <small><font face="Courier New">class A { /* ... */ };<br>
+    ...<br>
+    A(); // (1)</font></small><br>
+    <br>
+    A(); 是什麼？是的，它會產生出一個 unnamed（或說 temporary）object，其生命只及於 
+    operator;。換句話說當 (1) 執行，A 的 ctor 會被喚起；當 (1) 結束，這個 
+    unnamed object 也就被摧毀，其 dtor 會被喚起。<br>
+    <br>
+    同理可推，plus&lt;int&gt; 是個 class template instantiation，相當於一個 class；其後直接加 
+    ()，表示要定義一個 unnamed object。所以 accumulate() 收到的是一個 object。accumulate() 
+    會利用這個 object 來遂行其行為：「喚起 object 的 call operator，搭配外界指定的一個初值，施行於每一個元素身上，並加總起來」。<br>
+    <br>
+    下面摘錄 VC6 表頭檔 &lt;numeric&gt; 中的 accumulate() 內容：<br>
+    <br>
+    <font face="Courier New"><small>// TEMPLATE FUNCTION accumulate WITH BINOP<br>
+    template&lt;class _II, class _Ty, class _Bop&gt; inline<br>
+    _Ty accumulate(_II _F, _II _L, _Ty _V, _Bop _B)<br>
+    { </small><br>
+    <small>&nbsp; for (; _F != _L; ++_F)<br>
+    &nbsp; _V = _B(_V, *_F);<br>
+    &nbsp; return (_V); </small><br>
+    <small>}</small></font><br>
+    <br>
+    下面摘錄 BCB4 表頭檔 &lt;numeric.h&gt; 中的 accumulate() 內容：<br>
+    <br>
+    <small><font face="Courier New">template &lt;class InputIterator, class T, class 
+    BinaryOperation&gt;<br>
+    T accumulate (InputIterator first, InputIterator last, T init,<br>
+    BinaryOperation binary_op)<br>
+    {<br>
+    &nbsp; while (first != last) init = binary_op(init, *first++);<br>
+    &nbsp; return init;<br>
+    }</font></small><br>
+    <br>
+    可以看得出來，_B 或 binary_op 即是我們傳入的 plus&lt;int&gt; unnamed object。_F 
+    和 _L（或 first 和 last）是兩個 iterators。accumulate() 函式內有個 loop，對 
+    container 進行迭代，其中的 _B(_V, *_F) 或 binary_op(init, *first++) 
+    即表示喚起 _B 或 binary_op 的 call operator。（是的，所謂 function object，必須將 
+    call operator 多載化）<br>
+    <br>
+    感謝 <font color="#FF0000">kylin</font> 給我的協助。<br>
+    <br>
+    【我有一個疑惑】：<br>
+    為什麼 accumulate() 不以 by reference的方式來接受 _B (or binary_op)？雖說絕大部份的 
+    function object 都是小小的，但 pass by reference 不仍是比較好的嗎？<br>
+    <br>
+    以下實例（改自 C++ Primer p1125）即採用 pass by reference 的方式來傳遞 
+    function object，可以有效運作：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;list&gt;<br>
+    #include &lt;functional&gt;<br>
+    #include &lt;iostream&gt;<br>
+    <br>
+    using namespace std;<br>
+    <br>
+    // </font>我把上列的 <font face="Courier New">BCB4 accumulate() </font>放進程式中，不再含入 
+    <font face="Courier New">&lt;numeric&gt;</font>。<br>
+    <font face="Courier New">// </font>並將 <font face="Courier New">binary_op </font>傳遞方式改為 
+    <font face="Courier New">pass by reference.<br>
+    template &lt;class InputIterator, class T, class BinaryOperation&gt;<br>
+    T accumulate (InputIterator first, InputIterator last, T init,<br>
+    BinaryOperation&amp; binary_op)<br>
+    {<br>
+    &nbsp; while (first != last) init = binary_op(init, *first++);<br>
+    &nbsp; return init;<br>
+    }<br>
+    <br>
+    /*<br>
+    * output:<br>
+    * accumulate()<br>
+    * operating on values {1,2,3,4}<br>
+    * result with plus&lt;int&gt; function object: 10<br>
+    */<br>
+    <br>
+    int main()<br>
+    {<br>
+    &nbsp; int ia[] = { 1, 2, 3, 4 };<br>
+    &nbsp; list&lt;int&gt; ilist( ia, ia+4 );<br>
+    <br>
+    &nbsp; int ilist_res = accumulate(<br>
+    &nbsp; ilist.begin(), ilist.end(), 0, plus&lt;int&gt;() );<br>
+    <br>
+    &nbsp; cout &lt;&lt; &quot;accumulate()\n\t&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; &quot;operating on values 
+    {1,2,3,4}\n\t&quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; &quot;result with plus&lt;int&gt; function 
+    object: &quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; ilist_res<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; endl;<br>
+    <br>
+    &nbsp; return 0;<br>
+    }</font></small><br>
+    <br>
+    <br>
+    ■關於 allocator<br>
+    <br>
+    allocator 負責提供 STL 所用之記憶體模型。可以想見，所有 containers在初始化的時候，都應該指定使用某個 
+    allocator，或使用預設值。<br>
+    <br>
+    STL 提供了一個內建的記憶體模型，封裝在一個名為 'allocator' 的 class 
+    template 內。以下是數個 containers 的 class template definitions 及其 ctor（摘錄自 
+    C++ Standard）：<br>
+    <br>
+    <small><font face="Courier New">template &lt;class T, class Allocator = allocator&lt;T&gt; 
+    &gt;<br>
+    class list {<br>
+    &nbsp; ...<br>
+    &nbsp; template &lt;class InputIterator&gt;<br>
+    &nbsp; list(InputIterator first, InputIterator last,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>const Allocator = Allocator()</strong>);<br>
+    };<br>
+    <br>
+    template &lt;class T, class Allocator = allocator&lt;T&gt; &gt;<br>
+    class vector {<br>
+    &nbsp; ...<br>
+    &nbsp; template &lt;class InputIterator&gt;<br>
+    &nbsp; vector(InputIterator first, InputIterator last,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>const Allocator&amp; = 
+    Allocator()</strong>);<br>
+    };</font></small><br>
+    <br>
+    所以我們可以這麼使用 list 和 vector：<br>
+    <br>
+    <small><font face="Courier New">int ia[] = { 1, 2, 3, 4};<br>
+    list&lt;int&gt; ilist(ia, ia+4); // </font>使用 <font face="Courier New">default 
+    allocator<br>
+    vector&lt;int&gt; ivec(ia, ia+4); // </font>使用 <font face="Courier New">default 
+    allocator</font></small><br>
+    <br>
+    如果要指明 allocator，就這麼做：<br>
+    <br>
+    <small><font face="Courier New">int ia[] = { 1, 2, 3, 4};<br>
+    list&lt;int, allocator&lt;int&gt; &gt; ilist(ia, ia+4);<br>
+    vector&lt;int, allocator&lt;int&gt; &gt; ivec(ia, ia+4);</font></small><br>
+    <br>
+    不可以這麼寫：<br>
+    <br>
+    <small><font face="Courier New">int ia[] = { 1, 2, 3, 4};<br>
+    list&lt;int, allocator&gt; ilist(ia, ia+4);<br>
+    vector&lt;int, allocator&gt; ivec(ia, ia+4);</font></small><br>
+    <br>
+    這是因為編譯器不會為 class template 做 argument deduction 
+    （引數推導）動作；不會自動根據第一個 template argument（本例為 int）推導出第二個 
+    template argument 為 allocator&lt;int&gt;。是的，我們必須明白指示之。<br>
+    <br>
+    《C++ Primer》書中例子使用 allocator 時，都只指定 allocator，沒有給它 
+    template argument。這是不正確的，可能是基於作者手上的 compiler 
+    implementation -- 
+    畢竟這部份一直以來都有點晦澀。當然，我認為，作者在這一部份的表現，是失職的。譯者沒有能夠明白指出這個缺失以提醒讀者，也失職。<br>
+    <br>
+    class template 'allocator' 定義於 &lt;xmemory&gt;，被含入於 &lt;memory&gt; 
+    內。可以想見，所有 containers 的表頭檔如 &lt;list&gt;, &lt;vector&gt;, 
+    &lt;map&gt;, &lt;set&gt;...，都會含入&lt;memory&gt;。<br>
+    <br>
+    感謝 <font color="#FF0000">jyhuang</font> 給我的協助。<br>
+    <br>
+    --- the end<br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p>C++ Primer 答客問 (19) part2<br>
+    1999.12.14 第一次發表<br>
+    <br>
+    天底下有自己回信給自己的嗎？有，這封就是。<br>
+    <br>
+    我在 C++ Primer 答客問 (19) 中提到，傳遞一個 function object<br>
+    給一個 STL generic algorithms 時，其語法結構與意義。例如：<br>
+    <br>
+    accumulate(first, last, plus&lt;int&gt;());<br>
+    <br>
+    其中的 plus&lt;int&gt;() 會產生一個 unnamed object（也就是一個<br>
+    temporary object），傳給 accumulate()。<br>
+    <br>
+    在這個主題上，最後我寫道：<br>
+    <br>
+    <font color="#408080">&gt; 【我有一個疑惑】：為什麼 accumulate() 不以 by 
+    reference<br>
+    &gt; 的方式來接受其 function object argument ？雖說絕大部份的<br>
+    &gt; function object 都是小小的，但 pass by reference<br>
+    &gt; 不仍是比較好的嗎？</font><br>
+    <br>
+    kylin 對此做了一番精辟的分析。我整理如下。（他用嘴，我用筆）<br>
+    <br>
+    <font color="#804000">引數的傳遞方式有三種：by value, by pointer, by reference。<br>
+    （許多時候我們說 &quot;by reference&quot;，我們的意義其實涵蓋了 by 
+    pointer，<br>
+    不過由於在 C++ 語法型式上它們並不相同，所以還是分開討論）<br>
+    <br>
+    1. pass by value : 引數內容做了一份拷貝。函式處理的是這份拷貝。<br>
+    優點：安全。缺點：a. 
+    如果引數值很大，拷貝動作需要比較大的成本。<br>
+    b. 如果要藉由此參數回傳修改結果，辦不到。<br>
+    <br>
+    為什麼說它比較安全呢？因為不論呼叫端有任何行為，都不會影響函式內<br>
+    的這份拷貝。（你認為控制權已經交給函式，所以呼叫端根本沒機會做<br>
+    任何動作嗎？想想 multi-threading！）<br>
+    <br>
+    2. pass by pointer：以指標的型式傳遞引數。<br>
+    優點：a. 快速（傳遞指標而已）；b. 可藉由此參數回傳修改結果。<br>
+    缺點：a.「品相」不佳，寫法不好看；b. 比較不安全（萬一呼叫端<br>
+    不慎在此函式進行期間因 multi-threading 而修改了引數，就會<br>
+    影響函式內部正在使用的引數值）c. 必須謹慎地檢驗傳入者是否為<br>
+    null 指標。<br>
+    <br>
+    3. pass by reference：以 reference 的方式傳遞引數。<br>
+    優點：a. 快速（傳的是引數的 lvalue -- 實作上通常是以指標完成，<br>
+    所以傳遞的只是指標而已）；b. 可藉由此參數回傳修改結果；<br>
+    c. 品相佳，呼叫端不必動用 address-of operator, 被呼叫端不必<br>
+    動用 dereference operator。d. 函式內不必檢查傳入者是否為 null，<br>
+    因為根本就沒有所謂的 null reference。<br>
+    缺點：a. 比較不安全（理由同 pass by pointer）<br>
+    <br>
+    <br>
+    現在回頭看看為什麼 STL 設計上不以 pass by reference 的方式將<br>
+    function objects 傳遞給 generic algorithms：<br>
+    <br>
+    1. library 首重安全。pass by value 絕對安全。<br>
+    2. function object 通常都極小，所以 pass by value 
+    不會造成太大的額外負擔。</font><br>
+    <br>
+    感謝 kylin。我認為他講得有道理。<br>
+    <br>
+    -- the end<br>
+    </p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p>C++ Primer 答客問 (19) part3<br>
+    1999.12.29 第一次發表<br>
+    <br>
+    <font color="#408080">jyhuang wrote (1999/12/14) :<br>
+    <br>
+    &gt; 關於 C++ Primer 答客問 (19) part2 的內容，我有一點看法。<br>
+    &gt;<br>
+    &gt; 對於 call by value, call by pointer, call by reference，我個人<br>
+    &gt; 習慣這樣用：call by value 用在 primary type 上（int, char ...），<br>
+    &gt; 因為資料不大又快速。對於 call by value，kylin 
+    提到的優點我都贊同，<br>
+    &gt; 但是對於其缺點 a.，我有不同的看法。我不認為 pointer 
+    的「品相」不好，<br>
+    &gt; 我會用 call by pointer，就隱含該 pointer 指到的地方可能被更改。<br>
+    &gt; 我很少以 call by reference（除非必要）的方式讓 function 
+    更改其所獲得<br>
+    &gt; 之 object 的內容。Call by reference 通常用在當 object 為 read-only<br>
+    &gt; 的情況，也就是 const reference。這樣一來，pointer/reference 的品相<br>
+    &gt; 沒有什麼好不好的差別。如果要 read-write 該 object，就用 pointer，<br>
+    &gt; 如果只是 read-only，就用 reference（對於大 structure 而言）。<br>
+    &gt; 以 call by reference 傳入可 read/write 的 object 實在太危險了，<br>
+    &gt; 我個人認為應該要避免，除非無法避免，如： operator&gt;&gt;。<br>
+    </font><br>
+    侯捷回覆：<br>
+    <br>
+    我部份同意你所言。基本上對於 pointer 的品相好不好看，<br>
+    以及 reference 的「可回傳修改值」性質是否可視為優點，<br>
+    或許言人人殊。<br>
+    <br>
+    <font color="#408080">jyhuang wrote：<br>
+    <br>
+    &gt; 回到最原始的問題：「為什麼 accumulate() 不以 by reference 的方式<br>
+    &gt; 來接受其 function object argument？」我認為 accumulate() 以<br>
+    &gt; call by value（會 create anonymous object）的方式傳入函示沒有<br>
+    &gt; 什麼問題。因為 accumlate()（或大部分的 STL function），本身是<br>
+    &gt; template function，最後會以 inline 的方式展現。以此看來，在這種<br>
+    &gt; 情況 call by value 和 call by reference 沒有什麼差別：在文中例子<br>
+    &gt; 的情況下，call by value 和 call by reference 都需要 create anonymous<br>
+    &gt; object。如果該 function object 事先 create 好，那麼由於是用 template<br>
+    &gt; function，所以 call by value 也不會做 object copy 的動作。</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    你說：<br>
+    <font color="#408080">&gt; 因為 accumlate()（或大部分的 STL function），本身是<br>
+    &gt; template function，最後會以 inline 的方式展現。</font><br>
+    <br>
+    這話恐怕會引起誤會，讓人誤以為 template function 就是會 inlining。<br>
+    不！是因為 accumulate() 很短，所以編譯器如果做最佳化，<br>
+    可能會自做主張地將它 inlining。<br>
+    <br>
+    雖然絕大部份的 generic algorithms 都被設計為 inline，但<br>
+    仍有少部份沒有設計為 inline，而且 inline 只是對編譯器的<br>
+    建議，並非一定成立。<br>
+    <br>
+    而，不論 inline 與否，我所看到的 generic algorithms 在<br>
+    接受 function object 時，都是 by value，not by reference。<br>
+    <br>
+    試看以下程式。將 function object 以 pass by value 方式傳遞，<br>
+    VC6 會喚起 copy ctor，G++ 不會。BCB4 則檢查過於嚴苛，<br>
+    根本不讓通過（不過我認為沒有道理，或許你能解釋為什麼？）<br>
+    <br>
+    以上是否有考慮不週？歡迎討論。<br>
+    <br>
+    <small><font face="Courier New">// VC6 : cl -GX test.cpp<br>
+    // BCB4 : bcc32 test.cpp (fail!)<br>
+    // G++ : g++ test.cpp<br>
+    <br>
+    #include &lt;list&gt;<br>
+    #include &lt;iostream&gt;<br>
+    using namespace std;<br>
+    <br>
+    // jjhou: copy from BCB4 functional.h, change 'plus' to 'myplus',<br>
+    // remove base class binary_function, and add ctors for myplue.<br>
+    template &lt;class T&gt;<br>
+    struct myplus<br>
+    {<br>
+    public:<br>
+    &nbsp; T operator() (const T&amp; x, const T&amp; y) const { return x + y; }<br>
+    <br>
+    &nbsp; myplus()<br>
+    &nbsp; { cout &lt;&lt; &quot;myplus ctor&quot; &lt;&lt; endl; } // jjhou: </font>增加一個 
+    <font face="Courier New">ctor<br>
+    &nbsp; myplus(const myplus&amp; rhs)<br>
+    &nbsp; { cout &lt;&lt; &quot;myplus copy ctor&quot; &lt;&lt; endl; } // jjhou: </font>增加一個 
+    <font face="Courier New">copy ctor<br>
+    &nbsp; // </font>由於 <font face="Courier New">myplus </font>沒有任何 <font
+    face="Courier New">data member</font>，<br>
+    <font face="Courier New">&nbsp; // </font>所以此處也就沒有做任何動作<br>
+    <font face="Courier New">};<br>
+    <br>
+    template &lt;class InputIterator, class T, class BinaryOperation&gt;<br>
+    T accumulate (InputIterator first, InputIterator last, T init,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    BinaryOperation binary_op) // jjhou: pass by value!<br>
+    {<br>
+    &nbsp; while (first != last) init = binary_op(init, *first++);<br>
+    &nbsp; return init;<br>
+    }</font></small><br>
+    <br>
+    <small><font face="Courier New">template &lt;class InputIterator, class T, class 
+    BinaryOperation&gt;<br>
+    T accumulate1 (InputIterator first, InputIterator last, T init,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    BinaryOperation&amp; binary_op) // jjhou: pass by reference!<br>
+    {<br>
+    &nbsp; while (first != last) init = binary_op(init, *first++);<br>
+    &nbsp; return init;<br>
+    }<br>
+    <br>
+    int main()<br>
+    {<br>
+    &nbsp; int ia[] = { 1, 2, 3, 4 };<br>
+    &nbsp; list&lt;int&gt; ilist( ia, ia+4 );<br>
+    <br>
+    &nbsp; int ilist_res = accumulate(<br>
+    &nbsp; ilist.begin(), ilist.end(), 0, myplus&lt;int&gt;() ); // output: myplus ctor<br>
+    <br>
+    &nbsp; // output: myplus copy ctor </font>★ 注意，<font face="Courier New">only VC6 
+    does </font>★<br>
+    <br>
+    <font face="Courier New">&nbsp; cout &lt;&lt; ilist_res &lt;&lt; endl; // output: 10<br>
+    <br>
+    &nbsp; // BCB4 error. Could not find a match for 'accumulate1&lt;InputIterator,<br>
+    &nbsp; // T,BinaryOperation&gt;(list&lt;int,allocator&lt;int&gt; &gt;::iterator,<br>
+    &nbsp; // list&lt;int,allocator&lt;int&gt; &gt;::iterator,int,myplus&lt;int&gt;)'<br>
+    &nbsp; // G++ warning: initialization of non-const reference<br>
+    &nbsp; // 'struct myplus&lt;int&gt; &amp;' from rvalue `myplus&lt;int&gt;'<br>
+    &nbsp; ilist_res = accumulate1(<br>
+    &nbsp; ilist.begin(), ilist.end(), 0, myplus&lt;int&gt;() ); // VC6 output: myplus ctor</font></small><br>
+    <br>
+    <small><font face="Courier New">&nbsp; cout &lt;&lt; ilist_res &lt;&lt; endl; // output: 
+    10<br>
+    <br>
+    &nbsp; return 0;<br>
+    }</font></small><br>
+    <br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    <font color="#408080">jyhuang wrote (1999/12/16) :<br>
+    <br>
+    &gt;&gt; 這話會引起誤會，讓人以為 templae function 就是會 inlining。<br>
+    &gt;&gt; 不！是因為 accumulate() 很短，所以編譯器如果做最佳化，<br>
+    &gt;&gt; 可能會自做主張地將它 inining。<br>
+    &gt;&gt;<br>
+    &gt;&gt; 雖然絕大部份的 generic algorithms 都被設計為 inline，但<br>
+    &gt;&gt; 仍有少部份沒有設計為 inlne，而且 inline 只是對編譯器的<br>
+    &gt;&gt; 建議，並非一定成立。<br>
+    <br>
+    &gt; 
+    您說的是，我先前考慮不週，謝謝您的提醒。我想應該是這樣的，<br>
+    &gt; 如果 template function/class 不做 specialization 或是<br>
+    &gt; 沒有加上 export 這個 keyword，該 template 就應該要是 inline。<br>
+    &gt; 各個編輯器對 inline 的處理也有不同，記得早一點的 g++ 預設<br>
+    &gt; 是不做的，目前的版本則可以訂定 inline 的 level，對於不同的情況<br>
+    &gt; 有不同的作法。不管 inline 與否，call by value 的 object 還是需要<br>
+    &gt; 被複製一份的。我推翻我先前所說的...:P<br>
+    <br>
+    &gt;&gt; 而，不論 inline 與若，我所看到的 generic algorithms 在<br>
+    &gt;&gt; 接受 function object 時，都是 by value，not by reference。<br>
+    &gt;&gt;<br>
+    &gt;&gt; 試看以下程式。將 function object 以 pass by value 方式傳遞，<br>
+    &gt;&gt; VC6 會喚起 copy ctor，G++ 不會。BCB4 則檢查過於嚴苛，<br>
+    &gt;&gt; 
+    根本不讓通過（不過我認為沒有道理，或許你能解釋為什麼？）<br>
+    &gt;<br>
+    &gt; 我用最新的 g++ 來測試也不會過，原因和 BCB4 一樣，<br>
+    &gt; 因為當呼叫到這一行：</font><br>
+    <font color="#408080">&gt;<br>
+    &gt; ilist_res = accumulate1(<br>
+    &gt; ilist.begin(), ilist.end(), 0, myplus&lt;int&gt;() );<br>
+    &gt;<br>
+    &gt; 而 accumulate1() 的宣告為：<br>
+    &gt;<br>
+    &gt; template &lt;class InputIterator, class T, class BinaryOperation&gt;<br>
+    &gt; T accumulate1 (InputIterator first, InputIterator last, T init,<br>
+    &gt; BinaryOpeation&amp; binary_op)<br>
+    &gt;<br>
+    &gt; accumulate1() 第 4 個 parameter 會做如下的 assignment：<br>
+    &gt;<br>
+    &gt; BinaryOperation&amp; binary_op = myplus&lt;int&gt;();<br>
+    &gt;<br>
+    &gt; 但是由於 myplus&lt;int&gt;() 不是 lvalue，所以要將 accumulate1 改成：<br>
+    &gt;<br>
+    &gt; template &lt;class InputIterator, class T, class BinaryOperation&gt;<br>
+    &gt; T accumulate1 (InputIterator first, InputIterator last, T init,<br>
+    &gt; const BinaryOperation&amp; binary_op) // 注意 const！<br>
+    &gt;<br>
+    &gt; 但如果 binary_op 一定要為 const 的話，binary_op 的設計上就會<br>
+    &gt; 受限很多（operator()(...) 中將因此不能呼叫 non-const member function）。<br>
+    &gt; 雖然不確知這些 template functions 設計時使用 call by value 
+    背後真正的<br>
+    &gt; 考量，但我認為可能就是為了 function object 設計上的彈性。<br>
+    &gt;<br>
+    &gt; 至於 VC++6 可以 compile 成功，我認為是不正確的，您覺得呢？</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    我同意你的說法：<br>
+    <br>
+    (1) VC6 對於 lvalue 和 rvalue 的檢驗不夠嚴謹<br>
+    <br>
+    (2) 所有 generic algorithms 的設計上，在接受 function object<br>
+    做為參數時，以 pass by value 而非 pass by reference 的方式來<br>
+    接受，其原因可能確是考慮了你所言的這些因素。唯，先前 kylin 的<br>
+    「安全說」我也認為有道理。<br>
+    <br>
+    我把先前實例加入你的建議：將 accumulate1() 的第四參數改為<br>
+    const reference，於是 VC6, BCB4, G++ 都可通過。執行時，<br>
+    當 &quot;unnamed function object&quot; 的 pass by value 動作發生時，<br>
+    只有 VC6 會喚起該 function object（本例為 muplus&lt;&gt;）的 ctor。<br>
+    <br>
+    謝謝。經過這些討論，我獲益良多。<br>
+    <br>
+    但是，你如何解釋以下程式的行為？此為先前程式的簡化，為什麼<br>
+    此例就可以做 rvalue-to-lvalue 轉換，而先前例子就不行？<br>
+    <br>
+    <small><font face="Courier New">#include &lt;list&gt;<br>
+    #include &lt;iostream&gt;<br>
+    using namespace std;<br>
+    <br>
+    template &lt;class T&gt;<br>
+    struct myplus<br>
+    {<br>
+    &nbsp; public:<br>
+    &nbsp; T operator() (const T&amp; x, const T&amp; y) const { return x + y; }<br>
+    };<br>
+    <br>
+    template &lt;class InputIterator, class T, class BinaryOperation&gt;<br>
+    T accumulate1 (InputIterator first, InputIterator last, T init,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    BinaryOperation&amp; binary_op) // </font>注意此行<font face="Courier New">! 
+    non-const!<br>
+    {<br>
+    &nbsp; while (first != last) init = binary_op(init, *first++);<br>
+    &nbsp; return init;<br>
+    }<br>
+    <br>
+    int main()<br>
+    {<br>
+    &nbsp; int ia[] = { 1, 2, 3, 4 };<br>
+    &nbsp; list&lt;int&gt; ilist( ia, ia+4 );<br>
+    <br>
+    &nbsp; int ilist_res = accumulate1(<br>
+    &nbsp; ilist.begin(), ilist.end(), 0, myplus&lt;int&gt;() ); // (1)<br>
+    <br>
+    &nbsp; cout &lt;&lt; ilist_res &lt;&lt; endl; // output: 10<br>
+    &nbsp; return 0;<br>
+    }</font></small><br>
+    <small><font face="Courier New">// (1) </font>式的第四引數 <font face="Courier New">myplus&lt;int&gt;() 
+    </font>是個 <font face="Courier New">rvalue</font>，而 <font face="Courier New">acumulate1() 
+    </font>的<br>
+    <font face="Courier New">// </font>第四參數是個 <font face="Courier New">lvalue</font>。為什麼 
+    <font face="Courier New">VC6 </font>和 <font face="Courier New">BCB4 </font>都可以通過，<font
+    face="Courier New">G++ </font>也只是<br>
+    <font face="Courier New">// </font>警告而已？</small><br>
+    <br>
+    <br>
+    <font color="#408080">jyhuang wrote (1999/12/20) :<br>
+    <br>
+    &gt; 您的這個例子我在最新版的 G++ (2.95.2 1999/10/24) compile 不會成功，<br>
+    &gt; 但在 BCB4 (sp2) 可以成功，我想是 BCB4 的 bug (feature?)。<br>
+    &gt;<br>
+    &gt; 程式中的這一行：<br>
+    <br>
+    &gt;&gt; int ilist_res = accumulae1(<br>
+    &gt;&gt; ilist.begin(), ilist.end(), 0, myplus&lt;int&gt;() ); // (1)<br>
+    <br>
+    &gt; myplus&lt;int&gt;() 會產生一個 temporary object。temporary object 照理<br>
+    &gt; 來說是不能當作 lvalue 的，而若要以 rvalue 指派給 reference type<br>
+    &gt; object，該 reference type object 必須為 const，如下例：<br>
+    &gt;<br>
+    &gt; int &amp;i = 3; // (1) error rvalue assign to non-const reference<br>
+    &gt; const int &amp;i2 = 3; // (2) ok rvalue assign to const reference<br>
+    &gt; int &amp;i3 = int(3); // (3) error rvalue assign to non-const reference<br>
+    &gt; const int &amp;i4 = int(3); // (4) ok rvalue assign to const reference<br>
+    &gt;<br>
+    &gt; 但在 BCB4 的 implement 上，(1) 及 (3) 竟然都是 ok 的。我覺得 BCB4<br>
+    &gt; 在這方面的 implement 
+    有問題，您覺得呢？更奇怪的是，前例中，我若<br>
+    &gt; 將 myplus 加一個 constructor，這個例子在 BCB4 中便 compile 不起來了<br>
+    &gt; （但加其他 member function or destructor 都沒有影響 compilation）。<br>
+    &gt; 顯然 BCB4 中，一個 class 若有 use-defined constructor，有某種象徵會<br>
+    &gt; 影響 non-constant reference 的初始。我的想法是，有了 user-defined<br>
+    &gt; constructor，表示這個 class 有某種 user-defined initialization 動作，<br>
+    &gt; 所以類似 myplus&lt;int&gt;() 必須要產生 temporary object。但是如果沒有<br>
+    &gt; user-defined construtor，compiler 可以為了 optimization 的緣故<br>
+    &gt; （或是為了各家 compiler 的 language extension feature），把 temporary<br>
+    &gt; object 的產生忽略或是有不同的行為，所以 BCB4 可以 compile 成功。<br>
+    &gt; 但由於 optimization 是十分 compiler dependent 的行為，所以各個</font><br>
+    <font color="#408080">&gt; compiler 
+    會有不同的結果。關於這點，您覺得如何呢？</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    亦有道理。不過根據我的經驗，rvalue 與 const/non-const reference<br>
+    之間的轉換，即使是同一種編譯器，亦沒有什麼絕對規則可言（在某種簡單<br>
+    情況下可以了，在另一個較複雜的情況下又不行了…諸如此類）。<br>
+    <br>
+    謝謝你的深刻見解。<br>
+    <br>
+    -- the end<br>
+    </p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p>C++ Primer 答客問 (19) part4<br>
+    1999.12.29 第一次發表<br>
+    <br>
+    <br>
+    ■ auto_ptr 是否支援 operator-&gt;* ？<br>
+    <br>
+    (1) operator-&gt;* 用於 pointer to member function 身上。<br>
+    (2) smart pointer 應該儘量模擬 dumb pointer (native pointer) 的行為。<br>
+    (3) 所以 smart pointer 應該支援 operator-&gt;*。<br>
+    (3) auto_ptr 是一個 smart pointer。<br>
+    (4) 那麼，auto_ptr 是否支援（或說是否 overloading）operator-&gt;* 呢？<br>
+    <br>
+    答案：auto_ptr 並不支援 operator-&gt;*。試看下例。<br>
+    <br>
+    <small><font face="Courier New">// VC6 [o], BCB4[o], G++2.91.57[x] (G++2.91.57 not support 
+    auto_ptr&lt;&gt;)<br>
+    #include &lt;memory&gt;<br>
+    #include &lt;iostream&gt;<br>
+    using namespace std;</font></small><br>
+    <br>
+    <small><font face="Courier New">class A<br>
+    {<br>
+    public:<br>
+    &nbsp; A() : _i(0) { }<br>
+    &nbsp; A(int i) : _i(i) { }<br>
+    &nbsp; int mfunc(int m) { _i *= m; return _i; }<br>
+    &nbsp; int geti() { return _i; }<br>
+    &nbsp; private:<br>
+    &nbsp; int _i;<br>
+    };<br>
+    <br>
+    void main()<br>
+    {<br>
+    A a(2);<br>
+    a.mfunc(4);<br>
+    cout &lt;&lt; a.geti() &lt;&lt; endl; // 8<br>
+    <br>
+    int (A::*mfp)(int) = A::mfunc; // mfp is a pointer to member function<br>
+    <br>
+    A* ptr = new A(3); // dumb pointer<br>
+    (ptr-&gt;*mfp)(5);<br>
+    cout &lt;&lt; ptr-&gt;geti() &lt;&lt; endl; // 15<br>
+    delete ptr;<br>
+    <br>
+    auto_ptr&lt;A&gt; aptr(new A(6)); // smart pointer<br>
+    cout &lt;&lt; aptr-&gt;geti() &lt;&lt; endl; // 6<br>
+    <br>
+    // BCB4 Error: Pointer to structure required on left side of -&gt; or -&gt;*<br>
+    // VC6 error: '-&gt;*' illegal, left operand has type 'class std::auto_ptr&lt;class A&gt;'<br>
+    // G++ error: G++ 2.91.57 </font>根本就不支援 <font face="Courier New">auto_ptr.<br>
+    (aptr-&gt;*mfp)(9); // </font>此行錯誤！<br>
+    <font face="Courier New">}</font></small><br>
+    <br>
+    ■ 如何令一個 smart pointer 支援 operator-&gt;* ？<br>
+    <br>
+    參考資料：<font color="#0000FF">Dr. Dobb's Journal, Oct. 1999, p.32, by Scott Meyers,<br>
+    &quot;Implementing operator-&gt;* for smart pointers&quot;</font><br>
+    <br>
+    該文技術層面頗深，可以讓讀者複習：<br>
+    <br>
+    o. pointer to member function.<br>
+    o. operator overloading (for special operator such as<br>
+    operator(), operator-&gt;, operator-&gt;*)<br>
+    o. class template<br>
+    o. class template partial specialization<br>
+    o. private inheritance<br>
+    o. traits technique.<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa20"><big><big>C++ Primer 答客問 (20)</big></big></a> 1999.12.14<br>
+    <br>
+    Sharp wrote (1999/12/14)<br>
+    <br>
+    <font color="#0000FF">&gt; Dear Hou sir:<br>
+    &gt;<br>
+    &gt; 我是您一位忠實讀者,近來讀完老師的譯著 C++ Primer,正準備向<br>
+    &gt; 其它老師的著作(譯著)研讀,當然最終目標是將 MFC 搞熟,開啟<br>
+    &gt; 程式設計的殿堂!<br>
+    &gt;<br>
+    &gt; 閒來無事就上了老師的網頁,更新書中的錯誤,哈...赫然發現一個<br>
+    &gt; 好地方,因為台灣出版界的惡質文化,所以已經很久沒買雜誌了,<br>
+    &gt; 所以很久沒讀過老師的書評,不巧給我找到了,心中喜悅真是難以<br>
+    &gt; 三言兩語用鍵盤 keyin 就可了事的!... ^.^<br>
+    &gt;<br>
+    &gt; 那種論斤賣的著作,或是需要翻回原文再譯回中文的譯著,雖然還是<br>
+    &gt; 處處可見,但不可否認,經過老師這幾年的書評影響,市面上已有不少<br>
+    &gt; 優良著作及優質譯著的出現,或許就是老師您先影響讀者,而廣大的<br>
+    &gt; 讀者再反向影響出版社吧!... ^.^<br>
+    &gt;<br>
+    &gt; 誠如老師所言,您都習慣寫大部頭的書,而我就變成習慣讀大部頭的書,<br>
+    &gt; 但老師近來三本薄書(ESSENTIAL COM, Polymorphism in C++,<br>
+    &gt; Inside The C++ Object Model)卻讓我吃足苦頭,真是有看沒有懂(&gt;.&lt;),<br>
+    &gt; 想請問老師,能否暫且跳過這較深的題材,先讀老師的深入淺出 MFC<br>
+    &gt; ,在程式設計實作上先累積一些經驗(Know How),再回頭專研這些<br>
+    &gt; 個別項目(Know Why),這樣我比較不會遭受打擊,因為我是自學,<br>
+    &gt; 加上當了幾年兵剛退伍,在沒有名師的指導下,只好求助於您了!<br>
+    <br>
+    &gt; 嗯...還有就是我想轉貼一些老師的文章到蕃薯藤網扥邦的程式設計版,<br>
+    &gt; 雖然您很歡迎,但我還是要先告知您一聲!</font><br>
+    <br>
+    <br>
+    侯捷回覆 :<br>
+    <br>
+    你說：<br>
+    <br>
+    <font color="#0000FF">&gt; 處處可見,但不可否認,經過老師這幾年的書評影響,市面上已有不少<br>
+    &gt; 優良著作及優質譯著的出現,或許就是老師您先影響讀者,而廣大的<br>
+    &gt; 讀者再反向影響出版社吧!... ^.^</font><br>
+    <br>
+    我很少批評中文書籍（倒是比較常評論出版大環境）。你說的情況我<br>
+    不敢居功。倒是，讀者現在比較能要求、敢要求了，這是好現象。<br>
+    我希望看到的是，藉由一些高品質的中文書籍，「寵壞」讀者的胃口，<br>
+    使所有的作者、譯者、出版者，沒有跟上腳步的，便要落伍（當然<br>
+    包括我自己）。<br>
+    <br>
+    我見到有一批對寫作或翻譯很用心的作/譯者。現在的問題是，出版者<br>
+    如何讓這群人願意繼續在這個領域中維持其理想，完成其理想，而<br>
+    不是只知道要他們用熱情來「燃燒自己」。另一個問題是，出版者<br>
+    願不願意在硬體製作上走更高級路線，包括紙質、印刷、套色、<br>
+    精裝、書籤條…。我將繼續衝擊這一部份。當然，成本的增加會<br>
+    某種程度地反應在售價上，讀者的接受態度將扮演一個重要的角色。<br>
+    <br>
+    註：臺灣的 user's guide 使用手冊，紙質、印刷、套色（乃至全彩）<br>
+    都肯花錢。但是技術書籍就很難讓出版者花這筆錢了。<br>
+    <br>
+    眼下已經是個服務的社會。我希望電腦出版界也能體認這一潮流<br>
+    與事實。<font color="#FF0000">讀者買書，希望附帶買到服務，包括最基本的勘誤</font>，乃至於<br>
+    稍帶奢求的問答、諮詢。書籍內容的勘誤、問答、諮詢，<br>
+    須由作者提供；出版者可以提供良好的環境。<br>
+    <br>
+    你說：<br>
+    <br>
+    <font color="#0000FF">&gt; 誠如老師所言,您都習慣寫大部頭的書,而我就變成習慣讀大部頭的書,<br>
+    &gt; 但老師近來三本薄書(ESSENTIAL COM, Polymorphism in C++,<br>
+    &gt; Inside The C++ Object Model)卻讓我吃足苦頭,真是有看沒有懂(&gt;.&lt;),<br>
+    &gt; 想請問老師,能否暫且跳過這較深的題材,先讀老師的深入淺出 MFC<br>
+    &gt; ,在程式設計實作上先累積一些經驗(Know How),再回頭專研這些<br>
+    &gt; 個別項目(Know Why)</font><br>
+    <br>
+    可以。<br>
+    <br>
+    Inside the C++ Object Model 談的很深，不急著看，<br>
+    也不一定要看（我的意思是不一定有直接的實用價值）。<br>
+    至於 Essential COM，先看第一章，瞭解 implementation inheritance<br>
+    和 interface inheritance 的區別、作法、優缺點即可。<br>
+    <br>
+    Polymorphism in C++ 倒是應該及早看。既然你已經看過<br>
+    C++ Primer，polymorphism in C++ 的第一章就可跳過<br>
+    （相較之下太粗淺矣）。但其 2~4 章卻非看不可。<br>
+    <br>
+    <font color="#0000FF">&gt; 嗯...還有就是我想轉貼一些老師的文章到蕃薯藤網扥邦的程式設計版,<br>
+    &gt; 雖然您很歡迎,但我還是要先告知您一聲!</font><br>
+    <br>
+    沒問題。謹請註明出處，即可。<br>
+    <br>
+    p.s. 你寄給我的 email，是用什麼寫的？真酷。<br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    <font color="#408080">Alfred wrote (1999/12/15) :</font><br>
+    <br>
+    <font color="#408080">&gt; ※ 引述《jjhou.bbs@bbs.cs.nthu.edu.tw (jjhou)》之銘言：<br>
+    &gt; : 
+    眼下已經是個服務的社會。我希望電腦出版界也能體認這一潮流<br>
+    &gt; : 
+    與事實。讀者買書，希望附帶買到服務，包括最基本的勘誤，乃至於<br>
+    &gt; : 稍帶奢求的問答、諮詢。書籍內容的勘誤、問答、諮詢，<br>
+    &gt; : 須由作者提供；出版者可以提供良好的環境。<br>
+    &gt;<br>
+    &gt; 沒錯, 像 O'Reilly 的網站, 每本書的資訊與勘誤表整整齊齊<br>
+    &gt; 陳列在上面, 很容易查閱. 此外, 最近買了他們出的 Unix<br>
+    &gt; Power Tools 2/e, 發現網上勘誤表有個地方有點不清楚,<br>
+    &gt; 就寄了封信到 bookquestions@oreilly.com, 沒想到隔天<br>
+    &gt; 就收到回信, 幫我解決了問題. 效率真是不錯...:)<br>
+    &gt;<br>
+    &gt; ps: 侯 sir 之前文章有提到原文書的貼紙問題. 最近天瓏<br>
+    &gt; 有種螢光綠、小小的貼紙 (目前好像 O'Reilly 的書都<br>
+    &gt; 是貼這種貼紙), 倒是蠻好撕的, 且不留痕跡...:)</font><br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa21"><big><big>C++ Primer 答客問 (21)</big></big></a>1999.12.14<br>
+    <br>
+    Winson wrote (1999/12/14) :<br>
+    <br>
+    <font color="#0000FF">&gt; 侯大哥：<br>
+    &gt; 上個禮拜五在台北世貿資訊展看到 C++ Primer 中文版，您最新<br>
+    &gt; 
+    的譯書，內心感動真是無法形容。回到宿舍後馬上開始研讀，感覺<br>
+    &gt; 
+    真的很好，而也就在此時，有個問題又在我眼前浮現（去年就有這<br>
+    &gt; 個問題了），希望您能幫我開導一下。<br>
+    &gt;<br>
+    &gt; 這應該是一個指標的問題吧。想請問您以下兩個宣告是否不同<br>
+    &gt; 1. <small><font face="Courier New">char *pStr;</font></small><br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; <small><font face="Courier New">int *pName;</font></small><br>
+    &gt; 2. <small><font face="Courier New">char* pTmp;</font></small><br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; <small><font face="Courier New">int* pTitle;</font></small><br>
+    &gt;<br>
+    &gt; 亦即想問您，*宣告在變數名稱之前以及宣告在變數類型之後是否<br>
+    &gt; 不同，希望您能抽空回個信。<br>
+    &gt;<br>
+    &gt; 我從大一開始學 C，雖然到研究所還是有在接觸，但主要還是以<br>
+    &gt; Visual Basic 及 C 為主，可能是我念的科系（工業工程）關係，<br>
+    &gt; 工作（MIS）一年多也是一樣，從 PowerBuilder 到現在的 Notes<br>
+    &gt; 
+    ，而現在因為系統已經差不多穩定了，所以下班的空閒時間也就想<br>
+    &gt; 開始學 C++，不知會不會太晚才接觸，不過我一定會好好學的，<br>
+    &gt; 當然這也要謝謝您 C++ Primer 中文版剛好上市（觸發劑）。<br>
+    &gt;<br>
+    &gt; 在研究所二年級上學期的時候，曾經要去旁聽您的課，可惜人數<br>
+    &gt; 
+    太多，且那時又接了英業達的影像檢測案子及要趕自己論文，因此<br>
+    &gt; 之後就沒再去了，當時真的蠻後悔的，希望這次藉由您的譯作，<br>
+    &gt; 能打好通往 C++ 的道路。<br>
+    &gt;<br>
+    &gt; 再次謝謝您翻譯這本書，祝教安。</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    我很開心你喜歡這本書。<br>
+    <br>
+    你問：<br>
+    <br>
+    <font color="#0000FF">&gt; 想請問您以下兩個宣告是否不同<br>
+    &gt; 1. <small><font face="Courier New">char *pStr;</font></small><br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; <small><font face="Courier New">int *pName;</font></small><br>
+    &gt; 2. <small><font face="Courier New">char* pTmp;</font></small><br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; <small><font face="Courier New">int* pTitle;</font></small></font><br>
+    <br>
+    沒有不同。<br>
+    <br>
+    <font color="#0000FF">&gt; 亦即想問您，* 
+    宣告在變數名稱之前以及宣告在變數類型之後是否不同</font><br>
+    <br>
+    沒有不同。<br>
+    <br>
+    就意義上，我個人比較喜歡上列 2 
+    的寫法。其意義可以很明白地解釋為：pTmp 是一個型別為 char* 
+    的變數，pTitle 是一個型別為 int* 的變數。<br>
+    <br>
+    但是 Lippman（C++ Primer 作者）另有想法。《C++ Primer 中文版》p.89：<br>
+    <br>
+    <font color="#FF0000">-- quote (C++ Primer, p89) --<br>
+    為了清楚起見，我們比較喜歡寫：<br>
+    <br>
+    <small><font face="Courier New">string *ps;</font></small><br>
+    <br>
+    而不寫成這樣：<br>
+    <br>
+    <small><font face="Courier New">string* ps;</font></small><br>
+    <br>
+    原因是如果程式員稍後希望定義第二個 string 
+    指標，他很有可能將定義修改如下，而那並不正確：<br>
+    <br>
+    <small><font face="Courier New">// oops: ps2 is not a string pointer<br>
+    string* ps, ps2;</font></small><br>
+    -- unquote --<br>
+    </font><br>
+    註：上面的 string 是 C++ Standard Library 程式的一個 class（其實它不是 
+    class，只是一個 typedef。此事說來話長，此處不提）你可以以它做為一種資料型別。<br>
+    <br>
+    結論：使用 1 型式或 2 
+    形式，都可以。但如果要連續宣告多個指標變數，就得注意寫法。<br>
+    <br>
+    你說：<br>
+    <br>
+    <font color="#0000FF">&gt; 
+    在研究所二年級上學期的時候，曾經要去旁聽您的課，可惜人數<br>
+    &gt; 
+    太多，且那時又接了英業達的影像檢測案子及要趕自己論文，因此<br>
+    &gt; 之後就沒再去了，當時真的蠻後悔的，希望這次藉由您的譯作，<br>
+    &gt; 能打好通往 C++ 的道路。</font><br>
+    <br>
+    2000/02 我將在元智大學開 Generic Programming（泛型程式設計）課程。歡迎大家來旁聽。每週五晚上 
+    18:30~21:20。地點未定，可確定的是在元智資訊系館的一樓或二樓。雖然，太多人旁聽可能會影響修課者的權益（上課品質可能會降低 
+    -- 至少空氣會變差 :)），不過我總是希望儘可能讓想聽課的人有機會聽課。我相信系方以及同學們能夠認同這樣的想法。<br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    FeiYu wrote (1999/12/15) :<br>
+    <br>
+    <font color="#0000FF">&gt; Dear Sir:<br>
+    &gt; I read the article in tw.bbs.comp.book and I know that<br>
+    &gt; you'll have a new class about generic programming in<br>
+    &gt; Feb, 2000. I think I would like to attend the class<br>
+    &gt; at that time although I'm not a student.</font><br>
+    <br>
+    歡迎。<br>
+    <br>
+    <font color="#0000FF">&gt; But I would like to know what's the reference book of<br>
+    &gt; the class, so that I could read it in advance. Besides,<br>
+    &gt; what are the topics that you'll cover in the class?<br>
+    &gt; for example, programming with STL, academic view of STL,<br>
+    &gt; or trace the source code??</font><br>
+    <br>
+    在看過數本 generic programming &amp; STL 書籍後，我原本打算選擇<br>
+    The C++ Standard Library (by Nicolai M. Josuttis, AW 1999)<br>
+    做為教本。這本書國內不知進口了沒，我手上這本是由出版公司<br>
+    支援的。不過，看了定價 US$ 49.95，心中暗暗叫苦。再加上<br>
+    以英文書為教本，同學們的學習進度必然比較緩慢。權衡之下，<br>
+    我決定以《C++ Primer 中文版》為教本，講解其中的：<br>
+    * chap10 : Function Templates 56 pages<br>
+    * chap16 : Class Templates 64 pages<br>
+    * chap6 : Abstract Containers Types 81 pages<br>
+    * chap12 : The Generic Algorithms 41 pages<br>
+    * Appendix: The Generic Algorithms Alphabetically 74 pages<br>
+    這些篇幅共有 316 頁的份量，不輕。<br>
+    <br>
+    另外我會輔以補充講義，內容來自：<br>
+    * Generic Programming and the STL, by Matthew H. Austern, AW 1999<br>
+    * The C++ Standard Library, by Nicolai M. Josuttis, AW 1999<br>
+    * Mastering the Standard C++ Classes, by Cameron &amp; Tracey, Wiley 1999<br>
+    <br>
+    以《C++ Primer 中文版》為教本的另一個好處是，這門課我計劃先從 C++ 
+    templates 起手，而大部份 STL 
+    相關書籍並不涵蓋太多這個題目。此外我可能會提到 template 的 name 
+    resolution（名稱決議過程），而《C++ Primer 中文版》<br>
+    對此提供了豐富的內容。<br>
+    <br>
+    課程首先從基礎技術 C++ Tempaltes 開始。然後是對 STL 各種 components 
+    的運用與洞悉。然後才是 generic programming 
+    偏學術性的東西。可能會挑選幾個簡單的 STL components 來 trace 一下。<br>
+    <br>
+    有興趣聽課的朋友，請在課程前先至少自修 C++ templates。<br>
+    <br>
+    <font color="#0000FF">&gt; (ps. I'm a little sad that you never open a class in<br>
+    &gt; Taipei's school)<br>
+    &gt;<br>
+    &gt; Sincerely Yours.</font><br>
+    <br>
+    我很佩服遠道來聽課的朋友。下班時間，忍受塞車之苦，又願意犧牲周末時段。過去時有交大、清大、中央的同學來旁聽；這學期上課時間撞上電影時間，我想我的魅力絕對不及第八藝術 
+    :) 
+    所以上課空氣應該不致太差，室內溫度應該不致太高，不會再看到侯捷當眾表演脫衣…唔 
+    :)<br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * * * *</p>
+    <p><br>
+    FeiYu wrote (1999/12/16) :<br>
+    <br>
+    <font color="#0000FF">&gt; 侯老師：<br>
+    &gt;<br>
+    &gt; 我想問明年於元智開課的正確時間確定了嗎？如果「校外人士」<br>
+    &gt; 過多，影響到正常學生的座位時，元智會不會干涉我們「旁聽」<br>
+    &gt; 呢？ （似乎想太多了.....）</font><br>
+    <br>
+    萬一聽課人數過多，我有兩個原則：<br>
+    1. 正式修課者，一定得有座位（除非遲到 10 分鐘以上）<br>
+    2. 旁聽者適用達爾文法則：先來者生存，後到者淘汰。<br>
+    <br>
+    所以，我會劃分教室的部份座位（恰為修課人數）為保留區。<br>
+    其餘座位提供給旁聽者使用。上課 10 分鐘後即開放保留區<br>
+    給沒有座位的旁聽者使用。如果這樣你還是沒有位置，只好<br>
+    請你抉擇 (1) 下次請早 (2) 不要再來了。<br>
+    <br>
+    第一次上課會比較亂，恐怕無法實施以上作法，因為大家<br>
+    還不瞭解遊戲規則，那就先到先坐。<br>
+    <br>
+    可能有同學會以為第一次上課不重要，來不來沒關係。<br>
+    不，凡我課程，第一次上課非常重要，我會在第一次<br>
+    上課的時候讓同學瞭解整個課程的目的、範圍、進行方式、<br>
+    參考書籍（兼做小小的書評），以及課程所涉及的技術領域<br>
+    的大局觀。<br>
+    <br>
+    根據我的經驗，其實學生對課程的熱度都是頭重腳輕。而且<br>
+    由於侯捷虛名在外，很多人想來看看他是不是頭上長角 :)<br>
+    開學一陣子後就會冷下來。最不費力就可以聽到課程的人，<br>
+    往往最不知珍惜，反倒是遠道而來的旁聽生，最為認真執著。<br>
+    <br>
+    <font color="#0000FF">&gt; 
+    如果我乘電聯車坐到內壢站下車，記憶中元智就在車站邊，<br>
+    &gt; 是不是就步行可以抵達呢？</font><br>
+    <br>
+    元智大學在內壢火車站附近，步行約 10~15 分鐘可達。<br>
+    <br>
+    <font color="#0000FF">&gt; 另外，就是想起我學C++的一些經驗。以前對他只是把他<br>
+    &gt; 當作C一般的學習，可是在讀過你的著作：多型與虛擬、<br>
+    &gt; 及一些譯作後，才慢慢瞭解編譯器在背後偷偷替我作了什麼<br>
+    &gt; 事情。就像Lippman說的，瞭解這些東西並非必要，可是卻<br>
+    &gt; 可以讓我寫出高效率的CODE。況且我可以用最少的時間<br>
+    &gt; （因為你翻成了中文）把這些聖經讀過一遍，令我獲益非淺。</font><br>
+    <br>
+    我很開心聽到你這麼說。<br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    <font color="#0000FF">brant wrote (1999/12/16) :<br>
+    <br>
+    &gt; 侯老師您好，<br>
+    &gt; 在 news 上看到您在元智大學開設有關 generic programming<br>
+    &gt; 的課程的事，想向您請問一下開課的日期及上課教室為何？<br>
+    &gt; 或是我可從元智的教務處查詢的到？因為在台北工作，時間上<br>
+    &gt; 亦需先徵求老闆的同意，也不希望自己白跑幾趟，謝謝。<br>
+    </font><br>
+    侯捷回覆：<br>
+    <br>
+    日期和教室都還沒有確定。請於下學期開學時分，向元智大學<br>
+    教務處或資訊工程系查詢。電話號碼請詢問電信局。<br>
+    <br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa22"><big><big>C++ Primer 答客問 (22)</big></big>1</a>999.12.16<br>
+    <br>
+    <br>
+    Yang wrote (1999.12.15) :<br>
+    <br>
+    <font color="#0000FF">&gt; Dear Sir<br>
+    &gt;<br>
+    &gt; 小弟最近才開始學C++,使用您的大作C++ Primer<br>
+    &gt; 中文版這本書,念起來真的挫折感很大,很多章節<br>
+    &gt; 都有看不懂的地方,所以念的方式是在各章節間<br>
+    &gt; 跳來跳去的.<br>
+    &gt;<br>
+    &gt; 請問這是正常現象,.......或是您有更好的建議呢?</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    對初學者而言，我想這是正常的。<br>
+    <br>
+    不斷的技術演進，使任何東西都愈來愈複雜（尤其是功能強大<br>
+    的東西）。再不存有一條單行線，可以讓你依循此序，別無罣礙。<br>
+    <br>
+    所有的學習，都變成是一種複雜的網絡形式。<br>
+    <br>
+    C++ Primer 的內容非常非常多，涵蓋非常非常廣。誠如作者所言，<br>
+    為了讓各主題在說明時有完整性，並能夠讓範例程式連貫而一致地<br>
+    持續沿用於整本書，當他談基礎觀念時，如有必要，會先穿插提及<br>
+    後面篇幅才會出現的高階議題。所以，例如，雖然 classes 是<br>
+    第 13 章的主題，但早在第二章就出現 classes 的簡易運用了。<br>
+    <br>
+    幸運的是（同時也是一本好書應有的表現），作者常會不厭其煩地<br>
+    提示某個主題出現在哪一章哪一節。這使我們覺得安心，並感方便。<br>
+    <br>
+    等到你對 C++ 
+    有了大局觀，原本完全模糊的影像，進步到「只是馬賽克」<br>
+    而已，或更進步到「小粒的馬賽克」，就不會再有不安定的感覺了。<br>
+    在此之前，你可能會覺得此書的內容這麼多，怕讀不完（其實書不是<br>
+    一定要讓你「讀完」的）；在此之後，你會因為這本書講得那麼詳細<br>
+    而大表讚嘆。<br>
+    <br>
+    -- the end<br>
+    <br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa23"><big><big>C++ Primer 答客問 (23)</big></big></a>1999.12.28<br>
+    <br>
+    leetron wrote (1999.12.26) :<br>
+    <br>
+    <font color="#0000FF">&gt; 您好，我想請問一下在C++ Primer 中文版 503 
+    頁是否有個錯誤：<br>
+    &gt; 原文是：上述的 template 引數 T 從第一個函式引數中推導得int，又自<br>
+    &gt; 第二個函式引數中推導得 unsigned int，因此 template 
+    引數推導失敗，...<br>
+    &gt;<br>
+    &gt; 可是根據上面的範例碼：<br>
+    <small><font face="Courier New">&gt; template &lt;class T&gt; T min5(T,T) { /* ... */}<br>
+    &gt; unsigned int ui;<br>
+    &gt;<br>
+    &gt; int main() {<br>
+    &gt; min5(ui,1024);<br>
+    &gt; }</font></small><br>
+    &gt;<br>
+    &gt; 似乎應該是：從第一個函式引數中推導得unsigned int（因為第一個是ui），<br>
+    &gt; 又自第二個函式引數中推導得 int（因為是1024）。<br>
+    &gt;<br>
+    &gt; 是否應該改成這樣呢？謝謝！</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    是的，謝謝。這是原文書筆誤。我將記錄於《C++ Primer 
+    中文版》勘誤之中。<br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    leetron wrote (1999.12.28) :<br>
+    <br>
+    <font color="#0000FF">&gt; 您好：<br>
+    &gt; 昨天我寄了一封關於C++ Primer p.503的問題（疑有error），<br>
+    &gt; 後來發現p.503 似乎有另一錯誤：<br>
+    <small><font face="Courier New">&gt; template &lt;class T&gt; T min5(T,T) {/*...*/}<br>
+    &gt; unsigned int ui;<br>
+    &gt; ....</font></small><br>
+    &gt;<br>
+    &gt; 上面template function min5的定義中，似乎少了函式參數。</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    不，書上那樣寫並沒有錯。<br>
+    <br>
+    函式宣告式中，可以只宣告參數型別，不必指定參數名稱。<br>
+    至於函式定義式中，如果某參數並未在函式本體內被使用，<br>
+    那麼該參數的名稱亦可以不必指定。<br>
+    <br>
+    書上所列是函式定義式。由於這只是一個簡略形式，目的在<br>
+    告訴你兩個參數的型別，所以未列出參數名稱。語法上並沒有錯。<br>
+    <br>
+    你可能好奇剛才我所說的：『函式定義式中，如果某參數並未<br>
+    在函式本體內被使用，那麼該參數的名稱可以不必指定。』<br>
+    你可能會想，如果參數在函式本體內用不到，那又何必需要這個<br>
+    參數呢？<br>
+    <br>
+    increment operator 的 postfix 形式，就需要一個「用不到的參數」，<br>
+    為的是和 prefix 形式有所區隔。以下見《C++ Primer 中文版》p.761：<br>
+    <br>
+    <small><font face="Courier New">class ScreenPtr {<br>
+    public:<br>
+    &nbsp; Screen&amp; operator++(); // prefix operators<br>
+    &nbsp; Screen&amp; operator--();<br>
+    &nbsp; Screen&amp; operator++(int); // postfix operators<br>
+    &nbsp; Screen&amp; operator--(int);<br>
+    &nbsp; // ...<br>
+    };</font></small><br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa24"><big><big>C++ Primer 答客問 (24)</big></big></a>1999.12.28<br>
+    <br>
+    一位網友於 1999.12.27 寫了一封信給我。他問我 :<br>
+    <br>
+    <font color="#0000FF">&gt; C++ Primer中文版到幾刷了呢？請問最新的一刷時你有將把<br>
+    &gt; 之前的錯誤校正或文字潤飾嗎？</font><br>
+    <br>
+    同時也問我 :<br>
+    <br>
+    <font color="#0000FF">&gt; ... [delete]<br>
+    &gt; 現在學期要結束了，我想好好依照自己所想要的方式學習，<br>
+    &gt; 我有點想放棄ＭＦＣ改學一些ＲＡＤ，但是似乎最好要有<br>
+    &gt; ＳＤＫ的基礎，也才能學得快，才能萬變不離其宗，不論<br>
+    &gt; 改學什麼ＲＡＤ都能很快進入狀況，是嗎？那似乎ＳＤＫ<br>
+    &gt; 比ＭＦＣ更有價值，我該改學ＳＤＫ還是研究ＭＦＣ勒？<br>
+    &gt; 我想讀”Programmng Windows 95”的中譯本來學習ＳＤＫ，<br>
+    &gt; 懂了ＳＤＫ再來重學ＭＦＣ或改學其他的一些ＲＡＤ應該<br>
+    &gt; 都有很大的幫助，是吧？但是我又想由”深入淺入ＭＦＣ”<br>
+    &gt; 來將ＭＦＣ弄懂，我不知道該讀”Programming Windows 95”<br>
+    &gt; 或是”深入淺入ＭＦＣ”比較好（這二本我都有買了）</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    《C++ Primer 中文版》目前是第二刷。其中修正了六個技術性<br>
+    錯誤。修正內容公佈於 www.jjhou.com。<br>
+    <br>
+    此書另外還有一些勘誤，尚未放上網站。請見下一封信：<br>
+    「C++ Primer 答客問 (25) 書籍勘誤」。<br>
+    <br>
+    BIBO 的第二個問題，我在網上回答過太多次了。請看過去的文章<br>
+    （或上侯捷網站找）。一言以蔽之，我的看法是：程式開發工作，<br>
+    應該儘量使用 applicaition framework 如 MFC，或 RAD 工具如<br>
+    C++Builder/VCL 或 VB 或 Delphi/VCL。但是在使用高階開發工具<br>
+    之前，如果你對 Windows 程式基本運作原理（所謂 message based/<br>
+    event driven）的基礎觀念不足，你在踏出第一步（做一個玩具程式）<br>
+    之後，很難踏出第二步。所以你最好把 SDK 學一點再來。<br>
+    <br>
+    問題是「把 SDK 學一點再來」的「一點」是多少？這很難講清楚<br>
+    說明白。總之，欲知道 MFC 的來龍去脈，我推薦你看《深入淺出 MFC》，<br>
+    該書的第一章便談到 Windows 程式的基本運作原理。當你往下看，<br>
+    而在「程式根本運作」上仍有疑惑，表示你還需要 SDK 的基礎，<br>
+    那麼我推薦你看 &quot;Programming Windows (95)&quot;。這時候不是要你<br>
+    跳過去把它看完（書不是一定要「看完」的），而是跳到相關章節<br>
+    去瞭解作業系統與應用程式之間的介面（也就是那些 SDK APIs），<br>
+    然後應該再回到 MFC（或其他 RAD）身上來。<br>
+    <br>
+    真的很難講清楚說明白。我只能說到這裡了 :)<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><big><big><a name="C++ Primer qa25">C++ Primer 答客問 (25)</a> </big></big>書籍勘誤 
+    1999.12.28<br>
+    <br>
+    <a href="errata-cpp-primer.htm" tppabs="http://jjhou.boolan.com/errata-cpp-primer.htm">請見最新資料</a></p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa26"><big><big>C++ Primer 答客問 (26)</big></big></a>1999.12.28<br>
+    <br>
+    ruid6904 wrote (1999.12.23) :<br>
+    <br>
+    <font color="#0000FF">&gt; 你好！我是一個想學C++的學生，所以就看了您譯的”C++ 
+    Primer”<br>
+    &gt; 那我就看了看，發現到在第一章的第１４頁上頁有<br>
+    &gt;<br>
+    &gt; <font face="Courier New">#ifndef BOOKSTORE_H...</font>，<br>
+    &gt;<br>
+    &gt; 可是在下文中也出現但和上文不一樣，寫的是<br>
+    &gt;<br>
+    &gt; <font face="Courier New">#ifdef BOOKSORE_H...</font><br>
+    &gt;<br>
+    &gt; 
+    因為我是剛學不久所以對這不太了解，因此希望您能有所解答，謝謝!!</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    #ifndef 和 #ifdef 都是給 preprocessor（語言前置處理器）看的指令。<br>
+    #ifndef 的意思是「如果沒有定義…」；#ifdef 
+    的意思是「如果定義有…」。<br>
+    <br>
+    p.14 的技巧，是我們在設計 included file 時的一個常用手法，<br>
+    以避免程式重複載入相同的 included files。<br>
+    <br>
+    --- the end<br>
+    <br>
+    <font size="3"><br>
+    </font><!--mstheme--></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

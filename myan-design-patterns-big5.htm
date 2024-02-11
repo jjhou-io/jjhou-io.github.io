@@ -1,0 +1,404 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>與大蝦對話: 領悟設計模式 Template Method / Visitor</title>
+</head>
+
+<body>
+
+<hr>
+
+<blockquote>
+  <p align="center">侯捷注﹕本文承譯者<font color="#000000">孟岩先生應允﹐<br>
+  轉載於此以饗台灣讀者﹐非常感謝。<br>
+  <br>
+  未得孟岩先生之同意﹐任何人請勿將此文再做轉載。<br>
+  <br>
+  以下</font><font color="#FF0000">紅色</font><font color="#000000">為譯注﹐</font><font
+  color="#FF00FF">紫色</font><font color="#000000">為侯捷個人認為宜再斟酌之處。<br>
+  </font><font color="#8080FF">淺藍色</font><font color="#000000">是侯捷個人閱讀時的神秘標記。<br>
+  <br>
+  本文系由GB簡碼直接轉為BIG5繁碼﹐並未將大陸慣用術語轉換為台灣慣用術語。<br>
+  <br>
+  由於字碼直接轉譯，也許有些字在簡體中是正確的，轉為繁體後<br>
+  音同字異，或字同義異，或…。某些紫色標記也許是這麼來的 :)</font></p>
+  <p align="center"><font color="#000000"><strong>讀後感想</strong>：本文讀來輕鬆可喜，固然是因為原文的調性，另一個大因素在於<br>
+  孟岩先生的文字功力非凡。一篇外文、一本外文書的引進，譯者是多麼重要呀。<br>
+  大家還能保持緘默，不給這樣的譯者大聲喝采嗎？</font></p>
+  <hr>
+</blockquote>
+
+<p><font size="6"><b>　</b></font></p>
+
+<p><font size="6"><b>與大蝦對話: 領悟設計模式</b></font></p>
+
+<p><font size="6"><b>--Template Method / Visitor</b></font></p>
+
+<p><font color="#FF0000">[譯者按]</font> 本文根據發表在CUJ Expert Forum上的兩篇文章編譯而成。C/C++ 
+User's Journal是目前最出色的C/C++語言專業雜誌﹐特別是在C++ Report閉刊之後﹐CUJ的地位更加突出。CUJ 
+Expert Forum是CUJ主辦的網上技術專欄﹐彙集2000年10月以來C++社群中頂尖專家的技術短文﹐並免費公開發佈﹐精彩紛呈﹐是每一個C/C++學習者不可錯過的資料。由Jim 
+Hyslop和Herb Sutter主持的Conversation系列﹐是CUJ Expert Forum每期必備的精品專欄﹐以風趣幽默的對話形式講解C++高級技術﹐在C++社群內得到廣泛讚譽。譯者特別挑選兩篇設計模式方面的文章﹐介紹給大家。<font
+color="#8080FF">設計模式方面的經典著作是GoF的Design Patterns。但是那本書有一個缺點﹐不好懂。從風格上講﹐該書與其說是為學習者而寫作的教程範本﹐還不如說是給學術界人士看的學術報告﹐嚴謹有餘﹐生動不足。</font>這一點包括該書作者和象Bjarne 
+Stroustrup這樣的大師都從不諱言。實際上Design Pattern並非一定是晦澀難懂的﹐通過生動的例子﹐一個中等水平的C++學習者完全可以掌握基本用法﹐在自己的編程實踐中使用﹐得到立竿見影的功效。這兩篇文章就是很好的例證。本文翻譯在保證技術完整性的前提下作了不少刪節和修改﹐以便使文章顯得更緊湊。</p>
+
+<p>----------------------------------------------------------</p>
+
+<p>人物介紹﹕</p>
+
+<p>我 --- 一個追求上進的C++程序員﹐尚在試用期﹐聰明但是經驗不足。</p>
+
+<p>Wendy --- 公司裡的技術大拿﹐就坐在我旁邊的隔間裡﹐C++大蝦﹐最了不起的是﹐她是個女的﹗她什麼都好﹐就是有點刻薄﹐</p>
+
+<p> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我對她真是又崇拜又嫉妒。</p>
+
+<p>----------------------------------------------------------</p>
+
+<p>I. Virtually Yours?-- Template Method模式</p>
+
+<p>我在研究Wendy寫的一個類。那是她為這個項目寫的一個抽象基類﹐而我的工作就是從中派生出一個具象類(concrete 
+class)。這個類的public部份是這樣的﹕</p>
+
+<pre>class Mountie {
+public:
+    void read( std::istream &amp; );
+    void write( std::ostream &amp; ) const;
+    virtual ~Mountie();</pre>
+
+<p>很正常﹐virtual destructor表明這個類打算被繼承。那麼再看看其protected部份﹕</p>
+
+<pre>protected:
+    virtual void do_read( std::istream &amp; );
+    virtual void do_write( std::ostream &amp; ) const;
+</pre>
+
+<p>也不過就是一會兒的功夫﹐我識破了Wendy的把戲﹕她在使用template 
+method模式。public成員函數read和write是非虛擬的﹐它們肯定是調用protected部份do_read/do_write虛擬成員函數來完成實際的工作。啊﹐我簡直為自己的進步而飄飄然了﹗哈﹐Wendy﹐這回你可難不住我﹐還有什麼招數﹖儘管放馬過來... 
+突然﹐笑容在我臉上凝固﹐因為我看到了其private部份﹕</p>
+
+<pre>private:
+    virtual std::string classID() const = 0;
+</pre>
+
+<p>這是什麼﹖一個private純<font color="#FF00FF">序</font>函數﹐能工作麼﹖我站了起來﹐ 
+</p>
+
+<p>“Wendy﹐你的Mountie類好像不能工作耶﹐它有一個private virtual function。”</p>
+
+<p>“你試過了﹖”她連頭都不抬。</p>
+
+<p>“嗯﹐那倒是沒有啦﹐可是想想也不行啊﹖我的派生類怎麼能override你的private函數呢﹖” 
+我嘟囔ぴ。</p>
+
+<p>“�礡M你倒是很確定啊﹗”Wendy的聲音很輕柔﹐“你怎麼老是這也不行﹐那也不行的﹐這幾個月跟ぴ我你就沒學到什麼東西嗎﹖小菜鳥。”</p>
+
+<p>真是可惡啊...</p>
+
+<p>“小菜鳥﹐你全都忘了﹐<font color="#FF00FF">訪問控制級別跟一個函數是不是虛擬的根本沒關係</font>。<font
+color="#FF00FF">判斷一個函數是動態綁定還是靜態綁定是函數調用解析的最後一個步驟</font>。好好讀讀<font
+color="#FF00FF">標準</font>的3.4和5.2.2節吧。”</p>
+
+<p>我完全處於下風﹐只好採取干擾戰術。“好吧﹐就算你說的不錯﹐我也還是不明白﹐何必把它設為private﹖”</p>
+
+<p>“我且問你﹐倘若你不想讓一個類中的成員函數被其他的類調用﹐應當如何處理﹖”</p>
+
+<p>“當然是把它設置為private<font color="#FF00FF">的</font>﹐” 
+我回答道。</p>
+
+<p>“那麼你去看看我的<font color="#FF00FF">Mountie類實現</font>﹐特別是write()函數的實現。”</p>
+
+<p>我正巴不得逃開Wendy那刺人的目光﹐便轉過頭去在我的屏幕上搜索﹐很快﹐我找到了﹕</p>
+
+<pre>void Mountie::write(std::ostream &amp;Dudley) const
+{
+    Dudley &lt;&lt; classID() &lt;&lt; std::endl;
+    do_write(Dudley);
+}</pre>
+
+<p>嗨﹐最近卡通片真是看得太多了﹐居然犯這樣的低級失誤。還是<font
+color="#FF00FF">老是</font>承認吧﹕“好了﹐我明白了。classID()是一個實現細節﹐用來在保存對象時指示具象類的類型﹐派生類必須覆蓋它﹐所以必須是純虛的。但是既然是實現細節﹐就應該設為private的。”</p>
+
+<p>“這還差不多﹐小菜鳥。”大蝦點了點頭﹐“現在給我解釋一下為什麼do_read()和do_write()是protected的﹖”</p>
+
+<p>這個問題並不難﹐我組織了一下就回答﹕“因為派生類對象需要調用這兩個函數的實現來讀寫其中的基類對象。”</p>
+
+<p>“很好很好﹐”大蝦差不多滿意了﹐“不過﹐你再解釋解釋為什麼我不把它們設為public的﹖”</p>
+
+<p>現在我感覺好多了﹕“因為調用它們的時候必須以一種特定的方式進行。比如do_write()函數﹐必須先把類型信息寫入﹐再把對象信息寫入﹐這樣讀取的時候﹐負責生成對象的模塊首先能夠知道要讀出來的對象是什麼類型的﹐然後才能正確地從流中讀取對象信息。”</p>
+
+<p>“聰明啊﹐我的小菜鳥﹗”Wendy停頓了一下﹐“就跟學習外國口語一樣﹐<font
+color="#8080FF">學習C++也不光是掌握語法而已﹐還必須要掌握大量的慣用法</font>。”</p>
+
+<p>“是啊是啊﹐我正打算讀Coplien的書...”</p>
+
+<p>[<font color="#FF0000">譯者注</font>﹕就是James Coplien 1992年的經典著作Advanced 
+C++ Programming Style and Idioms]</p>
+
+<p>大蝦揮了揮她的手﹐“冷靜﹐小菜鳥﹐我不是指<font color="#8080FF">先知Coplien</font>的那本書﹐我是指某種結構背後隱含的慣用法。比如<font
+color="#8080FF">一個類有virtual destructor﹐相當于告訴你說﹕‘嗨﹐我是一個多態基類﹐來繼承我吧﹗’ 
+而如果一個類的destructor不是虛擬的﹐則相當於是在說﹕‘我不能作為多態基類﹐看在老天的份上﹐別繼承我。</font>’”</p>
+
+<p>“同樣的﹐<font color="#8080FF">virtual函數的訪問控制級別也具有隱含的意義。一個protected 
+virtual function告訴你﹕‘你寫的派生類應該﹐哦﹐可是說是必須調用我的實現。’而一個private 
+virtual function是在說﹕‘派生類可以覆蓋﹐也可以不覆蓋我﹐隨你的便。但是你不可以調用我的實現</font>。’”</p>
+
+<p>我點點頭﹐告訴她我懂了﹐然後追問道﹕“那麼public virtual function呢﹖”</p>
+
+<p>“<font color="#8080FF">儘可能不要使用public virtual function</font>。”她拿起一支筆寫下了以下代碼﹕</p>
+
+<pre style="line-height: 100%; margin-top: -1; margin-bottom: -1">class HardToExtend </pre>
+
+<pre style="line-height: 100%; margin-top: -1; margin-bottom: -1">{</pre>
+
+<pre style="line-height: 100%; margin-top: -1; margin-bottom: -1">public:</pre>
+
+<pre style="line-height: 100%; margin-top: -1; margin-bottom: -1">	 virtual void f();</pre>
+
+<pre style="line-height: 100%; margin-top: -1; margin-bottom: -1">};</pre>
+
+<pre style="line-height: 100%; margin-top: -1; margin-bottom: -1"> void HardToExtend::f() </pre>
+
+<pre style="line-height: 100%; margin-top: -1; margin-bottom: -1">{ </pre>
+
+<pre style="line-height: 100%; margin-top: -1; margin-bottom: -1">	// Perform a specific action </pre>
+
+<pre style="line-height: 100%; margin-top: -1; margin-bottom: -1">}</pre>
+
+<p style="line-height: 100%; margin-top: -1; margin-bottom: -1">　</p>
+
+<p>“假設你發佈了這個類。在寫第二版時﹐需求有所變化﹐你必須改用Template 
+Method。可是這根本不可能﹐你知道為什麼﹖”</p>
+
+<p>“呃﹐這個...﹐不知道。”</p>
+
+<p>“<font color="#FF00FF">由</font>兩種可能的辦法。其一﹐將f()的實現代碼轉移到一個新的函數中﹐然後將f()本身設為non-virtual<font
+color="#FF00FF">的</font>﹕</p>
+
+<pre>class HardToExtend
+{
+// possibly protected
+    virtual void do_f();
+public:
+    void f();
+};
+void HardToExtend::f()
+{
+    // pre-processing
+    do_f();
+    // post-processing
+}
+void HardToExtend::do_f()
+{
+    // Perform a specific action
+}
+</pre>
+
+<p>然而你原來寫的派生類都是企圖override函數f()而不是do_f()<font
+color="#FF00FF">的</font>﹐你必須改變所有的<font color="#FF00FF">派生類實現</font>﹐只要你錯過了一個類﹐你的類層次就會染上<font
+color="#8080FF">先知Meyers</font>所說的‘精神分裂的行徑’。”[<font
+color="#FF0000">譯者注</font>﹕參見Scott Meyers﹐Effective C++, Item 37﹐絕對不要重新定義繼承而來的非虛擬函數]</p>
+
+<p>“另一種辦法是將f()移到private區域﹐引入一個新的non-virtual函數﹕”</p>
+
+<pre>class HardToExtend
+{
+// possibly protected
+    virtual void f();
+public:
+    void call_f();
+};</pre>
+
+<p>“這會導致無數令人頭痛的問題。首先﹐所有的客戶都企圖調用f()而不是call_f()﹐現在它們的代碼都不能編譯了。更有甚者﹐大部份派生類都<font
+color="#FF00FF">回</font>把f()放在public區域中﹐這樣直接使用派生類的用戶可以訪問到你本來想保護的細節。”</p>
+
+<p>“對待虛函數要<font color="#FF00FF">象</font>對待數據成員一樣﹐把它們設為private<font
+color="#FF00FF">的</font>﹐直到設計上要求使用更寬松的訪問控制再來調整。要知道<font
+color="#8080FF">由private入public易﹐由public入private難啊</font>﹗”</p>
+
+<p>[<font color="#FF0000">譯者注</font>﹕這篇文章所表達的思想具有一定的顛覆性﹐因為我們太容易在基類中設置public 
+virtual function了﹐Java中甚至專門為這種做法建立了interface機製﹐現在竟然說這不好﹗一時間真是接受不了。但是仔細體會作者的意思﹐他並不是<font
+color="#FF00FF">一般地</font>反對public virtual function﹐只是在template method大背景下給出上述原則。雖然這個原則在一般的設計中也是值得考慮的﹐但是主要的應用領域還是在template 
+method模式中。當然﹐template method是一種非常有用和常用的模式﹐因此也決定了本文提出的原則具有廣泛的意義。]</p>
+
+<p>----------------------------------------------------------------</p>
+
+<p>II. Visitor模式</p>
+
+<p>我正在為一個設計問題苦惱。試用期快結束了﹐我希望自己解決這個問題﹐來證明自己的進步。每個人都記得自己的第一份工作吧﹐也都應該知道在這個時候把活兒做好是多麼的重要﹗我親眼看到其他的新僱員沒有過完試用期就被炒了魷魚﹐就是因為他們不懂得如何對付那個大蝦...﹐別誤會﹐我不是說她不好﹐她是我見過最棒的程序員﹐可就是有點刻薄古怪...。現在我拜她為師﹐不為別的﹐就是因為我十分希望能<font
+color="#8080FF">達到她那個高度</font>。</p>
+
+<p>我想在一個<font color="#FF00FF">類層次(class hierarchy)</font>中增加一個新的虛函數﹐但是這個類層次是由另外一幫人維護的﹐其他人碰都不能碰﹕</p>
+
+<pre>class Personnel
+{
+public:
+  virtual void Pay ( /*...*/ ) = 0;
+  virtual void Promote( /*...*/ ) = 0;
+  virtual void Accept ( PersonnelV&amp; ) = 0;
+  // ... other functions ...
+};
+
+class Officer : public Personnel { /* override virtuals */ };
+class Captain : public Officer { /* override virtuals */ };
+class First : public Officer { /* override virtuals */ };</pre>
+
+<p>我想要一個函數﹐如果對象是船長(Captain)就這麼做﹐如果是大副(First 
+Officer)就那麼做。Virtual function正是解決之道﹐在Personnel或者Officer中聲明它﹐而在Captain和First<font
+color="#8080FF">覆蓋(override)</font>它。</p>
+
+<p>糟糕的是﹐我不能增加這麼一個虛函數。我知道可以用RTTI給出一個解決方案﹕</p>
+
+<pre>void f( Officer &amp;o )
+{
+  if( dynamic_cast&lt;Captain*&gt;(&amp;o) )
+    /* do one thing */
+  else if( dynamic_cast&lt;First*&gt;(&amp;o) )
+    /* do another thing */
+}
+
+int main()
+{
+  Captain k;
+  First s;
+  f( k );
+  f( s );
+}</pre>
+
+<p>但是我知道使用RTTI是<font color="#FF00FF">公司編碼標準</font>所排斥的行為﹐我對自己說﹕“是的﹐雖然我以前不喜歡RTTI﹐但是這回我得改變對它的看法了。很顯然﹐除了使用RTTI﹐別無它法。”</p>
+
+<p><font color="#8080FF"><big><big>“<strong>任何問題都可以通過增加間接層次的方法解決。”</strong></big></big></font></p>
+
+<p>我噌地一下跳起來﹐那是大蝦的聲音﹐她不知道什麼時候跑到我背後﹐“啊喲﹐您嚇了我一跳...您剛纔說什麼﹖”</p>
+
+<p>“任何問...”</p>
+
+<p>“是的﹐我聽清楚了﹐”我也不知道哪來的勇氣﹐居然敢打斷她﹐“我只是不知道您從哪冒出來的。”其實這話只不過是掩飾我內心的慌張。</p>
+
+<p>“哈﹐算了吧﹐小菜鳥﹐”大蝦斜ぴ眼看ぴ我﹐“你以為我不知道你心裡想什麼﹗”她把聲音提高了八度﹐直盯ぴ我﹐“那些可憐的C語言門徒才會使用switch語句處理不同的對象類型。你看﹕”</p>
+
+<pre>/* A not-atypical C program */
+void f(struct someStruct *s)
+{
+  switch(s-&gt;type) {
+  case APPLE:
+    /* do one thing */
+    break;
+  case ORANGE:
+    /* do another thing */
+    break;
+  /* ... etc. ... */
+  }
+}</pre>
+
+<p>“這些人學習<font color="#8080FF">Stroustrup教主</font>的C++語言時﹐最重要的事情就是學習<font
+color="#FF00FF">如何設計好的類層次</font>。”</p>
+
+<p>“沒錯﹐”我又一次打斷她﹐迫不及待地想讓Wendy明白﹐我還是有兩下子的﹐“他們應該設計一個Fruit基類﹐派生出Apple和Orange﹐用virtual 
+function來作具體的事情。</p>
+
+<p>“很好﹐小菜鳥。<font color="#8080FF">C語言門徒</font>通常老習慣改不掉。但是﹐你應該知道﹐通過使用virtual 
+function﹐你增加了一個間接層次。”她放下筆﹐“你所需要的不就是一個新的虛函數嗎﹖”</p>
+
+<p>“是的。可是我沒有權力這麼干。”</p>
+
+<p>“因為你無權修改類層次﹐對吧﹗”</p>
+
+<p>“您終於了解了情況﹐我們沒法動它。也不知道這個該死的類層次是哪個傢伙設計的...” 
+我嘀嘀咕咕ぴ。</p>
+
+<p>“是我設計的。”</p>
+
+<p>“啊...﹐真的﹖﹗這個﹐嘿嘿...”﹐我極為尷尬。</p>
+
+<p>“這個類層次必須非常穩定﹐因為有跨平臺的問題。但是它的設計允許你增加新的virtual 
+function﹐而不必煩勞RTTI。你可以通過增加一個間接層次的辦法解決這個問題。請問﹐Personnel::Accept是什麼?”</p>
+
+<p>”嗯﹐這個...”</p>
+
+<p>“這個類實現了一個模式﹐可惜這個模式的名字起得不太好﹐是個PNP﹐叫Visitor模式。”</p>
+
+<p>[<font color="#FF0000">譯者注</font>﹕PNP﹐Poor-Named Pattern, 
+沒起好名字的模式]</p>
+
+<p>“啊﹐我剛剛讀過Visitor模式。但是那<font color="#FF00FF">隻</font>不過是允許若干對象之間相互迭代訪問的模式﹐不是嗎﹖”</p>
+
+<p>她嘆了一口氣﹐“這是<font color="#FF00FF">流行的</font>錯誤理解。那個V﹐我覺得毋寧說是Visitor﹐還不如說是Virtual更好。這個PNP最重要的用途是允許在不改變類層次的前提下﹐向已經存在的類層次中增加新的虛函數。首先來看看Personnel及其派生類的Accept實現細節。”她拿起筆寫下﹕</p>
+
+<pre>void Personnel::Accept( PersonnelV&amp; v )
+  { v.Visit( *this ); }
+
+void Officer::Accept ( PersonnelV&amp; v )
+  { v.Visit( *this ); }
+
+void Captain::Accept ( PersonnelV&amp; v )
+  { v.Visit( *this ); }
+
+void First::Accept ( PersonnelV&amp; v )
+  { v.Visit( *this ); }</pre>
+
+<p>“Visitor的基類如下﹕”</p>
+
+<pre>class PersonnelV/*isitor*/
+{
+public:
+  virtual void Visit( Personnel&amp; ) = 0;
+  virtual void Visit( Officer&amp; ) = 0;
+  virtual void Visit( Captain&amp; ) = 0;
+  virtual void Visit( First&amp; ) = 0;
+};</pre>
+
+<p>“啊﹐我記起來了。當我要利用Personnel類層次的多態性時﹐我只要調用Personnel::Accept(myVisitorObject)。由於Accept是虛函數﹐我的myVisitorObject.Visit()會針對正確的對象類型調用﹐根據重載法則﹐編譯器會挑選最貼切的那個Visit來調用。這不相當于增加了一個新的虛擬函數了嗎﹖”</p>
+
+<p>“沒錯﹐小菜鳥。只要類層次支持Accept﹐我們就可以在不改動類層次的情況下增加新的虛函數了。”</p>
+
+<p>“好了﹐我現在知道該怎麼辦了”﹐我寫道﹕</p>
+
+<pre>class DoSomething : public PersonnelV
+{
+public:
+  virtual void Visit( Personnel&amp; );
+  virtual void Visit( Officer&amp; );
+  virtual void Visit( Captain&amp; );
+  virtual void Visit( First&amp; );
+};
+
+void DoSomething::Visit( Captain&amp; c )
+{
+  if( femaleGuestStarIsPresent )
+    c.TurnOnCharm();
+  else
+    c.StartFight();
+}
+
+void DoSomething::Visit( First&amp; f )
+{
+  f.RaiseEyebrowAtCaptainsBehavior();
+}</pre>
+
+<pre>void f( Personnel&amp; p )
+{
+  p.Accept( DoSomething() ); // 相當于 p.DoSomething()
+}
+
+int main()
+{
+  Captain k;
+  First s;
+
+  f( k );
+  f( s );
+}</pre>
+
+<p>大蝦滿意地笑了﹐“也許這個模式換一個名字會更好理解﹐可惜世事往往不遂人意...”。</p>
+
+<p>[<font color="#FF0000">譯者注</font>﹕這篇文章我作了一定的刪節﹐原文中有稍微多一些的論述﹐而且提供了兩篇技術文章的link。]</p>
+
+<p>　</p>
+
+<p>　</p>
+</body>
+</html>

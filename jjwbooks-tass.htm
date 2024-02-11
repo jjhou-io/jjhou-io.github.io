@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>《STL 源碼剖析》 </title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<p align="center"><font color="#0000FF">一刷 2000本(2002/03/29)&nbsp;&nbsp;</font></p>
+
+<h2 align="center"><font color="#800000">《STL 源碼剖析》<br>
+<small>The Annotated STL Source</small></font></h2>
+
+<h2 align="center"><font color="#800000"><small>侯捷 著</small></font></h2>
+
+<p align="center"><img src="tass.jpg" tppabs="http://jjhou.boolan.com/tass.jpg" width="357" height="442"
+alt="tass.jpg (33378 bytes)"></p>
+
+<p align="center"><a href="errata-tass.txt.htm" tppabs="http://jjhou.boolan.com/errata-tass.txt.htm" target="main">繁體版 勘誤</a></p>
+
+<p align="center"><a href="efile-tass.htm" tppabs="http://jjhou.boolan.com/efile-tass.htm" target="main">SGI STL 侯捷註解版</a></p>
+
+<hr>
+
+<blockquote>
+</blockquote>
+
+<p>□適合對象：已具備 STL 應用知識，欲一探 STL 
+實作技術之究竟者。<br>
+□內容特色：以 SGI STL（GNU C++ 採用）為師，詳細解說其中之<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+記憶體管理、演算法、資料結構、組件構造等實作技法。<br>
+□製作特色：含 index，網片輸出，雙色，<strong><font color="#000000">精裝</font></strong>，<font
+color="#FF0000">紅</font><font color="#0000FF">藍</font>白書籤絲條。</p>
+
+<p><br>
+□觀察對象：<font color="#0000FF"><strong>GCC 2.91.57所附之 SGI STL 實作版本</strong></font>。完整內容（all 
+header files）可於以下自由下載，侯捷之註釋版本（all .doc files）亦可於以下自由下載。</p>
+
+<hr>
+
+<p><a href="jjwbooks-tass-foreward.htm" tppabs="http://jjhou.boolan.com/jjwbooks-tass-foreward.htm" target="main">侯捷自序</a></p>
+
+<p><a href="article02-17.htm" tppabs="http://jjhou.boolan.com/article02-17.htm" target="main">孟岩引介文</a></p>
+
+<p><a href="letters-2002-05.htm#tass-feedback" tppabs="http://jjhou.boolan.com/letters-2002-05.htm#tass-feedback" target="main">讀者意見 1</a></p>
+
+<p><a name="free-download"><font color="#000000">開放</font>檔案如下</a>（全書共8章，開放4章）：</p>
+<div align="left">
+
+<table border="1" width="524">
+  <tr>
+    <td width="237" bgcolor="#C0C0C0"><font color="#000000">檔名</font></td>
+    <td width="197" bgcolor="#C0C0C0"><font color="#000000">內容</font></td>
+    <td width="72" bgcolor="#C0C0C0"><font color="#000000">大小 bytes</font></td>
+  </tr>
+  <tr>
+    <td width="237"><a href="tass-20020106.pdf" tppabs="http://jjhou.boolan.com/tass-20020106.pdf" target="main">tass-20020106.pdf</a><br>
+    <br>
+    不需密碼即可開啟，<br>
+    <font color="#0000FF">含</font><font color="#000000">書籤（目錄連結）</font>。</td>
+    <td width="197">自序 (侯捷)<br>
+    目錄 <br>
+    前言 <br>
+    第1章 overview<br>
+    第2章 allocator<br>
+    第3章 iterator<br>
+    第4章 sequence containers<br>
+    附錄A bibliography<br>
+    附錄B jjweb service<br>
+    附錄C STLPort porting<br>
+    索引</td>
+    <td width="72">6.5 MB</td>
+  </tr>
+  <tr>
+    <td width="237"><a href="tass-sgi-stl-2.91.57-source.zip" tppabs="http://jjhou.boolan.com/tass-sgi-stl-2.91.57-source.zip" target="main">tass-sgi-stl-2.91.57-source.zip</a></td>
+    <td width="197">GCC 2.91.57所附之 STL源碼完整壓縮，此為本書之解說對象。解壓縮後全為 
+    header files。檔案組態見本書1.8.2節。這些檔案無法就此安裝；欲在GCC以外的編譯器上使用 
+    SGI STL，請採用 <a href="javascript:if(confirm(%27http://www.stlport.org/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.stlport.org/%27" tppabs="http://www.stlport.org/" target="_blank">STLPort</a>所提供之版本，見本書附錄C。</td>
+    <td width="72">213KB</td>
+  </tr>
+  <tr>
+    <td width="237"><a href="tass-sgi-stl-2.91.57-annotated.zip" tppabs="http://jjhou.boolan.com/tass-sgi-stl-2.91.57-annotated.zip" target="main">tass-sgi-stl-2.91.57-annotated.zip</a><p><font
+    color="#FF0000">簡體版讀者請注意</font>：這些 .doc files內之中文註釋皆為繁體，使用臺灣術語（if 
+    any）。此為額外贈禮，不另譯簡體版。</td>
+    <td width="197">GCC 2.91.57所附之 STL源碼的<font color="#0000FF">侯捷中文註釋版本</font>，此為本書文字與圖解外的另一成果。<br>
+    解壓縮後全為 .doc files。所有檔案與原本之 SGI STL header files 對應。</td>
+    <td width="72">919KB</td>
+  </tr>
+</table>
+</div>
+
+<p>如欲下載，請將滑鼠移至上述 hyperlink，按右鍵，再選<font
+color="#000000">【另存目標...】</font>即可。</p>
+
+<p>　</p>
+</body>
+</html>

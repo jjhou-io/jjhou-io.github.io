@@ -1,0 +1,268 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>勘誤：多型與虛擬</title>
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="723">
+  <tr>
+    <td align="right" valign="top" width="18">&nbsp; <!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="bottom" width="663"><big><big><font color="#0000FF" face="華康粗黑體">多型與虛擬</font> 
+    修正與補充</big></big><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="18"><font size="3"><br>
+    </font><!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="top" width="663"><br>
+    <a href="jjwbooks-polymorphism-in-cpp.htm" tppabs="http://jjhou.boolan.com/jjwbooks-polymorphism-in-cpp.htm"><img src="g001.jpg" tppabs="http://jjhou.boolan.com/g001.jpg" width="183" height="224"
+    alt="g001.jpg (11189 bytes)"></a><p>&lt;多型與虛擬&gt; （ISBN 957-22-2947-8，松崗書號 
+    2101678，1998/07 初版）<br>
+    經各方指正，發現了一些筆誤、一些技術錯誤，也填補了一些個人技術盲點。<br>
+    <br>
+    關於內容的誤失，謹向讀者致歉。除以下所列，書中另有多處重新做文字上的<br>
+    修潤，這一部份因為細瑣且無關正誤，故不一一列出。<br>
+    <br>
+    <br>
+    <strong><font color="#FF0000">以下是二刷之重要修改內容：</font></strong><br>
+    <br>
+    ■ 新增讀者來函 2 pages，二刷感言 2 pages。<br>
+    <br>
+    ■ p.32 about copy assignment operator<br>
+    <br>
+    原義：「將一個 object 指派（assign）給另一個 object，會引發 copy 
+    constructor」<br>
+    更正：這種情況下所引發的是 <font color="#0000FF">copy assignment operator</font>。<br>
+    致謝：陳崑泰先生，黃英典先生<br>
+    <br>
+    ■ p.42 about static member function<br>
+    <br>
+    原義：「static data member 必須由 static member function 來處理」<br>
+    更正：static data member 可被任何 function 處理（包括<br>
+    static member functions, non-static member functions, global functions<br>
+    -- 只要 scope 以及 access level 允許）。<br>
+    致謝：新竹 林昆穎先生，徐逸輝先生<br>
+    <br>
+    ■ p.44 about static object 筆誤<br>
+    <br>
+    原文：如果這是一個 local static object，其生命就持續到函式結束為止。<br>
+    更正：如果這是一個 local static object，其生命就持續到<font
+    color="#0000FF">程式</font>結束為止。<br>
+    <br>
+    ■ p.183 (and 導讀 p.21）: about # and ## operator<br>
+    <br>
+    原義：# 和 ## 不確定是否為 C/C++ Standard operators<br>
+    更正：# 和 ## <font color="#0000FF">的確是</font> C/C++ Standard operators<br>
+    <br>
+    ■ p.158~p.161 about JMP<br>
+    <br>
+    原義：我在討論「Visual C++ 內部如何處理 virtual functions」時，<br>
+    對於 &quot;E9 xx xx xx xx&quot; 的 jump 點，少加 5 個 bytes<br>
+    （這 5 個 bytes 是 JMP instruction length）<br>
+    更正：每一個 &quot;E9 xx xx xx xx&quot; 指令，jump 時應多加 5 bytes。<br>
+    這麼一來，書中所列的一些疑惑也就獲得了解決。<br>
+    致謝：台北 宏碁工程師（遺憾未能得知姓名）<br>
+    <br>
+    ■ p.130,136,148 about natural and unnatural<br>
+    <br>
+    原義：數處將 <font color="#0000FF">natural</font> polymorphism 誤寫為 native 
+    polymorphism，<br>
+    將 <font color="#0000FF">unnatural</font> polymorphism 誤寫為 non-native polymorphism。<br>
+    更正：已更正所有筆誤。<br>
+    <br>
+    <br>
+    <br>
+    <font color="#FF0000"><strong>以下是三刷修改內容：</strong></font><br>
+    <br>
+    ■ 新增讀者來函 4 pages，以及附錄Ｂ「C++ 的沉迷與愛戀」8 pages<br>
+    <br>
+    ■ p.33 L-9<br>
+    原文：進入 foo1() 之後再印出，<br>
+    更正：進入 <font color="#0000FF">foo2()</font> 之後再印出，<br>
+    <br>
+    ■ p.33 L-8<br>
+    原文：的確在 foo1() 的參數複製時...<br>
+    更正：的確在 <font color="#0000FF">foo2()</font> 的參數複製時...<br>
+    <br>
+    ■ p.60 L1~L4<br>
+    原文：CPoint3d::~CPoint3d() 
+    都沒有被呼叫到，而它們原本（通常）用來釋放屬於<br>
+    它們的記憶體（不過本例並未如此）。<br>
+    更正：CPoint3d::~CPoint3d() 
+    都沒有被呼叫到，而它們原本（通常）用來讓程式員<br>
+    完成各種善後清理（clean up）工作（雖然本例並未如此）。<br>
+    致謝：黃俊達先生<br>
+    <br>
+    ■ p.63 about virtual inline function<br>
+    原義：virtual function 絕不可以是 inline（即使外表看起來是 inline）<br>
+    更正：某些夠聰明的 compiler，例如 BCB 3，可將 virtual function<br>
+    也做成 inline，但仍保留一份正常的 virtual function body 以備需要。<br>
+    觀察 BCB 3 之組合語言輸出，可見端倪。<br>
+    致謝：新竹 葉秉哲先生<br>
+    <br>
+    ■ p.70 下<br>
+    新增一個小例（程式片段），支援 template class<br>
+    <br>
+    ■ p.75 上<br>
+    更正：程式執行結果應有兩行，少列了一行如下：<br>
+    <font color="#0000FF">J.J.Hou was graduated from NCTU in 1983</font><br>
+    致謝：蔡天送先生<br>
+    <br>
+    ■ p.83 最後一行<br>
+    原義：AddTail() 地位相當於 STL 的 generic algorithm.<br>
+    更正：AddTail() 地位相當於 STL <font color="#0000FF">vector</font> 的 <font
+    color="#0000FF">push_back()</font><br>
+    致謝：蔡天送先生<br>
+    <br>
+    ■ p.84 第二行<br>
+    原義：GetHeadPosition() 地位相當於 STL 的 iterator::begin()。<br>
+    更正：GetHeadPosition() 地位相當於 STL 的 <font color="#0000FF">container::begin()</font>。<br>
+    致謝：蔡天送先生<br>
+    <br>
+    ■ p.107 about hex output from cout<br>
+    原義：cout 無法輸出 hex 格式<br>
+    更正：使用 <font color="#0000FF">&lt;iomanip.h&gt;</font>（iostream's parameterized 
+    manipulators）即可解決。<br>
+    致謝：新竹 葉秉哲先生, Yen-Chang 先生<br>
+    <br>
+    ■ p.123 about 函式指標的轉型<br>
+    原義：我無法經由 vtbl 中的函式指標呼叫它所代表的 virtual member 
+    function。<br>
+    更正：將 p123 程式碼中的：<br>
+    <br>
+    #0015 ClassAMemFuncPtr pfna = (ClassAMemFuncPtr)(*vtbl0);<br>
+    <br>
+    改為：<br>
+    <br>
+    #0015 ClassAMemFuncPtr pfna = (ClassAMemFuncPtr)(*<font color="#0000FF">(ClassAMemFuncPtr*)</font>vtbl0);<br>
+    <br>
+    即可。<br>
+    <br>
+    致謝：臺南 陳星光先生<br>
+    此題另有陳崑泰先生、黃肇祥先生、陳欽燦先生提供見解。<br>
+    <br>
+    ■ p.233<br>
+    原義：VC 環境設定<br>
+    更正：如果是 VC5+，PATH 應該設定為：<br>
+    set PATH=E:\DevStudio\VC\BIN<font color="#0000FF">;E:\DevStudio\SharedIDE\BIN</font><br>
+    而不只是：<br>
+    set PATH=E:\DevStudio\VC\BIN<br>
+    致謝：盧靜秋老師<br>
+    <br>
+    <br>
+    <strong><font color="#FF0000">四刷修改內容：</font></strong>無任何修改！<br>
+    <br>
+    <br>
+    <strong><font color="#FF0000">五刷修改內容：</font></strong>無任何修改！<br>
+    </p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><strong><font color="#FF0000">新發現的錯誤</font></strong>，將於新刷更正：<br>
+    <br>
+    ■ p.105 的圖2.3，和 p.111~p.112 
+    的程式執行結果（出現於程式註解中的值）<br>
+    應該相同。但我筆誤，導至 p.111~p.112 
+    程式執行結果（寫於程式註解中）<br>
+    都比 p.105 的圖2.3 內容多 4：<br>
+    <br>
+    (p.111 倒數四行之註解所記錄的記憶體位址)<br>
+    書中內容：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 應改為（以便符合圖2.3）：<br>
+    0x004090<font color="#0000FF">08</font> =&gt; 0x004090<font color="#0000FF">04</font><br>
+    0x004090<font color="#0000FF">0C</font> =&gt; 0x004090<font color="#0000FF">08</font><br>
+    0x004090<font color="#0000FF">10</font> =&gt; 0x004090<font color="#0000FF">0C</font><br>
+    0x004090<font color="#0000FF">14</font> =&gt; 0x004090<font color="#0000FF">10</font><br>
+    p.112 亦應以相同方式修改。<br>
+    致謝：<font size="3">chance 張長軾</font><font color="#000000" size="2"> </font>先生, 
+    白志偉先生<br>
+    <br>
+    ■ p.221 L12 <br>
+    原義：class CMyDoc : CDocument<br>
+    更正：class CMyDoc : <font color="#0000FF">public </font>CDocument<br>
+    note: 如果沒有明白寫出，預設是 private inheritence。<br>
+    致謝：<font size="3">chance 張長軾</font><font color="#000000" size="2"> </font>先生<br>
+    <br>
+    <br>
+    ■ p.32 下半部<br>
+    原文：程式碼 <small><font face="Courier New"> #0001 // </font>情況 <font
+    face="Courier New">2 (</font>函式參數是個 <font face="Courier New">object)</font></small><br>
+    更正： <small><font face="Courier New"> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </font>情況 <font
+    face="Courier New"><font color="#0000FF">1</font> (</font>函式參數是個 <font
+    face="Courier New">object)</font></small><br>
+    致謝：張振宇先生<br>
+    <br>
+    ■ p.32 下半部<br>
+    原文：程式碼 <small><font face="Courier New">#0010&nbsp; // </font>情況 <font
+    face="Courier New">3</font></small><br>
+    更正： <small><font face="Courier New"> 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </font>情況 <font
+    color="#0000FF" face="Courier New">2</font></small><br>
+    致謝：張振宇先生<br>
+    <br>
+    ■ p.58 L-3<br>
+    原文：但請注意，這種威力唯有透過指標的形式...<br>
+    更正：但請注意，這種威力唯有透過指標<font color="#0000FF">或 reference</font> 
+    的形式...<br>
+    致謝：張振宇先生<br>
+    <br>
+    ■ p.76, L-10<br>
+    原文：傳回的 iterator 分別指向 container 的第一個和最後一個元素<br>
+    更正：傳回的 iterator 分別指向 container 的第一個和最後一個元素<font
+    color="#0000FF">的下一位置</font><br>
+    致謝：張振宇先生<br>
+    <br>
+    ■ p.143 圖 2.11<br>
+    原文：Point2d Subobject<br>
+    更正：<strong><font color="#0000FF">C</font></strong>Point2d subobject<br>
+    致謝：張振宇先生<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><strong><font color="#FF0000">特別提醒：</font></strong><br>
+    <br>
+    ■ chap5 MFC-Lite<br>
+    <br>
+    我為 MFC-Lite 準備了 Windows 和 ANSI 兩個版本（WinVer 和 AnsiVer）。<br>
+    其中的 ANSI 版使用標準的 C/C++ runtime library 做底層工作<br>
+    （檔案開關、記憶體配置等等），所以應該可以一字不改地使用<br>
+    不同的 compiler 加以編譯。我已在 <font color="#0000FF">VC5, BCB3, G++ 2.8.1</font> 
+    上測試過，<br>
+    並將可執行檔於 <font color="#0000FF">Windows console, Solaris (Sparc), FreeBSD 
+    (Pentium)</font><br>
+    等平台上執行，均順利無誤。<br>
+    <br>
+    ■ sample code<br>
+    <br>
+    chap1~chap4 的 samples 都很小很細瑣（因為書中做各種嘗試），<br>
+    不適合供應給讀者。chap5 and chap6 的 sample 比較大，較具實用<br>
+    價值，我把它們壓縮為一個檔，並含 readme.txt，放在松崗網站 <a
+    href="javascript:if(confirm(%27http://www.unalis.com.tw/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.unalis.com.tw/%27" tppabs="http://www.unalis.com.tw/">www.unalis.com.tw</a><br>
+    供讀者自由下載。<br>
+    <br>
+    ■ 第２章<br>
+    <br>
+    全書程式雖然適用於各種 compiler，但第２章主題 C++ Object Model，<br>
+    各家 compiler 的作法可能不同。第２章的各個實證結果，是以 Visual C++<br>
+    為依據。<br>
+<!--mstheme-->    </font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="18"><!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="top" width="663"><!--mstheme--></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

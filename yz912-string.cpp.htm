@@ -1,0 +1,95 @@
+<html>// porting : VC6[o], CB5[o], GCC[o]
+// 註：VC6 <iostream> 對 friend 的支援有問題。
+
+#ifdef _MSC_VER
+#include <iostream.h>     // VC6 <iostream> 對 friend 的支援有問題
+#include <string.h>       // for strxxx()
+#include <stddef.h>       // for size_t
+#include <stdio.h>        // for gets()
+#else
+#include <iostream>
+#include <cstring>        // for strxxx()
+#include <cstddef>        // for size_t
+#include <cstdio>         // for gets()
+using namespace std;
+#endif
+
+class String
+{
+   friend ostream& operator<<(ostream&, const String&);
+
+public:
+   String();                    // default ctor String str;
+   String(const char* cstr);    // ctor         String str("hello");
+   String(const String& str);   // copy ctor    String str2(str);
+   ~String();                   // dtor
+   String& operator=(const String& str);   // str1 = str2;
+
+private:  
+   char* m_data;             // 這是一個 pointer member，需特別當心。
+};
+
+inline
+String::String()
+{
+   m_data = new char[1];   // 注意，array-new. 
+   *m_data = '\0';         // empty string
+}
+
+inline
+String::String(const char* cstr)
+{
+   if (cstr) {
+      m_data = new char[ strlen(cstr) + 1 ];
+      strcpy(m_data, cstr);
+   }
+   else {  // 沒有指定初值
+      m_data = new char[1];   // 注意，array-new. 
+      *m_data = '\0';
+   }
+}
+
+inline
+String::String(const String& str)
+{
+   m_data = new char[ strlen(str.m_data) + 1 ];
+   strcpy(m_data, str.m_data);   
+}
+
+inline
+String::~String()
+{
+   delete[] m_data;   // array delete
+}
+
+inline
+String& String::operator=(const String& str)  // copy assignment operator
+{
+   if (this == &str)  // E17
+      return *this;
+
+   delete[] m_data;  // E6
+   m_data = new char[ strlen(str.m_data) + 1 ];  
+   strcpy(m_data, str.m_data);                   
+   return *this;     // E15
+}
+
+//-------------------------------------------------------
+//global functions...
+inline
+ostream& operator<<(ostream& os, const String& s)
+{
+   os << s.m_data;
+   return os;
+}
+
+
+int main()
+{
+  String s1("hello "), s2("world");
+  cout << s1 << s2 << endl;    	// hello world   
+  String s3(s1);
+  cout << s3 << endl;    	// hello
+  s3 = s2;  
+  cout << s3 << endl;    	// world
+}

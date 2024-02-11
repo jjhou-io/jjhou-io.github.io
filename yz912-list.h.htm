@@ -1,0 +1,225 @@
+<html>// yz912-list.h
+
+// 設計一個簡化的 list
+// 參考：《STL源碼剖析》4.3 節
+
+#ifndef _YZ_LIST_
+#define _YZ_LIST_
+
+#include "yz912-allocator.h"
+#include "yz912-iterator.h"     // for distance()
+
+namespace YZ
+{
+
+
+template<typename T>
+struct __list_node
+{
+  __list_node<T>* next;
+  __list_node<T>* prev;
+  T data;
+};
+
+template<typename T, typename Ref, typename Ptr>
+struct __list_iterator
+{
+  typedef __list_iterator<T, T&, T*>             iterator;
+  typedef __list_iterator<T, Ref, Ptr>           self;
+
+  // 未繼承 std::iterator，所以必須自行撰寫五個必要的迭代器相應型別
+  typedef bidirectional_iterator_tag iterator_category;       // (1)
+  typedef T value_type;                                 // (2)
+  typedef Ptr pointer;                                  // (3)
+  typedef Ref reference;                                // (4)
+  typedef ptrdiff_t difference_type;                    // (5)
+
+  typedef __list_node<T>* link_type;
+  typedef size_t size_type;
+
+  link_type node;  // 保持與容器的聯結
+
+  // 以下 ctor 如有參數，便根據參數設定迭代器與容器之間的聯結關係
+  __list_iterator(link_type x) : node(x) {}
+  __list_iterator() {}
+  __list_iterator(const iterator& x) : node(x.node) {}
+
+  // 迭代器必要的操作行為
+  bool operator==(const self& x) const { return node == x.node; }
+  bool operator!=(const self& x) const { return node != x.node; }
+  // 關鍵：對迭代器取值（dereference），取的是節點的資料值。
+  reference operator*() const { return (*node).data; }
+  pointer operator->() const { return &(operator*()); }
+
+  // 參考 More Effective C++, item6: Distinguish between prefix and
+  // postfix forms of increment and decrement operators.
+  // 關鍵：對迭代器累加1，就是前進一個節點
+  self& operator++() {
+    node = (link_type)((*node).next);
+    return *this;
+  }
+  self operator++(int) {
+    self tmp = *this;
+    ++*this;
+    return tmp;
+  }
+  // 對迭代器累減1，就是後退一個節點
+  self& operator--() {
+    node = (link_type)((*node).prev);   // 關鍵
+    return *this;
+  }
+  self operator--(int) {
+    self tmp = *this;
+    --*this;
+    return tmp;
+  }
+};
+
+template<typename T, typename Alloc = alloc>
+class list
+{
+protected:
+  typedef void* void_pointer;
+  typedef __list_node<T> list_node;
+  // 專屬之空間配置器，每次配置一個節點大小
+  typedef simple_alloc<list_node, Alloc> list_node_allocator;
+public:
+  typedef T value_type;
+  typedef value_type* pointer;
+  typedef value_type& reference;
+  typedef list_node* link_type;
+  typedef size_t size_type;
+  typedef ptrdiff_t difference_type;
+
+public:
+  // 當客端定義一個 list<T>::iterator 物件，例如 list<T>::iterator，
+  // 便喚起 __list_iterator<T, T&, T*> 的 ctor。
+  // 如果有初值，便會因此設定一個迭代器對容器的聯結關係。
+  typedef __list_iterator<T, T&, T*>  iterator;
+  typedef __list_iterator<T, const T&, const T*> const_iterator;
+
+protected:
+  // 從實作細節看來，本 list 只維護一個節點指標，指向最後（尾）節點的下一位置。
+  // 由於這是一個環狀雙向串列，因此，欲對外供應頭節點或尾節點，都十分容易，
+  // 見 front(), back()。
+  link_type node; // 永遠指向最後節點的下一節點。該節點無元素值，代表空節點。
+                  // 其 next 節點永遠是頭節點。
+
+public:
+  list() { empty_initialize(); }  // 產生一個空串列。
+  ~list() {
+    clear();
+    put_node(node);
+  }
+
+  iterator begin() { return (link_type)((*node).next); }
+  const_iterator begin() const { return (link_type)((*node).next); }
+  iterator end() { return node; }
+  const_iterator end() const { return node; }
+/*
+注意：如果以上未寫出 const 版的 begin() 和 end()，
+會造成 size() 內呼叫 distance() 時出現編譯警告如下：
+
+warning:
+passing
+`const ::YZ::::YZ::list<int,::YZ::::YZ::allocator<int> >' as
+`this' argument of
+`struct ::YZ::::YZ::__list_iterator<int,int &,int *>
+::YZ::::YZ::list<int,::YZ::::YZ::allocator<int> >::
+begin<int, ::YZ::::YZ::allocator<int>>()'
+discards const
+
+warning:
+passing
+`const ::YZ::::YZ::list<int,::YZ::::YZ::allocator<int> >' as
+`this' argument of
+`struct ::YZ::::YZ::__list_iterator<int,int &,int *>
+::YZ::::YZ::list<int,::YZ::::YZ::allocator<int> >::
+end<int, ::YZ::::YZ::allocator<int>>()'
+discards const
+
+這是因為 size() const 必定將 this 視為 const，而根據 this 應該呼叫
+到 begin() const 和 end() const。如果沒有 begin() const 和 end() const，
+就試試「拋棄 constness 而後呼叫 begin() 和 end()」。
+GCC 將拋棄 constness 視為警告，其他編譯器可能會視為錯誤。
+*/
+
+  bool empty() const { return node->next == node; }
+  size_type size() const {
+    size_type result = 0;
+    // distance(begin(), end(), result);  // 全域函式，定義於 <stl_iterator.h>
+    result = distance(begin(), end()); // 全域函式，定義於 <stl_iterator.h>    
+    return result;
+  }
+  // 取頭節點的內容（元素值）。
+  reference front() { return *begin(); }
+  // 取尾節點的內容（元素值）。
+  reference back() { return *(--end()); }
+  void clear();
+
+protected:
+  // 配置一個節點並傳回
+  link_type get_node() { return list_node_allocator::allocate(); }
+
+  // 釋放一個節點
+  void put_node(link_type p) { list_node_allocator::deallocate(p); }
+
+  // 產生（配置並建構）一個節點，帶有元素值
+  link_type create_node(const T& x) {
+    link_type p = get_node();
+    construct(&p->data, x);     // 全域函式，建構/解構基本工具。
+    return p;
+  }
+
+  // 摧毀（解構並釋放）一個節點
+  void destroy_node(link_type p) {
+    destroy(&p->data);          // 全域函式，建構/解構基本工具。
+    put_node(p);
+  }
+
+protected:
+  void empty_initialize() {
+    node = get_node();  // 配置一個節點空間，令 node 指向它。
+    node->next = node;  // 令node 頭尾都指向自己，不設元素值。
+    node->prev = node;
+  }
+
+public:
+  // 安插一個節點，做為頭節點
+  void push_front(const T& x) { insert(begin(), x); }
+  // 安插一個節點，做為尾節點
+  void push_back(const T& x) { insert(end(), x); }
+
+  // 在迭代器 position 所指位置安插一個節點，內容為 x。
+  iterator insert(iterator position, const T& x) {
+    link_type tmp = create_node(x); // 產生一個節點（設妥內容為 x）
+    // 調整雙向指標，使 tmp 安插進去。
+    tmp->next = position.node;
+    tmp->prev = position.node->prev;
+    (link_type(position.node->prev))->next = tmp;
+    position.node->prev = tmp;
+    return tmp;
+  }
+};
+
+
+// 清除所有節點（整個串列）
+template <class T, class Alloc>
+void list<T, Alloc>::clear()
+{
+  link_type cur = (link_type) node->next; // begin()
+  while (cur != node) { // 巡訪每一個節點
+    link_type tmp = cur;
+    cur = (link_type) cur->next;
+    destroy_node(tmp);  // 摧毀（解構並釋放）一個節點
+  }
+  // 恢復 node 原始狀態
+  node->next = node;
+  node->prev = node;
+}
+
+
+} // namespace YZ
+
+#endif // _YZ_LIST_
+

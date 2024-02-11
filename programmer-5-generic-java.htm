@@ -1,0 +1,519 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>GJ: A Generic Java</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><font color="#800000">泛型爪哇（Generic Java）</font></h2>
+
+<h4 align="center"><font color="#800000">Java 可能即將有一場大變革<br>
+</font></h4>
+
+<h3 align="center"><font color="#800000">譯者：陳崴</font></h3>
+
+<blockquote>
+  <p align="center">侯捷註：本文係北京《程序員》雜誌 2001/05 
+  的文章。譯筆順暢，技術飽滿。<br>
+  承譯者<font color="#000000">陳崴先生與</font>《程序員》<font color="#000000">雜誌負責人蔣濤先生答允，<br>
+  轉載於此，以饗臺灣讀者，非常感謝。<br>
+  <br>
+  未得陳崴先生與蔣濤先生二人之同意，任何人請勿將此文再做轉載。</font></p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p><i>Dr. Dobb's Journal</i> February 2000</p>
+  <p><big><big><strong>GJ : A Generic Java</strong>.</big></big> Java may be in for some 
+  changes</p>
+  <h4>By Philip Wadler</h4>
+  <p><i>Philip is a researcher at Bell Labs, Lucent Technologies. He can be reached at 
+  wadler@research.bell-labs.com.</i> </p>
+  <hr>
+  <p>Java 語言可能即將要有一番大變革。雖然 Java 
+  系統不斷地以猛烈的速度增加並改變各式各樣的程式庫，但是 Java 
+  語言自從數年前導入&nbsp; inner classes 之後便幾乎凍結了起來。現在，Sun 
+  加入了 Java Community Process<font color="#FF0000">（譯註：一個有正式組織的開放計劃，用來開發並修訂 
+  Java 技術規格）</font>，考慮為 Java 語言加上泛型（generics）特性。</p>
+  <p>下面就是「泛型」能夠解決的問題。假設你希望運用 lists，有些人希望擁有 
+  list of bytes，有些人希望擁有 list of strings，還有一些人希望擁有 lists 
+  of lists of strings。在 Java 語言中，這很簡單。你可以使用相同的 class 
+  表達上述三個你所想要的東西，它們都擁有型別為 class <i>Object</i> 
+  的元素，見表<font color="#000000">一</font>(a)。</p>
+  <p>　</p>
+  <p>表一/&nbsp; lists的使用&nbsp; (a) Java (b) Generic Java</p>
+  <div align="left"><table border="1" width="371">
+    <tr>
+      <td width="167">List 的型態</td>
+      <td width="192">使用的 Class</td>
+    </tr>
+    <tr>
+      <td width="167"><pre>(a)
+list of bytes
+list of strings
+list of list of strings</pre>
+      </td>
+      <td width="192"><pre>-
+List
+List
+List</pre>
+      </td>
+    </tr>
+    <tr>
+      <td width="167"><pre>(b)
+list of bytes
+list of strings
+list of list of strings</pre>
+      </td>
+      <td width="192"><pre>-
+List&lt;Byte&gt;
+List&lt;String&gt;
+List&lt;List&lt;String&gt;&gt;</pre>
+      </td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>為了保持語言的簡單，你被迫自己動手做一些事情：是的，你必須記住一個事實，那就是你所擁有的是個 
+  list of bytes（或 strings 或 lists），而後當你從中萃取出一個元素時，在更進一步處理之前，你必須將它轉型，從 
+  class <i>Object</i>&nbsp; 轉為 class <i>Byte</i>（或 <i>String</i> 或 <i>List</i>）。Java2 
+  的 collection class framework 就是以此方式對待各種容器類別（其中涵蓋 
+  lists）。</p>
+  <p>愛因斯坦說過，每件事情都應該儘量簡化，但不要過度簡介（everything 
+  should be as simple as possible, but no simpler）。可能有人會說以上太過簡化了。如果我們以泛型型別（generic 
+  types）來擴充 Java 語言，就有可能以一種更直接的方法來表現 lists 
+  的相關資訊；見表<font color="#000000">一</font>(b)。於是，編譯器可以追蹤記錄你是否擁有一個 
+  list of bytes（或 strings 或 lists），而你也就不再需要將型別轉回 class <i>Byte</i>（或 
+  <i>String</i> 或 <i>List&lt;String&gt;</i>）。某種情況下，這很類似 Ada 
+  語言的 generics 或 C++ 語言的 templates。它也很類似所謂的 functional 
+  languages（如 ML 和 Haskell）中的 parametric polymorphism。 </p>
+  <p>Sun 的工作受到一些前人努力的影響，我指的是令人測目的 Generic 
+  Java (GJ)。GJ 最初由三組人馬設計，分別是 Sun 的 Gilad Bracha 和 David 
+  Stoutamire，瑞士聯邦科技學會的 Martin Odersky，和我本人。Bracha 
+  如今帶領 Sun 的一個部門，正在為Java加入泛型特性而衝鋒陷陣。Odersky 
+  和我則是在相關的專家委員會裡頭。在這篇文章中，我要以一種前瞻的態度描述 
+  GJ，看看 Sun 的努力可能浮現出什麼成果。GJ 
+  的進一步細節，可自以下網站獲得：<a
+  href="javascript:if(confirm(%27http://www.cs.bell-labs.com/~wadler/gj/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.cs.bell-labs.com/~wadler/gj/%27" tppabs="http://www.cs.bell-labs.com/~wadler/gj/" target="_blank">http://www.cs.bell-labs.com/~wadler/gj/</a>。GJ 
+  編譯器由 Odersky 撰寫，目前可由上述站點下載。這個 GJ 
+  編譯器同時也是 Sun 目前服役的 Java 編譯器的基礎 — 
+  雖然後者尚未支援泛型。GJ 和 GJ 編譯器並不是 Sun 的產品。</p>
+  <p>GJ 的幾個關鍵特性包括：<ul>
+    <li>相容於 Java。GJ 是 Java 的超集。每一個 Java 程式在GJ 
+      中都仍然合法而且有著與過去相同的意義。 </li>
+    <li>相容於 Java 虛擬機器（JVM）。GJ 被編譯為 JVM 碼。JVM 
+      不需任何改變。因此 Java 所能執行之處，GJ 
+      都能執行，包括在你的瀏覽器上。 </li>
+    <li>相容於既有的程式庫。既有的程式庫都能夠和 GJ 
+      共同運作，即使是編譯後的 class 
+      二進位型式。有時候我們也可以將一個舊有的程式庫翻新，加上新的型別，而不需更動其源代碼。例如 
+      Java collection class library 就可以被這樣翻新，加上泛型特性。 </li>
+    <li>高效（Efficiency）。與泛型型別（generic types）相關的資訊，只有在編譯期（而非執行期）才被維護著。這意味編譯後的 
+      GJ 代碼幾乎完全和相同目的、相同效率的 Java 代碼一致。 </li>
+  </ul>
+  <p>GJ 編譯器的工作是把 GJ 代碼翻譯回一般的 Java 
+  代碼。這個翻譯程序僅僅只是消除型別參數（type parameters）並加上轉型動作。例如它把 
+  GJ class <i>List&lt;Byte&gt;</i> 翻譯回 Java class <i>List</i>，並加上轉型，在必要的地方從 
+  <i>Object</i> 轉為 <i>Byte</i>。獲得的結果就像你在不支援泛型的情況下所寫的 
+  Java 代碼一樣。這就是為什麼我們能夠輕易為 GJ 和既存的 Java 
+  程式庫建立起介面的原因，這也是為什麼 GJ 能夠和 Java 
+  擁有相同效率的原因。此外，GJ 
+  帶有所謂的轉型鐵律，保證任何一個被編譯器加入的轉型動作都不會導致錯誤。在功效上，型別系統是一個簡單的邏輯，足以讓編譯器證明某個轉型動作是否安全。在這些保證之下，由於 
+  GJ 將程式碼翻譯為 JVM byte codes，所以 Java 平台原本擁有的安全性（safety）和防護性（security）也都獲得了保留。</p>
+  <h3>GJ 如何運作</h3>
+  <p>讓我們看兩個例子，實際了解 GJ 的運作方式。第一個例子涵蓋 GJ 
+  的最基本性質，用以建立並驗證 generic lists。第二個例子涵蓋一些比較進階的性質，為你展示如何撰寫一個 
+  generic method，以便找出某個 list 
+  所含的最大元素。無論哪一個例子，我都會先以 Java 
+  代碼完成，然後再示範如何以 GJ 重寫。我也會說明如何將傳統的 Java 
+  程式庫翻新，使它相容於 GJ，最後並對 C++ templates 和 GJ generics 
+  做一個比較。</p>
+  <p>例一顯示 list interface 和 iterator interface（兩者都是根據 Java 
+  collections library 而做的高度簡化），以及一個將 list interface實作出來的 
+  linked list class，和一個測試用的 class。這裡的 list interface 提供了一個<i> 
+  add</i> &nbsp; method，用來為 list 添加新元素，還有一個<i> iterator</i>&nbsp; 
+  method，用來傳回 list 的一個迭代器。至於 iterator interface 
+  則是提供了一個 <i>hasNext</i> method，用來決定迭代是否已經完成，以及一個 
+  <i>next</i> method，用來取得下一個元素，並將迭代器推進一個位置。linked 
+  list class 實作出 list interface，但我略而不述其中細節。<i>add</i> method 
+  接受一個物件，<i>next</i> method 則是傳回一個物件。由於每一個 class 
+  都是<i>Object</i>&nbsp; 的 subclass，所以你可以以 <i>Byte</i>, <i>String</i>, <i>List</i> 
+  自己，或任何其他 class 元素來組成 lists。 </p>
+  <pre><font color="#0000FF">例一：List interface 和 iterator interface</font></pre>
+  <pre>interface List {
+  public void add (<font color="#0000FF">Object</font> x);
+  public Iterator iterator ();
+}
+interface Iterator {
+  public <font
+color="#0000FF">Object</font> next ();
+  public boolean hasNext ();
+}
+class LinkedList implements List { ... }
+class Test {
+  public static void main (String[] args) {</pre>
+  <pre>    // byte list
+    List xs = new LinkedList();
+    xs.add(new Byte(0)); <big>
+</big>    xs.add(new Byte(1));
+    Byte x = <font
+color="#0000FF">(Byte)</font>xs.iterator().next();</pre>
+  <pre>    // string list
+    List ys = new LinkedList();
+    ys.add(&quot;zero&quot;); <big>
+</big>    ys.add(&quot;one&quot;);
+    String y = <font
+color="#0000FF">(String)</font>ys.iterator().next();</pre>
+  <pre>    // string list list
+    List zss = new LinkedList();
+    zss.add(ys);
+    String z = <font
+color="#0000FF">(String)</font>(<font color="#0000FF">(List)</font>zss.iterator().next()).iterator().next();</pre>
+  <pre>    // string list treated as byte list
+    Byte w = <font color="#0000FF">(Byte)</font>ys.iterator().next();  <font
+color="#FF0000">// run-time exception</font>
+  }
+}
+</pre>
+  <p>測試用的那個 class 建造出一些 lists，然後從中萃取元素。使用者必須記住儲存於 
+  list 
+  之中的元素是什麼型別，然後在萃取元素的同時，將它轉為適當的型別。最後一次萃取行動需要兩個轉型動作。如果使用者出人意表地打算從一個 
+  list of strings 中萃取出一個 byte，便會在執行時期發生異常（exception）。</p>
+  <p><a NAME="re2"></a>例二所顯示的是以 GJ 完成的 lists, iterators, linked lists，以及一個測試用的 
+  class。現在，每個 interfaces 和 class 都有一個型別參數 <i>A</i>，寫在角括號內，用來表述元素的型別。先前<i>Object</i> 
+  所出現的每一個地方，現在都以 <i>A</i> 取代。先前 <i>List</i>, <i>Iterator</i>, 
+  或 <i>LinkedList</i> 所出現的每一個地方，現在都分別以 <i>List&lt;A&gt;</i>, 
+  <i>Iterator&lt;A&gt;</i>, 或 <i>LinkedList&lt;A&gt;</i> 
+  取代。再也不需要仰賴使用者的記憶了，這些參數便足以說明每一個 
+  list 的元素型別，而且再也不需要轉型動作了。從一個 list of lists 
+  身上萃取元素，現在變得比較明白。如果企圖從一個&nbsp; list of 
+  strings 身上萃取 byte，編譯器會指出錯誤。</p>
+  <pre><font color="#0000FF">例二：Lists, iterators, linked lists, 以及測試用的 class <big>
+</big></font>rewritten in GJ</pre>
+  <pre>interface List<font color="#0000FF">&lt;A&gt;</font> {
+  public void add(<font
+color="#0000FF">A</font> x);
+  public Iterator<font color="#0000FF">&lt;A&gt;</font> iterator();
+}
+interface Iterator<font
+color="#0000FF">&lt;A&gt;</font> {
+  public <font color="#0000FF">A</font> next();
+  public boolean hasNext();
+}
+class LinkedList<font
+color="#0000FF">&lt;A&gt;</font> implements List<font color="#0000FF">&lt;A&gt;</font> { ... }
+class Test {
+  public static void main (String[] args) {</pre>
+  <pre>    // byte list
+    List<font color="#0000FF">&lt;Byte&gt;</font> xs = new LinkedList<font
+color="#0000FF">&lt;Byte&gt;</font>();
+    xs.add(new Byte(0)); <big>
+</big>    xs.add(new Byte(1));
+    Byte x = xs.iterator().next();</pre>
+  <pre>    // string list
+    List<font color="#0000FF">&lt;String&gt;</font> ys = new LinkedList<font
+color="#0000FF">&lt;String&gt;</font>();
+    ys.add(&quot;zero&quot;); <big>
+</big>    ys.add(&quot;one&quot;);
+    String y = ys.iterator().next();</pre>
+  <pre>    // string list list
+    List<font color="#0000FF">&lt;List&lt;String&gt;&gt;</font> zss = new LinkedList<font
+color="#0000FF">&lt;List&lt;String&gt;&gt;</font>();
+    zss.add(ys);
+    String z = zss.iterator().next().iterator().next();</pre>
+  <pre>    // string list treated as byte list
+    Byte w = ys.iterator().next();  <font
+color="#FF0000">// compile-time error</font>
+  }
+}
+</pre>
+  <p>在 Java 語言中，lists 是異質性的（heterogenous）-- 
+  它們可以擁有任何型別的元素，沒有任何辦法可以強迫它們擁有相同型別。然而在 
+  GJ 中，lists 卻是同質性的（homogenous） -- 
+  它們必須擁有相同型別的元素，編譯器會厲行這一點。如果你真的需要一個 
+  list，擁有不同型別的元素，你應該使用 <i>List&lt;Object&gt;</i>。</p>
+  <p>為了將 GJ 翻譯為 Java 
+  語言，必須為每一個型別做一種特殊的擦拭（erasure）動作。一個被參數化的型別，經過擦拭後，應該除去參數（於是 
+  <i>List&lt;A&gt;</i> 被擦拭為 <i>List</i>），一個未被參數化的型別，經過擦拭後應該獲得型別本身（於是 
+  <i>Byte</i> 被擦拭為 <i>Byte</i>），而一個型別參數經過擦拭後，結果為 
+  <i>Object</i>（於是 <i>A</i> 被擦拭後變成 <i>Object</i>）。如果某個 method 
+  call 
+  的傳回型別是個型別參數，編譯器會為它安插適當的轉型動作。將表二的 
+  lists 的 GJ 代碼轉譯為 Java 
+  代碼，會得到表一（引起錯誤的那行除外）。因此，一個「根據 GJ 
+  代碼完成的新程式」，可以和一個「根據 Java 
+  代碼完成的舊程式庫」放在一起編譯。</p>
+  <p>GJ 以角括號標示型別參數，原因是 C++ 
+  使用者對它們比較熟悉，而且其他型式的括號可能會帶來混淆。是的，如果使用小括號，型別參數和數值參數就很難區分。如果使用中括號，型別參數和陣列尺度（array 
+  dimension）就很難區分。如果使用大括號，型別參數和類別主體（class 
+  body）就很難區分。</p>
+  <p>或許像 <i>LinkedList&lt;LinkedList&lt;String&gt;&gt;</i> 
+  這樣複雜的形式會給文句解析器（parser）帶來一些難題。因為 <i>&gt;&gt;</i> 
+  被視為單一語彙（ <i>&gt;&gt;&gt;</i> 也一樣）。C++ 
+  要求使用者必須在兩個右角括號之間加上額外空白，以迴避這個問題。GJ 
+  使用者不必擔心同樣的問題，這個問題已經透過一個稍微有點複雜的文法解決掉了。</p>
+  <h3>Bridges, Generic Methods, Bounds</h3>
+  <p>下一個例子示範進階的泛型特性，包括 bridges，generic methods，以及 
+  bounds。我打算寫一段 Java 代碼，搜尋某個 list 
+  所含的最大元素，然後再示範如何以 GJ 重寫一遍。</p>
+  <p>在 Java 
+  之中，如果要讓物件得以一較長短（大小），應該令它們實作出 
+  &nbsp; <i>Comparable </i>interface。喔，是的，每一個基本型別（例如 <i>byte</i> 
+  或 <i>boolean</i>）都有一個相應的物件型別（例如 <i>Byte</i> 或 <i>Boolean</i>）。</p>
+  <p><a NAME="re3"></a>例三顯示了 <i>Comparable </i>interface 
+  的宣告，以及一個實作出該介面的 <i>Byte</i> class。兩者都簡化自 Java 
+  程式庫。<i>compareTo</i> method 
+  接受一個參數物件並傳回一個整數。如果受者本身小於、等於、或大於參數物件，傳回的就分別是負值、零值、或正值。<i>Byte</i> 
+  class 定義了兩個 methods，一個是 <i>compareTo(Byte)</i>，此式重載（overloads）了 
+  <i>compareTo</i>，另一個是 <i>compareTo(Object)</i>，此式改寫（overrides）了<i>Comparable 
+  </i>interface 中相應的 method。第一個 method 僅僅只是將兩個 bytes 
+  相減，以此做為它們的比較方式。第二個 method 將物件轉型為 byte，然後呼叫第一式。要知道，如果第一式收到的是個物件而不是個 
+  byte，會造成執行時期錯誤。因此第二個 method 
+  的存在是有必要的，它會造成第一式的被呼叫一定發生於型別完全吻合的時候。我們把第二個 
+  method 稱為 &quot;<font color="#000000"><strong>bridge</strong></font>&quot;，因為它將第一個 
+  method（專屬於 bytes）和 interface method（對所有物件都適用）連接了起來。</p>
+  <p><a NAME="re3"></a>例三還展示了一個<i> Lists</i> class 和一個測試用的 
+  class。前者帶有一個 static method，用來找出 list 中的最大元素。<i>max</i> 
+  method 接受一個非空的 list，其內都是可比較的元素，傳回的則是所有元素中最大的一個。Test 
+  class 
+  示範了兩個呼叫動作。和先前情況一樣，使用者必須記住他使用的是什麼型別，並做適當轉型。Booleans 
+  並未實作出 comparable interface，所以如果企圖找出一個「以 Booleans 
+  為元素」的 list 中的最大值，執行時期會發生異常（exception）。</p>
+  <p>　</p>
+  <pre><font color="#0000FF">例三：以下是 Comparable interface 的宣告，以及實作出該介面的 Byte class 的宣告。</font></pre>
+  <pre>interface Comparable {
+  public int <font color="#0000FF">compareTo</font> (<font
+color="#0000FF">Object</font> that);
+}
+class Byte implements Comparable {
+  private byte value;
+  public Byte (byte value) { this.value = value; }
+  public byte byteValue () { return value; }
+  public int <font
+color="#0000FF">compareTo</font> (<font color="#0000FF">Byte</font> that) {
+    return this.value - that.value;
+  }
+  // bridge
+  public int <font
+color="#0000FF">compareTo</font> (<font color="#0000FF">Object</font> that) {
+    return this.compareTo(<font
+color="#0000FF">(Byte)</font>that);
+  }
+}
+class Lists {
+  public static <font color="#0000FF">Comparable</font> <font
+color="#FF00FF">max</font> (List xs) {
+    Iterator xi = xs.iterator();
+    Comparable w = (Comparable)xi.next();
+    while (xi.hasNext()) {
+      Comparable x = (Comparable)xi.next();
+      if (w.<font
+color="#0000FF">compareTo</font>(x) &lt; 0) w = x;
+    }
+    return w;
+  }
+}
+class Test {
+  public static void main (String[] args) {</pre>
+  <pre>    // byte list
+    List xs = new LinkedList();
+    xs.add(new Byte(0)); <big>
+</big>    xs.add(new Byte(1));
+    Byte x = <font
+color="#0000FF">(Byte)</font>Lists.<font color="#FF00FF">max</font>(xs);</pre>
+  <pre>    // boolean list
+    List ys = new LinkedList();
+    ys.add(new Boolean(false)); <big>
+</big>    ys.add(new Boolean(true));
+    Boolean y = <font
+color="#0000FF">(Boolean)</font>Lists.<font color="#FF00FF">max</font>(ys);  <font
+color="#FF0000">// run-time exception</font>
+  }
+}
+</pre>
+  <p><a NAME="re4"></a>例四是以 GJ 重新寫過的代碼。<i>Comparable </i>interface 
+  現在接受一個型別參數 <i>A</i>， 
+  表示將被拿來比較的型別。舉個例子，class <i>Byte</i>&nbsp; 實作出 <i>Comparable&lt;Byte&gt;</i> 
+  &nbsp; interface，那就表示一個 byte 可以被拿來和另一個 byte 比較。<i>Comparable 
+  </i>interface 需要一個 method，型式為 <i>compareTo(A)</i>，所以你可以預期，它被實作於某個 
+  class 之內時，一定擁有諸如 <i>compareTo(Byte)</i> 這樣的標記形式（signature）。使用者不再需要撰寫 
+  bridge method，因為它已經自動由 GJ 編譯器完成了。</p>
+  <p>　</p>
+  <pre><font color="#0000FF">例四：Code rewritten in GJ</font></pre>
+  <pre>interface Comparable<font color="#0000FF">&lt;A&gt;</font> {
+  public int compareTo (<font
+color="#0000FF">A</font> that);
+}
+class Byte implements Comparable<font color="#0000FF">&lt;Byte&gt;</font> {
+  private byte value;
+  public Byte (byte value) { this.value = value; }
+  public byte byteValue () { return value; }
+  public int <font
+color="#0000FF">compareTo</font> (<font color="#0000FF">Byte</font> that) {
+    return this.value - that.value;
+  }
+}
+class Lists {
+  public static <font
+color="#0000FF">&lt;A implements Comparable&lt;A&gt;&gt;</font> <font color="#0000FF">A</font> <font
+color="#FF00FF">max</font> (List<font color="#0000FF">&lt;A&gt;</font> xs) {
+    Iterator<font
+color="#0000FF">&lt;A&gt;</font> xi = xs.iterator();
+    A w = xi.next();
+    while (xi.hasNext()) {
+      A x = xi.next();
+      if (w.<font
+color="#0000FF">compareTo</font>(x) &lt; 0) w = x;
+    }
+    return w;
+  }
+}
+class Test {
+  public static void main (String[] args) {</pre>
+  <pre>    // byte collection
+    LinkedList<font color="#0000FF">&lt;Byte&gt;</font> xs = new LinkedList<font
+color="#0000FF">&lt;Byte&gt;</font>();
+    xs.add(new Byte(0)); <big>
+</big>    xs.add(new Byte(1));
+    Byte x = Collections.<font
+color="#FF00FF">max</font>(xs);</pre>
+  <pre>    // boolean collection
+    LinkedList<font color="#0000FF">&lt;Boolean&gt;</font> ys = new LinkedList<font
+color="#0000FF">&lt;Boolean&gt;</font>();
+    ys.add(new Boolean(false)); <big>
+</big>    ys.add(new Boolean(true));
+    Boolean y = Collections.<font
+color="#FF00FF">max</font>(ys);  <font color="#FF0000">// compile-time error</font>
+  }
+} 
+// <font
+color="#FF0000">譯註</font>：這裡改用Collections.max()，而非前例的Lists.max()。
+//   兩者實作手法幾乎完全相同，前者可見 src\java\util\collections.java</pre>
+  <p><i>max</i> method 的標記式（signature）說明了 GJ 的兩個有趣性質 -- 
+  generic methods 和 bounds。下面是<i> max</i> 的標記全貌：</p>
+  <blockquote>
+    <p>public static <font color="#0000FF">&lt;A implements Comparable&lt;A&gt;&gt;</font> <font
+    color="#FF00FF">A</font> max (List<font color="#FF0000">&lt;A&gt;</font> xs)</p>
+  </blockquote>
+  <p>這個長長的句子告訴我們，<i> max</i> method 接受一個 list，其內的元素型別都是 
+  <i>A</i>，傳回一個元素，型別亦為 <i>A</i>。最前面的角括號內宣告了型別參數 
+  <i>A</i>，並指出這個 method 可以被任意型別 <i>A</i> 具現化（instantiated），只要 
+  <i>A</i> 實作出 <i>Comparable&lt;A&gt;</i> 介面。<font color="#0000FF">一個 method 
+  如果擁有自己的型別參數，我們稱它為一個 &quot;<strong>generic method</strong>&quot;，而一個型別參數如果必須實作出某個已知介面（或者必須是某個已知 
+  class 的 subclass），我們稱之為 &quot;<strong>bounded</strong>&quot;（被限制）。 
+  </font></p>
+  <p>Test class 
+  示範了兩個實際呼叫動作。在第一個呼叫動作中，編譯器自動推導出<i> 
+  max</i> method 標記式中的型別參數 <i>A</i> 必須被具現化為 <i>Byte</i>，並且檢查 
+  class <i>Byte</i> 確實實作了 <strong>bound</strong> <i>Comparable&lt;Byte&gt;</i>。第二次呼叫推導出來的型別參數是 
+  <i>Boolean</i>，但它並未實作出 <strong>bound</strong> <i>Comparable&lt;Boolean&gt;</i>。也因此，Java 
+  執行期原本會發出異常（exception）之處，GJ 
+  在編譯期就把它們指出來了。</p>
+  <p>一般而言，導入一個 <strong>bound</strong> 
+  的方式是，在型別參數之後寫上 &quot;<i>implements&quot;</i> 
+  然後再加上一個 interface 名稱，或者是在型別參數之後寫上 &quot;<i>extends&quot;</i> 
+  然後再加上一個 class 名稱。<font color="#0000FF">不論是在 class head 或是 <strong>generic 
+  method</strong> 標記式中，凡型別參數可以出現之處，<strong>bound</strong>s 
+  都可以出現。<strong>bounding</strong> interface 或 class 
+  本身可能又被參數化，甚至可能形成遞迴（recursive）</font>，例如上述例子中的 
+  <strong>bound</strong> <i>Comparable&lt;A&gt;</i> 就內含了 <strong>bounded</strong> 
+  型別參數 <i>A</i>。 </p>
+  <p>現在，擦拭（erasure）的定義需要再擴充：<font color="#0000FF">一個型別變數經過擦拭，相當於其 
+  <strong>bound</strong> 的擦拭結果</font>（這麼一來<i> max</i> method 中的 <i>A</i> 
+  便被擦拭為 <i>Comparable</i>）。一如先前所說，轉譯會導致適當的轉型，也會帶來必要的 
+  bridge methods。和先前所說一樣，例四的 GJ 
+  代碼經過轉譯之後，會導致例三的 Java 代碼（犯錯的那行除外）。</p>
+  <p>如你所見，GJ 代碼被編譯為 Java 
+  之後，其結果就像你在無泛型性質的情況下所寫的代碼。所以，<font
+  color="#0000FF">只要使用GJ編譯器的一個特殊翻新模式（retrofitting mode），你總是可以為舊式的傳統代碼加上型別資訊，甚至即使你手上只有二進位的 
+  class files</font>。</p>
+  <p>舉個例子，假設你有一個 class file，其內有先前所描述的 Java 版的 <i>LinkedList</i> 
+  class，但你希望以 GJ 形式來使用它。<a NAME="re5"></a>例五顯示必要的翻新檔。</p>
+  <pre><font color="#0000FF">例五：翻新檔（retrofitting file）</font></pre>
+  <pre>class LinkedList<font color="#0000FF">&lt;A&gt;</font> implements Collection<font
+color="#0000FF">&lt;A&gt;</font> {
+  public LinkedList ();
+  public void add (<font
+color="#0000FF">A</font> elt);
+  public Iterator<font color="#0000FF">&lt;A&gt;</font> iterator ();
+}
+</pre>
+  <p>為了支援獨立編譯，<font color="#0000FF">GJ 
+  編譯器將額外的型別標記（type-signature）儲存於 JVM class files 中。class 
+  file 檔案格式允許如此的擴充，並於執行時期被 JVM 忽略。翻新器（retrofitter）會取出原有的 
+  Java class file，檢查其型別標記是否如同「GJ 
+  標記被擦拭後」的結果，然後產生一個帶有 GJ 標記的嶄新 class file</font>。</p>
+  <p>Java2 的整個 collection class library已經以此方式翻新。程式庫中的每一個 
+  public interface, class, 和 method 都有一個適當對應的 GJ 
+  型別，絕無漏網之魚。由於翻新後的 class files 
+  與原先不同之處只在於新增加的那些 GJ 
+  型別標記（它會於執行時期被 JVM 
+  忽略），所以你可以將其結果在一個與 Java 2 
+  相容的瀏覽器中執行，不需重新載入 collection class library。</p>
+  <p>大部份情況下，你可能最終會想要將原始程式庫以「參數化型別」重新寫過（rewriting）。翻修（retrofitting）的優點則是，你可以按自己高興或方便的時程來進行，因為，是的，在新的代碼可以運用泛型型別之前，你並不需要重新撰寫所有的舊式代碼。</p>
+  <h3>結論</h3>
+  <p>Java 程式員常常使用一種泛型手法（generic idiom）：讓某個資料結構的元素型別為 
+  <i>Object</i>。這種作法很簡易，但你被迫追蹤元素的實際型別，並需要自行加上額外的轉型動作。相反的，為 
+  Java 語言加上泛型型別（generic types）雖然會增加一點複雜度，但「追蹤元素型別」和「加上轉型動作」的責任，卻落在編譯器而非你的身上。</p>
+  <p>更特別的一點是，泛型型別還具有一個優點，可以把執行時期的異常轉化為編譯時期的錯誤，即早發現，即早治療。下面是 
+  Bill Joy，Java 語言規格的作者之一，對泛型爪哇的看法（發表於 Java 
+  One Conference，June 1999）：</p>
+  <blockquote>
+    <p><font color="#0000FF">我們繼續致力於在軟體開發階段找出各種錯誤，並放置一個參數化型別系統於 
+    Java 
+    語言之中。對我而言，這麼做的價值倒不在於使這個語言更具表達能力，而是得以擺脫各種該做而未做（或做錯）的轉型，使出貨之後才發現的錯誤得以大量減少。</font></p>
+    <p><font color="#0000FF">出貨之後修正一個臭蟲，其成本大約要比出貨前提昇 
+    10,000 
+    倍。而且對程序員而言，那是很令人厭煩的一個過程。如果臭蟲在編譯時期就被抓出來，你可以從容掌握狀況，因為整個代碼概念完全在你心中。如果臭蟲報告來自客戶，就需要煩人的臭蟲追蹤，最終會回到你的桌上，或某人的桌上，而原先的設計思緒早就飛到九霄雲外去了。你得在你的腦袋瓜中重新載入你的快取記憶體（&quot;cache&quot; 
+    memory）。所以，儘早抓出臭蟲，是非常好而且非常有價值的觀念。</font></p>
+  </blockquote>
+  <p>如果你看到有哪個 Java 程式使用 class <i>Object</i>，通常那就是一個記號，表示那個程式可以因為使用泛型型別而受益。你可以說這個 
+  class 的名稱取得真好 -- 當你看到它，你就應該 &quot;object&quot; 
+  並以泛型型別取而代之。<font color="#FF0000">（譯註：美式幽默，&quot;object&quot; 
+  作動詞解，有「反對」之意）</font></p>
+  <p>GJ 是一種用來為 Java 
+  加上泛型特性的語言。它的出現告訴我們，我們有可能以一個十分簡單而有用的作法，為 
+  Java 加上泛型能力。已有數個大型程式以 GJ 實作出來，包括 GJ 
+  編譯器本身。一如稍早所說，其他語言也以其他方式支援泛型，特別是 
+  C++ 以 templates 支援泛型。雖然兩者有著類似的語法和類似的用途，C++ 
+  templates 和 GJ generics 的實作方式卻完全不同。 </p>
+  <p><font color="#0000FF">C++ templates 是以膨脹法（expansion）實作出來</font>，編譯器針對被運用的每一個型別，為泛型代碼產生一份對應副本。例如在我們的第一個例子中，會產生三份副本，一個用於 
+  bytes, 一個用於 strings，一個用於 lists of strings。這往往導致程式碼的體積膨脹。猶有進者，由於 
+  template 
+  可能被定義於一個檔案之中而被另一個檔案使用，膨脹法所引起的錯誤往往無法被偵測出來，直到聯結時期才會記錄，而且往往難以回溯。我的同事 
+  Brian Kernighan 和 Rob Pike 曾經寫過一個小型的 C++ 程式，其 templates 
+  產生出一個名稱長達 1594 字元的變數（見 <i>The Practice of Programming</i>, 
+  Addison-Wesley, 1999.） </p>
+  <p><font color="#0000FF">GJ generics 就不一樣，它以拭去法（erasure）實作出來</font>，所以沒有程式碼膨脹的問題。型別變數必須滿足的所有條件，都已經在其 
+  <strong>bound</strong>s 
+  中清楚指定了，因此所有錯誤都會在編譯期就被偵測出來，不會等到聯結期。這真是好呀，尤其因為 
+  Java 
+  有所謂動態聯結，聯結期和執行期是一致的。但從另一個角度說，為了讓工作順利，型別參數必須總是一個指引型別（例如<i>Byte</i>）而不是一個基本型別（例如 
+  <i>byte</i>）。因此，除非 Java 編譯技術改善，否則 GJ generics 
+  的效率比不上 C++ templates。但或許這沒什麼大不了，因為就算編譯器技術改善了，Java 
+  的效率無論如何還是不可能高過 C++。</p>
+  <p>雖然 GJ 的目標明顯是為了實用，但它也有理論依據。對 GJ 
+  的設計有貢獻的觀念包括 Church 的 lambda calculus（1930s），Curry 和 
+  Hindley 的 type inference system（型別推論系統，1950s），以及 Girard 和 
+  Reynold 的 polymorphic calculus（1970s）。GJ 
+  程式員並不需要了解這些觀念，但是這些觀念幫助 GJ 
+  設計者做出更好的產品。上一個世紀的數學會對下一個千僖年的程式語言設計顯現出影響。 
+  </p>
+  <hr>
+  <p><font color="#0000ff"><strong>譯者</strong></font>：<font color="#000000">陳崴，自由撰稿人，專長 
+  C++/Java/OOP/Genericity。慣以熱情的文字表現冰冷的技術，以冷冽的文字表現深層的關懷。</font></p>
+  <p><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </p>
+</blockquote>
+</body>
+</html>

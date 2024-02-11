@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>無責任書評：泛型程式設計與 STL</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<p align="center">無責任書評</p>
+
+<h2 align="center">泛型程式設計與 STL</h2>
+
+<blockquote>
+  <p align="center">侯捷 第一次發表於 Run!PC 雜誌 Feb., 2000</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>如果有一項技術，可以讓你的程式碼處理各種不同的資料型別，甚至是目前未知的資料型別，你喜歡嗎？<br>
+  <br>
+  我會欣喜若狂。<br>
+  <br>
+  基本上這就是「可重用性（reusibility）」的表現。當我們有新的資料型態產生，而過去的碼無需修改即可沿用，不正是一種「可重用性」嗎？<br>
+  <br>
+  物件導向技術中的多型（polymorphism），以及泛型技術中的泛型（genericity）都可以達到這個目標。它們的字義，也明白標示出其特色。<br>
+  <br>
+  對大家而言，polymorphism 多型技術早已如雷灌耳，genericity 
+  泛型技術則恐怕稍感陌生。這是一個你需要儘快進入的重要領域。</p>
+  <p>●勤前教育<br>
+  <br>
+  數年前我第一次接觸泛型程式設計（generic programming）與 STL（Standard 
+  Template Library）的時候，就深深被它吸引。雖然那時候我還不怎麼瞭解 
+  STL 裡頭一大堆的術語像是 container、iterator、adaptor、function object、allocator…。甚至連泛型技術深度依賴的基本技法 
+  C++ template，當時的我都還只一知半解，但光只「泛型」這兩個字就夠把我吸引到那個世界裡面了。<br>
+  <br>
+  但願我這麼說不至於誤導你把泛型程式設計和 STL 
+  劃上等號。泛型概念濫觴於 Doug McIlroy 於 1968 年發表的一篇著名論文&quot;Mass 
+  Produced Software Components&quot;，那篇論文提出了&quot;reusable components&quot;（可重用軟體組件，又稱為軟體積木或軟體 
+  IC）的願景。然而在過去的數十年中，泛型技術仍屬於研究單位中的驕客，實作產品付之闕如。直到 
+  C++ 不斷加強 template 機制，並將 Alexander Stepanov 創作的 STL 
+  納入標準，泛型技術才終於在標準資料結構和標準演算法領域中有一套可被大眾運用的實作品出現，向現實跨一大步。<br>
+  <br>
+  簡單地說，泛型程式設計是一種「將資料型別參數化」的思維模式。C++ 
+  的 template 機制就是泛型技術的一個具體載具。在 C++ 中，不論是 
+  functions 或是 classes，皆可將其中所需要的資料型別以一個保留器（placeholder）代表，這個保留器亦即所謂的 
+  template 參數。例如 function template 如下：<br>
+  <br>
+  <small><font face="Courier New">template&lt;typename T1, typename T2)<br>
+  void func(T1 param1, T2 param2) { /* ... */ }</font></small><br>
+  <br>
+  或是 class template：<br>
+  <br>
+  <small><font face="Courier New">template&lt;typename T1, typename T2)<br>
+  class A { /* ... */ }</font></small><br>
+  <br>
+  一旦程式中使用函式 func() 或 class A 時：<br>
+  <br>
+  <small><font face="Courier New">func(5, 2.3);<br>
+  A&lt;int, double&gt; a;</font></small><br>
+  <br>
+  編譯器即根據 function template 的函式引數、或是明白標示的 class 
+  template 引數，自動推導出一份函式實體或 class 
+  實體。換言之這項具現化動作在編譯時期就完成，不會增加執行時期的成本。（關於 
+  template 的語法與性能，請參考任何一本「年輕的」C++ 全貌型書籍）<br>
+  <br>
+  STL 是泛型概念的一套實作品。從學理上來說，它其實是一套嚴謹的 
+  &quot;concepts&quot; 分類學。這裡所謂的 concepts 
+  有其嚴肅定義，意指「對某種型別的一些條件需求」。滿足這些條件者，稱為該 
+  concepts 的 models。STL concepts 並沒有實際對應到 C++ 
+  或其他語言的任何東西。<br>
+  <br>
+  這樣的學理概念，對大多數人勿寧是不可承受之重。大部份人只著眼 
+  STL 的實用性。是的，STL 
+  非常好用，彈性非常大，效率也很理想。從實作的角度來看，以各種間接方式完成 
+  STL concepts 需求之各種 C++ classes 和 C++ functions，就是大家印象中的 STL，它們實際存在於各個相應的含入檔中，如 
+  &lt;vector&gt;,&lt;functional&gt;, &lt;algorithms&gt;.<br>
+  <br>
+  以下，我便為各位介紹四本 STL 
+  相關書籍，涵蓋不同的切入層次。其中前兩本是著名的 C++ 
+  全貌（百科）型書籍，我只挑其中的 STL 相關章節介紹。<br>
+  <br>
+  ●C++ Primer 3/e<br>
+  <br>
+  【基本資料】<br>
+  書名：C++ Primer 3/e<br>
+  作者：Stanley B. Lippman &amp; Josee Lajoie<br>
+  出版：Addison Wesley, 0-201-82470-1, 1998<br>
+  定價：US$ 45.95<br>
+  頁數：1237（含索引）<br>
+  <font color="#0000FF">template &amp; STL 相關章名：<br>
+  chap6: Abstract Container Types<br>
+  chap10: Function Templates<br>
+  chap12: The Generic Algorithms<br>
+  chap16: Class Templates<br>
+  appendix: The Generic Algorithms Alphabetically</font></p>
+  <p><img src="cpp-primer.jpg" tppabs="http://jjhou.boolan.com/cpp-primer.jpg" alt="cpp-primer.jpg (20871 bytes)" width="212" height="264"><br>
+  <br>
+  這本書向以內容廣泛說明詳盡著稱。上列各章對於泛型基礎技術 
+  template 以及 STL 的各個組件（除了 allocators）都做了應用上的說明。書中有大量範例，尤其附錄列出所有的 
+  STL 泛型演算法的規格、說明、實例，是極佳的學習資料。</p>
+  <p><br>
+  <br>
+  ●The C++ Programming Language 3/e<br>
+  <br>
+  【基本資料】<br>
+  書名：The C++ Programming Language 3/e<br>
+  作者：Bjarne Stroustrup<br>
+  出版：Addison Wesley, 0-201-88954-4, 1997<br>
+  定價：未列<br>
+  頁數：910（含索引）<br>
+  <font color="#0000FF">template &amp; STL 相關章名：<br>
+  chap3: A Tour of the Standard Library<br>
+  chap13: Templates<br>
+  chap17: Standard Containers<br>
+  chap18: Algorithms and Function Objects<br>
+  chap19: Iterators and Allocators</font></p>
+  <p><img src="bjarne.jpg" tppabs="http://jjhou.boolan.com/bjarne.jpg" alt="bjarne.jpg (19218 bytes)" width="220" height="272"><br>
+  <br>
+  這本書向以學術權威性著稱（看看作者是誰 :)）。若非具備一定程度，對於書中內容或表達方式，淺嚐之下會有艱澀的口感。上列各章涵蓋了泛型基礎技術 
+  template 以及 STL 各組件。第 19 章對 Iterators Traits 技術的介紹，在 C++ 
+  語法書中難得一見，但此為正面或負面殊難定論，因為你必須知道 
+  Traits 
+  技術之發展原由（問題之所在），才能夠瞭解為什麼變成現在這般抽象模樣。當然，我們不能期望一本 
+  C++ 
+  語言書籍對此有深刻的表現，但是這麼高階的技術，蜻蜓點水式的說明並不會引導出閱讀興趣，反而會重挫許多讀者的信心。關於 
+  Traits 技術，稍後介紹的Generic Programming and the STL 一書表現極佳。<br>
+  <br>
+  <br>
+  ●The C++ Standard Library<br>
+  <br>
+  【基本資料】<br>
+  書名：The C++ Standard Library - A Tutorial and Reference<br>
+  作者：Nicolai M. Josuttis<br>
+  出版：Addison Wesley, 0-201-37926-0, 1999<br>
+  定價：US$ 49.95<br>
+  頁數：799（含索引）<br>
+  章名：<br>
+  1. About the Book<br>
+  2. Introduction to C++ and the Standard Library<br>
+  3. General Concepts<br>
+  4. Utilities<br>
+  5. The Standard Template Library<br>
+  6. STL Containers<br>
+  7. STL Iterators<br>
+  8. STL Function Objects<br>
+  9. STL Algorithms<br>
+  10 Special Containers<br>
+  11 Strings<br>
+  12 Numerics<br>
+  13 Input/Output Using Stream Classes<br>
+  14 Internationalization<br>
+  15 Allocators<br>
+  Internet Resources<br>
+  Bibliography<br>
+  Index<br>
+  </p>
+  <p><img src="the-cpp-standard-library.jpg" tppabs="http://jjhou.boolan.com/the-cpp-standard-library.jpg"
+  alt="the-cpp-standard-library.jpg (29700 bytes)" width="241" height="303"></p>
+  <p><br>
+  正如其副標所示，這是一本兼具學習用途以及查閱工具的書籍，毫不誇張，亦當之無愧。本書涵蓋的不僅是 
+  STL，而是整個C++ Standard Library。詳細介紹每一個組件的規格以及運用方式。整理功夫做得非常好也非常紮實，經常以表格的形式，讓讀者一目瞭然。<br>
+  <br>
+  一旦你開始實際運用 STL，本書絕對可以大量節省你翻查參考資料的時間。<br>
+  <br>
+  由於本書介紹的對象是整個 C++ Standard Library，所以一些少見於其他書籍的組件，如 
+  valvarry, mem_fun, ptr_fun,locales, 也都有涵蓋。本書的另一個特色是，對於 
+  STL 相關的 exception handling，亦有介紹。<br>
+  <br>
+  本書不僅介紹 STL 組件的運用，也導入 STL 
+  的原始碼。這些原始碼都經過處理與節錄，比較容易入目。此外也適度介紹某些擴充技術。例如6.8 
+  節介紹如何以 smart pointer 使 STL containers具有 &quot;reference semantics&quot;（要知道，STL 
+  containers 本身只支援 &quot;value semantics&quot;），又例如 7.5.2 
+  節介紹一個訂製型 iterator，10.1.4 節介紹一個訂製型 stack，10.2.4 
+  節介紹一個訂製型 queue。15.4 節介紹一個訂製型 allocator。雖然都只是短短一些篇幅，列出基本技法，但對於想要擴充 
+  STL<br>
+  的程式員而言，是一種實質上的莫大幫助。<br>
+  <br>
+  一般而言，英文電腦書的字體都滿小的。本書比較特別，字行之間的距離比較大，程式碼與書後索引尤然。閱讀起來眼睛應該輕鬆不少。喜歡以「頁數/售價比」來評斷書籍的人，可能會高興一些；希望書籍輕一點薄一點便利攜帶的人，則可能稍有慍意。我常在 
+  BBS/News 
+  上看到一些令人發噱的有關書厚與書價的言論。基本上談書的價值，不應該扯到書的售價與頁數。我對書的售價的看法是這樣：電腦書不是寫真集，沒有用保鮮膜包起來；你願意買它，就表示你承認它的價值匹配它的價格；否則，就不要買 
+  :)<br>
+  <br>
+  <br>
+  ●Generic Programming and the STL<br>
+  <br>
+  【基本資料】<br>
+  書名：Generic Programming and the STL -<br>
+  Using and Extending the C++ Standard Template Library<br>
+  作者：Matthew H. Austern<br>
+  出版：Addison Wesley, 0-201-30956-4, 1999<br>
+  定價：US$ 49.95<br>
+  頁數：548（含索引）<br>
+  章名：<br>
+  PartI : Introduction to Generic Programming<br>
+  1. A Tour of the STL<br>
+  2. Algorithms and Ranges<br>
+  3. More about Iterators<br>
+  4. Function Objects<br>
+  5. Containers<br>
+  PartII : Reference Manual: STL Concepts<br>
+  6. Basic Concepts<br>
+  7. Iterators<br>
+  8. Function Objects<br>
+  9. Containers<br>
+  PartIII : Reference Manual : Algorithms and Classes<br>
+  10. Basic Components<br>
+  11. Nonmutating Algorithms<br>
+  12. Basic Mutating Algorithms<br>
+  13. Sorting and Searching<br>
+  14. Iterator Classes<br>
+  15. Function Object Classes<br>
+  16. Container Classes<br>
+  Appendix A. Portability and Standardization<br>
+  Bibliography<br>
+  Index</p>
+  <p><br>
+  <img src="generic-programming-and-stl.jpg" tppabs="http://jjhou.boolan.com/generic-programming-and-stl.jpg"
+  alt="generic-programming-and-stl.jpg (26611 bytes)" width="222" height="278"></p>
+  <p><br>
+  這本書比較艱深，你必須對 STL 的運用、泛型程式設計的基本精神、C++ 
+  template 
+  技法都有相當基礎了，才得一窺堂奧。但是我認為任何人如對於 STL 
+  有更深一層的瞭解，本書必備。其中 PartI 對 STL 
+  的學理基礎（設計哲學）有很好的導入，PartII 是很詳盡的 STL concepts 
+  規格書，PartIII 則是很詳盡的 STL 
+  組件規格書（絕大部份附有運用範例）。<br>
+  <br>
+  這本書 partIII 
+  之前的篇幅，很強調泛型程式設計的理論基礎，你會看到 conecpt、model、refinement 
+  等字詞及其定義，也會看到諸如 range, iterator, Assignable, Default 
+  Constructible, Equality Comparable 
+  等概念的嚴謹定義。我絕對不贊成讀者在閱讀吸收這些知識時，將這些英文術語轉換為中文術語來使用，那會非常地令自己以及別人感到困惑。所幸目前為止應該也不存在這種困擾，因為目前為止根本沒有任何一本中文書或中譯書涉及 
+  STL 
+  的學理與概念部份，也就不至於對那些可能不統一又不夠明確的中文術語推波助瀾。<br>
+  <br>
+  這本書使你瞭解，STL 其實是一套有著系統化、嚴謹定義的「concepts 
+  分類學」。這些 STL concepts 並不對應於 C++（或任何其他電腦語言）的任何關鍵字或任何成份。至於一般人所想像的 
+  STL「程式庫」，則是以 C++ template classes 及template functions 完成的各個 
+  concepts 的 models。（什麼是 concepts？什麼是 models？建議你參考我所寫的 
+  STL 系列文章的第一篇，載於本期）<br>
+  <br>
+  雖然一本學術性又工具性的書籍，可能給人嚴肅又艱澀的印象，但是本書第二章以及第三章中解釋 
+  iterator 及 iterator traits 
+  時的表現，卻讓我不由自主地喊精采。真是出人意表！當我從這兩章徹底瞭解 
+  traits 技術，並因而有能力觀看 STL 原始碼（是的，STL 
+  原始碼大量而幾乎無所不在地運用了 traits 
+  技術），以及撰寫符合規格的自定型 STL 
+  組件，我簡直不禁要激越昂揚，仰天長嘯。<br>
+  <br>
+  基本上，STL 就像任何其他的 framework 
+  一樣，以開放原始碼的方式呈現於市場。這種白盒子方式（相較於另一種不開放原始碼的所謂黑盒子），使我們在欲更深入剖析其技術時（可能是為了徹底瞭解，可能是為了擴充），有一個終極依恃。因此，有能力觀看其原始碼，我認為對技術的提昇是十分重要的。<br>
+  <br>
+  本書大瑜之中有小瑕：筆誤不少。少數出現在程式碼中的筆誤，對學習可能帶來一些負擔。以下試舉數例：<br>
+  <br>
+  ■p13 下，L-7, find() 定義式的回返型別<br>
+  原文：Iter find(Iterator first, Iterator last, const T&amp; value)<br>
+  修改：Iterator find(Iterator first, Iterator last, const T&amp; value)<br>
+  <br>
+  ■p41 上，advance() 定義式的內容<br>
+  原文：advance(i, d, typename iterator_traits&lt;T&gt;::iterator_category());<br>
+  修改：advance(i, n, iterator_traits&lt;InputIterator&gt;::iterator_category());<br>
+  <br>
+  ■p42 下，struct iterator 定義式的第二、第三個 template 參數。<br>
+  原文：class Pointer = T*,<br>
+  class Reference = T&amp;,<br>
+  修改：class Pointer = Value*,<br>
+  class Reference = Value&amp;,<br>
+  <br>
+  總的來說，本書在 STL 的規格以及 STL 
+  學術概念的資料準備及說明方面，目前書市無有出其右者。<br>
+  <br>
+  --- the end</p>
+</blockquote>
+</body>
+</html>

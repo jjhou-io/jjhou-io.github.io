@@ -1,0 +1,111 @@
+<html>// 測試程式
+
+#include "yz912-allocator.h"
+#include "yz912-algorithm.h"
+#include "yz912-list.h"
+#include "yz912-functional.h"
+#include <string>
+#include <iostream>
+using std::cout;
+using std::endl;
+using std::string;
+
+
+class C
+{
+public:
+  C(string s1, string s2)
+    : m_s1(s1), m_s2(s2)
+  { }
+  void display() 
+  { cout << m_s1 << ' ' << m_s2 << endl; }
+     	
+private:
+  string m_s1, m_s2;
+};
+
+template <typename T>
+class printElem
+{
+public:	
+  void operator()(T elem) { cout << elem << ' '; }
+};	
+
+int main()
+{
+	                       // g291  vc6   cb5
+   cout << sizeof(C) << endl;  // 8     32    32
+
+/* 以下兩項測試在 CB5 無法過關。無趣，不必細究。
+   {
+   // 測試 allocator for int  	
+   // 由於相關函式都是 non-static，所以必須先做出一個 temp object 才能喚起。 
+   int* p = YZ::allocator<int>().allocate(512); // sizeof(int) * 512
+   YZ::allocator<int>().deallocate(p, 512);
+   }
+  
+   {
+   // 測試 allocator for C	
+   // 由於相關函式都是 non-static，所以必須先做出一個 temp object 才能喚起。   	
+   C* p = YZ::allocator<C>().allocate(1);       // sizeof(C) * 1
+   YZ::allocator<C>().construct(p, C("hello","world"));
+   p->display();				 // hello world
+   YZ::allocator<C>().destroy(p);   	// 本例可不寫此行。純粹為了測試。
+   YZ::allocator<C>().deallocate(p, 1);   
+   }
+*/   
+
+   {
+   // 測試 allocator for C	
+   // 將相關函式改為 non-static，於是這兒就可以直接喚起了。   	
+   C* p = YZ::allocator<C>::allocate(1);       // sizeof(C) * 1
+   YZ::allocator<C>::construct(p, C("hello","world"));
+   p->display();				 // hello world
+   YZ::allocator<C>::destroy(p);   // 由於 C 的結構設計，本例可不寫此行。純粹為了測試。
+   YZ::allocator<C>::deallocate(p, 1);   
+   }   
+ 
+   {
+   // 測試 simple_alloc for C
+   // 相關函式都是 static，所以可透過 class（而非 object）直接喚起。    
+   C* p = YZ::simple_alloc<C, YZ::alloc>::allocate(); 
+   YZ::construct(p, C("hello","world"));
+   p->display();				 // hello world
+   YZ::destroy(p);   // 由於 C 的結構設計，本例可不寫此行。純粹為了測試才寫。
+   YZ::simple_alloc<C, YZ::alloc>::deallocate(p);    
+   }
+ 
+   
+   {
+   YZ::list<int> myList;
+   myList.push_back(12);
+   myList.push_back(22);
+   myList.push_back(52);   
+   myList.push_back(32);   
+   myList.push_back(42);    
+   myList.push_front(92);     
+   cout << myList.size() << endl;  	// 6
+   
+   YZ::for_each(myList.begin(), myList.end(), printElem<int>());
+   					// 92 12 22 52 32 42 
+   cout << *YZ::find(myList.begin(), myList.end(), 22) << endl; // 22 
+                        // 以上寫法有點危險（找不到時）。純測試，無妨
+   cout << myList.back() << endl;	// 42
+   cout << myList.front() << endl;     	// 92
+   
+   YZ::list<int>::iterator ite = myList.begin();
+   YZ::advance(ite,2);
+   cout << YZ::distance(ite, myList.end()) << endl;   		// 4
+   cout << YZ::distance(myList.begin(), myList.end()) << endl;	// 6
+
+
+   cout << YZ::count_if(myList.begin(), myList.end(), 
+                        YZ::not1(
+                          YZ::bind2nd(
+                            YZ::less<int>(),
+                            30
+                          )
+                        )
+                       ); // 4
+   }
+}

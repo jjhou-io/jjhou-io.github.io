@@ -1,0 +1,95 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>勘誤：深入 Visual C++ 4.0</title>
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="670">
+  <tr>
+    <td align="right" valign="top" width="18">&nbsp; <!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="bottom" width="610"><big><big><font color="#0000FF">深入 Visual C++ 4.0</font> 
+    &nbsp; 勘誤</big></big><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="18"><font size="3"><br>
+    </font><!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="top" width="610">原著：<font color="#0000FF">Inside Visual C++ 4.0</font>, 
+    by David Kruglinski, Microsoft Press/1996<p><a href="jjtbooks-inside-vc40.htm" tppabs="http://jjhou.boolan.com/jjtbooks-inside-vc40.htm"><img
+    src="vc40.jpg" tppabs="http://jjhou.boolan.com/vc40.jpg" width="179" height="215" alt="vc40.jpg (16821 bytes)"></a></p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p>過去，我對每本作品（著譯皆然），總是把握新刷機會，修正書中的錯誤或不妥。偶也在不影響頁次的情況下，做一些內容補充。但是並未有系統地將這些動作記錄下來。<br>
+    <br>
+    由於經驗的累積，逐漸知道，應該有系統地將書籍的各刷變化提供給讀者。<br>
+    <br>
+    在我陸續建立起晚近各書的 errata 資料後，有不少讀者關心 &lt;深入 
+    Visual C++ 4.0&gt; 的 errata。於是我回頭整理下來，供讀者參考。<br>
+    <br>
+    由於我手上沒有保留 &lt;深入 Visual C++ 4.0&gt; 
+    各刷版本，無從將各刷變化記錄下來，僅就印象所及的修正，列出於後。或許您手上的書籍已經沒有這些錯誤。<br>
+    <br>
+    以下 Ln 代表第 n 行，L-m 代表倒數第 m 行。<br>
+    <br>
+    頁次：70, L6<br>
+    原文：如果上述例子中你以 MM_ANISOTROPIC 取代 MM_ISOTROPIC，橢圓形...<br>
+    更正：如果上述例子中你以 <font color="#0000FF">MM_ISOTROPIC</font> 取代 <font
+    color="#0000FF">MM_ANISOTROPIC</font>，橢圓形...<br>
+    <br>
+    頁次：71, L-12<br>
+    原文：<small>// m_rect 是 CRect 的資料成員，CMyView 設定 MM_LOENGLISH 
+    映像模式</small><br>
+    更正：<small>// m_rect 是 CMyView 中的資料成員（型別為 CRect），用以記錄 
+    MM_LOENGLISH 座標<br>
+    </small><br>
+    頁次：86, 中段程式碼 L1<br>
+    原文：void CMyView::OnDraw(DC* pDC)<br>
+    更正：void CMyView::OnDraw(<strong><font color="#0000FF">C</font></strong>DC* pDC)<br>
+    <br>
+    頁次：87, 上段程式碼 L1<br>
+    原文：void CMyView::OnDraw(DC* pDC)<br>
+    更正：void CMyView::OnDraw(<strong><font color="#0000FF">C</font></strong>DC* pDC)<br>
+    <br>
+    頁次：87, 上段程式碼 L4<br>
+    原文：<font color="#0000FF">CPen* pOldPen =</font> pDC-&gt;SelectObject(&amp;newPen);<br>
+    更正：pDC-&gt;SelectObject(&amp;newPen);<br>
+    注意：其實原來的那行也不會造成程式錯誤。<br>
+    <br>
+    頁次：p178, L-9<br>
+    原文：讓我做過假設：你發現了...<br>
+    更正：讓我做<font color="#0000FF">個</font>假設：你發現了...<br>
+    <br>
+    頁次：p179, L6<br>
+    原文：事實上，當 Developer Studio 呼叫一個特殊的 expoerted 函式，...<br>
+    更正：事實上，當 Developer Studio 呼叫一個特殊的 <font color="#0000FF">exported</font> 
+    函式，...<br>
+    <br>
+    頁次：p185, L6<br>
+    原文：...當你在圖形編輯器<br>
+    更正：...當你在<font color="#0000FF">資源</font>編輯器<br>
+    <br>
+    頁次：p193<br>
+    注意：我在本頁最上有個譯註，說螢幕上看不到【Category】combobox，所以...<br>
+    更正：按下 p192 圖右側第二個按鈕【Add Variable...】，便可見【Category】combobox）<br>
+    <br>
+    頁次：chap10, class CDib source in CD-ROM<br>
+    注意：原文書所附的 class CDib（原始碼未列於書中）有嚴重錯誤。<br>
+    更正：請參考文章 <a href="article98-21.htm" tppabs="http://jjhou.boolan.com/article98-21.htm">Serialize 的聯想 (1)</a><br>
+    <br>
+    &#26;<!--mstheme--></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

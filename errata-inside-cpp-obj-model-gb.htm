@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>《深度探索 C++ 對象模型》簡體版 勘誤表</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><font color="#800000">《深度探索 C++ 對象模型》<br>
+<br>
+簡體版 勘誤表 <br>
+<br>
+<small>侯捷<br>
+<br>
+周筠 / 王凱&nbsp; 協助</small><br>
+<br>
+<small><small>感謝所有來信指正的讀者</small></small></font></h2>
+
+<p align="center">　</p>
+
+<p align="center"><font color="#800000">侯捷觀點</font></p>
+
+<p align="center"><font color="#800000">有些讀者會仔細區分：技術錯誤，作（譯）者的責任，文字錯誤，編輯的責任，<br>
+印刷錯誤，出版社的責任…<br>
+（其實無所謂「印刷錯誤」— 印刷怎麼會有錯誤？）<br>
+<br>
+我認為，一本技術書籍，內容上的一切錯誤都是作（譯）者的責任。<big><br>
+</big>不論技術誤謬、錯別字、代碼誤植、頁次誤排、圖表編號錯誤…，<br>
+統統都是作（譯）者的責任。<br>
+只有裝訂錯誤、缺頁、折損才是出版社的責任。<br>
+<br>
+一本書的成功，作（譯）者享受最大的榮耀。<br>
+享受最大榮耀的人，要負起最大的責任。<br>
+侯捷書籍裡裡外外的所有責任，侯捷自己扛。</font></p>
+
+<p align="center"><font color="#800000">我的合作夥伴願意花大量成本，配合我，對紙本書不斷勘誤修正，<br>
+這很不容易。我認為他們的態度非常專業。</font></p>
+
+<hr>
+
+<blockquote>
+  <p><span lang="EN-US">本書之繁簡兩版書籍各自獨立維護。簡體版讀者只需注意此簡體版勘誤表即可。</span></p>
+  <p>　</p>
+  <p><span lang="EN-US">這是一本偏重底層機制的書籍，許多讀者對書中的說法有許多自己的見解，寫了許多意見給我（侯捷），都整理於「讀者來信與回應」欄目中。但我要說，這類意見請寫給作者 
+  Lippman，不要寫給我。繁體版出版時，我和臺灣讀者已經就書中內容有了許多討論，見<a
+  href="qa-object-model.htm" tppabs="http://jjhou.boolan.com/qa-object-model.htm" target="main">左視窗答客問（Q/A）之本書欄目</a>。</span></p>
+  <p><br>
+  <span lang="EN-US">以下是一刷目前發現之錯誤<strong>：</strong></span></p>
+  <p><span lang="EN-US">1.<span style="FONT: 7pt 'Times New Roman'">&nbsp; </span>封面下方第三點： 
+  <font face="Courier New">Dsta --&gt; D<font color="#FF0000">a</font>ta<br>
+  </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; （註：第二刷已改）</span></p>
+  <p align="left" class="MsoNormal"
+  style="MARGIN-LEFT: 18pt; TEXT-ALIGN: left; TEXT-INDENT: -18pt; mso-pagination: widow-orphan; mso-layout-grid-align: auto; mso-vertical-align-alt: auto; mso-list: l1 level1 lfo2; tab-stops: list 18.0pt"><span
+  lang="EN-US">2. <span style="FONT: 7pt 'Times New Roman'">&nbsp; </span>封面下方第五點：<font
+  face="Courier New">Constructon --&gt; Construct<font color="#FF0000">i</font>on<br>
+  </font>（註：第二刷已改）</span></p>
+  <p>　</p>
+  <p><span lang="EN-US">以下是二刷目前發現之錯誤<strong>：</strong></span></p>
+</blockquote>
+
+<p align="left" class="MsoNormal"
+style="MARGIN-LEFT: 18pt; TEXT-ALIGN: left; TEXT-INDENT: -18pt; mso-pagination: widow-orphan; mso-layout-grid-align: auto; mso-vertical-align-alt: auto; mso-list: l1 level1 lfo2; tab-stops: list 18.0pt"><span
+lang="EN-US">封底</span><span
+style="FONT-FAMILY: 宋体; mso-ascii-font-family: Times New Roman; mso-hansi-font-family: Times New Roman">之作者簡介：<font
+face="Courier New">Bjame --&gt; Bja<font color="#FF0000">rn</font>e</font></span></p>
+
+<p><font color="#000000">P25, L-9（重新修潤）<br>
+原譯文為：</font><br>
+<font color="#408080">舉個例子，px 可能指向自我類型的一個 object，或指向以 
+public 派生而來的一個類型。</font><br>
+<font color="#000000">請改為：<br>
+</font><font color="#0000FF">舉個例子，px 
+可以指向某個類型，也可以指向「根據 public 
+繼承關係而衍生」的一個子類型。</font></p>
+
+<p><font color="#000000">p64﹐第18行﹕（英文版錯誤）</font><font
+color="#408080"><br>
+__result.X::X</font><font color="#FF0000">X</font><font color="#408080">( xx );<br>
+</font><font color="#000000">請改為：</font><font color="#408080"><br>
+</font><font color="#000000">__result.X::X( xx );</font></p>
+
+<p><font color="#000000">p20, L7﹕（英文版錯誤）</font><font color="#408080"><br>
+strcpy(&amp;memble.pc,string);<br>
+</font><font color="#000000">請改為﹕</font><font color="#408080"><br>
+</font><font color="#000000">strcpy(</font><font color="#0000FF">pmumbl-&gt;pc</font><font
+color="#000000">,string);</font></p>
+
+<p><font color="#000000">p3, L11﹕（英文版錯誤）</font><font color="#408080"><br>
+os &lt;&lt; &quot;(&quot; &lt;&lt; pt.x() &lt;&lt; &quot;, &quot; ...<br>
+</font><font color="#000000">請改為﹕</font><font color="#408080"><br>
+</font><font color="#0000FF">return</font><font color="#408080"> os &lt;&lt; &quot;(&quot; 
+&lt;&lt; pt.x() &lt;&lt; &quot;, &quot; ...</font></p>
+
+<p>　</p>
+</body>
+</html>

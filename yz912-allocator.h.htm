@@ -1,0 +1,196 @@
+<html>// yz912-allocator.h
+
+// 設計一個簡化的 allocator
+// 參考：《STL源碼剖析》p43~p47
+
+#ifndef _YZ_ALLOCATOR_
+#define _YZ_ALLOCATOR_
+
+#include <new> 		// for placement new.
+#include <cstddef> 	// for ptrdiff_t, size_t
+#include <cstdlib> 	// for exit()
+#include <iostream> 	// for cerr
+using std::cerr;
+using std::endl;
+
+namespace YZ
+{
+
+template <class T>
+inline T* _allocate(ptrdiff_t size, T*) 
+{
+  // set_new_handler(0);  // CB5 找不到此函式
+  T* tmp = (T*)(::operator new((size_t)(size * sizeof(T))));
+  if (tmp == 0) {
+      cerr << "out of memory" << endl;
+      exit(1);
+  }
+  return tmp;
+}
+
+template <class T>
+inline void _deallocate(T* buffer) 
+{
+  ::operator delete(buffer);
+}
+
+template <class T1, class T2>
+inline void construct(T1* p, const T2& value) 
+{
+  new(p) T1(value); // placement new. invoke ctor of T1.
+}
+
+template <class T>
+inline void destroy(T* ptr) 
+{
+  ptr->~T();
+}
+
+template <class T>
+class allocator 
+{
+public:
+  typedef T 		value_type;
+  typedef T* 		pointer;
+  typedef const T* 	const_pointer;
+  typedef T& 		reference;
+  typedef const T& 	const_reference;
+  typedef size_t 	size_type;
+  typedef ptrdiff_t 	difference_type;
+
+  // n: 元素個數（不是 bytes 個數）
+  static pointer allocate(size_type n, const void* hint=0) 
+  {
+    return _allocate((difference_type)n, (pointer)0);
+  }
+  
+  // n: 元素個數（不是 bytes 個數）
+  static void deallocate(pointer p, size_type n=1) // jjhou設預設值為1
+  { 
+    // 在此簡單實作技術中，沒有用到 n。（用的是 cookie）
+    _deallocate(p); 
+  }
+
+  static void construct(pointer p, const T& value) 
+  {
+    YZ::construct(p, value);
+  }
+
+  static void destroy(pointer p) 
+  {
+    YZ::destroy(p); 
+  }
+};
+
+// TASS, p57  	
+class alloc 
+{
+public:
+
+static void * allocate(size_t n) // n:bytes
+{
+    void *result = malloc(n);	// 第一級配置器直接使用 malloc()
+    return result;
+}
+
+static void deallocate(void *p, size_t /* n */)
+{
+    free(p); 	// 第一級配置器直接使用 free()
+}
+
+static void * reallocate(void *p, size_t /* old_sz */, size_t new_sz)
+{
+    void * result = realloc(p, new_sz);	// 第一級配置器直接使用 realloc()
+    return result;
+}
+};
+
+
+// SGI STL 中的這個 class 是為了將 client 的元素個數需求轉為 bytes 個數需求，
+// 才能交給 SGI alloc 去執行。
+template<class T, class Alloc>
+class simple_alloc {
+public:
+    static T* allocate(size_t n)
+                { return 0 == n? 0 : (T*) Alloc::allocate(n * sizeof(T)); }
+    static T* allocate(void)
+                { return (T*) Alloc::allocate(sizeof(T)); }
+    static void deallocate(T *p, size_t n)
+                { if (0 != n) Alloc::deallocate(p, n*sizeof(T)); }
+    static void deallocate(T *p)
+                {  Alloc::deallocate(p, sizeof(T)); }
+};     
+           
+/*
+不能試圖以 allocator<T> 搭配 simple_alloc（非如上，需更改）。否則，
+在 list<T, Alloc=allocator<T>> 中的
+  typedef simple_alloc<list_node, Alloc> list_node_allocator;  
+將成為：
+  typedef simple_alloc<list_node, allocator<T>> list_node_allocator;
+導致其 get_node()  呼叫 list_node_allocator()    
+以及其 put_node(p) 呼叫 list_node_deallocator(p)
+發生錯亂：明明操作對象是 list_node<T>，卻使用 allocator<T>。    
+錯誤訊息如下：  
+  
+In function 
+`static void ::YZ::::YZ::simple_alloc<::YZ::::YZ::__list_node<int>,
+                                      ::YZ::::YZ::allocator<int> >::
+   deallocate<::YZ::::YZ::__list_node<int>, 
+              ::YZ::::YZ::allocator<int>>
+      (struct ::YZ::::YZ::__list_node<int> *)'
+      
+: instantiated from 
+
+`::YZ::::YZ::list<int,::YZ::::YZ::allocator<int>>::
+         put_node<int,::YZ::::YZ::allocator<int>>
+                  (::YZ::::YZ::__list_node<int> *)'
+instantiated from 
+`::YZ::::YZ::list<int,::YZ::::YZ::allocator<int>>::
+            ~list<int,::YZ::::YZ::allocator<int>>()'
+
+no matching function for call to 
+
+`::YZ::::YZ::allocator<int>::deallocate 
+   (::YZ::::YZ::__list_node<int> *&, int)'
+   
+candidates are: 
+
+ ::YZ::::YZ::allocator<int>::deallocate<int>(int *, unsigned int)
+ 
+簡化為： 
+
+In function 
+`static void simple_alloc<__list_node<int>,
+                          allocator<int>>::
+   deallocate<__list_node<int>, 
+              allocator<int>>
+      (struct __list_node<int> *)'
+      
+: instantiated from 
+
+`list<int,allocator<int>>::
+   put_node<int,allocator<int>>
+          (__list_node<int> *)'
+          
+instantiated from 
+
+`list<int,allocator<int>>::
+   ~list<int,allocator<int>>()'
+
+no matching function for call to 
+
+`allocator<int>::deallocate 
+   (__list_node<int> *&, int)'
+   
+candidates are: 
+
+ allocator<int>::deallocate<int>(int *, unsigned int) 
+*/                    
+
+} // namespace YZ
+
+#endif // _YZ_ALLOCATOR_
+
+
+
+

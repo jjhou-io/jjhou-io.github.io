@@ -1,0 +1,60 @@
+<html>// 侯老師您好:
+// 這問題在您上課時我問過, 您叫我寫信給您, 老師有空時麻煩看一下, 謝謝! 
+// 您在元智開的課實在太棒了。
+
+#include <map>
+#include <string>
+using namespace std;
+
+class Field
+{
+ public:
+  void add_field(const string &fn,const string &fv)
+  {
+   _field.insert(make_pair(fn,fv));
+  }
+
+  /*(1) const */ string get_field_value(const string &fn)  
+  // <- 若加上 const 則不能編譯成功, map 需以 mutable 修飾
+  {
+   return _field[fn]; // 是因為傳回值是 non const reference 嗎?
+  }
+  
+ private:
+  //mutable map<std::string,std::string> _field;
+  map<std::string,std::string> _field;
+};
+
+int main()
+{
+}
+
+●侯捷回覆：這個程式我在 (1) 處加上 const，於 VC6, CB5, G++291 都可通過編譯。
+
+
+
+
+
+
+侯老師您好~~~~~~~ 
+我是元智大學的學生,這學期正在修侯老師的泛型程式設計, 
+因為老師你有建議說,因為GCC及bcb支援stl的部分較完善, 
+所以我便想要去網路上下載免費的bcb5.5及GCC來使用, 
+但是我碰到一些問題想請教一下,我照著bcb5.5網站的指示 
+製作了bcc32.cfg及ilink32.cfg但是在compile時,我打bcc32 filename.cpp時 
+會有"Fatal: Unable to open file 'BORLAND_c.obj'的訊息, 
+若我打bcc32 -c filename.cpp時,則可以通過,再來要link了, 
+我打ilink32 filename.obj時,ok產生".exe"檔,但是執行時卻出現, 
+"filename.exe 不是正確的win32應用程式"就算在DOS下執行也是一樣, 
+請問老師到底是為何呢....??? 
+
+另外還有一個問題要請教老師的~~~~, 
+我用老師網站上的"網路資源"連到了GCC首頁去要下載GNU的C++來使用, 
+但是mirror站上的東西太多了,我只好亂抓,根本不知要如何用才好, 
+搞到抓了"cygwin"但是我發現根本不隻道到底哪一個壓縮的封包才是我要的, 
+後來在release的地方找到"gcc"及"gcc2"但是兩個執行檔案時都出現一樣的錯誤訊息,
+根本就無法使用,還說若重灌可能可以使用, 
+不好意思,我的問題好像都很基本,但是我搞了整整2天都不行~~~, 
+請老師可以的話告訴我吧~~~~~~THX 
+
+●侯捷回覆：軟體安裝問題，請詢問安裝成功的同學。

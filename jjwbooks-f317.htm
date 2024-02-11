@@ -1,0 +1,160 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>VC++ 物件導向 MFC 程式設計（基礎篇）</title>
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font>
+
+<table border="0" cellpadding="6" cellspacing="0" width="752">
+  <tr>
+    <td width="11"><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td width="523"><p align="center"><big><big>知莫大乎棄疑</big></big><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td width="154"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="11"><br>
+    <br>
+    <font size="3"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td valign="top" width="523"><font color="#FF0000">【基本資料】<br>
+    <br>
+    </font><font color="#000000">書名：</font><font color="#0000FF">Visual C++ 物件導向 
+    MFC 程式設計 - 基礎篇</font><br>
+    技術顧問<font color="#000000">：</font>曾銘源<font color="#000000"><br>
+    出版：旗標 1994.08<br>
+    ISBN：957-717-092-7<br>
+    頁數：8 章，446 頁<br>
+    定價：NT$ 400.0</font><p align="center"><font color="#FF0000"><br>
+    </font><font color="#0000FF">本書已有新版，請參考 <a
+    href="jjwbooks-dissecting-mfc-2e.htm" tppabs="http://jjhou.boolan.com/jjwbooks-dissecting-mfc-2e.htm">深入淺出 MFC 第二版</a></font></p>
+    <p><font color="#FF0000"><br>
+    【曾銘源 序】</font><br>
+    <br>
+    我與侯俊傑因多媒體而結識。在軟體開發及為人處事上，長我三歲的他，一直是我最尊敬的兄長。MFC 
+    是我唯一涉獵比侯俊傑早的技術，很榮幸有此機會擔任本書的檢閱者 
+    (peer reviewer)。侯俊傑著書做學問嚴謹謙虛的態度，相信眾已皆知，但是他那種打破砂鍋追根究底的精神，卻經常讓我傻眼，逼得我重新回頭研究 
+    MFC 原始碼，從多個角度去思考問題。也因為如此，讓我對 MFC 這套 
+    Application Framework 
+    有更深一層的體認，這是我從本書製作過程中得到的最大收穫。<br>
+    <br>
+    這本書製作過程很艱辛，時間上我們持續了近一年，空間上則是橫跨新竹紐約兩地。在新竹我們面對面討論，後來我赴美工作，電話、傳真、Internet，所有越洋聯絡工具通通上場。每個月鉅額的電話賬單，是我們對美台兩地電信單位的報答。頻繁的通訊，使我發生過半夜到街上買傳真紙的糗事。<br>
+    <br>
+    當然，這一切都是支端末節，重要的是，我衷心希望，這本書能在你展開 
+    MFC 旅程時，幫得上一臂之力。<br>
+    曾銘源 紐約 1994.08.09 &#12;</p>
+    <p><br>
+    <font color="#FF0000">【自序】</font><br>
+    <br>
+    對 Windows 
+    的系統探討暫告一個段落後，我把注意力放在程式設計上。提到Windows 
+    程式設計，所有朋友都吐起苦水，手冊 K 
+    還沒有一半，工具用起來半生不熟，新的軟體發展環境 (或新的版本) 
+    又出爐了。<br>
+    <br>
+    這真是一個改變中 --- 而且是快速改變中 --- 的時代。<br>
+    <br>
+    長期以來 Windows 程式設計工具由 SDK 獨佔螯頭，這種情況在 Application 
+    Framework 日益成熟後打破。Microsoft 的 MFC 和 Borland 的 OWL 都是架構在 
+    Windows API 
+    之上更進一層的包裝，發揮了物件導向的封裝與繼承特性，使 Windows 
+    程式設計更有效率，更結構化，更模組化。<br>
+    <br>
+    從 C/SDK 抑或從 C++/Framework 開始學習 Windows 程式設計較為理想 ? 
+    這是我與許多軟體界朋友常常議論的題目。我自己這麼認為，SDK 
+    是非常非常好的基礎，透過它你可以更深刻了解應用程式與作業系統之間的互動，以及所謂 
+    message based, event driven 的精義。有了 SDK 基礎之後再學習 Application 
+    Framework --- 不管是 MFC 或 OWL --- 
+    就可以滿足商業軟體發展的效率要求。我所說的 SDK 
+    基礎並非指全盤的 SDK 
+    技術，而是指程式進入點、訊息迴路、視窗函式、訊息流動等基礎觀念 
+    --- 事實上也就是一個 Windows 程式的基本運作原理。<br>
+    <br>
+    學習 Framework 絕對是需要某些基礎的 ! Visual C++ 
+    的最大神話是，你可以一行程式碼都不必寫，十分鐘就得到一個非常漂亮的程式。這個令人憧憬的神話在你開始認真設計一個應用軟體而不是一個玩具時，可能化為片片泡影。的確，Visual 
+    C++ 的那些精靈(wizards) 
+    為我們完成的骨幹程式，是一個不需增減一辭的完整程式；但當我們想為自己加點彩粧，面對簡潔 
+    (因而必須十分有力) 
+    的骨幹程式，大部份的我們有一種無下箸處的痛苦與徬惶。<br>
+    <br>
+    我唯一能夠安慰你的是 : 
+    按部就班紮基礎。基礎愈深，知識的累積速度愈快。<br>
+    <br>
+    想站在 MFC 山頂端睥睨群雄，你得先爬過 C++ 和 SDK 兩座山頭。<br>
+    基本上我不認為完全沒有 SDK 經驗的人可能學好 MFC (注意「好」這個字)。所以本書安排了附錄 
+    B「必要之 SDK 基礎」。而如果沒有 C++ 
+    基礎，請你根本就不要考慮此書，先把 C++ 
+    語言操練一遍再來。一個作家明白了當地宣告哪些讀者不適合讀他的作品，似乎是件愚蠢的行為，但我還是要說 
+    : 如果你沒有 C++ 基礎，別嘗試閱讀此書。<br>
+    <br>
+    這個世界只有相對沒有絕對。Windows API 原已是高階介面，但當Application 
+    Framework 
+    出現，前者卻低階宛如組合語言。身為一個應用軟體開工程師，你一定要嚴肅面對 
+    Application Framework 帶來的軟體革命。選用哪一種 Framework，我沒有意見，MFC 
+    和 OWL 都是好東西。這一本書帶給你的是 MFC，如果你不喜歡，可以考慮 
+    OWL。<br>
+    也許你有興趣知道我對 Visual C++ 的評語。基本上我認為 Visual C++ 
+    所搭配的 MFC 的確是一個精心架構的 Framework，已經涵蓋了 Windows 
+    程式設計技術的絕大部份；而 Visual C++ 
+    的各種視覺化工具的確能夠大幅提昇一位 Windows 程式員的生產力。<br>
+    <br>
+    當入門愈來愈困難，人也愈來愈徬惶不安，恨不能夠一步登天。但是一個人的記憶力和吸收力大約是在他對目標的了解達到兩、三成之後才開始進入高峰，你不能期望自己對 
+    MFC 
+    這麼龐大複雜的組織一蹴而成。反覆咀嚼是一個看似沒有效率卻最有成果的方法。面對龐大的 
+    MFC 
+    所帶來的那種大軍壓境的感受，我有深刻體會，希望這本細細剖析 
+    MFC 程式方法的書能夠縮短你跨越門檻的時間。<br>
+    <br>
+    一直把我的讀者定位在工程師和研究生的水平，口吻以及論點都是針對你們而發。但出乎意外竟然有高中學生和大學生來函，帶給我非常非常大的驚訝與喜悅。當初的心願，是抓回那些向來只在原文書堆中找資料的朋友們，看看咱們中文書的文字水準和技術水準。我不知道我做到了嗎 
+    ?<br>
+    <br>
+    曾經在汐止一座不知名的小山有過一個世外桃源的經歷。「新一代 PC 
+    環境之記憶體管理與多工」的大綱與架構，就是在那裡決定的；走向生命新里程的決定也是在那裡下的。四年來全部的生命用在追求理想，我想我該再有一次桃花源之旅了。<br>
+    <br>
+    序文一篇比一篇長。呀，寫序是一件快樂的事，就像與老朋友說話一樣。只可惜，我卻聽不到回音。<br>
+    <br>
+    侯俊傑 新竹 1994.08.01<br>
+    <br>
+    P.S. 
+    曾銘源先生是我在工研院的同事，他做學問的態度一直令我佩服，軟體技術紮紮實實。我們對著書立論的嚴謹態度一致，理想也一致。在 
+    MFC 
+    這個領域，他是我的導師兼最佳顧問，很高興有他做為本書的檢閱者。沒有他這本書不可能在這個時候完成。&#12;<br>
+    <br>
+    <font color="#FF0000">【目錄】</font></p>
+    <p>第零章 你一定要知道<br>
+    第一篇 奠定紮實的基礎 - 物件導向並不是把一切傳統都拋開的藉口<br>
+    第一章 緒論與總觀 - Application Framework<br>
+    第二章 MFC 程式設計導論 - MFC 與 Windows 程式基本觀念之對映<br>
+    第三章 MFC 大局觀 - v2.0 架構底定之後<br>
+    第四章 MFC 程式設計 - 一個簡單而完整的例子<br>
+    第二篇 欲善工事先利其器 - Visual C++ 軟體開發工具之使用<br>
+    <br>
+    第五章 Visual C++ - 整合性軟體開發環境<br>
+    第六章 程式碼快速產生器 - AppWizard<br>
+    第七章 威力強大的資源工作室 - AppStudio<br>
+    第八章 修改程式的絕佳幫手 - ClassWizard<br>
+    附錄A 參考資料與簡介 (Bibliography)<br>
+    附錄B 必要之 SDK 基礎 (Windows 程式之基本運作)<br>
+    附錄C SDK/MFC1.0/MFC2.5 效率比較<br>
+<!--mstheme-->    </font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td valign="top" width="154" bgcolor="#C0C0C0"><p align="center"><img src="f317.jpg" tppabs="http://jjhou.boolan.com/f317.jpg"
+    alt="f317.jpg (17941 bytes)" WIDTH="152" HEIGHT="203"><br>
+<!--mstheme-->    </font></td>
+  </tr>
+</table>
+
+<p>　</p>
+<!--mstheme--></font>
+</body>
+</html>

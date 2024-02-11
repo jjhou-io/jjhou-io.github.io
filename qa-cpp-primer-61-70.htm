@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>C++ Primer 答客問 61-70</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<p>　</p>
+
+<hr>
+
+<h2 align="center"><big><big>C++ Primer 答客問</big></big><font color="#800000"> 61-70<br>
+</font></h2>
+
+<h3 align="center"><font color="#800000">侯捷</font></h3>
+
+<hr>
+
+<blockquote>
+  <p><br>
+  <a name="C++ Primer qa61"><big><big>C++ Primer 答客問 (61)</big></big></a> - <big>ctor 
+  和 tempotary object</big><br>
+  2001.03.16 第一次發表</p>
+  <pre><font color="#408080">animaster wrote (2001/03/14) :</font></pre>
+  <pre><font color="#408080">&gt; 日期: 2001年3月14日 PM 05:46
+&gt; 主旨: 請教 C++ Constructors (Essential C++)
+&gt;
+&gt; 老師您好:
+&gt; 我有一個問題想請教, 煩請代為解答.
+&gt;
+&gt; 以下程式 我宣告了一個 Class temp , 並實作它的 Constructors , Destructors....
+&gt;
+&gt; // class temp .h
+&gt; class temp {
+&gt; public:
+&gt;  temp();
+&gt;  virtual ~temp();
+&gt;  void func(void) { cout&lt;&lt;&quot;This is func and var i = &quot;&lt;&lt;i&lt;&lt;endl; };
+&gt;  int i;
+&gt; };
+&gt;
+&gt; // class temp .cpp
+&gt; temp::temp() {
+&gt;  i = 12;
+&gt;  func();
+&gt;  cout&lt;&lt;&quot;This is Constructors and var i = &quot;&lt;&lt;i&lt;&lt;endl;
+&gt; }
+&gt;
+&gt; temp::~temp() {
+&gt;  cout&lt;&lt;&quot;This is Destructors\n&quot;;
+&gt; }
+&gt;
+&gt; // main .cpp
+&gt; #include &quot;temp.h&quot;
+&gt; using namespace std;
+&gt;
+&gt; int main(int argc, char* argv[]) {
+&gt;      temp::temp(); // call Constructors
+&gt;      cout&lt;&lt;&quot;After call temp::temp()\n&quot;&lt;&lt;endl;
+&gt;
+&gt;      temp m_obj1; // def m_obj1
+&gt;      m_obj1.temp::temp(); // call m_obj1 constructor
+&gt;      // m_obj1.temp(); 這行不能呼叫建構式
+&gt;      cout&lt;&lt;&quot;After call m_obj1.temp::temp()&quot;&lt;&lt;endl;
+&gt;
+&gt;  return 0;
+&gt; }
+&gt;
+&gt; 輸出如下-------------
+&gt;
+&gt; This is func and var i = 12
+&gt; This is Constructors and var i = 12
+&gt; This is Destructors
+&gt; After call temp::temp()
+&gt;
+&gt; This is func and var i = 12
+&gt; This is Constructors and var i = 12
+&gt; This is func and var i = 12
+&gt; This is Constructors and var i = 12
+&gt; After call m_obj1.temp::temp()
+&gt; This is Destructors
+&gt;
+&gt; 我是用 VC++ 6.0 compiler , 在第一段輸出我沒有宣告任何物件,
+&gt; 但是居然能呼叫 class temp 的建構式.
+&gt; 而第二段我宣告了一個 class temp 的物件 m_obj1, 但是我卻必須
+&gt; 用 m_obj1.temp::temp(); 才能呼叫它
+&gt; 的建構示, temp class 的建構式是 public member function ,
+&gt; 但是卻不能用 m_obj1.temp(); 來呼叫
+&gt;
+&gt; 我無法想通這個情形 煩請老師幫忙.
+&gt; 讀者 Asima
+</font></pre>
+  <pre>●侯捷回覆：</pre>
+  <pre>你的問題是：</pre>
+  <pre>(1) object 不存在的情況下，竟然可以直接呼叫其 ctor
+(2) 上述情況，竟然還附贈一個 dtor
+(3) 產生一個 object 之後，兩種方式呼叫 ctor，有的成功有的失敗</pre>
+  <pre>答案：</pre>
+  <pre>(1) 以你的程式為例，temp::temp(); 其實是產生了一個暫時物件。
+其意義和 temp(); 一樣。暫時物件的生命在該式子結束之後，其
+生命也就結束了 — 彼時會喚起 dtor。在效率議題上，暫時物件
+是一個值得重視的題目，尤其在 NRVO (Named Return Value Optimization）
+的討論。見 More Effective C++, item20。
+應用程式使用 STL function objects 時，常使用暫時物件。</pre>
+  <pre>至於為什麼 temp::temp(); 等同於 temp(); 這恐怕要看 &quot;D&amp;E&quot;:
+The Design and Evolution of C++, by Bjarne Stroustrup.</pre>
+  <pre>(2) 原因見 (1)</pre>
+  <pre>(3) 基本上你的程式不可直接呼叫 ctor，不論你是怎麼寫：
+  m_obj1.temp::temp();    // 這不可以   (A)
+  m_obj1.temp();          // 這也不可以 (B)
+你的 (A) 之所以可以，因為 VC 有臭蟲。CB 和 GCC 都不讓它通過。</pre>
+  <pre>附帶一提，你的 object 命名方式不理想，m_ 通常用於 data members 的命名。</pre>
+  <pre>-- jjhou</pre>
+  <p><br>
+  <br>
+  </p>
+  <p><a name="C++ Primer qa62"><big><big>C++ Primer 答客問 (62)</big></big></a> - <big>private 
+  inheritance, why BCC error.</big></p>
+  <pre>2001.07.20 第一次發表</pre>
+  <pre><font color="#408080">??? wrote (2001/??/??) :  // 是不是 kylin 提問？我忘了。</font></pre>
+  <pre><font color="#408080">請用VC6.0試試下面這段程式, 您是否覺得有何不對勁?
+在我的環境中編譯OK, 但是, Derived係以private繼承Base,
+又Base的constructor為protected,那麼, A是不是無法被建構才是?
+是我&quot;花了&quot;, 還是VC6 compiler有問題?</font></pre>
+  <pre><font color="#408080">class Base
+{
+protected:
+    Base() {}
+};</font></pre>
+  <pre><font color="#408080">class Derived : </font><font color="#0000FF">private virtual</font><font
+color="#408080"> Base
+{
+public:
+    Derived(int h) : i(h) {}
+    ~Derived() {}</font></pre>
+  <pre><font color="#408080">private:
+    int i;
+};</font></pre>
+  <pre><font color="#408080">class A : public Derived
+{
+public:
+    A(int i) : Derived(i) {}
+    ~A() {}
+};</font></pre>
+  <pre><font color="#408080">void main()
+{
+    A a(1);
+}
+</font></pre>
+  <pre>●侯捷回覆：</pre>
+  <pre>你的這個程式，我在三個編譯器上的測試結果是：</pre>
+  <pre>VC6[o]
+GCC29[o]
+BCB4[x] :'Base::Base()' is not accessible in function A::A(int)</pre>
+  <pre>究竟 BCB4 是「眾人皆醉我獨醒」呢？還是「眾人皆醒我獨醉」呢？</pre>
+  <pre>答案是後者。</pre>
+  <pre>當我們採用 private inheritance，base class 的 public ctor 不會因此
+成為 private，否則，private inheritance 就一點用途都沒有了。
+— 它的 ctor 如果無法被 derived class 喚起，它還有什麼用途呢？</pre>
+  <pre><font color="#0000FF">★private inheritance 的運用，請見
+CUJ 1998/04 &quot;Object Counting in C++&quot;, by Scott Meyers
+DDJ 1999/10 &quot;Implementing operator-&gt;* for Smart Pointers&quot;, by Scott Meyers
+Effective C++ 2/e, item42: Using Private Inheritance Judiciously. 
+</font>
+因此，是 BCB4 表現差。</pre>
+  <pre>但是，上述關於 private inheritance 的討論，並不是什麼高深或晦澀的主題，
+BCC 理當不該表現這麼差。在偶而的情況下，我認為你的：
+class Derived : <font
+color="#0000FF">private virtual</font> Base
+其中的 virtual 在此並無意義，因此將它拿掉，變成：
+class Derived : <font
+color="#0000FF">private</font> Base
+然後我發現，三個編譯器都含笑通過了。</pre>
+  <pre>顯然，BCB4 是被 virtual 搞昏頭了。不過，它沒有挺過來，所以還是要說它表現
+差了點。</pre>
+  <p>　</p>
+  <pre>★★★ 2001/08/22 補充</pre>
+  <pre><font color="#000000">讀者</font>陳祐凡先生來信一封如下：</pre>
+  <pre><font color="#408080">傳送日期: 2001年8月8日 PM 01:23
+主旨: 虛擬繼承的疑問??
+&gt; 您好:
+&gt; 我在您的網站上看到&quot;C++ Primer 答客問(62)&quot;，心裡覺得怪怪的，
+&gt; 因此馬上用手邊的compiler做測試(gcc 2.95.3 and IBM VisualAge
+&gt; for C++)，得到的都是類似&quot;`Base::Base()' is protected&quot;的錯誤訊息。
+&gt; 
+&gt; 於是翻一翻 C++ primer ，剛好在 18.5.2節看到相關訊息:
+&gt; &quot;在非虛擬衍化行為中........&quot;
+&gt; 
+&gt; 由此看來，那段程式似乎不是如您說所的是BCB的error，而是語言
+&gt; 本身就是如此，不知您覺得如何??</font>
+
+●侯捷回覆：雖然您提醒了我另一條線索，但我還是要說 BCB4 是
+「眾人皆醒我獨醉」。<font
+color="#000000">C++ primer 18.5.2節告訴我們，虛擬繼承體系中的
+</font><font
+color="#0000FF">最底層衍生類別</font><font color="#000000">，有義務明白喚起 virtual base class's ctor；
+</font><font
+color="#0000FF">中介層衍生類別</font><font color="#000000">在 ctor 內對virtual base class's ctor 的喚起動作
+則一概被壓制。因此，本例的 A ctor 內應該寫出對 Base ctor 的直接喚起
+動作才是。但C++ primer 18.5.2節也告訴我們，如果我們沒這麼做的話，
+Base 的 default ctor 會被喚起；如果 Base 缺乏 default ctor，
+這時候才會造成編譯錯誤。</font></pre>
+  <pre><font color="#000000">我們的例子中，Base 擁有 default ctor，所以不應有錯。</font></pre>
+  <pre><font color="#000000">不過，我先前說VC6的褒揚，也太衝動了，因為，C++ primer 18.5.2節
+的例子，在 VC6,BCB4,BCB5都通不過（只有GCC29可以）。所以VC6在本例中的
+好表現，只是歪打正著而已。</font></pre>
+  <pre><font color="#000000">虛擬繼承真是一個晦暗的地帶。</font></pre>
+  <p>　</p>
+  <p>　</p>
+  <p><a name="C++ Primer qa63"><big><big>C++ Primer 答客問 (63)</big></big></a> - 
+  translation units之間可允許re-definition ?<br>
+  </p>
+  <pre>2001.08.17 第一次發表</pre>
+  <pre>●侯捷問：
+STL 的許多檔案都定義為 headers, 但其中有許多 classes implementation.
+為什麼同一個應用程式的許多 .cpp 含入這些 headers 之後，
+不會造成衝突 (re-defined) ?</pre>
+  <pre>●侯捷答：
+1. non-inline, non-member functions 一定得放在 implementation file 中。
+2. inline non-member functions 可放在 header file 中。
+3. member function 則當然可放在 header file 中（即使是在 class body 外定義）。</pre>
+  <pre>厲害的是 BCB4, BCB5，它允許你把 non-inline, non-member functions
+放在 headers 中，被同一程式的多個 .cpp 含入，而不會出問題。
+VC6, GCC 就無此能耐。BCB 的這種特異功能，在某種情況下是好的
+（例如允許我們在 header 中定義 global functions），
+在某種情況下很不好（例如我們一不小心在不同的 cpp 檔中定義了
+同名而意義不同的 global functions，竟然會獲通過）。</pre>
+  <pre>●YHChuang 補充：
+看到你的問題以來，一直思索著compiler是如何做到
+同一個應用程式的許多 .cpp 含入這些STL headers 之後
+不會造成衝突 (re-defined) ?</pre>
+  <pre>思考的過程中我發現了一個很有趣的問題，可以參考看看。
+我寫了一個簡單的程式：</pre>
+  <pre>1. qa63.cpp   (include main())
+2. qa63-2.cpp</pre>
+  <pre><font color="#0000FF">//----qa63.cpp-----
+</font>#include &lt;iostream&gt;
+using namespace std;</pre>
+  <pre>class CA
+{
+public:
+    float f;
+    int Call()
+    {
+        cout &lt;&lt; &quot;CA::Call() in test1 module&quot; &lt;&lt; endl;
+        return 0;
+    }
+};</pre>
+  <pre>inline int inlineFunc()
+{
+    cout &lt;&lt; &quot;inlineFunc in test1 module&quot; &lt;&lt; endl;
+    return 1;
+}</pre>
+  <pre>void func1()
+{
+    cout &lt;&lt; &quot;func1() in test1 module&quot; &lt;&lt; endl;
+    CA la;
+    int i;
+    i = la.Call();
+    i = inlineFunc();
+}</pre>
+  <pre>int func() { return 1; }</pre>
+  <pre>extern void func2();</pre>
+  <pre>int main()
+{
+    func1();
+    func2();
+    return 0;
+}</pre>
+  <pre><font color="#0000FF">//----qa63-2.cpp-----
+</font>#include &lt;iostream&gt;
+using namespace std;</pre>
+  <pre>class CA
+{
+public:
+    int i;
+    int Call()
+    {
+        cout &lt;&lt; &quot;CA::Call() in test2 module&quot; &lt;&lt; endl;
+        return 1;
+    }
+};</pre>
+  <pre>inline int inlineFunc()
+{
+    cout &lt;&lt; &quot;inlineFunc in test2 module&quot; &lt;&lt; endl;
+    return 0;
+}</pre>
+  <pre>void func2()
+{
+    cout &lt;&lt; &quot;func2() in test2 module&quot; &lt;&lt; endl;
+    CA la;
+    int i;
+    i = la.Call();
+    i = inlineFunc();
+}</pre>
+  <pre>int func() { return 2; }</pre>
+  <p>　</p>
+  <pre>以VC做了一下測試，得到的結果是：</pre>
+  <pre>func1() in test1 module
+CA::Call() in test1 module
+inlineFunc in test1 module
+func2() in test2 module
+CA::Call() in test1 module
+inlineFunc in test1 module</pre>
+  <pre>這是一個非常奇怪的結果，照理來說不是應該為：</pre>
+  <pre>func1() in test1 module
+CA::Call() in test1 module
+inlineFunc in test1 module
+func2() in test2 module
+<font
+color="#0000FF">CA::Call() in test2 module  &lt;-- note
+inlineFunc in test2 module  &lt;-- note</font></pre>
+  <pre>可見complier為了我們做了不少奇怪的事情，所以可看得出來：
+結論可以是很簡單可是其中的過程可就不簡單了！</pre>
+  <pre>●侯捷回覆：
+首先，你的兩個編譯模組定義了同名的 class name，
+這應該是一種編程錯誤。測試結果：VC, GCC, BCB 都允許。</pre>
+  <pre>其次，你的兩個編譯模組定義了同名的 inline function name，
+這應該也是一種編程錯誤。測試結果：VC, GCC, BCB 都允許。</pre>
+  <pre>最後，三家編譯器的結果，執行時各有不同。GCC 的結果如同 VC，
+BCB 的結果則如同你所說的「按理應該如此」。</pre>
+  <pre>另一個測試：如果我在你的兩個編譯模組中，定義了同名的 global functions
+（不論其 function body 是否相同），這應該也是個編程錯誤。
+測試結果：VC, GCC 聯結錯誤（好現象）,BCB 通過（機關算盡太聰明）。</pre>
+  <pre>我認為，由於上述這類寫碼，根本上是一種陷阱（或說一種錯誤），
+所以繼續討論下去的意義不大。如果我們改變寫法，將同名的東西
+放在 header 中（當然那就不能也不會有重複定義），變成這樣：</pre>
+  <pre>1. qa63.h    (include class CA and inline non-member function)
+2. qa63.cpp  (include main())
+3. qa63-2.cpp  (another module)</pre>
+  <pre>那才是正確的安排。</pre>
+  <pre>2001.09.30補註：此題是否與所謂 Interface Principle有關？
+見《Exceptional C++》p123</pre>
+  <pre>-- the end</pre>
+  <p><br>
+  </p>
+</blockquote>
+</body>
+</html>

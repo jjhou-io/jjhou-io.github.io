@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>應用框架設計 南京大學 2006 課程備忘錄</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><font color="#800000">應用框架設計<br>
+Application Frameworks Design<br>
+<br>
+南京大學</font><font color="#804000">軟件學院</font><font color="#800000"> 2006 
+課程備忘錄<br>
+<br>
+<small>侯捷</small></font></h2>
+
+<p align="center"><font color="#0000FF">請注意：此為備忘錄，不是呈現完整教材或學習討論的地方。</font></p>
+
+<p align="center"><a href="#ToFit" target="main"><font color="#000000">誰適合聽這門課</font></a></p>
+
+<p align="center"><a href="#CanAudit" target="main"><font color="#000000">能否旁聽這門課</font></a></p>
+
+<p align="center"><img src="2006-07-calendar.jpg" tppabs="http://jjhou.boolan.com/2006-07-calendar.jpg" width="564" height="265"
+alt="2006-07-calendar.jpg (37232 bytes)"></p>
+
+<p align="center"><a href="article0607.htm" tppabs="http://jjhou.boolan.com/article0607.htm" target="main">一月之跡（日誌）</a></p>
+
+<hr>
+
+<blockquote>
+  <p><font color="#0000FF">主旨</font>：Application Frameworks 幾乎是以 OO 
+  技術所開發的軟件的最高層級。本課程以相對極短的時間，讓學員了解如此複雜的系統的架構與各項基礎建設。 
+  </p>
+  <p><font color="#0000FF">說明</font>：泛泛而談或純理論式教學，在大多數場合中容易種下教學失敗的因子。因此本課程以曾經廣被全球使用（目前也還有大量用戶）的 
+  application framework 產品 MFC（Microsoft Foundation Classes）為具體對象，講解其中的各種 
+  Infrastructure（基礎建設），為學生勾勒具體丘壑。 </p>
+  <p><font color="#0000FF">教材</font>（1 
+  為教材，其他為輔助資料或參考讀物）：</p>
+  <p><font color="#FF0000">&nbsp; </font><font color="#000000">1.</font> 上課投影片<font
+  FACE="新細明體" size="3">。以電子文件發給院方，由學生自行複印。</font><br>
+  <font color="#FF0000">*2</font><font color="#000000">.</font>《深入淺出MFC》2/e,&nbsp; 
+  by 侯俊傑, 華中科技大學出版社 2001<br>
+  <font color="#FF0000">*3</font>.電子文檔 by侯捷（以下 pdf 共206頁，zip 為 pdf 
+  文章中之程式碼）<br>
+  <a href="javascript:if(confirm(%27http://www.jjhou.com/pic2-chap06-020222.pdf  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.jjhou.com/pic2-chap06-020222.pdf%27" tppabs="http://www.jjhou.com/pic2-chap06-020222.pdf" target="main">http://www.jjhou.com/pic2-chap06-020222.pdf</a> 
+  &nbsp; <br>
+  <a href="javascript:if(confirm(%27http://www.jjhou.com/mfclite3-020222.zip  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.jjhou.com/mfclite3-020222.zip%27" tppabs="http://www.jjhou.com/mfclite3-020222.zip" target="main">http://www.jjhou.com/mfclite3-020222.zip</a></p>
+  <table BORDER="1" CELLSPACING="1" CELLPADDING="1" WIDTH="554">
+    <tr>
+      <td WIDTH="51" VALIGN="top" bgcolor="#C0C0C0"><font FACE="新細明體" size="3">日期</font></td>
+      <td WIDTH="36" VALIGN="top" bgcolor="#C0C0C0"><font FACE="新細明體" size="3">星期</font></td>
+      <td WIDTH="22" VALIGN="top" bgcolor="#C0C0C0"><font FACE="新細明體" size="3">時數</font></td>
+      <td WIDTH="352" VALIGN="top" bgcolor="#C0C0C0"><font FACE="新細明體" size="3">內容</font></td>
+      <td WIDTH="66" VALIGN="top" bgcolor="#C0C0C0"><font FACE="新細明體" size="3">備註</font></td>
+    </tr>
+    <tr>
+      <td WIDTH="51" VALIGN="TOP"><font size="3">07/10</font></td>
+      <td WIDTH="36" VALIGN="TOP"><font size="3">一</font></td>
+      <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
+      <td WIDTH="352" VALIGN="TOP"><font FACE="新細明體" size="3">課程簡介，上課規則，書籍評介<br>
+      </font><font size="3">複習 C++ virtual functions 和 Template Method。<br>
+      說明MFCLite 的模組切割與 makefile。<br>
+      CRuntimeClass 及 &quot;類別型錄網&quot;</font></td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="51" VALIGN="TOP"><font size="3">07/11</font></td>
+      <td WIDTH="36" VALIGN="TOP"><font size="3">二</font></td>
+      <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
+      <td WIDTH="352" VALIGN="TOP"><font FACE="新細明體" size="3">示範</font><font
+      size="3"> MFC applications 的生成和主結構。<br>
+      複習 C++ 的 # operator 和 ## operator。<br>
+      複習</font>const函式。<br>
+      CRuntimeClass, CObject<p>檢討：<br>
+      virtual CObject::GetRuntimeClass() const <br>
+      { return &amp;(CObject-&gt;class<font color="#FF0000">CObject</font>); }<br>
+      不可改如下並從此被繼承：<br>
+      <font color="#FF0000">non-virtual</font> CObject::GetRuntimeClass() const <br>
+      { return &amp;(this-&gt;class<font color="#FF0000">X</font>); }</p>
+      <p>三大基礎建設 (Runtime Type Identification, Dynamic Creation, Serialization)</td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="51" VALIGN="TOP"><font size="3">07/12</font></td>
+      <td WIDTH="36" VALIGN="TOP"><font size="3">三</font></td>
+      <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
+      <td WIDTH="352" VALIGN="TOP">簡介 CArchive, CFile, SERIAL.<br>
+      現場撰寫 simple test：<br>
+      測試基礎設施並觀察 serialization format</td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="51" VALIGN="TOP"><font size="3">07/13</font></td>
+      <td WIDTH="36" VALIGN="TOP"><font size="3">四</font></td>
+      <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
+      <td WIDTH="352" VALIGN="TOP">繼續場撰寫 simple test：為 document 
+      增加更多數據，觀察 serialization format，並對 obj.Serialize(ar); 和 ar 
+      &lt;&lt; obj; 和 ar &gt;&gt; obj; 做出結論。<p>應用框架骨幹浮現<br>
+      介紹 Win32 programming model<br>
+      導入 message mapping.</td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="51" VALIGN="TOP"><font size="3">07/14</font></td>
+      <td WIDTH="36" VALIGN="TOP"><font size="3">五</font></td>
+      <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
+      <td WIDTH="352" VALIGN="TOP">訊息映射 (Message Mapping)<br>
+      命令繞送 (Command Routing) <br>
+      pointer to member function 的轉型</td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="51" VALIGN="TOP"><font size="3">07/17</font></td>
+      <td WIDTH="36" VALIGN="TOP"><font size="3">一</font></td>
+      <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
+      <td WIDTH="352" VALIGN="TOP">MVC (Model View Controller), <br>
+      Document-Views<br>
+      Document Templates<br>
+      DocManager<br>
+      補充 Iterator vs. POSITION, Observer</td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="51" VALIGN="TOP"><font size="3">07/18</font></td>
+      <td WIDTH="36" VALIGN="TOP"><font size="3">二</font></td>
+      <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
+      <td WIDTH="352" VALIGN="TOP">Object Persistence 深層探討<br>
+      一個完整的 MFCLite 測試程式, mfclapp.cpp</td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="51" VALIGN="TOP"><font size="3">07/19</font></td>
+      <td WIDTH="36" VALIGN="TOP"><font size="3">三</font></td>
+      <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
+      <td WIDTH="352" VALIGN="TOP">以 VC++ 工具撰寫 MFC applications.<br>
+      <font color="#000000">考試 (90 min.)</font></td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="51" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">07/20</font></td>
+      <td WIDTH="36" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">四</font></td>
+      <td WIDTH="22" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">3</font></td>
+      <td WIDTH="352" VALIGN="TOP" BGCOLOR="#ffffff">Documents 的清理與 Windows 的關閉<br>
+      補充 CString, std::string, Reference Counting and Proxy</td>
+      <td WIDTH="66" VALIGN="TOP" BGCOLOR="#ffffff">　</td>
+    </tr>
+  </table>
+  <p><br>
+  <a name="ToFit"><font color="#000000">■誰適合聽這門課</font></a></p>
+  <p align="left"><font color="#000000">本課程屬高階課程，適合對象：對軟件開發已有相當經驗、希望短時間內一窺複雜之 
+  application framework 
+  設計與實作，以求對此類系統之架構有大局性理解。</font></p>
+  <p align="left"><a name="CanAudit"><font color="#000000">■能否旁聽這門課</font></a></p>
+  <p align="left">我在大學開的課程，是正式學分課，面向該大學學生。作為老師，我歡迎旁聽，但首先應以修課同學的權益（座位、空間...等等）為優先。因此，能否旁聽，還請詢問學校相關單位（例如學院或系上辦公室）的態度。</p>
+  <p align="left">-- the end</p>
+  <p align="left">　</p>
+  <p align="left">　</p>
+  <p align="left">　</p>
+  <p align="left">　</p>
+  <p align="left">　</p>
+  <p align="left">　</p>
+  <p align="left">　</p>
+  <p align="left">　</p>
+  <p>　</p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>勘誤《Refactoring》中文版（簡體）</title>
+</head>
+
+<body>
+
+<pre>本勘誤檔更新日期: 2005/04/25
+
+《Refactoring 中文版》（簡體）
+中國電力社出版, 2003/08 
+
+原著：Refactoring - Improving The Design of Existing Code 
+      by Martin Flower
+      Addison Wesley, 2000
+
+注意：以下按修正日期排序。</pre>
+
+<pre>======================================================</pre>
+
+<pre>書籍內容更正，有兩種作法，一是在網際網路上做個專屬勘誤
+網頁，讓大家上去看。這是比較即時的作法。而更理想更負責
+的作法是：不但有勘誤網頁，並且在新刷中予以更正 — 如果
+有新刷的話 :)</pre>
+
+<pre>不過，理想與現實之間需要一點協調。書籍的製作是這樣的，
+製版與印刷時，是以檯（8 或 16 頁）為單位。因此，每換一
+頁，同檯的各頁統統要換過。這便造成印製成本的大量增加。</pre>
+
+<pre>以前，我從不考慮成本，只要我認為書籍內容有修改必要，即
+使只是某個字詞用得不甚理想，我都會請出版社更新。出版社
+也都全力配合（這一點讓我非常感謝）。</pre>
+
+<pre>慢慢地，我的行事不再這麼霹靂，我覺得我多少也要站在出版
+社的立場想想。所以我打算，如果是關係到對錯正誤的根本性
+問題，我便一定在新刷修正。如果是易判別的錯別字或排版誤
+失或用詞不很恰當…等等，我便先在勘誤網頁上明載，但不求
+一定於新刷中更正。直到收集來的這類誤失較為密集了，才一
+併於下一刷修正。</pre>
+
+<pre>哪些是新刷已修正的，哪些是暫請讀者自行動手更改的，我會
+在勘誤網頁（網址見書封底）上清楚說明。</pre>
+
+<pre>這是個便宜法門，請讀者見諒。</pre>
+
+<pre>書籍應該在出版前就詳細檢查，以完美之姿出現。但是完美很
+難達到。對於下列大大小小輕重不等的誤失，我謹向讀者說抱
+歉。</pre>
+
+<pre>本檔歡迎廣為流傳，謝謝。</pre>
+
+<pre>以下為更新記錄。如果您購買的是第 n 刷，請將以下第 n+1
+刷之後的更新內容自行修正至書上。謝謝</pre>
+
+<pre>======================================================</pre>
+
+<pre>以下暫請讀者自行更正：
+（注意，Lm 表示第 m 行，L-n 表示倒數第 n 行）</pre>
+
+<pre>■p76, L13（筆誤）
+原文：Pull Up Method (<font color="#FF0000">332</font>)
+更正：Pull Up Method (<font
+color="#0000FF">322</font>)
+感謝：cockroach
+日期：2004/01/08
+
+■p82, L7（筆誤）
+原文：Replace Type Code with Subclass (<font
+color="#FF0000">213</font>)
+更正：Replace Type Code with Subclass (<font color="#0000FF">223</font>)
+感謝：cockroach
+日期：2004/01/08
+
+■p142, L3（後製失誤）
+修訂：此段應使用一般字體，下一段才使用黑體（見本書他處類似風格）
+感謝：cockroach
+日期：2004/01/08
+
+■p145, 第一段程式碼（縮排格式錯誤）
+原文：
+class Account...
+    double overdraftCharge() {
+<font
+color="#FF0000">    return _type.overdraftCharge(_daysOverdrawn);
+}  </font>  
+更正：
+class Account...
+    double overdraftCharge() {
+<font
+color="#0000FF">        return _type.overdraftCharge(_daysOverdrawn);
+    }</font>
+感謝：lzl_xm
+日期：2004/01/08
+
+■p169, L-14（遺漏）
+原文：Replace Value with Object
+更正：Replace <font
+color="#0000FF">Data</font> Value with Object
+感謝：cockroach
+日期：2004/01/08
+
+■p169, L7（筆誤）
+原文：Self Encapsulate Field (<font
+color="#FF0000">157</font>)
+更正：Self Encapsulate Field (<font color="#0000FF">171</font>)
+感謝：cockroach
+日期：2004/01/08
+
+■p292, L1（筆誤）
+原文：Replace Parameter with Method<font
+color="#FF0000">s</font>
+更正：Replace Parameter with Method
+感謝：cockroach
+日期：2004/01/08
+
+■p355, L-8（遺漏）
+原文：Extract Superclass
+更正：Extract Superclass <font
+color="#0000FF">(336)</font>
+感謝：cockroach
+日期：2004/01/08</pre>
+
+<pre>■p361, L8（術語轉換失誤）
+原文：如何處理<font color="#FF0000">程序性</font>代碼（procedural code）？
+更正：如何處理<font
+color="#0000FF">過程性</font>代碼（procedural code）？
+感謝：Jin Yu
+日期：2004/07/10</pre>
+
+<pre>■p356, L6（筆誤）
+原文：你可以使用<font color="#FF0000">Remane</font> Method（273）解決此類問題
+更正：你可以使用<font
+color="#0000FF">Rename</font> Method（273）解決此類問題
+感謝：Jin Yu
+日期：2004/07/10</pre>
+
+<pre>■p.viii, L7（筆誤）
+原文：Sho<font color="#FF0000">r</font>tgun Surgery（霰彈式修改）
+更正：Shotgun Surgery（霰彈式修改）
+感謝：yaocl
+日期：2004/09/02</pre>
+
+<pre>■p382, L3（討論與修潤）
+原文：
+你可以重寫整個程序。你可以倚賴自己的設計經驗來糾正程序中存在的錯誤，
+這是創造性的工作，也很有趣。但誰來付錢呢？你又如何保證新的系統能夠
+完成舊系統所做的每一件事呢？</pre>
+
+<pre><strong>讀者來信</strong>：
+最近看了一下這段原文是如此寫的 : 
+You can rewrite the program. You can leverage your design experience...
+我對leverage這個字義有點不解，即使看了先生的譯本還是不解，查了一下英漢字典，
+字典解釋為槓桿作用，且為名詞，我想一般人看了字典解釋一定有看沒有懂。後來
+查了一下英英字典，終於發現它的動詞解釋，也是跟槓桿脫離不了關係。最後我問了
+一個曾經長期居住加拿大的朋友，他說leverage的用法有很多種，此處的leverage可以
+解釋為improve或enhance。如果leverage解釋為improve，以下兩句 :
+You can rewrite the program. You can leverage your design experience and 
+correct the ills of the past and be creative and have fun.
+似乎就容易理解了: 
+rewrite the program 是因，以下是果：
+(1) leverage (improve) your design experience 
+(2) correct the ills of the past 
+(3) be creative 
+(4) have fun 
+不知先生覺得這樣的解釋是否合理?</pre>
+
+<pre><strong>侯捷回覆</strong>：
+合理:) 我把它重譯如下：</pre>
+
+<pre>你可以重寫程序，你可以強化自己的設計經驗，你可以糾正過去程式的錯誤，
+你可以持續維持創造力並享受其中樂趣。但誰來付錢呢？你又如何保證新系統能夠
+完成舊系統所做的每一件事呢？</pre>
+
+<pre>感謝：kenycchen
+日期：2005/04/25
+
+-- the end</pre>
+</body>
+</html>

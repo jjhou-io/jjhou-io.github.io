@@ -1,0 +1,404 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>C++ and STL: Take Advantage of STL Algorithms by Implementing a Custom Iterator</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center">C++ and STL: Take Advantage of STL Algorithms <br>
+by Implementing a Custom Iterator<font color="#800000"><br>
+</font></h2>
+
+<h3 align="center"><b><span class="clsBio">Samir Bajaj</span></b></h3>
+
+<blockquote>
+  <p align="center">侯捷註：本文原載於 <a
+  href="javascript:if(confirm(%27http://msdn.microsoft.com/msdnmag/issues/01/04/STL/default.aspx  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://msdn.microsoft.com/msdnmag/issues/01/04/STL/default.aspx%27" tppabs="http://msdn.microsoft.com/msdnmag/issues/01/04/STL/default.aspx">http://msdn.microsoft.com/msdnmag/issues/01/04/STL/default.aspx</a>。<br>
+  我在 Generic Programming 課程中指定此為期末習題之重要參考。<br>
+  為恐 Internet 網頁佚失，學生不得見，故備份於此。</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <table>
+    <tr>
+      <td><h1>C++ and STL: Take Advantage of STL Algorithms by Implementing a Custom Iterator</h1>
+      </td>
+    </tr>
+    <tr>
+      <td><span class="pd">Samir Bajaj</span></td>
+    </tr>
+    <tr>
+      <td><img height="10" alt src="../msdn.microsoft.com/msdnmag/images/ts.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/ts.gif" width="1"></td>
+    </tr>
+<!---InfoBar--->
+    <tr>
+      <td><span class="clsInfo">This article assumes you're familiar with C++ and STL</span></td>
+    </tr>
+    <tr>
+      <td vAlign="bottom" bgColor="#3366cc"><span class="clsLevel"><font color="#ffffff">Level 
+      of Difficulty&nbsp; &nbsp;&nbsp;</font> <font color="#999999">1</font>&nbsp;&nbsp; <font
+      color="#ffffff">2</font>&nbsp;&nbsp; <font color="#999999">3</font>&nbsp;</span> </td>
+    </tr>
+    <tr>
+      <td bgColor="#99ccff"><span class="clsInfo">Download the code for this article: <a
+      href="javascript:if(confirm(%27http://download.microsoft.com/download/2/8/c/28c4ace3-f5ed-4e14-bc64-3d563b807dfb/STL.exe  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://download.microsoft.com/download/2/8/c/28c4ace3-f5ed-4e14-bc64-3d563b807dfb/STL.exe%27" tppabs="http://download.microsoft.com/download/2/8/c/28c4ace3-f5ed-4e14-bc64-3d563b807dfb/STL.exe">STL.exe 
+      (34KB)</a> </span></td>
+    </tr>
+    <tr>
+      <td bgColor="#ffffff"><span class="clsSum">SUMMARY</span> <span class="clsSumText">There 
+      are many benefits to using the Standard Template Library (STL) for C++ development, 
+      including the ability to use generic data structures and algorithms. To use the STL 
+      algorithms, an STL-conforming container is required. Iterating through the Internet 
+      Explorer cache is an informative exercise, but the cache is not an STL-conforming 
+      container. So, to use the STL algorithms to search and enumerate the Internet Explorer 
+      cache, an adapter is needed. Building such an adapter—an STL-conforming iterator—is 
+      the topic of this article. Also provided is an overview of the components of the STL and 
+      the Win32 Internet APIs used.</span> <hr color="#6699cc">
+      </td>
+    </tr>
+    <tr>
+      <td class="articletext">The C++ Standard Template Library (STL) is a powerful and 
+      versatile collection of classes and functions that provides an efficient, lightweight, and 
+      extensible framework for application development. STL also offers a sophisticated level of 
+      abstraction that promotes the use of generic data structures and algorithms without the 
+      overhead of a generic solution. With the exception of requirements that are very specific 
+      to an application domain and perhaps some other rare situations, the STL is sufficiently 
+      flexible to address the development needs of all kinds of applications. Contrary to 
+      popular belief, applications do not have to sacrifice performance in order to use STL 
+      constructs, since the STL makes specific performance guarantees for the algorithms it 
+      supplies and you can select the one that best meets your needs.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">To use the STL algorithms, an STL-conforming container is required. The 
+      Microsoft&reg; Internet Explorer cache is not an STL-conforming container. Therefore, if 
+      you want to use the STL algorithms with the Internet Explorer cache, you'll need an 
+      adapter.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">In this article I'll demonstrate the design of an STL-conforming iterator for 
+      the cache of temporary files stored by Internet Explorer. I'll provide an overview of the 
+      components of the STL and then look closely at STL iterators. I'll explain how to get 
+      information about the Internet Explorer cache entries using the Win32&reg; Internet 
+      (WinInet) APIs. Finally, I'll show you how I put this information together to develop the 
+      cache iterator and explain how it works.<br>
+      <br>
+      <font color="#0000FF"><strong><span class="clsSubhead">STL Components</span></strong></font><br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">The STL container classes do not form a hierarchy; in other words, they do not 
+      inherit from any base class. Therefore, the STL template classes and functions must follow 
+      certain conventions. For example, all standard containers are required to provide certain 
+      type definitions and implementations for a specific set of methods. This means that if C 
+      is an STL-conforming container, then C::iterator is the type of the iterator for that 
+      container. This has the significant advantage of moving a substantial portion of error 
+      checking to the compilation phase, thereby reducing the probability of expensive, and 
+      sometimes fatal, runtime errors.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">STL components can be broadly classified into four categories: containers, 
+      iterators, algorithms, and function objects. Containers manage collections of objects. 
+      There are a variety of containers, and each offers unique advantages. Standard containers 
+      include vector, list, deque, set, map, and so on. What will be the most efficient 
+      container type for your particular task will depend on the way an application manipulates 
+      its data and the nature of operations it wants to perform on the objects.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Iterators are generalized pointer-like objects that are used to step through 
+      the elements of a container. Iterators can work on an entire collection of objects or on a 
+      subset of objects. Typically, iterators operate on a range of elements, which could 
+      include anywhere from no elements to all the elements in a container. In the next section 
+      of this article, I'll discuss iterators in more detail and show you how I applied the 
+      concept of iterators to the Internet Explorer cache of temporary Internet files.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Algorithms process elements in containers, or more specifically, in ranges. The 
+      STL offers a wide variety of algorithms to search, sort, and operate on elements in 
+      containers. In fact, the STL actually has more than 70 useful, generic algorithms in the 
+      form of function templates that can be applied to containers or sequences of elements. A 
+      simple example of an STL algorithm is the count function. As its name suggests, it counts 
+      the number of elements in a container.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">However, if you want to use any of the STL algorithms, the container (or 
+      sequence of elements) has to be STL-compliant. Although iterators act as the glue that 
+      allows algorithms to be applied to containers, they also serve to decouple the components 
+      so that new algorithms can be written independently of the containers, and vice-versa, 
+      without having to derive from any base classes or override any virtual functions. This 
+      orthogonal design of components facilitates the use of a multitude of algorithms on 
+      practically all containers that conform to STL's conventions.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Function objects (or functors) encapsulate policy. These objects behave like 
+      functions and can be invoked as functions. In essence, function objects are smarter than 
+      functions because they can encapsulate state and attributes that reflect a particular 
+      state and also have a specific type associated with them. Later in this article, I will 
+      show the function objects that customize the operation of a few algorithms to work on the 
+      Internet Explorer cache.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">There are other utility classes and functions in the STL that do not strictly 
+      fall into any of these categories, but are nonetheless associated with one or more 
+      components.<br>
+      <br>
+      <font color="#0000FF"><strong><span class="clsSubhead">Iterators</span></strong></font><br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">An iterator is modeled after a pointer, and for the most part can be used as a 
+      pointer. Iterators are divided into categories based on the operations they support. 
+      Although the categories are collectively referred to as a hierarchy, they don't correspond 
+      to classes or templates. In other words, the iterator categories do not define an 
+      inheritance hierarchy. The iterator hierarchy has five categories, each corresponding to a 
+      set of operations supported by instances of that category.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">In increasing order of capability, iterator categories are as follows:<br>
+      <span class="clsGloss">Input</span> These iterators support single-pass, read-only 
+      operations. Once an element in a range has been read, the iterator cannot backtrack to 
+      that element. If you need to backtrack, you have to start over again.<br>
+      <span class="clsGloss">Output</span> These are similar to input iterators, except that 
+      output iterators support write-only operations. Modeled on ostreams (output streams), they 
+      closely emulate the behavior of a typical file pointer in write mode. It is important to 
+      note that output iterators are also single-pass.<br>
+      <span class="clsGloss">Forward</span> These iterators offer a combination of operations 
+      supported by input and output iterators—specifically, they allow read and write 
+      operations. Additionally, they can make multiple passes over the range of elements that 
+      they traverse.<br>
+      <span class="clsGloss">Bidirectional</span> These are essentially forward iterators with 
+      the ability to move backward through a range of elements. At minimum, all standard STL 
+      containers offer bidirectional iterators.<br>
+      <span class="clsGloss">Random access</span> As true pointer-like objects they offer 
+      similar capabilities of bidirectional iterators as well as pointer arithmetic. Needless to 
+      say, these built-in pointers are a perfect example of random access iterators.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Before I explain the design for the Internet Explorer cache iterator, let's 
+      examine the structure of the cache and the support provided by the WinInet APIs.<br>
+      <br>
+      <font color="#0000FF"><strong><span class="clsSubhead">The Internet Explorer Cache</span></strong></font><br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Internet Explorer maintains a cache of resources that it downloads from the 
+      network. Any data received from the network is cached on the local disk and retrieved in 
+      response to subsequent requests. Clients that need persistent caching services can use the 
+      WinInet caching APIs to allow applications to save data in the local file system for 
+      subsequent use. This is extremely useful for situations where a low-bandwidth link limits 
+      access to data, or access to the Internet is not available at all. In the iterator sample, 
+      I treat the cache as a read-only data structure in order to use several algorithms in the 
+      STL and perform some operations on the cache.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">The contents of the persistent cache can be enumerated using a familiar search 
+      procedure in Win32. You start the search by creating a search handle. Subsequent 
+      invocations of one or more functions return a structure with information about each file 
+      until no more files need to be processed. File enumeration in a directory and resource 
+      enumeration on an FTP site are common examples of where you would use this procedure. The 
+      corresponding WinInet APIs for searching through and enumerating the Internet cache are 
+      described here:<ul>
+        <li>FindFirstUrlCacheEntry starts the enumeration by taking a search pattern, a buffer, and 
+          a buffer size to create a handle and return the first cache entry.<br>
+        </li>
+        <li>FindNextUrlCacheEntry takes the handle created by FindFirstUrlCacheEntry, a buffer, and 
+          a buffer size to return the next cache entry.<br>
+        </li>
+        <li>FindCloseUrlCache closes the specified cache enumeration handle.<br>
+        </li>
+      </ul>
+      <p><img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">The signatures of these functions are shown in <a class="clsFigs"
+      href="javascript:OpenUrl('figures.asp#fig1');" target="_self">Figure&nbsp;1</a>.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Information about the cache entry is returned in an INTERNET_CACHE_ENTRY_INFO 
+      structure in the buffer. The size of this structure varies for each entry. If the buffer 
+      size passed to either FindFirstUrlCacheEntry or FindNextUrlCacheEntry is insufficient, the 
+      GetLastError API will return ERROR_INSUFFICIENT_BUFFER. The buffer size variable contains 
+      the actual size that was needed to retrieve that cache entry. The application should then 
+      reallocate a buffer of the appropriate size and call the function again. The 
+      INTERNET_CACHE_ENTRY_INFO structure contains information such as the URL of the cached 
+      resource, the local file name, size, last modified time, last access time, expiry, and so 
+      on. <a class="clsFigs" href="javascript:OpenUrl('figures.asp#fig2');" target="_self">Figure&nbsp;2</a> 
+      shows the complete structure definition.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Several other WinInet APIs that provide additional services and information 
+      related to the contents of the cache are documented in the MSDN&reg; Library and the 
+      Platform SDK.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Now that I've discussed iterators, the Internet Explorer cache, and the APIs 
+      for enumerating the cache, let's take a look at the cache iterator program I have 
+      developed.<br>
+      <br>
+      <font color="#0000FF"><strong><span class="clsSubhead">The Cache Iterator</span></strong></font><br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Given the functionality offered by the cache enumeration APIs that I discussed, 
+      an input iterator seems to be the best fit. There appears to be a direct correspondence 
+      between the properties of an input iterator (single-pass, read-only), and the 
+      functionality of the FindFirstUrlCacheEntry and FindNextUrlCacheEntry APIs. While it is 
+      true that the input iterator is the least powerful member of the iterator hierarchy, a 
+      significant number of algorithms in the STL can work with objects of the input iterator 
+      category, as you will see shortly. So let's take a look at the design of the cache 
+      iterator.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">In order to establish the iterator as an input iterator type and to define some 
+      critical types associated with the iterator, I first need some typedefs. I could do that 
+      by including the typedefs in the iterator class, or the typedefs could be inherited from 
+      the std::iterator class that is provided in the STL for exactly this purpose. The 
+      std::iterator class is shown in the following code.</p>
+      <pre class="clsCode">template&lt;class C, class T, class Dist = ptrdiff_t&gt;
+    struct iterator {
+    typedef C iterator_category;
+    typedef T value_type;
+    typedef Dist distance_type;
+    };</pre>
+      <p><img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Note that std::iterator defines types for the iterator category as well as the 
+      element that the iterator will point to (value_type). In addition, it defines the type for 
+      the &quot;distance&quot; between two iterators—this is naturally ptrdiff_t for pointer 
+      types, and is important for random access iterators, but doesn't really apply to input 
+      iterators.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Moreover, the cache_iterator program will provide an interface to the Internet 
+      Explorer cache, and therefore needs to maintain state variables that can be manipulated by 
+      the WinInet cache APIs. Adding a cache enumeration handle and variable of type 
+      INTERNET_CACHE_ENTRY_INFO*, the class definition looks like this:</p>
+      <pre class="clsCode">class cache_iterator: public std::iterator&lt;std::input_iterator_tag,
+                                         INTERNET_CACHE_ENTRY_INFO&gt;
+{
+   HANDLE                      m_hCacheEntry;
+   LPINTERNET_CACHE_ENTRY_INFO m_lpCacheEntryInfo;
+   // ...
+};</pre>
+      <p><img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">I have indicated that I am designing an input iterator and that the iterator 
+      will enumerate elements of type INTERNET_CACHE_ENTRY_INFO.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Next, I need to determine the minimum set of operations that an input iterator 
+      is expected to support. You should recall that the STL follows certain conventions, and 
+      components of the STL make certain assumptions about other components in order to 
+      interoperate in a generic, orthogonal manner. If a component doesn't satisfy the expected 
+      requirements, the compiler will then issue an appropriate error.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">It is usually helpful to have a picture of a built-in pointer in mind when 
+      discussing iterators. Consider the following piece of canonical code and see how it can 
+      lead to insights on iterator design:</p>
+      <pre class="clsCode">int* find(int* first, int* last, const int value) 
+{
+   while (first != last &amp;&amp; *first != value) ++first;
+   return first;
+}</pre>
+      <p>This function is invoked as follows:</p>
+      <pre class="clsCode">int numbers[10];
+// fill numbers[] with some ints
+int* zero = find(numbers, numbers+10, 0);</pre>
+      <p><img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">If an iterator were to emulate a built-in pointer, what operations would it 
+      need to support? Evidently, it should offer at least the following operations: 
+      pass-by-value, comparison for inequality, dereferencing, and preincrement. Pass-by-value 
+      semantics can be implemented for a class via a copy constructor. For the remaining three 
+      operations, C++ operator overloading is both a convenient and natural mechanism.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">Next, I'll describe the cache iterator's implementation of these four 
+      operations.<br>
+      <span class="clsGloss">Pass-by-value</span> The cache_iterator copy constructor should 
+      initialize member data and place the object in a valid state. It is important to 
+      distinguish between a valid state and an invalid state because the latter will be used to 
+      indicate the completion of cache enumeration. In addition, the cache_iterator object will 
+      be placed into an invalid state as soon as an irrecoverable error is encountered, thereby 
+      terminating the enumeration. Using the WinInet API FindFirstUrlCacheEntry, the 
+      cache_iterator object can be initialized with valid values for an enumeration handle and a 
+      pointer to the first entry in the cache. Null values for the two instance variables 
+      indicate that the object is in an invalid state.</p>
+      <pre class="clsCode">cache_iterator(LPINTERNET_CACHE_ENTRY_INFO) : m_hCacheEntry(0), 
+    m_lpCacheEntryInfo(0)
+    {
+    }</pre>
+      <p>For the complete code listing see the file CacheIter.h, which can be found at the link 
+      at the top of this article.<br>
+      <span class="clsGloss">Comparison for inequality</span> It is usually a good idea to 
+      overload both the == operator and the != operator when implementing either one. The 
+      implementation of the == operator is simple: two instances of cache_iterator are equal if 
+      their state is equal, and since I am only interested in distinguishing between a valid 
+      state and the invalid state, the following will suffice:</p>
+      <pre class="clsCode">bool operator ==(const cache_iterator&amp; cit)
+{
+    return m_hCacheEntry == cit.m_hCacheEntry;
+}</pre>
+      <p><span class="clsGloss">Dereferencing</span> At any point during the enumeration, the 
+      iterator will be pointing to a cache entry. The implementation of operator* can simply 
+      return the INTERNET_CACHE_ENTRY_INFO structure to which the member variable 
+      m_lpCacheEntryInfo points, as you can see in this code.</p>
+      <pre class="clsCode">INTERNET_CACHE_ENTRY_INFO operator*()
+{
+    return 
+       *m_lpCacheEntryInfo;
+}</pre>
+      <p><span class="clsGloss">Preincrement</span> This is implemented by overloading the ++ 
+      operator. The method invokes the API FindNextUrlCacheEntry, updating the object state 
+      appropriately so that it points to the INTERNET_ CACHE_ENTRY_INFO structure corresponding 
+      to the next element in the enumeration order. This method also must ensure that the object 
+      transitions to an invalid state when all entries have been enumerated, as you can see in <a
+      class="clsFigs" href="javascript:OpenUrl('figures.asp#fig3');" target="_self">Figure&nbsp;3</a>.<br>
+      <br>
+      <font color="#0000FF"><strong><span class="clsSubhead">Manipulating the Cache</span></strong></font><br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">By designing an STL-conforming iterator for the Internet Explorer cache, 
+      components in the STL that can work with input iterators will be able to traverse the 
+      cache and enumerate its contents. However, that alone is not sufficient since I also need 
+      to process those entries and extract information of interest. This is where function 
+      objects enter the scene. As described earlier, function objects are functions or classes 
+      that define behavior or policy.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">As an example, let's say all I want to do is display the name of the local file 
+      corresponding to each cache entry. Here's a function object to do just that:</p>
+      <pre class="clsCode">struct display_cache_entry
+{
+    void operator()(INTERNET_CACHE_ENTRY_INFO cei) const
+    {
+        if (cei.lpszLocalFileName)
+            cout &lt;&lt; cei.lpszLocalFileName &lt;&lt; endl; 
+    }
+};</pre>
+      <p>The desired effect can be achieved by using the previous function object in conjunction 
+      with the STL algorithm for_each, as shown in the following example:</p>
+      <pre class="clsCode">for_each(cache_iterator(),cache_iterator(0),display_cache_entry());</pre>
+      <p>Notice how the default constructor creates a valid cache_iterator object that points to 
+      the first entry in the cache, and a different constructor is used to create an instance of 
+      the iterator object that indicates the invalid state.<br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">The code in <a class="clsFigs" href="javascript:OpenUrl('figures.asp#fig4');"
+      target="_self">Figure&nbsp;4</a> shows how simple function objects can be written to take 
+      advantage of a sophisticated library of algorithms in the STL—all I had to do was 
+      implement an iterator that honors the STL conventions.<br>
+      <br>
+      <font color="#0000FF"><strong><span class="clsSubhead">Conclusion</span></strong></font><br>
+      <img height="4" alt src="../msdn.microsoft.com/msdnmag/images/dingbats/indent.gif" tppabs="http://msdn.microsoft.com/msdnmag/images/dingbats/indent.gif"
+      width="10">This article introduced the C++ STL and demonstrated the design and 
+      implementation of an STL-conforming iterator for the Internet Explorer cache. The 
+      technique is sufficiently general that it can be applied to a variety of problems in all 
+      application domains. The time and effort invested in creating such a design is handsomely 
+      rewarded by providing you with seamless interoperability with a rich array of STL 
+      components.<br>
+      </td>
+    </tr>
+    <tr>
+      <td><hr color="#dddddd">
+      <p><span class="clsSumText"><b>For related articles see:</b><br>
+      <a
+      href="javascript:if(confirm(%27http://msdn.microsoft.com/library/en-us/vclang98/HTML/lib_stl_Iterator_Conventions.asp  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://msdn.microsoft.com/library/en-us/vclang98/HTML/lib_stl_Iterator_Conventions.asp%27" tppabs="http://msdn.microsoft.com/library/en-us/vclang98/HTML/lib_stl_Iterator_Conventions.asp">The 
+      Platform SDK documentation and Iterator Conventions</a> </span><br>
+      <span class="clsSumText"><b>For background information see:</b><br>
+      <a
+      href="javascript:if(confirm(%27http://msdn.microsoft.com/library/en-us/vcedit98/HTML/vcovrvisualcdocumentationmap.asp  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://msdn.microsoft.com/library/en-us/vcedit98/HTML/vcovrvisualcdocumentationmap.asp%27" tppabs="http://msdn.microsoft.com/library/en-us/vcedit98/HTML/vcovrvisualcdocumentationmap.asp">Visual 
+      C++ documentation on the STL and Win32 Internet API</a> </span><br>
+      </td>
+    </tr>
+    <tr>
+      <td><hr color="#dddddd">
+      <p><span class="clsBio"><b>Samir Bajaj</b> is a senior software developer in the Design 
+      Platforms Group at Autodesk Inc. As a member of the AutoCAD team, Samir contributes to the 
+      design and implementation of Internet-based features across the product line and on 
+      multiple platforms. Samir coauthored <i>Inside AutoCAD 2000</i> (New Riders, 1999). He can 
+      be reached at <a href="mailto:samir.bajaj@autodesk.com">samir.bajaj@autodesk.com</a>.</span></td>
+    </tr>
+  </table>
+  <p><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </p>
+</blockquote>
+</body>
+</html>

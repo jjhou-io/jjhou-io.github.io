@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>Serialize 的聯想(1)</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center">Serialize 的聯想(1)</h2>
+
+<blockquote>
+  <p align="center">侯捷 1998.12.13</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>Windows GDI 模組支援 DIB（Device Independent Bitmap）繪圖格式，而 MFC 
+  卻沒有為 DIB 包裝一個好用的 class，這真令人扼腕（MFC 中只有一個 
+  CBitmap，那是為 Device Dependent Bitmap 而準備的）。<br>
+  <br>
+  <font color="#0000FF">●幸運的是...</font><br>
+  <br>
+  幸運的是 David Kruglinski 所著的《<a href="review3-5.htm" tppabs="http://jjhou.boolan.com/review3-5.htm" target="main">Inside 
+  Visual C++ 4.0</a>》（中譯《<a href="jjtbooks-inside-vc40.htm" tppabs="http://jjhou.boolan.com/jjtbooks-inside-vc40.htm" target="main">深入 
+  Visual C++ 4.0</a>》，侯俊傑/碁峰）chap10 有一個好用的 CDib。有檔案讀寫功能，有顯示功能，有調色盤功能。書中範例程式 
+  Ex10c 只使用了 CDib 的讀檔、顯示兩功能，未示範其寫檔功能。<br>
+  <br>
+  <font color="#0000FF">●不幸的是...</font><br>
+  <br>
+  不幸的是這個 CDib 的寫檔功能有問題，在 cdib.cpp 的 #344 的CDib::Write() 
+  函式中，有以下動作（書上沒有列表，需自行看光碟檔案）：<br>
+  <br>
+  <font face="Courier New"><small>TRY {<br>
+  &nbsp; pFile-&gt;Write(LPVOID)&amp;bmfh, sizeof(BITMAPFILEHEADER));<br>
+  &nbsp; pFile-&gt;Write(LPVOID)&amp;m_lpBMIH, nSize);<br>
+  }</small></font><br>
+  <br>
+  怎麼看都不對勁兒，只寫了 DIB 檔頭和資訊表頭，卻沒有把DIB 
+  的實際內容（image）寫到檔案去。<br>
+  <br>
+  <font color="#0000FF">●幸運的是...</font><br>
+  <br>
+  幸運的是我再檢查 &lt;Inside Visual C++ 5.0&gt;（此版本無中譯本）的光碟檔案，發現 
+  David 已經修改過來了，新內容如下：<br>
+  <br>
+  <small><font face="Courier New">TRY {<br>
+  &nbsp; pFile-&gt;Write((LPVOID)&amp;bmfh, sizeof(BITMAPFILEHEADER));<br>
+  &nbsp; pFile-&gt;Write((LPVOID)&amp;m_lpBMIH, nSize);<br>
+  &nbsp; </font><font color="#0000FF" face="Courier New">pFile-&gt;Write((LPVOID)&amp;m_lpImage, 
+  m_dwImageSize); // </font><font color="#0000FF">新增此行</font><br>
+  <font face="Courier New">}</font></small><br>
+  <br>
+  我寫了個測試程式，驗證此修改無誤。因此，&lt;Inside Visual C++ 4.0&gt; 
+  或&lt;深入 Visual C++ 4.0&gt; 的讀者只需依樣修改，就有一個好用的 CDib 
+  了。<br>
+  <br>
+  <font color="#0000FF">●bitmap 格式</font><br>
+  <br>
+  曾經在 BBS 板上看到有網友想瞭解 Bitmap 格式。您可參考&lt;Inside Visual 
+  C++ 4.0&gt; 或 &lt;深入 Visual C++ 4.0&gt; 第 10 章，或 &lt;Inside Visual C++ 
+  5.0&gt; 第 10 章，以及 \msdev\include\wingdi.h，再拿此 CDib source 對照看，<font
+  color="#0000FF">很快就可完全掌握 bitmap 格式了</font>。這裡所謂的 bitmap，就是指 
+  DIB（Device Independent Bitmap）。你所看到的 .bmp 檔，其實都是 DIB。<br>
+  <br>
+  <font color="#0000FF">●源由...</font><br>
+  <br>
+  我怎麼會發現 David 的這個錯誤呢？<br>
+  <br>
+  上個月為華邦電子的朋友們開了一門 C++ 課程，順帶談到 MFC 的<br>
+  Serialize()。在座資深的 MFC programmer，對於 Serialize() 
+  的功能很感懷疑。他們懷疑：<br>
+  <br>
+  (1) 該如何運用 Serialize() 來處理特定格式（如 Word 或 bitmap 
+  格式）的檔案？<br>
+  <br>
+  (2) Serialize() 的效率好嗎？從 &lt;多型與虛擬&gt; chap5 對 MFC Serialize 
+  的模擬，或從 &lt;深入淺出 MFC&gt; chap8 對 MFC Serialize 
+  的剖析，都可看出，被 serialized 
+  出去的檔案，其中有些似乎不太能掌控的 overhead 
+  （就是那些讀檔時要用於 dynamic creation 的一些 class information），因此無法「精準計算出檔案中某筆資料的 
+  offset，然後一舉到位直接讀取該資料」。這幾位朋友的經驗是，直接使用 
+  CFile 做低階檔案動作，根本捨棄 Serialize()。<br>
+  <br>
+  為了實驗以 Serialize() 處理 bitmap，我想到 &lt;Inside Visual C++&gt; 
+  書中現成的 class CDib，於是才發現上述的錯誤與更新。<br>
+  <br>
+  我對華邦工程師的疑惑，回答如下：<br>
+  <br>
+  (1) 欲以 Serialize() 處理特定格式的檔案內容，只需觀察一下上述 CDib 
+  的Serialize()，即可獲得靈感。<font color="#0000FF">應用上，假設自己的繪圖軟體需涵蓋 
+  DIB 圖形，那麼就在自己的 CMyDoc::Serialize() 中呼叫 CDib::Serialize() 
+  即可。</font><br>
+  <br>
+  (2) 如果閱讀了 &lt;深入淺出 MFC&gt; chap8 對 MFC Serialize 
+  的剖析，其實可以完全掌握 Serialize() 的 overhead，從而可以精確計算出某筆資料在檔案中的精確 
+  offset，然後一舉到位地直接讀取該筆資料。不過，這種應用其實已經超越了 
+  &quot;serialize&quot; 的字面意義。&quot;serialize&quot; 就是 &quot;循序&quot; 
+  讀寫。因此，如果你的應用軟體確有必要跳躍式讀取資料，你需要一個 
+  database （不管是自己寫的簡易 database 或是購買的成品），而不是 
+  Serialize()。<br>
+  <br>
+  註：凡能夠 random access, partial update 的，都是我上述所謂的 database。<br>
+  <br>
+  --- the end</p>
+</blockquote>
+</body>
+</html>

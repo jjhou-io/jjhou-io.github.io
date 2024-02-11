@@ -1,0 +1,113 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>勘誤《Win32 多線程程序設計》簡體中文版</title>
+</head>
+
+<body>
+
+<pre>本勘誤檔更新日期: 2005/01/31</pre>
+
+<pre>《Win32 多線程程序設計》簡體中文版
+華中科技大學出版社, 2002/01 出版</pre>
+
+<pre>原著：Multithreading Applications in Win32, by Jim Beveridge &amp; Robert Wiener
+      Addison Wesley, 1996</pre>
+
+<pre>注意：以下按修正日期排序。</pre>
+
+<pre>======================================================</pre>
+
+<pre>書籍內容更正，有兩種作法，一是在網際網路上做個專屬勘誤
+網頁，讓大家上去看。這是比較即時的作法。而更理想更負責
+的作法是：不但有勘誤網頁，並且在新刷中予以更正 — 如果
+有新刷的話 :)</pre>
+
+<pre>不過，理想與現實之間需要一點協調。書籍的製作是這樣的，
+製版與印刷時，是以檯（8 或 16 頁）為單位。因此，每換一
+頁，同檯的各頁統統要換過。這便造成印製成本的大量增加。</pre>
+
+<pre>以前，我從不考慮成本，只要我認為書籍內容有修改必要，即
+使只是某個字詞用得不甚理想，我都會請出版社更新。出版社
+也都全力配合（這一點讓我非常感謝）。</pre>
+
+<pre>慢慢地，我的行事不再這麼霹靂，我覺得我多少也要站在出版
+社的立場想想。所以我打算，如果是關係到對錯正誤的根本性
+問題，我便一定在新刷修正。如果是易判別的錯別字或排版誤
+失或用詞不很恰當…等等，我便先在勘誤網頁上明載，但不求
+一定於新刷中更正。直到收集來的這類誤失較為密集了，才一
+併於下一刷修正。</pre>
+
+<pre>哪些是新刷已修正的，哪些是暫請讀者自行動手更改的，我會
+在勘誤網頁（網址見書封底）上清楚說明。</pre>
+
+<pre>這是個便宜法門，請讀者見諒。</pre>
+
+<pre>書籍應該在出版前就詳細檢查，以完美之姿出現。但是完美很
+難達到。對於下列大大小小輕重不等的誤失，我謹向讀者說抱
+歉。</pre>
+
+<pre>本檔歡迎廣為流傳，謝謝。</pre>
+
+<pre>以下為更新記錄。如果您購買的是第 n 刷，請將以下第 n+1
+刷之後的更新內容自行修正至書上。謝謝</pre>
+
+<pre>======================================================</pre>
+
+<pre>以下暫請讀者自行更正：
+（注意，Lm 表示第 m 行，L-n 表示倒數第 n 行）</pre>
+
+<pre>■p83~85,程式和其執行結果
+讀者意見：（讓程式看起來更邏輯些）
+The original program would output 
+&quot;Slot X idle&quot; and &quot;Slot (X-1) terminated&quot;
+
+I think it a little strange... 
+If the source code in table 3-3 is modified a little:
+
+#0051 printf(&quot;Slot %d terminated \n&quot;, slot <font
+color="#0000FF">+ 1</font>);
+#0094 printf(&quot;Slot %d idle \n&quot;, <font
+color="#0000FF">(DWORD)</font>n <font color="#0000FF">+ 1</font>);
+
+Then the program output would be 
+&quot;Slot X idle&quot; and &quot;Slot X terminated,&quot; 
+
+and that seems better.
+
+感謝：sunny
+日期：2005.01.07</pre>
+
+<pre>■p124,L1
+讀者意見：
+我查看了 MSDN 以及《MFC Windows程序設計》（第二版）並作了實驗，
+獲得以下結果。</pre>
+
+<pre>原文：
+如果你面對一個 AutoReset event 對象調用 <font color="#FF0000">SetEvent() 或</font> PulseEvent(),
+而彼時並沒有任何線程正在等待，會怎樣？EVENTTST 程序並沒有實地論證這一點。
+這種情況下這個 event 會遺失。</pre>
+
+<pre>修改：
+如果你面對一個 AutoReset event 對象調用 PulseEvent(),
+而彼時並沒有任何線程正在等待，會怎樣？EVENTTST 程序並沒有實地論證這一點。
+這種情況下這個 event會遺失。</pre>
+
+<pre>感謝：clmworkshop
+日期：2005.01.07</pre>
+
+<pre>■p141,兩個函數的返回值描述（英文版錯誤）
+原文：
+(第一個函數SetThreadPriority)返回值：<font
+color="#FF0000">如果函數成功，就傳回表格5-2所列的其中一個值。</font>
+(第二個函數GetThreadPriority)返回值：<font
+color="#FF0000">如果函數成功，就傳回TRUE。</font>
+修改：<font color="#408080">（以上所說應該對調）</font>
+感謝：zhaojingjing1981
+日期：2005.01.31</pre>
+
+<pre>-- the end</pre>
+</body>
+</html>

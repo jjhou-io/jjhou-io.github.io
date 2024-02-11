@@ -1,0 +1,1739 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>C++ Primer 答客問1~15</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="957">
+  <tr>
+    <td valign="top" width="42" bgcolor="#C0C0C0"><!--mstheme--></font></td>
+    <td valign="top" width="868"><strong><big><a name="C++ Primer qa1">C++ Primer 答客問 
+    (1)</a>&nbsp; 1999.10.03 </big></strong><br>
+    <br>
+    <font color="#0000FF">Don wrote (1999/10/02):</font><br>
+    <br>
+    <font color="#0000FF">&gt; 侯老師!!<br>
+    &gt;<br>
+    &gt; 我是一個 C++ 初學者，聽說 C++ Primer 這本書不錯<br>
+    &gt; 於是就買了您的大作，但是：<br>
+    &gt;<br>
+    &gt; 一、這本書一開始我就看不懂了!!<br>
+    &gt; 尤其第二章，那是必需先有一些基本知識的人才看得懂的!</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    第二章章名「縱覽 C++」，是讓你對 C++ 的特性做一個總覽。<br>
+    本書前言 p.xv 第二段（我還特別 highlight 起來）說：<br>
+    <br>
+    -- quote（前言 p.xv）--<br>
+    <font color="#FF0000">第二章的配速有點快，部份讀者可能會覺得無法負荷。如果是這樣，<br>
+    我建議你不妨跳著讀，稍後再回頭仔細看。</font><br>
+    -- unquote --<br>
+    <br>
+    本書第一篇 p.2 又說：<br>
+    <br>
+    -- quote（p.2）--<br>
+    <font color="#FF0000">「在第一篇中，我對整個 C++ 
+    語言做了快速的瀏覽。我的目的<br>
+    是提供語言特性的導入，如此一來我們就可以在完全面對這些<br>
+    性質之前，比較無拘無束地取用其中一些觀念。例如，在第 13 章<br>
+    之前我們並不會細看 classes，但如果等到那個時候才談及<br>
+    classes，我們會有很多難以表現的或不恰當的程式實例。<br>
+    <br>
+    對整個語言先做一次淺嚐之旅的第二個理由是基於美學的考量。<br>
+    除非你先讓自己曝露於貝多芬奏鳴曲所呈現的美感與複雜度之下，<br>
+    否則明顯無關聯的細節如升半音、降半音、八度音階、和弦…等等<br>
+    必定令人呵欠連連。但是在精通那些細節之前，我們又沒有辦法<br>
+    「做音樂」。程式設計也一樣，踩踏著迷宮般的「運算子優先權」<br>
+    或「標準算術轉換規則」，對於精通 C++ 程式設計而言，是一種<br>
+    必要（但也一定令人生悶）的基礎。</font><br>
+    -- unquote --<br>
+    <br>
+    此外本書第一篇 p.3 最後一段說：<br>
+    <br>
+    -- quote（p.3）--<br>
+    <font color="#FF0000">「部份讀者可能會認為，第２章過於粗糙，許多呈現出來的素材並<br>
+    沒有完整的介紹。完整的介紹其實出現在後繼各章中。如果你發<br>
+    現自己開始有點被淹沒或難以忍受的感覺，我建議你略讀本章就<br>
+    好，或甚至跳過。直到你對那些素材更加熟悉，再回頭重讀這一<br>
+    部份。第３章起，我要展開傳統的敘事體步調；對第２章適應不<br>
+    良的讀者，我建議在這裡整軍經武，重新出發。」</font><br>
+    -- unquote --<br>
+    <br>
+    <font color="#0000FF">Don wrote :</font><br>
+    <br>
+    <font color="#0000FF">&gt; 二、我所使用的是 VC++5.0<br>
+    &gt; 裡面的程式碼，幾乎是都不能 compile 過的<br>
+    &gt; 像是 string abc 之類的宣告不能用<br>
+    &gt; complex 的宣告也不能用!!<br>
+    &gt;<br>
+    &gt; 我都搞不清楚是誰的錯，mcrosoft 還是 C++ sandard !!<br>
+    &gt; 但是重點是在，我不能使用來寫能用的程式啊!<br>
+    &gt; gc++是否有相容性比較高呢??<br>
+    </font><br>
+    <br>
+    請看這個沒有錯誤的程式 :<br>
+    <br>
+    <small><font face="Courier New">// BCB : bcc32 test.cpp<br>
+    // VC : cl -GX test.cpp<br>
+    <br>
+    #include &lt;string&gt;<br>
+    #include &lt;iostream&gt;<br>
+    #include &lt;complex&gt;<br>
+    <br>
+    using namespace std;<br>
+    <br>
+    void main()<br>
+    {<br>
+    &nbsp; string abc = &quot;this is a test&quot;;<br>
+    &nbsp; cout &lt;&lt; abc &lt;&lt; endl;<br>
+    <br>
+    &nbsp; // a pure imaginary number : o + 7i<br>
+    &nbsp; complex&lt;double&gt; purei(0, 7);<br>
+    &nbsp; cout &lt;&lt; purei &lt;&lt; endl;<br>
+    }</font><br>
+    </small><br>
+    我猜你沒有加上 using namespace std; 這一句。<br>
+    <br>
+    本書導讀 p.19 的 &lt;範例程式注意事項&gt;，我列了三項，<br>
+    其中第二項說：<br>
+    <br>
+    -- quote（p.19）--<br>
+    <font color="#FF0000">您可能需要為許多程式加上一行 using directive std;（其意義<br>
+    請參考 8.6.4 節），可加在所有 #include 指令之後。</font><br>
+    -- unquote --<br>
+    <br>
+    而 8.6.4 節的最後一段指出：<br>
+    <br>
+    -- quote（p.441）--<br>
+    <font color="#FF0000">本書之中，為了保持程式碼的精簡，同時也因為許多實例是在<br>
+    未支援 namespaces 的編譯器上編譯，所以我並未在程式碼中<br>
+    明白顯示必要的 using declarations。我假設程式碼中應該<br>
+    都有針對 namespace std 成員所需要的 using declarations。<br>
+    譯註：讀者如果想要編譯本書所附之範例程式碼，請特別注意這一點。</font><br>
+    -- unquote --<br>
+    <br>
+    你詢問各編譯器對於 C++ Standard 的相容性。我想除了<br>
+    template 以及 STL 兩部份外，各家編譯器對 C++ Standard<br>
+    的支援程度都是差不多的。至於這兩部份，我先前在 CompBook 版上<br>
+    的文章曾經提醒過大家。<br>
+    <br>
+    對《C++ Primer 中文版》（侯捷譯/碁峰/1999）的任何問題，<br>
+    歡迎來信（或版上公開）討論。如果您是初學者，不具備跳躍閱讀<br>
+    的能力，我希望您按照書籍的閱讀動線，仔細閱讀，然後才提出問題。<br>
+    謝謝。<br>
+    <br>
+    --- the end<br>
+    &#26;<font size="3"><br>
+    </font><!--msthemeseparator--><p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><big><strong><a name="C++ Primer qa2">C++ Primer 答客問 (2)</a>&nbsp; 1999.10.11 </strong></big><br>
+    <br>
+    <font color="#0000FF">Yi-Lun Chen wrote (1999/10/11):</font><br>
+    <br>
+    <font color="#0000FF">&gt; 侯 Sir:<br>
+    &gt;<br>
+    &gt; 在您所譯的C++ Primer的p.24的倒數第6以及第13行中，<br>
+    &gt; 您所提到的『維數』好像有點怪怪的，那一個Array不是<br>
+    &gt; 一維(one dimension)的Array嗎？<br>
+    &gt; 可能改成『項數』會清楚一點吧.....^_^<br>
+    &gt;<br>
+    &gt; ps.因為手頭上面沒有原文的primer（想說有侯Sir翻譯<br>
+    &gt; 就不用買了...:p）所以並不清楚原文所用的單字，如果<br>
+    &gt; 真的是用dimension或者其他同義的字，侯Sir就當我<br>
+    &gt; 在耍笨好嘍....:)</font><br>
+    <br>
+    侯捷回答：<br>
+    <br>
+    謝謝您的來信。原文確為 dimension，通常譯為「維」。在<br>
+    C++ Primer 書中，作者把 ia[9] 的 9 稱為 dimension，<br>
+    把 ia[3][4] 稱為 two-dimensional array（兩個維度的陣列，<br>
+    見 3.9.2 節）。由於我們通常習慣把「兩個維度的陣列」<br>
+    簡稱為二維陣列，致引起文字上的混淆。<br>
+    <br>
+    為了區分兩者，我在《C++ Primer 中文版》把 ia[9] 的 9<br>
+    稱為「維數」或「維度值」；把 ia[9] 稱為一維陣列，擁有<br>
+    一個「維度」；把 ia[3][4] 稱為二維陣列，擁有兩個「維度」；<br>
+    把 ia[3][4][5] 稱為三維陣列，擁有三個「維度」。這個作法<br>
+    不甚理想，而且可能亦未全面實現而有漏網之魚。<br>
+    <br>
+    <br>
+    <br>
+    <font color="#0000FF">Previn wrote : (1998/10/12)</font><br>
+    <br>
+    <font color="#0000FF">&gt; dimension 在數學上稱作維度沒錯，但在英文中<br>
+    &gt; 也當作尺寸解，後者也許更常用。在翻譯時一<br>
+    &gt; 定要看上下文，否則就會翻錯。我個人認為<br>
+    &gt; &quot;維數&quot; 還是不妥，它不管怎麼看都是 &quot;有多少<br>
+    &gt; 個維度&quot; 的意思，不知侯大師以為然否?</font></p>
+    <p><br>
+    請千萬別稱呼我<font color="#000000">大師</font>。<br>
+    <br>
+    您說的很對。我在翻譯過程中一時拘泥，譯得不好。<br>
+    我將全面檢討本書有關於 dimension 的譯詞，<br>
+    並想辦法更正。謝謝您。<br>
+    <br>
+    <br>
+    * * * * * * * * * * * * * * * *<br>
+    <br>
+    by the why，說點題外話。<br>
+    <br>
+    說到書籍內容更正，有兩種作法，一是在網際網路上做個<br>
+    專屬勘誤網頁，讓大家上去看。例如《C++ Primer 中文版》<br>
+    的勘誤網頁放在 http://www.jjhou.com。這是比較即時<br>
+    的作法。另一個更理想更負責的作法是在新刷中更正。<br>
+    <br>
+    不過，理想與現實之間需要一點協調。書籍的製作是這樣<br>
+    的，製版與印刷時，是以台（8 或 16 頁）為單位。<br>
+    因此，每換一頁，同台的各頁統統要換過。這便造成成本的<br>
+    大幅增加。<br>
+    <br>
+    以前，我從不管什麼成本不成本，只要我認為書籍內容有<br>
+    修改必要，即使只是某個字詞用得不甚理想，我都會請<br>
+    出版社更新。出版社也都全力配合（這一點讓我非常感謝）。<br>
+    <br>
+    慢慢地，我的行事不再這麼霹靂，我覺得我多少也要站在<br>
+    出版社的立場想想。所以我打算，如果是關係到對錯正誤的<br>
+    根本性問題，我便一定在新刷修正。如果是易判斷的錯別字<br>
+    或排版誤失或用詞不很恰當…等等，我便先在勘誤網頁上明載，<br>
+    但不求立刻於新刷中更正。待收集來的這類誤失較為密集了，<br>
+    才一併於下一刷修正。<br>
+    <br>
+    哪些是新刷已修正的，哪些是暫請讀者自行動手更改的，<br>
+    我會在勘誤網頁上很清楚地說明。<br>
+    <br>
+    這是個便宜作法，請讀者見諒。謝謝。<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><big><strong><a name="C++ Primer qa3">C++ Primer 答客問 (3)</a>&nbsp; 1999.10.11 </strong></big><br>
+    <br>
+    <br>
+    <font color="#0000FF">Allan wrote (1999/10/10):</font><br>
+    <br>
+    <font color="#0000FF">&gt; 侯 sir 您好：<br>
+    &gt;<br>
+    &gt; 我現在正在研讀您譯的 C++ Primer。對於書中 118 頁 3.9.1 節<br>
+    &gt; 最後一段的敘述有點疑問。書上說 ia 是一個二維陣列，而 ia[1,2]<br>
+    &gt; 即為 ia[2]。我的疑問是：<br>
+    &gt;<br>
+    &gt; (1) ia 明明是二維陣列，寫 ia[2] 合法嗎？<br>
+    &gt;<br>
+    &gt; (2) 書上說 ia[2] 所存取到的是 ia 的第三個 row 的第一個元素。<br>
+    &gt; 這意思是指 ia[2][0] 嗎？難道說：<br>
+    &gt;<br>
+    &gt; int ia[4][3] = { ... }; // (a)<br>
+    &gt; ia[1,2] = 5; // (b)<br>
+    &gt;<br>
+    &gt; 第二行的意思是 ia[2][0]=5 嗎？</font><br>
+    <br>
+    侯捷回答：<br>
+    <br>
+    (1) ia[2] 是合法的，表示 &amp;(ia[2][0])。就好像面對<br>
+    一維陣列 int ia[10]; 我們可以 ia 代表 &amp;(ia[0]) 一樣。<br>
+    <br>
+    (2) 書上的文字有點容易引起誤會。我們不能只給定一維索引，<br>
+    就想選定二維陣列的某個元素。你所舉的 (b) 式會出現編譯錯誤。<br>
+    書上的意思其實就是上述 (1) 的意思。<br>
+    <br>
+    寫個小程式瞧瞧：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;iostream.h&gt;<br>
+    <br>
+    void main()<br>
+    {<br>
+    &nbsp; int ia[2][3] = { { 0, 1, 2}, {3, 4, 5} }; // </font>可視為兩個次陣列的組合<br>
+    <br>
+    <font face="Courier New">&nbsp; cout &lt;&lt; ia[1][2] &lt;&lt; endl; // 5<br>
+    &nbsp; cout &lt;&lt; ia &lt;&lt; endl; // 0x0063FDE0<br>
+    &nbsp; cout &lt;&lt; &amp;(ia[0][0]) &lt;&lt; endl; // 0x0063FDE0<br>
+    &nbsp; cout &lt;&lt; &amp;(ia[1][2]) &lt;&lt; endl; // 0x0063FDF4<br>
+    <br>
+    &nbsp; cout &lt;&lt; ia[1, 2] &lt;&lt; endl; // 0x0063FDF8, </font>等於 <font
+    face="Courier New">ia[2]<br>
+    &nbsp; cout &lt;&lt; ia[2] &lt;&lt; endl; // 0x0063FDF8, </font>等於 <font
+    face="Courier New">&amp;(ia[2][0])<br>
+    &nbsp; // </font>表示第二個「次陣列」的起始點<br>
+    <font face="Courier New">&nbsp; cout &lt;&lt; &amp;(ia[2][0]) &lt;&lt; endl; // 
+    0x0063FDF8, ia[2][0] </font>緊接在 <font face="Courier New">ia[1][2] </font>之後<br>
+    <br>
+    <font face="Courier New">&nbsp; ia[2] = 9; // <font color="#FF0000">error</font><br>
+    }</font></small><br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><big><strong><a name="C++ Primer qa4">C++ Primer 答客問 (4)</a>&nbsp; 1999.10.11 </strong></big><br>
+    </p>
+    <p><font color="#0000FF">wenij wrote (1999/10/07)</font><br>
+    <br>
+    <font color="#0000FF">&gt; [delete]<br>
+    &gt; 1. 翻譯原文書,不免翻譯出來的文句太生疏了,即使侯 Sir 在最近<br>
+    &gt; 一本翻譯書已經把大部分的原文名詞保留,但我認為還是有一些<br>
+    &gt; 語句翻的太難懂它的意思了...也許我的中文造詣太差了吧<br>
+    &gt; [delete]</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    我同意，有些英文句子再怎麼修潤，也不好看。我認為這是<br>
+    原作者本身的思考方式與寫作技巧的問題。舉個例子，最近我<br>
+    檢閱《C++ Primer 中文版》，看到 p.107 最後一段，覺得<br>
+    思路打結。此段前後文主要是說，如欲將一個 object 當做<br>
+    某個 reference 的初值，而兩者型別不同（但可轉換），那麼<br>
+    這個 reference 必須是個 const reference 才行：<br>
+    <br>
+    double dval = 3.14159;<br>
+    const int &amp;ri = dval; // legal for const reference only!<br>
+    <br>
+    書中花了一些篇幅講編譯器內部動作，以解釋為什麼只有<br>
+    const reference 才合法。p.107 最後一段說：<br>
+    <br>
+    -- quote（p.107）--<br>
+    <font color="#FF0000">const references 
+    並不會出現這樣的問題，因為它們是唯讀的。<br>
+    所以，(1) 不允許 non-const references 代表那些「需要暫時<br>
+    替代品」之 objects 或數值，或是 (2) 允許 reference 被定義<br>
+    但卻無法有效運作，哪一種作法比較好？當然前者才是好的解決方案。</font><br>
+    -- unquote --<br>
+    <br>
+    看到這裡，真的腦筋有點打結，因為作者把文字用得太複雜了。<br>
+    於是我在手上這本書另外寫一段話，清楚而漂亮（我自認為）<br>
+    地解釋「必須是 const reference」的原由。<br>
+    <br>
+    可是我不能把我的這段文字取代原作者那段我認為過於複雜的說明。<br>
+    那樣一來我這個譯者就<font color="#0000FF">太富侵略性</font>了 :)<br>
+    <br>
+    所以我同意 wenij 說「有些語句翻得太難懂它的意思了」，<br>
+    不過我認為（以此例而言）無關讀者的中文造詣或譯者的<br>
+    中文造詣，是原作者的思路與文字表達問題。<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><big><strong><a name="C++ Primer qa5">C++ Primer 答客問 (5)</a>&nbsp; 1999.10.11 </strong></big><br>
+    <br>
+    <font color="#0000FF">dyliu wrote (1999/10/07)</font><br>
+    <br>
+    <font color="#0000FF">&gt; 大致看了一下前面的導讀、前言與目錄，第三版<br>
+    &gt; 看起來可以說完全是一本新書了，整個書的編排<br>
+    &gt; 強調 C++ 的 multiple programming paradigm，<br>
+    &gt; 不過小弟認為 generic algorithm 應該獨立成為<br>
+    &gt; 一篇而不是放在 procedural-base programming<br>
+    &gt; 之下，因為 generic programming 可說是另一種<br>
+    &gt; progamming paradigm.</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    完全同意。我更希望作者多寫些 generic programming<br>
+    主題的內容。但如此一來此書就更厚了。兩難！<br>
+    <br>
+    我目前對 generic programming 很感興趣，看過：<br>
+    <br>
+    1. STL Tutorial and Reference Guide<br>
+    2. Data Structure in C++ -- using the STL<br>
+    3. Designing Components with the C++ STL<br>
+    4. Generic Programming and the STL<br>
+    <br>
+    都是 Addison Wesley 出版。其中 (1) 太陳舊 (2) 是<br>
+    學院派教科書 (3) 太簡陋，文筆編排不理想。(4) 雖稍深，<br>
+    對 generic programming 的理論、概念、實作都有不錯的<br>
+    涵蓋。我希望近日能撥空寫一篇書評，詳細檢討這四本書。<br>
+    <br>
+    <br>
+    <font color="#0000FF">dyliu wrote :</font><br>
+    <br>
+    <font color="#0000FF">&gt; ps.<br>
+    &gt; 導讀第 19 頁，範例程式注意事項第二點<br>
+    &gt; usng directive std; 應為 using namespace std;<br>
+    &gt; 之誤.</font><br>
+    <br>
+    我要表達的確是 using directive &quot;std&quot;，但我用的字形<br>
+    以及前後文字，容易造成誤會。所以如你所言直接寫為<br>
+    程式碼 using namespace std; 確是比較好。謝謝。<br>
+    <br>
+    <br>
+    <font color="#0000FF">yzchen wrote (1999/10/11) :<br>
+    <br>
+    &gt; 推薦 another must-have STL book by AW:<br>
+    &gt; The C++ Standard Library: A Tutorial and Reference</font><br>
+    <br>
+    <br>
+    jjhou wrote (1999/10/18) :<br>
+    <br>
+    yzchen 兄可否告知哪裡購得：<br>
+    The C++ Standard Library: A Tutorial and Reference<br>
+    一書？如有閱後心得可否與大家分享？謝謝。<br>
+    <br>
+    <br>
+    <br>
+    <font color="#0000FF">yzchen wrote (1999/10/19) :<br>
+    <br>
+    &gt; 在 Amazon.com 七折時買的, 現在好像沒打折了:)<br>
+    &gt;<br>
+    &gt; 這本書在 Amazon.com 評價是五顆星. 這本書大概分三部分.<br>
+    &gt; chap1~4 介紹學習 STL 不需知道的東西, such as namspace,<br>
+    &gt; explicit keyword, utilities...etc.<br>
+    &gt;<br>
+    &gt; chap5~9 進入 STL 重心, 包括 containers,algorithms,iterators,<br>
+    &gt; function objects.<br>
+    &gt;<br>
+    &gt; chap10~the end 介紹 special individual class, such as i/o, string,<br>
+    &gt; special containers, allocators...etc.<br>
+    &gt;<br>
+    &gt; 全書約 800 pages...雖然 author 說他並無 cover all of the STL..<br>
+    &gt; but 其實已經夠了!!<br>
+    &gt;<br>
+    &gt; 目前我大概瀏覽一下 chap1~4, 覺得這本書非常可讀, 
+    最重要的是作者<br>
+    &gt; 是德國人, 書中幾乎很少有生字 or 難以理解的英文句子... 
+    很容易理解<br>
+    &gt; what he has said.</font><br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><strong><big><a name="C++ Primer qa6">C++ Primer 答客問 (6)</a>&nbsp; 1999.10.11 </big></strong><small><br>
+    </small><br>
+    <font color="#0000FF">sbb wrote (1999/10/11)<br>
+    <br>
+    &gt; Dear 侯老師:<br>
+    &gt; 在您譯的c++ primer第627頁13.3.2節中,<br>
+    &gt; 曾經提到copy() 這個函式中為什麼能取用<br>
+    &gt; 外傳進來的private data member 的問題,<br>
+    &gt; 說會在後一節中有詳細介紹, 但我念完後一<br>
+    &gt; 節後, 問題在是在耶 ? 就如同下面那個範例<br>
+    &gt; 是大部分c++教課書中所使用的, 但為什麼<br>
+    &gt; void add_dist這個函式可以直接使用外傳進來<br>
+    &gt; d2 的private data member 如 d2.inches 呢 ?<br>
+    &gt; 這樣不就違反了&quot;encapsulate&quot;的規則了嗎 ?<br>
+    &gt; 還有就是能不能請問您 private member 真正<br>
+    &gt; 的定義呢? 您在書中只提到只能夠被member functions 存取,<br>
+    &gt; 或是被其class 的 friends存取 . 但這是一般情況,<br>
+    &gt; 若是外傳進來的同一種class的不同object,為什麼可以取得呢?<br>
+    &gt; 而且我試過各種c++ compier都可以compile耶.<br>
+    &gt;<br>
+    &gt; 煩請您幫學生解決, 這問題己經困援學生多年,<br>
+    &gt; 只有您這本書有提到這個問題, 但是學生<br>
+    &gt; 對於答案還是有點疑問, 謝謝.<br>
+    &gt;<br>
+    &gt; 學生 sbb<br>
+    &gt;<br>
+    <font face="Courier New"><small>&gt; class Distance<br>
+    &gt; {<br>
+    &gt; private:<br>
+    &gt;&nbsp;&nbsp; int feet;<br>
+    &gt;&nbsp;&nbsp; float inches;<br>
+    &gt; public:<br>
+    &gt;&nbsp;&nbsp; Distance() : feet(0), inches(0.0)<br>
+    &gt;&nbsp;&nbsp; {}<br>
+    &gt;&nbsp;&nbsp; Distance(int ft, float in) : feet(ft), inches(in)<br>
+    &gt;&nbsp;&nbsp; {}<br>
+    &gt;&nbsp;&nbsp; void add_dist(Distance d2,Distance d3)<br>
+    &gt;&nbsp;&nbsp; {<br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; inches += d2.inches + d3.inches;<br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; feet += d2.feet + d3.feet;<br>
+    &gt;&nbsp;&nbsp; }<br>
+    &gt; };<br>
+    &gt; int main()<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; Distance dist1, dist3;<br>
+    &gt;&nbsp;&nbsp; Distance dist2(11,6.25);<br>
+    &gt;<br>
+    &gt;&nbsp;&nbsp; dist3.add_dist(dist1,dist2);<br>
+    &gt;&nbsp;&nbsp; return 0;<br>
+    &gt; }</small></font><br>
+    </font><br>
+    侯捷回覆：<br>
+    <br>
+    你這個例子和 C++ Primer p.627, 13.3.2 節的例子類似，<br>
+    那麼就拿你的例子來說好了。你問：<br>
+    <br>
+    <font color="#0000FF">&gt; 為什麼<br>
+    &gt; void add_dist() 這個函式可以直接使用外傳進來<br>
+    &gt; d2 的 private data member 如 d2.inches 呢 ?<br>
+    &gt; 這樣不就違反了 &quot;encapsulate&quot; 的規則了嗎 ?</font><br>
+    <br>
+    要知道，add_dist() 是 class Distance 的 member function 呀，<br>
+    它的全名是 Distance::add_dist()，它當然有權處理 class Distance<br>
+    的任何 data members。這並沒有違反封裝性質，對不！<br>
+    <br>
+    <font color="#0000FF">&gt; 還有就是能不能請問您 private member 真正<br>
+    &gt; 的定義呢? 您在書中只提到只能夠被member functions 存取,<br>
+    &gt; 或是被其class 的 friends存取 . 但這是一般情況,<br>
+    &gt; 若是外傳進來的同一種class的不同object,為什麼可以取得呢?</font><br>
+    <br>
+    因為上述的 add_dist 是 class Distance 的 member function 呀。<br>
+    <br>
+    你在 main() return 前加上一行試試：<br>
+    <br>
+    cout &lt;&lt; dist3.feet &lt;&lt; endl;<br>
+    <br>
+    你會發現這一行過不了關，VC 的錯誤訊息如下：<br>
+    <br>
+    C2248: 'feet' : cannot access private member declared in class 'Distance'<br>
+    <br>
+    你看，class Distance 的 private data member &quot;feet&quot; 不能夠被<br>
+    cout 的 operator&lt;&lt; 取用。<br>
+    <br>
+    <br>
+    by the way, 一般人易感困惑的是，member functions 只有一份碼，為什麼卻<br>
+    能夠處理隸屬同一 class 的不同 objects 內的 private data members 
+    而不混淆。這主要是靠 'this' 
+    指標的協助。我們從程式碼中看不出端倪，關鍵在於編譯器暗中對程式碼做了一些手腳。請參考《多型與虛擬》p.100「this 
+    指標 - data members 與 member functions 的橋樑」，或是《深入淺出 MFC》2/e 
+    p.61「this 指標」。<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><big><strong><a name="C++ Primer qa7">C++ Primer 答客問 (7)</a>&nbsp; 1999.10.14 </strong></big><br>
+    <br>
+    <font color="#0000FF">airtsai wrote (1999/10/13):<br>
+    <br>
+    &gt; 請問：對於完全沒有學過程式設計的人<br>
+    &gt; 適不適合直接由這本書開始<br>
+    &gt;<br>
+    &gt; 再問：配合這本書的 compiler, 以下何者較為適當？<br>
+    &gt; 1. DOS + Turbo C++ 3.0<br>
+    &gt; 2. Win98 + VC++ ???<br>
+    &gt; 3. Win98 + BC++Builder ???</font><br>
+    <br>
+    <font color="#0000FF">petz wrote (1999/10/13):<br>
+    <br>
+    &gt; 我個人認為不適合, 初學者還是別看大部頭的書.<br>
+    &gt; 雖然大部頭的書巨細靡遺, 但是得有耐心慢慢看完.<br>
+    &gt; 先了解C++的語法之後, 再細讀會比較好.<br>
+    <br>
+    MIKECHANG wrote (1999/10/13) :<br>
+    <br>
+    &gt; 我也是這樣覺得....但原因並不是因為這是大部頭的書...<br>
+    &gt; 侯傑自己也說這可當作第一本學習C++的書, 但是不適合做<br>
+    &gt; 學習程式設計的書...</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    喔不，那是作者說的，不是侯捷說的：<br>
+    <br>
+    -- quote（前言 xiv）--<br>
+    <font color="#FF0000">這是一本入門書籍...，<br>
+    但它並不是一本最簡單或最溫和的 C++ 語言書...。雖然某些<br>
+    高階主題對初學者而言難度頗高，但我相信，如果要培養對 C++<br>
+    語言的確實認識，這樣的涵蓋範圍有其必要性。面對這些素材，<br>
+    讀者應該不時回頭消化咀嚼，而不是一次就想把它囫圇下嚥。如果<br>
+    一開始你覺得有點無法接受，或是呼吸急促、口乾舌燥，那麼不妨<br>
+    暫時放下，稍後（日後）再回頭重看。我把這樣的章節以 (A) 標示<br>
+    出來。<br>
+    <br>
+    閱讀此書並不需要以 C 語言做為基礎。不過，熟悉某些結構化語言<br>
+    可以讓你前進得更輕鬆些。這本書是以「你的第一本 C++ 書籍」為<br>
+    目標而寫，但它不應該是你的第一本程式設計書籍！</font><br>
+    -- unquote --<br>
+    <br>
+    <br>
+    <font color="#0000FF">MIKECHANG wrote :<br>
+    <br>
+    &gt; 若你之前學過C or pascal等procedure programming language<br>
+    &gt; 的話還可以,<br>
+    &gt; 啥都沒學過就用這本書來學習C++的話會很累很累....<br>
+    &gt; 講得對初學者而言有點太過深入了....</font><br>
+    <br>
+    可能很多人的疑惑是，是否必須先學 C 再學 C++？<br>
+    <br>
+    這得先釐清大家所說的 C 和 C++ 究竟是指的什麼。如果所謂的 C<br>
+    指的是基本資料型別、算式（expressions）、述句（statements）、<br>
+    函式（functions）、生存空間（scope）和生命週期（lifetime）觀念…，<br>
+    而所謂的 C++ 指的是 classes、objects、overloading、<br>
+    polymorphism、exception、template、RTTI 、namespace…等，<br>
+    那麼我認為學 C++ 之前必須先學 C。<br>
+    <br>
+    但如果所謂的 C++ 指的是廣義的、全貌的 C++，那麼 C++ 裡頭<br>
+    根本就涵蓋 C，也就沒有「學 C++ 之前必須先學 C」的道理了。<br>
+    <br>
+    《C++ Primer 中文版》是一本 C++ 全貌型書籍，其中第<br>
+    3,4,5,7,8 章可歸納為 C 的部份（雖然比傳統的 C 多一點點擴充）。<br>
+    <br>
+    <br>
+    <font color="#0000FF">MIKECHANG wrote :<br>
+    <br>
+    &gt; ps. 侯傑網站上面對這本書的讀者技術基礎定位在&quot;基本電腦知識&quot;,<br>
+    &gt; 個人覺得光只有這樣的基礎, 學起來可能有點困難....<br>
+    &gt; 又說&quot;這可以是你的第一本 C++ 學習用書，但不應該是你的<br>
+    &gt; 第一本程式設計學習用書。&quot;<br>
+    &gt; 有點矛盾乎?!</font><br>
+    <br>
+    前者是侯捷說的，後者是 Lippman &amp; Lajoie 說的。所謂矛盾是<br>
+    「以子之矛攻子之盾」，不同人的不同看法，不算矛盾 :)<br>
+    <br>
+    到底我所謂 &quot;基本電腦知識&quot;, 是怎樣的知識呢？這個嘛，<br>
+    說也說不周詳。<br>
+    <br>
+    本書從未教讀者在任何特定編譯器上的編譯程序，也沒有教<br>
+    讀者如何設定編譯環境。更沒有一一說明它的範例程式在什麼<br>
+    樣的編譯平台上需要什麼樣的修補。這些知識該歸類為什麼呢？<br>
+    <br>
+    （我突然想，是不是應該在導讀中加上「關於 C++ 編譯器」<br>
+    一節，對初學者比較更好些！請參考拙作<br>
+    【<a href="article99-10.htm" tppabs="http://jjhou.boolan.com/article99-10.htm">在 console mode 中使用 C/C++ 編譯器</a>】一文）<br>
+    <br>
+    唸國一的姪子正在向我學習 C++ programming。一開始<br>
+    沒有適當教本，我先以自製講義及《多型與虛擬》，讓<br>
+    他有大局觀。《C++ Primer 中文版》出版後，便改用它<br>
+    密實地重新開始。C++ 是我這姪子的第一個程式語言，<br>
+    他的接受度不錯。<br>
+    <br>
+    但，我相信大半因素是因為他有一位不錯的老師 :)，可以<br>
+    隨時為他解惑。以他的條件而言，自修本書恐怕是不行的。<br>
+    <br>
+    這是一個 13 歲小男孩的情況。16 歲呢？19 歲呢？25 歲呢？<br>
+    30 歲呢？從別的專業領域轉進 programming 領域的呢？<br>
+    <br>
+    事實上，每個人的情況都不相同，無法一概而論。同樣是初學者，<br>
+    有的人已經習慣看大部頭書，也習慣自修自學，又有動手的好習慣，<br>
+    練就一身銅筋鐵骨，可以在熱帶叢林中披荊斬棘，在莽莽草原中<br>
+    奮力自強。有的人還未習慣看大部頭書，也不習慣自修自學，<br>
+    那就比較適合溫室環境，徇徇誘導可也，太「霹靂」則水土不服。<br>
+    <br>
+    作者的這段話我覺得滿好：<br>
+    <br>
+    -- quote（前言 xiv）--<br>
+    <font color="#FF0000">讀者應該不時回頭消化咀嚼，而不是一次就想把它囫圇下嚥。如果<br>
+    一開始你覺得有點無法接受，或是呼吸急促、口乾舌燥，那麼不妨<br>
+    暫時放下，稍後（日後）再回頭重看。</font><br>
+    -- unquote --<br>
+    <br>
+    <br>
+    <font color="#0000FF">&gt;&gt; 再問：配合這本書的 compiler, 
+    以下何者較為適當？<br>
+    &gt;&gt; 1. DOS + Turbo C++ 3.0<br>
+    &gt;&gt; 2. Win98 + VC++ ???<br>
+    &gt;&gt; 3. Win98 + BC++Builder ???<br>
+    <br>
+    &gt; 我覺得(1)不合適, 因為TC++3.0與書中的ANSI C++差太多了....<br>
+    &gt; 後兩者雖沒有完全支援ANSI C++, 但也比(1)好太多了....<br>
+    &gt; 到以下網址看看(2)(3)兩個compiler對書中範例程式的支援<br>
+    &gt; http://www.jjhou.com/errata-cpp-primer.htm</font><br>
+    <br>
+    說得好。<br>
+    <br>
+    by the way，並不是愈新版本的編譯器，對 C++ Standard 的<br>
+    支援程度就一定愈好；有時會有倒退嚕的情況。<br>
+    Windows Development Journal（www.wdj.com）1999/10 p.65<br>
+    便指出，<font color="#0000FF">BCB4 不支援 Nested Class Template</font>。而這在早期的<br>
+    Borland C++ v5 卻可輕騎過關。<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><big><strong><a name="C++ Primer qa8">C++ Primer 答客問 (8)</a>&nbsp; 1999.10.17 </strong></big><br>
+    <br>
+    <font color="#0000FF">Jimmy wrote (1999/10/15) :<br>
+    <br>
+    &gt; 侯先生您好：<br>
+    &gt;<br>
+    &gt; 我正在拜讀您的譯作 &quot;c++ primer&quot;。由於我對 STL 極感興趣，<br>
+    &gt; 所以很快就跳到附錄去看 generic algorithms 的範例。這樣的範例<br>
+    &gt; 真的很棒，讓我從一堆文字描述中直接跳脫出來，畢竟對 
+    programmer<br>
+    &gt; 而言有實例說明實在是太好了。<br>
+    &gt;<br>
+    &gt; 但是我對於 p1130 的 copy_backward() 的描述有點不解。<br>
+    &gt; 書中文字所舉的例子 {0,1,2,3,4,5} 經過演算法後的結果，<br>
+    &gt; 與下一段完整例子（操作對象是個 string 陣列）的結果<br>
+    &gt; 好像有點矛盾。我不確定是否我認知有問題。可否請您<br>
+    &gt; 檢驗一下。<br>
+    &gt;<br>
+    &gt; p.s. 我很喜歡這本書，讀起來很流暢。謝謝您的用心。</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    您看書真仔細，一舉便中本書要害。<br>
+    <br>
+    是的，p.1130 copy_backward() generic algorithm 的文字說明中，<br>
+    第二段敘述是錯誤的。我在翻譯本書的過程中，沒有能夠挑出原文書<br>
+    的這個大 bug，是我的失職。<br>
+    <br>
+    有原文書的朋友也請注意，這個 bug 並沒有出現在原文書 errata 中，<br>
+    至少我上次（1999/08/10）看的時候沒有。<br>
+    <br>
+    本書出版後，我對附錄中的所有範例程式做了一次檢閱與測試，<br>
+    這才測出您所指的這一段錯誤敘述。測試結論以及此段勘誤<br>
+    已載於侯捷網站 www.jjhou.com 之中。以下我再重複一次，<br>
+    然後做更多補充。如果您上侯捷網站去看，會更清楚些，<br>
+    因為我以不同的顏色標示出錯誤的地方和修改的地方。<br>
+    <br>
+    <a href="errata-cpp-primer.pdf" tppabs="http://jjhou.boolan.com/errata-cpp-primer.pdf">侯捷網站上的勘誤內容</a><br>
+    <br>
+    以下是我的新補充。<br>
+    <br>
+    (1) 我寫了一個實例如下。<br>
+    <br>
+    <font face="Courier New"><small>// VC6 : cl -GX 1130.cpp<br>
+    // BCB4 : bcc32 1130.cpp</small><br>
+    <small><small>// </small>GNU C++ : </font>g<font face="Courier New">++ -o 1130.exe 
+    1130.cpp</small><br>
+    <small><br>
+    <br>
+    #include &lt;algorithm&gt;<br>
+    #include &lt;vector&gt;<br>
+    #include &lt;iterator&gt;<br>
+    #include &lt;iostream&gt;<br>
+    <br>
+    using namespace std;<br>
+    <br>
+    /* generates :<br>
+    original elements sequence:<br>
+    0 1 2 3 4 5<br>
+    sequence after copy_backward(begin, end-3, end):<br>
+    0 1 2 0 1 2<br>
+    */<br>
+    <br>
+    void main()<br>
+    {<br>
+    int ia[] = { 0, 1, 2, 3, 4, 5 };<br>
+    vector&lt;int&gt; vec(ia, ia+6);<br>
+    ostream_iterator&lt;int&gt; ofile(cout, &quot; &quot;);<br>
+    <br>
+    cout &lt;&lt; &quot;original elements sequence:\n\t&quot;;<br>
+    copy(vec.begin(), vec.end(), ofile);<br>
+    cout &lt;&lt; endl;<br>
+    <br>
+    copy_backward(vec.begin(), vec.end()-3, vec.end());<br>
+    <br>
+    cout &lt;&lt; &quot;sequence after &quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; &quot;copy_backward(begin, end-3, end):\n\t&quot;;<br>
+    copy(vec.begin(), vec.end(), ofile);<br>
+    cout &lt;&lt; endl;<br>
+    }<br>
+    </small></font><br>
+    <br>
+    (2) 書中對 copy_backward() 的規格說明如下：<br>
+    <br>
+    <small><font face="Courier New">template &lt; class BidirectionalIterator1,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class BidirectionalIterator2 
+    &gt;<br>
+    BidirectionalIterator2<br>
+    copy_backward( BidirectionalIterator1 first,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    BidirectionalIterator1 <font color="#FF0000">last1</font>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    BidirectionalIterator2 <font color="#FF0000">last2</font> );</font></small><br>
+    <br>
+    作者把參數名稱取為 last1 和 last2，不甚好，不能望文解義。<br>
+    我發現 &quot;Generic Programming and the STL&quot; p.236 對於<br>
+    此演算法的規格說明得比較好：<br>
+    <br>
+    <small><font face="Courier New">template &lt; class BidirectionalIterator1,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class BidirectionalIterator2 
+    &gt;<br>
+    BidirectionalIterator2<br>
+    copy_backward( BidirectionalIterator1 first,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    BidirectionalIterator1 <font color="#FF0000">last</font>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    BidirectionalIterator2 <font color="#FF0000">result</font> );</font></small><br>
+    <br>
+    &quot;Generic Programming and the STL&quot; p.236 並說，這個演算法<br>
+    會執行以下 assignment 動作 ：<br>
+    <br>
+    *(result-1) = *(last-1),<br>
+    *(result-2) = *(last-2),<br>
+    etc.<br>
+    <br>
+    這段解釋對我們瞭解 copy_backward() 的行為頗有幫助。<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><strong><big><a name="C++ Primer qa9">C++ Primer 答客問 (9)</a>&nbsp; 1999.10.19 </big></strong></p>
+    <p><br>
+    <font color="#0000FF">Samn wrote (1999/10/18) :<br>
+    <br>
+    &gt; 侯捷老師 您好:<br>
+    &gt;<br>
+    &gt; 我是一位C++的入門學習者,見到 C++ Primer 3/e 中文版出來後 ,<br>
+    &gt; 就花了約800多買了下來,(用折扣卡買的 所以比較便宜)<br>
+    &gt; 姑且不論價格與否.. 內容是我比較在意的..<br>
+    &gt;<br>
+    &gt; 只是這本中文書的厚度實在是太厚,不方便帶進帶出<br>
+    &gt; 放在袋子中要放其他東西 就顯得太重了許多<br>
+    &gt; 我又是一位習慣帶著書跑的學生(應該算是),因為可以<br>
+    &gt; 一有時間就拿起來看,<br>
+    &gt;<br>
+    &gt; 可否建議您將其分割為三本書 讓厚度約在2cm左右..方便攜帶..<br>
+    &gt; 不然的話把書拆了 有點可惜說.. :P<br>
+    &gt;<br>
+    &gt; 敬祝萬事如意....</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    《C++ Primer 中文版》確是滿厚的（5.0 cm）。我盡許多努力要<br>
+    將厚度降低，而就國內環境言，這可能是最大極限了。<br>
+    以後的書籍，我會繼續努力說服廠商用更好更薄的紙。不過<br>
+    這非侯捷所能定奪。廠商告訴我，有的紙根本想買也買不到。<br>
+    <br>
+    回到你的建議來。你說：<br>
+    <br>
+    <font color="#0000FF">&gt; 可否建議您將其分割為三本書 讓厚度約在2cm左右.. 
+    方便攜帶..</font><br>
+    <br>
+    曾經想過分割為兩本。但是成本會增加不少，會反應到售價身上。<br>
+    <br>
+    分割為兩本後，單價並非「原書價除以 2」這樣的簡單算術。商務上<br>
+    的許多細節，非置身其內的人是很難想像的。分割為兩本，封面成本<br>
+    要兩倍，裝訂成本要兩倍，印刷機上架成本要兩倍(?)，抄紙成本<br>
+    可能也增加(?)。為了讓上下冊都完整，目錄要兩份，index 要兩份，<br>
+    導讀要兩份，前言要兩份，於是紙張、排版、印刷成本又增加一些…。<br>
+    近年來我對印刷業務有一些瞭解，但不是完全清楚；上面說的可能<br>
+    有些出入（包括術語和實際數字）。總之，成本增加不少，售價又得提高。<br>
+    <br>
+    厚書確實很不好攜帶。<br>
+    <br>
+    兩難！<br>
+    <br>
+    * * * * * * * * * *<br>
+    <br>
+    胖書排行<br>
+    <br>
+    by the way，環顧書房，胖書有愈來愈多的趨勢。目前我手上的排行榜<br>
+    第一名是 Microsoft Press 出版的 Programming Windows 5/e，厚 7.1 cm。<br>
+    第二名是 WROX 出版社的 Professional MFC with Visual C++ 6.0，厚 6.9 cm。<br>
+    前天在書店看到另一本名書，Microsoft Press 出版的<br>
+    Programming Windows with MFC 2/e，也非常厚，因為沒買，<br>
+    所以不知道確實厚度。<br>
+    <br>
+    書到達這種厚度，除了給讀者帶來壓力之外（閱讀的壓力以及<br>
+    經濟的壓力 -- 厚書售價不會太低），也給譯者帶來壓力。<br>
+    我猜想外文好書肥胖化，會導至其中譯本更難推出。這終究<br>
+    是一種損失，因為好的中譯本可以節省我們非常多的閱讀時間。<br>
+    但是，作者可能不願意在同一個主題上做分割，因為那對他的<br>
+    寫作帶來困擾：既不完整且不方便。<br>
+    <br>
+    兩難！<br>
+    <br>
+    -- the end<br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <strong><big><a name="C++ Primer qa10">C++ Primer 答客問 (10)</a> 1999.10.29 </big></strong><br>
+    <br>
+    <font color="#0000FF">Jimmy wrote (1999/10/25) :<br>
+    <br>
+    &gt; 侯先生您好：<br>
+    &gt; 我是上次詢問 p1130 copy_backward() 的問題的人。抱歉又來打擾您。<br>
+    &gt;<br>
+    &gt; 這一次我的問題是 p1162 的 nth_element()。我把書上程式<br>
+    &gt; 按照您的網站上的說明加以修改，以 VC 6.0 編譯，執行後的<br>
+    &gt; 結果卻與書上不同。書上的結果是：<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; original order of the vector: 29 23 20 22 17 15 26 51 
+    19 12 35 40<br>
+    &gt; sorting vector based on element 26<br>
+    &gt; 12 15 17 19 20 22 23 26 51 29 35 40<br>
+    &gt; sorting vector in descending order based on element 23<br>
+    &gt; 40 35 29 51 26 23 22 20 19 17 15 12</font></small><br>
+    &gt;<br>
+    &gt; 我的結果卻是：<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; original order of the vector: 29 23 20 22 17 15 26 51 
+    19 12 35 40<br>
+    &gt; sorting vector based on element 26<br>
+    &gt; 12 15 17 19 20 22 23 26 29 35 40 51<br>
+    &gt; sorting vector in descending order based on element 23<br>
+    &gt; 51 40 35 29 26 23 22 20 19 17 15 12</font></small><br>
+    &gt;<br>
+    &gt; 可否請您檢驗一下。</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    喔，Jimmy，你一定是疏忽了 p.1163 的第二行：<br>
+    <br>
+    「重新安排後的第 n 個元素的左右兩側並不保證有任何特定次序」<br>
+    <br>
+    換句話說 nth_element() 這個泛型演算法只保證將小於 nth 元素的<br>
+    所有元素都放在 nth 元素之前，將大於 nth 元素的所有元素都放在<br>
+    nth 元素之後（當然，此後，原本的 nth 元素就不再是放在 nth 
+    位置了）。<br>
+    至於重新安排後的第 n 
+    個元素的左右兩側，並不保證有任何特定次序。<br>
+    <br>
+    我以 BCB4 和 GCC(egcs-2.91.57) 測試，結果正如書中所列。<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <strong><big><a name="C++ Primer qa11">C++ Primer 答客問 (11)</a> 1999.10.29 </big></strong><br>
+    <br>
+    <font color="#0000FF">Michael wrote (1999/10/21) :<br>
+    <br>
+    &gt; 侯老師..<br>
+    &gt; 很冒昧寫信打擾您..這是學生第一次寫這樣的信請教老師..<br>
+    &gt; 盼老師不介意學生的魯莽..<br>
+    &gt;<br>
+    &gt; 學生為您近作 c++ primer 之讀者..在學習上面有些疑惑與問題..<br>
+    &gt; 也希冀老師不吝解惑..<br>
+    &gt;<br>
+    &gt; 學生在所謂的電腦領域學習已有不少時日..由basic開始一路過來..<br>
+    &gt; 學習的東西不少..但不敢說非常精通..在最近拜讀您的c++ primer之後..<br>
+    &gt; 卻有著不知所措的感覺..其實學生經由自修方式和修課的機會..<br>
+    &gt; 將c++的語法做了大概的認識了解..不過..也由於是這樣的方式..<br>
+    &gt; 使得學生在真正寫出一個具oo觀念的c++ 程式上..有著相當的差距..<br>
+    &gt;<br>
+    &gt; 回想過去的學習方式..學生對於書上所著之範例..並無上機實作..<br>
+    &gt; 而僅只限於紙上談兵..把程式trace過一遍..再來..便是經由課堂上<br>
+    &gt; 老師的作業和練習..而達到學習的效果..但至上大學後..對課堂老師<br>
+    &gt; 的上課方法..實不甚喜..因為在課堂上劃重點..用投影機講解程式的<br>
+    &gt; 方式..並不能給學生什麼助益..這些工作是學生可以自修做到..<br>
+    &gt; 而不需別人幫忙的..而課程只有一學期..乃至後面的內容..無法上到..<br>
+    &gt; 更遑論polymorphism..template function..overloading這些重要觀念..<br>
+    &gt;<br>
+    &gt; 可學生意識到此語言的重要性..便不放棄的學習下去..將世紀末軟體革命<br>
+    &gt; 看完後..便接著拜讀您的c++primer..但學生開始有了疑問..以前的<br>
+    &gt; 學習方式..到底有沒有效果..光是自己開書..trace程式..能達到什麼<br>
+    &gt; 成果...至少..目前學生對此書學習過的部份..有著相當的徨恐..<br>
+    &gt; 深怕唸過之後等於沒唸..或是不太踏實的感覺..<br>
+    &gt;<br>
+    &gt; 說來汗顏..從五專唸起..直到去年也才知道compbook版和一些所謂<br>
+    &gt; 學習上的經典之作..也在同時看到老師以前所寫的一些散文和書評..<br>
+    &gt; 給學生不少助益..在學生細細看過一些前輩所提出的疑問..和老師<br>
+    &gt; 所給與之回答..還有老師寫的一些散文..都對學習上的觀念..<br>
+    &gt; 加以評述解說..可學生的愚昧..仍然找不出一個實際的學習方法..<br>
+    &gt; 能讓學習過的感覺較為踏實..學生也曾與同學討論過..比如書上的<br>
+    &gt; 範例和作業..是不是應該全部自己上機從keyin..compile..都一應<br>
+    &gt; 具全的做好...也想過是不是在學語法之時..便同時進入MFC..與<br>
+    &gt; 所學作一印證..但卻無討論結果...記得老師的文章說過..要撞..<br>
+    &gt; 就一次撞出痕跡..學生徨恐..不知怎樣的方式才為正確..對此書上<br>
+    &gt; 的範例和練習..應用什麼方式學習..盼老師能替學生指點迷津..謝謝..<br>
+    &gt; 很抱歉擔誤老師時間..也深深感謝您的指點..<br>
+    </font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    關於這一類學習上的問題，我談過很多。例如這封信所提問題，和我在<br>
+    1999/10/17（只不過是兩星期前）於板上回答的《一般 答客問 (1)》<br>
+    差不多。寫這些文章花費許多時間，我沒有能力一再重複地寫。但是，<br>
+    想到也許年輕學子希望從一個他所信賴的人的嘴裡，聽到一些完全針對<br>
+    他個人的問題的某些回答，而這些回答可能對他造成相當的激勵，我又<br>
+    不忍不回答…。<br>
+    <br>
+    但是我希望，如果您想從侯捷這裡獲得一些學習上的意見，請您先<br>
+    看看我過去所寫的文章（統統放在 www.jjhou.com 裡），很可能<br>
+    那裡面已經說過了。<br>
+    <br>
+    <br>
+    Michael 提到《C++ Primer 中文版》的閱讀經驗，那麼我先從這裡開始。<br>
+    <br>
+    在我即將完成這本中譯書的時候，我曾經預想過，想學好 C++ 的<br>
+    廣大群眾，面對這本大部頭書籍，可能會是怎樣一個心態：<br>
+    <br>
+    『這是一本很有名的書，這是一個受信賴的譯者。哈里路亞，我得救了！』<br>
+    <br>
+    於是很多人可能會幻想，把它買回來，便對 C++ 
+    的所有疑惑以及過去的<br>
+    所有痼疾，一次獲得了解放。<br>
+    <br>
+    不，不是這樣。不能只是這樣！<br>
+    <br>
+    OOPL 本身有其相當的困難度。以前我常說，procedual-based programming<br>
+    可以自修，object-oriented programming 不易自修，便是因為它難度高。<br>
+    <br>
+    學習 OOPL（例如 C++），根本上就是在學習 OOP。是的，應該是要這樣。<br>
+    而 OOP 的難度一向就在那裡。一本好書可以讓你比較順暢地進入那個<br>
+    思考狀態，但是解決那些根本的「哲學問題」，還是有賴你自己用心<br>
+    揣度與練習。任何一本好書，也不能讓你在思考的用力度上，少滴幾滴汗。<br>
+    <br>
+    此外，請注意一點。一本設計良好且體貼入微的技術讀物，往往會在<br>
+    一開始介紹某個主題時，就把相關東西說得頗為完整，但會在適當地點<br>
+    告訴你，哪些部份只是先行介紹，其詳細內容將在後面哪一章哪一節呈現。<br>
+    很多讀者對於這種說明視而不見，於是在還沒有適當基礎的時候，就硬讀<br>
+    硬砍那些為了完整性而先行出現的東西。這樣當然倍加辛苦。<br>
+    <br>
+    <br>
+    回過頭來說話。object-oriented programming 不易自修嗎？是的，不易<br>
+    自修。但我不是說它不能自修。侯捷就是自修得來，同年齡層的朋友<br>
+    也都是自修得來（畢了業，出了社會，哪來的老師？）。當初的我們，<br>
+    之於 C++，也都是初學者。但是我們已經工作了多年，寫過許多程式，<br>
+    有不少自己的心得，其中有與 OO 觀念合度的…也有從 OO 觀念<br>
+    中才知道其實並不好的…。所以一項技術或一本書，能不能自修、<br>
+    適不適合初學者看，完全是因人而異。初學者？有太多種初學者了，<br>
+    功力高下可能有雲壤之別，如何一概而論？通常大家想到的 C++ 
+    初學者<br>
+    是大一學生，可你相不相信，業界之中的 C++ 
+    初學者遠遠多於校園內？<br>
+    兩種初學者程度相同嗎？<br>
+    <br>
+    我說這麼多，是要告訴你，很多用詞很多見解，其實都有前提。但是<br>
+    誰願意（或能夠）詳詳細細源源本本地細說從頭呢？<br>
+    <br>
+    你問：<br>
+    <br>
+    <font color="#0000FF">&gt; 回想過去的學習方式..學生對於書上所著之範例..並無上機實作..<br>
+    &gt; 而僅只限於紙上談兵..把程式trace過一遍..再來..便是經由課堂上<br>
+    &gt; 老師的作業和練習..而達到學習的效果..</font><br>
+    <br>
+    有的人，這樣就夠了；有的人，這樣絕對不夠。<br>
+    <br>
+    還在基礎養成階段的你，這樣絕對不夠。能夠光 trace 別人程式、<br>
+    光看光想就獲益良多的人，必須已經具備一定技術水平，他們可以<br>
+    「觸類旁通」。<br>
+    <br>
+    我常講「觸類旁通」這句話，我很喜歡這句話，也很服膺這句話。<br>
+    你最好也相信這句話，在這個變化萬端的領域，你才會有信心<br>
+    自己過往的努力不會白費，你才會有信心自己十數年的經驗，<br>
+    有能力在極短的時間趕上初出茅廬的小夥子所鑽研的什麼新技術。<br>
+    <br>
+    回到你的問題。在 programming 方面尚還處於基礎養成階段的你，<br>
+    不動手多寫程式，是絕對不行的。<br>
+    <br>
+    你問：<br>
+    <br>
+    <font color="#0000FF">&gt; 上大學後..對課堂老師<br>
+    &gt; 的上課方法..實不甚喜..因為在課堂上劃重點..用投影機講解程式的<br>
+    &gt; 方式..並不能給學生什麼助益..這些工作是學生可以自修做到..<br>
+    &gt; 而不需別人幫忙的..而課程只有一學期..乃至後面的內容..無法上到..<br>
+    &gt; 更遑論polymorphism..template function..overloading這些重要觀念..</font><br>
+    <br>
+    如果課堂進度不能滿足你，你便應該自力更生。你應該預習，然後在課程上<br>
+    或課程下對老師提問題。<br>
+    <br>
+    如果老師不能滿足你的發問，你怎麼辦？（programming language 是<br>
+    一門需要實務經驗的課，大學教授通常沒太多 programming 實務經驗，<br>
+    也通常不願意用心思在這種課上面，因為對他沒營養） 
+    唉，老實說，<br>
+    我不知道你該怎麼辦。請教這方面實力好的學長吧，一個系上不可能沒有<br>
+    這種人物。<br>
+    <br>
+    你說：<br>
+    <br>
+    <font color="#0000FF">&gt; 學生也曾與同學討論過..比如書上的<br>
+    &gt; 範例和作業..是不是應該全部自己上機從keyin..compile..都一應<br>
+    &gt; 具全的做好...也想過是不是在學語法之時..便同時進入MFC..與<br>
+    &gt; 所學作一印證..但卻無討論結果...</font><br>
+    <br>
+    以你的程度，不要在學 C++ 的同時，就接觸 MFC。有一著名國立大學，<br>
+    大一便開 Visual C++ 課程（當然也就牽涉 MFC），與 C++ 課程同時上。<br>
+    結果對同學的信心打擊之大，讓很多學生認為不應該（沒實力）唸資訊系。<br>
+    這是我所知道的實例。<br>
+    <br>
+    我正在教我的姪子 C++ programming。每次問他：這星期自修的部份<br>
+    有沒有寫些什麼程式呀？他都說沒有，惹得我有點生氣。後來我發現，<br>
+    他不知道要寫什麼程式。我說『就像我給你上課時那樣啊，書上進行了<br>
+    一個觀念，我們或因困惑，或者因為想要眼見為憑，便寫個小例子來<br>
+    驗證一下』。他跟著我的時候，知道要怎麼進行，一離開我，就不知道<br>
+    寫些什麼好。<br>
+    <br>
+    可他只是 13 歲男孩，我不苛責他。你是大學生，我應該說些重話。<br>
+    可是我也不忍苛責，畢竟你非常想學好。資質平庸如侯捷，<br>
+    徬惶崎路、壓抑、焦慮、不甘平淡的清澀歲月，也沒少過人家。<br>
+    我不是不懂這些心情，不是沒有過親身經歷。<br>
+    <br>
+    不知道怎麼求學，臺灣的教育大環境造成的吧！課前預習、上課發問、<br>
+    課後複習，誰又做到了？<br>
+    <br>
+    <br>
+    不要因為我說了重話而垂頭喪氣。亡羊補牢，時猶未晚。<br>
+    <br>
+    拿《C++ Primer 中文版》來說好了，書上有一大堆程式片段；<br>
+    碰到比較大的議題，你何不試試組合起一個完整程式？程式碼應該<br>
+    自己 keyin 或是 download 就好呢？隨便。但是尚在基礎養成階段<br>
+    的你，自己 keyin 會多得些好處。不過，如果 keyin 時如行屍走肉，<br>
+    腦袋不動，那就沒有效果。另外，書上有些稍大型例子如 IntArray、<br>
+    iList、String、template classes... 的設計，你不妨在看懂之後，<br>
+    自己做一遍；可以看書上所開規格，不可以看書上所列程式碼。這些<br>
+    都是滿好的自我訓練。最好使用兩種以上的 compiler，因為現今<br>
+    C++ compiler 似乎還沒有完全支援 C++ Standard 者（我的測試結果<br>
+    是，GNU C++ 在這方面表現最佳）。<br>
+    <br>
+    這不是很花時間嗎？別人看過了就過了，考試成績也不錯，我卻在<br>
+    這裡蝸牛上樹？喔，我向你保證，看過和寫過，完全不一樣<br>
+    （縱使沒有表現在考試上）。千萬別有人追問『即使是交作業，<br>
+    還不是版本1、版本2 地拷來拷去。實力依然沒有表現在成績上』。<br>
+    問這種問題，我就不想回答了。學習是為了自己，不是為了分數。<br>
+    <br>
+    技術的奠基過程，沒有不辛苦的（除非是 IQ 很高的人，是的，<br>
+    我遇過這種人）。甘蔗沒有兩頭甜，你要倒吃甘蔗，才會漸入佳境。<br>
+    有了好的基礎，後面就是御風飛行。<br>
+    <br>
+    我感受到你的焦慮，我意識到你的力求上進。送你一段宋朝大儒<br>
+    朱熹的話，是他的為學態度：<br>
+    <br>
+    寧繁勿略<br>
+    寧拙勿巧<br>
+    寧下勿高<br>
+    寧遠勿近<br>
+    <br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    by the way，讓我談談學習 C++/OOP 的最大障礙。<br>
+    <br>
+    一如我在「C++ 的沉迷與愛戀」一文所言，除非你資質不凡，<br>
+    否則，大部份人，在接受抽象觀念前，都需要有相當的實象鋪陳。<br>
+    C++ 語言的實象鋪陳，可以統歸為所謂的 C++ object model。<br>
+    <br>
+    說來奇怪，現今世上，極少有把 C++ syntax/semantics 和<br>
+    必要範圍的 object model 結合起來的書。Bjarne 寫了一本<br>
+    &quot;The C++ Programming Language&quot;，又寫了（合著）一本<br>
+    &quot;The Annotated C++ Reference Manual&quot;。Lippman 寫了（合著）<br>
+    一本 C++ Primer，又寫了一本 Inside the C++ Object Model。<br>
+    雖然在他們的 C++ 語言書中，都提到一些深入的議題，但是<br>
+    C++ language 和 C++ object model 好像涇渭分明，彼此不犯似的。<br>
+    <br>
+    不應該這樣，我認為。<br>
+    <br>
+    所以我在《多型與虛擬》中嘗試結合二者。讀者也甚予好評。<br>
+    <br>
+    注意上面我說的是「必要範圍的 object model」。什麼是對於一個<br>
+    C++ 語言學習者有極大幫助的「必要範圍的 object model」題目呢？<br>
+    下面是我的看法：<br>
+    <br>
+    o. new expression 做了什麼動作<br>
+    o. delete expression 做了什麼動作<br>
+    o. new [] expression 做了什麼動作<br>
+    o. delete [] expression 做了什麼動作<br>
+    o. 'this' pointer 是什麼<br>
+    o. 程式中經由 object 呼叫 class member function，C++ compiler 在<br>
+    呼叫端和接收端做了什麼手腳？（Ans: 'this' pointer 被補進去了）<br>
+    o. 一個 object 的 memory layout 如何？member functions 在哪裡？<br>
+    data members 又在哪裡？<br>
+    o. 為什麼可以 overloading？什麼是 name mangling？<br>
+    o. 加上 virtual functions 後，class object 的 memory layout 又如何？<br>
+    o. 為什麼 virtual functions 可以達到 polymorphism 的效果？<br>
+    o. 大三元 copy constructor, assignment operator, destructor<br>
+    o. 如果你設計一個 empty class，編譯器會為你製作出六個 member functions，<br>
+    你知道嗎？<br>
+    o. reference 的本質是什麼<br>
+    o. 繼承 會造成 object layout 怎樣的變化？你知道 derived portion 嗎？<br>
+    你知道 base subobject 嗎？<br>
+    o. 多重繼承又會造成 object layout 怎樣的變化？虛擬繼承呢？<br>
+    o. 為什麼 C++ 能夠有 RTTI 的能力？<br>
+    …<br>
+    <br>
+    各家編譯器所奉行的 object model 不盡相同，我的意思並非<br>
+    是要大家徹底搞懂它們，做個 object model 專家，以後還可以<br>
+    設計 C++ compiler…。不，不是這個意思。我的意思是，如果 C++<br>
+    學習者對於這些東西有個概念，很多語言層面上的疑問，都會<br>
+    霍然開朗，迎刃而解。<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <strong><big><a name="C++ Primer qa12">C++ Primer 答客問 (12)</a>&nbsp; 1999.10.30 </big></strong><br>
+    <br>
+    <font color="#0000FF">Richard wrote : (1999/10/30)<br>
+    <br>
+    &gt; 在 &quot;C++ PRIMER 中文版&quot; 83頁 5行<br>
+    &gt; int month;<br>
+    &gt; 說 變數 month 是物件 (object)<br>
+    &gt; 物件有:屬性(property), 方法(method), 事件(event)<br>
+    &gt; 請問 整數變數 month 的 屬性(property), 方法(method), 事件(event) 是 ?</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    您說錯頁次了，我想您指的是 85 頁。<br>
+    <br>
+    把根據 C++ 內建型別（build-in types）而宣告（或定義）出來的<br>
+    「變數」說成「物件」（object），是一種比較廣義、且更具一致性<br>
+    的說法。例如：<br>
+    <br>
+    <small><font face="Courier New">int i(5); // </font>以 <font face="Courier New">5 </font>做為 
+    <font face="Courier New">i </font>的初值。類似 <font face="Courier New">constructor </font>的用法。<br>
+    <font face="Courier New">int j = i + 3; // int type </font>擁有 <font face="Courier New">overloaded 
+    operator=<br>
+    int k = i * 3; // int type </font>擁有 <font face="Courier New">overloaded operator*</font></small><br>
+    <br>
+    以上形式，都與 C++ object 相彷。故曰 i, j, k 為 objects。<br>
+    <br>
+    <br>
+    您問：<br>
+    <br>
+    <font color="#0000FF">&gt; 物件有:屬性(property), 方法(method), 事件(event)<br>
+    &gt; 請問 整數變數 month 的 屬性(property), 方法(method), 事件(event) 是 ?</font><br>
+    <br>
+    以目前習慣用詞而言，我想恐怕 PME（Property, Method, Event）<br>
+    是比較偏向用於 software component。對 C++ class 而言，<br>
+    如果說 int 是一種 class type 的話，那麼其 property<br>
+    便是 int 內容，而其 method 則是各種可施加於其上的<br>
+    動作如 +, - , *, / 等等（可視為 overloaded operators）。<br>
+    至於 event，唔，這個嘛…<br>
+    <br>
+    在 OO 古典用詞裡，event 的意思好像是：「喚起某個 class<br>
+    的 method，我們便說是「送給該 class (object) 一個 event」。<br>
+    如果是這樣的話，那麼可以說 j = i + 3; 這行便是送出一個 event<br>
+    給 int type 的 operator+。<br>
+    <br>
+    印象中好像「送出一個 event」和「送出一個 message 同義」。<br>
+    在 Scott Meyers 的 More Effective C++ p.230 甚至是這樣說：<br>
+    what C++ programmers know as a virtual function call is<br>
+    termed a &quot;message dispatch&quot;。<br>
+    <br>
+    以上關於 event 和 message 的名詞意義，我不是很有把握。<br>
+    在 C++/OOP 方面，我個人對實際面比較感興趣，對於<br>
+    古典名詞（尤其是衍生自過去傳統 OO 基本教義派的名詞）<br>
+    鑽研得少。所以，見笑了。<br>
+    <br>
+    查了一下 The C++ Programming Language 和 C++ Primer 兩本書<br>
+    的索引，前者雖然有 event 這個字，但與 object 毫無干係；<br>
+    後者則是完全沒有收錄這個字。<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa13"><strong><big>C++ Primer 答客問 (13)</big></strong></a> <strong><big>1999.11.07 
+    </big></strong><br>
+    <br>
+    日昨 jyhuang 來我處一敘。我們談到 generic programming<br>
+    以及 STL，都興致盎然。其中的一個討論，引發後續數封 email<br>
+    往返與 sample 測試。結果頗為有趣，結論亦值得注意。<br>
+    誌之於斯，以為永記。<br>
+    <br>
+    ●vector 的元素刪除<br>
+    <br>
+    話頭從 container 的元素刪除說起。jyhuang 觀察到「如果 vector 或 list<br>
+    的最後一個元素符合刪除條件，程式會有問題」。他給我這樣一個片段：<br>
+    <br>
+    <small><font face="Courier New">template &lt;typename T&gt;<br>
+    void print_elements(T elem) { cout &lt;&lt; elem &lt;&lt; &quot; &quot;; }<br>
+    <br>
+    void (*pfi)(int) = print_elements; // </font>函式指標，做為 <font
+    face="Courier New">function object </font>用<br>
+    <font face="Courier New">...<br>
+    int ia[7] = {0,1,2,3,4,5,6};<br>
+    vector&lt;int&gt; ivec(ia, ia+7);<br>
+    for_each(ivec.begin(), ivec.end(), pfi); // 0 1 2 3 4 5 6<br>
+    <br>
+    for (vector&lt;int&gt;::iterator it = ivec.begin(); it != ivec.end(); it++) {<br>
+    &nbsp; if (*it % 2) // </font>把奇數去掉<br>
+    <font face="Courier New">&nbsp;&nbsp;&nbsp; ivec.erase(it);<br>
+    }<br>
+    for_each(ivec.begin(), ivec.end(), pfi); // 0 2 4 6 </font>正確！</small><br>
+    <br>
+    <br>
+    如果把 array 和 vector 的初值改為：<br>
+    <br>
+    <font face="Courier New"><small>int ia[8] = {0,1,2,3,4,5,6,7};<br>
+    vector&lt;int&gt; ivec(ia, ia+8);</small></font><br>
+    <br>
+    則上述程式會當掉。<br>
+    <br>
+    <br>
+    ●I don't think so...<br>
+    <br>
+    我不相信 STL 會有這麼差勁的表現。所以多做了幾次測試如下。<br>
+    <br>
+    (1) 把 array 和 vector 的初值改為：<br>
+    <br>
+    <small><font face="Courier New">int ia[7] = {0,1,2,3,4,5,7};<br>
+    vector&lt;int&gt; ivec(ia, ia+7);</font></small><br>
+    <br>
+    程式結果為 0 2 4 7。結果不對，但不會當掉。<br>
+    <br>
+    (2) 把 array 和 vector 的初值改為：<br>
+    <br>
+    <font face="Courier New"><small>int ia[7] = {0,1,3,5,7,9,7};<br>
+    vector&lt;int&gt; ivec(ia, ia+7);</small></font><br>
+    <br>
+    程式結果為 0 3 7 7。錯得離譜，但不會當掉。<br>
+    <br>
+    (3) 把 array 和 vector 的初值改為：<br>
+    <br>
+    <small><font face="Courier New">int ia[7] = {0,2,4,6,0,4,7};<br>
+    vector&lt;int&gt; ivec(ia, ia+7);</font></small><br>
+    <br>
+    程式執行時會當掉。<br>
+    <br>
+    <br>
+    我於是多做了一些觀察，然後知道，上述這些動作根本上是完全<br>
+    不對的。第一個 sample 之執行結果正確，完全是湊巧。<br>
+    <br>
+    問題不在「最後一個元素是否符合刪除條件」，而在對 iterator<br>
+    特性的認識。當我們做了 ivec.erase(it) 動作，vector 便動態<br>
+    減縮了一個元素（邏輯上，後繼元素向前遞補），而 it 不變。<br>
+    之後 for 迴圈的第三部份述句要求 it++，造成 it 跳過了一個元素...。<br>
+    <br>
+    看實例：<br>
+    <br>
+    (1) 初值為 {0,1,2,3,4,5,6}<br>
+    <br>
+    第一次迭代，發現是偶數： ★ 以下以 e 表示 end()<br>
+    <font face="Courier New">0 1 2 3 4 5 6 e<br>
+    ^</font><br>
+    第二次迭代，發現是奇數：<br>
+    <font face="Courier New">0 1 2 3 4 5 6 e<br>
+    &nbsp; ^</font><br>
+    於是將&nbsp; '1'&nbsp; 刪除，vector 變成：<br>
+    <font face="Courier New">0 2 3 4 5 6 e<br>
+    &nbsp; ^</font><br>
+    第三次迭代，發現是奇數（這時已發生錯誤，因為 '2' 
+    被跳過，沒有檢查）：<br>
+    <font face="Courier New">0 2 3 4 5 6 e<br>
+    &nbsp;&nbsp;&nbsp; ^</font><br>
+    於是將 '3' 刪除，vector 變成：<br>
+    <font face="Courier New">0 2 4 5 6 e<br>
+    &nbsp;&nbsp;&nbsp; ^</font><br>
+    第四次迭代，發現是奇數（這時已發生錯誤，因為 '4' 
+    被跳過，沒有檢查）：<br>
+    <font face="Courier New">0 2 4 5 6 e<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^</font><br>
+    於是將 '5' 刪除，vector 變成：<br>
+    <font face="Courier New">0 2 4 6 e<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^</font><br>
+    第五次迭代，發現 it == vec.end()，於是跳離迴圈：<br>
+    <font face="Courier New">0 2 4 6 e<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^</font><br>
+    此時 vector 剩餘 0 2 4 6，陰錯陽差地與正確結果吻合。<br>
+    <br>
+    <br>
+    (2) 初值為 {0,2,4,6,0,4,7}<br>
+    <br>
+    第一次迭代，發現是偶數： ★ 以下以 e 表示 end()<br>
+    <font face="Courier New">0 2 4 6 0 4 7 e<br>
+    ^</font><br>
+    第二次迭代，發現是偶數：<br>
+    <font face="Courier New">0 2 4 6 0 4 7 e<br>
+    &nbsp; ^</font><br>
+    第三次迭代，發現是偶數：<br>
+    <font face="Courier New">0 2 4 6 0 4 7 e<br>
+    &nbsp;&nbsp;&nbsp; ^</font><br>
+    第四次迭代，發現是偶數：<br>
+    <font face="Courier New">0 2 4 6 0 4 7 e<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^</font><br>
+    第五次迭代，發現是偶數：<br>
+    <font face="Courier New">0 2 4 6 0 4 7 e<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^</font><br>
+    第六次迭代，發現是偶數：<br>
+    <font face="Courier New">0 2 4 6 0 4 7 e<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^</font><br>
+    第七次迭代，發現是奇數：<br>
+    <font face="Courier New">0 2 4 6 0 4 7 e<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^</font><br>
+    於是將 '7' 刪除，vector 變成：<br>
+    <font face="Courier New">0 2 4 6 0 4 e<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^</font><br>
+    第八次迭代，it 越過了 end()，造成越界錯誤。迴圈何時結束，未可知也：<br>
+    <font face="Courier New">0 2 4 6 0 4 e <font color="#FF0000">? ? ? ? ? ?</font><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ^</font><br>
+    <br>
+    <font color="#FF0000">我的結論：<br>
+    <br>
+    iterator 只適用於在「不更動 container 佈局」的條件下，<br>
+    對 container 做巡訪動作。否則，對 iterator 的取值行為，<br>
+    直觀下極易誤用。</font><br>
+    <br>
+    我記得《C++ Primer》中提過這個觀念，但一下子找不出頁數。<br>
+    <br>
+    <br>
+    ●應該怎麼做？<br>
+    <br>
+    要解決上述問題（在 vector 中刪除符合某條件的所有元素），<br>
+    應該使用泛型演算法 remove_if() 再搭配 vector 的 erase()：<br>
+    <br>
+    <small><font face="Courier New">it = remove_if(ivec.begin(), ivec.end(), 
+    bind2nd(modulus&lt;int&gt;(), 2));<br>
+    ivec.erase(it, ivec.end());</font></small><br>
+    <br>
+    <br>
+    ●list 的元素刪除<br>
+    <br>
+    面對 list，不可以直接對其 iterator 做算術運算，因為 list<br>
+    的元素並不連續儲存於記憶體中（《C++ Primer》p.266）。<br>
+    <br>
+    那麼是不是應該延用泛型演算法 remove_if() 呢？不！<br>
+    《C++ Primer》p.607 說：<br>
+    <br>
+    <font color="#408080">-- quote ---<br>
+    由於 list 不支持隨機存取，merge(), remove(), reverse(), sort(),<br>
+    和 unique() 等泛型演算法最好不要施行於 list objects 身上。<br>
+    上述每一個演算法在 list 之中都有對應的成員函式可用：<br>
+    <br>
+    * list::merge() 將兩個排序過的 lists 合併在一起。<br>
+    * list::remove() 將「與某數值相等」的元素移除掉。<br>
+    * list::remove_if() 將「與某條件相符」的元素移除掉。<br>
+    * list::reverse() 將 list 中的元素逆向排列。<br>
+    * list::sort() 對 list 元素排序。<br>
+    * list::splice() 將某個 list 的元素搬移到另一個 list 上。<br>
+    * list::unique() 刪除某一元素的連續副本。<br>
+    -- unquote ---</font><br>
+    <br>
+    所以，我們應該這麼做：<br>
+    <br>
+    <font face="Courier New"><small>int ia[7] = {0,1,2,3,4,5,6};<br>
+    list&lt;int&gt; ilist(ia, ia+7);<br>
+    ilist.remove_if(bind2nd(modulus&lt;int&gt;(), 2));</small></font><br>
+    <br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    <font color="#0000FF">jyhuang wrote (1999/11/07) :<br>
+    <br>
+    &gt; 我突然想起一個問題，就是我們常說 STL，其實 C++ standard<br>
+    &gt; 納入後給了它 C++ Standard Library 這個名稱，C++ Standard<br>
+    &gt; Library 抽掉一些原 STL 的東西，也加上一些東西。雖然大家<br>
+    &gt; 習慣稱 STL，會不會讓人誤會是在說 standard 之前的那個 STL 呢？<br>
+    &gt; 例如 C++ Standard Library 包含 string, iostream 等等，<br>
+    &gt; 在原 STL 中是沒有的。我們可以說用 list&lt;&gt; or vector&lt;&gt; 來<br>
+    &gt; 寫程式是用 STL，但是用到 string 可能這樣說法就有問題了。</font><br>
+    <br>
+    我的習慣是，傳統 STL 範疇內的東西，我還是用 STL 這個詞。<br>
+    其他的東西，我便用 C++ Standard Library 這個詞。<br>
+    string 是個不折不扣的 container，但我習慣上不以<br>
+    STL component 來稱呼它。當然，這只是我個人習慣。<br>
+    <br>
+    整個 C++ Standard Library 事實上幾乎都已成為 template 的天下了。<br>
+    <br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    <font color="#0000FF">william wrote (1999/11/08) :<br>
+    <br>
+    </font><font color="#408080">&gt;&gt; 我的結論：<br>
+    &gt;&gt;</font><font color="#0000FF"><br>
+    </font><font color="#408080">&gt;&gt; iteator 只適用於在「不更動 container 
+    佈局」的條件下，<br>
+    &gt;&gt; 對 container 做巡訪動作。否則，對 iterator 的取值行為，<br>
+    &gt;&gt; 直觀下極易誤用。</font><font color="#0000FF"><br>
+    </font><font color="#408080">&gt;&gt;<br>
+    &gt;&gt; 我記得《C++ Primer》中提過這個觀念，但一下子找不出頁數。</font><font
+    color="#0000FF"><br>
+    &gt; <br>
+    &gt; 現在手邊沒有《C++ Primer》,<br>
+    &gt; 我就拿《The C++ Programming Language》為例吧! :)<br>
+    &gt; <br>
+    &gt; §16.3.6 的最後一個程式例子（中譯本 p.16-34）有講到這一點,<br>
+    &gt; §19.2 的最後一段（中譯本 p.19-3）也再強調一次：<br>
+    &gt; <br>
+    &gt; 有效的（valid）iterator 會真的指向一個元素，<br>
+    &gt; 可透過它來間接取值（用 *、[]、或 -&gt;）。<br>
+    &gt; 如果 iterator 並未被初始化過、或是當容器的大小已被重訂過<br>
+    &gt; （§16.3.6、§16.3.8）、或是當容器已被銷毀、<br>
+    &gt; 或是當 iterator 是指向序列末端時（§18.2），<br>
+    &gt; iterator 就算失效了。<br>
+    &gt; <br>
+    &gt; 若再往前追溯, PH 版的 STL 規格書（1995/10/31 版）的 §8.1.1（p.24）<br>
+    &gt; 對於 vector 也有這麼幾段話：<br>
+    &gt; <br>
+    &gt; Reallocaion invalidates all the referenes, pointers, and iterators<br>
+    &gt; referring to the elements in the sequence.<br>
+    &gt; （這句話後來被 ISO/ANSI C++ 規格書抄在 §23.2.4.2 裡）<br>
+    &gt; <br>
+    &gt; &quot;erase&quot; invalidates all the iterators and references<br>
+    &gt; after the point of the &quot;erase&quot;.<br>
+    &gt; （這句話後來被 ISO/ANSI C++ 規格書抄在 §23.2.4.3 裡）</font><br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * *</p>
+    <p><font color="#0000FF">dyliu wrote (1999/11/07) :<br>
+    <br>
+    </font><font color="#408080">&gt;On 07 Nov 1999 07:33:20 GMT, jjhou.bbs@bbs.cs.nthu.edu.tw 
+    (jjhou)<br>
+    &gt;wrote:<br>
+    &gt;&gt;我的結論：<br>
+    &gt;&gt;iterator 只適用於在「不更動 container 內容」的條件下，<br>
+    &gt;&gt;對 container 做巡訪動作。否則，對 iterator 的取值行為，<br>
+    &gt;&gt;直觀下極易誤用。<br>
+    &gt;&gt;我記得《C++ Primer》中提過這個觀念，但一下子找不出頁數。<br>
+    &gt;&gt;●應該怎麼做？<br>
+    &gt;&gt;要解決上述問題（在 vector 中刪除符合某條件的所有元素），<br>
+    &gt;&gt;應該使用泛型演算法 remove_if() 和 erase()：<br>
+    &gt;&gt; it = remove_if(ivec.begin(), ivec.end(), bind2nd(modulus&lt;int&gt;(), 2));<br>
+    &gt;&gt; ivec.erase(it, ivec.end());</font><font color="#0000FF"><br>
+    <br>
+    &gt; 我記得今年的 C++ Report 裡有一篇文章就是在談刪除的問題<br>
+    &gt; 講的蠻詳細的, 但我忘了是哪一期. 這篇文章我印像比較深刻<br>
+    &gt; 的是談到如何實作出 remove() 這類的 algorithm 的部分, 乍看<br>
+    &gt; 之下似乎簡單其實不然. 我的感想是要正確地運用 STL 實在不<br>
+    &gt; 是簡單的一件事.<br>
+    &gt;<br>
+    &gt; 四眼的王蟲<br>
+    <br>
+    </font>* * * * * * * * * * * * * * * * * * * * * * * *</p>
+    <p><font color="#0000FF">QueenLin wrote (1999.11.08) :<br>
+    <br>
+    </font><font color="#408080">&gt;&gt; 我記得今年的 C++ Report 
+    裡有一篇文章就是在談刪除的問題</font><font color="#0000FF"><br>
+    &gt; Changing Containers Iteratively, Andrew Koenig, C++ Report, Feb 1999<br>
+    &gt; ( TRAPS &amp; PITFALLS 專欄 )<br>
+    &gt; <br>
+    &gt; kylin</font></p>
+    <p>　</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><big><a name="C++ Primer qa14">C++ Primer 答客問 (14)</a>&nbsp; 1999.11.18 </big><br>
+    <br>
+    <br>
+    <font color="#0000FF">Chiou Wei-Han wrote (1999/11/18) :<br>
+    <br>
+    &gt; 侯大哥 您好<br>
+    &gt; 我是台北科大的研究生<br>
+    &gt; 我有一問題 想向您請教<br>
+    &gt; 我論文的題目為影像處理 平台為 Linux<br>
+    &gt; 我使用 gnu c++ 來 coding<br>
+    &gt; 由於坊間書籍講述關於使用 gnu c++ 來實現 template class 的<br>
+    &gt; makefile 寫法 我並未有找到<br>
+    &gt; 但我知道寫法應該如下 但卻不知道為何要如此寫及意義為何<br>
+    &gt; 若侯大哥 有看過講述以上問題的書籍 可否告訴小弟 謝謝<br>
+    &gt;<br>
+    &gt; makefile內容<br>
+    &gt; a_template.o: a_template.cc vector.h vector.cc iterator.h<br>
+    &gt; g++ -o3 -fno-implicit-templates -c a_template.cc<br>
+    &gt; a.o: a.cc a.h<br>
+    &gt; g++ -o3 -c a.cc<br>
+    &gt;<br>
+    &gt; 以上為何要 -fno-implicit-templates 原因我並不知道<br>
+    &gt; 只知道要如此寫<br>
+    &gt; 其中 a_template.cc 中的內容如下<br>
+    &gt;<br>
+    &gt; #include &quot;vector.h&quot;<br>
+    &gt; #include &quot;vector.cc&quot;<br>
+    &gt; #include &quot;iterator.h&quot;<br>
+    &gt; template class vector&lt;int&gt;;<br>
+    &gt; template class vector&lt;double&gt;;<br>
+    &gt; template class iterator&lt; vector&lt;int&gt; * &gt;;<br>
+    </font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    雖然我使用 GNU C++ 的歷史不是很久，但從你的簡短 makefile<br>
+    中便判斷出，這是以訛傳訛的一種典型。是否你繼承了學長或<br>
+    什麼人的程式碼，而其中如此寫，你便以為一定得這麼做呢？<br>
+    <br>
+    如果你要使用 generic programming，或更具體地說，你想要<br>
+    使用 C++ STL（上述那些 vecotr, iterator…等東西），並不需<br>
+    把 makefile 寫成那樣（雖然那樣可能適用於你的現況）。我曾把<br>
+    《C++ Primer》附錄中的所有範例程式（全都是 generic algorithms<br>
+    的範例）以 GNU C++ egcs 2-91.57 編譯聯結，不需使用任何編譯選項。<br>
+    <br>
+    你問：<br>
+    <br>
+    <font color="#0000FF">&gt; a_template.o: a_template.cc vector.h vector.cc iterator.h<br>
+    &gt; g++ -o3 -fno-implicit-templates -c a_template.cc</font><br>
+    <br>
+    這兩行的用意是把 a_template.cc 編譯為 object file。由於<br>
+    a_template.cc 與 vector.h vector.cc iterator.h 相依，<br>
+    所以如果這四個檔案有變動，便執行 g++。其中的 options<br>
+    你自己去查。g++ -v --help 可列出完整並附說明的 options。<br>
+    <br>
+    你問：<br>
+    <br>
+    <font color="#0000FF">&gt; a.o: a.cc a.h<br>
+    &gt; g++ -o3 -c a.cc</font><br>
+    <br>
+    這兩行的用意是把 a.cc 編譯為 object file。由於<br>
+    a.cc 與 a.h 相依，所以如果這兩個檔案有變動，便執行 g++。<br>
+    <br>
+    你這個 makefile 並不完整，沒看到 a.o 和 a_template.o 的<br>
+    聯結動作。<br>
+    <br>
+    by the way，我想，你的 a_template.cc 的內容安排，<br>
+    「大概」是為了類似 pre-compiled header 的作用，<br>
+    情況有點類似 MFC applicaition 的 stdafx.cpp。不過，<br>
+    GNU C++ 有無支援 pre-compiled header 功能，我不清楚<br>
+    （VC 和 BCB 都有支援），你的 a_template.cc 是否是<br>
+    為了這個目的，我也不清楚，僅只判斷而已。<br>
+    <br>
+    <br>
+    ●makefile 的語法<br>
+    <br>
+    你問：<br>
+    <br>
+    <font color="#0000FF">&gt; 坊間書籍講述關於使用 gnu c++ 來實現 template class 
+    的<br>
+    &gt; makefile 寫法 我並未有找到<br>
+    &gt; 若侯大哥 有看過講述以上問題的書籍 可否告訴小弟 謝謝</font><br>
+    <br>
+    基本上，你的說法是錯誤的。並沒有<font color="#000000">所謂</font><font
+    color="#0000FF">「使用 gnu c++ 來實現<br>
+    template class 的 makefile 寫法」</font>。makefile 的寫法，與<br>
+    使不使用 template classes 無關。「使不使用 template classes」<br>
+    如果會和什麼有關的話，那也只是和 compile options 有關。<br>
+    <br>
+    我想沒有任何一本書專門寫 makefile 的語法，因為這個題目<br>
+    太小了，不足以成為一本書。目前 IDE（整合開發環境）當道，<br>
+    所以也很難在什麼書中找到有關於 makefile 語法的篇幅。<br>
+    我手上的資料是《Turbo C 程式庫參考手冊》的附錄Ｄ，<br>
+    這是 1989（不是 1998）年的書。<br>
+    <br>
+    makefile 的基本語法非常簡單：<br>
+    <br>
+    target [target...] : [source source ...]<br>
+    [command]<br>
+    [command]<br>
+    ...<br>
+    <br>
+    這意思是，make utility（make.exe in GNU, make.exe in Borland,<br>
+    nmake.exe in Microsoft) 會讀取這一完整的 statements，判斷<br>
+    sources 之中有無任何一個檔案（日期）比 targets 新，如果有，<br>
+    就執行 commands。<br>
+    <br>
+    所以你的這兩行：<br>
+    <br>
+    <font color="#0000FF">&gt; a_template.o: a_template.cc vector.h vector.cc iterator.h<br>
+    &gt; g++ -o3 -fno-implicit-templates -c a_template.cc</font><br>
+    <br>
+    意思是：<br>
+    <br>
+    如果 a_template.cc vector.h vector.cc iterator.h 這四個檔案有<br>
+    任何一個新於 a_template.o，就執行 g++，將 a_template.cc 編譯<br>
+    為 a_template.o。這不正是非常合理的一個 building 程序嗎？<br>
+    <br>
+    至於 makefile 的其他語法，都不離這個基本精神。只是多了一些<br>
+    註解、巨集、內隱規則等等，讓 makefile 更容易寫更容易維護而已。<br>
+    <br>
+    <br>
+    ●各家編譯器對於 C++ Standard 的支援程度<br>
+    <br>
+    《C++ Primer 中文版》出版後，我逐章逐節地重新閱讀，<br>
+    把一些較新的 C++ 性質拿到各 compilers 身上測試，<br>
+    看看各 compilers 與 C++ Standard 的相容程度。<br>
+    <br>
+    我發現，VC6, BCB4, GNU C++ (egcs 2-91.57) 三者在這些<br>
+    小例子上的表現如下（非嚴謹測試）：<br>
+    <br>
+    ★編譯速度：VC6 優於 GCC(egcs-2.91.57) 優於 BCB4<br>
+    ★EXE 大小：VC6 優於 BCB4 優於 GCC(egcs-2.91.57)<br>
+    ★C++ Standard 相容性：GCC(egcs-2.91.57) 優於 BCB4 優於 VC6<br>
+    <br>
+    我將把這些編譯器與 C++ Standard 的不相容性整理下來，<br>
+    給 Microsoft 和 Inprise 公司參考。屆時我也會發表一份在這個版上。<br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    <br>
+    <font color="#0000FF">william wrote (1999/11/18) :<br>
+    <br>
+    </font><font color="#0080C0">==&gt; 在 jjhou.bbs@bbs.cs.nthu.edu.tw (jjhou) 
+    的文章中提到:<br>
+    &gt;&gt; ●makefile 的語法<br>
+    &gt;&gt; 我想沒有任何一本書專門寫 makefile 的語法，因為這個題目<br>
+    &gt;&gt; 太小了，不足以成為一本書。目前 IDE（整合開發環境）當道，<br>
+    &gt;&gt; 所以也很難在什麼書中找到有關於 makefile 語法的篇幅。</font><font
+    color="#0000FF"><br>
+    <br>
+    &gt; O'Reilly 幾年前就有一本 make 的書喔... :Q<br>
+    &gt; &quot;Managing Projects with make&quot;, 薄薄的, 152 頁.<br>
+    &gt;<br>
+    &gt; 另外還有一本 imake 的書：&quot;Software Portability with imake&quot;,<br>
+    &gt; 不過, 恐怕只有玩 X Window 的人比較常聽到 imake 這玩意兒.</font><br>
+    <br>
+    謝謝 william 的提示。<br>
+    <br>
+    O'Reilly 之受我尊敬，一方面是他們出的書都在水準以上，<br>
+    一方面是他們會出一些稀奇古怪的主題。<br>
+    <br>
+    <font color="#FF0000">-- quote 《無責任書評３, 教之木鐸 電腦辭典》--<br>
+    我對 O'Reilly 出版公司向來懷有一種特殊的敬意，因為他們願意<br>
+    出版一些主題非常細微甚至非常奇怪的書籍...<br>
+    <br>
+    出好書的公司令人佩服；出好書又賺大錢的公司令人佩服又羨慕；<br>
+    出好書但賠錢的公司令人佩服又惋息；出好書但賠錢而卻鍥而不捨<br>
+    的公司，贏得所有人的尊敬。<br>
+    -- unquote --</font><br>
+    <br>
+    <br>
+    <font color="#0000FF">william wrote (1999/11/18) :<br>
+    <br>
+    </font><font color="#0080C0">&gt;&gt; ●各家編譯器對於 C++ Standard 
+    的支援程度<br>
+    &gt;&gt; 《C++ Primer 中文版》出版後，我逐章逐節地重新閱讀，<br>
+    &gt;&gt; 把一些較新的 C++ 性質拿到各 compilers 身上測試，<br>
+    &gt;&gt; 看看各 compilers 與 C++ Standard 的相容程度。<br>
+    &gt;&gt; 我發現，VC6, BCB4, GNU C++ (egcs 2-91.57) 三者在這些<br>
+    &gt;&gt; 小例子上的表現如下（非嚴謹測試）：<br>
+    &gt;&gt; ★EXE 大小：VC6 優於 BCB4 優於 GCC(egcs-2.91.57)</font><font
+    color="#0000FF"><br>
+    <br>
+    &gt; 比 EXE 大小, VC6 和 BCB4 相比是應該的, 和 i386 上的 gcc 比<br>
+    &gt; 就比較不那麼...<br>
+    &gt; 畢竟執行檔格式不同, 一個是 PE, 一個是 ELF 或 a.out<br>
+    &gt; （印象中 djgcc 並未跟上 gcc/egcs 的腳步...）</font><br>
+    <br>
+    就使用者（此處廣含 programmer 和 program end user）的角度而言，<br>
+    「檔案大小」就是「檔案大小」，是不管什麼執行檔格式的。<br>
+    <strong><font color="#000040">當然，檔案大小應該在同一個平台下比較。上述比較均在同一種<br>
+    機器上，相同的作業系統（Windows 98）。</font></strong><br>
+    <br>
+    <br>
+    <font color="#0000FF">dclh wrote (1999/11/20) :<br>
+    <br>
+    </font><font color="#0080C0">※ 引述《william.bbs@cis.nctu.edu.tw (何陋居主)》之銘言：<br>
+    : ==&gt; 在 jjhou.bbs@bbs.cs.nthu.edu.tw (jjhou) 的文章中提到:<br>
+    : &gt; ●makefile 的語法<br>
+    : &gt; 我想沒有任何一本書專門寫 makefile 的語法，因為這個題目<br>
+    : &gt; 太小了，不足以成為一本書。目前 IDE（整合開發環境）當道，<br>
+    : &gt; 所以也很難在什麼書中找到有關於 makefile 語法的篇幅。<br>
+    : O'Reilly 幾年前就有一本 make 的書喔... :Q<br>
+    : &quot;Managing Projects with make&quot;, 薄薄的, 152 頁.<br>
+    : 另外還有一本 imake 的書：&quot;Software Portability with imake&quot;,<br>
+    : 不過, 恐怕只有玩 X Window 的人比較常聽到 imake 這玩意兒.</font><font
+    color="#0000FF"><br>
+    <br>
+    &gt; 光是 GNU tar 這個指令 ,就有一本厚厚的手冊了<br>
+    &gt; 更不用說 make 這麼重要的工具了 ;)<br>
+    &gt; Free Software Foundation 網站上就有一本現成的 GNU Make 手冊<br>
+    &gt; 手頭不缺錢的 ,可以跟 FSF 訂購印好的 ,也算是贊助他們無私的奉獻</font><br>
+    <br>
+    <br>
+    </p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <big><a name="C++ Primer qa15">C++ Primer 答客問 (15)</a>&nbsp;&nbsp; 1999.11.18 </big><br>
+    <br>
+    <font color="#0000FF">huang wrote (1999/11/15) :<br>
+    <br>
+    &gt; 侯大哥你好，我是長庚資管一的學生，<br>
+    &gt; 在您的網站上看見<a href="plan.htm#mark-saygoodbye" tppabs="http://jjhou.boolan.com/plan.htm#mark-saygoodbye">【長亭外】</a>一文，不知道您心煩的事是什麼呢？<br>
+    &gt; 是 C++ Primer 中文版賣得不好嗎？<br>
+    &gt; 世事本煩憂，希望您能早日開懷<br>
+    &gt; 學長們都滿喜歡您的<br>
+    &gt; ^_^</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    謝謝你的關心。也謝謝最近許多寫信來關心我的讀者。<br>
+    <br>
+    我沒有什麼心煩的事呀。我最近回歸全面學習的日子，<br>
+    看了很多書，做了許多心得筆記。日子充實飽滿。<br>
+    <br>
+    我不會因為哪本書賣得好不好而影響心情。只要書做得符合<br>
+    我的理想，我便開心。而且，實在說，《C++ Primer 中文版》<br>
+    賣得很好，出版兩個月，印量已經 5000 本。在為此書<br>
+    埋首努力八個月後，這是一個令人欣慰且愉快的結果。<br>
+    <br>
+    我之停止寫作，積極面遠多於消極面。因著許多因素累積而做<br>
+    這樣的決定，其實是難得的人生機緣。<br>
+    <br>
+    沒有沉澱蓄勢，又怎能擲地鏗鏘？<br>
+    <br>
+    我很高興寫出/譯出對你們有幫助的書籍。青山不改，綠水長流，<br>
+    我保證 :)<br>
+    <br>
+    --- the end</p>
+    <p><font size="3"><br>
+    </font><!--mstheme--></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

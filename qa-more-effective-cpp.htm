@@ -1,0 +1,360 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>《More Effective C++》答客問</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="663">
+  <tr>
+    <td valign="bottom" width="603"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="603"><br>
+    <big><big>More Effective C++ 答客問 (1)</big></big>&nbsp; - uncaught_exception()<br>
+    2000.09.14 第一次發表<br>
+    <br>
+    <font color="#408080">isaac wrote (2000/09/13):<br>
+    <br>
+    &gt; 侯先生您好：<br>
+    &gt; 最近讀了您的兩本譯作：Effective C++ 和 More Effective C++，<br>
+    &gt; 從中學習到不少觀念和寫法，獲益匪淺，真是太謝謝你了。<br>
+    &gt;<br>
+    &gt; 我有個疑問，希望您能指點我一下。<br>
+    &gt;<br>
+    &gt; 在 More Effecive C++ 條款九中，使用 auto_ptr 來釋放資源，<br>
+    &gt; 而這個動作是不論正常或 exception 發生時都期望執行的動作，<br>
+    &gt; 然而我希望在 exception 
+    發生時能進行額外的清理工作，最直覺的方法<br>
+    &gt; 是以 try block 捕捉，不過我想以條款九所說的利用 destructors 釋放<br>
+    &gt; ...<br>
+    &gt; 總而言之，我希望能不使用 try block 而在 exception 發生時<br>
+    &gt; 執行額外的清理工作。但是當我滿懷期待，卻發覺 
+    uncaught_exception()<br>
+    &gt; 總是傳回 false，不知是否寫法有誤，請您指正一下(我用 VC6 和 
+    BCB4)。</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    More Effective C++ p.59 註2 說：<br>
+    <br>
+    <font color="#0000FF">『1995 七月 ISO/ANSI C++ 標準委員會加入一個新函式：uncaught_exception。<br>
+    如果一個 exception 正作用中而尚未被捕捉的話，它會傳回 true。』</font><br>
+    <br>
+    C++ Standard (ISO/IEC 14882) 18.6.4 :<br>
+    <br>
+    <font color="#0000FF">bool uncaught_exception();<br>
+    <br>
+    returns : true after completing evaluation of a throw-exception until<br>
+    either completing initialization of the exception-declaration in the<br>
+    matching handler or entering unexpected() due to the throw; or after<br>
+    entering terminate() for any reason other than an explicit call to<br>
+    terminate(). Note: This includes stack unwinding.</font><br>
+    <br>
+    現在我寫一個程式測試之。BCB4 和 GCC 有良好表現。VC6 表現不佳。<br>
+    顯然，你說「uncaught_exception 總是傳回 false」並不正確。<br>
+    <small><br>
+    <font face="Courier New">#0001 #include &lt;iostream&gt;<br>
+    #0002 #include &lt;exception&gt; // only gcc need this file<br>
+    #0003 using namespace std;<br>
+    #0004<br>
+    #0005 class myexception { };<br>
+    #0006<br>
+    #0007 class mytest<br>
+    #0008 {<br>
+    #0009 public:<br>
+    #0010&nbsp;&nbsp; ~mytest() {<br>
+    #0011&nbsp;&nbsp; cout &lt;&lt; uncaught_exception() &lt;&lt; endl;<br>
+    #0012&nbsp;&nbsp; // </font>如果此時有 <font face="Courier New">exception </font>作用中且未被捕捉，會輸出 
+    <font face="Courier New">1.<br>
+    #0013&nbsp;&nbsp; }<br>
+    #0014 };<br>
+    #0015<br>
+    #0016 int main()<br>
+    #0017 {<br>
+    #0018&nbsp;&nbsp; try {<br>
+    #0019&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; uncaught_exception() &lt;&lt; endl;<br>
+    #0020&nbsp;&nbsp;&nbsp;&nbsp; // 0. </font>是的，因為未有任何 <font
+    face="Courier New">exception </font>處於作用狀態。<br>
+    <font face="Courier New">#0021<br>
+    #0022&nbsp;&nbsp;&nbsp;&nbsp; throw myexception();<br>
+    #0023&nbsp;&nbsp; }<br>
+    #0024&nbsp;&nbsp; catch (myexception)<br>
+    #0025&nbsp;&nbsp; {<br>
+    #0026&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; uncaught_exception() &lt;&lt; endl;<br>
+    #0027&nbsp;&nbsp;&nbsp;&nbsp; // 0. </font>是的，因為未有任何 <font
+    face="Courier New">exception </font>未被捕捉。<br>
+    <font face="Courier New">#0028&nbsp;&nbsp; }<br>
+    #0029<br>
+    #0030&nbsp;&nbsp; mytest t1;<br>
+    #0031&nbsp;&nbsp; throw myexception();<br>
+    #0032&nbsp;&nbsp; // VC6 </font>執行結果：<font face="Courier New">none abnormal 
+    program termination </font>（不佳）<br>
+    <font face="Courier New">#0033&nbsp;&nbsp; // CB4 </font>執行結果：<font
+    face="Courier New">1 Abnormal program termination </font>（佳）<br>
+    <font face="Courier New">#0034&nbsp;&nbsp; // GCC </font>執行結果：<font
+    face="Courier New">1 </font>（佳）<br>
+    <font face="Courier New">#0035 }</font></small><br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;&#26;&#26;<p><big><big>More Effective C++ 答客問 (2)</big></big> - 讀後感<br>
+    2000.09.14 第一次發表<br>
+    <br>
+    <font color="#408080">Arther Wu wrote (2000/09/13):<br>
+    <br>
+    &gt;侯老師:<br>
+    &gt;您好 ! 我是83年在學校上你課的學生.<br>
+    &gt;最近我在讀Effective C++ 及More Effective C++ 這二本書.<br>
+    &gt;寫了幾年的 OO ,我覺得我似乎還沒抓到 OO 的精神,<br>
+    <br>
+    &gt;很可惜 83 年在學校還沒 STL 的課.<br>
+    &gt;不知您是否有在元智開 STL 或 OO Design Pattern 的課?<br>
+    &gt;希望能上您的課,下課還可和您聊聊...... ^_^<br>
+    &gt;Thanks</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    Effective C++ 和 More Effective C++ 這二本書的確能讓程式員<br>
+    好好檢測一下自己對於 C++ 和 OOP 的程度在哪裡。大言夸夸的<br>
+    程式員往往能夠在這兩本書面前學會謙卑。<br>
+    <br>
+    愈早學會謙卑愈好。<br>
+    <br>
+    Effective C++ 和 More Effective C++ 這類層次較高的書，臺灣<br>
+    並不多有（不論著譯）。這兩本還只是 OOP 層級而已。更上去的<br>
+    OOA, OOD, UML, Patterns…書籍，更是鮮少。此類高階書籍的銷售量、<br>
+    閱讀人口、討論風氣，略可反映當地環境的軟體技術水平。也許有人<br>
+    認為這話太過武斷，無妨，我向來不喜與人辯白。OO 技術已經深入<br>
+    各個軟體領域，絕不是說 driver、BIOS、system programming<br>
+    等領域就不需要 OO。<br>
+    <br>
+    看 ctang 兄在 OO 版談到國外軟體公司的進化以及工具的運用，<br>
+    想想國內的情況如何？人員素質的培養如何？人員的自我覺醒如何？<br>
+    公司培訓（maybe &quot;從做中學&quot;）和自我學習是持續進步的兩條途徑，<br>
+    自我學習無非要靠好書 — 關鍵性的好書。每每看到有人以買紙的<br>
+    態度去評量書，就要搖頭嘆息。可憐！<br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    我於 2000 開始每個下學期<a href="course-generic-yzu.txt" tppabs="http://jjhou.boolan.com/course-generic-yzu.txt" target="main">在元智開 
+    Generic Programming (and C++ STL) 課程</a>。<br>
+    <br>
+    目前我沒有在任何學校開任何其他課程。<br>
+    <br>
+    -- the end<br>
+    </p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><big><big>More Effective C++ 答客問 (3)</big></big> - <font face="Courier New"> 
+    set_new_handler()</font><br>
+    2000.12.20 第一次發表</p>
+    <p>CTWu1 wrote (2000.12.18) :</p>
+    <p><font color="#0000FF">&gt;Dear 侯老，<br>
+    &gt;<br>
+    &gt;最近拜讀譯作 &quot;Effective C++&quot;，條款7(p.25)在Visual C++測試有一些問題，想請問：<br>
+    &gt;<br>
+    &gt;1. Visual C++ 似乎只提供 int _set_new_handler(size_t size) (定義在new.h) ，<br>
+    &gt;&nbsp;&nbsp;&nbsp; 並未在std內提供 void set_new_handler(void)。<br>
+    <small><font face="Courier New">&gt; std::set_new_handler --&gt; compile error</font></small><br>
+    &gt;<br>
+    &gt;2. 我使用 VC 建議的 _set_new_handler 可是發現並沒有呼叫我設的NewHandler。<br>
+    &gt;<br>
+    &gt;3. 當記憶體配置失敗，丟出的exception 不是std::bad_alloc。<br>
+    &gt;<br>
+    &gt;<br>
+    &gt;程式碼如下：<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt;const int MemBlock=100000000;<br>
+    &gt;char * failsafe = new char[128];<br>
+    &gt;<br>
+    &gt;int NewHandler( size_t size );<br>
+    &gt;<br>
+    &gt;void main( void )<br>
+    &gt;{<br>
+    &gt;&nbsp;&nbsp;&nbsp; _set_new_handler( NewHandler );<br>
+    &gt;&nbsp;&nbsp;&nbsp; try {<br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; size_t *pmemdump = new size_t[MemBlock];<br>
+    &gt;&nbsp;&nbsp;&nbsp; }<br>
+    &gt;&nbsp;&nbsp;&nbsp; catch (std::bad_alloc&amp;) {<br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw;<br>
+    &gt;&nbsp;&nbsp;&nbsp; }<br>
+    &gt;&nbsp;&nbsp;&nbsp; catch(...)<br>
+    &gt;&nbsp;&nbsp;&nbsp; {<br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; throw;<br>
+    &gt;&nbsp;&nbsp;&nbsp; }<br>
+    &gt;}<br>
+    &gt;<br>
+    &gt;int NewHandler( size_t size )<br>
+    &gt;{<br>
+    &gt;&nbsp;&nbsp;&nbsp; delete failsafe;<br>
+    &gt;&nbsp;&nbsp;&nbsp; printf(\&quot;Allocation failed.\\n\&quot;);<br>
+    &gt;&nbsp;&nbsp;&nbsp; return 0;<br>
+    &gt;} </font></small><br>
+    &gt;<br>
+    &gt;以前我都是用 if (p=NULL) 在作new fail的測試，因我們內部仍是用Visual 
+    C++，<br>
+    所以想知道如何在Visual C++來作出new handler。</font></p>
+    <p><br>
+    侯捷回覆：</p>
+    <p>(1) 你的程式我改寫後附還。<font color="#FF0000">你的問題在於</font>未使用 
+    C++ Standard，<br>
+    &nbsp;&nbsp;&nbsp; 亦即那些「無副檔名」的 header files。<br>
+    (2) 改寫後的程式可在 VC6 編譯，但執行結果未如預期，猜想 VC6 對於<br>
+    &nbsp;&nbsp;&nbsp; C++ Standard 的支援程度差。<br>
+    (3) 另寫一個程式（用意與你的差不多），其中有詳細註解。請看。<br>
+    (4) <font color="#FF0000">結論</font>，關於 set_new_header，BCB4 的表現最像 
+    Effective C++ 書上所說。<br>
+    &nbsp;&nbsp;&nbsp; CYGNUS 的記憶體配置能力太強，測不出失敗情況。VC6 
+    表現最差，不按<br>
+    &nbsp;&nbsp;&nbsp; C++ Standard 來表現。</p>
+    <p><br>
+    改寫後附還的程式：</p>
+    <p><small><font face="Courier New">#include &lt;new&gt; 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // for set_new_handler()<br>
+    #include &lt;exception&gt; // for std::bad_alloc<br>
+    #include &lt;iostream&gt;&nbsp; // for std::cout<br>
+    using namespace std;<br>
+    <br>
+    const int MemBlock=100000000;<br>
+    char * failsafe = new char[128];<br>
+    <br>
+    void NewHandler();<br>
+    <br>
+    void main( void )<br>
+    {<br>
+    &nbsp; set_new_handler( NewHandler );<br>
+    <br>
+    &nbsp; try {<br>
+    &nbsp;&nbsp;&nbsp; size_t *pmemdump = new size_t[MemBlock];<br>
+    &nbsp; }<br>
+    &nbsp; catch (bad_alloc&amp;) {<br>
+    &nbsp;&nbsp;&nbsp; throw;<br>
+    &nbsp; }<br>
+    &nbsp; catch(...)<br>
+    &nbsp; {<br>
+    &nbsp;&nbsp;&nbsp; throw;<br>
+    &nbsp; }<br>
+    }<br>
+    <br>
+    void NewHandler()<br>
+    {<br>
+    &nbsp; delete failsafe;<br>
+    &nbsp; cout &lt;&lt; &quot;Allocation failed&quot; &lt;&lt; endl;<br>
+    }<br>
+    <br>
+    // result<br>
+    // vc6: Assertion failed: new_p == 0, file setnewh.cpp, line 52<br>
+    // abnormal program termination<br>
+    <br>
+    </font></small></p>
+    <p>另寫一個程式：</p>
+    <p><small><font face="Courier New">#include &lt;new&gt;<br>
+    #include &lt;iostream&gt;<br>
+    #include &lt;cassert&gt;<br>
+    using namespace std;<br>
+    <br>
+    void noMoreMemory()<br>
+    {<br>
+    &nbsp; cerr &lt;&lt; &quot;out of memory&quot;;<br>
+    &nbsp; abort(); // </font>如無此行，執行後 <font face="Courier New">cerr </font>會一直出現 
+    <font face="Courier New">&quot;out of memory&quot;</font>，需強制中斷。<br>
+    <font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </font>這樣的表現是正確的，這表示當 
+    <font face="Courier New">operator new </font>無法滿足記憶體索求時，<br>
+    <font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // </font>會不斷呼叫 
+    <font face="Courier New">new handler. </font>（直到找到足夠的記憶體，<font
+    face="Courier New">p27</font>）<br>
+    <font face="Courier New">}<br>
+    <br>
+    void main()<br>
+    {<br>
+    &nbsp; set_new_handler(noMoreMemory);<br>
+    &nbsp; </font><font color="#0000FF" face="Courier New">// @_@ </font><font color="#0000FF">秋可註 
+    <font face="Courier New">:<br>
+    &nbsp; // VC6 &lt;SETNEWH.CPP&gt; </font>內有註釋不建議用<font face="Courier New"> 
+    set_new_handler<br>
+    &nbsp; // </font>應改用定義於<font face="Courier New">&lt;new.h&gt;</font>的 <font
+    face="Courier New">_set_new_handler<br>
+    &nbsp; // MFC</font>有另一套處理方式<font face="Courier New">,</font>故此行雖可執行<font
+    face="Courier New">, </font>但並未呼叫處理常式</font><font face="Courier New"><br>
+    &nbsp; // </font><font color="#0000FF">我和昆穎討論過了。<br>
+    <font face="Courier New">&nbsp; // </font>發現<font face="Courier New">MFC</font>可能改寫了<font
+    face="Courier New">new</font>。<br>
+    </font><br>
+    <br>
+    <font face="Courier New">&nbsp; int *pBigDataArray = new int[100000000000000]; // ok. 
+    well, so BIG!<br>
+    &nbsp; assert(pBigDataArray);<br>
+    <br>
+    &nbsp; // </font>注意：上述記憶體配置，執行時，<br>
+    <font face="Courier New">&nbsp; // VC6 </font>版會出現 <font face="Courier New">Assertion 
+    failed: new_p == 0, file setnewh.cpp, line 52<br>
+    &nbsp; // abnormal program ermination<br>
+    &nbsp; </font><font color="#0000FF" face="Courier New">// @_@ </font><font color="#0000FF">秋可註 
+    <font face="Courier New">:<br>
+    &nbsp; // </font>這是因為 <font face="Courier New">&lt;SETNEWH.CPP&gt; set_new_handler 
+    </font>有一行 </font><font face="Courier New" color="#0000FF">assert(new_p == 0);</font><font
+    face="Courier New"><br>
+    <br>
+    &nbsp; // </font>結論：<font face="Courier New">VC6 </font>離 <font face="Courier New">C++ 
+    Standard </font>實在是太遠啦。<br>
+    <font face="Courier New">&nbsp; </font><font color="#0000FF" face="Courier New">// @_@ </font><font
+    color="#0000FF">秋可註 <font face="Courier New">:<br>
+    &nbsp; // </font>同意<font face="Courier New">....</font>看來我只好放棄使用 <font
+    face="Courier New">new handler</font>啦</font><font face="Courier New" color="#0000FF">...</font><font
+    face="Courier New"><br>
+    &nbsp; // BCB4 ok.<br>
+    &nbsp; // GCC ok.<br>
+    <br>
+    &nbsp; // </font>以下試試更大的記憶體配置量<br>
+    <font face="Courier New">&nbsp; cout &lt;&lt; &quot;new int[100000000000000] 
+    successfully&quot; &lt;&lt; endl;<br>
+    &nbsp; pBigDataArray[0] = 1;</small><br>
+    <small><br>
+    &nbsp; pBigDataArray[99999999999999] = 9; </small><br>
+    <small>&nbsp; <font color="#408080">// BCB4 warning: Suspicious pointer arithmetic. 
+    &nbsp;&nbsp; GCC too.</font></small><br>
+    <small><br>
+    &nbsp; cout &lt;&lt; pBigDataArray[0] &lt;&lt; endl;&nbsp;&nbsp; // 1</small><br>
+    <small><br>
+    &nbsp; cout &lt;&lt; pBigDataArray[99999999999999] &lt;&lt; endl;&nbsp;&nbsp; // 9</small><br>
+    <small>&nbsp; <font color="#408080">// BCB4 warning: Suspicious pointer arithmetic. GCC 
+    too.</font></small><br>
+    <small><br>
+    &nbsp; delete [] pBigDataArray;&nbsp; <br>
+    <br>
+    &nbsp; pBigDataArray = new int[100000000000000000000]; // GCC warning.<br>
+    &nbsp; </font><font color="#408080" face="Courier New">// VC6 error</font><font
+    color="#408080">：</font><font face="Courier New" color="#408080">constant too big.</font><font
+    face="Courier New"><br>
+    &nbsp; assert(pBigDataArray);<br>
+    &nbsp; cout &lt;&lt; &quot;new int[100000000000000000000] successfully&quot; &lt;&lt; 
+    endl;<br>
+    &nbsp; cout &lt;&lt; &quot;terminate normally&quot;;<br>
+    &nbsp; // </font>執行結果：<br>
+    <font face="Courier New">&nbsp; // BCB4 </font>版會出現 <font face="Courier New">out 
+    of memory. Abnormal program termination<br>
+    &nbsp; // </font>結論：<font face="Courier New">BCB4 </font>非常好，符合預期。<br>
+    <font face="Courier New">&nbsp; //<br>
+    &nbsp; // GCC </font>版會出現 <font face="Courier New">new int[100000000000000000000] 
+    successfully, terminate normally<br>
+    &nbsp; // </font>結論：<font face="Courier New">GCC </font>的記憶體配置能力簡直超乎想像，可能有 
+    <font face="Courier New">lazy evaluation</font>。<br>
+    <font face="Courier New">}<br>
+    </font></small><!--mstheme--></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

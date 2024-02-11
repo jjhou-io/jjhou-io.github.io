@@ -1,0 +1,1328 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>勘誤《STL源碼剖析》繁體版</title>
+</head>
+
+<body>
+
+<pre>本勘誤檔更新日期: 2005/02/01</pre>
+
+<pre>《STL 源碼剖析》繁體版
+碁峰資訊股份有限公司 出版, 2002</pre>
+
+<pre>注意：以下各項修正皆以日期排序</pre>
+
+<pre>======================================================</pre>
+
+<pre>書籍內容更正，有兩種作法，一是在網際網路上做個專屬勘誤
+網頁，讓大家上去看。這是比較即時的作法。而更理想更負責
+的作法是：不但有勘誤網頁，並且在新刷中予以更正 -- 如果
+有新刷的話。</pre>
+
+<pre>不過，理想與現實之間需要一點協調。書籍的製作是這樣的，
+製版與印刷時，是以檯（8 或 16 頁）為單位。因此，每換一
+頁，同檯的各頁統統要換過。這便造成印製成本的大量增加。</pre>
+
+<pre>以前，我從不考慮成本，只要我認為書籍內容有修改必要，即
+使只是某個字詞用得不甚理想，我都會請出版社更新。出版社
+也都全力配合（這一點讓我非常感謝）。</pre>
+
+<pre>慢慢地，我的行事不再這麼霹靂，我覺得我多少也要站在出版
+社的立場想想。所以我打算，如果是關係到對錯正誤的根本性
+問題，我便一定在新刷修正。如果是易判別的錯別字或排版誤
+失或用詞不很恰當…等等，我便先在勘誤網頁上明載，但不求
+立刻於新刷中更正。直到收集來的這類誤失較為密集了，才一
+併於下一刷修正。</pre>
+
+<pre>哪些是新刷已修正的，哪些是暫請讀者自行動手更改的，我會
+在勘誤網頁（網址見書封底）上很清楚地說明。</pre>
+
+<pre>這是個便宜法門，請讀者見諒。</pre>
+
+<pre>書籍應該在出版前就詳細檢查，以完美之姿出現。但是完美很
+難達到。對於下列大大小小輕重不等的誤失，我謹向讀者說抱
+歉。</pre>
+
+<pre>本檔歡迎廣為流傳，謝謝。
+</pre>
+
+<pre>以下為更新記錄。如果您購買的是第 n 刷，請將以下第 n+1
+刷之後的更新內容自行修正至書上。謝謝</pre>
+
+<pre>======================================================</pre>
+
+<pre>以下暫請讀者自行更正：
+（注意，Lm 表示第 m 行，L-n 表示倒數第 n 行）</pre>
+
+<pre>■pxxii, L-3（筆誤）
+原文：exception <font color="#FF0000">specialization</font>
+修改：exception <font
+color="#0000FF">specification</font>
+感謝：edward
+日期：2002/06/01</pre>
+
+<pre>■p36, L-3（筆誤）
+原文：最後一行便是產生「<font color="#FF0000">function</font> template 具現體」print&lt;int&gt; 的一個暫時物件。
+修改：最後一行便是產生「<font
+color="#0000FF">class</font> template 具現體」print&lt;int&gt; 的一個暫時物件。
+感謝：jaulueng
+日期：2002/06/01</pre>
+
+<pre>■p44,L11（筆誤）
+原文：<font color="#FF0000">default constructor</font>。
+修改：<font
+color="#0000FF">destructor</font>。
+感謝：jjhou
+日期：2002/06/01</pre>
+
+<pre>■p44,L-10
+原文：等同於 new(<font color="#FF0000">const </font>void*) p) T(x)
+更正：等同於 new(<font
+color="#0000FF">(</font>void*) p) T(x)
+討論：p 轉型為 (const void*) 之後，將成為一個 non-const pointer to const value，
+      那麼就無法在該指標所指位置執行 construction 動作了。那可不妙。
+      所以我認為不該有 const。如果轉型為 (void* const) 倒是可以（實驗證實）。
+<font
+color="#0000FF">提示</font>：請同時修改《泛型程式設計與 STL》p189, L11.
+感謝：jaulueng
+日期：2002/06/01</pre>
+
+<pre>■p63圖2-5, p65圖2-6, p69圖2-7
+說明：圖太大，上端右側被切斷一小部份。被切斷的是 free_list[16]
+      的 <font
+color="#0000FF">#14,#15</font> 兩個元素。
+感謝：jjhou
+日期：2002/06/01</pre>
+
+<pre>■p95,L-15（筆誤）
+原文：advance(i, n, input_iterator_tag());
+修改：<font
+color="#0000FF">__</font>advance(i, n, input_iterator_tag());
+感謝：sam
+日期：2002/06/01</pre>
+
+<pre>■p120,L-3
+原文：if (ivite)             iv.erase(ivite);
+修改：if (ivite <font
+color="#0000FF">!= iv.end()</font>) iv.erase(ivite);
+感謝：ikai
+日期：2002/06/01</pre>
+
+<pre>■p121,L4,L5 (變數名稱混亂，肇因於程式修改過程中的易名。沒處理好，很抱歉)
+原文：ite = find(iv<font
+color="#FF0000">ec</font>.begin(), iv<font color="#FF0000">ec</font>.end(), 2);
+      if (ite)               iv<font
+color="#FF0000">ec</font>.insert(ite,3,7);
+修改：<font color="#0000FF">iv</font>ite = find(iv.begin(), iv.end(), 2);
+      if (<font
+color="#0000FF">iv</font>ite <font color="#0000FF">!= iv.end()</font>) iv.insert(<font
+color="#0000FF">iv</font>ite,3,7);
+感謝：ikai
+日期：2002/06/01</pre>
+
+<pre>■p122,L-1（補充）
+原文：<font color="#FF0000">// 將原vector 的備用空間中的內容也忠實拷貝過來（侯捷疑惑：啥用途？）</font>
+討論：此註解所在之函式 insert_aux(iterator position, const T&amp; x); 允許我們在
+      任意位置 position 安插元素值 x。如果此函式被 push_back() 呼叫（如本頁），
+      由於 position 將會是 end()，所以上述註解所言那行的確沒有用途。
+      但 insert_aux() 也可能被 insert(iterator p, const T&amp; x); 呼叫，此時
+      insert_aux() 的參數 position 可能不是 end()，那麼上述註解所言那行動作
+      就有必要了（此時它並非拷貝備用空間的內容，而是拷貝安插點之後的內容）。
+修改：<font
+color="#0000FF">// 將安插點後的原內容也拷貝過來（提示：本函式也可能被 insert(p,x) 呼叫）</font>
+感謝：ikai
+日期：2002/06/01</pre>
+
+<pre>■p147,L-8（筆誤）
+原文：可容納32/sizeof(int)=<font color="#FF0000">4</font>個元素
+修改：可容納32/sizeof(int)=<font
+color="#0000FF">8</font>個元素
+感謝：ikai,sam
+日期：2002/06/01</pre>
+
+<pre>■p176,L7（不夠好。重新修潤）
+原文：
+ 執行一個所謂的 percolate down（下放）程序：
+ <font
+color="#FF0000">將根節點（最大值被取走後，形成一個「洞」）填入上述那個失去生存空間的葉節點值，
+ 再將它拿來和其兩個子節點比較鍵值（key），</font>並與較大子節點對調位置。
+修改：
+ 執行一個所謂的 percolate down（下放）程序：
+ <font
+color="#0000FF">將上述那個失去生存空間的葉節點值填入根節點（最大值被取走後，根節點形成一個「洞」），
+ 再將該值拿來和當前的兩個子節點比較，</font><font
+color="#000000">並與較大子節點對調位置。</font>
+感謝：jjhou
+日期：2002/06/01
+★注意：這樣的修潤仍是不正確的，後面續有討論。為保持討論之完整性，本條仍保留。</pre>
+
+<pre>■p178,L9（補充）
+原文：// 依侯捷之見，下面直接改為 *(first + holeIndex) = value; 應該可以。
+修改：請在其下加一行如下：
+      <font
+color="#0000FF">// 讀者回應：不可如此，試套4.7.4節範例即知。侯捷測試：驗證後的確不行。</font>
+讀者來信：
+  如果以此法套用 p.181 例子，先做一個 heap 9 7 8 3 5 0 2 3 1 4，
+  然後 pop_heap，結果 heap 將變成 8 7 2 3 5 0 4 3 1
+  而正確結果應該是 8 7 4 3 5 0 2 3 1。
+  故不可直接改為 *(first + holeIndex) = value;
+感謝：ikai
+日期：2002/06/01
+★注意：這樣的修潤仍是不正確的，後面續有討論。為保持討論之完整性，本條仍保留。</pre>
+
+<pre>■p179, 圖4-23 左側從上往下第三個子圖的 array 內容（筆誤）
+原文：<font
+color="#FF0000">32</font> 21 26 19 ...
+修改：<font color="#0000FF">31</font> 21 26 19 ...
+感謝：ikai
+日期：2002/06/01</pre>
+
+<pre>■p179~p180, 圖4-23 各子圖的 array 表現
+讀者來信討論：array 前後似不應再有……的符號，否則不符 &quot;2*n+2&quot; 個節點。
+侯捷回覆：在一個很大的 array 中，你可以取任意一個 range 做為 heap。
+  圖中的…… 便是用來表現該 range 以外的部分。也許我在圖中以兩個迭代器（箭頭）
+  標出 heap 範圍（也就是目前每個子圖的 array 灰色範圍），就比較不易起誤會了。
+感謝：ikai
+日期：2002/06/01</pre>
+
+<pre>■p198,圖5-1文字說明最後一行（筆誤）
+原文：has<font color="#FF0000">t</font>_x 都內含一個 hashtable。
+修改：has<font
+color="#0000FF">h</font>_x 都內含一個 hashtable。
+感謝：jjhou
+日期：2002/06/01</pre>
+
+<pre>■p247,L-9（筆誤）
+原文：因為<font color="#FF0000">約束制</font>條件如此之少，
+修改：因為<font
+color="#0000FF">制約</font>條件如此之少，
+感謝：jjhou
+日期：2002/06/01</pre>
+
+<pre>■p252,L-1（註14.筆誤）
+原文：吃肥走瘦是臺灣<font color="#FF0000">離</font>俚語，意指...
+修改：吃肥走瘦是臺灣俚語，意指...
+感謝：jjhou
+日期：2002/06/01</pre>
+
+<pre>■p292,L-2（製版過程出錯）
+原文：前閉後開區間（或稱左涵蓋區間）表示法，寫成 [first,last<font
+color="#FF0000">]</font>
+修改：前閉後開區間（或稱左涵蓋區間）表示法，寫成 [first,last<font
+color="#0000FF">)</font>
+感謝：sam
+日期：2002/06/01</pre>
+
+<pre>■p305, 6.3.7標題（筆誤）
+原文：i<font color="#FF0000">to</font>a
+修改：i<font
+color="#0000FF">ot</font>a
+感謝：jaulueng
+日期：2002/06/01
+<font color="#0000FF">注意</font>：請一併修改目錄6.3.7</pre>
+
+<pre>■p426,圖8-1第三橫列（筆誤）
+原文：<font color="#FF0000">I</font>nserter(Container&amp; x,
+修改：<font
+color="#0000FF">i</font>nserter(Container&amp; x,
+感謝：jjhou
+日期：2002/06/01</pre>
+
+<p>　</p>
+
+<pre>■p23,L-9~L-7（補充）
+原文：
+  #ifdef __STL_NEED_TYPENAME
+  # define typename // 侯捷：難道不該 #define typename class 嗎?
+  #endif
+討論：
+  的確不該如我所言。在整個 SGI STL 中，template&lt;&gt; 內用的關鍵字是 &quot;class&quot;。
+  關鍵字 &quot;typename&quot; 只用於除此之外的其餘地方（告訴編譯器該處將出現一個
+  name of type（如果編譯器推論能力夠強，可以不依賴這個關鍵字）；在那種地方
+  當然不能將關鍵字 &quot;typename&quot; 以關鍵字 &quot;class&quot; 替換之；應替換為 none.
+  這個道理就像本頁接下來的三行，當編譯器不支援時， 就將 &quot;explicit&quot; 替換為 none.
+感謝：Wesley Bao
+日期：2002/07/24</pre>
+
+<pre>■p57,L7（勘誤）
+原文：// 以下<font color="#FF0000">都是函式指標，所代表的</font>函式將用來處理記憶體不足的情況
+修改：// 以下函式將用來處理記憶體不足的情況
+感謝：liny
+日期：2002/07/24</pre>
+
+<pre>■p61 L-4（勘誤）
+原文﹕n 從 <font color="#FF0000">1</font> 起算
+修改：n 從 <font
+color="#0000FF">0</font> 起算
+感謝：wangfei
+日期：2002/07/24</pre>
+
+<pre>■p67 chunk_alloc() 作法討論
+讀者來函：
+  當 memory pool 還有空間但不夠一個區塊大小時，處理如下：
+  if ( bytes_left &gt; 0 ) {
+     obj * volatile * my_free_list =
+              free_list + FREELIST_INDEX ( byte_left );
+     ((obj *) start_free)-&gt;free_list_link = *my_free_list;
+     *my_free_list = (obj *)start_free;
+  }
+  兩個問題：
+  1. 當 byte_left &lt; 4 時﹐而 sizeof(obj) 為 4; 以下這句話：
+     ((obj *) start_free)-&gt;free_list_link = *my_free_list;
+     豈不是要出問題？
+  2. 即使 byte_left &gt; 4，但小於區塊尺寸大小﹐將來又有什麼用呢？
+     例如當 byte_left 為 5，則 my_free_list 指向第一個區塊，而
+     此區塊尺寸為 8，當用戶要配置 7 時豈不是會出問題？</pre>
+
+<pre>侯捷回覆：
+  1. 注意本函式最前註解（p66）：size 已適當上調至 8 的倍數
+  2. 你的問題出在對 p67,L13「以下試著讓記憶池中的殘餘零頭還有利用價值」的疑惑.
+     我舉個例子，如果此刻要求一個大小為 24 的 obj，而此刻 free_list[2] 無法供應
+     任何記憶體，於是向 memory pool 求助，假設此時 pool 剩餘（必為 8 倍數）16，
+     於是將這 16 掛到 free_list[1] 最前端（這就是殘餘零頭的利用），
+     然後再向系統索求 24*(40+n)...（之後的動作詳見 p68 第二段）
+     注意，memory pool 是指圖2-7右下角那塊紅色區域，不是指 free_list[ ] 所
+     維護的 linked lists（雖然有時候可能會混著說）。
+感謝：Sam_Yang
+日期：2002/07/24</pre>
+
+<pre>■p67 SGI STL allocator 作法討論
+讀者來函：SGI STL allocator 所關連的整個 free_list[ ]（如圖2-7）
+     在何時何處被釋放？
+侯捷回覆：不釋放，一直持有（有點 garbage collection 的味道），等待再被運用。
+          直到程式結束，自然就被系統收回。這裡沒有 memory leak 的問題，因為
+          一切都在掌控之下，所有記憶體都可再被利用。
+感謝：抱歉，佚失
+日期：2002/07/24</pre>
+
+<pre>■p68,L12,L-7
+原文：為記憶池注入<font color="#FF0000">活水源頭</font>
+修改：為記憶池注入<font
+color="#0000FF">源頭活水</font>
+感謝：wangfei
+日期：2002/07/24</pre>
+
+<pre>■p96,註3往上第2行（勘誤）
+原文：其型別應該隸屬<font
+color="#FF0000">前</font>述<font color="#FF0000">五個</font>迭代器類型之一
+修改：其型別應該隸屬<font
+color="#0000FF">上</font>述<font color="#0000FF">四個</font>迭代器類型<font
+color="#0000FF">（I,F,B,R）</font>之一
+說明：標準程式庫中並未針對 Output Iterators 設計出 __advance()
+感謝：Sam_Yang
+日期：2002/07/24</pre>
+
+<pre>■p99,L-5（勘誤）
+原文：當客端呼叫 distance() 並使用 <font
+color="#FF0000">Output Iterators 或</font> Forward Iterators 或 ...
+修改：當客端呼叫 distance() 並使用 Forward Iterators 或 ...
+說明：拿掉 Output Iterators，
+      因為標準程式庫中並未針對 Output Iterators 設計出 __distance()
+感謝：Sam_Yang
+日期：2002/07/24</pre>
+
+<pre>■p149,L23（筆誤）
+原文：cur = last;  // 的最後一個元素
+修改：cur = last;  // 的最後一個元素<font
+color="#0000FF">（的下一位置）</font>
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p151,L-8（補充）
+原文：// 以上三行何不改為...
+說明：的確可以將以上三行改為如我註釋中所言的 return *(finish-1);
+      其中 (finish-1) 喚起的是 p150 的 self operator-(difference_type n) const;
+感謝：wanghua
+日期：2002/07/24</pre>
+
+<pre>■p155,圖4-13中右側文字（筆誤）
+原文：ideq<font color="#FF0000">::</font>push_back(0);
+      ideq<font
+color="#FF0000">::</font>push_back(1);
+      ideq<font color="#FF0000">::</font>push_back(2);
+修改：ideq<font
+color="#0000FF">.</font>push_back(0);
+      ideq<font color="#0000FF">.</font>push_back(1);
+      ideq<font
+color="#0000FF">.</font>push_back(2);
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p156,L5（修潤）
+原文：最後緩衝區尚有<font color="#FF0000">一個以上</font>的備用空間
+修改：最後緩衝區尚有<font
+color="#0000FF">兩個（含）以上</font>的<font color="#0000FF">元素</font>備用空間
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p156,L9（勘誤）
+原文：最後緩衝區<font color="#FF0000">已無（或只剩一個）</font>元素備用空間
+修改：最後緩衝區<font
+color="#0000FF">只剩一個</font>元素備用空間
+讀者說明：L17 說：也就是說只有當最後一個緩衝區只剩一個備用元素空間...
+侯捷回應：同意。我重新檢測整個演算法，確定 deque 的任何緩衝區的確不可能
+          無備用空間。當元素備用空間為 1 而即將被使用時，p156 的 push_back_aux()
+          會先被喚起，配置新緩衝區（成為備用空間），然後才將原剩的那個
+          備用元素空間拿來用。
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p157,圖4-14中右側文字（筆誤）
+原文：<font color="#FF0000">id::</font>push_back(3);
+修改：<font
+color="#0000FF">ideq.</font>push_back(3);
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p159,圖4-15上側文字（筆誤）
+原文：ideq<font color="#FF0000">::</font>push_back(99);
+修改：ideq<font
+color="#0000FF">.</font>push_back(99);
+感謝：jjhou
+日期：2002/07/24
+
+■p160,圖4-16上側文字（筆誤）
+原文：ideq<font
+color="#FF0000">::</font>push_back(98);
+      ideq<font color="#FF0000">::</font>push_back(97);
+修改：ideq<font
+color="#0000FF">.</font>push_back(98);
+      ideq<font color="#0000FF">.</font>push_back(97);
+感謝：jjhou
+日期：2002/07/24</pre>
+
+<pre>■p163,L-16（筆誤）
+原文：// 第一緩衝區有<font color="#FF0000">一</font>個（或更多）元素
+修改：// 第一緩衝區有<font
+color="#0000FF">二</font>個（或更多）元素
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p163,L-5（補充）
+原文：// 將第一緩衝區的第一個元素解構
+修改：// 將第一緩衝區的第一個<font
+color="#0000FF">（也是最後一個、唯一一個）</font>元素解構
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p171,L11（補充）
+原文：empty, size, back, push_back, pop_back
+修改：empty, size, <font
+color="#0000FF">front,</font> back, <font color="#0000FF">push_front, </font>push_back, <font
+color="#0000FF">pop_front,</font> pop_back
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p171,L12（勘誤）
+原文：以 list 為底部結構並封閉其<font
+color="#FF0000">頭端開口</font>
+修改：以 list 為底部結構並封閉其<font
+color="#0000FF">某些介面</font>
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p176 1,2段；p178 L8,L9（勘誤）
+修改1：以下是 p176 一、二兩段修改後之完整文字：</pre>
+
+<pre>  <font color="#0000FF">圖4-22是pop_heap 演算法的實際操演情況。既然身為max-heap，最大值必然在根節點。
+  pop 動作將根節點取走 — 其實是設至底部容器vector之尾端節點 — 後（邏輯上此刻
+  可將根節點設想成一個「空洞節點」），為滿足 &quot;complete&quot; binary tree 的條件，
+  必須割捨最下層最右端葉節點，並將其值重新安插至max-heap（因此有必要重新調整
+  heap結構）。</font></pre>
+
+<pre><font color="#0000FF">  為滿足max-heap 次序特性（每個節點的鍵值都大於或等於其子節點鍵值），我
+  們執行所謂的 percolate down（下放）程序：將空洞節點和其較大子節點「對調」，
+  並持續下放直至葉節點為止。然後將前述被割捨之元素值設給這個「已到達葉
+  層之空洞節點」，再對它執行一次 percolate up（上溯）程序。這便大功告成。</font></pre>
+
+<pre>修改2：以下兩行請這麼修改：
+       p178 L8  <font color="#FF0000">// 將欲調整值填入目前的洞號內。注意，此時肯定滿足次序特性。</font>
+       修改為： <font
+color="#0000FF">// 此時（可能）尚未滿足次序特性。執行一次 percolate up 動作。</font>
+       p178 L9  <font
+color="#FF0000">// 依侯捷之見，下面...</font>
+       請刪除
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p180,L-3（勘誤）
+原文：// (<font color="#FF0000">即將</font>重排之子樹的)頭部向前一個節點
+修改：// (<font
+color="#0000FF">已</font>重排之子樹的)頭部向前移一個節點
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p182,L5,L6（補充）
+原文：
+      // array 無法動態改變大小，因此不可以對滿載的 array 做 <font
+color="#FF0000">push_heap()</font> 動作。
+      // 因為那得先在 array 尾端增加一個元素。
+修改：
+      // array 無法動態改變大小，因此不可以對滿載的 array 做 <font
+color="#0000FF">push-heap</font> 動作。
+      // 因為那得先在 array 尾端增加一個元素。<font
+color="#0000FF">如果對一個滿載的 array 執行
+      // push_heap()，該函式會將最後一個元素視為新增元素，並將其餘元素視為
+      // 一個完整的 heap 結構（實際上它們的確是），因此執行後的結果等於原先
+      // 的 heap。</font>
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p183,L10（筆誤）
+原文：「依權值高低自動遞<font color="#FF0000">增</font>排序」
+修改：「依權值高低自動遞<font
+color="#0000FF">減</font>排序」
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p209,圖5-14（補充）
+修改：鍵值為 8 的節點旁，應該打一個 <font
+color="#0000FF">X</font>
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p210,L1（補充）
+原文：我們先對 P,G 做一次單旋轉，<font
+color="#FF0000">再</font>更改 P,G 顏色，即可...
+修改：我們先對 P,G 做一次單旋轉，<font
+color="#0000FF">並</font>更改 P,G 顏色，即可...
+說明：從 p226 L7~L9 可看出是先改變顏色再旋轉，但兩者次序其實無關緊要，
+      因此略做如上修改。p210,p211 是邏輯觀念的說明，和 p226 之程式碼
+      不見得一一對應（p226 之程式碼有許多實作上的巧妙安排）。
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p211,圖 5-15c（討論）
+討論：以狀況3 來說，RB-tree 是不會旋轉的，其結果會是：
+      key80、90 兩節點顏色由紅變黑，key85 節點顏色由黑變紅，樹形維持不變。
+      同理，p211,圖 5-15d 狀況4 亦然，只需改變顏色，不須旋轉樹形。
+回覆：狀況3 不改樹形，只改顏色，前提是 L2 所言「此時如果 GG 為黑」。
+      至於狀況4，不理解如何能夠「不改樹形，只改顏色」？
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p212, 5.2.2 一個由上而下的程序（討論）
+讀者來函：
+  由 p225~p226 __rb__tree_rebalance() 源碼知道它並不是「一個由上而下的程序」，
+  而是一個 bottom-up procedure。以圖5-15e 為例，當新增 key35 節點時，
+  根據 p225 L-8~L-2 源碼可知，直接判斷父節點和伯父節點是否皆為紅，而非
+  如 p212,L4 所說「沿著 A 的路徑...」
+建議：將 top-down procedure 等相關文字改成 bottom-up procedure，將圖5-15e 的
+      虛線箭頭方向改成指向 key30 節點。
+回覆：本段演算法描述係以下列書籍 18.5 節為依據（見本書 p469 介紹）：
+        &quot;Algorithms, Data Structures and Problem Solving with C++&quot;
+        by Mark Allen Weiss, AW, 1995
+      這份描述與 SGI STL 實作手法略有差異，但不能據此認為這份描述不對。
+      SGI STL 之實作手法的確如您所言。此手法完全依據以下書籍 p266,p268 提供
+      之 pseudo code：
+        &quot;Introduction to Algorithms&quot;, by Thomas Ho. Cormen, etc.
+      該書在 RB-tree 主題上的文字描述甚少。
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p212,L-2（討論及修正）
+原文：要不直接安插，要不安插後再一次<font
+color="#FF0000">單</font>旋轉即可。
+讀者來函：看不出為何須「再一次單旋轉」
+回覆：如果此時新插節點之父節點為紅，就應該再執行旋轉。本頁所舉例子不需再旋轉。
+修改：要不直接安插，要不安插後<font
+color="#0000FF">（若父節點為紅）</font>再一次旋轉<font color="#0000FF">（單雙皆可能）</font>即可
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p212,L-4（筆誤）
+原文：但<font color="#FF0000">是</font>如果 <font
+color="#FF0000">A</font> 的父節點 P 亦為紅色...
+修改：但<font color="#0000FF">此時</font>如果 <font
+color="#0000FF">X</font> 的父節點 P 亦為紅色...
+感謝：jjhou
+日期：2002/07/24</pre>
+
+<pre>■p217,L-3（筆誤）
+原文：__rb_tree_<font color="#FF0000">iterator_base</font> 的 increment() 和 decrement() ...
+修改：__rb_tree_<font
+color="#0000FF">base_iterator</font> 的 increment() 和 decrement() ...
+感謝：jjhou
+日期：2002/07/24</pre>
+
+<pre>■p220,L-13; P222,L11（筆誤）
+原文：// 和 root（在 iterator.operator<font
+color="#FF0000">++</font> 中）
+修改：// 和 root（在 iterator.operator<font
+color="#0000FF">--</font> 中）
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p226,L-10; p227,L14（勘誤）
+原文：// ...此時<font color="#FF0000">必須做</font>樹形旋轉（及顏色改變，在程式它處）。
+修改：// ...此時<font
+color="#0000FF">可能需</font>樹形旋轉（及顏色改變，在程式它處）。
+提示：p232 圖5-19 M =&gt; N 的過程即可看出，當新節點（紅）之父節點為紅，
+      在 M 的情況下只需做顏色改變，不需樹形旋轉
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p228,L17（遺漏）
+原文：itree.insert_unique(12);
+修改：itree.insert_unique(12);   <font
+color="#0000FF">// __rb_tree_rebalance()</font>
+                                      <font
+color="#0000FF">//  __rb_tree_rotate_right</font>
+討論：亦可由觀察 P232 圖旁的兩行 codes 而知
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p228,L19（筆誤。程式碼拷貝到書上時放置錯誤）
+原文：
+  cout &lt;&lt; itree.size() &lt;&lt; endl;   // 9
+<font
+color="#FF0000">  </font><font color="#000000">for(; ite1 != ite2; ++ite1)
+      cout &lt;&lt; *ite1 &lt;&lt; ' ';  // 5 6 7 8 10 11 12 13 15</font><font
+color="#FF0000">
+</font>  cout &lt;&lt; endl;</pre>
+
+<pre>  // 測試顏色和 operator++（亦即 __rb_tree_iterator_base::increment）
+<font
+color="#FF0000">  rb_tree&lt;int, int, identity&lt;int&gt;, less&lt;int&gt; &gt;::iterator  ite1=itree.begin();
+  rb_tree&lt;int, int, identity&lt;int&gt;, less&lt;int&gt; &gt;::iterator  ite2=itree.end();</font>
+  __rb_tree_base_iterator rbtite;
+  for(; ite1 != ite2; ++ite1) {</pre>
+
+<pre>修改：
+  cout &lt;&lt; itree.size() &lt;&lt; endl;   // 9
+<font color="#0000FF">  rb_tree&lt;int, int, identity&lt;int&gt;, less&lt;int&gt; &gt;::iterator  ite1=itree.begin();
+  rb_tree&lt;int, int, identity&lt;int&gt;, less&lt;int&gt; &gt;::iterator  ite2=itree.end();
+</font>  for(; ite1 != ite2; ++ite1)
+      cout &lt;&lt; *ite1 &lt;&lt; ' ';  // 5 6 7 8 10 11 12 13 15
+  cout &lt;&lt; endl;</pre>
+
+<pre>  // 測試顏色和 operator++（亦即 __rb_tree_iterator_base::increment）
+  <font
+color="#0000FF">ite1=itree.begin();</font>
+  __rb_tree_base_iterator rbtite;
+  for(; ite1 != ite2; ++ite1) {
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p230,圖 B（補充）
+修改：在圖 B 的節點 10 左上角加上一個 <font
+color="#0000FF">root()</font>，類似圖 C 的節點 10。
+說明：此時 root() 已指向節點 10。
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>P251 圖5-23的說明文字（筆誤）
+原文：二次探測（<font color="#FF0000">linear</font> probing）
+修改：二次探測（<font
+color="#0000FF">quadratic</font> probing）
+感謝：wangfei
+日期：2002/07/24</pre>
+
+<pre>■p257,L-14（勘誤）
+原文：// ... 最接近並大於 n 的那個質數
+修改：// ... 最接近並大於<font
+color="#0000FF">或等於</font> n 的那個質數
+說明：因為函式內採用 lower_bound() 演算法
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p259,L5（勘誤）
+原文：其中的 next_size() 傳回最接近 n 並大於 n 的質數
+修改：其中的 next_size() 傳回最接近 n 並大於<font
+color="#0000FF">或等於</font> n 的質數
+說明：因為函式內採用 lower_bound() 演算法
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p262, L14（勘誤）
+原文：// 將新節點安插於目前位置
+修改：// 將新節點安插於目前位置<font
+color="#0000FF">之後</font>
+說明：由 L14、L15 程式碼可知。
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p266, 圖5-26上一段最後一行（筆誤）
+原文：循序加入 6 個元素：<font
+color="#FF0000">53, 55, 2, 108, 59, 63</font>
+修改：循序加入 6 個元素：<font
+color="#0000FF">59, 63, 108, 2, 53, 55</font>
+說明：見圖5-26上端之說明： insert_unique 次序：59, 63, 108, 2, 53, 55
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p489, 索引的 reserve()（筆誤）
+原文：<font color="#FF0000">reserve() 360</font>
+修改：刪除之，因為 p360 出現的是 reverse() 而非 reserve()
+感謝：jaulueng
+日期：2002/07/24</pre>
+
+<pre>■p81,auto_ptr（討論）
+讀者來函：
+  我發現 auto_ptr 有一個問題，就是它的 T *pointee 變量為私有的，
+  在實際使用中不能編譯通過。如下例﹕
+  auto_ptr&lt;int&gt; aInt(new int[10]);
+  auto_ptr&lt;char&gt; aChar = aInt;
+  編譯時﹐出現如下錯誤:
+  error C2248: 'pointee' : cannot access private member
+                           declared in class 'auto_ptr&lt;int&gt;'
+  我是在 VC6 下編譯的，或許在 gcc 下可以編譯通過，我還沒有試過。於是我
+  在 VC6 下將 pointee 改為 public，然後編譯通過。當然這樣做有背信息隱蔽原則，
+  或許在 VC6 下也可以保持 private，也能編譯通過，如果可以，可否告訴我，謝謝。
+侯捷回覆：
+  (1) pointee 不宜宣告為 private.
+  (2) 完整的 auto_ptr 可參考 C++ 標準程式庫，
+        或《More Effective C++》p291.（有 bug）
+        或《C++ 標準程式庫》p56.
+  (3) 請認識 member template 的用途。
+  (4) 不存在針對 array 而寫的 auto_ptr，見《C++ 標準程式庫》p47。
+  (5) 建議詳讀《C++ 標準程式庫》4.2 節，其中有 auto_ptr 的發展動機、
+        錯誤運用、運用實例、設計細目
+感謝：larrin
+日期：2002/07/24</pre>
+
+<pre>
+
+■p125（討論）
+讀者來函：
+  vector::insert(iterator position, size_type n, const T&amp; x) 函式中呼叫了：
+    fill(position, position + n, x_copy)
+    uninitialized_fill_n(finish, n - elems_after, x_copy)
+    fill(position, old_finish, x_copy)
+  為什麼其中引入並使用 x 的副本 x_copy﹐使用 x 豈不更好？
+  STL中有多處類似作法，例如 p156 deque::push_back_aux()。
+侯捷回覆：
+  <font
+color="#8080FF">的確應該可以直接使用 x</font>。<font color="#8080FF">從邏輯思考角度</font>，x 以 by reference 方式傳入，
+  如果又以 by reference 方式傳遞給 fill() 和 uninitialized_fill_n()，
+  由於去處函式都進行拷貝動作，並不影響 x。所以直接以 x 傳遞無妨。
+  <font
+color="#8080FF">從實證角度</font>，我如上更改了 SGI STL 源碼，可以正確運作。
+感謝：popiano
+日期：2002/07/27
+
+■p141（討論）
+讀者來函：
+  void splice(iterator position, list&amp;, iterator i);
+  void splice(iterator position, list&amp;, iterator first, iterator last);
+  兩處的第二參數 list&amp; 在函式中無用，徒增使用者麻煩，是否多餘？
+侯捷回覆：
+  <font
+color="#8080FF">的確多餘</font>。假設我們想運用 splice() 將 listA 內的單一元素或某個區間
+  接合到 listB 的 position 位置上，由於 listA 內的單一元素
+  或某個區間其實分別以上述的 i 或 [first,last) 即可表現，不必再以
+  第二參數 list&amp; 來表現 listB。因此這第二參數派不上用場。
+  這可能是當初過度設計的遺留。
+感謝：popiano
+日期：2002/07/27
+
+■p362（討論）
+讀者來函：
+  void __rotate(RandomAccessIterator first,..,random_access_iterator_tag);
+  這個函式是怎麼工作的？（我手中的 STL 實作產品與書中所列不同）
+侯捷回覆：
+  此函式之工作方式如書上程式碼註解。
+  <font
+color="#8080FF">也許我會在新版（不是新刷）中增加一張說明圖</font>。
+感謝：popiano
+日期：2002/07/27
+
+■p147~p162（勘誤）
+說明：4.4.3 節至 4.4.6 節中我以下面這個實例貫穿解釋 deque 緩衝區的變化：
+    deque&lt;int, alloc, 32&gt; ideq(20,9);
+  其中 32 應為「元素個數」，但我在繪圖時誤想為 32 bytes。
+  於是所有圖片皆以 32/sizeof(int) ==&gt; 8 做為緩衝區元素個數。
+  為了不修改圖片（這比較難改），我決定修改文本內容。以下是各頁修改狀況：
+p147,L-9
+原文：假設現在我們產生一個<font
+color="#FF0000"> deque&lt;int&gt;，並令其緩衝區大小為32，
+      於是每個緩衝區可容納32/sizeof(int)=8個元素</font>。經過某些操作之後，
+修改：假設現在我們產生一個<font
+color="#0000FF">「元素型態為int，緩衝區大小為8（個元素）的 deque
+      （語法型式為deque&lt;int,alloc,8&gt;，見4.4.5節測試程式）</font>。經過某些操作之後，
+p148,圖4-12文字解說第3行
+原文：每個緩衝區<font
+color="#FF0000"> 32 bytes，</font>可儲存 8 個 int 元素。
+修改：每個緩衝區可儲存 8 個 int 元素。
+p152,L12
+原文：deque&lt;int,alloc,<font
+color="#FF0000">32</font>&gt; ideq(20,9);
+修改：deque&lt;int,alloc,<font color="#0000FF">8</font>&gt;  ideq(20,9);
+p153,L12
+原文：deque&lt;int,alloc,<font
+color="#FF0000">32</font>&gt;::iterator itr;
+修改：deque&lt;int,alloc,<font
+color="#0000FF">8</font>&gt;::iterator itr;
+p153,L19
+原文：deque&lt;int,alloc,<font
+color="#FF0000">32</font>&gt; ideq(20,9);
+      其緩衝區大小為 <font color="#FF0000">32</font> <font
+color="#FF0000">bytes</font>，並令<font color="#FF0000">其</font>保留 20 個元素空間，
+修改：deque&lt;int,alloc,<font
+color="#0000FF">8</font>&gt; ideq(20,9);
+      其緩衝區大小為 <font color="#0000FF">8（個元素）</font>，並令保留 20 個元素空間，
+p162,圖4-17頂端
+原文：deque&lt;int,alloc,<font
+color="#FF0000">32</font>&gt;::iterator itr;
+      itr =  find(<font color="#FF0000">id</font>.begin(), <font
+color="#FF0000">id</font>.end(), 99);
+修改：deque&lt;int,alloc,<font color="#0000FF">8</font>&gt;::iterator itr;
+      itr =  find(<font
+color="#0000FF">ideq</font>.begin(), <font color="#0000FF">ideq</font>.end(), 99);
+感謝：popiano
+日期：2002/07/31
+
+
+
+■p193,圖4-27 標題（筆誤）
+原文: <font
+color="#FF0000">元素 9,1,2,3,4 依序插入到 slist 之後的實際結構</font>
+修改: <font
+color="#0000FF">找到元素 1 並在該位置上安插 99 後，slist 的狀態</font>
+感謝：yyf
+日期：2002/07/31
+
+■p224,L29（勘誤）
+原文: // <font
+color="#FF0000">小於新值（表示遇「小」，將安插於右側）</font>
+修改: // <font
+color="#0000FF">新鍵值不與既有節點之鍵值重複，於是以下執行安插動作</font>
+說明: 此段程式碼如下：
+      #21 iterator j = iterator(y);   // 令迭代器 j 指向安插點之父節點 y
+      #22 if (comp) // 如果離開 while 迴圈時 comp 為真（表示遇「大」，將安插於左側）
+      #23     if (j == begin())       // 如果安插點之父節點為最左節點
+      #24         return pair&lt;iterator,bool&gt;(__insert(x, y, v), true);
+      #25         // 以上，x 為安插點，y 為安插點之父節點，v 為新值。
+      #26     else        // 否則（安插點之父節點不為最左節點）
+      #27         --j;    // 調整 j，回頭準備測試...
+      #28 if (key_compare(key(j.node), KeyOfValue()(v)))
+      #29     <font
+color="#8080FF">// ... 目前討論中的這行註釋 ...</font>
+      #30     return pair&lt;iterator,bool&gt;(__insert(x, y, v), true);
+      #31     // 以上，x 為新值安插點，y 為安插點之父節點，v 為新值。
+      從程式邏輯觀之，#28 註釋應做如上修改
+建議：可試著對 <font
+color="#8080FF">p231 圖 H</font>，分別插入 12 或 10，便可清楚理解此處程式之流程和意義。
+感謝：yyf
+日期：2002/07/31
+
+■p264,L1（討論）
+原文: // 從己方的 buckets vector 尾端開始，插入 n 個元素，其值為 null 指標。
+      // 注意，此時 buckets vector 為空，所以所謂尾端，就是起頭處。
+讀者來函: 此時 hastable 是空的，但 buckets vector 並不為空，而是存放
+      buckets.size() 個 null指針。以上註釋所說明的，是其下一行動作：
+         buckes.insert(buckets.end(), ht.buckets.size(), (node*) 0);
+      其意義是把 buckets vector 尾部因先前 reserve() 而擴充出來的部份
+      初始化為 null 指標。當然，reserve() 也可能根本沒有實際擴充 vector，
+      那麼上述一行程式不會執行任何實質性操作。
+侯捷回覆：<font
+color="#8080FF">我想您可能錯看了 p263 L-5 的意義</font>：
+         buckets.clear()
+      您可能以為它執行的是 hashtable&lt;&gt;::clear()（就在 p263）
+      事實上它執行的是 vector&lt;&gt;::clear()，而其動作就是將整個 vector 清空，
+      使大小為 0（<font
+color="#8080FF">ref.《C++ 標準程式庫》p154</font>）。因此我的註釋是正確的。
+      順帶一提，以下值得修改：
+p263,L-6
+原文：這動作是呼叫 vector::clear，<font
+color="#FF0000">造成所有元素為 0</font>
+修改：這動作是呼叫 vector::clear，<font
+color="#0000FF">將整個容器清空</font>
+感謝：yyf
+日期：2002/07/31
+
+■p327,L16（修潤）
+原文: // 以下，輸出區間的終點與輸入區間重疊...
+修改: // 以下，輸出區間的終點<font
+color="#0000FF">（就逆向而言）</font>與輸入區間重疊...
+■p327,L23（修飾）
+原文: // 以下，輸出區間的起點與輸入區間重疊...
+修改: // 以下，輸出區間的起點<font
+color="#0000FF">（就逆向而言）</font>與輸入區間重疊...
+■p327,L-3（修飾）
+原文: // 以下，輸出區間的終點與輸入區間重疊...
+修改: // 以下，輸出區間的終點<font
+color="#0000FF">（就逆向而言）</font>與輸入區間重疊...
+■p328,L15（修飾）
+原文: // 以下，輸出區間的起點與輸入區間重疊...
+修改: // 以下，輸出區間的起點<font
+color="#0000FF">（就逆向而言）</font>與輸入區間重疊...
+感謝：yyf
+日期：2002/07/31
+
+■p330,L-9,L-7（誤植）
+原文: (L-9)  Union of S1 and S2 <font
+color="#FF0000">(S1-S2)</font> : 1 1 2 3 5 7 8 9 11 13
+      (L-7)  Difference of S1 and S2: 7 9 11
+說明: L-9處的 (S1-S2) 應移至 -7
+修改: (L-9)  Union of S1 and S2: 1 1 2 3 5 7 8 9 11 13
+      (L-7)  Difference of S1 and S2 <font
+color="#0000FF">(S1-S2)</font> : 7 9 11
+感謝：yyf
+日期：2002/07/31
+
+■p332,L4（修潤）
+原文: // 此刻的 [first1,last1) 和 [first2,last2) 之中有一個是空白區間。
+修改: // 此刻的 [first1,last1) 和 [first2,last2) 之中<font
+color="#0000FF">至少</font>有一個是空白區間。
+說明: 兩個區間可能同時到達尾端，形成兩個區間同時空白的現象。
+感謝：yyf
+日期：2002/07/31
+
+■p398,L4（勘誤）
+原文: <font
+color="#FF0000">// RW STL 採用一般教科書寫法（直觀地對左半段和右半段遞歸），較易閱讀。</font>
+修改: <font
+color="#8080FF">（請將此行拿掉）</font>
+說明: 從 p400 上部的 RW STL 源碼可看出，其算法策略和 SGI STL 類似，只是
+      它更進一步把左右兩段中較長的一段以遞迴方式處理，較短一段由 while 迴圈
+      繼續處理，並沒有對左右兩段分別遞迴處理。
+檢討：同意。但 yyf 將長短搞反了 :)
+      順帶一提，以下值得修改：
+p400,L5
+原文：__quick_sort_loop(cut, last);  // <font
+color="#FF0000">對右段遞迴處理</font>
+修改：__quick_sort_loop(cut, last);  // <font
+color="#0000FF">較短段以遞迴方式處理</font>
+p400,L10
+原文：__quick_sort_loop(first, cut);  // <font
+color="#FF0000">對左段遞迴處理</font>
+修改：__quick_sort_loop(first, cut);  // <font
+color="#0000FF">較短段以遞迴方式處理</font>
+感謝：yyf
+日期：2002/07/31
+
+■p409,L10（修潤）
+原文: 便是將小於*(iv.begin()+5)（本例為40）的元素置於該元素之左﹐其餘...
+修改：便是<font
+color="#0000FF">滿足以下條件：(1)</font> 將小於 *(iv.begin()+5)（本例為40）的元素置於
+      該元素之左﹐其餘...33,40}。<font
+color="#0000FF">(2) </font>執行完畢後 5th 位置上的...
+感謝：yyf
+日期：2002/07/31
+
+■p446,L11（勘誤）
+原文: if (string) *stream &lt;&lt; string;   // 如果<font
+color="#FF0000">輸出狀態</font>無誤,輸出間隔符號
+修改: if (string) *stream &lt;&lt; string;   // 如果<font
+color="#0000FF">間隔符號</font>不為空,輸出間隔符號
+感謝：yyf
+日期：2002/07/31</pre>
+
+<pre>■pvi,L4, p5,L-1, p11,L1,L2,L4,L-2, p385,L11（筆誤）
+原文: R<font
+color="#FF0000">oug</font>e Wave 或 R<font color="#FF0000">aug</font>e Wave
+修改: R<font
+color="#0000FF">ogu</font>e Wave
+感謝：Wu Yongwei
+日期：2002/08/12</pre>
+
+<pre>■p478,L7,L11（筆誤）
+原文：make
+修改：<strong><font color="#0000FF">n</font></strong>make
+感謝：konamo
+日期：2002/08/26</pre>
+
+<pre>■p266,圖5-26 上排方格最後一個方格的編號（筆誤）
+原文：#<font
+color="#FF0000">53</font>
+修改：#<font color="#0000FF">52</font>
+感謝：jjhou
+日期：2002/09/12
+
+■p464~p465（印務）
+原文：參考書目的名稱及頁尾是紅色
+修改：應為藍色
+註  ：簡體版無此誤（簡體版採黑白印刷）
+感謝：jjhou
+日期：2002/09/12</pre>
+
+<pre>■第2章關於 memory pool（討論）
+yongwu.wang 2002/09/25 來信：
+  <font
+color="#408080">關於 __default_alloc_template﹐我寫了一些代碼測試﹐發現對於大於 128bytes 的
+  分配沒有問題﹐但是當我分配一些小於 128bytes 的 blocks 時
+  確實用上了 memory pool﹐並用 free list 串起來﹐整個分配過程都很正常。
+  但我認為釋放時存在問題﹐釋放時調用的函數
+  只是簡單的調整指針﹐並沒有真正釋放 memory﹐這也可以理解﹐因為只是釋放一個塊﹐
+  不應該釋放整個 pool。那麼整個 pool 在什麼地方釋放呢﹖
+  我發現 __default_alloc_template class 並沒有 destructor﹐
+  memory pool 沒有被釋放﹐我跟蹤了memory 分配和釋放函數﹐確實發生了memory leak。
+  我的分析對嗎﹖這是 SGI 的 bug 嗎﹖</font>
+侯捷回覆：這不是 bug，這是設計理念。
+  memory pool 一般並不釋放 blocks。因為它認為資源由它管理。這不算 memory leak。
+  但這的確有缺點。應該適時釋放（一些）blocks 。這是 SGI allocator 值得加強的部分
+  至於程式結束前一刻沒有釋放整個 pool，那沒關係，modern OS 自會收回這一部份，
+  不影響其他 process。
+  歡迎參考 <a
+href="programmer-13-memory-pool.htm" tppabs="http://jjhou.boolan.com/programmer-13-memory-pool.htm" target="main">programmer-13-memory-pool.htm</a>
+感謝：yongwu.wang
+日期：2002/09/25
+
+■p114,圖4-1 解說第四行（筆誤）
+原文：has<font
+color="#FF0000">t</font>_x 都內含一個 hashtable。
+修改：has<font color="#0000FF">h</font>_x 都內含一個 hashtable。
+感謝：yanghaifeng
+日期：2003/02/20
+
+■p351,L-10（筆誤）
+原文：cas1
+修改：cas<font
+color="#0000FF">e</font>1
+感謝：yanghaifeng
+日期：2003/02/20
+
+■p375,圖6-7（筆誤）
+原文：圖中箭頭有兩個各名為 <font
+color="#FF0000">up1</font> 和 <font color="#FF0000">up2</font>
+修改：請分別改為 <font
+color="#0000FF">ub1</font> 和 <font color="#0000FF">ub2</font>，以與圖中方塊之下的四行 program code 對應
+感謝：yanghaifeng
+日期：2003/02/20
+
+■討論
+讀者來函：
+<font
+color="#408080">hi, mr. hou
+    there is a question on STL, look at this statement:
+    
+    m_OneMap.insert(pair&lt;Key, T&gt;(key_value, t_value));   // (1) 
+    
+    Error reported while compiling at Solaris 5.8 with RW STL, 
+    then everything is OK after I changed it into:
+    
+    m_OneMap.insert(value_type&lt;Key, T&gt;(key_value, t_value));  // (2)
+    
+    when compiling with VC with P.J. STL, no error ocurred here.
+    why?
+    thanks!</font>
+侯捷回覆：
+式(1) 是正確的。為什麼它在 Solaris 5.8 with RW STL 無法正常編譯，我不知道。
+我在 BCB5 with RW STL 中正確編譯了它。
+
+式(2) 的意思是，以 map&lt;...&gt;::value_type&lt;Key,T&gt; 產生一個暫時物件
+並以 key_value,t_value 為初值。根據以下 SGI STL 源碼：
+
+template &lt;class Key, class T, class Compare = less&lt;Key&gt;, class Alloc=alloc&gt;
+class map {
+public:
+  typedef Key key_type;	 
+  typedef T data_type;	
+  typedef T mapped_type;	 
+  typedef <font
+color="#0000FF">pair&lt;const Key, T&gt;</font> value_type;  // 元素型別（鍵值/實值）
+  typedef Compare key_compare;	// 鍵值比較函式 
+  ...
+};
+
+也就是產生了一個 pair&lt;const Key, T&gt;(key_value,t_value)。拿它來和 (1) 相比，
+只差一個 const。既然 (1) 不被接受，可推想 Solaris 5.8 with RW STL 在 constness 
+上面的限制很硬。請注意，使用 STL 時，很多時候（包括上述情況）都只因為
+卡在 constness，程式便編譯不了。constness 實在不可輕忽。
+
+感謝：Collin Lee
+日期：2003/02/20
+
+■討論
+讀者來函：
+<font
+color="#408080">p67,L-6 // 注意，任何殘餘零頭終將被編入適當的 free-list 中備用。
+此句的意思是否是指：
+遞迴呼叫自己後，若有剩下任何殘餘零頭，此殘餘零頭將被編入適當的 free-list 中備用。
+請教老師是不是這個意思呢...?</font>
+
+侯捷回覆：是的。是這個意思。
+感謝：jaulueng
+日期：2003/02/20
+
+■討論
+讀者來函：
+<font
+color="#408080">...另外想請教先生，進行源碼剖析的時候為什麼不以 SGI STL 3.3為例呢？因為3.3 
+的主要特征就是加入了 concept check，現在這個 library 也早已經在 boost 庫里面
+被接受了。在 B.S. 博士提出的 C++0x 建議里面也提到了 Constraints checking。
+不知先生什麼時候會出第二版，會把這一部分加進去？</font>
+
+侯捷回覆：
+我總是得選定一套 source，然後開始正式的文字工作。我的選擇心境，記錄在本書 pxix.
+本書目前還沒打算改版。您的建議我會記住。謝謝。
+
+感謝：lattice
+日期：2003/02/20
+
+■p302,L-3（最後少了一個右小括弧）
+原文：result = binary_op1(result, binary_op2(*i, *(first2+(i-first1)))。
+修改：result = binary_op1(result, binary_op2(*i, *(first2+(i-first1)))<font
+color="#0000FF">)</font>。
+感謝：aihua woo
+日期：2003/02/20
+
+■討論
+讀者來函：
+<font
+color="#408080">p305 中間，關於 iota 的意義。
+The name iota is taken from the programming language APL.
+而APL語言主要是做數學計算的，在數學中有很多公式會借用希腊字母，
+希腊字母表中有這樣一個字母，大寫為Ι，小寫為ι，
+它的英文拼寫正好是iota，這個字母在θ(theta)和κ(kappa)之間！
+您可以看看http://www.wikipedia.org/wiki/APL_programming_language 
+下面有一段是這樣的:
+APL is renowned for using a set of non-ASCII symbols that are an 
+extension of traditional arithmetic and algebraic notation. 
+These cryptic symbols, some have joked, make it possible to construct 
+an entire air traffic control system in two lines of code. 
+Because of its condensed nature and non-standard characters, 
+APL has sometimes been termed a &quot;write-only language&quot;, 
+and reading an APL program can feel like decoding an alien tongue. 
+Because of the unusual character-set, many programmers used special 
+APL keyboards in the production of APL code. Nowadays there are 
+various ways to write APL code using only ASCII characters. 
+不知您怎麼看？</font>
+
+侯捷回覆：謝謝您充實我的知識 :)
+感謝：aihua woo
+日期：2003/02/20
+
+
+■討論
+讀者來函：
+<font
+color="#408080">我最近在网絡上找一些關于STL的技術文章，正好搜索到您的主頁上的STL 系列文章 (PDF)。
+關於第二篇文章中最後（17頁末）您所寫的逐行讀取的iterator代碼，只要稍加修改即可在
+VC7下運行（VC 6尚未測試過）。修改就是增加一個 operator != 的友元函數：
+
+class myistream_line_iterator {
+ friend bool
+  operator!= (const myistream_line_iterator&amp; x,
+              const myistream_line_iterator&amp; y);
+ 
+  // 以下略…
+};
+
+inline bool operator!=(const myistream_line_iterator&amp; x,
+                       const myistream_line_iterator&amp; y) 
+{
+   return !operator==(x,y);
+}
+
+由於工作環境主要是VC，所以渴望技術上的成果能在工作中運用。
+另：由于接觸 MFC 已有一些時間了，考慮將其轉移到G++編譯器上。您認為是否可行？
+我見MFC中的代碼都比較標準規範，轉移的難度似乎比ATL要小很多。在 G++下寫WINDOWS平台的
+COM 組件實在是件比較麻煩的事情，不知道有沒有合適的類庫可以借助？多謝！
+</font>
+侯捷回覆：
+您對程式的修改，我在 VC6 中試了，仍然不能過關。
+我已經把 MFC 的骨幹移植到 BCB and GCC 去了（請見 MFCLite）。
+我移植的是不涉及 UI 的部分；也不涉及 COM。
+
+感謝：sclzmbie
+日期：2003/02/20
+
+
+■討論
+讀者來函：
+<font
+color="#408080">編譯並運行原書 p306 的 6algobase.cpp 時，發現輸出結果與書中給出的不同。
+源程序：p307 19～22 行
+cout &lt;&lt; lexicographical_compare(stra1, stra1+2, stra2, stra2+2) &lt;&lt; &quot;\t&quot;;
+// 1 (stra1 &lt; stra2)
+ 
+cout &lt;&lt; lexicographical_compare(stra1, stra1+2, stra2, stra2+2, 
+            greater&lt;string&gt;()) &lt;&lt; \n&quot;;
+// 0 (stra1 !&gt; stra2)
+ 
+因為lexicographical_compare兩參數為[first1,last1),[first2,last2) 
+故代碼應改為：
+cout &lt;&lt; lexicographical_compare(stra1, stra1+3, stra2, stra2+3) &lt;&lt; &quot;\t&quot;;
+// 1 (stra1 &lt; stra2)
+ 
+cout &lt;&lt; lexicographical_compare(stra1, stra1+3, stra2, stra2+3, 
+            greater&lt;string&gt;()) &lt;&lt; &quot;\n&quot;;
+// 0 (stra1 !&gt; stra2)</font>
+
+侯捷回覆：不了解您的意思。我的程式執行起來一如書上所示。
+感謝：Echo
+日期：2003/02/20
+
+■討論
+讀者來函：
+<font
+color="#408080">在最近我想發展一個 class 其中有一個 table 是用來查尋
+對映關係的(string -&gt; some enum type),
+所以我用 stl::map 來實作,這樣可以加速搜尋的時間,又這個table是所有object會共用的,
+而且僅須一份,所以我把它設成static,又這個table不希望object去更改其中的內容,所以
+又必須設成const. 問題就在這裡,static const data member必須在cpp file裡面定義,
+可是當我定義的時候卻會發生compile error(在VC裡是 C2057, C2466… 
+用aaa::xxx[“string” ] = 2 來設定),我想應該是map裡面在設定值的時候
+會動態的產生記憶體,
+違反const….可是map沒有可以設定初始容量的地方,所以看起來似乎無解~~~
+所以我退而求其次,讓map的item變成
+const.. (map&lt;const std::string , const some enum type&gt;)
+又發生 compiler error ( 在VC裡是C2535)….有一些function redefine….
+可是這種方式好像
+有些危險,因為object雖然不能更改其中的值,不過卻可以刪除或增加~這就跟原意不符~
+我想問的是,STL裡的container難道沒有辦法當成static const data member……
+或者有其它的方式可以設定其中的值     </font>      
+
+侯捷回覆：
+我不敢說我完全懂了您的意思。我把您的問題依我的了解歸納如下：
+Q1：您希望在某個 class 內產生一個 static const data member，
+    並令它是個 STL container.
+Q2：退而求其次，您希望在某個 class 內產生一個 static data member，
+    令它是個 STL container，並令其 key/value 都是 const。
+    
+A1：以下我寫了一個測試程式，分別測試 class 內的 usual member, const member, 
+static member, static const member。每個 member 都是 map&lt;string, enumType&gt;
+我想似乎沒有辦法解決 Q1 的問題。
+
+#include &lt;map&gt;
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;algorithm&gt;
+#include &lt;utility&gt;
+using namespace std;
+
+enum month {Jan=1, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec };
+
+void printElem(const pair&lt;string, month&gt;&amp; elem)
+{  cout &lt;&lt; '[' &lt;&lt; elem.first &lt;&lt; ',' &lt;&lt; elem.second &lt;&lt; ']'; }
+
+class myClass {
+public:
+
+  myClass(const map&lt;string, month&gt;&amp; m) 
+    : _map(m),_mapc(m) { 
+     _maps = m;       // (2)
+     //! _mapc = m;   // (3)
+     //! _mapsc = m;  // (5)
+  }
+  
+  void opTest() {
+    _map.insert(make_pair(string(&quot;Apr&quot;),Apr));
+    _maps.insert(make_pair(string(&quot;Apr&quot;),Apr));
+    //! _mapc.insert(make_pair(string(&quot;Apr&quot;),Apr));  // cb5[w],vc6[x],g29[x]
+    //! _mapsc.insert(make_pair(string(&quot;Apr&quot;),Apr)); // cb5[w],vc6[x],g29[x]
+  }
+
+  void display() {
+    cout &lt;&lt; &quot;_map: &quot;;
+    for_each(_map.begin(), _map.end(), printElem);
+    cout &lt;&lt; endl &lt;&lt; &quot;_maps: &quot;;
+    for_each(_maps.begin(), _maps.end(), printElem);     
+    cout &lt;&lt; endl &lt;&lt; &quot;_mapc: &quot;;
+    for_each(_mapc.begin(), _mapc.end(), printElem);    
+    cout &lt;&lt; endl &lt;&lt; &quot;_mapsc: &quot;;
+    for_each(_mapsc.begin(), _mapsc.end(), printElem);
+  }
+	
+private:
+  // static const int _i = 9999;  // vc6[x],cb5[o]. 整數型別，可在 class body 內直接設初值
+  map&lt;string, month&gt; _map;
+  static map&lt;string, month&gt; _maps;
+     // _maps 不可出現於 member initialization list，因為它是 static member。
+     // 它的初始化動作在 class body 之外完成，如式(1)。
+     // 也可以在 ctor function body 內被 assigned，如式(2)。
+  const map&lt;string, month&gt; _mapc; 
+     // 如果 _mapc 不出現於 member initialization list 也可以，那麼將無任何元素。
+     //   奇怪，不是說 const value 一定要給初值嗎？
+     // 不能在 ctor 中被 assigned，如式(3)，因為 const data 只能 initialized, 不能 assigned
+  static const map&lt;string,month&gt; _mapsc;
+     // _mapsc 不可出現於 member initialization list，因為它是 static member。
+     // 它的初始化動作在 class body 之外完成，如式(4)。但該處似乎無法給初值
+     // 不可在 ctor 中被 assigned，如式(5)，因為 const data 只能 initialized。 
+     // 結論：STL container as a static const data member 無法獲得初值。
+};
+
+map&lt;string, month&gt; myClass::_maps;         // (1) 這裡有沒有機會給初值？
+const map&lt;string, month&gt; myClass::_mapsc;  // (4) 這裡有沒有機會給初值？
+
+int main()
+{
+  map&lt;string, month&gt; tempMap;
+  tempMap.insert(make_pair(string(&quot;Jan&quot;),Jan));
+  tempMap.insert(make_pair(string(&quot;Feb&quot;),Feb));
+  tempMap.insert(make_pair(string(&quot;Mar&quot;),Mar));
+ 	
+  myClass my(tempMap);
+  my.display(); 
+  my.opTest();
+  my.display();
+  
+  map&lt;const string, const month&gt; tempMapcc;  // vc6[x],cb5[o],g29[o]
+  tempMapcc.insert(make_pair(string(&quot;Sep&quot;),Sep));
+  tempMapcc.insert(make_pair(string(&quot;Nov&quot;),Nov));
+  tempMapcc.insert(make_pair(string(&quot;Dec&quot;),Dec));
+  for_each(tempMapcc.begin(), tempMapcc.end(), printElem);
+}
+
+A2：令「map 的 key/value 都是 const」這應該是沒問題的（見 main() 最下）。
+    雖然 VC6 有問題，但我只打算討論 Standard C++。 
+
+感謝：Panda Lin 
+日期：2003/02/20
+
+
+■討論
+讀者來函：
+<font
+color="#408080">我十分困擾的一個問題是，不知道如何使用 C++ 的 wchar_t 和 wstring，尤其不會用 locale。
+我用的是VC++ 6.0，關于多字節字符和寬字符的幫助很少。C++著作中對此問題也很少涉及，
+或者沒有恰當例子，不容易看懂。
+下面是我寫的一個小程序，只能顯示前面七個單字節字符，無法顯示後面四個寬字符：
+
+// cb5[o] vc6[o] g295[x]
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void main()
+{
+    wstring s=L&quot;Windows操作系統&quot;;  
+    int n=s.length();   //  n==11
+    for(int i=0; i&lt;n; i++)
+        cout &lt;&lt; s[i] &lt;&lt; &quot;  &quot;;  
+          // 87  105  110  100  111  119  115  25805  20316  31995  32113 
+    wcout &lt;&lt; endl;  
+}
+</font>
+侯捷回覆：待我研究研究 :)
+感謝：chenxiaohe2
+日期：2003/02/20</pre>
+
+<pre>■p93,L-12,小標（筆誤）
+原文：以 advance<font color="#FF0000">d</font>() 為例
+修改：以 advance() 為例
+感謝：jjhou
+日期：2003/05/06
+
+■pviii,L6,目錄（筆誤）
+原文：以 advance<font
+color="#FF0000">d</font>() 為例
+修改：以 advance() 為例
+感謝：jjhou
+日期：2003/05/06</pre>
+
+<pre>■p477,L-14（筆誤）
+原文：移至 C:\Program Files\Microsoft Visual Studio\VC98 中，
+修改：移至 C:\Program Files\Microsoft Visual Studio\VC98<font
+color="#0000FF">\bin</font> 中，
+感謝：CTWu
+日期：2005/02/01</pre>
+
+<pre>■附錄（補充）
+讀者來函：書後附錄關於VC6.0移植。使用<font
+color="#408080">VC IDE</font>進行link時，需要將stlport的
+libpath引入。但這時會有個小問題：由於同時指定了MT選項，link時會去尋找
+libcmt.lib，總是報告libcmtd.lib與libcmt.lib衝突。只有將libcmt.lib禁用，
+才能link通過。
+感謝：microhard
+日期：2005/02/01</pre>
+
+<pre>-- the end</pre>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>泛型程式設計 元智大學 91-2 課程備忘錄</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><font color="#800000">泛型程式設計（Generic Programming）<br>
+<br>
+元智大學 91-2<br>
+<br>
+課程備忘錄 / 侯捷</font></h2>
+
+<h4 align="center"><font color="#0000FF">請注意：這裡只是備忘錄，不是完整教材或學習或討論的地方。</font></h4>
+
+<p align="center">每周三 18:30~21:20<br>
+工程一館1102</p>
+
+<hr>
+
+<blockquote>
+  <p>課程教材（2,5 為教材，1,3,4 為課外輔助參考書籍）：</p>
+  <p>&nbsp;&nbsp; 1.《<a href="jjtbooks-cpp-primer.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-primer.htm" target="main">C++ Primer 3e</a>》chap6,10,12,15,16, 
+  appnedix <br>
+  * 2. 五篇文章 by 侯捷&nbsp; 見左視窗 &quot;STL系列文章&quot; &nbsp; 
+  2000/02~2000/06. 自行列印 <br>
+  &nbsp;&nbsp; 3.《<a href="jjtbooks-generic-programming-and-the-stl.htm" tppabs="http://jjhou.boolan.com/jjtbooks-generic-programming-and-the-stl.htm" target="main">泛型程式設計與STL</a>》<br>
+  &nbsp;&nbsp; 4.《<a href="jjtbooks-the-cpp-standard-library.htm" tppabs="http://jjhou.boolan.com/jjtbooks-the-cpp-standard-library.htm" target="main">C++ 
+  標準程式庫</a>》<br>
+  * 5.《<a target="main" href="jjwbooks-tass.htm" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm">STL源碼剖析</a>》</p>
+  <p><br>
+  <strong><font color="#FF0000">期末作業</font></strong>。各組任選一題。評分將視選題困難度而有所調整。<br>
+  評分根據：選題困難度、程式可執行度、程式手法優劣、目標達成度、<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  上台演出情況、書面報告。</p>
+  <p>1.&nbsp; 移植 SGI STL's allocator 到 VC &amp; CB。<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; 提示：仔細研讀《STL源碼剖析》第二章 p43~p70 和 <a
+  href="programmer-13-memory-pool.pdf" tppabs="http://jjhou.boolan.com/programmer-13-memory-pool.pdf" target="main">池內春秋</a><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; 目標：移植到 VC, BCB<br>
+  2.&nbsp; 改善 SGI STL's allocator。<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; 提示：仔細研讀《STL源碼剖析》第二章 p43~p70 和 <a
+  href="programmer-13-memory-pool.pdf" tppabs="http://jjhou.boolan.com/programmer-13-memory-pool.pdf" target="main">池內春秋</a><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; 
+  改善：將記憶體運用率提至最高，減少所有可能閒置。課內詳述。<br>
+  3.&nbsp; 追蹤並報告 Doug Lea 的 malloc algorithm。<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; 提示：<a href="javascript:if(confirm(%27http://gee.cs.oswego.edu/dl/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://gee.cs.oswego.edu/dl/%27" tppabs="http://gee.cs.oswego.edu/dl/" target="_blank">http://gee.cs.oswego.edu/dl/</a><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; 
+  注意：不必寫程式，但選此題者需有良好的書面報告撰寫能力，<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  與大程式追蹤能力，才可能獲得好成績。<br>
+  4.&nbsp; 為 STL containers 添加 serialization 功能。<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; 
+  提示：難度極大。我只要求給出簡易模型。例如只針對 list 
+  構想。課內詳述。<br>
+  </p>
+  <p><br>
+  ■第1週：02/26&nbsp;&nbsp; </p>
+  <pre>1 課程介紹，遊戲規則，書籍評介，期末作業題目（未定），助教協助購書
+2 GP (Generic Programming) and STL overview</pre>
+  <pre>■第2週：03/05</pre>
+  <pre>《STL源碼剖析》書到。碁峰予 7 折優惠。&nbsp;&nbsp; </pre>
+  <pre>三種編譯器之 command line 環境設定 batch file</pre>
+  <pre>★vc6</pre>
+  <pre>@echo off
+rem environment setting for &lt;Polymorphism in C++&gt;
+rem
+rem C:\MSDEV\VB98 for MSPDB60.DLL.
+rem (also in C:\msdev\vb98
+set PATH=C:\MSDEV\VC98\BIN;C:\MSDEV\common\MSDev98\Bin;D:\Utility
+set INCLUDE=C:\MSDEV\VC98\INCLUDE;C:\MSDEV\VC98\MFC\INCLUDE
+set LIB=C:\MSDEV\VC98\LIB;C:\MSDEV\VC98\MFC\LIB
+cls
+set</pre>
+  <pre>★cb6</pre>
+  <pre>@echo off
+rem environment setting for &lt;BCB 6.0&gt;
+rem
+set PATH=C:\borland\CBuilder6\BIN;C:\WINDOWS;C:\WINDOWS\COMMAND;d:\UTILITY
+set INCLUDE=C:\borland\CBuilder6\INCLUDE
+set LIB=C:\borland\CBuilder6\LIB
+cls
+set</pre>
+  <pre>★gcc</pre>
+  <pre>@echo off
+rem environment setting for &lt;GNU C++ 3.2, MinGW&gt;
+rem
+set PATH=c:\mingw\BIN;C:\WINDOWS;C:\WINDOWS\COMMAND;d:\UTILITY
+set INCLUDE=
+set LIB=
+cls
+set</pre>
+  <pre>1. STL 運用實例（六大組件都用過） <a target="main"
+href="yz912-using-stl-1.cpp.htm" tppabs="http://jjhou.boolan.com/yz912-using-stl-1.cpp">實例</a>
+2. C++ Templates </pre>
+  <pre>★練習1：設定好你的編譯環境，建議使用 console mode.
+★練習2：試用 C runtime library 的 qsort() 寫個程式
+         感受一下 function pointer.（參考《STL源碼剖析》p40）</pre>
+  <pre><a href="yz912-q2.txt.htm" tppabs="http://jjhou.boolan.com/yz912-q2.txt" target="main">課後學生來信詢問</a>（下次上課答覆）</pre>
+  <pre>■第3週：03/12</pre>
+  <pre>繼續練習使用 STL <a target="main" href="yz912-using-stl-2.cpp.htm" tppabs="http://jjhou.boolan.com/yz912-using-stl-2.cpp">實例</a></pre>
+  <pre>各種 STL containers 和 STL algorithms（以及其他組件）的運用，是很有趣的。
+同學應該自己動手試試。</pre>
+  <pre>■第4週：03/19</pre>
+  <pre>練習 C++ template 技術。<a target="main" href="yz912-templates.cpp.htm" tppabs="http://jjhou.boolan.com/yz912-templates.cpp">實例</a>。</pre>
+  <pre><a href="yz912-q4.txt.htm" tppabs="http://jjhou.boolan.com/yz912-q4.txt" target="main">課後學生來信詢問</a>（下次上課答覆）</pre>
+  <p>　</p>
+  <pre><a href="yz912-allocator.h.htm" tppabs="http://jjhou.boolan.com/yz912-allocator.h" target="main">yz912-allocator.h</a>
+<a href="yz912-list.h.htm" tppabs="http://jjhou.boolan.com/yz912-list.h"
+target="main">yz912-list.h</a>
+<a href="yz912-algorithm.h.htm" tppabs="http://jjhou.boolan.com/yz912-algorithm.h" target="main">yz912-algorithm.h</a>
+<a
+href="yz912-functional.h.htm" tppabs="http://jjhou.boolan.com/yz912-functional.h" target="main">yz912-functional.h</a>
+<a href="yz912-iterator.h.htm" tppabs="http://jjhou.boolan.com/yz912-iterator.h"
+target="main">yz912-iterator.h</a>
+<a href="yz912-main.cpp.htm" tppabs="http://jjhou.boolan.com/yz912-main.cpp" target="main">yz912-main.cpp</a></pre>
+  <pre>■第5週：03/26</pre>
+  <pre>本週開始，一方面認識六大組件，一方面由老師示範寫一個 STL lite（是個
+不小的工程） 。主要只寫出 interface，不涉太多 implementation。</pre>
+  <pre>首先，寫一個陽春型的 allocator。</pre>
+  <pre>■第6週：04/02（<font color="#FF0000"><strong>春假</strong></font>）</pre>
+  <pre>■第7週：04/09</pre>
+  <pre>仔細研究 SGI STL allocator 的優缺點</pre>
+  <pre>■第8週：04/16（<strong><font color="#FF0000">期中考。本課程無期中考</font></strong>）</pre>
+  <pre>■第9週：04/23</pre>
+  <pre>接合 YZ::allocator 與 YZ::list</pre>
+  <pre>o.寫出第一級 alloc (TASS,p57)
+o.寫出 simple_alloc (TASS,p54)
+o.測試 simple_alloc
+o.寫出 __list_node 和 __list_iterator (TASS, p129,p130)
+o.寫出 list 的數項操作函數 (TASS,p131~p137)
+o.寫出全域函式 constuct(),destroy() (TASS,p50~52)
+o.寫出全域函式 distance() (TASS,p99)
+o.寫出全域函式 for_each(),find() (TASS,p344~349)
+o.測試 list
+
+</pre>
+  <pre>■第10週：04/30</pre>
+  <pre>o.為什麼 SGI memory pool 有能力測知被歸還的 block（由某個指標指出）的大小？
+&nbsp;&nbsp; 靠的是 simple_alloc(TASS,p54)中由編譯器推導出來的 T。 
+o.第四章 vector, list, deque 結構與特性。</pre>
+  <pre>■第11週：05/07</pre>
+  <pre>o.補充 copy ctor, op=, dtor 之於 class with pointer members 的重要性
+  示範：<a
+target="main" href="yz912-string.cpp.htm" tppabs="http://jjhou.boolan.com/yz912-string.cpp">yz912-string.cpp</a>
+o.補充 std::string（sizeof,reference counting,Copy-On-Write）
+o. specialization of class template 
+o. partial specialization of class template
+o. iterator and traits mechanism（TASS, ch3）</pre>
+  <pre>同學詢問「一堆資料，先根據某值排序，再根據某值排序」該怎麼寫。
+請參考這裡 <a
+target="main" href="qa28-2.cpp.htm" tppabs="http://jjhou.boolan.com/qa28-2.cpp">QA28-2.cpp</a></pre>
+  <pre><a href="yz912-q11.txt.htm" tppabs="http://jjhou.boolan.com/yz912-q11.txt" target="main">課後學生來信詢問</a>（關於 operator&lt; for pair）（下次上課<a
+href="yz912-q11.cpp.htm" tppabs="http://jjhou.boolan.com/yz912-q11.cpp" target="main">答覆</a>）</pre>
+  <pre>■第12週：05/14</pre>
+  <pre>o. 公佈期末作業分組及評量細節
+o. 再度補充 std::string（sizeof, reference counting, Copy-On-Write, proxy）
+o. 繼續講解 iterator and traits mechanism（TASS, ch3）
+o. 修改 yz912-list.h，為 list 加上 iterator_category；
+o. 修改 yz912-iterator.h，添加 iterator_traits&lt;&gt;。
+o. 修改 yz912-iterator.h，使 distance()做到最佳效率。
+o. 修改 yz912-iterator.h，添加 advance()。
+o. hash table 概念</pre>
+  <pre><font color="#0000FF">同學詢問了一個關於 traits 的問題</font>：
+是否可以拿 TASS p86 的 MyIter，針對 native pointer 做偏特化設計，
+依此類推，是否可以對所有 STL container iterator 做
+「針對 native pointer 的偏特化設計」，
+如此一來就不需要 iterator traits 機制了。因為畢竟像
+   iterator_traits&lt;Iterator&gt;::value_type 
+這樣的述句，對許多人還是存在理解上的困難。
+由此推想，是否 STL 是在做出上述的動作（設計）之後，發現可以往上
+提取一層抽象性，所以才發展出 iterator traits 機制？</pre>
+  <pre><font color="#0000FF">●侯捷回覆：</font>
+TASS p86 的 MyIter，乃至於任何 STL container iterators，都不能
+針對 native pointer 做偏特化設計。因為它們是 something like pointer，
+它們所接受的 template type parameter T，是元素型別，
+不該對 native pointer 做偏特化設計（牛頭不對馬嘴）。
+只有更上層的 class template，才能（才適合）對 iterator 做出
+「針對 native pointer 的偏特化設計」。也就是說，
+只有更上層的 class template，
+才能利用 C++ 語言的 template partial specialization 特性，
+區分出它所收到的東西（型別）是個 native pointer 還是個 iterator class. 
+以上所謂「更上層」意思是「凌駕於 native pointer 和 iterator class 之上」，
+這個更上層的東西就是 iterator_traits&lt;I&gt;。 </pre>
+  <pre>■第13週：05/21</pre>
+  <pre>o. hash table 技術細節
+o. hash table 的運用
+o. map 的運用</pre>
+  <pre>■第14週：05/28</pre>
+  <pre>o. STL functors (function objects)
+o. STL adatpers
+o. 修改 yz912-functional.h，
+   添加 15 個 functors 和 2 個 functor adapters。
+o. 修改 yz912-algorithm.h，添加 count_if()
+o. 修改 yz912-main.h，添加測試    
+   YZ::count_if(myList.begin(), myList.end(), 
+                YZ::not1(YZ::bind2nd(YZ::less&lt;int&gt;(),30)));
+o. 探討istream_iterator, ostream_iterator
+■第15週：06/4（<strong><font
+color="#FF0000">端午節放假</font></strong>）</pre>
+  <pre>■第16週：06/11（<strong><font color="#FF0000">本學期最後一次上課。繳交期末作業</font></strong>）</pre>
+  <pre>o. 在 STL 中可看到的 design patterns
+o. Adapter
+o. Command
+o. Proxy
+o. Reference Counting
+o. Smart Pointer</pre>
+  <pre>■第17週：06/18（<strong><font color="#FF0000">期末考。本課程無期末考</font></strong>）</pre>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+</blockquote>
+</body>
+</html>

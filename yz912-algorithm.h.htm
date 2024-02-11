@@ -1,0 +1,56 @@
+<html>// yz912-algorithm.h
+
+// 設計一些 algorithms
+// 參考：《STL源碼剖析》p334~p360
+// count, count_if, find, find_if, generate, for_each,
+// max, min, max_element, min_element,
+// replace, replace_copy, replace_if, replace_copy_if
+
+#ifndef _YZ_ALGORITHM_
+#define _YZ_ALGORITHM_
+
+#include "yz912-iterator.h" // for iterator_traits
+
+namespace YZ
+{
+	
+
+template <class InputIterator, class Function>
+Function 
+for_each(InputIterator first, InputIterator last, Function f) {
+  for ( ; first != last; ++first)
+    f(*first);	// 喚起仿函式 f 的 function call 運算子. 傳回值被忽略
+  return f;
+}
+
+template <class InputIterator, class T>
+InputIterator 
+find(InputIterator first, InputIterator last, 
+                       const T& value) {
+  while (first != last && *first != value) ++first;
+  return first;
+}
+
+
+// 這是新版的 count_if()
+template <class InputIterator, class Predicate>
+typename iterator_traits<InputIterator>::difference_type
+count_if(InputIterator first, InputIterator last, Predicate pred) {
+  // 以下宣告一個計數器 n
+  typename iterator_traits<InputIterator>::difference_type n = 0;
+  for ( ; first != last; ++first)	// 整個範圍走一篇
+    if (pred(*first))			// 如果元素帶入pred 的運算結果為 true
+      ++n;				// 計數器累加1
+  return n;
+}
+
+
+} // namespace YZ
+
+#endif // _YZ_ALGORITHM_
+
+
+
+
+
+

@@ -1,0 +1,698 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>侯捷觀點【Genericity/STL 大系】</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font>
+
+<table border="0" cellpadding="6" cellspacing="0" width="694">
+  <tr>
+    <td width="24"><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td width="587"><p align="center">侯捷觀點（系列書評 2/2）<br>
+    <br>
+    <big><big>【Genericity/STL 大系】<br>
+    </big></big><br>
+    《程序員》2001.02<!--mstheme--></font></td>
+    <td width="23"><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="24"><font size="3"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td valign="top" width="587"><br>
+    作者簡介：侯捷，臺灣電腦技術作家，著譯評兼擅。常著文章自娛，頗示己志。<br>
+    個人網站：www.jjhou.com<br>
+    北京鏡站：www.csdn.net/expert/jjhou<p>　</p>
+    <p>如果有一項技術，可以讓你的程式碼處理各種不同的資料型別，甚至是<font
+    color="#0000FF">目前未知的</font>資料型別，你喜歡嗎？<br>
+    <br>
+    我會欣喜若狂。<br>
+    <br>
+    基本上這就是「可復用性（reusibility）」的表現。當我們有新的資料型態產生，而過去完成的碼完全無需修改即可沿用，不正是一種完美的「可復用性」嗎？<br>
+    <br>
+    物件導向技術中的多型（<font color="#0000FF"><strong>polymorphism</strong></font>），以及泛型技術中的泛型（<strong><font
+    color="#0000FF">genericity</font></strong>）都可以達到這個目標。它們的字義，也明白標示出其特色。對大多數人而言，<font
+    color="#0000FF"><strong>polymorphism</strong></font>（多型技術）早已如雷灌耳，<strong><font
+    color="#0000FF">genericity</font></strong>（泛型技術）則稍感陌生。這是一個你有必要儘快進入的重要領域。</p>
+    <p><br>
+    <br>
+    ●勤前教育<br>
+    <br>
+    數年前我第一次接觸泛型程式設計（generic programming）與 STL（Standard 
+    Template Library）的時候，就深深被它吸引。雖然那時候我還不怎麼瞭解 
+    STL 裡頭一大堆的術語像是 container、iterator、adaptor、function object、allocator…。甚至連泛型技術深度依賴的基本技法 
+    C++ template，當時的我都還只一知半解，但光只「泛型」這兩個字就夠把我吸引到那個世界裡面了。<br>
+    <br>
+    但願我這麼說不至於誤導你把泛型程式設計和 STL 
+    劃上等號。泛型概念濫觴於 Doug McIlroy 於 1968 年發表的一篇著名論文 
+    &quot;Mass Produced Software Components&quot;，那篇論文提出了 &quot;reusable 
+    components&quot;（可復用軟體組件，又稱為軟體積木或軟體 IC）的願景。過去數十年中，泛型技術仍屬於研究單位中的驕客，實作產品付之闕如。直到 
+    C++ 不斷加強 template 機制，並將 Alexander Stepanov 創作的 STL 
+    納入標準，泛型技術才終於在標準資料結構和標準演算法領域中有一套可被大眾運用的實作品出現，向現實跨一大步。<br>
+    <br>
+    讓我們先複習一下。下面是<strong>多型</strong>的標準形式：</p>
+    <p><small><font face="Courier New">void func(Shape* ps)&nbsp; // Shape </font>是某個 <font
+    face="Courier New">class </font>繼承體系的基礎類別<br>
+    <font face="Courier New">{<br>
+    &nbsp;&nbsp;&nbsp; // ...<br>
+    &nbsp;&nbsp;&nbsp; ps-&gt;draw();&nbsp; // draw() </font>是個虛擬函式 <font
+    face="Courier New">(virtual function)<br>
+    }</font></small><br>
+    <br>
+    func() 的呼叫者可以自由傳入 Shape 繼承體系下任何一個 Shape 
+    衍生類別的物件指標，func() 
+    函式所喚起的將是實際傳入之物件（指標）所對應的那個 draw() 
+    虛擬函式。這種寫法所帶來的好處是，即使將來&nbsp; Shape 
+    繼承體系衍生出前所未見的子型別，只要該子型別本身提供了 draw() 
+    虛擬函式，上面這個 func() 就完全不必更改，可繼續使用。<br>
+    </p>
+    <p>那麼，<strong>泛型</strong>又是什麼呢？簡單地說，這是一種「將資料型別參數化」的思維模式。C++ 
+    的 template 機制就是泛型技術的一個具體載具。在 C++ 中，不論 
+    functions 或是 classes，皆可將其中所需要的資料型別以一個保留器（placeholder）代表，這個保留器亦即所謂的 
+    <font color="#0000FF">template 參數</font>。例如 function template：<br>
+    <br>
+    <small><font face="Courier New">template&lt;<font color="#0000FF">typename T1, typename T2</font>)<br>
+    void func(T1 param1, T2 param2) { /* ... */ }</font></small><br>
+    <br>
+    或是 class template：<br>
+    <br>
+    <small><font face="Courier New">template&lt;<font color="#0000FF">typename T1, typename T2</font>)<br>
+    class A { /* ... */ }</font></small><br>
+    <br>
+    從此，一旦程式中使用上述的 func() 或 class A，例如：<br>
+    <br>
+    <small><font face="Courier New">func(5, 2.3);<br>
+    A&lt;int, double&gt; a;</font></small><br>
+    <br>
+    編譯器即根據 function template 的函式引數（上例的 5 和 2.3），或根據被我們明白標示出來的 
+    class template 引數（上例的&nbsp; int&nbsp; 和 double），自動推導出一份 
+    function 實體或 class 實體。這個所謂的具現化動作（instantiation）在編譯期就完成，不會增加執行期的成本。關於 
+    template 的詳細語法與性能，請參考任何一本完備的 C++ 百科型書籍。<br>
+    <br>
+    以上這種「<strong>將資料型別參數化，再由編譯器視使用當時的情況，為我們完成實體具現化</strong>」的概念，即是泛型的實際展現。template 
+    是 C++ 語言中支援泛型概念的一個工具，而 STL 
+    則是泛型概念的一套實作品。從學理上來說，STL 其實是一套嚴謹的 
+    &quot;<font color="#0000FF">concepts</font>&quot; 分類學。這裡所謂的 <font
+    color="#0000FF">concepts</font> 
+    有其嚴謹定義，意指「對某種型別的某些條件需求」。滿足這些條件之型別，稱為該 
+    <font color="#0000FF">concept</font> 的一個 <font color="#0000FF">model</font>。舉個例子，如果我們能夠複製型別為 
+    T 之物件，並可以將數值指派給 T 型別的變數身上，那麼型別 T 
+    便符合 <em><strong>Assignable</strong></em> 這一 <font color="#0000FF">concept</font>，而 
+    T 便是 <em><strong>Assignable</strong></em> 的一個 <font color="#0000FF">model</font>。STL 
+    的六大組件 containers, algorithms, iterators, function objects, allocators, adaptors, 
+    全都是 <font color="#0000FF">concepts</font>，實作品如 vector, list, sort(), 
+    swap() 等等 templates, ... 全都是 <font color="#0000FF">model</font>s。<br>
+    <br>
+    這樣的學理概念，對大部份人勿寧是不可承受之重。大部份人只著眼 
+    STL 的實用性，因為 STL 
+    非常好用，彈性非常大，執行效率也很理想，可大幅提昇軟體開發效率。從實作的角度來看，以各種方式完成，符合 
+    STL concepts 需求之各種 C++ classes 和 C++ functions，就是大家一般印象中的 
+    STL，它們實際存在於各個相應的含入檔中，如 
+    &lt;vector&gt;,&lt;functional&gt;, &lt;algorithms&gt;.<br>
+    </p>
+    <p><br>
+    ●剖析 STL </p>
+    <p>任何學習，如果直接從抽象思維開始，對大部份人是一件困難的工作。通常我們需要一個具體可操作的東西，慢慢再由具象操作轉為抽象思考。<br>
+    <br>
+    那麼，先學會使用 STL，應該是學習泛型思維的最好途徑。事實上，自從 
+    STL 以及整個 C++ 標準程式庫定案之後，很多專家，包括 Bjarne Stroustrup，都認為 
+    C++ 程式語言的教學，首先應從如何使用標準程式庫（含 STL）開始。</p>
+    <p>我當然無法在這篇文章中告訴你 STL 
+    乃至整個標準程式庫的用法。但是我可以給你一些概念，讓你知道 
+    STL 的架構。<br>
+    <br>
+    STL 是一個完全以 template 技術完成的程式庫。它構成了 C++ 
+    標準程式庫的絕大部份骨幹 — 粗略估計應該佔 80% 以上的面積。STL 
+    有六大組件（components）：<br>
+    <br>
+    1 <font color="#0000FF"><strong>containers</strong></font>（容器），各種基本資料結構如 
+    vector, list, deque, set, map…，共約 11 種。其中有些亦被歸類為 adaptors。<br>
+    <br>
+    2 <font color="#0000FF"><strong>algorithms</strong></font>（演算法），各種基本演算法如 
+    sort, search, copy, erase…，共約 70 個。<br>
+    <br>
+    3 <font color="#0000FF"><strong>iterators</strong></font>（迭代器）：應用於容器與演算法身上的一種泛型指標，扮演兩者間的膠著劑。<strong><font
+    color="#FF0000">[Gamma95]</font></strong> 對於 iterator 這種設計樣式（design 
+    pattern）的定義是：<strong>提供一種方法，俾得依序巡訪某個聚合物件（容器）所含的各個元素，而又不需曝露該聚合物件的內部表述方式</strong>。STL 
+    共提供了五種 iterators 型態，以及各種衍生變化。Iterator 是 STL 
+    中最重要最抽象的一個組件，它使容器與演算法可以各自獨立發展，這是一種突破性的觀念。不論就實作技術或抽象觀念，iterator 
+    都是 STL 中最關鍵的成份。瞭解了 iterators，也就進入了 STL 的大門。<br>
+    <br>
+    4 <font color="#0000FF"><strong>function object</strong></font>：行為類似 function，但其實是一種 
+    object。以實作技術而言，這是一個改寫了 &quot;call operator&quot; 的 class。STL 
+    提供 15 個現成的 function objects。<br>
+    <br>
+    5 <font color="#0000FF"><strong>adaptors</strong></font>（調適器）：用來改變（修飾）其他組件的介面。<font
+    color="#FF0000"><strong>[Gamma95]</strong> </font>對於 adaptor 這種設計樣式（design 
+    pattern）的定義是：<strong>將一個 class 的介面轉換為另一個 class 
+    的介面，使原本因介面不相容而不能合作的 classes，可以一起運作</strong>。在 
+    STL 中，改變 function object 介面者，稱為 function adaptor，改變 container 
+    介面者，稱為 container adaptor。改變 iterator 介面者，稱為 iterator adaptor。例如 
+    STL 提供的兩個容器 queue 和 stack，其實都只不過是 adaptor，修飾了 
+    deque 的介面而成就出另一種容器風貌。<br>
+    <br>
+    6 <strong><font color="#0000FF">allocator</font></strong>（記憶體配置器）：容器空間配置系統。STL 
+    提供有現成的 allocator。<br>
+    <br>
+    <br>
+    <br>
+    下面這個例子，用上了 STL 
+    的所有六種組件，目的是找出某個數列之中數值大於 40 
+    的元素個數，答案為 4。從這個例子，你可以看到 STL 
+    不同組件間的接合，發展到了一個怎樣靈活的程度，像樂高積木一樣，有無限可能。<br>
+    <br>
+    <small><font face="Courier New">#include &lt;algorithm&gt;<br>
+    #include &lt;functional&gt;<br>
+    #include &lt;vector&gt;<br>
+    #include &lt;iostream&gt;<br>
+    using namespace std;<br>
+    <br>
+    int main()<br>
+    {<br>
+    int ia[ ] = { 27, 210, 12, 47, 109, 83, 40 };<br>
+    <font color="#0000FF">vector</font>&lt;int, <font color="#0000FF">allocator</font>&lt;int&gt; 
+    &gt; vec( ia, ia+7 );<br>
+    <br>
+    cout &lt;&lt; <font color="#0000FF">count_if</font>(<font color="#0000FF">vec.begin(), 
+    vec.end()</font>,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    <font color="#0000FF">not1(bind2nd(less_equal</font>&lt;int&gt;(), 40)));<br>
+    <br>
+    return 0;<br>
+    }<br>
+    // vector </font>是一個 <font face="Courier New">STL </font>容器<br>
+    <font face="Courier New">// count_if </font>是一個 <font face="Courier New">STL </font>演算法<br>
+    <font face="Courier New">// not1 </font>和 <font face="Courier New">bind2nd </font>都是 
+    <font face="Courier New">STL function adaptors<br>
+    // less_equal&lt;&gt; </font>是一個 <font face="Courier New">STL function object<br>
+    // allocator&lt;&gt; </font>是一個 <font face="Courier New">STL </font>記憶體配置器<br>
+    <font face="Courier New">// vec.begin() </font>和 <font face="Courier New">vec.end() </font>分別傳回兩個 
+    <font face="Courier New">iterator</font>，指向容器 <font face="Courier New">vec </font>的頭尾。</small><br>
+    &#26;</p>
+    <dl>
+      <dt><br>
+        ●軟體組件分類學<br>
+        <br>
+        STL 
+        的實用價值當然很高。但是工具的使用對於技術的探究乃至學理的鑽研，已屬末流。要掌握 
+        STL 的精神，乃至將來得以自行發展組件，與既有的 STL 
+        水乳交融，就必須更深一層看看 STL 的背後學理。<br>
+        <br>
+        前面說過，STL 
+        其實是在泛型思維模式之下建立起一個系統化的、條理分明的「軟體組件分類學」。這個分類學嚴謹定義了什麼是 
+        <font color="#0000FF">concept</font>, 什麼是 <font color="#0000FF">model, </font>什麼是 
+        <font color="#0000FF">refinement</font>, 什麼是<font color="#0000FF"> range</font>，也定義了什麼是 
+        <font color="#0000FF">predicate</font>, 什麼是<font color="#0000FF"> iterator</font>, 
+        什麼是 <font color="#0000FF">adaptor</font>…。我將在此試述其中一二，讓你在最短時間內對 
+        STL 的本質有一個初步的認識。<br>
+        <br>
+        <font color="#0000FF">⊙所謂 concept 和 model</font><br>
+        <br>
+        所謂 concept，描述某個抽象型別的條件（或說需求，requirements）。concept 
+        並不是一個 class，也不是一個變數或是一個 template 參數；C++ 
+        語言之中沒有任何東西可以直接代表一個concept。然而，在每一個用到泛型程式設計方法的 
+        C++ 程式中，concept 非常重要。由 concepts 所構成的階層體系，正是 STL 
+        的主體結構。<br>
+        <br>
+        當某個型別滿足某個 concept 的所有條件，我們便說此型別是該 conecpt 
+        的一個model。concept 可被視為一組型別條件。如果型別 T 是 concept C 
+        的一個 model，那麼 T 就一定滿足 C 的所有條件。因此，concept 
+        亦可被視為是一組型別。如果型別 T 是 concept C 的一個 model，我們便可說 
+        T 隸屬於「C 所表現的一組型別」。<br>
+        <br>
+        舉個例子，STL 規範了一些基本 concepts 
+        如下，其中並描述了欲符合那些條件，必須以 C++ 完成哪些建設。<br>
+        <br>
+        1. <strong>Assignable</strong>：型別 T 如果是 concept Assignable 的一個 model，我們便可以將 
+        T 物件的內容拷貝並指派給型別為 T 的另一個物件，換言之型別 <font
+        color="#0000FF">T 必須有一個 copy constructor</font>。如果 x, y 都有 Assignable 
+        性質，那麼保證以下動作中的 x, y 有著相同的值：<br>
+        <br>
+        <font face="Courier New">X x(y)<br>
+        x = y<br>
+        tmp = y, x = tmp</font><br>
+        <br>
+        <br>
+        2. <strong>Default Constructible</strong>：如果型別 T 是 Default Constructible 
+        的一個 model，<font color="#0000FF">它必須有一個 default constructor</font>。也就是說我們可以這麼寫而產生出一個 
+        T 物件：<br>
+        <br>
+        <font face="Courier New">T()</font><br>
+        <br>
+        欲產生出一個型別為 T 名稱為 t 的變數，可以這樣寫：<br>
+        <br>
+        <font face="Courier New">T t;</font><br>
+        <br>
+        C++ 的所有內建型別如 int 和 void，都隸屬於 Default Constructible。<br>
+        <br>
+        <br>
+        3. <strong>Equality Comparable</strong>：如果型別 T 是 Equality Comparable 的一個 
+        model，<br>
+        我們便可以這樣比較兩個 T 物件是否相等：<br>
+        <br>
+        <font face="Courier New">x==y</font><br>
+        <br>
+        或<br>
+        <br>
+        <font face="Courier New">x!=y</font><br>
+        <br>
+        換言之 <font color="#0000FF">T 必須支援 operator== 和 operator!=</font>。<br>
+        <br>
+        <br>
+        4. <strong>LessThan Comparable</strong>：如果型別 T 是 LessThan Comparable 的一個 
+        model，<br>
+        我們可以這樣測試某個 T 物件是否小於另一個 T 物件：<br>
+        <br>
+        <font face="Courier New">x &lt; y</font><br>
+        <br>
+        或<br>
+        <br>
+        <font face="Courier New">x &gt; y</font><br>
+        <br>
+        換句話說如果某個型別能夠以某種次序排列，它便隸屬於 LessThan 
+        Comparable，<br>
+        <font color="#0000FF">它必須能夠以 operator&lt; 做為比較動作，而 
+        operator&lt; 必須定義出某種順序性。<br>
+        </font><br>
+        <br>
+        <br>
+        如果某個型別同時符合 Assignable, Default Constructible, Equality Comparable 
+        三種 concepts，我們稱此型別為 <strong>regular type</strong>。大部份的 C++ 
+        內建基本型別都是 regular types，例如 int 便是。幾乎所有定義於 STL 
+        中的型別（class templates）也都是 regular types。<br>
+        <br>
+        <br>
+        現在我們看看具體的 STL 容器 vector，由哪些 concepts 
+        衍生過來。圖一是根據 STL 定義而繪製的 vector 概念衍化體系。<br>
+      </dt>
+      <dd>　</dd>
+      <dt>　</dt>
+      <dt><font color="#0000FF">圖一 / 根據 STL 定義而繪製的 vector 概念衍化體系</font><br>
+        <img src="vector.jpg" tppabs="http://jjhou.boolan.com/vector.jpg" width="622" height="435" alt="vector.jpg (27493 bytes)"><br>
+        <br>
+        <br>
+        <font color="#0000FF">⊙所謂 refinements</font><br>
+        <br>
+        如果 concept C2 供應 concept C1 
+        的所有機能，並且（可能）加上其他機能，我們便說 C2 是 C1 的一個 
+        refinement（強化）。<br>
+        <br>
+        Modeling 和 refinement 必須滿足以下三個重要特性。只要把 concepts 
+        想像為一組型別，以下三者就很容易驗證：<br>
+        <br>
+        1. <strong>Reflexivity</strong>（反身性）。每一個 concept C 是其本身的一個 
+        refinement。<br>
+        <br>
+        2. <strong>Containment</strong>（涵蓋性）。如果型別 X 是 concept C2 的一個 
+        model，而 C2 是 concept C1 的一個 refinement，那麼 X 必然是 C1 的一個 model。<br>
+        <br>
+        3. <strong>Transitivity</strong>（遞移性）。如果 C3 是 C2 的一個 refinement，而 
+        C2 是 C1 的一個 refinement，那麼 C3 是 C1 的一個 refinement。<br>
+        <br>
+        一個型別可能是多個 concepts 的 model，而一個 concept 可能是多個 concept 
+        的 refinement。</dt>
+      <dt><br>
+        <br>
+        <font color="#0000FF">⊙所謂 range（範圍）</font><br>
+        <br>
+        對於 range [first, last)，我們說，只有當 [first, last) 
+        之中的所有指標都是可提領的（dereferenceable），而且我們可以從 first 
+        到達 last（也就是說對 first 累加有限次數之後，最終會到達 last），我們才說 
+        [first, last) 是有效的。所以，[A, A+N) 是一個有效的 range，empty range [A, 
+        A) 也是有效的。[A+N, A) 就不是一個有效的 range。<br>
+        <br>
+        一般而言，ranges 滿足以下性質：<br>
+        <br>
+        1. 對任何指標 p 而言，[p, p) 是一個有效的 range，代表一個空範圍。<br>
+        <br>
+        2. 如果 [first, last) 是有效而且非空的 range，那麼 [first+1, last) 
+        也是一個有效的 range。<br>
+        <br>
+        3. 如果 [first, last) 是有效的 range，而且 mid 是一個可由 first 
+        前進到達的指標，而且 last 又可以由 mid 前進到達，那麼 [first, mid) 
+        和 [mid, last) 都是有效的 ranges.<br>
+        <br>
+        4. 反向而言，如果 [first, mid) 和 [mid, last) 都是有效的 ranges，那麼 
+        [first, last) 便是有效的 ranges。<br>
+        <br>
+      </dt>
+      <dt><br>
+        有人開始吃不消了，這是數學還是編程呀?! 
+        的確，我們面對的是一個有著數學般嚴謹定義的「軟體組件分類學」。整個 
+        STL 就是由這些 concepts 
+        構成。至於真正的實作品，不過是在這樣的觀念基礎上，以 C++ 
+        實踐出來而已。<br>
+      </dt>
+    </dl>
+    <p><br>
+    ●效率的疑慮<br>
+    <br>
+    人們對於 STL 的最大誤解是效率。事實上 STL 
+    提供的是一個不損及效率的抽象性。泛型編程和物件導向編程不同，它並不要求你透過額外的間接層來呼叫函式；它讓你撰寫一般化、可復用的演算法，其效率和「針對特定資料型別而設計」的演算法旗鼓相當。每一個演算法、每一個容器的操作行為，其複雜度都有明確規範 
+    — 
+    通常是最佳效率或極佳效率。在接受規格書明定的複雜度之後，我想你不會認為自己親手撰寫的碼，能夠更勝通過嚴格檢驗、通行世界、無數人使用的程式庫。<br>
+    <br>
+    人們對 STL 
+    效率的誤解，有一大部份是把編譯期效率和執行期效率混為一談了。的確，大量而巢狀地運用 
+    templates，會導致編譯器在進行 template引數推導（argument deduction）及具現化（instantiation）時耗用大量時間。但它絕不影響執行效率。至於對專案開發時程所帶來的影響，我要說，和 
+    STL 為我們節省下來的開發時間相比，微不足道。<br>
+    <br>
+    STL 的嚴重缺點在於，它尚未支援 persistence（物件的永續性）。在良好的解決方案尚未開發出來之前，persistence 
+    必須由使用者自行完成。<br>
+    <br>
+    &#26;</p>
+    <p>●泛型技術的三個學習階段</p>
+    <p>王國維說大事業大學問者的人生有三個境界。依我看，泛型技術的學習也有三個境界：<br>
+    <br>
+    <font color="#0000FF">第一個境界</font>是使用 STL。對程式員而言，諸多抽象描述，不如實象的程式碼直指人心。<br>
+    <br>
+    <font color="#0000FF">第二個境界</font>是瞭解泛型技術的內涵與 STL 
+    的學理。除了前述的軟體概念分類學，最好再對數個 STL 
+    組件（不必太多，但最好涵蓋各類型）做一番深刻追蹤。STL 
+    原始碼都在手上（就是相應的那些表頭檔嘛），好好做幾個個案研究，便能夠對泛型技術以及 
+    STL 的學理有深刻的掌握。<br>
+    <br>
+    <font color="#0000FF">第三個境界</font>是擴充 STL。當 STL 
+    不能滿足我們的需求，我們必須有能力動手寫一個可融入 STL 
+    體系中的軟體組件。要到達這個境界之前，可得先徹底瞭解 STL，也就是先通過第二境界的痛苦折磨。<br>
+    <br>
+    也許還應該加上所謂的第０境界：C++ template 
+    機制。這是學習泛型技術及 STL 的門檻，</p>
+    <p>　</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p>以下，我便為各位介紹六本相關書籍，涵蓋不同的切入角度，也涵蓋上述三個學習層次。首先的兩本是著名的 
+    C++ 百科型書籍，我只挑其中與 STL 
+    相關的章節做介紹。為求方便，以下以學術界習慣的標示法，標示書籍代名。本文使用這些代名。凡有中文版者，我會特別加註。</p>
+    <p><br>
+    <strong>[Lippman98]</strong>: C++ Primer, 3rd Editoin, by Stanley Lippman and Josee 
+    Lajoie,<br>
+    Addison Wesley Longman, 1998. 1237 pages.<br>
+    繁體中文版：《<a href="jjtbooks-cpp-primer.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-primer.htm">C++ Primer 中文版</a>》，侯捷譯，碁峰 
+    1999. 1237 頁<br>
+    <br>
+    <img src="cpp-primer-3e-l.gif" tppabs="http://jjhou.boolan.com/cpp-primer-3e-l.gif" width="211" height="263"
+    alt="cpp-primer-3e-l.gif (117286 bytes)"><br>
+    <font color="#0000FF"><br>
+    </font></p>
+    <p><strong>[Struostrup97]</strong>: The C++ Programming Language, 3rd Editoin, by Bjarne 
+    Stroustrup, Addison Wesley Longman, 1997. 910 pages<br>
+    繁體中文版：《C++ 程式語言經典本》，葉秉哲譯，儒林 1999.（未錄總頁數）<br>
+    <br>
+    <img src="bjarne.jpg" tppabs="http://jjhou.boolan.com/bjarne.jpg" width="220" height="272" alt="bjarne.jpg (19218 bytes)"></p>
+    <p>　</p>
+    <p><br>
+    <strong>[Josuttis99]</strong>: The C++ Standard Library - A Tutorial and Reference, by 
+    Nicolai M. Josuttis, Addison Wesley 1999. 799 pages<br>
+    繁體中文版：侯捷計劃中<br>
+    <br>
+    <img src="the-cpp-standard-library.jpg" tppabs="http://jjhou.boolan.com/the-cpp-standard-library.jpg" width="222" height="279"
+    alt="the-cpp-standard-library.jpg (29700 bytes)"></p>
+    <p>　</p>
+    <p><strong>[Austern98]</strong>: Generic Programming and the STL - Using and Extending the 
+    C++ Standard Template Library, by Matthew H. Austern, Addison Wesley 1998. 548 pages<br>
+    繁體中文版：《<a href="jjtbooks-generic-programming-and-the-stl.htm" tppabs="http://jjhou.boolan.com/jjtbooks-generic-programming-and-the-stl.htm" target="main">泛型程式設計與 
+    STL</a>》，侯捷/黃俊堯合譯，碁峰 2000。548頁</p>
+    <p><img src="generic-programming-and-stl.jpg" tppabs="http://jjhou.boolan.com/generic-programming-and-stl.jpg" width="251" height="314"
+    alt="generic-programming-and-stl.jpg (26611 bytes)"><br>
+    <br>
+    </p>
+    <p>　</p>
+    <p><strong>[Jjhou01]</strong>: 泛型技術 - 從具象工具到抽象思維, by 侯捷, 
+    碁峰 2001. 頁數未定<br>
+    簡體中文版：洽談中</p>
+    <p><img src="genericity-in-cpp.jpg" tppabs="http://jjhou.boolan.com/genericity-in-cpp.jpg" width="362" height="369"
+    alt="genericity-in-cpp.jpg (28784 bytes)"></p>
+    <p>　</p>
+    <p><strong>[Gamma95]</strong>: <a
+    href="programmer-1-cpp&oop.htm#●層級四：設計觀念的復用（C++/Patterns）" tppabs="http://jjhou.boolan.com/programmer-1-cpp&oop.htm#●層級四：設計觀念的復用（C++/Patterns）"
+    target="main">Design Patterns</a>: Elements of Reusable Object-Oriented Software, by Erich 
+    Gamma, Richard Helm, Ralph Johnson, and John Vlissides, Addison-Wesley, 1995. 395 pages<br>
+    簡體中文版：《設計模式》，李英軍等譯，機械工業出版社，2000. 254 
+    頁<br>
+    <br>
+    <img src="design-patterns-l.gif" tppabs="http://jjhou.boolan.com/design-patterns-l.gif" width="211" height="280"
+    alt="design-patterns-l.gif (56368 bytes)"></p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p>　</p>
+    <p>●第零境界：泛型技術的基本門檻</p>
+    <p>在 C++ 環境中學習泛型技術，首要是把 template 
+    相關語法與語意搞清楚。包括 class templates, function templates, member 
+    templates, specialization, partial specialization。更往基礎看去，由於 STL 
+    大量運用了 operater overloading（運算子多載化），所以這個技法也必須熟捻。<br>
+    <font color="#000000"><br>
+    <strong>[Lippman98] </strong></font>是一本 C++ 
+    百科全書，向以內容廣泛說明詳盡著稱。本書內容與<font color="#000000"> 
+    template 及 STL 直接相關的章節有：<br>
+    <br>
+    </font><font color="#0000FF">chap6: Abstract Container Types<br>
+    chap10: Function Templates<br>
+    chap12: The Generic Algorithms<br>
+    chap16: Class Templates<br>
+    appendix: The Generic Algorithms Alphabetically</font><br>
+    <br>
+    <font color="#000000">間接相關的章節有：</font><br>
+    <br>
+    <font color="#0000FF">chap15: Overloaded Operators and User Defined Conversions</font><br>
+    <br>
+    書中有大量範例，尤其附錄列出所有的 STL 
+    泛型演算法的規格、說明、實例，是極佳的學習資料。不過書上有極少數例子，因為作者的疏忽，未能完全遵循 
+    C++ 
+    標準，仍沿用舊式寫法。更正作法可上繁體版支援網站（侯捷網站）看看。此書的學習方式以及華人讀者的技術討論也都可在繁體版支援網站上看到。</p>
+    <p><br>
+    <font color="#000000"><strong>[Struostrup97]</strong> </font>也是一本 C++ 
+    百科全書，向以學術權威（以及澀味極重）著稱。若非具備一定程度，對於書中內容的表達方式，淺嚐之下會有艱澀的口感。本書內容與<font
+    color="#000000"> template 及 STL 直接相關的章節有：<br>
+    </font><font color="#0000FF"><br>
+    chap3: A Tour of the Standard Library<br>
+    chap13: Templates<br>
+    chap16: Library Organization and Containers <br>
+    chap17: Standard Containers<br>
+    chap18: Algorithms and Function Objects<br>
+    chap19: Iterators and Allocators</font><br>
+    <br>
+    <font color="#000000">間接相關的章節有：</font><br>
+    <br>
+    <font color="#0000FF">chap11: </font>Operator Overloading <br>
+    <br>
+    第 19 章對 Iterators Traits 技術的介紹，在 C++ 
+    語法書中難得一見，但此為正面或負面殊難定論，因為你必須知道 
+    Traits 
+    技術之發展原由（問題之所在），才能夠瞭解為什麼變成現在這般抽象模樣。當然，我們不能期望一本 
+    C++ 
+    語言書籍對此有深刻的表現，但是這麼高階的技術，蜻蜓點水式的說明並不會引導出閱讀的興趣，反而可能會重挫讀者的信心。關於 
+    Traits 技術，<strong>[Austern98]</strong> 表現極佳。</p>
+    <p>上面所說的這兩本 C++ 
+    百科全書，基本上並不是以介紹泛型技術的角度出發，而是以「C++ 
+    涵蓋了 template 和 STL，所以我介紹它」的態度出發。因此，在相關組織上，稍嫌凌亂。不過我想，沒有人會因此對他們求全責備。</p>
+    <p><br>
+    ●第一境界<font color="#0000FF">：</font><font color="#000000">熟用 STL</font><font
+    color="#0000FF"><br>
+    </font><br>
+    一旦你開始學習 STL，乃至開始實際運用 STL，<strong>[Josuttis99]</strong> 
+    絕對可以為你節省大量的翻查、參考、錯誤嘗試的時間。本書各章如下：</p>
+    <p><font color="#0000FF">1. About the Book<br>
+    2. Introduction to C++ and the Standard Library<br>
+    3. General Concepts<br>
+    4. Utilities<br>
+    5. The Standard Template Library<br>
+    6. STL Containers<br>
+    7. STL Iterators<br>
+    8. STL Function Objects<br>
+    9. STL Algorithms<br>
+    10 Special Containers<br>
+    11 Strings<br>
+    12 Numerics<br>
+    13 Input/Output Using Stream Classes<br>
+    14 Internationalization<br>
+    15 Allocators<br>
+    Internet Resources<br>
+    Bibliography<br>
+    Index</font><br>
+    <br>
+    正如其副標所示「本書兼具學習用途及參考價值」，既不誇張也當之無愧。本書涵蓋的不僅是 
+    STL，而是整個 C++ 
+    標準程式庫，詳細介紹每一個組件的規格及運用方式，並佐以範例。作者的整理功夫做得非常好非常紮實。在觀念解說方面，經常以圖表形式讓讀者一目瞭然。<br>
+    <br>
+    由於本書介紹的對象是整個 C++ 
+    標準程式庫，所以少見於其他書籍的某些組件，如 valvarry, mem_fun, 
+    ptr_fun, locales 等等，也都涵蓋其中。標準程式庫的幾個大傢伙，像是 
+    string, iostream, locale, 
+    也都有極具水準的介紹。本書的另一個特色是，對於與 STL 
+    相關的各種異常訊息（exceptions），亦有介紹。這很少見。<br>
+    <br>
+    [Josuttis99] 不僅介紹 STL 組件的運用，也導入 STL 
+    的源碼。這些源碼都經過作者的節錄整理，砍去枝節，留下主幹，較易入目。這是我對此書最激賞的一部份。換句話說，閱讀此書，不但進入我所說的第一學習境界，甚且進入了第二境界。這種對於白盒子（<font
+    color="#408080">註</font>）的闡釋方式和侯捷的寫作風格十分近似，我一向也喜歡繁中取簡，在百萬軍中取敵首級。這可不是容易的動作，首先得對龐大的源碼有清晰的認識，再有自己的詮釋主軸，知道什麼要砍，什麼要留，什麼要註解。<br>
+    <br>
+    <font color="#408080">註：附源碼的工具我們稱為白盒子，未附源碼者我們稱為黑盒子。</font><br>
+    <br>
+    <br>
+    本書也適度介紹某些 STL 擴充技術。例如 6.8 節介紹如何以 smart pointer 
+    使 STL 容器具有 &quot;reference semantics&quot; （原本 STL 容器只支援 
+    &quot;value semantics&quot;）。又例如 7.5.2 節介紹一個訂製型 iterator，10.1.4 
+    節介紹一個訂製型 stack，10.2.4 節介紹一個訂製型 queue。15.4 
+    節介紹一個訂製型 allocator。雖然都只短短一些篇幅，列出基本技法，但對於想要擴充 
+    STL 
+    的程式員而言，起了個頭，終究是一種實質上的莫大幫助。就這點而言，本書又進入了我所說的第三學習境界。<br>
+    <br>
+    <br>
+    通常，英文電腦書的字體都相當小，程式碼尤其更小。本書字行之間的距離特別大些，程式碼與書後索引尤然。閱讀時眼睛應該輕鬆不少。喜歡以「頁數/售價 
+    比」來評斷書籍的人，這下會高興些了，係數高不少嘛 — 
+    真像朝三暮四裡頭的猴子！盼望書籍輕一點薄一點便利攜帶的人，則可能略有慍意。我常在 
+    BBS/News 
+    上看到一些關於書厚薄與書價格的言論，令人發噱。有人拿侯捷的《深入淺出 
+    MFC》比鹿橋的《未央歌》，說兩本都是好書，但買一本《深入淺出 
+    MFC》可買五本未央歌，言下之意不以為然。真是蘋果比橘子，張飛戰岳飛！<br>
+    <br>
+    基本上談<strong>書的價值</strong>，不應該扯上書的價格與頁數。談<strong>書的價格</strong>，則不應該扯上書的頁數。<strong>我對買賣的看法</strong>是這樣：電腦書不是寫真集，沒有用保鮮膜包起來，內容與頁數都明白呈現你的眼前；你願意買，就表示你承認它的價值匹配它的價格；否則就別買。<strong>我對書價的看法</strong>則是這樣：書籍是賣知識，不是賣紙，重要的是含金量，不是頁數與厚薄。如果你不願意花比較多的錢買比較好的書，你還期望別人花比較多的精力與比較高的成本寫作/出版好書嗎？<br>
+    <br>
+    話說遠了。讓我們回到主題。<br>
+    &#26;</p>
+    <p>●第二境界：瞭解泛型技術的內涵與 STL 的學理</p>
+    <p><strong>[Austern98]</strong> 
+    是一本艱深的書。沒有三兩三，別想過梁山，你必須對 C++ template 
+    技法、STL 
+    的運用、泛型設計的基本精神都有相當基礎了，才得一窺此書堂奧。<br>
+    <br>
+    本書第一篇對 STL 的設計哲學有很好的導入，第二篇是詳盡的 STL 
+    concepts 完整規格，第三篇則是詳盡的 STL components 
+    完整規格，並附運用範例。</p>
+    <p><font color="#0000FF">PartI : Introduction to Generic Programming<br>
+    1. A Tour of the STL<br>
+    2. Algorithms and Ranges<br>
+    3. More about Iterators<br>
+    4. Function Objects<br>
+    5. Containers<br>
+    PartII : Reference Manual: STL Concepts<br>
+    6. Basic Concepts<br>
+    7. Iterators<br>
+    8. Function Objects<br>
+    9. Containers<br>
+    PartIII : Reference Manual : Algorithms and Classes<br>
+    10. Basic Components<br>
+    11. Nonmutating Algorithms<br>
+    12. Basic Mutating Algorithms<br>
+    13. Sorting and Searching<br>
+    14. Iterator Classes<br>
+    15. Function Object Classes<br>
+    16. Container Classes<br>
+    Appendix A. Portability and Standardization<br>
+    Bibliography<br>
+    Index</font><br>
+    <br>
+    本書通篇強調 STL 的泛型理論基礎，以及 STL 的實作規格。你會看到 
+    conecpt, model, refinement, range, iterator 等字詞的意義，也會看到諸如 
+    Assignable, Default Constructible, Equality Comparable 
+    等觀念的嚴謹定義。我絕對不贊成在討論、思考這些知識時，將這些原文術語轉換為中文來使用，那會非常令自己和同伴感到困惑。所幸目前為止應該不存在這樣的困擾，因為泛型的中文書籍（不論著譯）非常少，不至於對那些可能不夠統一、不夠明確的中文術語推波助瀾。<br>
+    <br>
+    雖然一本既富學術性又帶參考價值的工具書，給人嚴肅又艱澀的表象，但本書第二章及第三章解釋 
+    iterator 和 iterator traits 
+    時的表現，卻讓我不由自主地擊節讚賞，大嘆精彩。當我藉由這兩章徹底解放了 
+    <font color="#0000FF">traits</font> 編程技術，並因而有能力觀看 STL 源碼（STL 
+    源碼幾乎無所不在地運用 traits 技術）、撰寫符合規格的自定型 STL 
+    組件，我真不禁要激越昂揚，仰天長嘯。<br>
+    <br>
+    <font color="#0000FF">traits</font> 是 STL 
+    的關鍵編程技術。這個觀念無法在這裡三言兩語帶出，我就不多費事兒了。[Austern98] 
+    書中那麼好的解說與導引，你自個兒去看。<br>
+    <br>
+    就像其他任何 framework 一樣，STL 
+    以開放原始碼的方式呈現市場。這種白盒子方式，使我們在更深入剖析其技術時（可能是為了透徹，可能是為了擴充），有一個終極依恃。因此，觀看 
+    STL 源碼的能力，我認為對技術的養成與掌握，極為重要。<br>
+    <br>
+    總的來說，本書在 STL 規格及 STL 
+    學理概念的資料及說明方面，目前書市無有出其右者。我個人在元智大學開授一門「泛型程式設計」課程，[Austern98] 
+    便是我指定給同學的高階參考書。本書在 (1) 泛型觀念之深入淺出、(2) 
+    STL 架構組織之井然剖析、(3) STL 參考文件之詳實整理 
+    三方面，均有卓越表現。可以這麼說，在泛型技術和 STL 
+    的學習道路上，本書並非萬能（它不適合初學者），但如果你希望徹底掌握泛型技術與 
+    STL，沒有此書萬萬不能。<br>
+    &#26;</p>
+    <p>●第三境界：擴充 STL</p>
+    <p>要撰寫與 STL 相容 — 也就是可以和 STL 組件自由拼湊組裝在一起 
+    — 的個人自定組件，我們需要兩種書籍。你已經知道，STL 
+    的背後是一個嚴謹的「軟體概念分類學」，為了與 STL 
+    水乳交融，自定組件一定必須滿足那嚴謹的架構 — 
+    回頭看看圖一那張 vector 
+    概念衍化圖吧。因此，我們首先需要一份詳盡的 STL concepts 
+    規格書，而<strong> [Austern98]</strong> 
+    正是最好的（可能也是唯一的）候選人。<br>
+    <br>
+    第二，萬事起頭難，我們可能需要足夠的範例，帶引我們上路。目前市面上缺乏這樣的書籍。我看過 
+    &quot;Designing Components with the C++ STL&quot;，書名很吸引人，實則未能進入侯捷的推薦名單。幸好 
+    <strong>[Josuttis99] </strong>分擔了部份這樣的角色，聊堪倚仰。<br>
+    <br>
+    <br>
+    ●侯捷的理想<br>
+    <br>
+    做為一個對泛型思維及 STL 
+    產品有深刻體會的人，本身又是一名技術寫作者，我不可能沒有自己的論述理想。<br>
+    <br>
+    由於泛型與 STL 
+    對許多人而言，相對之下畢竟是新鮮玩意兒，語言層面的技法也還算新鮮而高階，所以我希望為讀者鋪陳一條由搖籃到墳墓的路。從 
+    C++ 相關語法、到 traits 編程技術、到 STL 的各種運用，再到 STL 
+    的學理探究，最後示範數個擴充組件。一書而竟全功。具參考價值的查閱型工具書我寫不來（那需要完備的資料和大量的細心），觀念闡述型的書籍則是我的拿手，也是我的興趣。<br>
+    <br>
+    下面便是暫名「泛型技術 - 從具象工具到抽象思維」的 <strong>[Jjhou01]</strong> 
+    新書目錄（暫定）。<br>
+    <br>
+    <font color="#0000FF">第1章 泛型大局觀（Overview of Generic Programming）<br>
+    第2章 C++ 運算子多載化（Operator Overloading）基本技法<br>
+    第3章 C++ 泛型基本技法 (1)：Function Template<br>
+    第4章 C++ 泛型基本技法 (2)：Class Template<br>
+    第5章 Traits 編程技法<br>
+    第6章 Iterator（泛型指標）<br>
+    第7章 Container（容器）<br>
+    第8章 Function Object（函式物件）<br>
+    第9章 Generic Algorithms（泛型演算法）<br>
+    第10章 Adaptor（配適器）<br>
+    第11章 Allocator（記憶體配置器）<br>
+    附錄 參考書目<br>
+    索引 Index</font><br>
+    <br>
+    當你看到這篇文章的同時，我正在臺灣南部的一個農村，我的老家，做這本書的最後整理。<br>
+    <br>
+    <br>
+    ●旁徵博引 左右逢源<br>
+    <br>
+    <strong>[Gamma95] </strong>與泛型或 STL 並沒有直接關係。但是 STL 
+    有兩大類組件，卻被收錄於 [Gamma95] 的 23 個設計樣式（design patterns）中：<font
+    color="#0000FF">Iterator</font> 和 <font color="#0000FF">Adaptor</font>。其他設計樣式在 
+    STL 之中也有所發揮。兩相比照，尤其是看過 STL 
+    的源碼之後，對於這些設計樣式會有更深的體會，返映過來面對 STL 
+    也會有更深一層的體會.<br>
+    <br>
+    <br>
+    ●一點感想<br>
+    <br>
+    自從被全球軟體界廣泛運用以來，C++ 
+    有了許多演化與變革。然而就像人們總是把目光放在豔麗的牡丹而忽略了花旁的綠葉，做為一個廣為人知的物件導向程式語言（Object 
+    Oriented Programming Language），C++ 所支援的另一種思維 — 泛型編程 — 
+    被嚴重忽略了。說什麼紅花綠葉，好似主觀上劃分了主從，其實物件導向思維和泛型思維兩者之間無所謂主從。兩者相輔相成，肯定能對程式開發有更大的突破。<br>
+    <br>
+    永遠記住，面對新技術，程序員最大的障礙在於心中的怯弱。<em>To be 
+    or not to be, that is the question!</em> 
+    不要和哈姆雷特一樣猶豫不決，當你面對一項有用的技術，必須果敢。</p>
+    <p>&#26;<br>
+    --- the end<br>
+<!--mstheme-->    </font></td>
+    <td width="23"><!--mstheme--></font></td>
+    <td valign="top" width="2"><p align="center"><br>
+<!--mstheme-->    </font></td>
+  </tr>
+</table>
+
+<p>　</p>
+<!--mstheme--></font>
+</body>
+</html>

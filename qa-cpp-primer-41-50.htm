@@ -1,0 +1,870 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>C++ Primer 答客問41~50</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="723">
+  <tr>
+    <td align="right" valign="top" width="35">&nbsp; <!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="bottom" width="646"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="35" bgcolor="#C0C0C0"><!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="top" width="646"><a name="C++ Primer qa41"><big><big>C++ Primer 答客問 (41)</big></big></a> 
+    - C++ Primer 練習題&nbsp; 2000.03.25 <br>
+    <br>
+    JACKY wrote (2000/02/04) :<br>
+    <br>
+    <font color="#0000FF">&gt; C++ Primer 
+    的練習題，請問哪裡可以下載答案？謝謝</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    無處可下載 — 據我所知 :)<br>
+    <br>
+    C++ Primer 3/e 的練習題，有一本習題解答：<br>
+    <br>
+    C++ Primer Answer Book, by Clovis L. Tondo &amp; Bruce P. Leung,<br>
+    Addison Wesley, 1999, ISBN 0-201-30993-9, US$ 29.95<br>
+    <br>
+    我已決定翻譯此書。出版日期安排在 2000/09。<br>
+    <br>
+    -- the end<br>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa42"><big><big>C++ Primer 答客問 (42)</big></big></a> - static in 
+    member functions &nbsp; 2000.03.25 <br>
+    <br>
+    Bachestian wrote (2000/01/13) :<br>
+    <br>
+    <font color="#0000FF">&gt; 侯大哥, 你好!<br>
+    &gt;<br>
+    &gt; 我有這個問題已經很久了. 看過您譯的 C++ Object Model, 沒找到<br>
+    &gt; 答案. (不知是不是我看得不夠細?)<br>
+    &gt;<br>
+    &gt; 我的問題是:<br>
+    &gt; 非靜態成員函式裏的靜態變數, 其初始化在何時?<br>
+    &gt;<br>
+    &gt; 在VC下實驗的結果, 非靜態成員函式裏的靜態變數, 只在該類別<br>
+    &gt; 的第一個Instance被建立時被初始化, 其後再建立的Instance, 該非<br>
+    &gt; 靜態成員函式裏的靜態變數 &quot;不會再初始化&quot;.<br>
+    &gt;<br>
+    &gt; 這是ARM裏定下的規矩嗎? 非靜態成員函式裏的靜態變數, 到底<br>
+    &gt; 該屬於類別所有, 還是屬於物件所有? 以VC的實驗結果, 它似乎<br>
+    &gt; 屬於類別所有. 但非靜態成員函式裏, 為什麼可以有屬於類別的<br>
+    &gt; 東西呢?<br>
+    &gt;<br>
+    &gt; 第二次建立一物件時, 其 &quot;非靜態成員函式裏的靜態變數&quot; 
+    不會<br>
+    &gt; 再被初始化, 對於這一點, 我已經吃了一次以上的虧了. 要改個寫<br>
+    &gt; 法很簡單, 但, 原因是什麼呢?<br>
+    &gt;<br>
+    &gt; Best regard,<br>
+    <br>
+    <br>
+    &gt; 侯大哥:<br>
+    &gt;<br>
+    &gt; 抱歉, 原來的問題文字太多. 現舉例如下:<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; //=====================================<br>
+    &gt; #include &lt;stdio.h&gt;<br>
+    &gt; //=====================================<br>
+    &gt; class A<br>
+    &gt; {<br>
+    &gt; public:<br>
+    &gt;&nbsp;&nbsp; void ShowNum();<br>
+    &gt; };<br>
+    &gt; //=====================================<br>
+    &gt; void A::ShowNum()<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; static int iNum = 0;<br>
+    &gt;&nbsp;&nbsp; printf(&quot;%d\n&quot;, iNum);<br>
+    &gt;&nbsp;&nbsp; iNum++;<br>
+    &gt; }<br>
+    &gt; //=====================================<br>
+    &gt; void main()<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; A a1;<br>
+    &gt;&nbsp;&nbsp; A a2;<br>
+    &gt;&nbsp;&nbsp; a1.ShowNum();<br>
+    &gt;&nbsp;&nbsp; a1.ShowNum();<br>
+    &gt;&nbsp;&nbsp; a2.ShowNum();<br>
+    &gt;&nbsp;&nbsp; a2.ShowNum();<br>
+    &gt; }<br>
+    &gt;<br>
+    &gt; //=====================================<br>
+    &gt; </font>以<font face="Courier New">VC6.0</font>編譯後執行結果如下<font
+    face="Courier New">:<br>
+    &gt; 0<br>
+    &gt; 1<br>
+    &gt; 2<br>
+    &gt; 3<br>
+    &gt; </font>與我期待的結果不同<font face="Courier New">:<br>
+    &gt; 0<br>
+    &gt; 1<br>
+    &gt; 0<br>
+    &gt; 1<br>
+    &gt; //=====================================</font></small><br>
+    &gt; 由執行結果看來, class A 的所有 instances, 其所看到的 ShowNum()<br>
+    &gt; 裏的 iNum 是同一個. 也就是說, iNum相當於 static class variable.<br>
+    &gt;<br>
+    &gt; Why??<br>
+    &gt;<br>
+    &gt; Non-static member function裏的local static variable, 對class而言, 把它<br>
+    &gt; 當成static variable比較恰當, 還是當成non-static variable比較恰當?<br>
+    &gt;<br>
+    &gt; 謝謝您耐心看完我的問題:)</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    抱歉，你的信來了這麼久，現在才回覆。我真的很忙（嗚嗚)<br>
+    <br>
+    <font color="#0000FF">&gt; 我有這個問題已經很久了. 看過您譯的C++ Object 
+    Model, 沒找到<br>
+    &gt; 答案. (不知是不是我看得不夠細?)</font><br>
+    <br>
+    《深度探索 C++ 物件模型》chap6, p.247「區域靜態物件<br>
+    （Local Static Objects）」應該有你需要的資訊。<br>
+    <br>
+    <font color="#0000FF">&gt; 非靜態成員函式裏的靜態變數, 其初始化在何時?</font><br>
+    <br>
+    你已經自力找到了答案：<br>
+    <br>
+    <font color="#0000FF">&gt; 在VC下實驗的結果, 
+    非靜態成員函式裏的靜態變數, 只在該類別<br>
+    &gt; 的第一個Instance被建立時被初始化, 其後再建立的Instance, 該非<br>
+    &gt; 靜態成員函式裏的靜態變數 &quot;不會再初始化&quot;.</font><br>
+    <br>
+    你寫的例子在 VC6, BCB4, GCC 編譯平台上的結果都一樣。<br>
+    <br>
+    <font color="#0000FF">&gt; 這是ARM裏定下的規矩嗎? 
+    非靜態成員函式裏的靜態變數, 到底<br>
+    &gt; 該屬於類別所有, 還是屬於物件所有? 以VC的實驗結果, 它似乎<br>
+    &gt; 屬於類別所有. 但非靜態成員函式裏, 為什麼可以有屬於類別的<br>
+    &gt; 東西呢?<br>
+    </font><br>
+    ARM 有無這麼定義，我沒查（應該是有）。可確定的是，這是<br>
+    C++ Standard 的規定。<br>
+    <br>
+    (a) non-static member function 內的 static 變數（或物件）<br>
+    和<br>
+    (b) class 的 static data members<br>
+    <br>
+    意義並不相同。(b) 屬於 class 所有，(a) 則可視為一般（傳統）<br>
+    印象中的 static 變數，我的意思是，它產生之後，壽命可延續到<br>
+    程式結束為止（不受 scope 限制）。我們不能說 (a) 屬於 class 所有，<br>
+    (a) 事實上是個 local 變數。<br>
+    <br>
+    它們的誕生時機亦不相同。(b) 是在程式 start-up 期間（比 main 還早）<br>
+    完成初始化動作，這一點在《深度探索 C++ 
+    物件模型》中有明確的探討。<br>
+    至於 (a) 的初始化時機，如你所言。<br>
+    <br>
+    另一個不同是存取時機。如果 classes in question 沒有任何物件<br>
+    誕生，那麼你絕對無法存取 (a)，因為它根本就還不存在。但此時<br>
+    你可以存取 (b)，因為它在程式一開始時就存在了。<br>
+    <br>
+    <font color="#0000FF">&gt; 第二次建立一物件時, 其 &quot;非靜態成員函式裏的靜態變數&quot; 
+    不會<br>
+    &gt; 再被初始化, 對於這一點, 我已經吃了一次以上的虧了. 要改個寫<br>
+    &gt; 法很簡單, 但, 原因是什麼呢?</font><br>
+    <br>
+    只因它是個 static 變數。傳統的 static 變數不就是如此嗎？<br>
+    <br>
+    <font color="#0000FF">&gt; Non-static member function裏的local static variable, 對class而言, 
+    把它<br>
+    &gt; 當成static variable比較恰當, 還是當成non-static variable比較恰當?</font><br>
+    <br>
+    當然是 static variable.<br>
+    <br>
+    不過我想你這問題的語意有點奇怪，可能並沒有反應出你真正<br>
+    想問的問題。我想你可能的疑惑是，在前述的 (a) 和 (b) 之間<br>
+    該如何取捨？<br>
+    <br>
+    你可以從我前面所說的誕生時機及存取時機，去想這個問題。<br>
+    <br>
+    如果你希望你前面所寫的例子的結果是你原本所希望的：<br>
+    <br>
+    <font color="#0000FF">&gt; 0<br>
+    &gt; 1<br>
+    &gt; 0<br>
+    &gt; 1</font><br>
+    <br>
+    以下文章有個技術可以給你參考：<br>
+    <br>
+    April 1998 issue of the C/C++ Users Journal：Counting Objects in C++<br>
+    <br>
+    這個技術非三言兩語可說明。其中用到一些頗為特殊的技法，<br>
+    與 template 和 private inheritance 有關。<br>
+    <br>
+    你也可以從 Effective C++ CD 獲得這篇文章內容。<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa43"><big><big>C++ Primer 答客問 (43)</big></big></a> - default 
+    value for class template parameter<br>
+    <br>
+    2000.03.25 <br>
+    <br>
+    上課時，同學問了一個問題。<br>
+    <br>
+    p817 提到 class template 的 template parameters 預設值。<br>
+    給予 class Buffer 兩個宣告式如下：<br>
+    <br>
+    <small><font face="Courier New">template &lt;class Type, int size = 1024&gt; // (1)<br>
+    class Buffer;<br>
+    <br>
+    template &lt;class Type = string, int size&gt; // (2)<br>
+    class Buffer;</font></small><br>
+    <br>
+    編譯器會讓它通過。同學問，如果 (1)(2) 次序顛倒將如何？<br>
+    另一個問題是，所有 template parameters 都給予預設值，<br>
+    可以嗎？如何使用？<br>
+    <br>
+    關於第一個問題，(1)(2) 次序顛倒可以嗎？想像中一定可以，<br>
+    結果 BCB4 卻否定了它（真糟糕！）VC6 and G++ OK.<br>
+    <br>
+    關於第二個問題，所有 template parameters 都給予預設值，<br>
+    可以嗎？答案是可以。如何使用？答案是用時不必給任何 template 
+    argument。<br>
+    <br>
+    詳見以下範例。<br>
+    <br>
+    <small><font face="Courier New">// </font>本例測試 <font face="Courier New">class 
+    template </font>的 <font face="Courier New">template parameters </font>是否<br>
+    <font face="Courier New">// </font>可以全部擁有 <font face="Courier New">default 
+    value</font>。答案：可。<br>
+    <font face="Courier New">#include &lt;string&gt;<br>
+    using namespace std;<br>
+    <br>
+    // </font>以下兩個 <font face="Courier New">declarations</font>，先 <font
+    face="Courier New">(1) </font>後 <font face="Courier New">(2)</font>，則 <font
+    face="Courier New">vc6[o], bcb4[o], g++[o]<br>
+    // </font>以下兩個 <font face="Courier New">declarations</font>，先 <font
+    face="Courier New">(2) </font>後 <font face="Courier New">(1)</font>，則 <font
+    face="Courier New">vc6[o], bcb4[x], g++[o]<br>
+    // bcb4 error msg </font>如下：<br>
+    <font face="Courier New">// Error E2260: Default value missing following parameter 'Type' 
+    &lt;- </font>指<font face="Courier New">(2)<br>
+    // Error E2148: Default argument value redeclared for parameter 'size &lt;- </font>指<font
+    face="Courier New">(1)<br>
+    <br>
+    template &lt;class Type, int size = 1024&gt; // (1)<br>
+    class Buffer;<br>
+    <br>
+    template &lt;class Type = string, int size&gt; // (2)<br>
+    class Buffer;<br>
+    <br>
+    // </font>如果保持 <font face="Courier New">(1)(2) </font>次序，再加 <font
+    face="Courier New">(3)</font>，則 <font face="Courier New">vc6[o], bcb4[o], g++[o]<br>
+    // </font>但若將 <font face="Courier New">(3) </font>改為 <font face="Courier New">template 
+    &lt;class Type, int size = 1024&gt;</font>，<br>
+    <font face="Courier New">// </font>則 <font face="Courier New">vc6[o], bcb4[x], g++[x]<br>
+    // G++ error msg </font>如下：<br>
+    <font face="Courier New">// redefinition of default argument for `int const size' &lt;- </font>指<font
+    face="Courier New">(3)<br>
+    // bcb4 error msg </font>如下：<br>
+    <font face="Courier New">// Error E2148 : Default argument value edeclared for parameter 
+    'size &lt;- </font>指<font face="Courier New">(3)<br>
+    <br>
+    template &lt;class Type, int size&gt; // (3)<br>
+    class Buffer<br>
+    { };<br>
+    <br>
+    int main()<br>
+    {<br>
+    &nbsp; // </font>在 <font face="Courier New">(1)(2)(3) </font>的情況下<br>
+    <font face="Courier New">&nbsp; Buffer&lt;&gt; b; // fine.<br>
+    }</font></small><br>
+    <br>
+    </p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><a name="C++ Primer qa44"><big><big>C++ Primer 答客問 (44)</big></big></a> - 版（edition）與刷（printing）<br>
+    <br>
+    2000.03.25 <br>
+    <br>
+    borlandted.bbs@bbs.ccns.ncku.edu.tw wrote :<br>
+    <font color="#0000FF">&gt; C++ Primer 中文版 
+    此書在網路上修正了許多的不良和錯誤的地方<br>
+    &gt; 
+    但是在市面上最多還是只有看到一板二刷，請問什麼時才會出第二版<br>
+    &gt; 把網路上的文章收錄進去呢，請問大家<br>
+    &gt; 因為如果不會出第二板的話，我就打算去買第一板的了</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    錯別字：板 --&gt; 版（edition）<br>
+    <br>
+    如果你是指我在 BBS/News 上的 Q/A 文章，那不會收錄到書中去。<br>
+    如果你是指我在 BBS/News 
+    上發表的勘誤，那一定會視時機訂正到書中去。<br>
+    <br>
+    目前《C++ Primer 3/e 中文版》正在印製第三刷（third printing）。<br>
+    我已修正了目前挑出的各種錯誤（以錯別字、誤植字為多，原書錯誤次之，<br>
+    另有一兩處譯文重潤。請見 C++ Primer 答客問 (45) ）<br>
+    <br>
+    <br>
+    kazoo wrote (2000/03/23) :<br>
+    <font color="#0000FF">&gt; 新手入門適合嗎.....還是應該有點程度再去看<br>
+    &gt; 這是必看的Bible嗎<br>
+    &gt; 可是我看他開頭都是先講一些基本宣告啊.....<br>
+    &gt; 有點像一般的書都先用程序導向的教法 後來才引入物件導向<br>
+    &gt; 不知道是我沒有認真看的關係嗎<br>
+    &gt; 若是要學物件導向程式設計的話<br>
+    &gt; 不是應該要直接用物件導向的方法來講每個細節嗎<br>
+    &gt; 請各位網友指點一下<br>
+    &gt; 這本C++的Bible主要特別之處在哪裡<br>
+    &gt; 我只知道他很厚 而且講了很多細節<br>
+    &gt; 還有請大家比較一下這一本跟創始人所寫的那一本<br>
+    &gt; C++ programming language有什麼特別不同之處<br>
+    &gt; 比較一下其優缺點<br>
+    &gt; 謝謝</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    member functions 是一種 functions，談 member functions 之前要先<br>
+    談 functions 的宣告、定義、參數列、引數傳遞、傳回值…。這些<br>
+    都不被歸類為「物件導向程式設計」的領域。<br>
+    <br>
+    談 custom data types 之前要先談 build-in data types 如 int, float,<br>
+    char, array...。這些都不被歸類為「物件導向程式設計」的領域。<br>
+    <br>
+    談 operators overloading 之前要先談 operators 如 +, -, *, /。<br>
+    這些都不被歸類為「物件導向程式設計」的領域。<br>
+    <br>
+    談任何 C++ 語法之前，要先知道什麼是 expressions, 什麼是 statements，<br>
+    這些都不被歸類為「物件導向程式設計」的領域。<br>
+    <br>
+    所以，C++ 書籍有兩種，一種涵蓋 C/C++，一種只講 C++（不含傳統 C）。<br>
+    至於你所說的『若是要學物件導向程式設計的話，不是應該要直接用<br>
+    物件導向的方法來講每個細節嗎』這是不正確的說法。上面我舉的例子，<br>
+    都是語言的基本元素（的一小部份而已），談不上有沒有什麼<br>
+    「物件導向的方法」來介紹它們。<br>
+    <br>
+    <br>
+    petz wrote (2000/03/23) :<br>
+    <font color="#408080">&gt;&gt; C++ Primer 中文版 
+    此書在網路上修正了許多的不良和錯誤的地方<br>
+    &gt;&gt; 
+    但是在市面上最多還是只有看到一板二刷，請問什麼時才會出第二版<br>
+    &gt;&gt; 把網路上的文章收錄進去呢，請問大家<br>
+    &gt;&gt; 因為如果不會出第二板的話，我就打算去買第一板的了</font><br>
+    <font color="#0000FF">&gt; 去把精華區的文章 或是最前面標記起來的文章 
+    好好看一看吧<br>
+    &gt; 很顯然的 你連版和刷都搞不懂<br>
+    &gt;<br>
+    &gt; C++ Primer 中文版 是翻譯自C++ Primer 3/e<br>
+    &gt; 除非原作者有出下一版 才有可能有下一版的譯本<br>
+    &gt;<br>
+    &gt; 通常作者會利用再刷的機會 更正一些小錯誤<br>
+    &gt; 而再版都是內容有增加或是大幅度的更新<br>
+    &gt;<br>
+    &gt; 所以你要問的應該是不是會再刷 而把之前的錯誤再收錄進去<br>
+    &gt; 而不是再版<br>
+    &gt;<br>
+    &gt; 至於會不會再刷 多久再刷 再刷之後會更正哪些 
+    就不是我能夠知道的了</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    三刷已在印製中，修正幅度請見 C++ Primer 答客問 (45)。<br>
+    <br>
+    <br>
+    Skedin wrote (2000/03/24) :<br>
+    <font color="#0000FF">&gt; 有人形容這一本書是進入C++殿堂的踏腳石，意思是指這本書深入淺出，<br>
+    &gt; 相當適合初學C++，或從C進入C++的人閱讀。<br>
+    &gt; 當然，這樣的一本書一定會從頭講起，syntax、statement等，絕不會漏掉。<br>
+    &gt; 
+    至於物件導向觀念的建立，我個人覺得不需要一頭栽入，照著書給你的順序<br>
+    &gt; 
+    來走就好。至於先學程序導向語言，或是直接著手物件導向語言，<br>
+    &gt; 這種議題見仁見智，你自己習慣就好。<br>
+    &gt; 
+    物件導向也不是就完全摒棄過去那一套，就程式寫碼的層次來看，<br>
+    &gt; 許多東西都是重複的。況且，C++是更好的 C，不是一刀切開。<br>
+    &gt; 我覺得C++ Programming Language比較適合當案頭書來參考，<br>
+    &gt; 我自己是無法從頭到尾一次讀下去啦。<br>
+    &gt;<br>
+    &gt; 若著重在物件的應用，其實這些書都不適合，Design Patterns類的書<br>
+    &gt; 
+    才是你要的。不過這些書是需要有程式經驗的人來閱讀，愈有發展系統的經驗，<br>
+    &gt; 讀起來才會覺得頭頭是道，否則只是霧裡看花。</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    由於 C++ Primer 是一本盛名已久的教本，所以我很同意 Skedin 所說：<br>
+    <br>
+    <font color="#0000FF">&gt; 
+    至於物件導向觀念的建立，我個人覺得不需要一頭栽入，照著書給你的順序<br>
+    &gt; 來走就好。</font><br>
+    <br>
+    關於物件導向觀念的建立，Skedin 提到 Design Patterns 這本經典。<br>
+    我把我認為極佳的一些書籍，提出來給大家參考：</p>
+<!--mstheme-->    </font><div align="left"><table border="1" width="612" bordercolorlight="#CC3300"
+    bordercolordark="#000000">
+      <tr>
+        <td width="147">書名<!--mstheme--></font></td>
+        <td width="363">個人意見<!--mstheme--></font></td>
+        <td width="84">中譯本<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="147">1. C++ Primer 3/e <!--mstheme--></font></td>
+        <td width="363">絕佳的 C++ tutorial<!--mstheme--></font></td>
+        <td width="84">有<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="147">2. The C++ Programming Language 3/e<!--mstheme--></font></td>
+        <td width="363">查閱用。桌上擺一本讓人安心。<!--mstheme--></font></td>
+        <td width="84">有<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="147">3. Polymorphism in C++《多型與虛擬》<!--mstheme--></font></td>
+        <td width="363">對「多型」一步到位。目標簡潔。<!--mstheme--></font></td>
+        <td width="84">本就是<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="147">4. Effective C++ 2/e<!--mstheme--></font></td>
+        <td width="363">4,5,6 三書有絕佳的工程經驗，令人受用無窮。可涵養 OOP 
+        的大家風範與出手格局。<!--mstheme--></font></td>
+        <td width="84">即將有<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="147">5. More Effective C++ <!--mstheme--></font></td>
+        <td width="363">　<!--mstheme--></font></td>
+        <td width="84">即將有<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="147">6. Exceptional C++<!--mstheme--></font></td>
+        <td width="363">　<!--mstheme--></font></td>
+        <td width="84">即將有<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="147">7. Design Patterns<!--mstheme--></font></td>
+        <td width="363">OO 經典。層次極高<!--mstheme--></font></td>
+        <td width="84">可能會有<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="147">8. ARM <!--mstheme--></font></td>
+        <td width="363">C++ 語言的底層機制<!--mstheme--></font></td>
+        <td width="84">無<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="147">9. Inside the C++ Object Model <!--mstheme--></font></td>
+        <td width="363">C++ 語言的底層機制。<!--mstheme--></font></td>
+        <td width="84">有<!--mstheme--></font></td>
+      </tr>
+    </table>
+    </div><p>※除了 OO programming，另有 generic programming 也非常重要。<br>
+    ※8,9 二書擇一應該就夠了。<br>
+    <br>
+    其中 4, 5, 6 三書，我已決定翻譯。請見：<br>
+    一般答客問 (11) - &lt;2000 侯捷寫譯計劃&gt;<br>
+    <br>
+    有人誤會我：因為翻譯，所以推薦。不，我是因為推薦，所以翻譯。<br>
+    過去我已一再推薦這些好書，也寫過其中部份書籍的書評。最近我還會<br>
+    寫 4,5,6（可能加上 7）的書評，發表於 Run!PC 上。<br>
+    <br>
+    <br>
+    Frank Fei wrote ((2000/03/24) :<br>
+    <font color="#0000FF">&gt; C++ Primer這本書是由參與ANSI C++標準制訂的人寫的，內容包含非常廣泛，<br>
+    &gt; 並且展示以C＋＋表現各種程式撰寫風格（傳統程序式、物件導向方式），<br>
+    &gt; 並且大幅介紹STL的功能和設計方法。<br>
+    &gt; 
+    這本書可當作書架必須擺置的「聖經」，有任何疑問的時候可以由其中<br>
+    &gt; 找出答案。可是就是因為內容廣泛，所以並不適合初學者閱讀。<br>
+    &gt; 初學者應該找一些專門介紹C＋＋應用於物件導向設計的書閱讀，<br>
+    &gt; 先搞懂「繼承」、「虛擬」、「多型」這些基本概念就夠了。</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    以下這話我不同意：<br>
+    <br>
+    <font color="#0000FF">&gt; 
+    可是就是因為內容廣泛，所以並不適合初學者閱讀。</font><br>
+    <br>
+    並非因為《C++ Primer 中文版》為我所譯，所以我那麼說。不，不是。<br>
+    <br>
+    「初學者」是一個很粗糙的字眼，涵蓋的背景可能天差地別。<br>
+    大部份人看到「初學者」可能想到學生，但是在 prorgramming 領域<br>
+    打滾 10 年的工程師，也可能是 C++ 的「初學者」。<br>
+    <br>
+    關於「初學者」，以及 C++ Primer 的特質，我在 C++ Primer 答客問 (11) <br>
+    有過不少說明與想法。<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><a name="C++ Primer qa45"><big><big>C++ Primer 答客問 (45)</big></big></a> - 
+    三刷修訂&nbsp; 2000.03.25<br>
+    <br>
+    <br>
+    《C++ Primer 中文版》目前正在進行第三刷（印量 5001~8000）。<br>
+    本次續將發現的各種錯誤修正。<br>
+    <br>
+    原本我的習慣是，拿到新書後，確定已經依照我的要求訂正妥當，<br>
+    才將修改之處公佈給讀者知道。不過既然最近有讀者詢問，我就<br>
+    稍稍提前公佈。<br>
+    <br>
+    p.s. stella &amp; simon: 新刷若未如計劃修正，而此資料已公佈，<br>
+    那就只好提頭見讀者囉 :)（我們一起）</p>
+    <p><a href="file:///C:/jjweb/errata-cpp-primer.htm">請見最新資料</a></p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa46"><big><big>C++ Primer 答客問 (46)</big></big></a> - 
+    似誤非誤&nbsp; 2000.04.02 <br>
+    <br>
+    alberta wrote (2000/04/01) :<br>
+    <br>
+    <font color="#0000FF">&gt; 標題: 又發現 C++ Primer 3/e 錯誤<br>
+    &gt;<br>
+    &gt; hello all:<br>
+    &gt; 弟又發現在p92頁的地方，最上方的程式碼的部分<br>
+    &gt;<br>
+    &gt; int ia[10];<br>
+    &gt; int *iter = &amp;ia[0];<br>
+    &gt; int *iter_end = &amp;ia[10];<br>
+    &gt;<br>
+    &gt; 上面這一行應該是int *iter_end = &amp;ia[9];才對<br>
+    &gt; 因為元素是從0~9,而非0~10</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    花非花，霧非霧，此誤非誤。<br>
+    <br>
+    <font color="#0000FF">&gt; int ia[10];<br>
+    &gt; int *iter = &amp;ia[0];<br>
+    &gt; int *iter_end = &amp;ia[10];</font><br>
+    <br>
+    這三行都沒有錯。iter_end 之所以指向並不存在的 ia[10]，<br>
+    是為了要模擬 STL 對於 &quot;range&quot; 的開區間定義 : [first, last)。<br>
+    <br>
+    上述對 iter_end 的定義，才能使以下（p.92) 的 while 如預期般運作：<br>
+    <br>
+    <font color="#0000FF">while ( iter != iter_end ) {<br>
+    &nbsp; do_something_with_value( *iter );<br>
+    &nbsp; ++iter; // iter now addresses next item<br>
+    }</font><br>
+    <br>
+    p.s. 下標題時，除非有萬全把握，或許宜用懷疑的口氣 :)<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa47"><big><big>C++ Primer 答客問 (47)</big></big></a> - EXE 大小&nbsp; 
+    2000.05.12 <br>
+    <br>
+    a8340 wrote (2000/05/11) :<br>
+    <br>
+    <font color="#0000FF">&gt; 侯捷您好:<br>
+    &gt;<br>
+    &gt; 我看了您的著作『 C++ Primer 』以後 , 覺得這真是一本好書，<br>
+    &gt; 但是從我開始碰 C++ 到現在還是有一個小問題無法解決，<br>
+    &gt; 就拿一個小程式來說好了:<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; #include &lt;iostream&gt;<br>
+    &gt; using namespace std;<br>
+    &gt; void main(void)<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; cout &lt;&lt; &quot;</font>侯捷您好<font face="Courier New">&quot;;<br>
+    &gt; }</font></small><br>
+    &gt;<br>
+    &gt; 上面的程式碼分別以 Visual C++ 編譯、以 Borland C++ 編譯<br>
+    &gt; 為什麼由 Visual C++ 編譯出來的執行檔總是好幾百 KB<br>
+    &gt; 可是用 Borland C++ 編譯出來的執行檔卻只有幾十 KB 呢？<br>
+    &gt;<br>
+    &gt; 是不是需要設定 Visual C++ 內的什麼東西？還是 Visual C++ 就是<br>
+    &gt; 不管程式的 code 有多少？反正編譯出來一定就是幾百KB...<br>
+    &gt;<br>
+    &gt;<br>
+    &gt; 這個問題 是一個您忠實讀者所希望獲得解答的...</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    首先，讓我強調，《C++ Primer 中文版》是我的<font color="#FF0000">譯作</font>，而非著作。<br>
+    <br>
+    上述程式我以 VC6, BCB4, GCC2.91.57(for Win32) 編譯結果如下：<br>
+    </p>
+<!--mstheme-->    </font><div align="left"><table border="1" bordercolorlight="#CC3300"
+    bordercolordark="#000000">
+      <tr>
+        <td>VC6<!--mstheme--></font></td>
+        <td>BCB4<!--mstheme--></font></td>
+        <td>GCC2.91.57(for Win32)<!--mstheme--></font></td>
+        <td>　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td>53248 <!--mstheme--></font></td>
+        <td>103424<!--mstheme--></font></td>
+        <td>462404<!--mstheme--></font></td>
+        <td>（單位：bytes）<!--mstheme--></font></td>
+      </tr>
+    </table>
+    </div><p>結果與你所說的並不相同。<br>
+    <br>
+    我猜你是用整合環境來編譯。我用的是 console mode，不加任何<br>
+    編譯選項，換言之使用預設條件。<br>
+    <br>
+    換句話說，可執行檔的大小，和編譯器、編譯環境、環境設定<br>
+    都可能有關。環境是可以設定的，所以我相信你一定可以<br>
+    在整合環境中做設定，使 VC6 編譯出來的可執行檔也如上述那麼小。<br>
+    <br>
+    至於設定方法，煩瑣，本文不討論。<br>
+    <br>
+    -- the end<br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa48"><big><big>C++ Primer 答客問 (48)</big></big></a> - 
+    我該閱讀哪些作品<br>
+    2000.05.12<br>
+    <br>
+    Leon wrote (2000/05/10) :<br>
+    <br>
+    <font color="#0000FF">&gt; 您好：<br>
+    &gt; 我是一個程式設計的初學者，我看了您所譯的C++ Primer，<br>
+    &gt; 對我的幫助很大，<br>
+    &gt; 而我在您的網站上發現…您還有許多的著作，因此，我想請問：<br>
+    &gt;<br>
+    &gt; 1. 我該閱讀那些著作或譯作，以增加我對C++的了解？<br>
+    &gt; 2. 我該如何才能成為一個了解完整程式開發過程的人？<br>
+    &gt; 3. 我想要買您的其他著作，不知要如何購買？我已找遍了<br>
+    &gt; 各大書店的網站了，可是找不到！<br>
+    &gt; 對於以上的問題…不知您是否願意幫我回答？<br>
+    &gt; 若願意，真是萬分感謝！</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    <font color="#0000FF">&gt; 1. 我該閱讀那些著作或譯作，以增加我對C++的了解？</font><br>
+    <br>
+    以下是建議閱讀書籍（C++ --&gt; OOP），各有特色，可依序閱讀：<br>
+    <br>
+    1. C++ Primer 3/e（侯捷譯，碁峰 1999）<br>
+    2. 《多型與虛擬》（侯俊傑著，松崗 1998）<br>
+    3. Effective C++（侯捷譯，培生 2000/06）<br>
+    4. More Effective C++（侯捷譯，培生 2000/06）<br>
+    5. Exceptional C++（侯捷譯，培生 2000/09）<br>
+    6. Inside the C++ Object Model（侯俊傑譯，碁峰 1998）<br>
+    7. Design Patterns<br>
+    ※ 以上各書在侯捷網站中多有評介<br>
+    <br>
+    另有一些書與之平行，例如 The C++ Programming Language<br>
+    與 (1) 平行，The Annotated C++ Reference Manual (ARM)<br>
+    與 (6) 平行。<br>
+    <br>
+    另還有一些不錯的舊書，與上述主題或屬性重複，我就不提了。<br>
+    <br>
+    請莫倒果為因，以為我只推薦侯捷著譯的書籍。因為這些書好，<br>
+    我才翻譯之。前為因，後為果。<br>
+    <br>
+    <br>
+    <font color="#0000FF">&gt; 2. 
+    我該如何才能成為一個了解完整程式開發過程的人？</font><br>
+    <br>
+    這不是光靠看書就能夠學習的。你必須實際動手，由小型程式寫到<br>
+    中型程式，由中型程式寫到大型程式，然後從經驗中、從前輩的<br>
+    帶領中、從某些書籍的驗證中，去體會與學習。<br>
+    <br>
+    <br>
+    <font color="#0000FF">&gt; 3. 
+    我想要買您的其他著作，不知要如何購買？我已找遍了<br>
+    &gt; 各大書店的網站了，可是找不到！</font><br>
+    <br>
+    這對我真是個壞消息 :)<br>
+    <br>
+    侯捷的書性寒屬冷，恐怕多已絕版，或加快腳步消失中。最省事<br>
+    的辦法就是從侯捷網站得知書名、書號以及出版公司後，直接<br>
+    去電詢問。<br>
+    <br>
+    希望你買得到，嗚嗚。<br>
+    <br>
+    -- the end<br>
+    <br>
+    </p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><a name="C++ Primer qa49"><big><big>C++ Primer 答客問 (49)</big></big></a> - 
+    女友與侯捷<br>
+    2000.05.12<br>
+    <br>
+    zychang wrote (2000/05/10) :<br>
+    <br>
+    <font color="#0000FF">&gt; 侯老師您好：<br>
+    &gt;<br>
+    &gt; 上個月買了您的這一本C++ Primer 中文版，覺得您的翻譯功力<br>
+    &gt; 
+    實在令人欣賞。說實在，這本書是我第一本買您所寫的書。但是，<br>
+    &gt; 到現在為止，我已經擁有 C++ Primer 中文版，inside C++ object model<br>
+    &gt; 中文版, COM 本質論，虛擬與多型, Inside Visual C++ 4.0 中文版，<br>
+    &gt; 深入淺出 MFC 第二版、OLE 控制元件徹底研究、ActiveX 控制元件<br>
+    &gt; 徹底研究、Windows 95 系統程式設計大奧密等等 您所譯所著書，<br>
+    &gt; 其他一些書 市面是買不到了。<br>
+    &gt;<br>
+    &gt; 我在中文書方面，一直都是 xxx 先生與 xxx 先生的讀者，但我<br>
+    &gt; 現在則深深覺得我是太晚接觸您的著作了(真是非常地後悔)。閱讀<br>
+    &gt; 
+    您的著作，讓我擁有大大的收穫與深深的感動。收穫是我程式寫作<br>
+    &gt; 
+    更上一層樓，感動則是您對讀者的用心。因此，我毫不考慮把市面<br>
+    &gt; 上有關您的著作全部買回家，一有時間或是週六日就閱讀(但這也讓<br>
+    &gt; 我的女朋友覺得很不滿，她常問我 
+    我愛她還是侯捷，我毫不考慮地<br>
+    &gt; 回答侯捷(當然，這是指您的書)!!)。<br>
+    &gt;<br>
+    &gt; 剛剛逛了您所設的網站，看了許多您的文章，都讓我有更多新的<br>
+    &gt; 啟發。我也看到您有規劃一本新書 --泛型程式設計--，雖然我<br>
+    &gt; 已經看過了 Musser 的 STL Tutorial and Reference Guide，<br>
+    &gt; 但小弟對您這本新書還是相當的期待，希望能夠趕快拜讀此本<br>
+    &gt; 您的大作。</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    請原諒我將信中第三人名以 xxx 代替。<br>
+    <br>
+    想不到侯捷能與貴女友爭鋒，幸之何也 :)<br>
+    <br>
+    盼貴女友能夠原諒侯捷。<br>
+    侯捷年近 40，髮蒼齒搖視茫。<br>
+    不過侯捷筆齡 10 年，正要邁向巔峰。<br>
+    希望對你有更大的吸引力 :)<br>
+    <br>
+    Musser 的 STL Tutorial and Reference Guide 已經過時，<br>
+    其中許多都已不符 C++ Standard。<br>
+    （BTW：你能看這本硬書，本領不低）<br>
+    <br>
+    一本更硬（同時也更好）的書是 Matthew H. Austern 著的<br>
+    &quot;Generic Programming and the STL&quot;（AW, 1999）。其中對於<br>
+    STL 的原理和設計有非常深入的描述和解釋。此書目前由我和<br>
+    黃俊堯先生合譯，預計 2000 第四季由碁峰出版。<br>
+    <br>
+    侯捷自己的著作「泛型程式設計」，在 STL 原理與設計方面<br>
+    不能望 Austern 之項背。但於 (1) 泛型之精神與原理、<br>
+    (2) STL 之設計與架構、(3) STL 之運用與擴充 三方面，<br>
+    取一個平衡，期望將讀者平順地推向 Generic Programming Paradigm.<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><big><big><a name="C++ Primer qa50">C++ Primer 答客問 (50)</a> </big></big><br>
+    2000/05/17</p>
+    <p>vbman wrote (2000/05/16) :</p>
+    <p><font color="#0000FF">&gt; 侯先生﹕<br>
+    &gt; 
+    您好﹐我是您的一位崇拜者﹐我是靠自學踏上電腦之途的﹐自然會先學一些<br>
+    &gt; VB這樣的開發工具﹐自從看了您的網站（我用Teleport pro下載了您的整個網站<br>
+    &gt; 
+    以備隨時察看您的文章）﹐特別是在《迷時師度﹐悟了自度》和《C++的沉迷與<br>
+    &gt; 愛戀》等文章﹐對我無疑是當頭喝棒﹐開始反省自己的學習道路<br>
+    &gt; 決心轉向 C++﹐曾經多次給GOTOP公司寫過e-mail詢問關於您翻譯的<br>
+    &gt; 《C++ Primer 中文版》﹐但是從來沒有過回音﹐看看國內的一些<br>
+    &gt; BBS中對侯先生《深入淺出MFC》（可惜是第一版)大陸版的好評如潮﹐<br>
+    &gt; 
+    建議侯先生儘快將自己的著作和譯作在大陸出版﹐我一定照單全收﹐<br>
+    &gt; 這對於海峽兩岸的技術交流也有促進作用﹐以侯先生的威望﹐<br>
+    &gt; 我想您的書大陸的書商一定不會拒絕﹐我輩程序員更是歡迎。<br>
+    &gt;<br>
+    &gt; 另外咨詢侯先生香港是否能買到您翻譯的《C++ Primer 中文版》﹐<br>
+    &gt; 我有個朋友要去香港﹐我會讓他在那裡替我找一下。還有希望<br>
+    &gt; 
+    侯先生可以多更新一下網站﹐這是我們大陸和您交流的唯一窗口。<br>
+    &gt; 謝謝﹗<br>
+    &gt; 祝﹕<br>
+    &gt; 身體健康﹐心想事成<br>
+    &gt;<br>
+    &gt; 2000年5月16日<br>
+    &gt; 上海<br>
+    </font></p>
+    <p><br>
+    侯捷回覆：<br>
+    <br>
+    做為一位深居簡出的文字工作者，我很高興接到來自讀者的任何訊息。<br>
+    遠地來的訊息尤其讓人感到特殊。<br>
+    <br>
+    <font color="#0000FF">&gt; 曾經多次給GOTOP公司寫過e-mail詢問關於您翻譯的<br>
+    &gt; 《C++ Primer 中文版》﹐但是從來沒有過回音﹐</font><br>
+    <br>
+    此信並轉 GOTOP，對 GOTOP 應是一個好的提示。<br>
+    <br>
+    <font color="#0000FF">&gt; 看看國內的一些<br>
+    &gt; BBS中對侯先生《深入淺出MFC》（可惜是第一版)大陸版的好評如潮﹐<br>
+    &gt; 
+    建議侯先生儘快將自己的著作和譯作在大陸出版﹐我一定照單全收﹐<br>
+    &gt; 這對於海峽兩岸的技術交流也有促進作用﹐以侯先生的威望﹐<br>
+    &gt; 我想您的書大陸的書商一定不會拒絕﹐我輩程序員更是歡迎。</font><br>
+    <br>
+    關於《深入淺出 MFC》，我有一些說明。大約兩年前，此書之<br>
+    發行公司松崗（UNALIS）即希望我授權《深入淺出 MFC》2/e<br>
+    簡體版，然因當時我已在構思 3/e，預判 3/e 繁體版出版時，<br>
+    2/e 簡體版恐怕還未能完成；老讓大陸讀者慢一步看到我的書，<br>
+    令我至感難過，所以就告訴松崗公司不要再進行 2/e 簡體版<br>
+    的授權了，直接等 3/e 出版後進行 3/e 的簡體化。沒想到，<br>
+    一拖經年，3/e 並沒有如期完成，害大陸讀者反而一直沒有<br>
+    《深入淺出 MFC》2/e 簡體版可看。<br>
+    <br>
+    《深入淺出 MFC》3/e 沒有如期完成的原因是，MFC 本體架構<br>
+    並沒有什麼大改變。書中的工具以及程式碼雖是採用<br>
+    VC5.0 + MFC 4.2，仍適用於目前的 VC6.0 + MFC4.2。如果<br>
+    VC7.0 出來，我再看看是否出版 3/e。<br>
+    <br>
+    <font color="#0000FF">&gt; 另外咨詢侯先生香港是否能買到您翻譯的《C++ 
+    Primer 中文版》﹐<br>
+    &gt; 我有個朋友要去香港﹐我會讓他在那裡替我找一下。</font><br>
+    <br>
+    印象中 GOTOP 的書有對香港出口，所以你可請朋友找找看。<br>
+    但數量恐怕不多，可能不好找。<br>
+    <br>
+    最方便的情況還是臺灣出版公司能夠提供海外網上購書服務。<br>
+    希望這點能夠儘快達到。<br>
+    <br>
+    <font color="#0000FF">&gt; 還有希望<br>
+    &gt; 
+    侯先生可以多更新一下網站﹐這是我們大陸和您交流的唯一窗口。</font><br>
+    <br>
+    說到這個，實在不好意思。因為是虛擬主機，又加上有些程序<br>
+    不是很熟悉，所以更新動作不頻繁。不過，我的任何新文章和<br>
+    新消息，都會先在 140.114.87.5（清華大學資訊系 BBS）的<br>
+    Computer/CompBook上刊載，所以你也可以上去看看。<br>
+    <br>
+    這兩天我正在進行侯捷網站內容的全面更新，讓組織更清爽，<br>
+    介面更簡易。希望能在五月底前全部完成並上線。其中會加入<br>
+    陸續完成的 Q/A、勘誤、新書預告、新書預覽。<br>
+    <font size="3"><br>
+    </font><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="35" bgcolor="#C0C0C0"><!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="top" width="646"><!--mstheme--></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

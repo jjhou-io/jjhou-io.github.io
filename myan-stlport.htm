@@ -1,0 +1,273 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>在 Borland C++ 及 Visual C++ 環境中使用 STLport</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<p>　</p>
+
+<hr>
+
+<h2 align="center"><font color="#800000">在 Borland C++ 及 Visual C++ 環境中使用 
+STLport<br>
+</font></h2>
+
+<h3 align="center"><font color="#800000">孟岩</font></h3>
+
+<blockquote>
+  <p align="center">侯捷註：本文承作者<font color="#000000">孟岩先生應允，<br>
+  轉載於此以饗臺灣讀者，非常感謝。<br>
+  <br>
+  未得孟岩先生之同意，任何人請勿將此文再做轉載。<br>
+  <br>
+  以下</font><font color="#FF0000">紅色</font><font color="#000000">為譯註，</font><font
+  color="#FF00FF">紫色</font><font color="#000000">為侯捷個人認為宜再斟酌之處。<br>
+  </font><font color="#8080FF">淺藍色</font><font color="#000000">是侯捷個人閱讀時的神秘標記。<br>
+  <br>
+  本繁體文係直接轉碼，並未將大陸慣用術語轉換為臺灣慣用術語。</font></p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p><br>
+  <br>
+  <br>
+  STL是一個標準﹐各商家根據這個標準開發了各自的STL版本。而在這形形色色的STL版本中﹐SGI 
+  STL無疑是最引人矚目的一個。這當然是因為這個STL產品系出名門﹐其設計和編寫者名單中﹐Alexander 
+  Stepanov和Matt Austern赫然在內﹐有兩位大師坐鎮﹐其代碼水平自然有了最高的保證。SGI 
+  STL不但在效率上一直名列前茅﹐而且完全依照ISO C++之規範設計﹐使用者儘可放心。此外﹐SGI 
+  STL做到了thread-safe, 還體貼地為用戶增設數種組件﹐如hash, 
+  hash_map,hash_multimap, slist和rope容器等等。因此無論在學習或實用中﹐SGI 
+  STL應是首選。<br>
+  <br>
+  無奈﹐SGI STL本質上是為了配合SGI自作的UNIX變體IRIX所量身定做﹐其它平臺上的C++編譯器想使用SGI 
+  STL﹐都需要一番週折。著名的GNU C++雖然也使用 SGI STL﹐但在發行前已經過調試整合。普通的用戶﹐特別是Windows平臺上的BCB/VC用戶要想使自己的C++編譯器與SGI 
+  STL共同工作﹐可不是一件容易的事情。好在英雄總能及時出現﹐俄國人Boris 
+  Fomitchev注意到這個問題之後﹐建立了一個<font color="#FF00FF">free的</font>項目﹐稱為STLport﹐旨在將SGI 
+  STL的基本代碼移植到各種主流編譯環境中﹐使各種編譯器的用戶都能夠享受到SGI 
+  STL帶來的先進之處。STLport 發展過程中﹐曾受到Matt Austern的親切指導﹐發展到今天﹐已經比較成熟。最新的STLport 
+  4.0﹐可以從www.stlport.org免費下載﹐zip文件體積約1.2M, 
+  可以支持向各種主流C++編譯環境的移植。BCB及VC當然<font color="#FF00FF">算</font>是主流的編譯環境﹐自然得到STLport的關照。但據筆者實踐來看﹐配置過程中還有一些障礙需要跨越﹐本文即旨在詳細指導讀者在Borland 
+  C++Builder 5.5及Visual C++ 6.0 環境中配置STLport。<br>
+  <br>
+  <br>
+  首先請從www.stlport.org中下載STLport 4.0的ZIP文件﹐文件名stlport-4.0.zip. 
+  然後利用WinZip等工具展開。生成stlport-4.0目錄﹐該目錄中有且僅有一個子目錄﹐名稱亦為stlport-4.0﹐不妨將整目錄拷貝到你以為合適的位置﹐然後改一個合適的名字﹐例如配合BCB的﹐可以叫STL4BC﹐等等。<br>
+  <br>
+  下面分成BCB/VC兩種情形來描述具體過程。</p>
+  <h2><br>
+  <font color="#0000FF">Borland C++Builder 5</font></h2>
+  <p>Borland C++Builder5中所帶之C++編譯器是5.5版本﹐在當前較主流的Windows平臺編譯器中﹐對於ISO 
+  C++ Standard的支持是最完善的。用它來配合SGI STL相當方便﹐也是筆者推薦之選。沒有此開發工具的讀者﹐可以到www.borland.com上免費下載Borland 
+  C++ 5.5編譯器的一個精裝版﹐該精裝版體積為8.54M﹐名稱 
+  freecommandlinetools1.exe﹐乃一自解壓安裝文件。可在Windows中執行它﹐<br>
+  安裝到合適的目錄中。展開後體積50M。<br>
+  <br>
+  以下描述中﹐假定你使用的Windows裝在C:\Windows目錄。如果你有BCB5﹐我假設裝在C:\Program 
+  Files\Borland\CBuilder5﹔如果你沒有BCB5﹐而是使用上述的精簡版BCC﹐則假設安裝在C:\BCC55目錄中﹐而STLport原包置于C:\STL4BC。<br>
+  <br>
+  C:\STL4BC中應該有以下內容﹕<br>
+  &lt;目錄&gt; doc<br>
+  &lt;目錄&gt; lib<br>
+  &lt;目錄&gt; src<br>
+  &lt;目錄&gt; stlport<br>
+  &lt;目錄&gt; test<br>
+  文件 ChangLog<br>
+  文件 Install<br>
+  文件 Readme<br>
+  文件 Todo<br>
+  <br>
+  同時確保C:\Program Files\Borland\CBuilder5\Bin或C:\BCC55\Bin在你的Path環境變量中。<br>
+  <br>
+  <font color="#8080FF">筆者</font>推薦你在安裝之前讀一讀Install文件﹐其中會講到如何避免使用SGI提供的iostream庫。如果你不願意使用SGI 
+  iostream﹐STLport會在原來編譯器自帶的iostream庫外加一個 wrapper﹐使之能與SGI 
+  STL共同合作。不過SGI提供的iostream庫標準化程度好﹐跟本家的 STL代碼配合起來速度也快些﹐所以<font
+  color="#8080FF">筆者</font>實在想不出什麼理由不使用它﹐在這裡假定大家跟<font
+  color="#8080FF">筆者</font>一樣﹐樂于使用SGI iostream庫。有不同看法者儘可以按照Install文件的說法調整。<br>
+  <br>
+  下面一步步來﹕<br>
+  <br>
+  0. 本次配置任務均在DOS命令狀態下完成﹐請先從“開始”--&gt;“附件”菜單中選中MS-DOS方式﹐打開一個DOS窗口。<br>
+  <br>
+  1. 到C:\Program Files\Borland\CBuilder5\bin中﹐利用你順手的文本編輯器修改兩個文件﹕<br>
+  <br>
+  file1: bcc32.cfg﹐改成﹕<br>
+  <br>
+  -I&quot;C:\STL4BC\stlport&quot;;\ <br>
+  &quot;C:\Program Files\Borland\CBuilder5\Include&quot;;\<br>
+  &quot;C:\Program Files\Borland\CBuilder5\Include\vcl&quot;<br>
+  -L&quot;C:\STL4BC\LIB&quot;;\<br>
+  &quot;C:\Program Files\Borland\CBuilder5\Lib&quot;;\<br>
+  &quot;C:\Program Files\Borland\CBuilder5\Lib\obj&quot;;\<br>
+  &quot;C:\Program Files\Borland\CBuilder5\Lib\release&quot;<br>
+  <br>
+  上面為了<font color="#000000">方便</font>閱讀用&quot;\&quot;符號將很長的一行折行﹐實際文件應該只有兩行。<br>
+  <br>
+  file2: ilink32.cfg﹐改成﹕<br>
+  <br>
+  -L&quot;C:\STL4BC\LIB&quot;;\<br>
+  &quot;C:\Program Files\Borland\CBuilder5\Lib&quot;;\<br>
+  &quot;C:\Program Files\Borland\CBuilder5\Lib\obj&quot;;\<br>
+  &quot;C:\Program Files\Borland\CBuilder5\Lib\release&quot;<br>
+  <br>
+  在C:\BCC55\BIN目錄中﹐不存在這兩個文件﹐請你自己用文字編輯器手工做出這兩個文件來﹐內容與上面有所不同﹐如下<br>
+  <br>
+  file1: bcc32.cfg﹐內容﹕<br>
+  <br>
+  -I&quot;C:\STL4BC\stlport&quot;;&quot;C:\BCC55\Include&quot;;<br>
+  -L&quot;C:\STL4BC\LIB&quot;;&quot;C:\BCC55\Lib&quot;;<br>
+  <br>
+  file2: ilink32.cfg﹐內容﹕<br>
+  <br>
+  -L&quot;C:\STL4BC\LIB&quot;;&quot;C:\BCC55\Lib&quot;;<br>
+  <br>
+  2. 進入到C:\STL4BC\SRC目錄中。<br>
+  <br>
+  3. 執行命令copy bcb5.mak Makefile<br>
+  <br>
+  4. 執行命令make clean all<br>
+  <br>
+  這個命令會執行很長時間﹐尤其在老舊機器上﹐可能運行30分鐘以上。屏幕不斷地在顯示<br>
+  工作情況﹐有時你會看到好像計算機在反復地做同樣幾件事﹐請保持耐心﹐這實際上是在<br>
+  以不同編譯開關建立不同性質的目標庫。<br>
+  <br>
+  5. 經過一段漫長的編譯之後﹐ 終於結束了。現在你再執行命令 make 
+  install 這次需要的時間不長。<br>
+  <br>
+  6. 來到C:\STL4BC\LIB目錄﹐執行<br>
+  copy *.dll c:\windows\system;<br>
+  <br>
+  7. OK﹐大功告成。下面一步應該是檢驗一下事不是真的用上了SGI STL。<font
+  color="#8080FF">rope是SGI STL提供的一個特有容器﹐專門用來對付超大規模字符串(string是細弦﹐而rope是粗繩子﹐可以想見rope的能力有多強)。</font><br>
+  <br>
+  下面這個程序有點暴殮天物﹐不過也可以做一個小試驗了﹕<br>
+  <br>
+  //issgistl.cpp<br>
+  #include &lt;iostream&gt;<br>
+  #include &lt;rope&gt;<br>
+  <br>
+  using namespace std;<br>
+  <br>
+  int main()<br>
+  {<br>
+  &nbsp;&nbsp;&nbsp; // crope就是容納char類型字符的rope容器<br>
+  &nbsp;&nbsp;&nbsp; crope bigstr1(&quot;It took me about one hour &quot;);<br>
+  &nbsp;&nbsp;&nbsp; crope bigstr2(&quot;to plug the STLport into Borland C++!&quot;);<br>
+  &nbsp;&nbsp;&nbsp; crope story = bigstr1 + bigstr2;<br>
+  &nbsp;&nbsp;&nbsp; cout &lt;&lt; story &lt;&lt; endl;<br>
+  &nbsp;&nbsp;&nbsp; return 0;<br>
+  }<br>
+  //~issgistl.cpp<br>
+  <br>
+  編譯 bcc32 issgistl.cpp<br>
+  <br>
+  咦﹐怪哉﹐linker報告說找不到stlport_bcc_static.lib﹐到C:\STL4BC\LIB看個究竟﹐確實並沒有這個文件﹐倒是有一個stlport_bcb55_static.lib。<font
+  color="#8080FF">筆者</font>發現<font color="#8080FF">這是STLport的一個小問題﹐需要將庫文件的名字做一點改動</font>﹕<br>
+  <br>
+  copy stlport_bcb55_static.lib stlport_bcc_static.lib<br>
+  <br>
+  這做法比較穩妥﹐原來的stlport_bcb55_static.lib也保留下來。以其他選項進行編譯時﹐還可能會遇到類似的問題﹐只要照葫蘆畫瓢該名字就沒問題了。<br>
+  <br>
+  現在再編譯﹐應該沒問題了。可能有一些warning﹐沒有關係。只要能運行﹐就說明rope容器起作用了﹐也就是說你的SGI 
+  STL開始工作了。<br>
+  </p>
+  <h2><font color="#0000FF">Microsoft Visual C++ 6.0</font>:</h2>
+  <p>Microsoft Visual C++ 6.0是當今Windows下C++編譯器主流中的主流﹐但是對於ISO 
+  C++的支持並不盡如人意。其所配送的STL性能也比較差。不過既然是主流﹐STLport自然不敢怠慢﹐下面介紹VC中的STLport配置方法。<br>
+  <br>
+  以下描述中﹐假定你使用的Windows裝在C:\Windows目錄。VC裝在 C:\Program 
+  Files\Microsoft Visual Studio\VC98﹔而STLport原包置于C:\STL4VC。<br>
+  <br>
+  C:\STL4VC中應該有以下內容﹕<br>
+  <br>
+  &lt;目錄&gt; doc<br>
+  &lt;目錄&gt; lib<br>
+  &lt;目錄&gt; src<br>
+  &lt;目錄&gt; stlport<br>
+  &lt;目錄&gt; test<br>
+  文件 ChangLog<br>
+  文件 Install<br>
+  文件 Readme<br>
+  文件 Todo<br>
+  <br>
+  同時確保C:\Program Files\Microsoft Visual Studio\VC98\bin在你的Path環境變量中。<br>
+  <br>
+  下面一步步來﹕<br>
+  <br>
+  0. 本次配置任務均在DOS命令狀態下完成﹐請先從“開始”--&gt;“附件”菜單中選中MS-DOS方式﹐打開一個DOS窗口。<br>
+  <br>
+  1. 到C:\Program Files\Microsoft Visual Studio\VC98中﹐利用你順手的文本編輯器修改兩個文件vcvars32.bat﹐其中有兩行<br>
+  <br>
+  set INCLUDE=%MSVCDir%\ATL\INCLUDE;%MSVCDir%\INCLUDE;%MSVCDir%\MFC\INCLUDE;%INCLUDE%<br>
+  set LIB=%MSVCDir%\LIB;%MSVCDir%\MFC\LIB;%LIB%<br>
+  <br>
+  改成﹕<br>
+  <br>
+  set INCLUDE=C:\STL4VC\stlport;%MSVCDir%\ATL\INCLUDE;%MSVCDir%\INCLUDE;\<br>
+  %MSVCDir%\MFC\INCLUDE;%INCLUDE%<br>
+  set LIB=C:\STL4VC\lib;%MSVCDir%\LIB;%MSVCDir%\MFC\LIB;%LIB%<br>
+  <br>
+  上面為了方面閱讀用 &quot;\&quot; 
+  符號將過長的一行折成兩行﹐實際文件中還是一行。<br>
+  <br>
+  修改完畢後保存﹐然後執行命令vcvars32。一切順利的話應該給出一行結果﹕<br>
+  <br>
+  Setting environment for using Microsoft Visual C++ tools.<br>
+  <br>
+  如果你預設的DOS環境空間不足﹐這個BAT文件執行中可能導致環境空間overflow﹐此時應該在DOS窗口的“屬性”對話框中找到“內存”頁﹐修改“初始環境”ComboBox﹐改為一個較大的值﹐如1280或2048。然後再次開一個DOS窗口﹐運行vcvars32.bat。<br>
+  <br>
+  2. 進入到C:\STL4VC\SRC目錄中。<br>
+  <br>
+  3. 執行命令copy vc6.mak Makefile<br>
+  <br>
+  4. 執行命令make clean all<br>
+  <br>
+  如果說BCB編譯STLport的時間很長﹐那麼VC編譯STLport的過程就更加漫長。屏幕反反復復地顯示似乎是同樣的內容﹐請務必保持耐心﹐這實際上是在以不同編譯開關建立不同性質的目標庫。<br>
+  <br>
+  5. 經過一段漫長的編譯之後﹐ 終於結束了。現在你再執行命令<br>
+  <br>
+  make install<br>
+  <br>
+  這次需要的時間不那麼長﹐但也要有點耐心。<br>
+  <br>
+  6. OK﹐大功告成。下面一步應該是檢驗一下事不是真的用上了SGI STL。跟上面BCB的過程差不多﹐找一個使用了SGI 
+  STL特性的程序﹐比如使用rope, slist, hash_set, hash_map等容器的程序來編譯。注意﹐編譯時務必使用下面的格式﹕<br>
+  <br>
+  cl /GX /MT program.cpp<br>
+  <br>
+  SGI STL中大量使用try..throw..catch﹐VC<font color="#8080FF">缺省</font>情況下不支持此語法﹐/GX是要求VC++ 
+  Compiler打開對異常處理語法的支持。/MT則是要求VC的linker本程序obj文件與libcmt.lib連接在一起﹐因為SGI 
+  STL是thread-safe的﹐必須以multi-thread形式運行。<br>
+  <br>
+  若要在圖形界面中使用SGI STL﹐可在VC中調整Project--&gt;Setting(Alt+F7), 
+  設置編譯選項﹐注意使用/MT和/GX﹐並且引入選項/Ic:\stl4vc\stlport及/libpath:c:\stl4vc\lib。<br>
+  <br>
+  整個過程在<font color="#8080FF">筆者</font>的老式<font color="#8080FF">Pentium 
+  150機器</font>上運行了超過3小時﹐讀者的機器想必快得多﹐但也必然會花去出乎你意料的時間。全部完成後﹐C:\STL4VC這個目錄的體積也由原來的區區4.4M膨脹到可怕的333M﹐當然這其中有300M是編譯過程中產生的.obj文件﹐如果你確信自己的STLport工作正常的話﹐可以刪掉它們﹐省出硬盤空間。不過這樣一來﹐下次若再編譯﹐就只好再等很長時間。<br>
+  <br>
+  另外﹐據<font color="#8080FF">筆者</font>勘察﹐STLport 4.0所使用的SGI STL並非最新問世的SGI 
+  STL3.3版本﹐不知道把SGI STL3.3的代碼導入STLport會有何效果﹐有興趣的讀者不妨一試。<br>
+  <br>
+  大致情形就是這樣﹐現在﹐套用STLport自帶文件的結束語﹕<br>
+  <br>
+  Have fun!<br>
+  <br>
+  孟岩<br>
+  2001-3-11<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </p>
+</blockquote>
+</body>
+</html>

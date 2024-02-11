@@ -1,0 +1,211 @@
+<html>
+
+<head>
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<title>課程 標準規格 （臺灣術語）</title>
+</head>
+
+<body style="background: #c0c0c0;">
+
+<pre><code><font color="#000000">本頁採用臺灣術語
+<font color="#464646">
+</font></font><font
+color="#0000FF">所有課程都<strong>可彈性增減內容與時數</strong></font><font
+color="#464646">。時數多，講解就更詳細、範例更多更深入。</font></code></pre>
+
+<pre><font color="#000000"><code>下面是一份標準規格 (2006/09/18)：
+
+<a
+name="Win32-API">■ Win32/SDK 程式設計（Win32/SDK programming）</a>, 18 hous
+主旨 : 本課程講解 SDK programming model，讓學員了解 Win32 API 程式
+       的骨幹結構、認識常見而重要（必須處理）的 Windows 訊息，並佐以
+       Windows 作業原理包括 Kernel,User,GDI三大模組，排程、行程、緒程、定址空間...。
+注意 : 本課程重點並不在教導各式各樣的 Win32 APIs（那有成百上千，查閱書籍即可），
+       而是讓學員清楚知道所謂 message-based, event-driven 的程式結構。
+學員基礎 : C 語言，並對作業系統有基本粗淺概念。
+教材 : 老師提供講義，學員自行影印。
+課程綱要 :
+. 概觀 (overview)
+. 一個麻雀雖小五臟俱全的 Win32 (SDK) 程式
+. 視窗類別 (window class)
+. 視窗 (window)
+. 選單 (menu) 與資源 (resource)
+. 訊息 (message) 與主訊息迴圈 (main message loop)
+. 視窗函式 (window procedure)
+. MDI (Multiple Document Interface)
+. Windows 系統原理：Kernel,User,GDI三大模組
+. Windows 系統原理：排程（scheduling）、行程（processes）、緒程（threads）
+. Windows 系統原理：定址空間（addressing space）
+. Windows 系統原理：視窗系統（windowing system）
+
+
+■ <a
+name="MFC-programming">MFC 程式設計（MFC programming）</a>, 30 hours
+主旨 : 本課程講解 MFC programming model，讓學員了解 MFC 應用程式的骨幹結構
+       及相關之 MFC 架構，從而得以編寫自己的應用程式。
+學員基礎 : C++ 語言及 SDK programming（message-based, event-driven）基本概念
+教材 : 老師提供講義，學員自行影印。
+課程綱要 :
+. 概觀 (overview)
+. 工具（VC IDE, AppWizard, ClassWizard）
+. Win32 (SDK) 編程模型 (programming model) 觀念複習
+. 以工具建立一個麻雀雖小五臟俱全的 MFC 應用程式
+. 了解 MFC 基本結構及與 MFC 應用程式的關係
+. 了解 MFC 程式的來龍去脈（生與死）
+. 修改骨幹程式的第一步
+. 編寫自己的 classes
+. 處理必要訊息，包括視窗訊息與命令訊息
+. 物件的儲存與讀取/序列化（persistence/Serialization）
+. 文件與視圖（Document and View）
+. 多重文件與多重視圖（Multi-Documents and Multi-Views）
+. MFC Collections</code></font></pre>
+
+<pre><font color="#000000"><code>
+■ <a name="Anatomy of MFC">解析應用框架（Application Framework）--以 MFC 為對象</a>, 30 hours
+主旨 : 本課程以 MFC 為例帶引學員一探 OO 最高階殿堂--應用框架（Application Framework）
+      的設計，有利學員認識各種軟體技術並徹底了解 MFC 內部結構（此對編寫 MFC 應用程式有極大幫助）。
+學員基礎 : C++ 語言及 SDK programming（message-based, event-driven）基本概念
+教材 : 老師提供講義，學員自行影印。老師並提供一個麻雀雖小五臟俱全的 MFC-Lite，含源碼。 
+課程綱要 :
+. MFC 對 Win32 (SDK) 編程模型 (programming model) 的包裝
+. MFC 和其應用程式的互動關係
+. 三層基礎設施（三組晦澀的 MFC macros）：RTTI, Dynamic Creation, Serialization
+. 動態生成（Dynamic Creation）
+. 序列化（Serialization, i.e.物件永續或檔案讀寫）
+. 文件與視圖（document/view），兼談 MVC（Model-View-Controller）與 Observer（觀察者）範式
+. 訊息映射（message mapping）
+. 命令繞行（command routing）
+. MFC Collections
+
+
+■ <a
+name="C++/OOP">C++/OOP</a>（C++與物件導向編程）, 24 hours
+主旨 : 本課程涵蓋 C++ 語法、語意、物件模型、優良編程風格、物件導向概念，
+       讓學員從一無所知到具備大家風範，並徹底認識 C++ 的底層運作。
+注意 : 由於 C++ Templates 所引發的泛型編程（GP, Generic Programming）十分重要（造就出 C++ 標準程式庫），
+       因此雖然 GP 與 OO 無關，我還是將 GP 納入，成為本課程比重較小的一部分。
+學員基礎 : C 或其他結構化語言（Structured Languages）
+教材 : 老師提供講義，學員自行影印。
+課程綱要 :</code></font></pre>
+
+<pre><code><font color="#000000">* from C to C++（從 C 過渡到 C++）
+  . 模擬 class 及其 members 以及'this'指標，為揭開 C++ 編譯器面紗預做準備
+* Abstract Data Type(抽象資料型別)/Object-Based Pogramming
+  . OOP overview（概觀）
+  . class and struct
+  . access level（存取層級）
+  . object lifetime and scope（物件的生命期與作用域）
+  . ctor, copy ctor, operator=, dtor（特殊的成員函式）
+  . static vs. non-static
+  . inline vs. macro
+  . pass by reference vs. pass by value（傳址vs.傳值）
+  . reference vs. pointer （引用vs.指標 or 址參器vs.指位器）
+  . function overloading and operator overloading（函式重載和運算子重載）
+  . 'this' pointer（'this'指標）
+  . object model（物件模型）, vptr, vtbl
+  . new, delete, new[], delete[]
+  . misc.（雜項討論）
+* Object Oriented Programming（物件導向編程）
+  . ineritance（繼承）
+  . composition（複合）
+  . virtual function（虛擬函式）
+  . polymorphism（多型）
+  . revisit 'this' pointer（在繼承體系下再次討論'this'指標）
+  . revisit object model（在繼承體系下再次討論物件模型）
+  . Template Method vs. Strategy (Inheritance vs. Delegation)
+* Generic Programming（泛型編程）
+  . Introduction（簡介）
+  . class template（類別模板）和 function template（函式模板）
+  . C++ Standard Library（標準程式庫）的運用
+  . array vs. std::vector
+  . char[] vs. std::string
+
+■ <a
+name="Design-Patterns">Design Patterns</a>（設計範式）, 30 hours
+主旨 : Design Patterns 是一門高階課程，若內容缺乏實務便易流於抽象與空泛。
+       本課程抽取大量知名程式庫（包括C++標準程式庫, Java標準程式庫, MFC,）中的設計範式，
+       利用其源碼輔助並加強學理講解。這種方式對於設計範式的學習有著極大效果。
+注意 : 本課程講義涵蓋 C++ 和 Java 兩種語言程式碼。
+學員基礎 : C++ 或 Java（或任何其他 OOPL）至少2~3年經驗。
+教材 : 老師提供講義，學員自行影印。
+課程綱要 :
+* Design Patterns（設計範式）概觀
+* 若干重要的 OO 守則（principles）
+* 逐一討論 GoF's 23 patters，包括
+  Abstract Factory, Adapter, Bridge, Builder, Command, Composite, 
+  Decorator, Facade, Factory Method, Flyweight, Iterator, 
+  Observer, Proxy, Singleton, State, Strategy, Template Method, Visitor 
+* GoF 以外的 patters
+  . Reference Counting, Copy On Write, Model-View-Controller, Java's Undoable</font><font
+color="#464646"> 
+
+</font><font color="#000000">■ <a name="GP-STL">Generic Programming（泛型編程）及標準模板程式庫 (STL)之設計與實作</a>, 24 hours
+主旨：給予泛型編程（Generic Programming）之堅實訓練。課程包括 C++ Templates 全面訓練、
+      良好運用 STL、認識 STL 之結構與實作技術。
+注意：透徹理解 STL 之設計與實作，是良好運用 STL 的先決條件與高起點。
+      此外本課程不僅談 STL 應用，也談 GP 原理及趨勢，兼談一點 Meta Programming（超編程）。
+學員基礎 : C++
+教材 : 老師提供講義，學員自行影印。
+課程綱要 :
+* C++ 泛型編程
+  . 概觀
+  . C++ Class Template
+  . C++ Function Template
+  . C++ Operator Overloading (++, --, *, -&gt;, ())
+* STL (Standard Template Library) 之設計結構與實作技術
+  . 概觀
+  . Traits
+  . Iterators（泛型指標，迭代器）
+  . Containers（泛型容器）
+  . Generic Algorithms（泛型演算法）
+  . Function Objects or Functor（函式物件或仿函式）
+  . Adapters（泛型配接器）
+  . Allocator（泛型配置器）
+* 淺談 Java 泛型編程
+* 淺談 Meta Programming（超編程）</font><font
+color="#464646">
+
+
+■ <a name="Java-Programming">Java Programming</a>, 18 hours
+</font><font
+color="#000000">主旨 : 幫助學員建立 Java programming 的大局認識
+注意 : 本課程主要探討 Java 語言在 OOP 方面的核心表現（並不著重於所有語法細節），
+         及重要的程式庫組件如 Collections, I/O, Threading, Swing, Undoable APIs...的運用。
+         本課程不討論 EJB,J2EE 等企業應用, 亦不討論 J2ME 等微型應用。
+學員基礎 : 曾經有過任何 programming 經驗（OOP 經驗尤佳）即可。
+           如果大部份學員有 C++ 基礎，本課程可舉 Java vs. C++ 之實例。
+教材 : 老師提供講義，學員自行影印。
+
+課程綱要 :
+o. Java/OOP overview
+o. Java Standard Library hierarchy
+o. Interface/class design and implementation
+o. Inheritance and Polymorphism
+o. Objects Passing and Returning; Cloneable
+o. RTTI (Runtime Type Identification) and Reflection
+o. Persistence (Serialization)
+o. Java I/O and Decorator pattern
+o. Java Collections
+o. Java Swing and JavaBeans (GUI)
+o. Java Multithreading
+o. Generics in Java</font><font
+color="#464646">
+
+-- the end
+
+</font><font color="#000000">
+
+</font>
+</code></pre>
+
+<p>&#26;</p>
+
+<p>&#26;</p>
+
+<p>&#26;</p>
+
+<p>&#26;</p>
+</body>
+</html>
+<!-- generated by lore愀 source converter (http://www.source2html.org) -->

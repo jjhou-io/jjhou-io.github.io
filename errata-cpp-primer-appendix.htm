@@ -1,0 +1,706 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>勘誤：C++ Primer 中文版 (附錄)</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="740">
+  <tr>
+    <td align="right" valign="top" width="21">&nbsp; <!--mstheme--></font></td>
+    <td width="21"><!--mstheme--></font></td>
+    <td valign="bottom" width="686"><big><big>C++ Primer 中文版&nbsp; </big><font
+    color="#000040">附錄各範例程式之檢測記錄</font></big><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="21"><font size="3"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td width="21"><!--mstheme--></font></td>
+    <td valign="top" width="686"><font size="3"><br>
+    </font><a href="jjtbooks-cpp-primer.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-primer.htm"><img src="primer.jpg" tppabs="http://jjhou.boolan.com/primer.jpg"
+    alt="primer.jpg (14056 bytes)" WIDTH="155" HEIGHT="191"></a><p>　</p>
+    <p>原著：<font color="#0000FF">C++ Primer 3/e</font>, by Stanly B. Lippman &amp; Josee 
+    Lajoie, Addison Wesley/1998</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><strong><font color="#FF0000">本書<a name="mark:app-sample-test">附錄各範例程式之檢測記錄</a></font></strong></p>
+    <p>《C++ Primer 3/e》厚達 75 頁的附錄，提供了 C++ Standard Library 的<br>
+    所有 generic algorithms（泛型演算法）的說明與範例。對於想要學習<br>
+    泛型程式設計的人，是一份很好的資源。<font color="#FF0000">整份程式碼可於</font> 
+    <br>
+    <a href="javascript:if(confirm(%27http://www.awl.com/cseng/titles/0-201-82470-1/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.awl.com/cseng/titles/0-201-82470-1/%27" tppabs="http://www.awl.com/cseng/titles/0-201-82470-1/"><font FACE="細明體" size="3">http://www.awl.com/cseng/titles/0-201-82470-1/</font></a> 
+    <font color="#FF0000">下載而得</font>。<br>
+    <br>
+    我在製作《C++ Primer 3/e 中文版》時，曾隨機檢測了幾個範例，發現<br>
+    在 VC6 和 BCB4 上不能有效通過編譯。由於 Standard Template Library（STL）<br>
+    有眾多版本，各家編譯器對 template 的支援程度（以及對 C++ Standard 的<br>
+    支援程度）亦不相同，所以我不宜直接在中文版更改原碼。<br>
+    <br>
+    現在，我以手上的 <strong>VC6</strong> 和 <strong>BCB4</strong> 和 <strong>GNU 
+    C++</strong> 為工具，對整個附錄的所有範例程式<br>
+    做了檢測，並修改無法通過的部份。檢測記錄如下。<br>
+    <br>
+    1. 將下載後的 code.zip 置於 c:\primer\bin<br>
+    2. 解壓縮<br>
+    3. 進入 c:\primer\bin\appendix，將所有 .C 改名為 .CPP<br>
+    <br>
+    4. 以下是修改通則：<br>
+    <br>
+    (a) 將表頭檔改為 C++ style。此雖不影響正誤，但可使程式風格一致。<br>
+    &lt;iostream.h&gt; ==&gt; <strong><font color="#0000FF">&lt;iostream&gt;</font></strong><br>
+    &lt;assert.h&gt; ==&gt; <strong><font color="#0000FF">&lt;cassert&gt;</font></strong><br>
+    <font color="#FF0000">奇怪的是</font>，在 BCB4 INCLUDE 
+    子目錄中，所有的表頭檔案都是 .H 檔，<br>
+    找不到 C++ style。但程式使用 C++ Style 表頭檔卻又不見有錯。why？<br>
+    莫非其前置處理器將 #include &lt;cassert&gt; 自動改為 
+    #include&lt;cassert.h&gt;？<br>
+    <br>
+    (b) 在 #include&lt;...&gt; 之後，增加 <font color="#0000FF"><strong>using namespace 
+    std;</strong></font><br>
+    此法雖非最理想（會增加編譯時間），但卻最方便。<br>
+    面對這些小型範例程式，增加的編譯時間微不足道！<br>
+    <br>
+    (c) 程式中凡用到 <font color="#0000FF"><strong>allocator ，皆移除</strong></font>（於是使用預設引數）。<br>
+    <br>
+    (d) 請在部份程式的 main() 結束前加上<strong><font color="#0000FF"> return 0;</font></strong> 
+    以消除編譯警訊。<br>
+    <br>
+    <font color="#FF0080">★若出現以下 (e)(f)(g)(h)(i)(j)(k)(m) 
+    情況，稍後程式實測記錄中會明示之★</font><br>
+    (e) 程式中凡用到 set&lt;string ...&gt;，皆改為 <font color="#0000FF"><strong>set&lt;string&gt;</strong></font>，改用預設引數。<br>
+    (f) 程式中凡用到 istream_iterator&lt; string ... &gt;，皆改為 <font
+    color="#0000FF"><strong>istream_iterator&lt; string &gt;</strong></font><br>
+    (g) 部份程式應含入而未含入 <font color="#0000FF"><strong>&lt;functional&gt;</strong></font><br>
+    (h) 部份程式應含入而未含入 <strong><font color="#0000FF">&lt;iostream&gt;</font></strong><br>
+    (i) 部份程式應含入而未含入 <font color="#0000FF"><strong>&lt;string&gt;</strong></font><br>
+    (j) <strong><font color="#0000FF">count()</font></strong> 參數與回返值 (obsolete!)<br>
+    (k) <strong><font color="#0000FF">count_if()</font></strong> 參數與回返值 
+    (obsolete!)<br>
+    (m) times&lt;int&gt; 應改為 <strong><font color="#0000FF">multiplies&lt;int&gt;</font></strong> 
+    (obsolete!)<br>
+    註：在 HP STL 中原本命名為 times，因與 UNIX header &lt;sys/times.h&gt;<br>
+    衝突，所以在 C++ Standard 中已改為 multiplies。<br>
+    (n) 由於 BCB4 不支援只有單一引數（表示預設大小）的&nbsp; <strong><font
+    color="#0000FF">list&lt;int&gt;</font></strong> ，所以<br>
+    加上第二引數 <strong><font color="#0000FF">-1</font></strong>（表示預設初值。注意，只可以是負數，<font
+    color="#FF0000">怪</font>）。<br>
+    (o) 為特別應付 BCB4，將<br>
+    list&lt;int&gt; ilist_result(ilist.size());<br>
+    改為<br>
+    int i = ilist.size();<br>
+    list&lt;int&gt; ilist_result(i, -1);<br>
+    <br>
+    <br>
+    <br>
+    5. 編譯器的使用：<br>
+    <br>
+    (a) 使用 command line 模式，會比 IDE（整合開發環境）更方便。<br>
+    <br>
+    ★<font color="#FF0000">VC6 的環境設定</font>如下（請依各人環境修改其中路徑）：<br>
+    set PATH=C:\MSDEV\VC98\BIN;C:\MSDEV\COMMON\MSDEV98\BIN<br>
+    set INCLUDE=C:\MSDEV\VC98\INCLUDE<br>
+    set LIB=C:\MSDEV\VC98\LIB<br>
+    <br>
+    ★<font color="#FF0000">BCB4 的環境設定</font>如下（請依各人環境修改其中路徑）：<br>
+    set PATH=C:\inprise\CBuilder4\BIN<br>
+    set INCLUDE=C:\inprise\CBuilder4\INCLUDE<br>
+    set LIB=C:\inprise\CBuilder4\LIB<br>
+    <br>
+    ★<font color="#FF0000">GNU C++ (egcs-2.91.57) 的環境設定</font>如下（請依各人環境修改其中路徑）：<br>
+    set PATH=c:\CYGNUS\CYGWIN-b20\H-I586-cygwin32\BIN<br>
+    <br>
+    <br>
+    (b) 在 Windows 中開啟 DOS box，設定好上述環境變數後，即可使用編譯器。<br>
+    <br>
+    <font color="#FF0000">VC6 的用法</font>：<br>
+    cl -GX alg??.cpp &lt;enter&gt;<br>
+    <br>
+    <font color="#FF0000">BCB4 的用法</font>：<br>
+    bcc32 alg??.cpp &lt;enter&gt;<br>
+    <br>
+    <font color="#FF0000">GNU C++ (egcs-2.91.57) 的用法</font>：<br>
+    g++ -o alg??.exe alg??.cpp &lt;enter&gt;<br>
+    <br>
+    <br>
+    6. 以下是各範例程式的實測記錄<font color="#0000FF">（for VC6 and BCB4 and 
+    GNU C++ (egcs-2.91.57)</font><font color="#FF0000"> </font><font color="#0000FF">）</font>：<br>
+    如「修改」欄內註明「通則(x)」，表示<font color="#FF0000">請特別注意通則(x)</font>。<br>
+    <br>
+    <font color="#0000FF">請注意：《C++ Primer 3/e》與《C++ Primer 3/e 
+    中文版》編頁完全相同</font></p>
+<!--mstheme-->    </font><div align="left"><table border="1" width="669" bordercolorlight="#CC3300"
+    bordercolordark="#000000">
+      <tr>
+        <td bgcolor="#C0C0C0" width="101">檔名<!--mstheme--></font></td>
+        <td bgcolor="#C0C0C0" width="158">主述<!--mstheme--></font></td>
+        <td bgcolor="#C0C0C0" width="32">頁次<!--mstheme--></font></td>
+        <td bgcolor="#C0C0C0" width="60">修改<!--mstheme--></font></td>
+        <td bgcolor="#C0C0C0" width="29">VC6<!--mstheme--></font></td>
+        <td bgcolor="#C0C0C0" width="53">BCB4<!--mstheme--></font></td>
+        <td bgcolor="#C0C0C0" width="41">GCC<br>
+        egcs-2.91.57<!--mstheme--></font></td>
+        <td bgcolor="#C0C0C0" width="147">備註<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg0.cpp<!--mstheme--></font></td>
+        <td width="158">accumulate()<!--mstheme--></font></td>
+        <td width="32">1125<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok<!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg1.cpp<!--mstheme--></font></td>
+        <td width="158">adjacent_difference()<!--mstheme--></font></td>
+        <td width="32">1126<!--mstheme--></font></td>
+        <td width="60">前述通則(m)(n)(o)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td bgcolor="#FFFFFF" width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg2.cpp<!--mstheme--></font></td>
+        <td width="158">adjacent_find()<!--mstheme--></font></td>
+        <td width="32">1127<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg3.cpp<!--mstheme--></font></td>
+        <td width="158">binary_search()<!--mstheme--></font></td>
+        <td width="32">1128<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok<!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg4.cpp<!--mstheme--></font></td>
+        <td width="158">copy()<!--mstheme--></font></td>
+        <td width="32">1129<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg5.cpp<!--mstheme--></font></td>
+        <td width="158">count()<!--mstheme--></font></td>
+        <td width="32">1131<!--mstheme--></font></td>
+        <td width="60">前述通則(f)(j)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg6.cpp<!--mstheme--></font></td>
+        <td width="158">count_if()<!--mstheme--></font></td>
+        <td width="32">1133<!--mstheme--></font></td>
+        <td width="60">前述通則(g)(k)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg7.cpp<!--mstheme--></font></td>
+        <td width="158">equal()<!--mstheme--></font></td>
+        <td width="32">1134<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg8.cpp<!--mstheme--></font></td>
+        <td width="158">equal_range()<!--mstheme--></font></td>
+        <td width="32">1136<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg9.cpp<!--mstheme--></font></td>
+        <td width="158">fill()<!--mstheme--></font></td>
+        <td width="32">1138<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg10.cpp<!--mstheme--></font></td>
+        <td width="158">find()<!--mstheme--></font></td>
+        <td width="32">1140<!--mstheme--></font></td>
+        <td width="60">前述通則(h)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg11.cpp<!--mstheme--></font></td>
+        <td width="158">find_if()<!--mstheme--></font></td>
+        <td width="32">1142<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok<!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg12.cpp<!--mstheme--></font></td>
+        <td width="158">find_end()<!--mstheme--></font></td>
+        <td width="32">1143<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg13.cpp<!--mstheme--></font></td>
+        <td width="158">find_first_of()<!--mstheme--></font></td>
+        <td width="32">1144<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg14.cpp<!--mstheme--></font></td>
+        <td width="158">for_each()<!--mstheme--></font></td>
+        <td width="32">1145<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg15.cpp<!--mstheme--></font></td>
+        <td width="158">generate()<!--mstheme--></font></td>
+        <td width="32">1146<!--mstheme--></font></td>
+        <td width="60">前述通則(n)<!--mstheme--></font></td>
+        <td width="29">ok<!--mstheme--></font></td>
+        <td width="53"><font color="#000000">ok</font><!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg16.cpp<!--mstheme--></font></td>
+        <td width="158">generate_n()<!--mstheme--></font></td>
+        <td width="32">1147<!--mstheme--></font></td>
+        <td width="60">前述通則(h)(n)<!--mstheme--></font></td>
+        <td width="29">ok<!--mstheme--></font></td>
+        <td width="53"><font color="#000000">ok</font><!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg17.cpp<!--mstheme--></font></td>
+        <td width="158">includes()<!--mstheme--></font></td>
+        <td width="32">1148<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg18.cpp<!--mstheme--></font></td>
+        <td width="158">inner_product()<!--mstheme--></font></td>
+        <td width="32">1149<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg19.cpp<!--mstheme--></font></td>
+        <td width="158">inplace_merge()<!--mstheme--></font></td>
+        <td width="32">1151<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg20.cpp<!--mstheme--></font></td>
+        <td width="158">iter_swap()<!--mstheme--></font></td>
+        <td width="32">1152<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg21.cpp<!--mstheme--></font></td>
+        <td width="158">lexicographical_compare<!--mstheme--></font></td>
+        <td width="32">1154<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg22.cpp<!--mstheme--></font></td>
+        <td width="158">lower_bound()<!--mstheme--></font></td>
+        <td width="32">1155<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg23.cpp<!--mstheme--></font></td>
+        <td width="158">max(), max_element()<br>
+        min(), min_element()<!--mstheme--></font></td>
+        <td width="32">1157<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td bgcolor="#0000FF" width="29"><font color="#FFFFFF">fail</font><!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147" bgcolor="#0000FF"><font color="#FFFFFF">VC6 竟未支援 max, min 
+        這兩個 generic algorithms</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg24.cpp<!--mstheme--></font></td>
+        <td width="158"><strong>heap</strong> stuff<!--mstheme--></font></td>
+        <td width="32">1196<!--mstheme--></font></td>
+        <td width="60">前述通則(g)(h)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg25.cpp<!--mstheme--></font></td>
+        <td width="158">merge()<!--mstheme--></font></td>
+        <td width="32">1158<!--mstheme--></font></td>
+        <td width="60">前述通則(g)(h)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg26.cpp<!--mstheme--></font></td>
+        <td width="158">upper_bound()<!--mstheme--></font></td>
+        <td width="32">1193<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok<!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg27.cpp<!--mstheme--></font></td>
+        <td width="158">unique_copy()<!--mstheme--></font></td>
+        <td width="32">1191<!--mstheme--></font></td>
+        <td width="60">前述通則(h)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg28.cpp<!--mstheme--></font></td>
+        <td width="158">mismatch()<!--mstheme--></font></td>
+        <td width="32">1160<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg29.cpp<!--mstheme--></font></td>
+        <td width="158">next_permutation()<!--mstheme--></font></td>
+        <td width="32">1161<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg30.cpp<!--mstheme--></font></td>
+        <td width="158">nth_element()<!--mstheme--></font></td>
+        <td width="32">1163<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29" bgcolor="#FFFFFF">ok<!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147" bgcolor="#FFFFFF">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg31.cpp<!--mstheme--></font></td>
+        <td width="158">partial_sort()<br>
+        partial_sort_copy()<!--mstheme--></font></td>
+        <td width="32">1165<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg32.cpp<!--mstheme--></font></td>
+        <td width="158">transform()<!--mstheme--></font></td>
+        <td width="32">1190<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg33.cpp<!--mstheme--></font></td>
+        <td width="158">partial_sum()<!--mstheme--></font></td>
+        <td width="32">1166<!--mstheme--></font></td>
+        <td width="60">前述通則(g)(m)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg34.cpp<!--mstheme--></font></td>
+        <td width="158">partition()<!--mstheme--></font></td>
+        <td width="32">1167<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg35.cpp<!--mstheme--></font></td>
+        <td width="158">prev_permutation()<!--mstheme--></font></td>
+        <td width="32">1168<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg36.cpp<!--mstheme--></font></td>
+        <td width="158">random_shuffle()<!--mstheme--></font></td>
+        <td width="32">1169<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41" bgcolor="#0000FF"><font color="#FFFFFF">fail</font><!--mstheme--></font></td>
+        <td width="147" bgcolor="#0000FF"><font color="#FFFFFF">why ?</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg37.cpp<!--mstheme--></font></td>
+        <td width="158">remove_copy()<!--mstheme--></font></td>
+        <td width="32">1170<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">比書上程式碼少最後 5 行<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg38.cpp<!--mstheme--></font></td>
+        <td width="158">remove_if()<br>
+        remove_copy_if()<!--mstheme--></font></td>
+        <td width="32">1172<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg39.cpp<!--mstheme--></font></td>
+        <td width="158">swap()<!--mstheme--></font></td>
+        <td width="32">1187<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg40.cpp<!--mstheme--></font></td>
+        <td width="158">replace_copy()<!--mstheme--></font></td>
+        <td width="32">1173<!--mstheme--></font></td>
+        <td width="60">前述通則(h)(i)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg41.cpp<!--mstheme--></font></td>
+        <td width="158">replace_if()<!--mstheme--></font></td>
+        <td width="32">1175<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg42.cpp<!--mstheme--></font></td>
+        <td width="158">reverse(), <br>
+        reverse_copy()<!--mstheme--></font></td>
+        <td width="32">1176<!--mstheme--></font></td>
+        <td width="60">前述通則(h)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td bgcolor="#C0C0C0" width="53">warning<!--mstheme--></font></td>
+        <td bgcolor="#FFFFFF" width="41">ok<!--mstheme--></font></td>
+        <td width="147" bgcolor="#C0C0C0">Warning W8026<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg43.cpp<!--mstheme--></font></td>
+        <td width="158">stable_sort()<!--mstheme--></font></td>
+        <td width="32">1186<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg44.cpp <!--mstheme--></font></td>
+        <td width="158">rotate(), <br>
+        rotate_copy()<!--mstheme--></font></td>
+        <td width="32">1178<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg45.cpp <!--mstheme--></font></td>
+        <td width="158">stable_partition()<!--mstheme--></font></td>
+        <td width="32">1185<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg46.cpp<!--mstheme--></font></td>
+        <td width="158">search()<!--mstheme--></font></td>
+        <td width="32">1179<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg47.cpp<!--mstheme--></font></td>
+        <td width="158">search_n()<!--mstheme--></font></td>
+        <td width="32">1180<!--mstheme--></font></td>
+        <td width="60">前述通則(g)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg48.cpp<!--mstheme--></font></td>
+        <td width="158">set_union(), <br>
+        set_...()<!--mstheme--></font></td>
+        <td width="32">1183<!--mstheme--></font></td>
+        <td width="60">前述通則(e)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg49.cpp<!--mstheme--></font></td>
+        <td width="158">swap_range()<!--mstheme--></font></td>
+        <td width="32">1188<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg50.cpp<!--mstheme--></font></td>
+        <td width="158">fill_n()<!--mstheme--></font></td>
+        <td width="32">1139<!--mstheme--></font></td>
+        <td width="60">前述通則<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td bgcolor="#C0C0C0" width="53">warning<!--mstheme--></font></td>
+        <td bgcolor="#FFFFFF" width="41">ok<!--mstheme--></font></td>
+        <td width="147" bgcolor="#C0C0C0">Warning W8026<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">alg51.cpp<!--mstheme--></font></td>
+        <td width="158">copy_backward()<!--mstheme--></font></td>
+        <td width="32">1130<!--mstheme--></font></td>
+        <td width="60">前述通則(i)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td bgcolor="#C0C0C0" width="53">warning<!--mstheme--></font></td>
+        <td bgcolor="#FFFFFF" width="41">ok<!--mstheme--></font></td>
+        <td width="147" bgcolor="#C0C0C0">Warning W8026<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="101">istream_iter.cpp<!--mstheme--></font></td>
+        <td width="158">unique(), <br>
+        iterator<!--mstheme--></font></td>
+        <td width="32">???<!--mstheme--></font></td>
+        <td width="60">前述通則(f)<!--mstheme--></font></td>
+        <td width="29">ok <!--mstheme--></font></td>
+        <td width="53">ok<!--mstheme--></font></td>
+        <td width="41">ok<!--mstheme--></font></td>
+        <td width="147">　<!--mstheme--></font></td>
+      </tr>
+    </table>
+    </div><p>就以上範例而言，三家編譯器的表現（<big><strong>非</strong></big>嚴謹測試, 
+    on intel machine, windows 98）：<br>
+    <font color="#0000FF">編譯速度</font>：VC6 優於 GCC(egcs-2.91.57) 優於 BCB4<br>
+    <font color="#0000FF">EXE 大小</font>：VC6 優於 BCB4 優於 GCC(egcs-2.91.57)<br>
+    <font color="#0000FF">與 C++ STL相容性</font>：三家都差不多<br>
+    <br>
+    若論<font color="#0000FF">與</font> <font color="#0000FF">C++ Standard 的相容性</font>，則根據我的其他經驗（<big><strong>非</strong></big>嚴謹測試）：<br>
+    GCC(egcs-2.91.57) 優於 BCB4 優於 VC6<br>
+<!--mstheme-->    </font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

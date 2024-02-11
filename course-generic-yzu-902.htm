@@ -1,0 +1,1083 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>泛型程式設計 元智大學 90-2 課程備忘錄</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><font color="#800000">泛型程式設計（Generic Programming）<br>
+<br>
+元智大學 90-2<br>
+<br>
+課程備忘錄 / 侯捷</font></h2>
+
+<p align="center">每周三 18:30~21:20<br>
+工程一館1102</p>
+
+<hr>
+
+<blockquote>
+  <p>課程教材：<br>
+  1.《<a href="jjtbooks-cpp-primer.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-primer.htm" target="main">C++ Primer 3e</a>》chap6,10,12,15,16, 
+  appnedix <br>
+  2. 五篇文章 by 侯捷&nbsp; 見左視窗「STL系列文章」 2000/02~2000/06. 
+  自行列印<br>
+  3.《<a href="jjtbooks-generic-programming-and-the-stl.htm" tppabs="http://jjhou.boolan.com/jjtbooks-generic-programming-and-the-stl.htm" target="main">泛型程式設計與STL</a>》<br>
+  4.《<a href="jjtbooks-the-cpp-standard-library.htm" tppabs="http://jjhou.boolan.com/jjtbooks-the-cpp-standard-library.htm" target="main">C++ 標準程式庫</a>》<br>
+  5.《<a target="main" href="jjwbooks-tass.htm" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm">STL源碼剖析</a>》<br>
+  <br>
+  1,2 為教材，3,4,5 為課外輔助參考書籍<br>
+  <br>
+  註：單純以本課程主旨而言，4 
+  為最佳教材。但估計許多同學還需補強 C++ template 語法基礎，故以 1+2為教材。</p>
+  <p><br>
+  ■第1週：02/27&nbsp;&nbsp; 缺書</p>
+  <pre>1 課程介紹，遊戲規則，書籍評介，期末作業題目
+2 GP (Generic Programming) and STL overview</pre>
+  <pre>★練習1：設定好你的編譯環境，建議使用 console mode.
+★練習2：試用 C runtime library 的 qsort() 寫個程式
+         感受一下 function pointer.</pre>
+  <pre>本週程式例：STL 的運用</pre>
+  <pre>#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;functional&gt;
+using namespace std;
+
+int main()
+{
+   vector&lt;int&gt;  vi;
+   vi.push_back(23);
+   vi.push_back(14);
+   vi.push_back(39);
+   vi.push_back(20);
+   vi.push_back(9);
+   vi.push_back(10);
+   vi.push_back(36);
+
+   for(int i=0;  i&lt; vi.size(); ++i)
+       cout &lt;&lt; vi[i] &lt;&lt; ' ';
+   cout &lt;&lt; endl;
+
+   vector&lt;int&gt;::iterator  ite1 = vi.begin();
+   vector&lt;int&gt;::iterator  ite2 = vi.end();
+   sort(ite1,ite2);
+
+   for(int i=0;  i&lt; vi.size(); ++i)
+       cout &lt;&lt; vi[i] &lt;&lt; ' ';
+   cout &lt;&lt; endl;
+
+   sort(ite1,ite2, greater&lt;int&gt;());
+   for(int i=0;  i&lt; vi.size(); ++i)
+       cout &lt;&lt; vi[i] &lt;&lt; ' ';
+   cout &lt;&lt; endl;
+}</pre>
+  <pre>
+■第2週：03/06&nbsp;書籍七折</pre>
+  <p><font color="#FF0000">請助教和同學提早15分鐘到達，領取書籍。同學請自備零錢，避免給助教太多困擾。980 
+  * 0.7 = 686 </font></p>
+  <p>Q : 同學提出一個問題，他將 qsort()放在某個class中，並於呼叫時指定某個member 
+  function做為qsort()的最後引數，結果編譯器報錯，要求該member function必須設定為static。同學不解。</p>
+  <p>A : 這是因為 qsort() 的最後參數為一個 function pointer，可視為一個 
+  callback 函式。而 class member function會多出一個 this 
+  指標做為隱藏參數，如此一來將與 qsort()的要求不符。改為 static 
+  member function 便可去除隱藏的 this 
+  指標參數。我將於課中更詳細說明。 </p>
+  <p>Q: 可否以優惠折扣購買其他參考書籍。</p>
+  <p>A: 可以。上課時登記，我把名單轉給出版社。折扣為 7.5 
+  折。此為出版社對侯捷課程的特殊服務，其他讀者請勿來信要求代購。</p>
+  <p>　</p>
+  <p>GP vs. OO，見<a href="letters-2002-02.htm#mark3" tppabs="http://jjhou.boolan.com/letters-2002-02.htm#mark3">讀者來函與回應</a></p>
+  <p>本週仍著重在以實例方式，給同學一個 STL overview.</p>
+  <pre>#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;functional&gt;
+#include &lt;iterator&gt;
+using namespace std;</pre>
+  <pre>class Dumy
+{
+friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const Dumy&amp; obj);
+};</pre>
+  <pre>ostream&amp; operator&lt;&lt;(ostream&amp; os, const Dumy&amp; obj)
+{
+   os &lt;&lt; &quot;this is a dumy object :)&quot; &lt;&lt; endl;
+   return os;
+}
+</pre>
+  <pre>template&lt;typename T&gt;
+void print_elem(T i)
+{
+   cout &lt;&lt; i &lt;&lt; ' ';
+}</pre>
+  <pre>int main()
+{
+   vector&lt;int&gt;  vi;
+   vi.push_back(23);
+   vi.push_back(14);
+   vi.push_back(39);
+   vi.push_back(20);
+   vi.push_back(9);
+   vi.push_back(10);
+   vi.push_back(36);</pre>
+  <pre>   for(unsigned int i=0;  i&lt; vi.size(); ++i)
+       cout &lt;&lt; vi[i] &lt;&lt; ' ';
+   cout &lt;&lt; endl;</pre>
+  <pre>   vector&lt;int&gt;::iterator  ite1 = vi.begin();
+   vector&lt;int&gt;::iterator  ite2 = vi.end();
+   sort(ite1 , ite2);</pre>
+  <pre>   for(unsigned int i=0;  i&lt; vi.size(); ++i)
+       cout &lt;&lt; vi[i] &lt;&lt; ' ';
+   cout &lt;&lt; endl;</pre>
+  <pre>   sort(ite1 , ite2, greater&lt;int&gt;());
+   for(unsigned int i=0;  i&lt; vi.size(); ++i)
+       cout &lt;&lt; vi[i] &lt;&lt; ' ';
+   cout &lt;&lt; endl;</pre>
+  <pre>   ostream_iterator&lt;int&gt; oite(cout, &quot; &quot;);
+   copy(vi.begin(), vi.end(), oite);
+   cout &lt;&lt; endl;
+</pre>
+  <pre>   void (*funcptr)(int) = &amp;print_elem;
+   for_each(vi.begin(), vi.end(), funcptr);
+   cout &lt;&lt; endl;</pre>
+  <pre><font color="#FF0000">   for_each(vi.begin(), vi.end(), print_elem&lt;int&gt;);  // VC6[o],CB5[o],GCC291[x]
+</font>   cout &lt;&lt; endl;</pre>
+  <pre>   Dumy dumy;
+   print_elem(dumy);  // argument deduction by compiler
+}</pre>
+  <p><br>
+  </p>
+  <pre>■第3週：03/13&nbsp; </pre>
+  <pre><font color="#0000FF">chap10 : function template</font></pre>
+  <p>　</p>
+  <pre>#include &lt;iostream&gt;
+using std::cout;
+using std::endl;</pre>
+  <pre>class Dumy
+{
+private:
+  double d1, d2, d3, d4;
+  static int i;
+};</pre>
+  <pre>int Dumy::i = 5;  // initialization</pre>
+  <pre>void func(Dumy&amp; a, Dumy&amp; b)
+{
+   Dumy c;</pre>
+  <pre>   // a.xxxx
+   // b.xxx
+}</pre>
+  <pre>int main()
+{
+  int i = 3;
+  int* pi =  &amp;i;
+  int&amp; ri = i;</pre>
+  <pre>  double d = 3.5;
+  double&amp; rd = d;</pre>
+  <pre>  cout &lt;&lt; i &lt;&lt; endl;
+  cout &lt;&lt; pi &lt;&lt; endl;
+  cout &lt;&lt; ri &lt;&lt; endl;
+  cout &lt;&lt; sizeof(i) &lt;&lt; endl;
+  cout &lt;&lt; sizeof(pi) &lt;&lt; endl;
+  cout &lt;&lt; sizeof(ri) &lt;&lt; endl;   // 4</pre>
+  <pre>  cout &lt;&lt; sizeof(rd) &lt;&lt; endl;   // 8</pre>
+  <pre>  Dumy d1;
+  cout &lt;&lt; sizeof(d1) &lt;&lt; endl;   // 32
+  func(d1, d1);                 // pass by reference
+}</pre>
+  <p>　</p>
+  <pre><font color="#408080">傳送日期: 2002年3月14日 AM 11:43
+主旨: 元智GP 3-13上課問題</font></pre>
+  <p><font color="#408080">老師您好! 以下是一些問題要麻煩老師了<br>
+  <br>
+  Q1: 通常Object在離開它的Scope時便會被destroy,那在Java這種(oo)語言中並不提<br>
+  point及new/delete, 要如何控制Object的life time?<br>
+  <br>
+  A1: 我後來自己找的答案不知正不正確,請老師指點.. 如果Object在它的Scope中有將<br>
+  Referance傳遞出去就不會在離開它的Scope時被destroy<br>
+  <br>
+  Q2: 課程中提及一個max的Specialization寫法如後<br>
+  typedef const char *PCC<br>
+  template&lt;&gt; PCC max&lt;PCC&gt;(PCC s1, PCC s2)<br>
+  有沒有可能寫成<br>
+  template&lt;&gt; PCC max&lt;PCC&gt;(PCC s1, PQ s2)?<br>
+  那max後的角括號內要寫PCC或PQ?? (因為一般algorithms應會有許多不同Type的<br>
+  Param)<br>
+  <br>
+  </font><font color="#000000">A2: 
+  先想一個比較具體的實例，再發問。也請自己上機試試。</font></p>
+  <p><font color="#408080">Q3: 以Referance傳遞參數的好處應包含不會喚起copy 
+  construct所以比Pointer更有效率,這樣的講法不知對不對?</font></p>
+  <p><font color="#000000">A3: 以pointer 傳遞引數，也不會喚起copy ctor。<br>
+  </font><font color="#408080"><br>
+  Q4: 課堂上所提的Explicit Template Arguments似乎是用以解決不同型別參數所造成<br>
+  的引數推導失敗這個問題, 
+  對於老師所提的函式返回值型別不在引數型別推導範圍這個問題不知Explicit 
+  Template Arguments是</font><font color="#8080FF">用在那裏</font><font color="#408080">?<br>
+  另外即然函式返回值型別不在引數型別推導範圍可以Trait解決,那為何還需要<br>
+  Explicit Template Arguments?</font></p>
+  <p><font color="#000000">A4: explicit template arguments 用法見書上10.4節。至於 
+  traits，工程比較大。<br>
+  </font><font color="#408080"><br>
+  </font><br>
+  </p>
+  <pre>■第4週：03/20&nbsp; </pre>
+  <pre><font color="#0000FF">chap15 : operator overloading</font></pre>
+  <pre>#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;</pre>
+  <pre>class INT
+{
+friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const INT&amp; i);</pre>
+  <pre>public:
+  INT(int i)
+    : m_i(i) // member initialization list
+  { }
+</pre>
+  <pre>  INT&amp; operator++()  // prefix, increment and then fetch
+  {
+     m_i++;
+     return *this;
+  }</pre>
+  <pre>  const INT operator++(int)  // postfix, fetch and then increment
+  {
+     INT temp = *this;
+     ++(*this);              // invoke prefix form
+     return temp;
+  }</pre>
+  <pre>private:
+  int m_i;
+};</pre>
+  <pre>ostream&amp; operator&lt;&lt;(ostream&amp; os, const INT&amp; i)
+{
+   os &lt;&lt; '[' &lt;&lt; i.m_i &lt;&lt; ']';
+   return os;
+}</pre>
+  <pre>class JFunctor
+{
+public:
+  void operator()(string s)
+  {
+     cout &lt;&lt; s &lt;&lt; endl;
+  }
+};</pre>
+  <pre>int main()
+{
+   {
+   INT i(4);
+   cout &lt;&lt; i++;
+   cout &lt;&lt; ++i;
+   // cout &lt;&lt; i++++;
+   cout &lt;&lt; ++++i;
+   }</pre>
+  <pre>   {
+   int i(4);
+   cout &lt;&lt; i++;
+   cout &lt;&lt; ++i;
+   // cout &lt;&lt; i++++;
+   cout &lt;&lt; ++++i;
+   }</pre>
+  <pre>   {
+     JFunctor f;
+     f(&quot;this is my functor&quot;);  // like a function call
+     JFunctor()(&quot;this is my functor&quot;);
+   }
+}
+
+</pre>
+  <pre><font color="#0000FF">// 本例模擬 STL 架構
+</font>#include &lt;iostream&gt;
+using namespace std;</pre>
+  <pre>template&lt;typename T&gt;
+struct JNode    // C++ struct 可取代 C++ class (預設屬性為 public)
+{
+<font
+color="#8080FF">  // something
+</font>  T m_data;
+};</pre>
+  <pre>template&lt;typename T&gt;
+class JList_Iterator
+{
+public:
+  JList_Iterator&amp; operator++()    // prefix
+  {
+<font
+color="#8080FF">     // do something...
+</font>     return *this;
+  }</pre>
+  <pre>  const JList_Iterator operator++(int)   // postfix
+  {
+     JList_Iterator temp = *this;
+     ++(*this);            // invoke prefix form
+     return temp;
+  }</pre>
+  <pre>  T&amp; operator*() const    // dereference operator
+  {
+     return node-&gt;m_data;
+  }</pre>
+  <pre>  T* operator-&gt;()         // member access operator
+  {
+     return &amp;(this-&gt;operator*());
+  }</pre>
+  <pre>private:
+  JNode&lt;T&gt;* node;         // must have a native pointer
+};</pre>
+  <pre>template&lt;typename T&gt;
+class JList
+{
+public:
+  typedef JList_Iterator&lt;T&gt; iterator;</pre>
+  <pre>  iterator begin()
+  {
+     iterator ite;
+<font color="#8080FF">     // do something...
+</font>     return ite;
+  }
+private:
+<font
+color="#8080FF">  // something
+</font>};</pre>
+  <pre>int main()
+{
+  JList&lt;int&gt; myList;</pre>
+  <pre>  // JList_Iterator&lt;int&gt; ite;
+  JList&lt;int&gt;::iterator ite = myList.begin();
+  ite++;
+  ++ite;
+  *ite;
+}</pre>
+  <p>　</p>
+  <pre>■第5週：03/27 </pre>
+  <pre><font color="#0000FF">1. 延續上一堂課的程式發展
+2. chap12 : generic algorithm</font></pre>
+  <pre><font color="#8080FF">// 以下 find1(), find2(), find3(), find() 示範函式的泛化過程
+</font>#include &lt;iostream&gt;
+using namespace std;</pre>
+  <pre><font color="#8080FF">// step1:
+</font>int* find1(int* arrayHead, int arraySize, int value)
+{
+   int i;
+   for (i=0; i&lt;arraySize; i++)
+      if (arrayHead[i] == value)
+          break;</pre>
+  <pre>   return &amp;(arrayHead[i]);
+}</pre>
+  <pre><font color="#8080FF">// step2:
+</font>int* find2(int* begin, int* end, int value)
+{
+   while (begin != end &amp;&amp; *begin != value)
+      ++begin;</pre>
+  <pre>   return begin;
+}</pre>
+  <pre><font color="#8080FF">// step3:
+</font>template &lt;typename T&gt;
+T* find3(T* begin, T* end, const T&amp; value)
+{
+   while (begin != end &amp;&amp; *begin != value)
+      ++begin;</pre>
+  <pre>   return begin;
+}</pre>
+  <pre><font color="#8080FF">// final:
+// 觀念突破：將 T* 視為一種 type，也就是 iterator
+// 於是我們可以訂製自己的 iterator (behavior like a pointer)
+</font>template &lt;typename Iterator, typename T&gt;
+Iterator find(Iterator begin, Iterator end, const T&amp; value)
+{
+   while (begin != end &amp;&amp; *begin != value)
+      ++begin;</pre>
+  <pre>   return begin;
+}</pre>
+  <pre><font color="#8080FF">//---------------------------------------------------
+// 模擬 STL 架構 (container, iterator)
+// class JNode
+// class JList
+// class JList_Iterator
+//---------------------------------------------------
+</font>template&lt;typename T&gt;
+struct JNode    // C++ struct 可取代 C++ class (預設屬性為 public)
+                // JNode 並不開放給 client，所以無損 encapsulation
+{
+  void* next;  // 亦可設為 JNode&lt;T&gt;*
+  void* prev;
+  T m_data;
+};
+<font
+color="#8080FF">//---------------------------------------------------
+</font>template&lt;typename T&gt;
+class JList_Iterator
+{
+public:
+  JList_Iterator&amp; operator++()    // prefix
+  {
+<font
+color="#8080FF">     // do something...           // implementation detail
+</font>     return *this;
+  }</pre>
+  <pre>  const JList_Iterator operator++(int)   // postfix
+  {
+     JList_Iterator temp = *this;
+     ++(*this);            // invoke prefix form
+     return temp;
+  }</pre>
+  <pre>  T&amp; operator*() const    // dereference operator
+  {
+     return node-&gt;m_data;
+  }</pre>
+  <pre>  T* operator-&gt;() const // member access operator
+  {
+     return &amp;(this-&gt;operator*());
+  }</pre>
+  <pre>  bool operator==(const JList_Iterator&lt;T&gt;&amp; x) const { return node == x.node; }
+  bool operator!=(const JList_Iterator&lt;T&gt;&amp; x) const { return node != x.node; }</pre>
+  <pre>  JList_Iterator(JNode&lt;T&gt;* x) : node(x) {}
+<font color="#8080FF">  // one-argument non-explicit ctor. can be used as conversion function</font></pre>
+  <pre>private:
+  JNode&lt;T&gt;* node;   // there is always a native (dumb) ptr in a smart ptr
+};
+<font
+color="#8080FF">//---------------------------------------------------
+</font>template&lt;typename T&gt;
+class JList
+{
+public:
+  typedef JList_Iterator&lt;T&gt; iterator;  // nested define</pre>
+  <pre>  // 以下，由於 node 指向尾節點的下一位置，因此 node 符合 STL 對 end() 的定義。
+  iterator end()   { return node; }                      <font
+color="#8080FF">// invoke conversion func.</font>
+  iterator begin() { return (JNode&lt;T&gt;*)((*node).next); } <font
+color="#8080FF">// invoke conversion func.</font></pre>
+  <pre>  JList() { empty_initialize(); }  // 產生一個 empty list。</pre>
+  <pre>protected:
+<font color="#8080FF">  // 環狀雙向串列，只維護一個節點指標，指向最後（尾）節點的下一位置。
+</font>  JNode&lt;T&gt;* node; // 永遠指向最後節點的下一節點。該節點無元素值，代表空節點。
+                  // 其 next 節點永遠是頭節點。</pre>
+  <pre>  //以下用於初始化
+  void empty_initialize() {
+    node = get_node();  // 配置一個節點空間，令 data member node 指向它。
+    node-&gt;next = node;  // 令 node 頭尾都指向自己，不設元素值。
+    node-&gt;prev = node;
+  }</pre>
+  <pre>  JNode&lt;T&gt;* get_node() { return new JNode&lt;T&gt;; }
+<font color="#8080FF">  // STL use </font><font
+color="#FF0000">allocator</font><font color="#8080FF"> and maybe implement memory pool.
+</font>};</pre>
+  <pre>//---------------------------------------------------
+//
+//---------------------------------------------------
+int main()
+{
+   const int arraySize = 7;
+   int ia[arraySize] = { 0,1,2,3,4,5,6 };
+   int* end = ia + arraySize;</pre>
+  <pre><font color="#8080FF">   // test find1()
+</font>   int* ip1 = find1(ia, sizeof(ia)/sizeof(int), 4);
+   if (ip1 == end)
+       cout &lt;&lt; &quot;not found&quot; &lt;&lt; endl;
+   else
+       cout &lt;&lt; &quot;found. &quot; &lt;&lt; *ip1 &lt;&lt; endl;</pre>
+  <pre><font color="#8080FF">   // test find2()
+</font>   int* ip2 = find2(ia, end, 9);
+   if (ip2 == end)
+       cout &lt;&lt; &quot;not found&quot; &lt;&lt; endl;
+   else
+       cout &lt;&lt; &quot;found. &quot; &lt;&lt; *ip2 &lt;&lt; endl;</pre>
+  <pre><font color="#8080FF">   // test find3()
+</font>   int* ip3 = find3(ia, end, 2);
+   if (ip3 == end)
+       cout &lt;&lt; &quot;not found&quot; &lt;&lt; endl;
+   else
+       cout &lt;&lt; &quot;found. &quot; &lt;&lt; *ip3 &lt;&lt; endl;</pre>
+  <pre><font color="#8080FF">   // test find(), final version.
+</font>   int* ip = find(ia, end, 5);
+   if (ip == end)
+       cout &lt;&lt; &quot;not found&quot; &lt;&lt; endl;
+   else
+       cout &lt;&lt; &quot;found. &quot; &lt;&lt; *ip &lt;&lt; endl;
+</pre>
+  <pre><font color="#8080FF">   // test Container and Iterator with find()</font></pre>
+  <pre>   JList&lt;int&gt; myList;
+   // push_back or pust_front or insert some elements into myList</pre>
+  <pre>   // JList_Iterator&lt;int&gt; ite;
+   JList&lt;int&gt;::iterator ite = myList.begin();
+   ite++;
+   ++ite;
+   *ite;</pre>
+  <pre>   find(myList.begin(), myList.end(), 8);</pre>
+  <pre><font color="#8080FF">   // 此例沒做任何事情，因為 myList 是個 empty list.
+   // 本例只為突顯 interface 的設計。
+   // 以上無論 find(), JNode, JList, JNode_Iterator，
+   // 其介面皆符合 STL 規範，與 SGI STL 幾無二致
+</font>}</pre>
+  <p><br>
+  </p>
+  <pre>■第6週：04/03  <font color="#FF0000">春假</font></pre>
+  <p>　</p>
+  <pre>■第7週：04/10 </pre>
+  <ul>
+    <li><pre><font color="#0000FF">chap16 : class template</font></pre>
+    </li>
+    <li><pre><font color="#0000FF">partial specialization</font></pre>
+    </li>
+    <li><pre><font color="#0000FF">iterator traits</font></pre>
+    </li>
+  </ul>
+  <pre><font color="#0000FF">// file : 42.cpp ([austern98])
+</font>// VC6 [x], BCB4 [o], G++ [o]  (VC6 not support partial specialization)</pre>
+  <pre>#include &lt;iostream&gt;
+#include &lt;cstddef&gt;  // for ptrdiff_t
+// 注意，不能開放 namespace std; 否則會和 std 的 iterator_trait 衝突</pre>
+  <pre>struct input_iterator_tag { };
+struct output_iterator_tag { };
+struct forward_iterator_tag : public input_iterator_tag { };
+struct bidirectional_iterator_tag : public forward_iterator_tag { };
+struct random_access_iterator_tag : public bidirectional_iterator_tag { };</pre>
+  <pre>template &lt;class Iterator&gt;
+struct <font color="#0000FF">iterator_traits</font> {
+  typedef typename Iterator::iterator_category  iterator_category;
+  typedef typename Iterator::value_type         value_type;
+  typedef typename Iterator::difference_type    difference_type;
+  typedef typename Iterator::pointer            pointer;
+  typedef typename Iterator::reference          reference;
+};</pre>
+  <pre>// partial specialization for regular pointers
+template &lt;class T&gt;
+struct <font
+color="#0000FF">iterator_traits&lt;T*&gt;</font> {
+  typedef random_access_iterator_tag  iterator_category;
+  typedef T                           value_type;
+  typedef ptrdiff_t                   difference_type;
+  typedef T*                          pointer;
+  typedef T&amp;                          reference;
+};</pre>
+  <pre>// partial specialization for regular const pointers
+template &lt;class T&gt;
+struct <font
+color="#0000FF">iterator_traits&lt;const T*&gt;</font> {
+  typedef random_access_iterator_tag  iterator_category;
+  typedef T                           value_type;
+  typedef ptrdiff_t                   difference_type;
+  typedef const T*                    pointer;
+  typedef const T&amp;                    reference;
+};</pre>
+  <pre>template &lt;class Category,
+          class Value,
+          class Distance = ptrdiff_t,
+          class Pointer = Value*,
+          class Reference = Value&amp;&gt;
+struct <font
+color="#0000FF">iterator</font> {
+  typedef Category  iterator_category;
+  typedef Value     iterator_value;
+  typedef Distance  iterator_distance;
+  typedef Pointer   iterator_pointer;
+  typedef Reference iterator_reference;
+};
+</pre>
+  <pre>template &lt;class InputIterator&gt;
+<font color="#0000FF">typename iterator_traits&lt;InputIterator&gt;::value_type
+</font>sum_nonempty(InputIterator first, InputIterator last)
+{
+  <font
+color="#0000FF">typename iterator_traits&lt;InputIterator&gt;::value_type</font>  result = *first++;
+  for (; first != last; ++first)
+    result += *first;</pre>
+  <pre>  return result;
+}</pre>
+  <pre>template&lt; class InputIterator, class T &gt;
+<font color="#0000FF">typename iterator_traits&lt;InputIterator&gt;::difference_type
+</font>count( InputIterator first, InputIterator last, const T&amp; x )
+{
+   <font
+color="#0000FF">typename iterator_traits&lt;InputIterator&gt;::difference_type</font> n = 0;
+   for ( ;  first != last; ++first)
+     if (*first == x)
+       ++n;
+   return n;
+}</pre>
+  <pre>template &lt;class InputIterator, class Distance&gt;
+void advance(InputIterator&amp; i, Distance n, <font
+color="#0000FF">input_iterator_tag</font>)
+{
+  for ( ; n &gt; 0; --n, ++i );
+}</pre>
+  <pre>template &lt;class BidirectionalIterator, class Distance&gt;
+void advance(BidirectionalIterator&amp; i, Distance n, <font
+color="#0000FF">forward_iterator_tag</font>)
+{
+  advance(i, n, input_iterator_tag());
+}</pre>
+  <pre>template &lt;class RandomAccessIterator, class Distance&gt;
+void advance(RandomAccessIterator&amp; i, Distance n, <font
+color="#0000FF">random_access_iterator_tag</font>)
+{
+  i += n;
+}</pre>
+  <pre>template &lt;class BidiectionalIterator, class Distance&gt;
+void advance(BidiectionalIterator&amp; i, Distance n, <font
+color="#0000FF">bidirectional_iterator_tag</font>)
+{
+  if (i &gt;= 0)
+      for ( ; n &gt; 0; --n, ++i ) { }
+  else
+      for ( ; n &lt; 0; ++n, --i ) { }
+}</pre>
+  <pre><font color="#0000FF">// top level
+</font>template &lt;class Iterator, class Distance&gt;
+inline void advance(Iterator&amp; i, Distance n)
+{
+  advance(i, n, <font
+color="#0000FF">iterator_traits&lt;Iterator&gt;::iterator_category()</font>);
+}
+</pre>
+  <pre>template &lt;class Category,
+          class Value,
+          class Distance = ptrdiff_t,
+          class Pointer = Value*,
+          class Reference = Value&amp;&gt;
+class MyIter : <font
+color="#0000FF">public iterator</font>&lt;Category, Value, Distance, Pointer, Reference&gt;
+{</pre>
+  <pre>};</pre>
+  <pre>void main()
+{
+  int ia[5] = {0, 1, 2, 3, 4};
+  int total = sum_nonempty(ia, ia+5);
+  int c = count(ia, ia+5, 2);
+  std::cout &lt;&lt; total &lt;&lt; std::endl;  // 10
+  std::cout &lt;&lt; c &lt;&lt; std::endl;      // 1</pre>
+  <pre>  std::cout &lt;&lt; *ia &lt;&lt; std::endl;    // 0
+  int* pi = &amp;(ia[0]);
+  advance(pi, 3);
+  std::cout &lt;&lt; *pi &lt;&lt; std::endl;    // 3</pre>
+  <pre>  MyIter&lt;random_access_iterator_tag, int&gt; myiter;
+}</pre>
+  <p><br>
+  </p>
+  <pre>■第8週：04/17  <font color="#FF0000">期中考。停課</font></pre>
+  <p>　</p>
+  <pre>■第9週：04/24  </pre>
+  <ul>
+    <li><pre><font color="#0000FF">iterator traits</font></pre>
+    </li>
+    <li><pre><font color="#0000FF">iteratos category</font></pre>
+    </li>
+    <li><pre><font color="#0000FF">type traits</font></pre>
+    </li>
+  </ul>
+  <p>從本週開始，每次上課請攜帶補充講義（5篇文章）<br>
+  <br>
+  </p>
+  <pre>■第10週：05/01  </pre>
+  <ul>
+    <li><pre>複習 iostream iterator and insert iterator 的源碼關鍵
+前者關鍵在operator++，後者關鍵在operator=。</pre>
+    </li>
+    <li><pre>指定期末作業（見<a href="course-generic-yzu-892.htm" tppabs="http://jjhou.boolan.com/course-generic-yzu-892.htm" target="main">89-2課程備忘錄</a>■第10週。其中關於95分的承諾，取消）</pre>
+    </li>
+    <li><pre>介紹《Effective STL》和《Modern C++ Design》</pre>
+    </li>
+    <li><pre>本週重點：adapters之技術演化與實作（見89-2課程備忘錄■第11週）</pre>
+    </li>
+    <li><pre>提醒：本課程至此，共有四個極佳的技術演化實例說明：
+(1) function template（本備忘錄■第5週）
+(2) <font
+color="#000000">模擬 STL 架構 (container)</font>（本備忘錄■第4,5週）
+(3) iterator traits（本備忘錄■第5週）
+(4)adapters（本週，89-2課程備忘錄■第11週）</pre>
+    </li>
+  </ul>
+  <p>同學索求上課用到的 PowerPoint 圖檔。好的，<a
+  href="javascript:if(confirm(%27http://jjhou.boolan.com/course-generic-yzu-902.ppt  \n\nThis file was not retrieved by Teleport Ultra, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://jjhou.boolan.com/course-generic-yzu-902.ppt%27" tppabs="http://jjhou.boolan.com/course-generic-yzu-902.ppt" target="main">就在這裡</a>。</p>
+  <p>　</p>
+  <p><font color="#0000FF">目前分組名單：<br>
+  </font><font color="#FF0000">注意，不允許四人以下。每組至少四人。未符規定者請重新分組。</font></p>
+  <p>組別 (1)<br>
+  895645 黃新泳<br>
+  895624 吳文彰<br>
+  895626 劉宇智<br>
+  895627 蔡錦明<br>
+  895644 陳維錡<br>
+  895660 黃勝建</p>
+  <p>組別 (2)<br>
+  895606 林駿豪<br>
+  895609 邱華成<br>
+  895615 李健志<br>
+  895636 闕乃賢<br>
+  895658 林裕偉</p>
+  <p align="left">組別 (3)<br>
+  892245 林志偉<br>
+  892216 陳炫廷<br>
+  892205 林岱慶<br>
+  892217 林金龍</p>
+  <p align="left">組別 (4)<br>
+  <font color="#000000">895608 蕭志堅<br>
+  895628 郭先正<br>
+  895649 謝長成<br>
+  882301 林佳慧<br>
+  882305 黃建銘<br>
+  882339 張堯淙</font></p>
+  <p align="left">組別 (5)<br>
+  882209 賴俊升<br>
+  882210 楊宗羲<br>
+  882232 王昭雄<br>
+  882238 何誌 (木堅) ←這是一個字<br>
+  882245 林正甫<br>
+  854136 江龍飛</p>
+  <p align="left">組別 (6)<br>
+  882221高林傳<br>
+  882248張明偉<br>
+  882307 何汶偉 <br>
+  882309 廖元宏<br>
+  882310 郭炯彬<br>
+  882316 李岳寅</p>
+  <p align="left">組別 (7)<br>
+  882342 羅彥麟 <br>
+  <font color="#000000">882315 廖伯璇 <br>
+  </font>882351 謝履成 <br>
+  882359 劉致宣 </p>
+  <p align="left">組別 (8)<br>
+  882303 陳家隆<br>
+  882320 謝明治<br>
+  882322 池柏諺<br>
+  882335 蔡東泰<br>
+  882338 楊朝景</p>
+  <p align="left">組別 (9)<br>
+  882205 謝松翰<br>
+  882206 蔣宇程<br>
+  882208 高裕麟<br>
+  882246 邱清華<br>
+  882308 白淳元<br>
+  882321 陳建安</p>
+  <p align="left">組別 (10)<br>
+  資工3A 882240 陳薪圳<br>
+  資工3A 882251 彭治弘<br>
+  資工3B 882340 劉成韋<br>
+  資工3B 882353 陳柏瑋<br>
+  <font size="3">資工3A&nbsp; 882261&nbsp; 邱俊輝</font></p>
+  <p align="left">組別 (11)<br>
+  892251 許百寬<br>
+  892261 蔡延忠<br>
+  892266 謝曜任<br>
+  892255 邱國鈞</p>
+  <p>組別 (12)<br>
+  875123&nbsp; 黃雅楠<br>
+  882358&nbsp; 林岳黌<br>
+  875033&nbsp; 張元睿<br>
+  881962&nbsp; 李璦蓉<br>
+  874014&nbsp; 吳錫欽</p>
+  <p><br>
+  組別 (13)<br>
+  <font size="3">882343游訓傑</font><big> <br>
+  </big><font size="3">882344沈明峰</font><big> <br>
+  </big><font size="3">882345謝承恩</font><big> <br>
+  </big><font size="3">882346龐文欣</font><big> <br>
+  </big><font size="3">882354詹俊強</font><big> </big></p>
+  <p>組別 (14)<br>
+  882360 廖惟中<br>
+  882336 林洋慶<br>
+  882350 葉正德<br>
+  874007 李森茂</p>
+  <p>組別 (15)<br>
+  892226 陳習峰<br>
+  892316 翁哲斌<br>
+  892320 林仕軒<br>
+  892324 梁皓雲<br>
+  892339 張志賓<br>
+  892345 蔡淮洋</p>
+  <p>組別 (16)<br>
+  874054 呂友仁<br>
+  882226 謝秉翰<br>
+  882231 余鍵亨<br>
+  882253 陳冠銘<br>
+  882254 許家豪<br>
+  882223 楊泓彬 <br>
+  </p>
+  <p>組別 (17)<br>
+  874015 程偉倫<br>
+  874041 陳威任<br>
+  874042 楊琳貴<br>
+  874084 黃盈文</p>
+  <p>　</p>
+  <pre>■第11週：05/08</pre>
+  <pre>allocator。教材：<a href="jjwbooks-tass.htm#free-download" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm#free-download" target="main">《STL源碼剖析》第2章</a> </pre>
+  <p>　</p>
+  <pre>■第12週：05/15</pre>
+  <pre>STL vector,list,deque內部資料結構與實作手法
+教材：<a
+href="jjwbooks-tass.htm#free-download" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm#free-download" target="main">《STL源碼剖析》第4章</a></pre>
+  <pre>STL 的其他小玩意兒 (about adapters)</pre>
+  <pre>design patterns : 
+(1) iterator。以 STL iterator為例。
+(2) container adapter。以 STL stack, queue為例。 
+(3) template method。這是 application framework 最基礎最根本
+     的一種技法。</pre>
+  <p>　</p>
+  <pre>■第13週：05/22</pre>
+  <p>1. 續講 template method...</p>
+  <p>2. red-black tree, set, map, multiset, multimap, hash table (part1)</p>
+  <p><font color="#408080">from 彭治弘 s882251<br>
+  老師您好<br>
+  關於上一次泛型上課的時候曾經有同學向老師反應說<br>
+  findfirstfile/findnextfile使用的時候會發生錯誤<br>
+  學生今晚花一點時間測試發現<br>
+  若是只要單純的計算某一個目錄下有幾個檔案等<br>
+  像是老師上一次demo給我們看的時候那樣<br>
+  那麼使用該函式在vc bcb等都不會有問題<br>
+  只是在98 2000上跑出來的結果會不一樣<br>
+  也就是說98跑出來的東西會跟vc所compile出來的東西一樣<br>
+  但若是使用BCB編譯的話<br>
+  跑出來的東西會有一點點錯誤 但是只要稍稍加一些檢查<br>
+  在兩個版本的編譯器中編譯跑出來的結果應該不會錯<br>
+  但唯一的例外是<br>
+  如果要達成某些特殊的功能時 使用BCB所編譯出來的程式再執行時<br>
+  會跟作業系統independent 也就是我們使用左鍵框起來點內容時<br>
+  跑出來的檔案大小以及數量會跟程式跑出來的東西不一樣<br>
+  不過那要看程式寫到哪一個階段<br>
+  如果用到了某些技巧 而又希望能做出跟系統一樣的行為時 一定要用vc<br>
+  用bcb一定出錯<br>
+  以上是學生在自己的電腦上測試所發現的行為<br>
+  編譯環境 98 vc bcb, 2000 vc</font></p>
+  <p>謝謝<font color="#000000">彭治弘同學和大家分享心得</font></p>
+  <p>　</p>
+  <p><font color="#408080">傳送日期: 2002年5月9日 PM 01:57<br>
+  主旨: 上課的問題<br>
+  <br>
+  老師您好 , 我是□□□ , 感謝老師這些日子來的指導<br>
+  <br>
+  昨天下課前請教老師的問題描述如下:<br>
+  以源碼剖析第69頁圖2-7為例 ,若向系統要32bytes的空間 , 而32bytes預留的20個己用完 
+  , 且memory pool又己用盡 , 此時勢必需再配置heap空間 , 如此週而復始的malloc動作中 
+  , 每塊記憶體應各自有自己的cookie以便未來釋放之用 , 
+  在第二級配置器中以free-list將前述各塊記憶體串在一起 , 
+  不知後來的釋放動作是如何進行的呢?<br>
+  <br>
+  學生回去參考SGI source 還是沒有頭緒 , 在第二級配置器中似乎沒看到free( 
+  )的蹤影 , 書上提到deallocate 若大於__MAX_BYTES 則呼叫malloc_alloc::deallocate 
+  釋放 , 反之僅將其收回free-list中 , 不知是在何時釋放 ....</font></p>
+  <p><font color="#408080"><br>
+  傳送日期: 2002年5月12日 AM 11:03<br>
+  主旨: 我知道答案了<br>
+  <br>
+  老師您好 , 我是□□□<br>
+  <br>
+  日前請教您的問題 ~在SGI allocator 第二級配置器中 , 
+  記憶體釋放是如何進行的?<br>
+  <br>
+  答案就是在Effective C++的條款10中 (p44 倒數第3行起)<br>
+  <br>
+  最近才開始看老師所介紹的三本C++小書 , 過程實在是太棒了 , 
+  要不是這次有幸旁聽老師的GP , 
+  在看這幾本書可能不會有那麼深刻的體驗 .<br>
+  透過C++ Primer及STL課程 , 感覺對OO與GP的精神愈來愈能掌握 , 
+  這陣子在工作及一些書籍的閱讀中也都有所驗證 , 再次謝謝老師 , 
+  如果能在程式設計這條路上有所成就 , 端賴老師的諄諄教誨 .<br>
+  <br>
+  Ps : Effective C++條款7 (p31 倒數第8行)所提的混合風格 , 
+  這個例子實在是太棒了 , 要不是這次上課了解到template , 
+  一定會看不懂 .</font></p>
+  <p>　</p>
+  <p>　</p>
+  <font FACE="新細明體"><p></font><font color="#408080" FACE="新細明體">傳送日期</font><font
+  color="#408080">: 2002<font FACE="新細明體">年</font>5<font FACE="新細明體">月</font>27<font
+  FACE="新細明體">日</font> PM 05:37<br>
+  <font FACE="新細明體">主旨</font>: <font FACE="新細明體">侯老師您好</font></font></p>
+  <font FACE="新細明體"><p></font><font color="#408080" FACE="新細明體">我是今年將畢業的</font><font
+  color="#408080"> <font FACE="新細明體">大六</font> ( :P ) <font FACE="新細明體">學生</font> 
+  <font FACE="新細明體">因為不想當兵</font> </font><font color="#408080"
+  FACE="新細明體">先選擇上班<br>
+  由於剛開學時慕名跑去加入了老師的課<br>
+  但期中完後公司這邊較忙所以也少去了<br>
+  其中後也沒空去退選 又沒有認識的同學在班上<br>
+  所以對進況不甚了解<br>
+  想請問一下老師期末的作業定了ㄇ??</font><font FACE="新細明體"></p>
+  <p></font><font color="#408080" FACE="新細明體">畢業生何時之前要繳交呢</font><font
+  color="#408080">?<br>
+  p.s)<font FACE="新細明體">只是怕成績單太難看的學生留</font> &amp;&amp; <font
+  FACE="新細明體">能否以</font>email<font FACE="新細明體">方式繳交呢</font> 
+  thx</font></p>
+  <font FACE="新細明體"><p></font><font color="#408080" FACE="新細明體">感恩</font><font
+  color="#408080"> :P</font></p>
+  <p>●侯捷回覆： ref <a href="javascript:if(confirm(%27http://www.jjhou.com/course-generic-yzu-902.htm  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.jjhou.com/course-generic-yzu-902.htm%27" tppabs="http://www.jjhou.com/course-generic-yzu-902.htm">http://www.jjhou.com/course-generic-yzu-902.htm</a><br>
+  <font FACE="新細明體">如果你沒有交作業，沒有上台報告，你一定會被當，而且最多</font> 
+  20 <font FACE="新細明體">分。</font><br>
+  20 <font FACE="新細明體">分是平時成績。從這封信看，顯然你平時沒來上課，如果你讓我知道你是誰，那麼你的平時成績只能得</font> 
+  10 <font FACE="新細明體">分。<br>
+  這可能就是你的期末總成績。</font></p>
+  <p>我曾經給過<font FACE="新細明體">期末總成績17分。所以給10分不會讓我手軟。你會得到怎樣的成績，就看自己的表現。如果作業交得出來，上台表達也不錯（證明你不是抄來的），不上課當然無所謂，還是可以得到不錯的成績（因為你已達到這門課的訓練目標）。</font></p>
+  <p>　</p>
+  <p>　</p>
+  <font FACE="新細明體"><p><font color="#408080">傳送日期: 2002年5月27日 PM 08:22<br>
+  主旨: 上霸王課，謝謝侯老師!! </font></font></p>
+  <p><font color="#408080" FACE="新細明體">侯老師你好：</font></p>
+  <font FACE="新細明體"><p></font><font color="#408080" FACE="新細明體">我去年於資工所畢業</font><font
+  color="#408080">(<font FACE="新細明體">算是半路出家，大學學的是電機。</font>)</font><font
+  color="#408080" FACE="新細明體">目前於桃園工作(Embedded System 軟體設計)，在研究所時就久仰你的大名，某日工作時突然想到您不是在元智教書，名師的課不能不上，又是免費的，所以魯莽的闖入上課，未曾知會老師一聲，十分抱歉。</font><font
+  FACE="新細明體"></p>
+  <p></font><font color="#408080" FACE="新細明體">到目前為只上了大約半學期的課</font><font
+  color="#408080">(<font FACE="新細明體">我從第九週才去上課</font>)</font><font
+  color="#408080" FACE="新細明體">，讓我收獲不少。上你的課之前有先看了一點 
+  STL 的書，但是自己讀是十分苦的，又不容易理解，也沒體會到多少 
+  STL 的精神，但上了老師你的課三、四週之後，終能體會到 STL 
+  的「神奇」。雖然我有學 C++，但還不知道能夠這樣用 C++，STL 
+  稱為神奇也不為過吧!!之前工作上只是使用 STL，從不會想看 STL source 
+  code，因此對它總是半清不楚，但現在從老師那偷得(未付錢就學得)STL的知識後，若有問題也「敢」看 
+  STL 的 SOURCE CODE ，自己找出問題，觀念上清淅了許多。</font><font
+  FACE="新細明體"></p>
+  <p></font><font color="#408080" FACE="新細明體">這二週老師有提到</font><font
+  color="#408080"> Design Patters </font><font color="#408080" FACE="新細明體">的書，而我也正在讀此書，不過和 
+  C++ Primer 比起來，Design Patters 
+  就難以下嚥，也許是我程度不夠。不過我發現書的翻譯風格也有差別，因為這二週老師說到 
+  iterator，adaptor，template method，就文字上的翻譯來說，老師你翻譯教人一看便明白。另外，Design 
+  Patters 
+  的範例不完整，讓人有管中窺豹之感，不知老師有沒有興趣寫一本 
+  Design Patters 的書，以完整 C++ 
+  的範例貫穿全書，讓我們這群人能夠滿足。</font><font FACE="新細明體"></p>
+  <p></font><font color="#408080" FACE="新細明體">老師您是十分溫和的人，由其是老師譯</font><font
+  color="#408080">/</font><font color="#408080" FACE="新細明體">著作非常多，但從不以非正常手段要求學生買你的書，反而將學生可能會參考到的資料放在網站上，供學生自行下載。元智有您這樣的老師，真是學生之福。</font><font
+  FACE="新細明體"></p>
+  <p><font color="#408080">學生上霸王課無以回報，便以此封信表感謝之意，望老師您別見怪。祝 
+  身體健康、萬事如意</font></p>
+  </font><p>●侯捷回覆：我哪裡會見怪，我很開心。歡迎大家來聽課，所以我才會刻意把課開在晚上。</p>
+  <p>擁有很多編程實務經驗，才能看懂《Design Patterns》一書。如果有一個（或一些）好例子，的確可以節省大家不少時間。你可以上網搜尋《Design 
+  Patterns》的讀書會，上面應該有許多實例。已經不少人建議我寫本《Design 
+  Patterns by Example》之類的書，但是我的時間…呃…well…I dont know…。《Design 
+  Patterns》中譯本（葉秉哲譯, 
+  培生）其實譯得相當不錯，難讀是因為它本身的層次高。你在課堂上一聽就明白是因為 
+  (1) 我選了最簡單的patterns來講，做個入門 (2) 課堂上有3D講解，當然好過 
+  2D紙頁 :)</p>
+  <p>在我的新作《多型與虛擬 2e》第七章中，以MFC(Lite)為例，講了十來個Design 
+  Patterns，呈現它們在 MFC(Lite)中的實現情形。此書尚未出版，且第七章不在免費公開之列。MFCLite是我模擬的一個 
+  mini application framework（以MFC為模仿對象），可在侯捷網站上下載（「先睹為快」欄）。該章達240頁，講述對的對象MFCLite則達4000~5000行之多，而且十分複雜（畢竟是 
+  application framework），所以閱讀它仍然需要相當高的門檻。不過，讀懂它可以讓人在OO有相當層次的徹悟 
+  — 這是完成它之後我的切身感受（不是說它師法的MFC有多好，而是因為這麼一個活生生的例子，又「只有」四五千行）。 
+  <br>
+  </p>
+  <p><font FACE="新細明體"><font color="#408080">傳送日期: 2002年5月28日 PM 06:19<br>
+  主旨: 老師您好 關於泛型</font></p>
+  <p><font color="#408080">老師您好<br>
+  關於之前我有寄一封信給老師您<br>
+  告訴您說BCB在compile含有findfirstfile findnextfile等函式的時候會有問題<br>
+  當時學生跟您說可能和作業系統有點independent</font></p>
+  <p><font color="#408080">現在我將我們這組測試的報告以及發現的心得撰寫如下<br>
+  並在附件中將我們這組的程式碼附上</font><br>
+  <font color="#408080" FACE="新細明體">以便老師您可以隨時</font><font
+  color="#408080">debug</font></p>
+  <p><font color="#408080"><br>
+  (1)兩個版本在純檔案版的程式中是沒有任何錯誤的 vc and bcb是相同的<br>
+  (2)當我們想要寫一個讀取子目錄的檔案以及資料夾的功能較強的版本時<br>
+  發現vc所編譯出來的執行檔跑出來的結果和我們按右鍵看到的內容是一樣的<br>
+  在98 and 2000底下都沒有錯誤<br>
+  (3)但是bcb所產生的檔案目錄版的執行檔會跑出令我們意外的結果<br>
+  (4)同組的同學在測試的時候,平台是2000 and XP,編譯環境都在vc,發現都無錯誤<br>
+  (5)所以我們歸納出應該是bcb和系統的哪一部份不相容(有關資料夾的部分就是目錄)<br>
+  (6)或是直接說我們設計的那個演算法和vc的構思相同,但可能bcb不support</font></p>
+  <p><font color="#408080">老師您可以直接在附加檔案中編譯執行並看看結果<br>
+  因為每個人的電腦環境不一樣<br>
+  恐怕在老師您的電腦上可能會跑出錯誤的答案<br>
+  不過我們這組已經測試過三到四台的電腦了 發現沒問題<br>
+  唯恐在下星期的demo出槌<br>
+  所以我們還會繼續測試,不過bcb一定會有錯就是了,<br>
+  雖然他所列的檔案數量以及資料夾數量是正確的</font></p>
+  <p><font color="#408080">還有就是老師您一直跟我們說盡量在命令列模式下編譯<br>
+  但是這次學生寄給老師您的卻是整合環境的<br>
+  學生在此項老師說聲抱歉<br>
+  因為我們還是蠻喜歡click的<br>
+  所以請老師原諒我們吧</font></p>
+  </font><p>●侯捷回覆：命令列只是一個建議。我給學生很大的彈性空間 
+  :) 我說過各位甚至可以自己想題目 :)</p>
+  <p>　</p>
+  <pre>■第14週：05/29</pre>
+  <pre>1.hash table(part2)</pre>
+  <pre>2.heap, heap algorithms. QuickSort, priority-queue. </pre>
+  <p>3. function adapter</p>
+  <p><font color="#0000FF">以下摘錄自 SGI STL header &quot;stl_functiona.h&quot; 
+  (included by header &quot;functional&quot;)</font></p>
+  <pre>// C++ Standard 規定，每一個 Adaptable Unary Function 都必須繼承此類別
+template &lt;class Arg, class Result&gt;
+struct <font
+color="#0000FF">unary_function</font> {
+    typedef Arg argument_type;
+    typedef Result result_type;
+};</pre>
+  <pre>// C++ Standard 規定，每一個 Adaptable Binary Function 都必須繼承此類別
+template &lt;class Arg1, class Arg2, class Result&gt;
+struct <font
+color="#0000FF">binary_function</font> {
+    typedef Arg1 first_argument_type;
+    typedef Arg2 second_argument_type;
+    typedef Result result_type;
+};      </pre>
+  <pre><font color="#0000FF">// 已知兩個 Adaptable Unary Functions f,g，以下配接器用來產生一個 h，
+// 使 h(x) = f(g(x))
+</font>template &lt;class Operation1, class Operation2&gt;
+class <font
+color="#0000FF">unary_compose</font>
+  : public unary_function&lt;typename Operation2::argument_type,
+                               typename Operation1::result_type&gt; {
+protected:
+  Operation1 op1;
+  Operation2 op2;
+public:
+  unary_compose(const Operation1&amp; x, const Operation2&amp; y) : op1(x), op2(y) {}
+  typename Operation1::result_type
+  operator()(const typename Operation2::argument_type&amp; x) const {
+    return op1(op2(x));
+  }
+};</pre>
+  <pre><font color="#0000FF">// 輔助函式，讓我們得以方便使用 unary_compose&lt;Op1,Op2&gt;
+</font>template &lt;class Operation1, class Operation2&gt;
+inline <font
+color="#0000FF">unary_compose</font>&lt;Operation1, Operation2&gt; 
+compose1(const Operation1&amp; op1, const Operation2&amp; op2) {
+  return unary_compose&lt;Operation1, Operation2&gt;(op1, op2);
+}</pre>
+  <pre><font color="#0000FF">// 已知一個 Adaptable Binary Function f 和兩個Adaptable Unary Functions g1,g2，
+// 以下配接器用來產生一個 h，使 h(x) = f(g1(x),g2(x))
+</font>template &lt;class Operation1, class Operation2, class Operation3&gt;
+class <font
+color="#0000FF">binary_compose</font>
+  : public unary_function&lt;typename Operation2::argument_type,
+                               typename Operation1::result_type&gt; {
+protected:
+  Operation1 op1;
+  Operation2 op2;
+  Operation3 op3;
+public:
+  binary_compose(const Operation1&amp; x, const Operation2&amp; y, 
+                    const Operation3&amp; z) : op1(x), op2(y), op3(z) { }
+  typename Operation1::result_type
+  operator()(const typename Operation2::argument_type&amp; x) const {
+    return op1(op2(x), op3(x));
+  }
+};</pre>
+  <pre><font color="#0000FF">// 輔助函式，讓我們得以方便使用 binary_compose&lt;Op1,Op2,Op3&gt;
+</font>template &lt;class Operation1, class Operation2, class Operation3&gt;
+inline <font
+color="#0000FF">binary_compose</font>&lt;Operation1, Operation2, Operation3&gt; 
+compose2(const Operation1&amp; op1, const Operation2&amp; op2, const Operation3&amp; op3) {
+  return binary_compose&lt;Operation1, Operation2, Operation3&gt;(op1, op2, op3);
+}</pre>
+  <p>　</p>
+  <p>■第15週： 06/05 <font color="#FF0000">本課程期末作業 分組報告。</font></p>
+  <p>注意事項：(1) 
+  繳交書面報告一份，程式（含源碼及可執行檔）磁片一份。<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  (2) 自行推派主講同學上台報告。不限一位，可分工。<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  (3) 演練執行你的程式。</p>
+  <p>本週由 9~17組同學繳交作業並上台報告。</p>
+  <p>　</p>
+  <p>■第16週：06/12&nbsp; <font color="#FF0000">本課程期末作業 
+  分組報告（續上週）。</font></p>
+  <p>本週由 1~8組同學繳交作業並上台報告。</p>
+  <p>　</p>
+  <p>■第17週：<font color="#FF0000">06/19 
+  期末考週。停課。本學期課程結束。</font></p>
+</blockquote>
+</body>
+</html>

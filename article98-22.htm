@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>Serialize 的聯想 (2)</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center">Serialize 的聯想 (2)</h2>
+
+<blockquote>
+  <p align="center">侯捷 1998.12.15</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p><font color="#000000">●william 說：</font><br>
+  <br>
+  <font color="#408080">&gt; 有點想不透, 為什麼 MFC 不使用在 OO 
+  界早已習稱的 &quot;persistence&quot; 術語,<br>
+  &gt; 改弄出一個 &quot;serialization&quot; 術語?<br>
+  &gt; 單就字面上來說, &quot;serialization&quot; 一詞, 很容易跟 database、OS 
+  界常談的<br>
+  &gt; &quot;serializable&quot;、&quot;serializability&quot; 相混淆。<br>
+  &gt;<br>
+  &gt; 是因為 MFC 的 object persistence 只能做到 &quot;serial (sequential) 
+  read/write&quot; 嗎?<br>
+  &gt; 那麼, 對一個 object collection 所做的 serialization 動作,<br>
+  &gt; 就一定非得是 sequential 而不能 random access 或 partial update 嗎？<br>
+  &gt; 我想不是這樣的, 因為 MFC 的 collection classes 有個叫做<br>
+  &gt; SerializeElements 的 virtual 成員函數,<br>
+  &gt; 也就是說：程式員可以自己做出最適合的存取方式, 
+  即使是跳躍存取也行。</font><br>
+  <br>
+  <font color="#000000">●QueenLin 說：</font><br>
+  <br>
+  <font color="#408080">&gt; SerializeElements是free function template, 不是collection 
+  classes<br>
+  &gt; 的成員函數.<br>
+  <br>
+  &gt; 儘管MFC提供persistence的機制,可以永續物件的生命週期,但確實以這個機制<br>
+  &gt; 所展現的功能來看, 它只是&quot;依序&quot;的將物件資料寫到外部儲存體中,即使可以<br>
+  &gt; 覆寫SerializeElements function, 但這還是循序的方式. 用&quot;persistence&quot;<br>
+  &gt; 確實可符合OO 界用語的一致性降也避免術語的混淆, 不過&quot;serialization&quot;<br>
+  &gt; 一詞也正說明MFC對persistence的支援有限及其特性.<br>
+  <br>
+  &gt; 要能隨機處理存在於外部儲存體中的物件, 
+  那得多付出一些額外的努力, 因為<br>
+  &gt; 到了這兒目前MFC幫不上什麼大忙, 而這些工作又跟Database為我們所做的有<br>
+  &gt; 關. 至於該不該用Database system, 這需要更多的因素綜合考量. 
+  而我們的<br>
+  &gt; 作法就是自行實作我們所要的random access, partial update功能.</font><br>
+  <br>
+  <font color="#000000">●jjhou 的整理</font><br>
+  <br>
+  原本不曾注意過 MFC's SerializeElements()。由於 william 的提起和QueenLin 
+  的回覆，我決定把它搞清楚。既然搞清楚了，索性整理下來供大家參考。如有錯誤，請指正。<br>
+  <br>
+  ◆template classes in MFC<br>
+  <br>
+  MFC 提供 6 個 template classes：<br>
+  <br>
+  CArray,<br>
+  CList,<br>
+  CMap,<br>
+  CTypedPtrArray,<br>
+  CTypedPtrList,<br>
+  CTypedPtrMap<br>
+  <br>
+  ◆SerializeElements() 與 CArray, CList, CMap<br>
+  <br>
+  CArray, CList, CMap 這三個 template class 都只能放置相同 type 
+  的元素（若要運用 polymorphism 性質在 template container 中放置CObject-derived 
+  type，則必須使用 CTypedPtrArray, CTypedPtrList, CTypedPtrMap 三者）。<br>
+  <br>
+  由於每一個元素的 type 都相同，因此上述三個 template classes 
+  就不必為每個元素寫出 class info（只要整個 container 
+  寫一次就足夠）。因此，default 情況下它們的 Serialize() 都是以 bitwise 
+  方式將整份 container 寫檔（或讀檔）。觀察 AFXTEMPL.H，可看到 CArray, 
+  CList, CMap 的Serialize() 都呼叫 SerializeElements()（一個 global template function）如下：<br>
+  <br>
+  <font face="Courier New"><small>template&lt;class TYPE&gt;<br>
+  void AFXAPI SerializeElements(CArchive&amp; ar, TYPE* pElements, int nCount)<br>
+  {<br>
+  &nbsp; ASSERT(nCount == 0 ||<br>
+  &nbsp; AfxIsValidAddress(pElements, nCount * sizeof(TYPE)));<br>
+  <br>
+  &nbsp; // default is bit-wise read/write<br>
+  &nbsp; if (ar.IsStoring())<br>
+  &nbsp;&nbsp;&nbsp; ar.Write((void*)pElements, nCount * sizeof(TYPE));<br>
+  &nbsp; else<br>
+  &nbsp;&nbsp;&nbsp; ar.Read((void*)pElements, nCount * sizeof(TYPE));<br>
+  }</small></font><br>
+  <br>
+  此處 ar.Write() 和 ar.Read() 會喚起 ar 內含的 CFile member 的Write() 和 Read()，執行 
+  bitwise 檔案讀寫。(ref &lt;多型與虛擬&gt; chap5 MFC-Lite sample, p285, #0298 and 
+  #0305）<br>
+  <br>
+  ◆SerializeElements() 的運用<br>
+  <br>
+  如果你滿意於 CArray, CList, CMap 對每個元素的 bitwise 
+  檔案讀寫，那麼不管你使用什麼樣的 type 
+  做為元素型別，都不必再多費手腳做其他額外工作。<br>
+  <br>
+  如果你不喜歡上述的 bitwise 檔案讀寫，可改寫 SerializeElements()。假設我們設計一個 
+  CMyStruct（參考 MFC COLLECT sample）：<br>
+  <br>
+  <font face="Courier New"><small>class CMyStruct<br>
+  {<br>
+  &nbsp; int m_int;<br>
+  &nbsp; float m_float;<br>
+  &nbsp; CString m_str;<br>
+  };</small></font><br>
+  <br>
+  並打算這麼用：<br>
+  <br>
+  <font face="Courier New"><small>CMap&lt;DWORD,DWORD,CMyStruct*,CMyStruct*&amp;&gt; 
+  m_mapDWordToMyStruct;</small></font><br>
+  <br>
+  那麼，如果不喜歡 bitwise 檔案讀寫，我們可改寫 SerializeElements() 
+  如下：<br>
+  <br>
+  <small><font face="Courier New">// in VC 5.0</font>（注意：<font face="Courier New">VC 
+  4.2 </font>有不同的寫法）<br>
+  <font face="Courier New">template &lt;&gt; void AFXAPI 
+  SerializeElements&lt;CMyStruct*&gt;(CArchive&amp; ar,<br>
+  CMyStruct** ppElements,<br>
+  int nCount)<br>
+  {<br>
+  &nbsp; ... // maybe call CMyStruct's Serialize()<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // if CMyStruct derived from CObject and use 
+  IMPLEMENT_SERIAL<br>
+  }</font></small><br>
+  <br>
+  ◆SerializeElements() 的兄弟<br>
+  <br>
+  ConstructElements() 和 DestructElements()<br>
+  <br>
+  ◆SerializeElements() 的檢討<br>
+  <br>
+  1. SerializeElements() 只與 CArray, CList, CMap 有關。<br>
+  2. 它是個 template function，可改寫（override）。<br>
+  3. 即使以很奇怪的方式來改寫 SerializeElements()，例如跳躍讀寫 array 或 
+  list 或 map 
+  中的內容，讀與寫的過程仍然是循序。換言之，怎麼寫出去， 
+  就怎麼讀進來；寫出去多少，就讀進來多少；完全無法用於 random 
+  access 或 partial update。<br>
+  <br>
+  ◆CTypedPtrArray, CTypedPtrList, CTypedPtrMap 的情況呢？<br>
+  <br>
+  下面是這三個 template class 的宣告（in AFXTEMPL.H）：<br>
+  <br>
+  <font face="Courier New"><small>template&lt;class BASE_CLASS, class TYPE&gt;<br>
+  class CTypedPtrArray : public BASE_CLASS<br>
+  {<br>
+  ...<br>
+  };<br>
+  <br>
+  template&lt;class BASE_CLASS, class TYPE&gt;<br>
+  class CTypedPtrList : public BASE_CLASS<br>
+  {<br>
+  ...<br>
+  };<br>
+  <br>
+  template&lt;class BASE_CLASS, class KEY, class VALUE&gt;<br>
+  class CTypedPtrMap : public BASE_CLASS<br>
+  {<br>
+  ...<br>
+  };</small></font><br>
+  <br>
+  其中都沒有改寫 Serialize()，因此若喚起上述任一個 class 的Serialize()，即是喚起其 
+  BASE_CLASS 的 Serialize()。閱讀&lt;深入淺出 MFC&gt; p503 或 &lt;多型與虛擬&gt; 
+  p284, p289，即可窺知CDWordArray 和 CObList 的 Serialize() 函式定義。<br>
+  <br>
+  註：&lt;深入淺出 MFC&gt; 談的是真正的 MFC source， &lt;多型與虛擬&gt; 
+  chap5 談的是模擬的、簡易的、可適用任何平台的 MFC-Lite。<br>
+  <br>
+  <font color="#000000">●我的疑惑之一</font><br>
+  <br>
+  IMPLEMENT_SERIAL 巨集接受一個 &quot;schema no&quot; 參數。當 Serialize() 
+  讀到不合版本號碼的 class info，便會自動給一個 msg box （&lt;深入淺出 
+  MFC&gt; p634）。<br>
+  <br>
+  但是，以舊版軟體讀取新版檔案，或以新版軟體讀取舊版檔案，通常我們並不希望一檢查出版本不符便嚴峻拒絕。通常我們希望做出一個相容性。<br>
+  如何避免那個 &quot;Unexpected file format&quot; msg box 跑出來？是否有什麼 
+  virtual function 可改寫？我尚未查閱 MFC source 或 MFC manual，如您有此經驗，請指教，謝謝。<br>
+  <br>
+  <font color="#000000">●我的疑惑之二<br>
+  </font><br>
+  STL 已成為標準 C++ 的一部份。可以預見，未來使用 STL 
+  的情況將與日俱增。但 STL 沒有實作 persistence（此屬必然，因為 STL 
+  希望 platform-independent；而 persistence 涉及檔案系統，卻又一定是 
+  platform-dependent）。<br>
+  <br>
+  STL 無 persistence 
+  性質，這點大家有何看法？是否（可能）有什麼產品可搭配？或難道 
+  STL user 得自行將 container 
+  元素一一取出，自行完成檔案存取動作？這樣的姿態好像不夠優雅，好像有點遜。<br>
+  <br>
+  <font color="#000000">●我的疑惑之三</font><br>
+  <br>
+  MFC collection classes 是否可完全取代 STL？彼此優劣如何？大家看法如何？<br>
+  <br>
+  --- the end</p>
+</blockquote>
+</body>
+</html>

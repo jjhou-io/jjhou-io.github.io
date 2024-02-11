@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>高屋建瓴，細緻入微</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><big><font color="#000000">高屋建瓴，細緻入微<big> </big></font></big></h2>
+<font FACE="PMingLiU,s\L??z?Y" SIZE="3">
+
+<p align="center">《</font><font SIZE="3">STL</font><font face="PMingLiU,s\L??z?Y"
+size="3">源碼剖析》引介 / </font><font color="#800000">孟岩</font></p>
+
+<p align="center"><img src="tass.jpg" tppabs="http://jjhou.boolan.com/tass.jpg" width="206" height="255"
+alt="tass.jpg (33378 bytes)" border="1"></p>
+
+<hr>
+
+<blockquote>
+  <font FACE="PMingLiU,sZ‥??" SIZE="3"><p ALIGN="JUSTIFY">身為</font><font SIZE="3">C++</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">標準庫最重要的組成部分，</font><font SIZE="3">STL</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">（標準範本庫）不僅是一個可複用元件庫，而且是一個包羅演算法與資料結構的軟體框架（</font><font
+  SIZE="3">framework</font><font FACE="PMingLiU,sZ‥??" SIZE="3">）。“框架”這個詞，本身就有龐大、穩定、完整而可擴展的涵義。軟體框架，則是用一行行精細準確的源碼，構造一個龐大、穩定、完整而可擴展的軟體架構，稍有軟體發展經驗的人都知道，要做到這些，談何容易！</font><font
+  SIZE="3"> STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">在</font><font SIZE="3">1994</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">年走入</font><font SIZE="3">C++</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">標準，使得原本即將推出的</font><font SIZE="3">C++</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">標準延遲</font><font SIZE="3">4</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">年問世而無怨無悔，並為之對內容做巨幅改進，而今</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">不僅為千千萬萬</font><font
+  SIZE="3">C++</font><font FACE="PMingLiU,sZ‥??" SIZE="3">程式師所日常運用，而且獲得極高的學術讚譽，成為了一個典範，一種境界。作為一個軟體框架，</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">所取得的成功，實在可以用“輝煌”來形容，其所內涵的軟體思想和技術經驗，更是無比的深厚與精緻。</p>
+  <p ALIGN="JUSTIFY">學習編程的人都知道，閱讀剖析名家代碼乃是提高水準的捷徑。源碼之前，了無秘密，大師們的縝密思維，經驗結晶，技術思路，獨到風格，都原原本本地體現在源碼之中。在你仔細推敲之中，迷惑不解之時，恍然大悟之際，你的經驗、思維、視野、知識乃至技術品味都會獲得快速的成長。特別是面對</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">這樣優秀而普遍的作品，無論你是為了滿足作為程式師第二天性的求知欲，還是在日常工作中解決實際問題，總會有一天，你會打開一個叫做</font><font
+  SIZE="3">&lt;vector&gt;</font><font FACE="PMingLiU,sZ‥??" SIZE="3">或者</font><font
+  SIZE="3">&lt;algorithm&gt;</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的表頭檔，想把</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">背後的秘密看個究竟。英文裏有一個常用短語，叫做“</font><font
+  SIZE="3">under the hood</font><font FACE="PMingLiU,sZ‥??" SIZE="3">”，鑽進魔術師的帳篷，屏住呼吸，瞪大眼睛，把那些奇妙的魔法看個通透，讓自己的理解和技藝獲得巨幅的提升，這種誘惑，任何一個程式師都無法抵擋！</p>
+  <p ALIGN="JUSTIFY">不過，想要研讀</font><font SIZE="3">STL</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">源碼，絕對沒有那麼簡單。</font><font SIZE="3">STL</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">是精緻的軟體框架，是為優化效率而無所不用其極的藝術品，是資料結構與演算法大師經年累月的智慧結晶，是泛型思想的光輝詩篇，是</font><font
+  SIZE="3">C++</font><font FACE="PMingLiU,sZ‥??" SIZE="3">高級技術的精彩亮相，這些燦爛的讚譽，體現在數萬行源碼裏，對於一個初涉此道的學習者來說，就是一個感覺：“難！”。無論你是會淺嘗輒止地退出這次探險，還是勇敢地向濃霧中前進，當你受困於</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">精緻的大網之中，為那些迷一般的結構和動作感到茫然無措的時候，所有人都會冒出一個念頭：“如果有這樣一本書，既能夠提綱挈領，為我理順思緒，指引方向，同時又能夠照顧小節，闡述細微，幫助我更快更好地理解</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">源碼，那該有多好！”</p>
+  <p ALIGN="JUSTIFY">望著長長的</font><font SIZE="3">STL</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">著作列表，一個“真正”的</font><font SIZE="3">C++</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">程式師，多少會有一點遺憾。自從</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">問世以來，出版了大量的書籍，幫助讀者瞭解它的思想，學習它的用法，掌握它的技巧。其中佼佼者如</font><font
+  SIZE="3">Matt Austern</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的《</font><font
+  SIZE="3">Generic Programming and STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">》，</font><font
+  SIZE="3">Nicolai Josuttis</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的《</font><font
+  SIZE="3">The C++ Standard Library</font><font FACE="PMingLiU,sZ‥??" SIZE="3">》，</font><font
+  SIZE="3">Scott Meyers</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的《</font><font
+  SIZE="3">Effective STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">》，已成</font><font
+  SIZE="3">C++</font><font FACE="PMingLiU,sZ‥??" SIZE="3">經典名著。然而，定位在引導學習者進行</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">源碼分析的著作，可以說是鳳毛麟角。畢竟，既要能高屋建瓴，剖析大架構，不為紛繁瑣碎之細節而迷亂，又能具體而微，體現細緻之處的精妙縝密，不因為宏大體系而失之粗略，無論對於專家高手還是技術作者，都是太難達到的目標。</p>
+  <p ALIGN="JUSTIFY">讀了這本《</font><font SIZE="3">STL</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">源碼剖析》之後，我認為，這個遺憾終於被補足了！</p>
+  <p ALIGN="JUSTIFY">本書的作者侯捷先生是蜚聲海峽兩岸的著名</font><font
+  SIZE="3">IT</font><font FACE="PMingLiU,sZ‥??" SIZE="3">技術作家，在</font><font
+  SIZE="3">C++</font><font FACE="PMingLiU,sZ‥??" SIZE="3">，</font><font SIZE="3">Windows</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">系統原理，泛型理論和</font><font SIZE="3">STL</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">等技術領域有極深的造詣。然而，侯捷最令人稱道之處，乃是他剖析大架構的能力。所謂剖析大架構，就是要在洋洋灑灑數以萬行計的源碼中，精准定位，抽取核心觀念，高屋建瓴，綱舉目張，將看上去亂麻一般的源碼梳理得頭緒清晰，條理分明，同時又照顧細節，參透精微，把一個個關鍵動作闡述得通通透透，這種能力，我以為至少在華人技術作者中，侯捷堪執牛耳。在他的名作《深入淺出</font><font
+  SIZE="3">MFC</font><font FACE="PMingLiU,sZ‥??" SIZE="3">》中，侯捷將自己這方面的能力展現得淋漓盡致，而在這本《</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">源碼剖析》中，我們又看到了一次更加精彩的表現。</p>
+  <p ALIGN="JUSTIFY">我有機會作為大陸最早的幾個讀者之一，詳細拜讀了侯捷的這本最新</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">專著，感到了一種強烈的技術衝動，說得俗一點，就是覺得很過癮！具體來說，我以為這本書至少有四大特點，使它成為我所見過的最出色的一本</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">源碼剖析類著作。</p>
+  <p ALIGN="JUSTIFY">首先，選材精當，立足高遠。</font><font SIZE="3">STL</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">是一個標準，因而有各種實作版本。本書所剖析的</font><font
+  SIZE="3">SGI STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">，可以說是設計最巧妙，思想最深刻，獲得讚譽最盛，認同最廣的</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">實作。當然，這份出自</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">之父</font><font SIZE="3">Alex 
+  Stepanov</font><font FACE="PMingLiU,sZ‥??" SIZE="3">，以及</font><font SIZE="3">Matt 
+  Austern</font><font FACE="PMingLiU,sZ‥??" SIZE="3">，</font><font SIZE="3">David Musser</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">等巨匠之手的經典作品，剖析闡述起來自然也需要花費更大的心力。侯捷籍其扎實的理論與技術素養，毅然選擇這份作品來剖析，是需要極大勇氣與自信的。同樣，本書對讀者的預期，也是很高的，不但要有扎實的基本功，更要有掌握</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的興趣與堅韌意志。讀這本書，你可以有充分的信心，學到的是超一流大師的思想和經驗，所謂名門正派，高屋建瓴。</p>
+  <p ALIGN="JUSTIFY">其次，脈絡清晰，組織順序匠心獨具。任何人打算系統閱讀</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">源碼，所必須作出的第一個決定就是，從何處開始？我在初讀此書時，一個最疑惑的地方就是侯捷居然把</font><font
+  SIZE="3">allocator</font><font FACE="PMingLiU,sZ‥??" SIZE="3">放在所有組件之前講述。要知道，</font><font
+  SIZE="3">allocator</font><font FACE="PMingLiU,sZ‥??" SIZE="3">這個東西，對一般的使用者完全透明，根本感覺不到其存在，以至於在名著《</font><font
+  SIZE="3">The C++ Standard Libaray</font><font FACE="PMingLiU,sZ‥??" SIZE="3">》中，</font><font
+  SIZE="3">Nicolai Josuttis</font><font FACE="PMingLiU,sZ‥??" SIZE="3">將這一部分放在全書最後。既然如此，又何必讓這個無名小卒佔據頭版頭條？我一開始還真是不理解。直到後來，我自己有一些擴展</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的實踐，才發現，用的時候你固然可以對</font><font
+  SIZE="3">allocator</font><font FACE="PMingLiU,sZ‥??" SIZE="3">不聞不問，但一旦要領悟</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的工作原理，或者要自己擴展</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的功能，則對於</font><font
+  SIZE="3">allocator</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的掌握幾乎是第一先決條件。不瞭解</font><font
+  SIZE="3">allocator</font><font FACE="PMingLiU,sZ‥??" SIZE="3">，則無論剖析也好，擴展也罷，必然處處碰壁。侯捷毫不遲疑首先幫讀者搬開這塊絆腳石，理出頭緒，實在是匠心獨具。緊接著的第三章</font><font
+  SIZE="3">iterator</font><font FACE="PMingLiU,sZ‥??" SIZE="3">及</font><font SIZE="3">traits</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">，直入</font><font SIZE="3">STL</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">的核心觀念與關鍵技術，劍走中鋒，直取要害，高舉高打，開誠佈公，直接把理解</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的鑰匙交道讀者手上。此章一過，讀者神氣完足，就可以大刀闊斧地打通</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的重重關隘。此佈局只要稍有變化，讀者的學習難度勢必猛增。侯捷的此種安排，實在是大家手筆！</p>
+  <p ALIGN="JUSTIFY">此外，本書在技術上迎難而上，詳略得當，完整而重點突出。瞭解</font><font
+  SIZE="3">SGI STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的讀者都知道，這份作品對</font><font
+  SIZE="3">C++</font><font FACE="PMingLiU,sZ‥??" SIZE="3">標準中的</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">做了大量的擴充，增加了專用的高效</font><font
+  SIZE="3">allocator</font><font FACE="PMingLiU,sZ‥??" SIZE="3">，用以操作巨型字串的</font><font
+  SIZE="3">rope</font><font FACE="PMingLiU,sZ‥??" SIZE="3">，單鏈表</font><font
+  SIZE="3">slist</font><font FACE="PMingLiU,sZ‥??" SIZE="3">，以及萬眾企盼的</font><font
+  SIZE="3">hash</font><font FACE="PMingLiU,sZ‥??" SIZE="3">容器等等，再加上</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">本身就有很多精微之處，技術上的難點不少。此類書籍的作者，但凡稍有一絲懈怠之心，大可以冠冕堂皇地避重就輕。然而侯捷在此書中對重點難點毫不避諱，無論是標準功能還是非標準功能，只要對讀者理解</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">架構有益，只要有助於提高讀者的技術，增長讀者的視野與經驗，書中必然不畏繁難，將所有技術細節原原本本和盤托出。另一方面，所謂剖析源碼，其目的在於明理，解惑，提高自身水平，並不是要窮經皓首，倒背如流。因此，一旦道理講清楚，書中就將重複與一般性的內容一筆帶過，孰輕孰重，一目了然，詳略十分得當，這一點對於提高讀者的學習效率，有著巨大的意義。</p>
+  <p ALIGN="JUSTIFY">最後一點，本書通過大量生動範例和插圖講解基本思想，在同類書籍中堪稱典範。雖然我把這一點放在最後，但我相信大部分讀者站在書店，隨手翻過這本書，得到的第一印象便是這一點。</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">之所以為大家所津津樂道，除了其思想深刻之外，最大的因素是它實用。它所包裝的，是演算法與資料結構的基本功能。作為一個程式師，如果你是做資料庫編程的，大可以不懂組合語言，如果你是寫驅動程式的，大可以不必通曉人工智慧，寫編譯器的可以不用懂什麼電腦圖形學，作業系統內核高手的不用精通網站架設，然而，如果你不懂資料結構與演算法的基礎知識，不具備資料結構與演算法的基本技能，那就完全喪失稱為一個程式師的資格！市面上講述演算法與資料結構的專著汗牛充棟，俯拾皆是。相比之下，本書倒並不是以此為核心目標的。但是，可曾有哪位讀者看到任何一本書像本書一樣，將紅黑樹用一張張清晰生動的圖解釋得如此淺顯易懂？所謂一圖勝千言，在教授基本資料結構與演算法方面，我想不出還有任何一種方法，能夠比幻燈般的圖片更生動更令人印象深刻了。讀過此書的每一位讀者，我想都會為書中那一副副插圖所打動，作者細緻嚴謹的作風，時刻為讀者考慮的敬業精神，也許是更值得我們尊敬的東西。</font><font
+  FACE="§oE^,SimSun" SIZE="3"></p>
+  </font><font FACE="PMingLiU,sZ‥??" SIZE="3"><p ALIGN="JUSTIFY">侯捷先生在一篇影響廣泛的</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">技術雜文中，將</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">的學習境界劃分為三個階段，</font><font
+  SIZE="3">(1) </font><font FACE="PMingLiU,sZ‥??" SIZE="3">會用，</font><font SIZE="3">(2) 
+  </font><font FACE="PMingLiU,sZ‥??" SIZE="3">明理，</font><font SIZE="3">(3) </font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">擴展。閱讀</font><font SIZE="3">STL</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">源碼是由第一層次直貫第二層次，而漸達於第三層次的一條捷徑，當然也是條荊棘之路。如果你是一個勇於征服險峰的程式師，如果你是一個希望瞭解</font><font
+  SIZE="3">under the hood</font><font FACE="PMingLiU,sZ‥??" SIZE="3">之奧秘的程式師，那麼當你在攀登</font><font
+  SIZE="3">STL</font><font FACE="PMingLiU,sZ‥??" SIZE="3">這座瑰麗高山的時候，這本書會大大地幫助你。我非常熱情地向您推薦這本著作。當然，再好的書籍只是工具，能不能成功，關鍵還在你自己。</font><font
+  FACE="§oE^,SimSun" SIZE="3"></p>
+  </font><font FACE="PMingLiU,sZ‥??" SIZE="3"><p ALIGN="left">孟岩</font><br>
+  <font SIZE="3">2002</font><font FACE="PMingLiU,sZ‥??" SIZE="3">年</font><font SIZE="3">4</font><font
+  FACE="PMingLiU,sZ‥??" SIZE="3">月於北京</font><font SIZE="3"></p>
+  </font><p>　</p>
+</blockquote>
+</body>
+</html>

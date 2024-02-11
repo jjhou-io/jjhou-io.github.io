@@ -1,0 +1,633 @@
+<! -- CUJ v2: All Rights Reserved: IDJ -->
+<html>
+
+<head>
+<title>在 C++ 中計算物件個數</title>
+</head>
+
+<body BACKGROUND %22BGCOLOR=--1#FFFFFF%22%22 tppabs="http://jjhou.boolan.com/BGCOLOR=%22#FFFFFF%22" TEXT="#000000">
+
+<hr>
+
+<h2 ALIGN="center"><font color="#804000">在 C++ 中計算物件個數<br>
+<small><small>Objects Counting in C++</small></small><br>
+<small><small>(C++ User's Journal, </font><font color="#800000">1998/04</font><font
+color="#804000">)</font></small></small></h2>
+
+<p ALIGN="center">　</p>
+
+<h3 ALIGN="center"><font color="#804000">作者：Scott Meyers<br>
+譯者：陳崴</font></h3>
+
+<blockquote>
+  <h4 align="center"><font color="#804000">在 C++ 中，對某個 class 所產生出來的 
+  objects保持正確的計數，是辦得到的，除非你面對一些瘋狂份子。</font></h4>
+  <p align="center">　</p>
+  <p align="center">侯捷註：本文係北京《程序員》雜誌 2001/08 
+  的文章。譯筆順暢，技術飽滿。<br>
+  承譯者<font color="#000000">陳崴先生與</font>《程序員》<font color="#000000">雜誌負責人蔣濤先生答允，<br>
+  轉載於此，以饗臺灣讀者，非常感謝。<br>
+  <br>
+  未得陳崴先生與蔣濤先生二人之同意，任何人請勿將此文再做轉載。</font></p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p><font color="#FF0000">譯註：</font>本文發表日期比 <em>C++ Standard</em> 
+  發表日期早，但文中內容皆符合 <em>C++ Standard</em>。譯文保留原作時態，並未修改。以下是譯文所採用的幾個特別請讀者注意的術語：<br>
+  <br>
+  client ：客端。<br>
+  type：型別。為避免和其他近似術語混淆，本文譯為「型別」而非「類型」。<br>
+  instantiated：具現化。「針對一個 template，具體實現出一份實體」的意思。<br>
+  instance：實體。「案例」是絕對錯誤的譯法。<br>
+  parameter：參數。或稱型式參數，形參。<br>
+  argument：引數。或稱實質參數，實參。<br>
+  <br>
+  至於 class, object, data member, member function, constructor, destructor, template 
+  等術語，皆保留不譯。</p>
+  <hr>
+  <p>有時候，容易的事情雖然容易，但它們還是隱藏著某種微妙。舉個例子，假設你有個 
+  class名為 Widget，你希望有某種辦法找出程式執行期間究竟存在著多少個 
+  Widget objects。方法之一（不但容易實作而且答案正確）就是為 Widget 
+  準備一個 static 計數器，每當Widget constructor 
+  被呼叫，就將該計數器加一，每當Widget destructor 
+  被呼叫，就將該計數器減一。此外你還需要一個 static 成員函式 
+  howMany( )，用來回報目前存在多少個 Widget objects。如果 Widget 
+  什麼都沒做，單單只是追蹤其objects個數，那麼它看起來大約像這樣：</p>
+  <p>class Widget {<br>
+  public:<br>
+  &nbsp;&nbsp;&nbsp; Widget() { ++count; }<br>
+  &nbsp;&nbsp;&nbsp; Widget(const Widget&amp;) { ++count; }<br>
+  &nbsp;&nbsp;&nbsp; ~Widget() { --count; }<br>
+  <br>
+  &nbsp;&nbsp;&nbsp; static size_t howMany()<br>
+  &nbsp;&nbsp;&nbsp; { return count; }<br>
+  <br>
+  private:<br>
+  &nbsp;&nbsp;&nbsp; static size_t count;<br>
+  };<br>
+  <br>
+  // count 的定義。這應該放在一個實作檔中。<br>
+  size_t Widget::count = 0;<br>
+  </p>
+  <p>這可以有效運作。可別忘了實作出 copy constructor，因為編譯器自動為 
+  Widget 產生的那個 copy constructor 不會知道將 count 加一。</p>
+  <p>如果你只需要為 Widget 
+  做計數工作，你已經完成了你的任務。但有時候你得為許多 &nbsp; 
+  classes 
+  做相同的計數工作。一再進行重複的工作會令人沉悶而生厭，而沉悶與厭惡感會導致錯誤的發生。為了阻止這種局面，最好能夠將上述的「物件計數」（object-counting）程式碼包裝起來，使它能夠被任何 
+  class重複運用。理想的包裝應該符合以下條件：<ul>
+    <li>容易使用 — 讓那些需要此等服務的 class 
+      設計者只需最小量的工作。最理想的情況是，他們不必做任何事情，只需宣稱『我要對這種型別的 
+      objects 進行計量』就好。</li>
+    <li>有效率 — 使用者不需被課徵任何非必要的空間稅或時間稅。</li>
+    <li>絕對安全 — 
+      不可能突然導致一個錯誤計量。（我們不打算理會那些蓄意破壞的惡意使用者，他們會刻意試著混淆計量。在 
+      C++ 
+      中，諸如此類的使用者總是能找到辦法來滿足他們卑鄙而居心不良的行為）</li>
+  </ul>
+  <p>暫停一下，想一想，你如何實作出一個可復用的「物件計數」套件，並滿足以上所有目標。這或許比你所預想的還要困難。如果它真的如你所想像的那麼容易，你就不會在這本刊物上看到這篇文章了。</p>
+  <h4><font FACE="Garamond" COLOR="#000080">new, delete, </font><font COLOR="#000080">和 </font><font
+  FACE="Garamond" COLOR="#000080">Exceptions</font></h4>
+  <p>雖然你正全心全意地解決「物件計數」相關問題，請允許我把焦點暫時切換到一個似乎無關的主題上。這個主題就是「當 
+  constructors 丟出異常，new 和 delete 之間的關係」。當你要求 C++ 
+  動態配置一個 object，你會像這樣地使用 new 運算式：</p>
+  <pre>
+class ABCD { ... }; // ABCD = &quot;A Big Complex Datatype&quot;
+ABCD *p = new ABCD; // 這是一個 new 運算式
+</pre>
+  <p>這個 new 
+  運算式的意義在語言層面已經確定，其行為無論如何無法被改變。它做兩件事情。第一，它呼叫一個名為 
+  operator new的記憶體配置函式。這個函式的責任是找出足夠置放一個 
+  ABCD object 的記憶體。如果配置成功，new 運算式接下來就喚起一個 ABCD 
+  constructor，在 operator new 找出的那塊空間上建立一個 ABCD object。</p>
+  <p>但是，假設 operator new 丟出一個 std::bad_alloc 
+  異常，會怎樣？這種異常表示，動態配置記憶體的任務失敗了。在上述的 
+  new 運算式中，有兩個函式可能發出這樣的異常。第一個是 operator new，它企圖找出足夠的記憶體來放置一個 
+  ABCD object。第二個是接下來執行的 ABCD constructor，它企圖把生鮮記憶體轉換為一個有效的 
+  ABCD object。</p>
+  <p>如果異常來自 operator new，表示沒有任何記憶體被配置出來。然而如果 
+  operator new 成功而 ABCD constructor 發出異常，很重要的一件事就是將 
+  operator new 
+  所配置的記憶體釋放掉。如果不這樣，程式就會發生記憶體遺失（memory 
+  leak）。客端（也就是要求產生一個 ABCD object 
+  的那段程式碼）不可能知道到底哪一個函式發出異常。</p>
+  <p>多年以來，這是 C++ 標準草案中的一個漏洞，1995 年三月，C++ 
+  標準委員會採納了一個提議：如果在 new 運算式動作期間，operator new 
+  配置記憶體成功而後繼的 constructor 丟出異常，執行期系統（runtime 
+  system）就必須自動釋放被 operator new 
+  配置出來的記憶體。這個釋放動作由 operator delete 執行，此函式類似 
+  operator new。（詳見本文最後方塊欄目內的「placement new 和 placement 
+  delete」。）</p>
+  <p>這個「new 運算式和 operator delete 
+  之間的關係」，會在我們企圖將「物件計數機制」自動化的過程中，帶來影響。</p>
+  <h4><font COLOR="#000080">計算物件個數（</font><font FACE="Garamond"
+  COLOR="#000080">Counting Objects</font><font COLOR="#000080">）</font></h4>
+  <p>有一種物件計數問題的解法，涉及發展出一個「物件計數專用」的 
+  class。這個 class 看起來或許很像（甚至完全像）稍早展示的 Widget 
+  class：</p>
+  <pre>
+// 稍後有一些討論，告訴你為什麼這樣的設計並不很正確
+
+class Counter {  
+public:          
+    Counter() { ++count; }
+    Counter(const Counter&amp;) { ++count; }
+    ~Counter() { --count; }
+    <font
+color="#0000FF">static</font> size_t howMany()
+        { return count; }
+
+private:
+    <font
+color="#0000FF">static</font> size_t count;
+};
+
+// 以下這行仍然應該放在一個實作檔中。
+size_t Counter::count = 0;
+</pre>
+  <p>這裡的想法是，任何 classes 
+  如果需要記錄當下存在的物件個數，只需使用 Counter來擔任簿記工作即可。有兩個明顯的方法可以完成這項任務，其中之一是定義一個 
+  Counter object，使它成為一個 class data member，像這樣：</p>
+  <pre>
+// 在需要計數的 class 中內嵌一個 Counter object。
+class Widget {
+public:
+    .....  // Widget 該有的所有 public 成員，
+           // 都放在這裡。
+    <font
+color="#0000FF">static</font> size_t howMany()
+    { return Counter::howMany(); }
+private:
+    .....  // Widget 該有的所有 private 成員，
+           // 都放在這裡。
+<font
+color="#0000FF">    Counter c;
+</font>};
+</pre>
+  <p>另一個方法是把 Counter 當做 base class，像這樣：</p>
+  <pre>
+// 讓需要計數的 class 繼承自 Counter
+class Widget: <font color="#0000FF">public Counter</font> {
+    .....  // Widget 該有的所有 public 成員，
+           // 都放在這裡。
+private:
+    .....  // Widget 該有的所有 private 成員，
+           // 都放在這裡。
+};
+</pre>
+  <p>兩種作法各有優劣。驗證它們之前，我們必須注意，沒有一個方法以其目前型式可以有效運作。問題在於 
+  Counter 中的靜態物件 <font color="#0000FF">count</font>。這樣的靜態物件只有一個，但我們卻需要為每一個使用Counter 
+  的 class 準備一個。舉個例子，如果我們打算對 Widgets 和 ABCDs 
+  計數，我們需要兩個 static size_t objects，而不是一個。讓 Counter::count 
+  成為 nonstatic，並不能解決這個問題，因為我們需要的是為每個 class 
+  準備一個計數器，而不是為每個 object 準備一個計數器。</p>
+  <p>運用 C++ 
+  中最廣為人知但名稱十分詭異的一個技倆，我們就可以取得我們想要的行為：我們可以把 
+  Counter 放進一個 template 中，然後讓每一個想要使用 Counter 的 class，「以自己為 
+  template 引數」具現出這個 template。</p>
+  <p>讓我再說一次。Counter 變成一個 template：</p>
+  <pre>
+<font color="#0000FF">template&lt;typename T&gt;
+class Counter {
+</font>public:
+    Counter() { ++count; }
+    Counter(const Counter&amp;) { ++count; }
+    ~Counter() { --count; }
+
+    static size_t howMany()
+    { return count; }
+
+private:
+    static size_t count;
+};
+
+template&lt;typename T&gt;
+size_t
+Counter&lt;T&gt;::count = 0; // 現在這一行可以放進表頭檔中了。
+</pre>
+  <p>於是前述的第一種實作法改變為這樣：</p>
+  <pre>
+// 在需要計數的 class T 中內嵌一個 Counter&lt;T&gt; object。
+class Widget {
+public:
+    .....
+    static size_t howMany()
+    {return Counter&lt;Widget&gt;::howMany();}
+private:
+    .....
+<font
+color="#0000FF">    Counter&lt;Widget&gt; c;
+</font>};
+</pre>
+  <p>第二種作法（繼承法）則改變為這樣：</p>
+  <pre>
+// 讓需要計數的 class T 繼承自 Counter&lt;T&gt;
+class Widget: <font
+color="#0000FF">public Counter&lt;Widget&gt;</font> {    
+    .....
+};
+</pre>
+  <p>注意在這兩個情況中，我們是如何地將 Counter 取代為 
+  Counter&lt;Widget&gt;。一如我稍早所說，每一個使用 Counter 的 class，都以它自己為引數，具現出那個 
+  template。</p>
+  <p>「在一個 class 中，以自己為 template 引數，具現出一個 template，給自己使用」，這種策略最早係由 
+  Jim Coplien 公開。他以多種語言（不只 C++）展示這種策略，並稱此為一個「<strong>curiously 
+  recurring</strong>（詭異而循環的）<strong>template pattern</strong>」<font
+  color="#FF0000">[註1]</font>。我不認為 Jim 
+  故意這麼命名，不過，他對此一&nbsp; pattern（樣式、模式） 
+  的描述的確比他所取的名稱好得多。那可真糟糕，因為 pattern 
+  的名稱很重要，而你現在所看到的這一個名稱，無法涵蓋「做了什麼，如何做出」等訊息。</p>
+  <p>patterns 的命名是一種藝術，我對此並不擅長。不過我或許會把這個 
+  pattern 稱為諸如「<strong>Do It For Me</strong>」這類名稱。根本上，每一個「被 
+  Counter 產生出來的 class」，都能夠針對「將 Counter 具現化」的那個 
+  class，提供一種服務，計算現有多少個 objects。所以，class 
+  Counter&lt;Widget&gt; 可以計算 Widget 的物件數量，class Counter&lt;ABCD&gt; 
+  可以計算 ABCD 的物件數量。</p>
+  <p>現在，Counter 成了一個 template，不論內嵌式設計或繼承式設計，都可以運作，所以我們接下來面臨的是，評估其相對的強度和弱點。我們的一個設計標準是，對使用者而言，「物件計數」機能應該很容易獲得。上述程式碼很清楚地告訴我們，繼承式設計比內嵌式設計容易，因為前者只要求提及「Counter 
+  是一個 base class」，後者卻要求必須定義一個 Counter data member，並要求使用者實作出一個 
+  howMany( ) 以喚起 Counter 的 howMany( ) <font color="#FF0000">[註2]</font>。雖然這樣的工作也不是太多（客端的 
+  howMany( ) 只需是個簡單的 inline 
+  函式），但只做一件事終究比做兩件事容易些。所以讓我們先把注意力放在繼承式設計上。</p>
+  <h4><font COLOR="#000080">使用 </font><font FACE="Garamond" COLOR="#000080">Public 
+  Inheritance</font><font COLOR="#000080">（公開繼承）</font></h4>
+  <p>上述的繼承式設計之所以能夠運作，是因為 C++ 保證，每當一個 
+  derived class object 被建構（或解構）時，其中的 base class 
+  成份會先被建構（或後被解構）。讓 Counter 成為一個 base class，便能確保：針對繼承自 
+  Counter 的 class，每當有一個 object 被產生或被摧毀，一定會有一個 
+  Counter constructor 或 destructor 被喚起。</p>
+  <p>然而，任何時候只要牽涉 base classes 這個主題，就不要忘記 virtual 
+  destructors。Counter 應該有這樣一個東西嗎？良好的 C++ 
+  物件導向設計規範說，是的，它應該有一個 virtual destructor。如果它沒有，那麼當我們透過一個 
+  base class pointer來刪除一個 derived class object 
+  時，會導致不可預期（未有定義）的結果，而且通常是不受歡迎的：</p>
+  <pre>
+class Widget: public Counter&lt;Widget&gt;
+{ ... };
+<font color="#0000FF">Counter&lt;Widget&gt;</font> *pw =
+    new <font
+color="#0000FF">Widget</font>;  // 獲得一個 base class pointer，
+                 // 指向一個 derived class object。    
+......
+delete pw; // 此將導致未知的結果 — 如果 base class
+           // 缺乏一個 virtual destructor。
+</pre>
+  <p>如此的行為將違反我們的需求條件：由於上述程式碼沒有任何不合理之處，我們的「物件計數」設計理應有絕對安全的表現。因此，這是 
+  Counter 應該有個 virtual destructor 的強烈理由。 </p>
+  <p>另一個需求條件是最佳效率（也就是不因「物件計數」而被課徵任何非必要的速度稅和空間稅），但我們在這裡遇到一點麻煩。因為，virtual 
+  destructor（或任何虛擬函式）的出現，意味每一個 Counter（或其衍生類別）的 
+  objects 都必須內含一個（隱藏的）虛擬指標，而這會增加物件的大小 
+  — 如果它們原本並沒有虛擬函式的話<font color="#FF0000"> [註3]</font>。也就是說，如果 
+  Widget 本身並無任何虛擬函式，型別為 Widget 的物件將會因為繼承了 
+  Counter&lt;Widget&gt; 而使大小擴張。我們不希望看到這種情況。</p>
+  <p>唯一的避免之道就是，找出一種方法，阻止客端「透過一個 base 
+  class pointer 刪除一個 derived class object」。將 Counter 中的&nbsp; operator 
+  delete 宣告為 private，似乎是一個合情合理的辦法：</p>
+  <pre>template&lt;typename T&gt;
+class Counter {
+public:
+    .....
+<font color="#0000FF">private:
+    void operator delete(void*);
+</font>    .....
+};
+</pre>
+  <p>但如此一來，delete 運算式無法編譯成功：</p>
+  <pre>
+class Widget: public Counter&lt;Widget&gt; { ... };
+Counter&lt;Widget&gt; *pw = new Widget;  ......
+<font
+color="#0000FF">delete pw</font>; // 錯誤。因為我們無法喚起 private operator delete
+</pre>
+  <p>真是不幸。不過，真正有趣的是，new 運算式也不應該通過編譯：</p>
+  <pre>
+Counter&lt;Widget&gt; *pw =
+    <font color="#0000FF">new Widget</font>;  // 這一行應該無法通過編譯，
+                 // 因為 operator delete 是 private
+</pre>
+  <p>請回憶一下稍早我對於 new, delete, exceptions（異常）的討論，我說 
+  C++ 的執行期系統（runtime system）有責任釋放被 operator new 
+  配置的記憶體 — 如果後繼被呼叫的 constructor 
+  失敗的話。同時也請回憶一下，operator delete 
+  是用來執行記憶體釋放動作的函式。由於我們將 Counter 的 operator 
+  delete 宣告為 private，這會使得「藉由 new，將 objects 產生於 heap」的企圖永遠失敗。</p>
+  <p>是的，這是違反直覺的，如果你的編譯器不支援它，請不要驚訝。但是請注意，我所描述的行為是正確的。除此之外再無其他明顯方法能夠阻止「透過 
+  Counter* pointer 刪除 derived class objects」。由於我們已經拒絕「在 Counter 
+  中設置一個 virtual destructor」的想法（它會引起非必要的空間稅），所以我說，讓我們放棄這個設計吧，讓我們把注意力放在「使用一個 
+  Counter data member」上面。</p>
+  <h4><font COLOR="#000080">使用一個 </font><font FACE="Garamond" COLOR="#000080">Data 
+  Member</font></h4>
+  <p>我們已經看過了「設置一個 Counter data member」這種設計所帶來的缺點：客端必須同時定義一個 
+  Counter data member 並撰寫一個 inline 版的 howMany( )，用來呼叫 Counter 的 
+  howMany( ) 
+  函式。這些工作比我們希望加諸於客端程式身上的，多了一些，但它還不至於難以控制或管理。但是，除此之外還有另一個缺點：為某個 
+  class增加一個 Counter data member，往往會擴張其 objects 的大小。 </p>
+  <p>這幾乎談不上是什麼重大的啟示。畢竟，增加一個 data member 
+  而導致 objects 
+  的大小增加，會令你驚訝嗎？但是再看一眼，再想一想，請注意 
+  Counter 的定義：</p>
+  <pre>template&lt;typename T&gt;
+class Counter {
+public:
+    Counter();
+    Counter(const Counter&amp;);
+    ~Counter();
+
+    static size_t howMany();
+private:
+    <font
+color="#0000FF">static</font> size_t count;
+};
+</pre>
+  <p>請注意它並沒有 nonstatic data members，意味每一個型別為&nbsp; Counter 
+  的 object 其實沒有內含任何東西。也許我們會以為每一個型別為 
+  Counter 的 object，大小為 0？也許吧，但那並不正確。在這一點上，C++ 
+  的表現相當清楚。所有 objects 都有至少 1 byte 的大小，甚至即使這些 
+  objects 沒有任何 nonstatic data members。根據這樣的定義，對於具現自 
+  Counter template 的每一個 class，sizeof 
+  會獲得某個正值。所以每一個「內含一個 Counter object」的 class 
+  將比「不內含 Counter object」者擁有更多資料。</p>
+  <p>（有趣的是，這並不意味一個「不含 Counter」的 class，其大小就一定比「內含一個 
+  Counter」的兄弟有更大的體積。那是因為邊界排列限制（alignment 
+  restrictions）可能會造成影響。舉個例子，如果 class Widget 內含兩個 
+  bytes 的資料，但系統要求必須以 4-byte 來進行邊界排列，所以每一個 
+  Widget object 將內含兩個 bytes 的補白，而 sizeof(Widget) 的結果為 4。如果，就像普遍的情況那樣，編譯器都滿足「任何物件的大小不可能為 
+  0」這一條件，於是將一個 char 安插到 Counter&lt;Widget&gt; 內，那麼 
+  sizeof(Widget) 還是傳回 4，縱使 Widget 內含一個 Counter&lt;Widget&gt; object 
+  亦然。那個被含入的 Counter&lt;Widget&gt; object 
+  僅僅取代了原本被補白的兩個 bytes 
+  中的一個。不過，這並不是常見情節，因此我們當然不能夠在設計一個「物件計數」套件時，把它放進計劃內。）</p>
+  <p>我在耶誕假期開始的時候，動筆寫這篇文章（正確日期是感恩節當天，這也許能夠讓你了解，我是如何地慶祝這個重要的節日...），現在我的情緒已經很不好了。我要做的只不過是物件計數，我再也不想要東拉西扯什麼奇怪而額外的討論了。</p>
+  <h4><font COLOR="#000080">使用 </font><font FACE="Garamond" COLOR="#000080">Private 
+  Inheritance</font><font COLOR="#000080">（私有繼承）</font></h4>
+  <p>再一次看看繼承式設計的代碼，那導致我們必須為 Counter 考慮一個 
+  virtual destructor：</p>
+  <pre>
+class Widget: public Counter&lt;Widget&gt;
+{ ... };
+<font color="#0000FF">Counter&lt;Widget&gt;</font> *pw = new <font
+color="#0000FF">Widget</font>;            
+......
+<font color="#0000FF">delete
+pw; </font> // 導致未定義的（未知的）結果 — 
+     // 如果 Counter 缺乏一個 virtual destructor。
+</pre>
+  <p>稍早我們曾經試著藉由「阻止 delete 
+  運算式順利編譯」而阻止這一系列動作，但是我們發現，那同時也阻止了 
+  new 
+  運算式的順利編譯。除此之外，還有其他某些東西也是我們可以禁止的。我們可以禁止一個 
+  Widget* pointer（這是 new 的回傳值）被隱式轉型為一個 
+  Counter&lt;Widget&gt;* pointer。換句話說，我們可以阻止繼承體系中的指標型別轉換。我們唯一需要做的就是將「public 
+  繼承」改為「private 繼承」：</p>
+  <pre>
+class Widget: <font color="#0000FF">private</font> Counter&lt;Widget&gt;
+{ ... };
+<font
+color="#0000FF">Counter&lt;Widget&gt;</font> *pw =
+    new <font color="#0000FF">Widget</font>;  // 錯誤! 沒有隱式轉換函式（implicit conversion）可以 
+                 // 將 Widget* 轉為 Counter&lt;Widget&gt;*
+</pre>
+  <p>此外，我們很開心地發現，以 Counter 做為 base class，並不會增加 
+  Widget 的大小 — 如果和 Widget 
+  獨立個體的大小相比的話。是的，我知道我才剛剛告訴過你，沒有任何 
+  class 的大小為 0，但是 — 唔，那並不是我真正的意思。 
+  我的真正意思是，沒有任何一個 objects 的大小為 0。C++ 
+  標準規格說得很清楚，一個 derived object 之中的「base-class 
+  成份」的大小可以是 0。事實上，許多編譯器都發展出所謂的「空白基礎類別最佳化技術」（empty 
+  base optimization）<font color="#FF0000"> [註4]</font>。</p>
+  <p>因此，如果一個 Widget 內含一個 Counter，Widget 
+  的大小一定會增加。因為 Counter 的 data member 
+  完全屬於自己，而不是別人的base-class 
+  成份，因此它必須有非零大小。但如果 Widget 繼承自 Counter，編譯器便得以將 
+  Widget 
+  的大小保持在原先狀態。這個事實為那些「記憶體使用狀態非常緊繃而類別設計中涉及空白基礎類別」的設計，提出了一個有趣的規則：當「private 
+  繼承」和「複合技術（containment, composition）」都能完成相同目的時，儘量選用「private 
+  繼承」。<font color="#FF0000">（譯註：這一點乍見之下和 Scott Meyers 的《Effective 
+  C++ 2/e》條款42有所牴觸。該條款最後一段建議大家，如果「private 
+  繼承」和「複合技術」都能完成相同目的，儘量選用複合技術。然而請你注意，本文所給的這個建議是有前提的。）</font></p>
+  <p>最後的設計幾近完美。它實踐了效率的要求，前提是你的編譯器具有「空白基礎類別最佳化」（empty 
+  base optimization）的能力，如此一來「繼承自 Counter」這一事實才不會增加下層類別的物件大小。此外，所有的 
+  Counter member functions 都必須是 inlin 
+  函式。這樣的設計也實踐了安全需求，因為計數動作是由 Counter member 
+  functions 自動處理，那些函式會自動被 C++ 呼叫，而 private 
+  繼承機制的使用則阻止了隱式轉型 — 「隱式轉型」允許 derived-class 
+  objects 被當做 base-class objects 
+  一樣地處理。（好吧，我承認，它並非絕對安全：Widget 
+  的作者可能荒謬地以一個 Widget 以外的類別來具現化 Counter，也就是說，他可能讓 
+  <font color="#0000FF">Widget</font> 繼承自 Counter&lt;<font color="#0000FF">Gidget</font>&gt;。我對這種可能性所採取的態度是：不加理會。）</p>
+  <p>這樣的設計對客端而言很容易使用，但是可能有人會咕噥說，還可以更簡單。使用 
+  private 繼承機制，意味 howMany( ) 會在衍生類別中成為 private，所以衍生類別中必須含入一個 
+  using declaration，使 howMany( ) 成為 public，才能被客端所用：</p>
+  <pre>
+class Widget: <font color="#0000FF">private</font> Counter&lt;Widget&gt; {
+public:
+<font
+color="#0000FF">    // 讓 howMany 成為 public
+    using Counter&lt;Widget&gt;::howMany; 
+</font>
+    ..... // Widget 的剩餘部份沒有改變。
+};
+
+class ABCD: <font
+color="#0000FF">private</font> Counter&lt;ABCD&gt; {
+public:
+<font color="#0000FF">    // 讓 howMany 成為 public
+    using Counter&lt;ABCD&gt;::howMany;
+</font>
+    ..... // ABCD 的剩餘部份沒有改變。
+};
+</pre>
+  <p>對那些並不支援 namespaces（命名空間）的編譯器而言，以上目的也可以改用舊有的存取層級來完成（但並不被鼓勵）：</p>
+  <pre>
+class Widget: <font color="#0000FF">private</font> Counter&lt;Widget&gt; {
+<font
+color="#0000FF">public:
+    // 讓 howMany 成為 public
+    Counter&lt;Widget&gt;::howMany; 
+</font>
+    ..... // Widget 的剩餘部份沒有改變。
+};
+</pre>
+  <p>至此，有必要執行「物件計數」的那些客端程式，以及有必要讓該計數器為其客戶所用（亦即成為 
+  class 介面的一份子）的classes，必須做兩件事情：將 Counter 
+  宣告為一個 base class 並讓 howMany( ) 可被取用<font color="#FF0000"> [註5]</font>。</p>
+  <p>然而，繼承機制的使用，會導致兩個值得注意的情況。第一件事是模稜兩可（ambiguity）。假設我們打算對 
+  Widgets 
+  計數，而我們希望讓這個計數值供一般運用。一如先前所展示，我們令 
+  Widget 繼承自 Counter&lt;Widget&gt;，並令 Widget::howMany( ) 成為 public。 
+  現在假設我們有一個 class SpecialWidget，以 public 方式繼承自 Widget，我們希望提供給 
+  SpecialWidget 使用者一如 Widget 
+  使用者所能享受的機能。沒問題，只需令 SpecialWidget 繼承自 
+  Counter&lt;SpecialWidget&gt; 即可。</p>
+  <p>但這裡出現了模稜兩可（ambiguity）的問題。哪一個 howMany( ) 對 
+  SpecialWidget 而言才是可用的呢？是繼承自 Widget 的那個，或是繼承自 
+  Counter&lt;SpecialWidget&gt; 的那個？我們所希望的，當然是來自 
+  Counter&lt;SpecialWidget&gt; 的那個，但是我們沒辦法在未明確寫出 
+  SpecialWidget::howMany( ) 
+  的情況下說出我們的心願。幸運的是，它只是一個簡單的 inline 
+  函式：</p>
+  <pre>
+class SpecialWidget: <font color="#0000FF">public Widget</font>,
+    <font
+color="#0000FF">              private Counter&lt;SpecialWidget&gt;</font> {
+public:
+    .....
+    static size_t howMany()
+    { return <font
+color="#0000FF">Counter&lt;SpecialWidget&gt;::howMany()</font>; }
+    .....
+};
+</pre>
+  <p>關於「使用繼承機制來完成物件計數工作」的第二個意見是，Widget::howMany( 
+  ) 傳回的值不只包括 Widget objects 的個數，也包括 Widget 
+  衍生類別所產生的 objects。如果 Widget 的唯一衍生類別是 SpecialWidget，而一共有五個 
+  Widget 獨立物件和三個 SpecialWidgets獨立物件，那麼 Widget::howMany( ) 
+  將傳回 8。畢竟，每一個 SpecialWidget 
+  的建構，也同時會完成其基礎類別（Widget 成份）的建構。</p>
+  <h4><font COLOR="#000080">摘要</font></h4>
+  <p>以下數點是你需要記住的：<ul>
+    <li>物件計數工作的自動化並不困難，但也並非直觀想像中的那麼簡單。運用 
+      &quot;<strong>Do It For Me</strong>&quot; <strong>pattern</strong>（Coplien 所謂的 
+      &quot;<strong>curiously recurring template pattern</strong>&quot;）便有可能產生正確數量的計數器。運用 
+      private 繼承機制，可以提供物件計數能力，而又不擴張物件的大小。</li>
+    <li>當客端有機會選擇「繼承自一個 empty class」或「內含某個 class object 
+      做為 data member」時，繼承是比較好的選擇，因為它允許更緊密的物件。</li>
+    <li>由於 C++ 盡一切努力要在 heap objects 
+      建構動作失敗時避免發生記憶體漏洞（memory leaks），所以凡是需要用到 
+      operator new 之程式碼，通常也需要用到對應的 operator delete。</li>
+    <li>Counter class template 並不在乎你是否繼承它，或內含它的一個 object。它看起來都一樣。因此，客端可以自由選擇使用「繼承機制」或「複合（組合）技術」，甚至在同一個應用程式或程式庫的不同地點使用不同的策略。</li>
+  </ul>
+  <h4><font COLOR="#000080">註解與參考資料</font></h4>
+  <p><font color="#FF0000">[1]</font> James O. Coplien. &quot;The Column Without a Name: A 
+  Curiously Recurring Template Pattern,&quot; C++ Report, February 1995.</p>
+  <p><font color="#FF0000">[2] </font>另一種方法是忽略 Widget::howMany( )，讓客端直接呼叫 
+  Counter&lt;Widget&gt;::howMany( )。然而，對本文目的而言，我們將假設我們希望 
+  howMany( ) 是 Widget 介面的一部份。</p>
+  <p><font color="#FF0000">[3]</font> Scott Meyers. More Effective C++ (Addison-Wesley, 
+  1996), pp. 113-122.</p>
+  <p><font color="#FF0000">[4] </font>Nathan Myers. &quot;The Empty Member C++ 
+  Optimization,&quot; Dr. Dobb's Journal, August 1997。可自以下網站獲得：<br>
+  http://www.cantrip.org/emptyopt.html.</p>
+  <p><font color="#FF0000">[5] </font>只要對這個設計做一點簡單的變化，就可以讓 
+  Widget 以 Counter&lt;Widget&gt; 計算物件個數，並且不讓這個計數值被 
+  Widget 的客戶所用，甚至不允許 Counter&lt;Widget&gt;::howMany( ) 
+  被直接呼叫。下面這個練習留給時間充裕的讀者：繼續討論更多變化。</p>
+  <h4><font COLOR="#000080">進一步的讀物</font></h4>
+  <p>如果想要學習更多關於 new 和 delete 的細節，請閱讀 Dan Saks 在 CUJ 
+  1997年一月至七月所主持的專欄，或是我的 More Effective C++ 
+  (Addison-Wesley, 1996) 條款8。如果想要更廣泛地驗證物件計數（object-counting）問題，包括如何限制某個 
+  class 被具現化的次數，請看 More Effective C++ 條款 26。</p>
+  <h4><font COLOR="#000080">致謝</font></h4>
+  <p>Mark Rodgers, Damien Watkins, Marco Dalla Gasperina, 和 Bobby Schmidt 
+  針對本文草稿提出了一些意見。他們的洞見和提議，使本文在許多方面有了更好的改善。 
+  </p>
+  <h4><font COLOR="#000080">作者</font></h4>
+  <p>Scott Meyers 是暢銷書籍 Effective C++ 第二版和 More Effective C++ 
+  的作者（兩本書都由 Addison Wesley 出版）。你可以從 <a
+  href="javascript:if(confirm(%27http://www.aristeia.com/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.aristeia.com/%27" tppabs="http://www.aristeia.com/">http://www.aristeia.com</a>中找到更多有關於他、他的書、他的那隻狗的訊息。<font
+  color="#FF0000">譯註：《Effective C++》第二版以 Meyers的狗為封面。</font></p>
+  <h4><font COLOR="#000080">譯者</font></h4>
+  <p><font color="#000000">陳崴，自由撰稿人，專長 C++/Java/OOP/GP/DP。慣以熱情的文字表現冰冷的技術，以冷冽的文字表現深層的關懷。</font></p>
+  <p ALIGN="center">　</p>
+  <p ALIGN="center">　</p>
+  <h2 ALIGN="center"><font color="#FF8000">sidebar :</font><font COLOR="#800000"> Placement 
+  new 與 placement delete</font></h2>
+  <hr>
+  <p>malloc( ) 在 C++ 中的對等物是 operator new，free( ) 在 C++ 
+  中的對等物則是 operator delete。和 malloc( ) 及 free( ) 不同的是是，operator 
+  new 和 operator delete 
+  都可以被重載，重載後的版本可接受與母版不同個數、不同型別的參數。這對 
+  operator new 來說一向正確，但直到最近，才對 operator delete 也成立。</p>
+  <p>operator new 的正常標記（signature）是：</p>
+  <pre>
+void * operator new(size_t) <font color="#0000FF">throw (std::bad_alloc)</font>;
+</pre>
+  <p>（從現在起，為了簡化，我將刻意忽略 exception specifications<font
+  color="#FF0000">（譯註：就是上述的 throw (std::bad_alloc)）</font>，因為它們和我目前要說的重點沒有什麼密切關係。）operator 
+  new 的重載版本只能增加新參數，所以一個 operator new 
+  重載版本可能長這個樣子：</p>
+  <pre>
+void * operator new(size_t, <font color="#0000FF">void *whereToPutObject</font>)
+{ return whereToPutObject; }
+</pre>
+  <p>這個特殊版本的 operator new 接受一個額外的 void* 
+  引數，指出此函式應該回傳什麼指標。由於這個特殊形式在 C++ 
+  標準程式庫中是如此常見而有用（宣告於表頭檔 &lt;new&gt;），因而有了一個屬於自己的名稱：&quot;placement 
+  new&quot;。這個名稱表現出其目的：允許程序員指出「一個 object 
+  應該誕生於記憶體何處」。</p>
+  <p>隨著時間過去，任何「要求額外引數」的 operator new 
+  版本，也都漸漸採用 placement new 
+  這個術語。事實上這個術語已經被銘記於 C++ 標準規格中。<font
+  color="#000000">因此，當 C++ 程序員談到所謂的 placement new 
+  函式，他們所談的可能是上述那個「需要額外一個 void* 
+  參數，用以指出物件置於何處」的版本，但也可能是指那些「所需引數比單一而必要之 
+  size_t 引數更多」的任何 operator new 
+  版本，包括上述函式，也包括其他「引數更多」的 operator new 函式。</font></p>
+  <p>換句話說，當我們把焦點集中在記憶體配置時，&quot;placement 
+  new&quot; 意味「operator new 
+  的某個版本，接受額外引數」。這個術語在其他場合可能有其他意義，但我們不需繼續深入，所以，到此為止。如果你需要更多細節，請參考本文最後所列的參考讀物。</p>
+  <p>和 placement new 類似，術語 &quot;placement delete&quot; 意味「operator delete 
+  的某個版本，接受額外引數」。operator delete 的「正常」標記如下：</p>
+  <pre>
+void operator delete(void*);
+</pre>
+  <p>所以，任何版本的 operator delete，只要接受的引數多於上述的 void*，就是一個 
+  placement delete 函式。</p>
+  <p>現在讓我們重回本文所討論的一個主題。當 heap object 
+  在建構期間丟出一個異常，會發生什麼事？再次考慮以下這個簡單例子：</p>
+  <pre>
+class ABCD { ... };
+ABCD *p = new ABCD;
+</pre>
+  <p>假設產生 ABCD object 
+  時導致了一個異常。前列的主文內容指出，如果異常來自 ABCD 
+  建構式，operator delete 會自動被喚起，釋放 operator new 
+  所配置的記憶體。但如果 operator new 
+  被多載化，情況將如何？如果不同版本的 operator new 
+  以不同的方式配置記憶體，情況又將如何？operator delete 
+  如何知道該怎麼做才能正確釋放記憶體？此外，如果 ABCD object 係以 
+  placement new 產生出來（像下面這樣），又該如何：</p>
+  <pre>
+void *<font color="#0000FF">objectBuffer</font> = getPointerToStaticBuffer();
+ABCD *p = new <font
+color="#0000FF">(objectBuffer)</font> ABCD; // 在一個靜態緩衝區中產生一個 ABCD object
+</pre>
+  <p>上述那個 placement new 
+  並不配置任何記憶體。它只是傳回一個指標，指向那個它所接受的靜態緩衝區。也因此，不需要任何釋放動作。</p>
+  <p>很顯然，operator delete 所採取的行動（用以回復其對應之 operator new 
+  的行為）必須視配置記憶體時所採用的 operator new 版本而定。</p>
+  <p>為了讓程式員有機會指示「如何回復某個特殊版本之 operator new 
+  的行為」，C++ 標準委員會擴展了 C++，允許 operator delete 
+  也能夠被多載化。當 heap object 的 constructor 
+  丟出一個異常，整個遊戲便改走另一條路，呼叫起特殊的 operator 
+  delete 
+  版本，此一版本帶有額外參數型別，這些型別將對應於先前被喚起之 
+  operator new 版本。</p>
+  <p>如果沒有任何一個版本的 placement delete 
+  的額外參數能夠對應於「被喚起之 placement new 
+  的額外參數」，那麼，就不會有任何 operator delete 被喚起。於是，operator 
+  new 的行為所帶來的影響就無法被抹除。對於那些「placement 版」的 
+  operator new，這沒問題，因為它們並不真正配置記憶體。然而，一般而言，如果你產生一個自定的「placement 
+  版」的 operator new，你也應該產生一個對應的自定的「placement 版」operator 
+  delete。</p>
+  <p>啊呀，大部份編譯器都還沒有支援 placement delete。這種編譯器所產生出來的程式碼，使你幾乎總得蒙受一個記憶體漏洞（memory 
+  leak）。如果在 heap object 
+  建構期間有一個異常被丟出，因為不會有任何人企圖釋放 constructor 
+  被喚起之前被配置的記憶體。</p>
+  <p><font color="#FF0000">譯註：根據我的測試，GNU C++ 2.9, Borland C++Builder 40, 
+  Microsoft Visual C++ 6.0三家編譯器都已經支援 placement 版本的operator delete。其中以 
+  Visual C++ 最為體貼，當「沒有任何一個版本的 placement delete 
+  的額外參數能夠對應於被喚起之 placement new 的額外參數」時，Visual 
+  C++ 會給你一個警告訊息：<br>
+  no matching operator delete found; memory will not be freed if initialization throws an 
+  exception.</font></p>
+  <hr>
+  <blockquote>
+    <p>　</p>
+    <p>　</p>
+    <p>　</p>
+  </blockquote>
+</blockquote>
+</body>
+</html>

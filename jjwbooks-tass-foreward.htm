@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>STL 源碼剖析 庖丁解牛 侯捷自序</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><font color="#800000"><big>STL 源碼剖析 <br>
+</big><small>The Annotated STL source</small></font></h2>
+
+<h4 align="center">庖丁解牛<font color="#800000"> </font>侯捷自序</h4>
+<font FACE="新細明體">
+
+<p align="center"><small>莊子養生主：</small><br>
+<font color="#0000FF"><small>彼節間有間，而刀刃者無厚；</small><br>
+<small>以無厚入有間，恢恢乎其於游刃必有餘地矣。</small></font><br>
+<br>
+<small>侯捷不讓，以此自況。</small></font></p>
+
+<p align="center"><img src="tass.jpg" tppabs="http://jjhou.boolan.com/tass.jpg" width="357" height="442"
+alt="tass.jpg (33378 bytes)"></p>
+
+<hr>
+
+<blockquote>
+  <p>這本書的寫作動機，純屬偶然。<br>
+  <br>
+  2000年下半，我開始為寫作計劃中的《泛型技術》陸續做準備並熱身。為了對泛型編程技術以及STL實作技術有更深的體會，以便在講述整個STL的架構與應用時更能虎虎生風，我常常深入到STL源碼去刨根究底一番。2001/02 
+  的某一天，我突然有所感觸：既然花了大把精力看過STL 
+  源碼，寫了眉批，做了整理，何不把它再加一點功夫，形成一個更完善的面貌後出版？對我個人而言，一份註解詳盡的STL源碼，價值不扉；如果我從中獲益，一定也有許多人能夠從中獲益。<br>
+  <br>
+  這樣的念頭使我極度興奮。剖析大架構本是侯捷的拿手，這個主題又可以和《泛型技術》相呼應。於是我便一頭栽進去了。<br>
+  <br>
+  我選擇SGI STL 
+  做為剖析對象。這份實作版本的可讀性極佳，運用極廣，被選為GNU 
+  C++ 的標準程式庫，又開放自由運用。愈是細讀 SGI STL源碼，愈令我震驚抽象思考層次的落實、泛型編程的奧妙、及其效率考量的綿密。不僅最為人廣泛運用的各種資料結構（data 
+  structurs）和演算法（algorithms）在STL中有良好的實現，連記憶體配置與管理也都重重考慮了最佳效能。一切的一切，除了實現軟體積木的高度復用性，讓各種組件（components）得以靈活搭配運用，更考量了實用上的關鍵議題：效率。<br>
+  <br>
+  <font color="#0000FF">這本書不適合C++ 初學者，不適合 Genericity（泛型技術）初學者，或 
+  STL 初學者。這本書也不適合帶領你學習物件導向（Object Oriented）技術 
+  - 是的，STL 與物件導向沒有太多關連</font>。本書前言清楚說明了書籍的定位和合適的讀者，以及各類基礎讀物。如果你的Generic 
+  Programming/STL實力足以閱讀本書所呈現的源碼，那麼，恭喜，你踏上了基度山島，這兒有一座大寶庫等著你。源碼之前了無秘密，你將看到vector的實作、list的實作、heap的實作、deque的實作、reb-black 
+  tree的實作、hash table的實作、set/map 
+  的實作；你將看到各種演算法（排序、搜尋、排列組合、資料搬移與複製…）的實作；你甚至將看到底層的memory 
+  pool 和高階抽象的traits 
+  機制的實作。那些資料結構、那些演算法、那些重要觀念、那些編程實務中最重要最根本的珍寶，那些蜇伏已久彷彿已經還給老師的記憶，將重新在你的腦中閃閃發光。<br>
+  <br>
+  人們常說，不要從輪子重新造起，要站在巨人的肩膀上。面對扮演輪子、肩膀角色的這些STL 
+  組件，我們是否有必要深究其設計原理或實作細節呢？答案因人而異。從應用的角度思考，你不需要探索實作細節（然而相當程度地認識底層實作，對實務運用有絕對的幫助）。從技術研究與提昇的角度看，深究細節可以讓你徹底掌握一切；不論是為了重溫資料結構和演算法，或是想要扮演別人的輪子、肩膀，都可以因此獲得深厚紮實的基礎。<br>
+  <br>
+  天下大事，必作於細！<br>
+  <br>
+  別忘了，參觀飛機工廠不能讓你學得流體力學，也不能讓你學會開飛機。倒是，如果你會開飛機又懂流體力學，參觀飛機工廠可以帶給你最大的樂趣和價值。<br>
+  <br>
+  我開玩笑地對朋友說，這本書出版，給大學課程中的「資料結構」和「演算法」兩門授課老師出了個難題。幾乎所有可能的作業題目（複雜度證明題除外），本書都有了詳盡的解答。然而，如果學生能夠從龐大的 
+  SGI STL 
+  源碼中乾淨抽出某一部份，加上自己的包裝，做為呈堂作業，也足以證明你有資格獲得學分和高分。事實上，追蹤一流作品並於其中吸取養份，遠比自己關起門來寫個三流作品，價值高得多 
+  - 我的確認為99.99 % 的程式員所寫的程式，在 SGI STL 
+  面前都是三流程度。<br>
+  <br>
+  侯捷2001/05/30 新竹.臺灣<br>
+  <br>
+  www.jjhou.com&nbsp;&nbsp;&nbsp; (繁體)<br>
+  www.csdn.net/expert/jjhou (簡體)<br>
+  jjhou@jjhou.com<br>
+  <br>
+  </p>
+</blockquote>
+</body>
+</html>

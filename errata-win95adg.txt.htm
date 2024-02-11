@@ -1,0 +1,307 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>勘誤《Windows 95 程式設計指南》</title>
+</head>
+
+<body>
+
+<pre>本勘誤檔更新日期: 2001/08/17</pre>
+
+<pre>《Windows 95 程式設計指南》
+碁峰, 1997.  李書良譯，侯俊傑總監</pre>
+
+<pre>目前刷次: 1997/11 第一刷 印量 0001~2000</pre>
+
+<pre>原著：Windows 95: A Developer's Guide, by Jeffrey Richter and Jonathan Locke
+      M&amp;T Books,1995</pre>
+
+<pre>注意：以下以修正日期排序。</pre>
+
+<pre>======================================================
+以下請讀者自行更正：
+（注意，Lm 表示第 m 行，L-n 表示倒數第 n 行）</pre>
+
+<pre>■p55, 圖1-3 說明（中文版錯別字）
+原文：起使視窗
+更正：起始視窗
+感謝：wangf501
+日期：2001/07/10</pre>
+
+<pre>■p67, L-7（中文版錯別字）
+原文：只畫矩行外框
+更正：只畫矩形外框
+感謝：wangf501
+日期：2001/07/10</pre>
+
+<pre>■p146, 程式列表 3.5（中文版製作錯誤）
+原文：Resource.H 程式碼整個誤植
+更正：Resource.H 正確內容如下
+感謝：wangf501
+日期：2001/07/10</pre>
+
+<pre>//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ generated include file.
+// Used by DlgXpnd.rc
+//
+#define IDC_STATIC                      -1
+#define IDD_DLGXPAND                    101
+#define IDI_DLGXPND                     102
+#define IDC_NAME                        1000
+#define IDC_PHONE                       1006
+#define IDC_OPTIONS                     1007
+#define IDC_STREET                      1008
+#define IDC_CITY                        1009
+#define IDC_STATE                       1010
+#define IDC_ZIP                         1011
+#define IDC_DIVORCED                    1012
+#define IDC_CHARITYGIVER                1013
+#define IDC_SMOKES                      1014
+#define IDC_FEMALE                      1015
+#define IDC_MALE                        1016
+#define IDC_DEFAULTBOX                  1029</pre>
+
+<pre>// Next default values for new objects
+//
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        103
+#define _APS_NEXT_COMMAND_VALUE         40001
+#define _APS_NEXT_CONTROL_VALUE         1000
+#define _APS_NEXT_SYMED_VALUE           101
+#endif
+#endif
+</pre>
+
+<pre>■p149, 表3.2第2行（中文版製作錯誤）
+原文：DlgMdlls.C
+更正：MdllsDlg.C
+感謝：wangf501
+日期：2001/07/10</pre>
+
+<pre>■p166, 表3.4第2行（中文版製作錯誤）
+原文：DlgDlg.C
+更正：DynDlg.C
+感謝：wangf501
+日期：2001/07/10</pre>
+
+<pre>■p233, 程式列表3.22（中文版製作錯誤）
+原文：Resource.H 程式碼整個誤植
+更正：Resource.H 正確內容如下
+感謝：wangf501
+日期：2001/07/10</pre>
+
+<pre>//{{NO_DEPENDENCIES}}
+// Microsoft Visual C++ generated include file.
+// Used by DLGSIZE.RC
+//
+#define IDD_LAYOUT                      101
+#define IDI_LAYOUT                      102
+#define IDC_B1                          1001
+#define IDC_B2                          1002
+#define IDC_B3                          1003
+#define IDC_E1                          2001
+#define IDC_E2                          2002
+#define IDC_G1                          3001
+#define IDC_STATIC                      -1</pre>
+
+<pre>// Next default values for new objects
+//
+#ifdef APSTUDIO_INVOKED
+#ifndef APSTUDIO_READONLY_SYMBOLS
+#define _APS_NEXT_RESOURCE_VALUE        103
+#define _APS_NEXT_COMMAND_VALUE         40001
+#define _APS_NEXT_CONTROL_VALUE         3002
+#define _APS_NEXT_SYMED_VALUE           101
+#endif
+#endif</pre>
+
+<pre>■p239, L3 （筆誤）
+原文：全部都在相一個位址空間中執行
+更正：全部都在同一個位址空間中執行
+感謝：wangf501
+日期：2001/07/11
+</pre>
+
+<pre>■p120, L-4 （筆誤）
+原文：搜尋那些擁有WS_TABSTOP型態子的視窗
+更正：搜尋那些擁有WS_TABSTOP型態的子視窗
+感謝：wangf501
+日期：2001/07/12</pre>
+
+<pre>■p120, L-1（中文版遺漏一個右括號）
+原文：SetFocus(GetNextDlgTabItem(hwndDlg, GetFocus(), FALSE);
+更正：SetFocus(GetNextDlgTabItem(hwndDlg, GetFocus(), FALSE));
+感謝：wangf501
+日期：2001/07/12</pre>
+
+<pre>■p138, L6 （筆誤）
+原文：寬度放在高位元組，高度放在低位元組
+更正：寬度放在低位元組，高度放在高位元組
+感謝：wangf501
+日期：2001/07/12</pre>
+
+<pre>■p153, L5（錯別字）
+原文：初使化
+更正：初始化
+感謝：wangf501
+日期：2001/07/12</pre>
+
+<pre>■p141, #41
+來信：wangf501
+      以下為討論部份﹐我認為142頁#41原始碼應由
+        if (GetWindowLong(hwnd, GWL_USERDATA) == 0)
+      改為
+        if (GetWindowLong(hwndDefaultBox, GWL_USERDATA) == 0)
+      理由是 #47 將對話盒的寬度和高度保存在預設盒的視窗額外元組中
+      而非對話盒的額外元組中。我追蹤過這段原始碼﹐每次縮放時
+      #41測試條件都為真﹐如果不修改handle﹐#41的測試根本無意義。
+回覆：中譯本內容同於英文版。至於是否如您所說，請有興趣者自行研究裁奪。
+日期：2001/07/12</pre>
+
+<pre>■p245, L2（錯別字）
+原文：不要過掛使用額外位元組
+更正：不要過度使用額外位元組
+感謝：wangf501
+日期：2001/07/13</pre>
+
+<pre>■p650, 表格最後一行，None 之前的欄位（英文版遺漏）
+原文： （註：空白）
+更正：.（註：一個句點）
+感謝：wangf501
+日期：2001/07/13</pre>
+
+<pre>■p270, L11
+原文：尺寸是由程式員任何指定呢﹖
+更正：尺寸是由程式員任意指定呢﹖
+感謝：wangf501
+日期：2001/07/17</pre>
+
+<pre>■p276, L1
+原文：按下了滑鼠右鍵
+更正：按下了滑鼠左鍵
+感謝：wangf501
+日期：2001/07/17</pre>
+
+<pre>■p345, L-5
+原文：再來你必許
+更正：再來你必須
+感謝：wangf501
+日期：2001/07/19</pre>
+
+<pre>■p349, L5
+原文：表5.2概略的說明
+更正：表5.2概略地說明
+感謝：wangf501
+日期：2001/07/19</pre>
+
+<pre>■p350, L-3
+原文：Pong1.ICO~Pong7.ICO
+更正：Pong1.ICO~Pong6.ICO
+感謝：wangf501
+日期：2001/07/19</pre>
+
+<pre>■p353, L4
+原文：IamgeList_Craete
+更正：IamgeList_Create
+感謝：wangf501
+日期：2001/07/19</pre>
+
+<pre>■p357, L9
+原文：而，CallWindowProc
+更正：而 CallWindowProc
+感謝：wangf501
+日期：2001/07/19</pre>
+
+<pre>■p361, L-4
+原文：cbClsExtra 和 cbClsExtra 成員
+更正：cbClsExtra 和 cbWndExtra 成員
+感謝：wangf501
+日期：2001/07/20</pre>
+
+<pre>■p362, L13
+原文：會呼叫三次 SetWindowLong
+更正：會呼叫三次 SetClassLong
+感謝：wangf501
+日期：2001/07/20</pre>
+
+<pre>■p392, L15
+原文：lPram
+更正：lParam
+感謝：wangf501
+日期：2001/07/27</pre>
+
+<pre>■p432, L-5（英文版筆誤）
+原文：HHOOK
+更正：g_hhook
+感謝：wangf501
+日期：2001/07/27</pre>
+
+<pre>■p466, L-13,L-12
+原文：RECTSTAT
+更正：RECSTAT
+感謝：wangf501
+日期：2001/07/27</pre>
+
+<pre>■p356, L8
+原文：ANiBtn_OnCreate
+更正：AniBtn_OnCreate
+感謝：wangf501
+日期：2001/07/27</pre>
+
+<pre>■p503, L-13
+原文：nNumChars
+更正：uNumChars
+感謝：wangf501
+日期：2001/07/27</pre>
+
+<pre>■P505 L3
+原文：選取一個（以上）的檔案拖放 Touch 程式
+更正：選取一個（以上）的檔案拖放至 Touch 程式
+感謝：wangf501
+日期：2001/08/17</pre>
+
+<pre>■P514 L-9
+原文：Fnc 欄位
+更正：fNC 欄位
+感謝：wangf501
+日期：2001/08/17</pre>
+
+<pre>■P521 L-8
+原文：訊息處理常式 message handler
+建議：訊息處理函式
+答覆：原文為 message handler。對於 handler，我通常譯為「處理常式」。
+感謝：wangf501
+日期：2001/08/17</pre>
+
+<pre>■P549 L-5 L-3
+原文：fLock 參數
+更正：fLock<font color="#0000FF">ed</font> 參數
+感謝：wangf501
+日期：2001/08/17</pre>
+
+<pre>■P551 L-5
+原文：我的經驗<font color="#FF0000">證</font>顯示
+更正：我的經驗顯示
+感謝：wangf501
+日期：2001/08/17</pre>
+
+<pre>■P553 L5
+原文：所有<font color="#FF0000">鍵盤</font>的狀態
+更正：所有<font
+color="#0000FF">按鍵</font>的狀態
+感謝：wangf501
+日期：2001/08/17</pre>
+
+<pre>■P561 L4
+原文：<font color="#FF0000">跟</font>本不可能
+更正：<font
+color="#0000FF">根</font>本不可能
+感謝：wangf501
+日期：2001/08/17</pre>
+
+<pre>--- the end</pre>
+</body>
+</html>

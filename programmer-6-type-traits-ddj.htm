@@ -1,0 +1,482 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>C++ type traits</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h1 align="center"><font color="#800000">C++ Type traits<br>
+</font></h1>
+
+<p align="center"><font color="#800000">by John Maddock and Steve Cleary<br>
+DDJ 2000/10</font></p>
+
+<p align="center">　</p>
+
+<h3 align="center"><font color="#800000">譯者：陳崴</font></h3>
+
+<blockquote>
+  <p align="center">侯捷註：本文係北京《程序員》雜誌 2001/06 
+  的文章。譯筆順暢，技術飽滿。<br>
+  承譯者<font color="#000000">陳崴先生與</font>《程序員》<font color="#000000">雜誌負責人蔣濤先生答允，<br>
+  轉載於此，以饗臺灣讀者，非常感謝。<br>
+  <br>
+  未得陳崴先生與蔣濤先生二人之同意，任何人請勿將此文再做轉載。</font></p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>泛型編程編出來的代碼，適用於任何「吻合某種條件限制」的資料型別。這已成為撰寫可復用代碼時的一個重要選擇。然而，總有一些時候，泛型不夠好 
+  — 
+  有時候是因為不同的型別差距過大，難以產生一致的泛化實作版本。這個時候 
+  traits 
+  技術就變得相當重要。這種技術可以將那些需要被納入考量的型別性質以一種 
+  type by type 的原則，封裝於一個 traits class 
+  內，於是可以將「由於型別之間的差異，必須撰寫出來以備用」的代碼體積降至最低，並使泛用代碼的體積提昇到最高。</p>
+  <p>考慮一個例子：當我們處理字元字串（character strings）時，常見的一個操作行為就是決定「以 
+  null 
+  為結束符號」的字串的長度。很明顯我們不可能寫出一份泛型代碼取代眾所周知原本就存在的極有效率的解法：是的，C 
+  標準函式 <font size="2" face="Courier New">strlen</font> 和 <font size="2"
+  face="Courier New">wcslen</font> 
+  通常是以組合語言完成，如果再加上適量的硬體支援，就能夠比 C++ 
+  泛型版本有明顯的速度優勢。C++ 
+  標準程式庫的作者了解這一點，所以他們抽取出 <font size="2"
+  face="Courier New">char</font> 和 <font size="2" face="Courier New">wchar_t</font> 
+  的性質，置於 class <font size="2" face="Courier New">char_traits</font> 
+  內。於是，泛型代碼一旦處理字元字串，便可以簡單地使用 <font
+  size="2" face="Courier New">char_traits&lt;&gt;::length</font> 來決定一個「以 null 
+  為結束符號」的字串的長度，並且很安心地確知 <font size="2"
+  face="Courier New">char_traits</font> 
+  的特化版本將採用最適當的方法來完成任務。</p>
+  <h4>Type traits（型別特性）</h4>
+  <p>Class <font size="2" face="Courier New">char_traits</font> 
+  是「把一系列與型別相關的性質包裹於單一 class 
+  之內」的典型例子，那正是 Nathan Myers 所謂的 <i>baggage class</i> <font
+  color="#0000FF">[參考資料1]</font>。在 Boost type-traits library 中，我們<font
+  color="#0000FF"> [參考資料2]</font> 完成了一組非常特別的 traits classes，其中每一個 
+  classes 都封裝了 C++ 
+  型別系統中的一個（僅僅一個）特性。所謂特性（trait）指的是，舉個例子，某型別是否為一個 
+  pointer，或是一個 reference？某型別是否擁有一個 trivial constructor，或是擁有一個 
+  const 修飾詞？ 這些 type-traits classes 共同享有一致性的設計：每一個 
+  class 都有一個 member <i>value</i>，那是一個編譯期常數，如果某型別擁有某種特性，此一常數的值就是 
+  true，否則就是 false。稍後我將為你展示，這些 classes 
+  可以被使用於泛型編程之中，用來決定某個型別的特性，並導入對應的最佳化措施。</p>
+  <p>Boost type-traits library 也內含一組 classes，可以針對某個型別執行專屬的特定的轉換。例如它們可以從某個型別身上移除一個上層的 
+  const 或 volatile。每一個用來執行轉換的 class 都定義有一個 
+  typedef-member <i>type</i>，那便是轉換結果。所有這些 type-traits classes 
+  都被定義於 namespace <font size="2" face="Courier New">boost</font> 
+  之中。為求簡化，本文的範例代碼大多省略命名空間的設定。</p>
+  <h4>實作（Implementation）</h4>
+  <p>要在這裡顯示 type-traits library 
+  的所有實作內容，是不可能的，那真是太多太多了。如果你有這個需求，請看 
+  Boost library 
+  的源碼。大部份實作方法都是重複的，所以這裡我只給你一種風貌，為你示範這些 
+  classes 如何實作出來。讓我們從程式庫中最簡單的一個 class 開始。is_void&lt;T&gt; 
+  有一個 member <i>value</i>，如果 T 是 void，它就是 true。</p>
+  <pre><font color="#0000FF">template &lt;typename T&gt;</font> 
+struct is_void
+{ static const bool value = <font
+color="#0000FF">false</font>; };
+
+<font color="#0000FF">template &lt;&gt;</font> 
+struct is_void<font
+color="#0000FF">&lt;void&gt;</font>
+{ static const bool value = <font color="#0000FF">true</font>; };</pre>
+  <p>在這裡，我們定義了 template class <font size="2" face="Courier New">is_void</font> 
+  的一個主版本，並針對「T 是 void」的情況提供了一個<font
+  color="#0000FF">全特化（ full-specialisation）</font>版。雖然 template class 
+  的全特化是一項重要技術，但有時候我們需要的解決方案介於「完全泛化」和「完全特化」之間。這正是標準委員會之所以定義出<font
+  color="#0000FF">偏特化（partial template-class specialisation）</font>的原因。舉個例子，讓我們考慮 
+  class boost::is_pointer&lt;T&gt;，這裡我們需要一個主版本，用來處理「T 
+  不為指標」的所有情況，以及一個偏特化版本，用來處理「T 
+  是指標」的情況：</p>
+  <pre><font color="#0000FF">template &lt;typename T&gt;</font> 
+struct is_pointer 
+{ static const bool value = <font
+color="#0000FF">false</font>; };
+
+<font color="#0000FF">template &lt;typename T&gt;</font> 
+struct is_pointer<font
+color="#0000FF">&lt;T*&gt;</font> 
+{ static const bool value = <font color="#0000FF">true</font>; };</pre>
+  <p>偏特化的語法帶了點不可思議的味道，而且一談到它很容易就耗掉一整篇文章。就像全特化的情形一樣，為了針對某個 
+  class 寫出一個偏特化版本，你首先必須宣告 template 
+  主版本。偏特化版本在 class 名稱之後多出一個 &lt;…&gt; 
+  ，其中內含偏特化參數；這些參數定義出「將被繫結於偏特化版」的某些型別。究竟什麼參數會（或說能夠）出現於偏特化版本之中，規則頗為曲折，以下是一個簡略的規則。如果你能夠以此型式合法寫出兩個多載化函式：</p>
+  <pre>void foo(T);
+void foo(U);</pre>
+  <p>那麼你就能夠以此型式寫出一個偏特化版本：</p>
+  <pre><font color="#0000FF">template &lt;typename T&gt;</font>
+class c{ /*details*/ };
+
+<font
+color="#0000FF">template &lt;typename T&gt;</font>
+class c<font color="#0000FF">&lt;U&gt;</font>{ /*details*/ };</pre>
+  <p>這個簡則並非絕對成立，但它非常簡單，足以讓你牢牢記住並足夠接近精確的規則。</p>
+  <p>至於比較複雜的偏特化例子，讓我們考慮 class remove_bounds&lt;T&gt;。這個 
+  class 定義了唯一一個 typedef-member <i>type</i>，其型別與 T 
+  相同，但移除任何上層（top level）的 <font color="#000000">array 邊界</font>；這是「traits 
+  class 對某個型別進行轉換」的例子：</p>
+  <pre><font color="#0000FF">template &lt;typename T&gt; 
+</font>struct remove_bounds
+{ typedef <font
+color="#0000FF">T</font> type; };
+
+<font color="#0000FF">template &lt;typename T, std::size_t N&gt; 
+</font>struct remove_bounds<font
+color="#0000FF">&lt;T[N]&gt;</font>
+{ typedef <font color="#0000FF">T</font> type; };</pre>
+  <p>remove_bounds 的目的是：想像一個泛型演算法，接受一個 array 
+  型別做為 template 參數，<font size="2" face="Courier New">remove_bounds</font> 
+  會提供一個方法，讓你有辦法得知底部（underlying）的 array 
+  型別。例如，<code>remove_bounds&lt;int[4][5]&gt;::type</code> 會被核定為型別 <code>int[5]</code>。這個例子也向你展示，<font
+  color="#0000FF">在一個偏特化版本中，template 參數的個數並不需要吻合 
+  default template 中的個數。然而，出現於 class 
+  名稱之後的參數個數必須吻合 default template 的參數個數和參數型別。</font></p>
+  <h4>copy 最佳化 </h4>
+  <p>現在我要舉一個例子，說明我們可以如何運用 type traits classes。考慮標準程式庫所提供的 
+  copy 演算法：</p>
+  <pre>template&lt;typename Iter1, typename Iter2&gt;
+Iter2 copy(Iter1 first, Iter1 last, Iter2 out);</pre>
+  <p>很明顯，寫一個泛型版本的 copy 
+  絕無問題，它可以處理任何型別的迭代器 Iter1和 Iter2。然而在某種情況下，copy 
+  動作可以透過 <font size="2" face="Courier New">memcpy</font> 
+  完成。為了能夠以 <font size="2" face="Courier New">memcpy</font> 完成 copy，以下條件必須成立：<ul>
+    <li>兩個迭代器 Iter1 和 Iter2 的型別都必須是指標。</li>
+    <li>Iter1 和 Iter2 都必須指向相同的型別 - 但允許有不同的 <font size="2"
+      face="Courier New">const</font> 和<font size="2" face="Courier New">volatile</font> 
+      修飾詞。</li>
+    <li>Iter1 所指的型別必須有一個 trivial assignment operator。</li>
+  </ul>
+  <p>所謂 trivial assignment operator，我的意思是這個型別如果不是一個純量型別（scalar 
+  types）<font color="#0000FF">[參考資料3]</font>，就是：<ul>
+    <li>這個型別沒有使用者自定的 assignment operator。</li>
+    <li>這個型別沒有任何 data members 採用 reference 型式。</li>
+    <li>所有的 base classes，以及所有的 data member objects 都有 trivial assignment 
+      operators。</li>
+  </ul>
+  <p>如果上述所有條件都獲得滿足，那麼這個型別就可以<font size="3">被</font><font
+  size="2"> </font><font size="2" face="Courier New">memcpy</font> 
+  直接拷貝，而不使用一個由編譯器產生的 assignment operator。type-traits 
+  library 提供了一個 class <i>has_trivial_assign</i>，使得當 T 有一個 trivial 
+  assignment operator 時，<code>has_trivial_assign&lt;T&gt;::value</code> 為 true。這個 
+  class 只能對純量型別起作用，<font color="#000000">但你很輕易就可以將它特殊化，使它適用於那些也擁有 
+  trivial assignment operator 的 class/struct</font>。換一個角度說，如果 <i>has_trivial_assign</i> 
+  給出錯誤的答案，它會導致安全性方面的錯誤。</p>
+  <p>列表一顯示一個最佳化（使用 <font size="2" face="Courier New">memcpy</font>）的 
+  copy 代碼。代碼之中首先定義一個 template class <i>copier</i>，接受唯一一個 
+  template 參數 Boolean，然後是一個 static template member function <font size="2"
+  face="Courier New">do_copy</font>，執行 <font size="2">copy</font> 
+  的泛型版本（也就是比較慢但比較安全的版本）。接下來是一個 <i>copier&lt;true&gt;</i> 
+  特化版本，其中也定義了一個 static template member function <font size="2"
+  face="Courier New">do_copy</font>，這一次使用 memcpy 
+  來執行最佳化拷貝動作。</p>
+  <p>為了完成整份實作代碼，現在我們需要一個 copy 
+  版本；如果可以安全使用 <font size="2" face="Courier New">memcpy</font><font
+  size="2">，</font>就讓它呼叫 <code>copier&lt;true&gt;::do_copy</code> 
+  執行特化版本，否則就呼叫 <code>copier&lt;false&gt;::do_copy</code> 
+  執行泛化版本。這正是列表一的代碼的所作所為。為了了解這些代碼如何運作，請看 
+  <font size="2" face="Courier New">copy</font> 
+  函式代碼，並首先注意最前面的兩個 typedefs <i>v1_t</i> 和 <i>v2_t</i>。它們使用 
+  <code>std::iterator_traits&lt;Iter1&gt;::value_type</code> 
+  來得知兩個迭代器所指的是什麼型別，然後將其結果餵給另一個 
+  type-traits class <i>remove_cv</i>，用以移除上層的 const- 或 volatile-修飾詞，這使 
+  copy 得以比較兩個型別而不在乎 const- 或 volatile- 修飾詞。接下來，<font
+  size="2" face="Courier New">copy</font> 宣告一個列舉元 <i>can_opt</i>，它將成為 
+  copier 的 template 參數 <font color="#000000">- 
+  在這裡，宣告為常數只是為了方便：數值可以被直接傳遞給 class <font
+  size="2" face="Courier New">copier</font></font><font color="#FF0000">（譯註：我無法理解這一段意思；代碼本身並未出現常數宣告）</font>。<i>can_opt</i> 
+  的值是根據「以下所有項目都驗證為真」而計算出來：<ul>
+    <li>首先，兩個迭代器必須指向相同型別 - 驗證方法是透過 type-traits 
+      class <i>is_same</i>。</li>
+    <li>其次，兩個迭代器都必須是真正的指標 - 
+      驗證方法是透過先前描述過的 class <i>is_pointer</i>。</li>
+    <li>最後，被迭代器所指的型別必須有一個 trivial assignment operator - 
+      驗證方法是透過 <i>has_trivial_assign</i>。</li>
+  </ul>
+  <p>最後，我們可以使用 <i>can_opt</i> 的值做為 template 引數，傳給 copier。這裡所呈現的 
+  copy 版本會根據它所獲得的參數而調整，如果有可能使用 <font size="2"
+  face="Courier New">memcpy</font>，它就會那麼做，否則就使用一個泛型的 
+  copy。</p>
+  <h4>值得如此嗎？</h4>
+  <p>許多文章都會引用這句話：「貿然實施最佳化，是各種傷害的根源」（&quot;premature 
+  optimization is the root of all evil&quot;） <font color="#0000FF">[參考資料4]</font>。所以你一定會問這樣的問題：我們的最佳化是否太過貿然？是否太過唐突？為了透視這一點，我把我們的&nbsp; 
+  copy 版本拿來和一個傳統的泛型版本做比較 <font color="#0000FF">[參考資料5]</font>，結果顯示於表一。</p>
+  <p>很明顯，最佳化與否，造成兩個截然不同的結果。但我也要持平地說，時間的量測並不含括「快取裝置誤擊效應」（cache 
+  miss effects），因此這份結果並未能在兩個演算法之間展現精確的比較。然而，或許我們可以加上一些警告，放到「貿然最佳化」的規則裡頭：<ul>
+    <li>如果你一開始就使用正確的演算法，那麼最佳化就不再有必要。某些情況下，<font
+      size="2" face="Courier New">memcpy</font> 是正確的演算法。</li>
+    <li>如果某個組件即將在許多地方被許多人使用，那麼最佳化是值得的 
+      - 即使對少數使用者而言，最佳化可能是小題大作。</li>
+  </ul>
+  <h4>表一：以 copy&lt;const T*, T*&gt; 拷貝1000 
+  個元素，所花費的時間（微秒）</h4>
+  <table border="1" cellpadding="7" cellspacing="1" width="529">
+    <tr>
+      <td valign="top" width="33%"><p align="left">版本</td>
+      <td valign="top" width="33%"><p align="left">型別 T</td>
+      <td valign="top" width="33%"><p align="left">時間（微秒）</td>
+    </tr>
+    <tr>
+      <td valign="top" width="33%">最佳化的 copy</td>
+      <td valign="top" width="33%">char</td>
+      <td valign="top" width="33%">0.99</td>
+    </tr>
+    <tr>
+      <td valign="top" width="33%">傳統的 copy</td>
+      <td valign="top" width="33%">char</td>
+      <td valign="top" width="33%">8.07</td>
+    </tr>
+    <tr>
+      <td valign="top" width="33%">最佳化的 copy</td>
+      <td valign="top" width="33%">int</td>
+      <td valign="top" width="33%">2.52</td>
+    </tr>
+    <tr>
+      <td valign="top" width="33%">傳統的 copy</td>
+      <td valign="top" width="33%">int</td>
+      <td valign="top" width="33%">8.02</td>
+    </tr>
+  </table>
+  <p>　</p>
+  <h4>Pair of References</h4>
+  <p>「copy 行為最佳化」這個實例告訴我們，type traits 
+  如何被用來在編譯時期執行最佳化策略。type traits 
+  的另一個重要用途是允許某些「除非運用極端的偏特化，否則無法通過編譯」的代碼得以被順利編譯。只要將偏特化行為授權（delegating）給type 
+  traits classes，便有可能做到。關於這種用法，我舉的例子是一個可以持有 
+  references 的 pair <font color="#0000FF">[參考資料6]</font>。</p>
+  <p>首先讓我們檢驗 &quot;std::pair&quot; 
+  的定義，為了簡化，我略去其中的 comparision operators, default constructor, 
+  和 template copy constructor：</p>
+  <pre>template &lt;typename T1, typename T2&gt; 
+struct pair 
+{
+  typedef T1 first_type;
+  typedef T2 second_type;
+
+  T1 first;
+  T2 second;
+
+  pair(<font
+color="#0000FF">const T1 &amp;</font> nfirst, <font color="#0000FF">const T2 &amp;</font> nsecond)
+  :first(nfirst), second(nsecond) { }
+};</pre>
+  <p>此刻這個 &quot;pair&quot; 無法持有 references，因為如此一來其 
+  constructor 將被迫接受一個 reference to reference，而這種語法目前並不存在 
+  <font color="#0000FF">[參考資料7]</font>。讓我們想想，為了允許 
+  &quot;pair&quot; 得以持有 non-reference 型別、references 型別、constant 
+  references 型別，constructor 的參數必須是什麼樣子：</p>
+  <table border="1" cellpadding="7" cellspacing="1" width="548">
+    <tr>
+      <td valign="top" width="197">&quot;T1&quot; 的型別</td>
+      <td valign="top" width="315">constructor 的參數型別 </td>
+    </tr>
+    <tr>
+      <td valign="top" width="197"><pre>T</pre>
+      </td>
+      <td valign="top" width="315"><pre>const T &amp;</pre>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="197"><pre>T &amp;</pre>
+      </td>
+      <td valign="top" width="315"><pre>T &amp;</pre>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="197"><pre>const T &amp;</pre>
+      </td>
+      <td valign="top" width="315"><pre>const T &amp;</pre>
+      </td>
+    </tr>
+  </table>
+  <p>一個和 type traits classes 
+  類似的技術，允許我們建構單一的對應關係，使我們得以根據 
+  contained class 的型別決定參數型別。type traits classes 提供了一個 
+  &quot;add_reference&quot; 轉換，可以為自身型別加上一個 reference，除非它本身已經是一個 
+  reference。</p>
+  <table border="1" cellpadding="7" cellspacing="1" width="580">
+    <tr>
+      <td valign="top" width="21%">&quot;T1&quot; 的型別</td>
+      <td valign="top" width="27%">&quot;const T1&quot; 的型別</td>
+      <td valign="top" width="53%">&quot;add_reference&lt;const T1&gt;::type&quot; 的型別</td>
+    </tr>
+    <tr>
+      <td valign="top" width="21%"><pre>T</pre>
+      </td>
+      <td valign="top" width="27%"><pre>const T</pre>
+      </td>
+      <td valign="top" width="53%"><pre>const T &amp;</pre>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="21%"><pre>T &amp;</pre>
+      </td>
+      <td valign="top" width="27%"><pre>T &amp;  <font color="#0000FF">[註8]</font></pre>
+      </td>
+      <td valign="top" width="53%"><pre>T &amp;</pre>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top" width="21%"><pre>const T &amp;</pre>
+      </td>
+      <td valign="top" width="27%"><pre>const T &amp;</pre>
+      </td>
+      <td valign="top" width="53%"><pre>const T &amp;</pre>
+      </td>
+    </tr>
+  </table>
+  <p>這使我們得以建立一個 template 主版本，定義一個可內含 non-reference 
+  型別、 reference 型別、constant reference 型別的 &quot;pair&quot; ：</p>
+  <pre>template &lt;typename T1, typename T2&gt; 
+struct pair 
+{
+  typedef T1 first_type;
+  typedef T2 second_type;
+
+  T1 first;
+  T2 second;
+
+  pair(<font
+color="#0000FF">boost::add_reference&lt;const T1&gt;::type</font> nfirst,
+       <font
+color="#0000FF">boost::add_reference&lt;const T2&gt;::type</font> nsecond)
+  :first(nfirst), second(nsecond) { }
+};</pre>
+  <p>為它回添標準的 comparision operators, default constructor 和 template copy 
+  constructor 之後（它們都和原先版本相同），你就有了一個可以內含 
+  reference 型別的 std::pair。</p>
+  <p>當然我們也可以使用偏特化技巧完成同樣的擴充，但果真如此，我們需要三個 
+  &quot;pair&quot; 偏特化版本和一個主版本。Type traits 
+  允許我們僅僅定義一個主版本，就可以自動而神奇地將自己調整為任何偏特化版，取代一一偏特化的所謂「暴力法」。以此方式使用 
+  type traits，可允許程式員將偏特化授權（delegate）給 type traits classes，使得代碼比較容易維護，也比較容易被理解。</p>
+  <h4>結論</h4>
+  <p>希望這篇文章能夠給你一些想法，讓你大略知道 type-traits 
+  是什麼。boost 說明文件中有更完整的 classes 
+  列表，以及更進一步的使用範例。Templates 使 C++ 
+  有能力實現泛型編程所帶來的復用性；這篇文章還告訴你，templates 
+  可以和 generic 一樣地美好。這都有賴 type traits 帶來的價值。</p>
+  <h4>致謝</h4>
+  <p>感謝 Beman Dawes 和 Howard Hinnant 對本文所提的意見。</p>
+  <h4>參考資料</h4>
+  <ol>
+    <li>Nathan C. Myers, C++ Report, June 1995.</li>
+    <li>這個 type traits library 的完成，要感謝 Steve Cleary, Beman Dawes, Howard 
+      Hinnant 和 John Maddock。你可以在 <a href="javascript:if(confirm(%27http://www.boost.org/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.boost.org/%27" tppabs="http://www.boost.org/">www.boost.org</a> 
+      找到它。</li>
+    <li>所謂純量型別（scalar type）就是算術型別（例如內建的整數或浮點數）、列舉型別（enumeration）、指標、函式指標、或以上任何型別再加上 
+      const- 或 volatile- 修飾詞。</li>
+    <li>此句引自 Donald Knuth, ACM Computing Surveys, December 1974, pg 268.</li>
+    <li>這一份測試代碼是 boost utility library 的一部份（見 algo_opt_examples.cpp），以 
+      gcc 2.95 編譯完成，所有最佳化選項都打開。我的測試結果是在 400MHz 
+      Pentium II + Microsoft Windows 98 上獲得。</li>
+    <li>John Maddock 和 Howard Hinnant 已經送出一個 &quot;compressed_pair&quot; library 
+      給 Boost，其中使用的一個技術，和此處所描述的技術類似，也是用來持有 
+      references。他們的 pair 也使用 type traits 
+      來決定是否有任何型別是空的，並且<font color="#000000">採用 
+      &quot;derive&quot; 而非 &quot;contain&quot; 的方式，用以保存空間</font> -- 
+      這正是 &quot;compressed&quot; 的命名由來。</li>
+    <li>這其實是 C++ 核心語言工作小組的一個議題，由 Bjarne Stroustrup 
+      提出。暫時的解決辦法是，允許 &quot;a reference to a reference to T&quot; 
+      的意義等同於 &quot;a reference to T&quot;，<font color="#000000">但是只能存在於 
+      template 具現實體中，或是存在於一個「具備多個 const-volatile 
+      修飾詞」的&nbsp; method 中。</font></li>
+    <li>為什麼這裡不該有 const 
+      修飾詞呢？對此感到驚訝的人，我要提醒你，請記住， references 
+      永遠是個隱晦常數（舉個例子，你不能夠重新對一個 reference 
+      賦值）。同時也請你記住，&quot;const T &amp;&quot; 
+      是完全不同的東西。因為這些理由，template 型別引數如果本身是個 
+      references 的話，其<font color="#000000">「const-volatile 修飾詞」</font>都被忽略。</li>
+  </ol>
+  <p>　</p>
+  <h4>列表一</h4>
+  <pre>namespace detail{
+
+template &lt;bool b&gt;
+struct <font color="#0000FF">copier</font>
+{
+   template&lt;typename I1, typename I2&gt;
+   static I2 <font
+color="#0000FF">do_copy</font>(I1 first, 
+                     I1 last, I2 out);
+};
+
+template &lt;bool b&gt;
+template&lt;typename I1, typename I2&gt;
+I2 <font
+color="#0000FF">copier&lt;b&gt;::do_copy</font>(I1 first, 
+                      I1 last, 
+                      I2 out)
+{
+   while(first != last)
+   {
+      *out = *first;
+      ++out;
+      ++first;
+   }
+   return out;
+}
+
+<font
+color="#0000FF">template &lt;&gt;
+</font>struct <font color="#0000FF">copier&lt;true&gt;</font>
+{
+   template&lt;typename I1, typename I2&gt;
+   static I2* <font
+color="#0000FF">do_copy</font>(I1* first, I1* last, I2* out)
+   {
+      <font color="#0000FF">memcpy</font>(out, first, (last-first)*sizeof(I2));
+      return out+(last-first);	<font
+color="#FF0000">// 譯註：因為是 RandomAccessIterator</font>
+   }
+};
+
+}
+
+template&lt;typename I1, typename I2&gt;
+inline I2 <font
+color="#0000FF">copy</font>(I1 first, I1 last, I2 out)
+{
+   typedef typename 
+    <font
+color="#0000FF">boost::remove_cv&lt;
+     typename std::iterator_traits&lt;I1&gt;
+      ::value_type&gt;::type</font> v1_t;
+
+   typedef typename 
+    <font
+color="#0000FF">boost::remove_cv&lt;
+     typename std::iterator_traits&lt;I2&gt;
+      ::value_type&gt;::type</font> v2_t;
+
+   enum{ can_opt = 
+      <font
+color="#0000FF">boost::is_same&lt;v1_t, v2_t&gt;::value</font>
+      &amp;&amp; <font
+color="#0000FF">boost::is_pointer&lt;I1&gt;::value</font>
+      &amp;&amp; <font
+color="#0000FF">boost::is_pointer&lt;I2&gt;::value</font>
+      &amp;&amp; <font
+color="#0000FF">boost::has_trivial_assign&lt;v1_t&gt;::value</font> 
+   };
+
+   return <font
+color="#0000FF">detail::copier&lt;can_opt&gt;::do_copy</font>(first, last, out);
+}</pre>
+  <hr>
+  <p><br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>羅塞達碑石</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center">羅塞達碑石</h2>
+
+<p align="center"><font color="#000000">C++的 Function Pointer 使用問題!</font></p>
+
+<blockquote>
+  <p align="center">侯捷 1998.12.04</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>最近網路的討論群上出現 <font color="#0000FF">C++的 Function Pointer 
+  使用問題</font> 這個題目。<br>
+  <br>
+  此題頗為有趣。Frank 
+  網友的疑惑，經過前面數位網友的討論，我們發現，&quot;強制轉型&quot; 
+  表面上可以解決問題，但骨子裡問題還是存在如下：<br>
+  <br>
+  若以 function pointer 做為 class 的一筆 data member，而我們希望把 
+  &quot;argument list 不同&quot; 的各個函式的指標塞給它（指定給上述的 
+  data member），那麼我們該如何解決 &quot;argument list 不同&quot; 的問題？<br>
+  <br>
+  這很像 MFC 裡頭的 message map。我想 MFC 
+  的做法很可供參考。如果各位有 &lt;深入淺出 MFC&gt; 2/e 的話，可看 
+  p580「羅塞達石碑：AfxSig_xx 的奧秘」一節。提要如下：<br>
+  <br>
+  MFC 設計了一個 struct（C++ 的 struct 與 class 有相同的能力）：<br>
+  <br>
+  <small><font face="Courier New" color="#0000FF">struct AFX_MSGMAP_ENTRY<br>
+  {<br>
+  UINT nMessage; // &lt;--<br>
+  UINT nCode;<br>
+  UINT nID;<br>
+  UINT nLastID;<br>
+  UINT nSig; // &lt;-- enum AfxSig</font><font color="#0000FF">，例如 </font><font
+  face="Courier New" color="#0000FF">AfxSig_vwl, AfxSig_iis, ...<br>
+  AFX_PMSG pfn; // &lt;--<br>
+  }</font></small><br>
+  <br>
+  其中的 nMessage 和 pfn 就是 Frank 
+  網友想要的東西。只不過在第一個欄位上，Frank 網友是以 string 
+  表示，此處則以 UINT 表示。<br>
+  <br>
+  pfn 的型別（AFX_PMSG）定義如下：<br>
+  <br>
+  <font face="Courier New" color="#0000FF"><small>typedef void (AFX_MSG_CALL 
+  CCmdTarget::*AFX_PMSG)(void);</small></font><br>
+  <br>
+  顯然 AFX_PMSG 是 pointer of CCmdTarget's member function. 上述 typedef 將 AFX_PMSG 
+  定義為無參數（void）函式的指標。<br>
+  <br>
+  MFC 又定義了一個 enum AfxSig（《深入淺出 MFC》2/e p581）及一個 union 
+  MessageMapFunctions（《深入淺出 MFC》2/e p583），根據前述 nSig 
+  欄位（內容是 Afx_xxx），將「無參數函式」的指標轉換為「有各種參數之函式」的指標。由於各式各樣的函式指標係定義於 
+  union MessageMapFunctions 之中，都是 4 bytes，利用 union 
+  的特性可順利做轉換，而又解決 &quot;argument list 不同&quot; 
+  的問題。換句話說真正的函式指標只是 pfn，但通過 union，它展現了不同的形象。<br>
+  <br>
+  <font color="#8080FF">註：<strong>羅塞達碑石（Rosetta Stone）</strong>，1799 
+  年拿破崙遠征埃及時，由一名官員在尼羅河口羅塞達發現，從此揭開古埃及象形文字之謎。石碑是黑色玄武岩，高 
+  114 公分，厚 28 公分，寬 72 
+  公分。經法國學者波倫研究後，世人因得順利研讀古埃及文獻。上述的 
+  AfxSig_xxx 使我們揭開了 MFC 的 message map 之謎，因以喻之！</font></p>
+  <p><br>
+  <br>
+  以下是我寫的一個小小模擬程式。&lt;多型與虛擬&gt; 改版時 (2/e)，我會把這個題目加入第一章中。<br>
+  <br>
+  <small><font face="Courier New" color="#0000FF">#0001 // file : fptr2.cpp (simulate MFC 
+  message mapping)<br>
+  #0002 // author : jjhou<br>
+  #0003 // date : 1998.12.04<br>
+  #0004 // build : cl -GX fptrs.cpp<br>
+  #0005 // bcc32 fptrs.cpp<br>
+  #0006<br>
+  #0007 #include &lt;iostream&gt;<br>
+  #0008 #include &lt;string&gt;<br>
+  #0009<br>
+  #0010 using namespace std;<br>
+  #0011<br>
+  #0012 // generic type of function pointer<br>
+  #0013 typedef void (*PFUNC)(void);<br>
+  #0014<br>
+  #0015 // command ID definition<br>
+  #0016 #define CMD_COPY 0<br>
+  #0017 #define CMD_PASTE 1<br>
+  #0018 #define CMD_CUT 2<br>
+  #0019 #define CMD_NULL 0xFFFF<br>
+  #0020<br>
+  #0021 // command function implementation<br>
+  #0022 int copy(void) { cout &lt;&lt; &quot;copy&quot; &lt;&lt; endl; return 0; }<br>
+  #0023 bool paste(string&amp; str) { cout &lt;&lt; &quot;paste: &quot; &lt;&lt; str 
+  &lt;&lt; endl; return true; }<br>
+  #0024 void cut(int i, int j) { cout &lt;&lt; &quot;cut: &quot; &lt;&lt; i &lt;&lt; &quot; 
+  &quot; &lt;&lt; j &lt;&lt; endl; }<br>
+  #0025<br>
+  #0026 enum Sig // ref &lt;Dissecting MFC 2/e&gt; p581<br>
+  #0027 {<br>
+  #0028 Sig_end = 0, // [marks end of message map]<br>
+  #0029<br>
+  #0030 Sig_iv, // int (void)<br>
+  #0031 Sig_bs, // bool (string&amp;)<br>
+  #0032 Sig_vii, // void (int, int)<br>
+  #0033 };<br>
+  #0034<br>
+  #0035 union CmdFunctions // ref &lt;Dissecting MFC 2/e&gt; p583<br>
+  #0036 {<br>
+  #0037 PFUNC pfn; // generic function pointer<br>
+  #0038<br>
+  #0039 // specific type safe variants<br>
+  #0040 int (*pfn_iv)(void);<br>
+  #0041 bool (*pfn_bs)(string&amp;);<br>
+  #0042 void (*pfn_vii)(int, int);<br>
+  #0043 };<br>
+  #0044<br>
+  #0045 struct Command // ref &lt;Dissecting MFC 2/e&gt; p580<br>
+  #0046 {<br>
+  #0047 unsigned int nCmd;<br>
+  #0048 unsigned int nSig;<br>
+  #0049 PFUNC pfn; // command handler<br>
+  #0050 };<br>
+  #0051<br>
+  #0052 Command commands[] = // ref &lt;Dissecting MFC 2/e&gt; p555<br>
+  #0053 {<br>
+  #0054 { CMD_COPY, Sig_iv, (PFUNC)(int (*)(void))copy },<br>
+  #0055 { CMD_PASTE, Sig_bs, (PFUNC)(bool (*)(string&amp;))paste },<br>
+  #0056 { CMD_CUT, Sig_vii, (PFUNC)(void (*)(int, int))cut },<br>
+  #0057 { CMD_NULL, Sig_end, (PFUNC)0 }<br>
+  #0058 };<br>
+  #0059<br>
+  #0060 void main(void)<br>
+  #0061 {<br>
+  #0062 unsigned int icmd;<br>
+  #0063 int iparam1, iparam2;<br>
+  #0064 string sparam;<br>
+  #0065 union CmdFunctions cf; // ref &lt;Dissecting MFC 2/e&gt; p581<br>
+  #0066<br>
+  #0067 while (1) // </font><font color="#0000FF">模擬不斷有 </font><font
+  face="Courier New" color="#0000FF">command </font><font color="#0000FF">進來，不斷地處理之<br>
+  </font><font face="Courier New" color="#0000FF">#0068 {<br>
+  #0069 // </font><font color="#0000FF">備妥 </font><font face="Courier New"
+  color="#0000FF">command<br>
+  #0070 cout &lt;&lt; &quot;Command (0 or 1 or 2, any other will exit) : &quot;;<br>
+  #0071 cin &gt;&gt; icmd;<br>
+  #0072<br>
+  #0073 // </font><font color="#0000FF">備妥 </font><font face="Courier New"
+  color="#0000FF">parameters<br>
+  #0074 switch (icmd) {<br>
+  #0075 case 0 :<br>
+  #0076 break;<br>
+  #0077<br>
+  #0078 case 1 :<br>
+  #0079 cout &lt;&lt; &quot;param str = &quot;;<br>
+  #0080 cin &gt;&gt; sparam;<br>
+  #0081 break;<br>
+  #0082<br>
+  #0083 case 2 :<br>
+  #0084 cout &lt;&lt; &quot;iparam1 = &quot;;<br>
+  #0085 cin &gt;&gt; iparam1;<br>
+  #0086 cout &lt;&lt; &quot;iparam2 = &quot;;<br>
+  #0087 cin &gt;&gt; iparam2;<br>
+  #0088 break;<br>
+  #0089<br>
+  #0090 default :<br>
+  #0091 cout &lt;&lt; &quot;command error!&quot; &lt;&lt; endl;<br>
+  #0092 exit(1);<br>
+  #0093 }<br>
+  #0094<br>
+  #0095 // </font><font color="#0000FF">搜尋適當的 </font><font face="Courier New"
+  color="#0000FF">cmd index<br>
+  #0096 // </font><font color="#0000FF">本例中，</font><font face="Courier New"
+  color="#0000FF">icmd </font><font color="#0000FF">即為 </font><font face="Courier New"
+  color="#0000FF">commands[] </font><font color="#0000FF">的 </font><font
+  face="Courier New" color="#0000FF">index.<br>
+  #0097 // </font><font color="#0000FF">其他情況可能未必<br>
+  </font><font face="Courier New" color="#0000FF">#0098 // ...<br>
+  #0099<br>
+  #0100 // </font><font color="#0000FF">呼叫適當的 </font><font face="Courier New"
+  color="#0000FF">cmd handler ref &lt;Dissecting MFC 2/e&gt; p581<br>
+  #0101 cf.pfn = commands[icmd].pfn;<br>
+  #0102 switch (commands[icmd].nSig) {<br>
+  #0103 case Sig_iv:<br>
+  #0104 cout &lt;&lt; &quot;result= &quot; &lt;&lt; (*cf.pfn_iv)() &lt;&lt; endl;<br>
+  #0105 break;<br>
+  #0106<br>
+  #0107 case Sig_bs:<br>
+  #0108 cout &lt;&lt; &quot;result= &quot; &lt;&lt; (*cf.pfn_bs)(sparam) &lt;&lt; endl;<br>
+  #0109 break;<br>
+  #0110<br>
+  #0111 case Sig_vii:<br>
+  #0112 (*cf.pfn_vii)(iparam1, iparam2);<br>
+  #0113 break;<br>
+  #0114 }<br>
+  #0115 } // while<br>
+  #0116 }<br>
+  #0117<br>
+  #0118</font></small><br>
+  <font face="Courier New" color="#FF0000"><small>#0119 /*<br>
+  #0120 H:\g001p\prog\fptr.01&gt;fptr2<br>
+  #0121 Command (0 or 1 or 2, any other will exit) : 0<br>
+  #0122 copy<br>
+  #0123 result= 0<br>
+  #0124 Command (0 or 1 or 2, any other will exit) : 1<br>
+  #0125 param str = helloMFC<br>
+  #0126 paste: helloMFC<br>
+  #0127 result= 1<br>
+  #0128 Command (0 or 1 or 2, any other will exit) : 2<br>
+  #0129 iparam1 = 839<br>
+  #0130 iparam2 = 912<br>
+  #0131 cut: 839 912<br>
+  #0132 Command (0 or 1 or 2, any other will exit) : 9<br>
+  #0133 command error!<br>
+  #0134 */</small></font><br>
+  <br>
+  --- the end</p>
+</blockquote>
+</body>
+</html>

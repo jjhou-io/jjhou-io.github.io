@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>設計模式 同濟大學 2006 課程備忘錄</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><font color="#800000">設計模式/範式（Design Patterns）<br>
+<br>
+</font><font color="#804000">同濟大學軟件學院 2006 課程備忘錄</font><font
+color="#800000"><br>
+<br>
+<small>侯捷</small></font></h2>
+
+<p align="center"><font color="#0000FF">請注意：此為備忘錄，不是呈現完整教材或學習討論的地方。</font></p>
+
+<p align="center"><a href="#ToFit" target="main"><font color="#000000">誰適合聽這門課</font></a></p>
+
+<p align="center"><a href="#CanAudit" target="main"><font color="#000000">能否旁聽這門課</font></a></p>
+
+<p align="center">　</p>
+
+<p align="center"><img src="2006-07-calendar.jpg" tppabs="http://jjhou.boolan.com/2006-07-calendar.jpg" width="564" height="265"
+alt="2006-07-calendar.jpg (37232 bytes)"></p>
+
+<p align="center"><a href="article0607.htm" tppabs="http://jjhou.boolan.com/article0607.htm" target="main">一月之跡（日誌）</a></p>
+
+<hr>
+
+<blockquote>
+  <p><font color="#0000ff">主旨</font>：Design Patterns (DP) 
+  是軟件開發的心得整理與總結。學習DP可以 (1) 獲得高層次溝通能力 
+  (2) 學習前人經驗 (3) 檢討自身技術。本課程帶領學生認識並學習多種DPs，所用實例儘量萃取自知名軟件如 
+  MFC, STL, Java Library…。</p>
+  <p><font color="#0000ff">說明</font>：DP代表的是某種設計思維，也是解決問題的某種手法；和語言、平台、工具無關。唯因本課程選擇之GP範例多取自 
+  STL, MFC，因此學生需具備C++ 能力；其中 STL 又運用了大量 templates, 
+  Generic Programming技術，因此課堂上將適度補充必要基礎。另有部分實例取自 
+  Java Library，因此課堂上亦將適度補充必要之 Java 基礎。</p>
+  <p><font color="#0000ff">教材</font>（1 
+  為教材，其他為輔助資料或參考讀物）：<br>
+  <font color="#000000">1.</font> 教師自編講義<font face="新細明體" size="3">。以電子文件發給學生自行複印或由院方複印。</font><br>
+  2. 《<a
+  href="javascript:if(confirm(%27http://www.amazon.com/exec/obidos/tg/detail/-/0201633612/qid=1104904215/sr=1-1/ref=sr_1_1/103-3801140-8395826?v=glance&s=books  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.amazon.com/exec/obidos/tg/detail/-/0201633612/qid=1104904215/sr=1-1/ref=sr_1_1/103-3801140-8395826?v=glance&s=books%27" tppabs="http://www.amazon.com/exec/obidos/tg/detail/-/0201633612/qid=1104904215/sr=1-1/ref=sr_1_1/103-3801140-8395826?v=glance&s=books"
+  target="_blank">Design Patterns</a>》by Erich Gamma,Richard Helm,Ralph Johnson,John 
+  Vlissides, Addison Wesley, 1995<br>
+  中文繁體版《物件導向設計模式》，葉秉哲譯，臺灣培生教育出版集團<br>
+  中文簡體版《設計模式》，李英軍等譯，機械工業出版社 
+  華章公司出版<br>
+  3. <strong>Design Patterns Series</strong> in Amazon. <br>
+  4. 《<a
+  href="javascript:if(confirm(%27http://www.amazon.com/exec/obidos/ASIN/0321213351/qid=1116649738/sr=2-1/ref=pd_bbs_b_2_1/104-9231973-7733522  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.amazon.com/exec/obidos/ASIN/0321213351/qid=1116649738/sr=2-1/ref=pd_bbs_b_2_1/104-9231973-7733522%27" tppabs="http://www.amazon.com/exec/obidos/ASIN/0321213351/qid=1116649738/sr=2-1/ref=pd_bbs_b_2_1/104-9231973-7733522"
+  target="_blank">Refactoring to Patterns</a>》by Joshua Kerievsky, Addison Wesley, 2004<br>
+  中譯本繁體版《<a
+  href="file://E:\jjweb\course-dp-tongji-2005.htm/jjtbooks-refactoring-to-patterns.htm"
+  target="main">重構 - 向範式前進</a>》，侯捷/陳裕城 譯，碁峰出版<br>
+  5. 《<a
+  href="javascript:if(confirm(%27http://www.amazon.com/exec/obidos/ASIN/0596007124/qid=1116647500/sr=2-2/ref=pd_bbs_b_2_2/104-9231973-7733522  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.amazon.com/exec/obidos/ASIN/0596007124/qid=1116647500/sr=2-2/ref=pd_bbs_b_2_2/104-9231973-7733522%27" tppabs="http://www.amazon.com/exec/obidos/ASIN/0596007124/qid=1116647500/sr=2-2/ref=pd_bbs_b_2_2/104-9231973-7733522"
+  target="_blank">Head First Design Patterns</a>》by Eric Freeman &amp; Elisabeth Freeman 
+  with Kathy Sierra &amp; Bert Bates, Oreilly, 2004<br>
+  6. 《<a
+  href="javascript:if(confirm(%27http://www.amazon.com/exec/obidos/ASIN/020163371X/qid=1116649386/sr=2-1/ref=pd_bbs_b_2_1/104-9231973-7733522  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.amazon.com/exec/obidos/ASIN/020163371X/qid=1116649386/sr=2-1/ref=pd_bbs_b_2_1/104-9231973-7733522%27" tppabs="http://www.amazon.com/exec/obidos/ASIN/020163371X/qid=1116649386/sr=2-1/ref=pd_bbs_b_2_1/104-9231973-7733522"
+  target="_blank">More Effective C++</a>》by Scott Meyers, Addison Wesley, 1996 <small><font
+  color="#408080">item25~item31(p123~p251)</font></small><br>
+  <a href="file://E:\jjweb\course-dp-tongji-2005.htm/jjtbooks-more-effective-cpp.htm"
+  target="main">中文繁體版</a>，侯捷 譯，培生公司出版<br>
+  <a href="file://E:\jjweb\course-dp-tongji-2005.htm/jjtbooks-more-effective-cpp-gb.htm"
+  target="main">中文簡體版</a>，侯捷 譯，電力社出版<br>
+  7. 《<a
+  href="javascript:if(confirm(%27http://www.amazon.com/exec/obidos/ASIN/0135974445/qid=1116649990/sr=2-1/ref=pd_bbs_b_2_1/104-9231973-7733522  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.amazon.com/exec/obidos/ASIN/0135974445/qid=1116649990/sr=2-1/ref=pd_bbs_b_2_1/104-9231973-7733522%27" tppabs="http://www.amazon.com/exec/obidos/ASIN/0135974445/qid=1116649990/sr=2-1/ref=pd_bbs_b_2_1/104-9231973-7733522"
+  target="_blank">Agile Software Development</a>》by Robert C. Martin, Prentice Hall, 2002<br>
+  中文繁體版《<a href="file://E:\jjweb\course-dp-tongji-2005.htm/jjfbooks-agile.htm"
+  target="main">敏捷軟體開發</a>》，林昆穎/吳京子 譯，碁峰出版<br>
+  中文簡體版《<a
+  href="file:///C:/WINDOWS/Temporary%20Internet%20Files/MtFile/MT2143813260.htm"
+  target="_blank">敏捷軟件開發</a>》，鄧輝 譯，清華大學出版社<br>
+  8. 《Design Patterns 於 Java 
+  語言上的實習應用》結城浩著，李于青譯，博碩 2002<br>
+  </p>
+  <table cellSpacing="1" cellPadding="1" width="529" border="1">
+<TBODY>
+    <tr>
+      <td vAlign="top" width="47"><font face="新細明體" size="3">日期</font></td>
+      <td vAlign="top" width="37"><font face="新細明體" size="3">星期</font></td>
+      <td vAlign="top" width="31"><font face="新細明體" size="3">時數</font></td>
+      <td vAlign="top" width="343"><font face="新細明體" size="3">內容</font></td>
+      <td vAlign="top" width="41"><font face="新細明體" size="3">備註</font></td>
+    </tr>
+    <tr>
+      <td vAlign="top" width="47"><font size="3">07/03</font></td>
+      <td vAlign="top" width="37"><font size="3">一</font></td>
+      <td vAlign="top" width="31"><font size="3">3</font></td>
+      <td vAlign="top" width="343"><font face="新細明體" size="3">課程簡介，書籍評介. 
+      </font><br>
+      OO terms and concepts<br>
+      <font color="#0000ff">Template Method</font><br>
+      <font color="#0000ff">Strategy</font></td>
+      <td vAlign="top" width="41">基礎複習</td>
+    </tr>
+    <tr>
+      <td vAlign="top" width="47"><font size="3">07/04</font></td>
+      <td vAlign="top" width="37"><font size="3">二</font></td>
+      <td vAlign="top" width="31"><font size="3">3</font></td>
+      <td vAlign="top" width="343"><font color="#0000ff">Reference Counting</font></td>
+      <td vAlign="top" width="41">　</td>
+    </tr>
+    <tr>
+      <td vAlign="top" width="47"><font size="3">07/05</font></td>
+      <td vAlign="top" width="37"><font size="3">三</font></td>
+      <td vAlign="top" width="31"><font size="3">3</font></td>
+      <td vAlign="top" width="343"><font color="#0000ff">Proxy<br>
+      Smart Pointer<br>
+      Flyweight</font></td>
+      <td vAlign="top" width="41">　</td>
+    </tr>
+    <tr>
+      <td vAlign="top" width="47"><font size="3">07/06</font></td>
+      <td vAlign="top" width="37"><font size="3">四</font></td>
+      <td vAlign="top" width="31"><font size="3">3</font></td>
+      <td vAlign="top" width="343"><font color="#0000ff">Iterator</font></td>
+      <td vAlign="top" width="41">　</td>
+    </tr>
+    <tr>
+      <td vAlign="top" width="47"><font size="3">07/07</font></td>
+      <td vAlign="top" width="37"><font size="3">五</font></td>
+      <td vAlign="top" width="31"><font size="3">3</font></td>
+      <td vAlign="top" width="343"><font color="#0000ff">Composite</font><br>
+      <font color="#0000ff">Decorator</font><br>
+      <font color="#0000ff">Observer</font></td>
+      <td vAlign="top" width="41">　</td>
+    </tr>
+    <tr>
+      <td vAlign="top" width="47"><font size="3">07/08</font></td>
+      <td vAlign="top" width="37"><font size="3">六</font></td>
+      <td vAlign="top" width="31"><font size="3">3</font></td>
+      <td vAlign="top" width="343"><font color="#0000ff">Adapter</font></td>
+      <td vAlign="top" width="41">　</td>
+    </tr>
+    <tr>
+      <td vAlign="top" width="47"><font size="3">07/09</font></td>
+      <td vAlign="top" width="37"><font size="3">日</font></td>
+      <td vAlign="top" width="31"><font size="3">3</font></td>
+      <td vAlign="top" width="343"><font color="#0000ff">Command</font><br>
+      <font color="#0000FF">Undoable Framework</font></td>
+      <td vAlign="top" width="41">　</td>
+    </tr>
+    <tr>
+      <td vAlign="top" width="47"><font size="3">07/??</font></td>
+      <td vAlign="top" width="37"><font size="3">3</font></td>
+      <td vAlign="top" width="31"><font size="3">3</font></td>
+      <td vAlign="top" width="343"><font color="#000000">考試</font></td>
+      <td vAlign="top" width="41">　</td>
+    </tr>
+</TBODY>
+  </table>
+  <p>　</p>
+  <p align="left"><a name="ToFit"><font color="#000000">■誰適合聽這門課</font></a></p>
+  <p>要<font color="#0000ff">聽懂</font> Design Patterns，只需對 C++ 或 Java 的 
+  polymorphism (幾乎可以說就是 virtual functions 的應用）有所認知並加上<font
+  color="#0000ff">不算太少的實作經驗</font>（愈多愈好）即可。事實上一個很有名的 
+  design pattern &quot;Template Method&quot; 就（只）是用來告訴大家 virtual 
+  functions 的精神。<br>
+  <br>
+  但是要「<font color="#0000ff">領略</font>」design patterns 
+  就不是那麼容易。我比較常形容的是：寫過 10 萬行 C++ codes就可以對design 
+  patterns <font color="#0000ff">心領神會</font>。這是個形容，10萬行也可以改為 
+  3 萬行或 5 萬行。總之是這樣一個 order.<br>
+  <br>
+  學生階段寫過上萬行 C++/Java/C# codes 
+  的確是鳳毛麟角，但這不成為上這門課的門檻或阻礙。我會儘量抽取大型 
+  libraries 的 source code 
+  做為講解與分析的內容，這會讓大家比較容易領受。只要 C++/Java/C# 
+  的 polymorphism 
+  基礎不差，聽懂應該是沒問題的。「心領神會」則看各人修為。<br>
+  <br>
+  <a name="CanAudit"><font color="#000000">■能否旁聽這門課</font></a></p>
+  <p align="left">我在大學開的課程，是正式學分課，面向該大學學生。作為老師，我歡迎旁聽，但首先應以修課同學的權益（座位、空間...等等）為優先。因此，能否旁聽，還請詢問學校相關單位（例如學院或系上辦公室）的態度。<br>
+  <br>
+  -- the end</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+  <p>　</p>
+</blockquote>
+</body>
+</html>

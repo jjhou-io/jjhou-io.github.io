@@ -1,0 +1,200 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>DOS-Windows 虛擬機器作業環境</title>
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font>
+
+<table border="0" cellpadding="6" cellspacing="0" width="736">
+  <tr>
+    <td width="5"><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td width="538"><!--mstheme--></font></td>
+    <td width="7"><!--mstheme--></font></td>
+    <td width="147"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="5"><br>
+    <br>
+    <br>
+    <br>
+    <font size="3"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td valign="top" width="538"><font color="#FF0000">【基本資料】<br>
+    <br>
+    </font><font color="#000000">書名：</font><font color="#0000FF">DOS-Windows 
+    虛擬機器作業環境</font><font color="#000000"><br>
+    出版：旗標 1993.09<br>
+    ISBN：957-717-057-09<br>
+    頁數： 8 章，572 頁<br>
+    定價：NT$ 450.0</font><p><font color="#000000"><br>
+    </font><font color="#FF0000"><br>
+    【自序】</font></p>
+    <p align="center"><font color="#FF0000"><br>
+    </font><font color="#0000FF">生也有涯 學也無涯 理有未窮 知有不盡</font></p>
+    <p><font color="#000000"><br>
+    DOS/Windows 的組合架構，延續了 DOS 的生命，也為避免 Windows 對 PC 
+    終端客戶以及軟體廠商造成太大衝擊盡了一些力量。許多工作，可以藉助於 
+    DOS 與 Windows 間的通訊而順利完成。然而對於軟體人員，DOS 與 Windows 
+    之間有一層厚厚的城牆，本書的目的就是要協助您打破這虛擬機器之間的柏林圍牆。<br>
+    <br>
+    虛擬機器 (Virtual Machine) 的技術觀念是 DOS/Windows、乃至於 Windows NT 
+    中非常重要的一環。提供基礎知識，為更深入研究 Windows 
+    紮根，是本書的第二個目的。<br>
+    <br>
+    這是計劃中的 Windows IPC 三部曲的第一冊書。較之於第二<br>
+    冊 (Clipboard、DDE、DLL) 以及第三冊 (DDEML、OLE)，本書是相當偏系統層面的。裡面秉持我一貫對系統的深入探究，期望對您有所幫助。書中有相當多的範例程式係參考國外期刊、雜誌、書籍中的創意加以修整而來。雖然裡頭或增或減或修飾，都有我的斧鑿痕跡，然我不敢掠人之美，除了書後列出參考文獻之外，程式的前端亦註明參考出處。<br>
+    <br>
+    本書所使用的程式技術如 TSR、VxD、DPMI 
+    等等，可能不是一般軟體人員曾接觸過的。固然我的目的之一就是要讓讀者熟悉它們，但專長或興趣或工作不在這些領域的朋友仍可從本書的各個實例結果觀察並了解 
+    Windows 
+    虛擬機器的架構以及能力。換句話說即使不實際發展這樣類型的程式，我在書中揭示的觀念，仍有助於您對 
+    Windows 系統更深入的了解。<br>
+    <br>
+    這本書在技術層面上實屬不易，整個寫作進度也比原計劃延宕不少。整理與寫作的過程，長路漫漫；現實與理想之衝突，旋蜇旋動。但每思及某個夜晚的某個地方的某盞燈光下，與未曾謀面的朋友心靈相會，我就感覺溫暖與安慰。我想我並不寂寞。<br>
+    <br>
+    侯俊傑 (J.J.Hou) 07/31/1993</font></p>
+    <p><font color="#FF0000"><br>
+    <br>
+    【本書架構】<br>
+    <br>
+    </font><font color="#000000">多工環境 (如 Windows) 與單工環境 (如 DOS) 
+    最大的差異在於前者可以同時執行多個行程 (process)，而且行程間還可以互通有無。因此對使用者而言整個作業系統變成為一個整合的工作環境。於是，過去以應用程式為主 
+    (所謂 Application Center) 的觀念漸漸轉變為以文件為主 (所謂Document 
+    Center) 
+    的觀念。這種觀念影響所及，各應用程式就可以專注在特定領域裡發揮專長，不必龐蕪地像個巨獸 
+    --- 
+    巨獸總是難以駕馭。軟體用戶可以選購數個精專的小型軟體，再由作業系統提供的資料交換與整合能力，完成其所要的產品 
+    (也就是所謂的 document)。<br>
+    <br>
+    這種 PC 
+    工作環境的丕變，不論對終端使用者或是軟體發展者，都帶來極大的衝擊。<br>
+    <br>
+    朋友看到 Windows IPC (InterProcess Communication) 的第一個想法也許是 : 「Windows 
+    程式」與「Windows 程式」之間的通訊。沒有錯，我所規劃的 IPC 
+    系列原先構想偏重在 Windows 
+    應用層面上，但是欠缺虛擬機器之間的溝通，總覺遺憾；再加上讀者對 
+    DOS/Windows 這一主題詢問殷切，所以整套書預定擴編為三冊 :<br>
+    <br>
+    1) Windows 虛擬機器作業環境 - 讓 Windows 與 DOS 交談。<br>
+    2) Windows IPC 程式設計 - Clipboard、DLL、Message Base DDE。<br>
+    3) Windows IPC 程式設計 - Function Base DDEML、OLE。<br>
+    <br>
+    讓 Windows 與 DOS 交談 ?! 有什麼好處 ? DOS 比較為多數人熟悉，或者說 
+    DOS 是多數人比較有把握的個人電腦作業系統，許多裝置驅動程式在 
+    DOS 環境下已經發展完備。如果能運用既有之 DOS 
+    驅動程式技術對週邊設備做動作，再由 Windows 
+    應用程式攫取資料，那麼整個工作就可能容易得多。事實上目前許多實務應用就是這麼完成的。<br>
+    <br>
+    本書提供的另一個重點是 : 基礎知識。Windows 3.1 
+    乃至目前還在研發階段的Windows 4.0，都還是架構在 MS-DOS 
+    這個作業系統之上。這與完整的 32 位元作業系統Windows NT 
+    的發展路線大相逕庭。雖然 Windows NT 不再需要 MS-DOS，但 NT 
+    走的是高檔伺服器 (Server) 市場。一些工業界人士預期 Windows NT 
+    將真正取代掉Windows 3.1 以及 WFW (Windows For Workgroup)；另有一些預報員斷言 
+    Windows NT 將取得大約 15%-20% 的 Windows 3.1 
+    市場。我相信後者比較實際一點。<br>
+    <br>
+    無論如何，對大多數終端客戶而言，在可預知的未來裡，Windows 3.1 和 
+    WFW 仍是適當的工業技術，至於 32 位元 NT 程式可以藉「Windows 3.1 + 
+    Win32s 環境」來執行 (請看本書 1.5 節)。因此在目前以及可預測的未來，個人使用的桌上型電腦還是有絕大部份安裝 
+    DOS/Windows，那麼顯然 MS-DOS 與Windows 
+    的關係依然唇齒相依，緊密結合。本書提供的虛擬機器作業環境的觀念，對於想深入了解 
+    Windows 的讀者，是一項極重要的基礎知識。<br>
+    <br>
+    這本書撰寫末期，Windows NT 已經正式發表。於是我又加上 NT 的 VDM、WOW，以及Win32s 
+    的介紹。這些主題配合原來 Windows 3.1 
+    上對虛擬環境的各項討論，構成完整的知識，放在第一章。<br>
+    <br>
+    要讓 Windows 程式與 DOS 程式溝通，基本上作法不外乎 :<br>
+    <br>
+    ■ 利用 Shared Memory 傳遞資訊。<br>
+    ■ 利用 Windows Clipboard 傳遞資訊。<br>
+    ■ 利用 Windows 的虛擬裝置驅動程式 (VxD)。<br>
+    <br>
+    它們各有優劣也各有應用領域。第二、三、四章以及第六、七章完整介紹上面的每一項技術。由於第六章中需要撰寫虛擬裝置驅動程式 
+    VxD，所以我先在第五章介紹 VxD 的設計方法。此外，DOS 與 Windows 
+    之間最重要的介面 DPMI，在第七、八章也有說明。<br>
+    <br>
+    ● 第一章「Windows 虛擬機器作業環境」<br>
+    <br>
+    Windows 進駐記憶體之後 (當您在 DOS 提示號下鍵入 win)，記憶體的佈局發生重大變化，並形成所謂的系統虛擬機器 
+    (System VM)。386 CPU 更允許再製作出其他的虛擬機器 (DOS VM)。這些虛擬機器擁有獨立位址空間，並強制性分享 
+    CPU。後者對終端用戶更具吸引力，許多客戶當初看上 Windows 
+    是因為它可以同時執行多個 DOS 程式。虛擬機器是 DOS/Windows 
+    架構中非常重要的基礎知識。<br>
+    <br>
+    另外，本章也有相當多的篇幅介紹 Win32s 
+    的來龍去脈，解釋這個可以在16 位元 Windows 中執行 32 位元 Win32 
+    程式的神奇技術。Windows NT 架構以及 Windows On Win32 (WOW) 
+    也在本章提及。<br>
+    <br>
+    ● 第二章「Windows 與 DOS 通訊 - 利用共同位址空間」<br>
+    <br>
+    雖然一般而言 Windows 
+    的各個虛擬機器擁有獨立位址空間，但在極低階的情況下各虛擬機器之間仍有共同的位址。這個位址可利用 
+    GlobalDosAlloc() 得到，或是藉著常駐程式的資料區獲得，或是利用 KERNEL 
+    模組提供的特殊 selector 獲得，適合做為 Windows 程式與 DOS 
+    程式的資料傳輸區域。<br>
+    <br>
+    ● 第三章「Windows 與 DOS 通訊 - 利用 Clipboard」<br>
+    <br>
+    Windows 386 加強模式的 WINOLDAP 模組 (WIN-OLD-AP) 提供一組 Clipboard API，讓在 
+    DOS VM 中的 DOS 程式存取 Windows 的 Clipboard。這組 API 是以 2Fh/17xxh 
+    介面呈現，程式化非常容易，可以支援文字 (TEXT) 以及圖形 (BITMAP) 
+    資料格式。本章的 CLIPAPI 程式庫供應所有文字格式的 Clipboard 
+    函數，並有 GETCLIP 和 PUTCLIP 兩個小小測試程式。<br>
+    <br>
+    ● 第四章「向 Windows 發出命令的 DOS 程式」<br>
+    <br>
+    如果 Windows 願意提供某些介面給 DOS 程式，為什麼在數千個 API 
+    中選擇Clipboard 介面 ? 事實上加以適當包裝的話，Clipboard 介面足夠在 
+    DOS 與 Windows 之間打出一個大洞 --- 包括在 DOS 程式中啟動 Windows 
+    程式，甚至呼叫 Windows API。這一章的 CLIPCMD 以及 CLIPSERV 
+    兩個程式合力架構出整個可行性，其動態聯結部份尤其有趣。<br>
+    <br>
+    ● 第五章「無所不能無處不至 - 虛擬裝置驅動程式 VxD」<br>
+    <br>
+    VxD 程式有一定的格式，有極大的權力 (與作業系統同等級)。本章為第六章與第八章鋪路，介紹虛擬裝置驅動程式 
+    VxD 的設計方法。<br>
+    <br>
+    ● 第六章「Windows 與 DOS 通訊 - 利用 Pipe Mechanism」<br>
+    <br>
+    Pipe 是 Windows 與 DOS 溝通的另一個方法。DOS/Windows 並不提供Pipe Mechanism，我們可以自己做一個 
+    Pipe VxD，讓 Windows 程式和 DOS 程式藉由它溝通。<br>
+    <br>
+    ● 第七章「DOS 保護模式介面與虛擬機器間的軟體中斷」<br>
+    <br>
+    雖然第四章介紹了 Clipboard 介面，但無疑最重要的 DOS/Windows 介面當屬DPMI。這一章介紹如何應用 
+    DPMI，使軟體中斷的方式依然能夠在 DOS/Windows 中展身手。<br>
+    <br>
+    ● 第八章「在應用程式中呼叫 VxD 函數」<br>
+    <br>
+    太多寶貝在 VMM 和 VxD 之中，它提供的服務函數可說是較 SDK 
+    函數更低階的另一組重要程式庫。然而這些函數都是 Ring0 
+    程式，非同屬 Ring0 的 .386 程式無法叫用它們。本章的一個 Generic VxD 
+    充做一般 Windows 程式與 VMM 和 VxD 的橋樑，讓 Windows 
+    應用程式可以「直接」使用 VMM 和 VxD 
+    函數。其動態聯結部份與第四章實有異曲同功之趣。<br>
+    </font><font color="#FF0000"><br>
+    </font><!--mstheme--></font></td>
+    <td width="7"><!--mstheme--></font></td>
+    <td valign="top" width="147" bgcolor="#C0C0C0"><p align="center"><img src="f314.jpg" tppabs="http://jjhou.boolan.com/f314.jpg"
+    alt="f314.jpg (16110 bytes)" WIDTH="137" HEIGHT="188"><br>
+<!--mstheme-->    </font></td>
+  </tr>
+</table>
+
+<p>　</p>
+<!--mstheme--></font>
+</body>
+</html>

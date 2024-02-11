@@ -1,0 +1,83 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>OLE 控制元件徹底研究</title>
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font>
+
+<table border="0" cellpadding="6" cellspacing="0" width="737">
+  <tr>
+    <td width="12"><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td width="514"><!--mstheme--></font></td>
+    <td width="5"><!--mstheme--></font></td>
+    <td width="171"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="12"><font size="3"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td valign="top" width="514"><font color="#FF0000"><a name="【基本資料】">【基本資料】</a><br>
+    </font><br>
+    書名：<font color="#0000FF">OLE 控制元件徹底研究</font><br>
+    出版：松崗 1996.06<br>
+    ISBN：957-22-2190-6<br>
+    頁數： 19 章，538 頁<br>
+    定價：NT$ 500.0<br>
+    <br>
+    原著：<font color="#0000FF">OLE Controls Inside Out</font><br>
+    原著作者：Adam Denning<br>
+    原著出版：Microsoft Press, 1995<br>
+    原著ISBN：1-55615-824-6<br>
+    原著定價：US$ 39.95<p><font FACE="華康粗圓體" SIZE="5">　</p>
+    <p><font size="3" color="#FF0000">【譯序】</font></p>
+    <p align="center"><br>
+    譯 序</p>
+    <p align="center">　</p>
+    <p ALIGN="left"></font><font size="3">我等著寫這一篇譯序，已經很久了！自從點頭接受這本書的翻譯工作，我就知道是艱苦的一戰。曾經聽過這麼一句話：一個人知道第二天的工作表排得滿滿，是一種幸福；知道六個月內的工作表排得滿滿，是一種痛苦。我總是在這種痛苦中生活。這本書的翻譯工作進行一半的時候，一位資策會的朋友和我電話閒聊，他說他快被 
+    OLE 逼瘋了，我說我也是。</p>
+    <p ALIGN="JUSTIFY">然而，再密的木頭也釘得下一根釘子，我終究是了了一樁心願。</p>
+    <p ALIGN="JUSTIFY">OLE 已成為 Windows 
+    作業系統的骨幹，並日漸蔓延其根亥。OLE 控制元件（OCXs）將取代 
+    VBXs 成為軟體零組件市場的貨色標準。高漲的 32 
+    位元浪潮，使得不論身為零組件的設計者或使用者，你都必須面對 
+    OLE 控制元件。</p>
+    <p ALIGN="JUSTIFY">猜猜我最喜歡的是哪一章？第二章！第二章對 OLE 
+    有一個通盤的觀念整理。但悠遊其間之前，恐怕你得做點苦工。那些曾經為了 
+    OLE 
+    跌得頭破血流（簡直要血流成河了）的人，才能夠坐下來享受本章文字的總檢閱。</p>
+    <p ALIGN="JUSTIFY">本書的技術特點，在「導讀（譯者的話）」和「本書簡介」中已有梗概介紹，我想在這裡說點別的。我所謂艱苦的一戰，除了本書技術性原就較高之外，作者偏好長長的句子，往往主句加子句一大堆的if...that...which...only 
+    in...or，串起來近四行。看起來已勉強，譯起來更辛苦。作者對於程式碼的檢討非常詳盡，幾乎每一個函式的每一個動作都要講解。這是細心還是囉嗦，得視讀者的技術水平而定。但，解說詳盡總比一言以蔽之好得多。</p>
+    <p ALIGN="JUSTIFY">作為一個資訊界最前端從業人員，我很注意外文書籍；作為一個電腦專業技術作家，我很關心本土著作。外文書籍擁有技術與先機兩大優勢，常讓許多有心寫作的年輕朋友喪氣。但我要說，技術與先機是一回事，文字與教育是另一回事。說實在，再怎麼努力，要「讓整本譯作感覺不出一絲洋味」，恐怕我是說了大話 
+    -- 
+    外文書的整個思考基調本就是洋人的路子嘛。所以，更中國的思考路線與表達方式，是本土作家無可取代的利器。西風壓不倒東風，這一點我信心滿滿。</p>
+    <p ALIGN="JUSTIFY">讓我談點我對翻譯的態度。</p>
+    <p ALIGN="JUSTIFY">基本上我所抱持的翻譯原則是：忠於原著的精神，所以義譯而非字譯；忠於原著的內容，所以不刪減原著篇幅。另外，我會在原書的邏輯過程中比較突兀的部份（當然這是主觀認定）或是需要補充的地方加上註解。你會看到一些譯註，有的在文字之中，有的獨立為一小方塊。船過無痕地把註解與心得融入原來文字，也是很好的方式，我之所以標明譯註，一方面提醒已有原文書的讀者，一方面為了文責自負。至於原書的筆誤，就直接改過來，不另外說明。</p>
+    <p ALIGN="JUSTIFY">有朋友問，身為一個具創作力的作者，為什麼要做翻譯工作？噢，沒有意義的重複性工作是不可能吸引我的，對於這個問題，我的回答很簡單：這是一本好書，這本好書彌補我自己作品之不足。另外一個答案是，翻譯事業應該正視，需要更多學有專精的人來參與。最後一句話說得重了些，但是實際情況眾所周知。</p>
+    <p ALIGN="JUSTIFY">把最好的翻譯品質呈獻給您，是我由衷的希望。如何才叫最好？許多朋友不敢提這樣的字眼 
+    -- 
+    不論在人生的任何方向。其實，世事能否如願，目標能否達成，本來就受許多因素左右；但是勇敢地把理想定出來吧！理想與實際容或有些許差異，若連「定下目標」的勇氣都沒有，又怎麼去達成目標 
+    ?!</p>
+    <p ALIGN="JUSTIFY">所以，讓我再說一次，<font color="#0000FF">把最好的翻譯品質呈獻給您，是我由衷的希望。讓買了原文書的朋友後悔，是我的第一個目標，讓買了原文書的朋友再掏一次腰包，是我的第二個目標。至於我的第三個目標，呵呵，是讓原文書滯銷（不然做中譯本幹嘛？）</font></p>
+    <p ALIGN="JUSTIFY">最後，說一個小故事惕勵自己以及所有從事翻譯的朋友。佛經有四大譯師：玄奘、鳩摩羅什、法顯和真諦。羅什的父親是天竺王子，母親是龜茲公主。史書上記載他的母親懷他時智慧大進，無師自通天竺語。由於釋迦牟尼佛座下弟子中人稱智慧第一的舍利弗，其母受孕後也是智慧大進，因此鳩摩羅什未出世即被預言是一位有大智慧的人。羅什本人精擅漢梵兩種語文，一生主譯佛經三百八十多卷，成就驚人。他的譯作「流傳後世，咸共弘通」。臨終前他說：「今於眾前，發誠實誓：若所傳無謬者，當使焚身之後，舌不焦爛」。果然火化後「薪滅形碎，唯舌不灰」。</p>
+    <p ALIGN="JUSTIFY">電腦書和嚴肅的經典當然沾不上邊，但我還是懷著戰戰兢兢的心情。我也希望自己有一只燒不爛的舌頭。</p>
+    <p ALIGN="JUSTIFY">侯俊傑 1996.05.25 于新竹</font><!--mstheme--></font></td>
+    <td width="5"><!--mstheme--></font></td>
+    <td valign="top" width="171" bgcolor="#C0C0C0"><p align="center"><img src="adam1.jpg" tppabs="http://jjhou.boolan.com/adam1.jpg"
+    alt="adam1.jpg (19997 bytes)" WIDTH="169" HEIGHT="206"><br>
+<!--mstheme-->    </font></td>
+  </tr>
+</table>
+
+<p>　</p>
+<!--mstheme--></font>
+</body>
+</html>

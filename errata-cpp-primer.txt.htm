@@ -1,0 +1,1363 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>勘誤《C++ Primer 3/e 中文版》</title>
+</head>
+
+<body>
+
+<pre>本勘誤檔更新日期: 2002/09/14</pre>
+
+<pre>《C++ Primer 3/e 中文版》
+Addison-Wesley.碁峰資訊股份有限公司 合作出版, 1999</pre>
+
+<pre>目前刷次: 1999/09 第一刷 印量  0001~3000
+          1999/10 第二刷 印量  3001~5000（版權頁記錄為 3001~4500，錯誤）
+          2000/03 第三刷 印量  5001~8000
+          2000/11 第四刷 印量  8001~11000
+          2001/10 第五刷 印量 11001~14000（<font
+color="#0000FF">2001修訂本</font>。製版疏失以致未列版權頁）
+            2001修訂本特色：
+              1. 本表所載勘誤至 2001/07/23 止皆已修正於紙本
+              2. 目錄附黑色頁邊，有益查找
+              3. 改用網片印刷，網底效果極佳（唯 p252 原圖掃描效果不佳）
+              4. 摺口介紹 8 本循序漸進的好書
+          2002/08 第六刷 印量 14001~15500（<font
+color="#0000FF">2001修訂本</font>）
+          2003/05 第七刷 印量 15501~17000（<font
+color="#0000FF">2001修訂本</font>）
+</pre>
+
+<pre>原著：C++ Primer 3/e, by Stanly B. Lippman &amp; Josee Lajoie,
+      Addison Wesley/1998
+</pre>
+
+<pre>注意：英文版 1999.08.10 之前的勘誤已直接修正於中文版內。
+原文書的 errata 在
+(1)  http://people.we.mediaone.net/stanlipp/index.html
+(2)  http://www.awl.com/cseng/titles/0-201-82470-1/</pre>
+
+<pre><font color="#0000FF">注意：自 2000/05/18 之後的勘誤條款，皆加上修正日期，
+並置於區段最後，改以日期排序，以利您的尋找。</font></pre>
+
+<pre>======================================================</pre>
+
+<pre>書籍內容更正，有兩種作法，一是在網際網路上做個專屬勘誤
+網頁，讓大家上去看。這是比較即時的作法。而更理想更負責
+的作法是：不但有勘誤網頁，並且在新刷中予以更正 -- 如果
+有新刷的話。</pre>
+
+<pre>不過，理想與現實之間需要一點協調。書籍的製作是這樣的，
+製版與印刷時，是以檯（8 或 16 頁）為單位。因此，每換一
+頁，同檯的各頁統統要換過。這便造成印製成本的大量增加。</pre>
+
+<pre>以前，我從不考慮成本，只要我認為書籍內容有修改必要，即
+使只是某個字詞用得不甚理想，我都會請出版社更新。出版社
+也都全力配合（這一點讓我非常感謝）。</pre>
+
+<pre>慢慢地，我的行事不再這麼霹靂，我覺得我多少也要站在出版
+社的立場想想。所以我打算，如果是關係到對錯正誤的根本性
+問題，我便一定在新刷修正。如果是易判別的錯別字或排版誤
+失或用詞不很恰當…等等，我便先在勘誤網頁上明載，但不求
+立刻於新刷中更正。直到收集來的這類誤失較為密集了，才一
+併於下一刷修正。</pre>
+
+<pre>哪些是新刷已修正的，哪些是暫請讀者自行動手更改的，我會
+在勘誤網頁（網址見書封底）上很清楚地說明。</pre>
+
+<pre>這是個便宜法門，請讀者見諒。</pre>
+
+<pre>書籍應該在出版前就詳細檢查，以完美之姿出現。但是完美很
+難達到。對於下列大大小小輕重不等的誤失，我謹向讀者說抱
+歉。</pre>
+
+<pre>本檔歡迎廣為流傳，謝謝。
+</pre>
+
+<pre>以下為更新記錄。如果您購買的是第 n 刷，請將以下第 n+1
+刷之後的更新內容自行修正至書上。謝謝</pre>
+
+<pre>======================================================</pre>
+
+<pre><font color="#0000FF">二刷更正內容：
+</font>（注意，Lm 表示第 m 行，L-n 表示倒數第 n 行）</pre>
+
+<pre>■導讀 p23
+原文：
+template &lt;typename T&gt;
+T func( T p1, T p2, int p3 ) // ( T p1, T p2, int p3 ) 稱為 template parameter list
+{     ...     }              // p1, p2 稱為型別參數（type parameter）
+                             // p3 稱為非型別參數（nontype parameter）
+更正：
+template &lt;typename T&gt;        // &lt;typename T&gt; 稱為 template parameter list
+T func( T p1, T p2, int p3 ) //   其中 T 是 template type parameter（型別參數）
+{     ...     }              //   另有所謂 template nontype parameter（非型別參數），
+                             //   本例未出現。</pre>
+
+<pre>■p36 L-2
+原文：當它後面緊跟著一個 class 名稱
+更正：當它緊跟著一個 class 名稱後面
+感謝：黃向陽先生</pre>
+
+<pre>■p106 L17（原書筆誤）
+原文：int *&amp;ptrVal2 = pi;
+更正：int *&amp;refPtr = pi;
+感謝：黃向陽先生</pre>
+
+<pre>■p342: L-4（原書筆誤）
+原文：以下示範利用 rswap() 交換兩個指標
+更正：以下示範利用 ptrswap() 交換兩個指標</pre>
+
+<pre>■p496: L13
+原文：inline 或 extern 修飾詞應該放在 template 參數列之前，而非…
+更正：inline 或 extern 修飾詞應該放在 template 參數列之後，而非…</pre>
+
+<pre>■p1130: copy_backward() 下的第二段文字（原書錯誤）
+原文：
+例如，給予數列 {0,1,2,3,4,5}，我們可以複製最後三個元素 (3,4,5) 到
+最前三個元素 (0,1,2) 身上，作法是將 first 設定為元素 0 的位址，
+last1 設定為元素 3 的位址，last2 設定為元素 5 的下一個位址。
+於是元素 5 會被指定到原來的元素 2 身上，元素 4 會被指定到原來的元素 1 身上，
+元素 3 會被指定到原來的元素 0 身上。最後的結果是 {3,4,5,3,4,5}。</pre>
+
+<pre>更正：
+例如，給予數列 {0,1,2,3,4,5}，我們可以複製最前三個元素 (0,1,2) 到
+最後三個元素 (3,4,5) 身上，作法是將 first 設定為元素 0 的位址，
+last1 設定為元素 3 的位址，last2 設定為元素 5 的下一個位址。
+於是元素 2 會被指定到原來的元素 5 身上，元素 1 會被指定到原來的元素 4 身上，
+元素 0 會被指定到原來的元素 3 身上。最後的結果是 {0,1,2,0,1,2}。</pre>
+
+<pre>================================================================</pre>
+
+<pre><font color="#0000FF">三刷更正內容：
+</font>（注意，Lm 表示第 m 行，L-n 表示倒數第 n 行）</pre>
+
+<pre>■p252 圖片過於粗糙，重製。</pre>
+
+<pre>■p318 最後一段第二行（誤譯）
+原文：這種作法之所以能夠成功，是因為這些 containers 保證其
+      元素實體會以連續的方式出現（存在）。
+更正：這種作法之所以能夠成功，是因為這些 containers 保證其
+      鍵值相同的元素會連續出現（存在）。</pre>
+
+<pre>■p322 最後一段第二行（修潤）
+原文：我們稱 stack 為一種所謂的 container adapter，因為它
+      在底層的 container 集合體身上課徵 stack 抽象性質。
+更正：我們稱 stack 為一種所謂的 container adapter，因為它
+      係利用底層各類型 container 加工完成 stack 抽象性質。</pre>
+
+<pre>■p495, L4（原書筆誤）
+原文：// ok: Type used many times in template parameter list
+更正：// ok: Type used many times in function parameter list
+感謝：kylin</pre>
+
+<pre>■p501, L12（中譯本誤植）
+原文：min2() 的第一個函式參數是個型別為 *Type 的指標。
+更正：min2() 的第一個函式參數是個型別為 Type* 的指標。</pre>
+
+<pre>■p503, L-5（原書筆誤）
+原文：上述的 template 引數 T 從第一個函式引數中推導得 int，
+      又自第二個函式引數中推導得 unsigned int，因此 template 引數推導失敗。
+更正：上述的 template 引數 T 從第一個函式引數中推導得 unsigned int，
+      又自第二個函式引數中推導得 int，因此 template 引數推導失敗。
+感謝：leetron</pre>
+
+<pre>■p565, L7（原書筆誤）
+原文：Exception declaration 是函式介面的一部份，所以它必須...
+更正：Exception specification 是函式介面的一部份，所以它必須...</pre>
+
+<pre>■p576, 最上（中譯稿漏印，缺少兩個右大括號）
+原文：     // ...
+更正：     }
+           // ...
+       }
+注意：我在本書第三刷（3/p）中將 p575 和 p576 相鄰處的 layout 做了
+一點點挪移，所以第三刷的讀者在 p576 最上所見並非上述那樣子。請勿疑慮。</pre>
+
+<pre>■p595, L-5
+原文：當然，「令一個 non-const iterator 指向一個 const iterator」總是可以的。
+更正：當然，「將一個 non-const iterator 指派給一個 const iterator」總是可以的。</pre>
+
+<pre>■p596（原書筆誤）
+說明：本頁下方有三點，討論 back_inserter, front_inserter, inserter.
+      並均利用 unique_copy() 做為使用範例。每一個 unique_copy() 都
+      遺漏了最後的右大括弧。
+更正：請為 unique_copy() 加上最後的右大括弧。
+感謝：Megadeth</pre>
+
+<pre>■p652, L-1（中譯稿漏印，少了最後一行）
+原文：有著以下的型別：
+更正：有著以下的型別： int (Screen::*)()</pre>
+
+<pre>■p731, 第一段（中譯誤失）
+原文：
+舉個例子，如果我再次修改 Account class 的定義，令 _name 的型別為 string，
+那麼預設的 memberwise 指派動作：
+newAcct = oldAcct;
+就會被編譯器喚起，猶如編譯器為我們產生了以下的 copy assignment 運算子：</pre>
+
+<pre>更正：
+舉個例子，如果我再次修改 Account class 的定義，令 _name 的型別為 string，
+那麼當：
+newAcct = oldAcct;
+預設的 memberwise 指派動作就會被編譯器喚起，猶如編譯器為我們產生了
+以下的 copy assignment 運算子：</pre>
+
+<pre>■p915, 第二段文字，第一行（譯筆不佳，重譯）
+原文：一個 derived class constructor 只能合法地喚起其
+      「直接 base class」的 constructor
+更正：一個 derived class constructor 能夠合法直接喚起的 construtor 只有其
+      「直接 base class」的 constructor</pre>
+
+<pre>■p915, 17.4.4 的標題（修潤）
+原文：17.4.4 惰式錯誤偵測（Lazy Error Detection）
+更正：17.4.4 緩式錯誤偵測（Lazy Error Detection）
+注意：請同時修改
+      p.ix, 目錄
+      p.916, L6
+      p.981, 18.3.2 標題前兩行
+      p.984, L-6
+      p.1224, 索引
+討論：我想，譯為「緩式」可能比譯為「惰式」更符合華人用語。在 Scott Meyers
+的《More Effective C++》item17 &quot;Consider using lazy evaluation&quot; 中，
+對於 Lazy evaluation 有深刻的解說，並提出一個對應詞：eager evaluation。
+我把 eager evaluation 譯為「急式評估」。</pre>
+
+<pre>■p941, 17.5.8 標題（誤譯）
+原文：虛擬函式、虛擬解構式 constructor、虛擬解構式 destructor
+更正：在建構式（constructors）與解構式（destructors）中呼叫虛擬函式
+注意：請同時修改目錄 (p.x)</pre>
+
+<pre>■p1006, L-13（譯筆不佳，重譯）
+原文：一旦成為 base class，class template 必須完整列出其參數列。
+修改：欲令一個 class template 扮演 base class 的角色，我們必須完整列出其參數列。</pre>
+
+<pre>■p1045  19.2.7 標題（筆誤）
+原文：19.2.7 Constructors（解構式）和 Function try Blocks 的關係
+更正：19.2.7 Constructors（建構式）和 Function try Blocks 的關係
+感謝：leetron
+注意：請同時修改目錄 (p.x)</pre>
+
+<pre>■p1126, adjacent_difference 內文第二行（誤譯）
+原文：給予數列 {0,1,1,2,3,5,8}，新數列的 first 元素是
+      原數列的 first 元素的拷貝：0。
+更正：給予數列 {0,1,1,2,3,5,8}，新數列的第一個元素是
+      原數列的第一個元素的拷貝：0。</pre>
+
+<pre>■p1126, L-15, p1127, L9（原書錯誤）
+說明：這兩行出現的 times，是某 function object 的舊名稱，
+      在 C++ standard 中已改名為 multiplies. 見 p590
+更正：將這兩行出現的 times&lt;int&gt; 改為 multiplies&lt;int&gt;</pre>
+
+<pre>■p1127, adjacent_find() 第二版本規格，最後一行（原書錯誤）
+原文：ForwardIterator last, Predicate pred);
+更正：ForwardIterator last, BinaryPredicate pred);</pre>
+
+<pre>■p1128, binary_search() 第二版本規格，缺一行（原書遺漏）
+原文：bool
+      binary_search(ForwardIterator first,
+                    ForwardIterator last, const Type &amp;value,
+                    Compare comp);
+更正：請在 bool 前面加上一行
+      template &lt;class ForwardIterator, class Type, class Compare&gt;</pre>
+
+<pre>■p1149, inner_product() 規格說明最後一行（原書錯誤）
+原文：  (2+1) - (3+2) - (5+3) - (8+4)
+更正：- (2+1) - (3+2) - (5+3) - (8+4)</pre>
+
+<pre>■p1166, L9, L20（原書錯誤）
+■p1167, L1, L3 （原書錯誤）
+說明：這四行出現的 times，是某 function object 的舊名稱，
+      在 C++ standard 中已改名為 multiplies. 見 p590
+更正：將這四行出現的 times&lt;int&gt; 改為 multiplies&lt;int&gt;</pre>
+
+<pre>■p1177, rotate() 規格說明第一行（原書錯誤）
+原文：rotate() 會將 [first,middle) 範圍內的元素搬移到 container 尾端。
+更正：rotate() 會將 [first,middle) 範圍內的元素搬移到 last 所指位置。
+</pre>
+
+<pre>■p433, p434, p453, p454, p767, p769, p770, p771, p774, p781, p790,
+  p849, p863, p865, p866, p881, p898, p911, p914
+字體變小，製版不當（做了縮版動作）。第三刷已重新製版。
+</pre>
+
+<pre>==================================================================</pre>
+
+<pre><font color="#0000FF">★英文 dimension 一詞用於陣列有兩義：(1) 維度 (2) 尺度（元素個數）
+我在翻譯過程中一時拘泥，譯得不好。現重新檢討如下（抱歉，頁數頗多）：</font></pre>
+
+<pre>■p24: L-13
+原文：陣列的名稱是 fibon。這是一個整數陣列，維數為 9。
+更正：陣列的名稱是 fibon。這是一個整數陣列，尺度（元素個數）為 9。</pre>
+
+<pre>■p24: L-6
+原文：最後一個元素，我們應該把維數減 1 做為索引值
+更正：最後一個元素，我們應該把尺度（元素個數）減 1 做為索引值</pre>
+
+<pre>■p28: L-9
+原文：new 算式的第二個版本配置出一個特定型別和特定維數的陣列。
+更正：new 算式的第二個版本配置出一個特定型別和特定尺度（元素個數）的陣列。</pre>
+
+<pre>■p34: L7
+原文：我把陣列的維數指定給 array_size。
+更正：我把陣列的大小指定給 array_size。</pre>
+
+<pre>■p114: 最後一段文字
+原文：
+陣列的定義係由型別符號、識別名稱、維度（dimension）三者構成。
+維度以一個中括號表示，指出陣列之中有多少元素。陣列的維度大小必須
+大於或等於 1。維度值必須是一個常數算式，也就是說，它必須能夠在
+編譯時期便被編譯器核定（evaluate）其值。換言之一個 non-const
+變數不能夠用來指定陣列的維度大小。</pre>
+
+<pre>更正：
+陣列的定義係由型別符號、識別名稱、尺度（dimension）三者構成。
+尺度以一個中括號表示，指出陣列之中有多少元素。陣列的尺度必須
+大於或等於 1。尺度必須是一個常數算式，也就是說，它必須能夠在
+編譯時期便被編譯器核定（evaluate）其值。換言之一個 non-const
+變數不能夠用來指定陣列的尺度大小。</pre>
+
+<pre>■p115: L2
+原文：只能夠在執行時期完成，所以它不能夠用來指定陣列維度。
+更正：只能夠在執行時期完成，所以它不能夠用來指定陣列尺度。</pre>
+
+<pre>■p115: L-13
+原文：面對一個明白初始化的陣列，你不需要再指定其維度，
+更正：面對一個明白初始化的陣列，你不需要再指定其尺度，</pre>
+
+<pre>■p115: L-9
+原文：如果維度被明白指出，那麼串列中的元素個數就不能夠超越該值，
+更正：如果尺度被明白指出，那麼串列中的元素個數就不能夠超越該值，</pre>
+
+<pre>■p116: L1
+原文：ca1 的維度值是 3 而 ca2 的維度值是 4。
+更正：ca1 的尺度（元素個數）是 3 而 ca2 的尺度是 4。</pre>
+
+<pre>■p162: L8
+原文：像是陣列的維數，或是 template 的 nontype 參數。
+更正：像是陣列的尺度（元素個數），或是 template 的 nontype 參數。</pre>
+
+<pre>■p415: L13
+原文：以 new 算式配置獲得的陣列，其維度可被指定為…
+更正：以 new 算式配置獲得的陣列，其尺度（元素個數）可被指定為…</pre>
+
+<pre>■p616: L6
+原文：也應該允許使用者在執行時期設定螢幕的實際維度。
+更正：也應該允許使用者在執行時期設定螢幕的實際尺寸。</pre>
+
+<pre>■p617: L-14
+原文：使用者決定讓所有的 Screen class objects 維度為 80 x 24，
+更正：使用者決定讓所有的 Screen class objects 尺寸為 80 x 24，</pre>
+
+<pre>■p1079: L17
+原文：其中的 bufSize 便是字元陣列 buf 的維度。
+更正：其中的 bufSize 便是字元陣列 buf 的尺度（元素個數）。</pre>
+
+<pre>■p1079: L22
+原文：如果 buf 的宣告並未指定維度：
+更正：如果 buf 的宣告並未指定尺度（元素個數）：</pre>
+
+<pre>================================================================</pre>
+
+<pre><font color="#0000FF">五刷（2001 修訂版）更正內容：
+</font>（注意，Lm 表示第 m 行，L-n 表示倒數第 n 行）</pre>
+
+<pre>■範圍：全書
+說明：Associative Containers 被我譯為「聯合容器」，不甚妥當。
+      我想譯為「關聯容器」比較好，對比於「關聯式資料庫」。</pre>
+
+<pre>■導讀p7 L9（錯別字）
+原文：以譯者的技術能力來撫平可能出現的閱讀上的坎砢崎嶇。
+更正：以譯者的技術能力來撫平可能出現的閱讀上的坎坷崎嶇。
+感謝：whizzkid</pre>
+
+<pre>■導讀 p23, L-6
+原文：以下造成上述 function template 產生出
+      函式實體 func(float, float, int);
+更正：以下造成上述 function template 產生出
+      函式實體 double func(double, double, int);</pre>
+
+<pre>■前言p.xviii, L9（誤譯）
+原文：最後我要說，當一個人寫了一本書，他決定略去的東西，
+      往往和他決定涵蓋的東西一樣重要。
+更正：最後我要說，當一個人寫了一本書，他決定略去什麼東西，
+      往往和他決定涵蓋什麼東西一樣重要。</pre>
+
+<pre>■p35 L13（原書筆誤）
+原文：#include &lt;string&gt;;
+更正：#include &lt;string&gt;
+感謝：alberta</pre>
+
+<pre>■p39 L2（原書筆誤）
+原文：{init(rhs.size, rhs.ia);}
+更正：{init(rhs._size,rhs.ia);}
+感謝：chlin, Aua</pre>
+
+<pre>■p39 L-3（原書筆誤）
+原文：assert( index &gt;= 0 &amp;&amp; index &lt; size );
+更正：assert( index &gt;= 0 &amp;&amp; index &lt; _size );
+感謝：alberta</pre>
+
+<pre>■p46 中間偏下（中譯本筆誤）
+原文：（我們將在第17章...
+更正：此段最後請加上小括號
+感謝：黃向陽先生</pre>
+
+<pre>■p108, L10
+原文：
+如果由右往左閱讀上述定義，我們會發現，pi_ref 是個 reference，
+代表一個指標，此指標指向一個型別為 int 的 const object。
+但是我們的 reference 實際上卻未被用來代表一個常數，而是被用來
+代表一個非常數指標（該指標指向一個常數 object）。</pre>
+
+<pre>更正：
+如果由右往左閱讀上述定義，我們會發現，pi_ref 是個 reference，
+代表一個指標，此指標指向一個型別為 int 的 const object。
+我們的 reference 代表的不是一個常數指標，而是一個非常數指標，
+指向一個常數 object。</pre>
+
+<pre>■p125 練習 3.25（原書筆誤）
+原文：bool is_equal( const int*ia)
+更正：bool is_equal( const int* ia)    請在 ia 之前加一空格
+感謝：黃向陽先生</pre>
+
+<pre>■p125 頁眉位置
+說明：頁眉位置跑掉了</pre>
+
+<pre>■p155 L6（原書錯誤）
+原文：while( ix_vec &lt; 10 )
+更正：while( ix_vec &lt; 9 )
+感謝：李俊德先生</pre>
+
+<pre>■p183 L3（錯別字）
+原文：就某種意義而言，這說明了 C++ 語言一個自相矛頓的基礎議題。
+更正：就某種意義而言，這說明了 C++ 語言一個自相矛盾的基礎議題。
+感謝：whizzkid</pre>
+
+<pre>■p183 L7（錯別字）
+原文：Standard C++ 引入這些轉型運算子以強調（鮮明標示出）這個矛頓
+更正：Standard C++ 引入這些轉型運算子以強調（鮮明標示出）這個矛盾
+感謝：whizzkid</pre>
+
+<pre>■p209 練習5.7 (d) 第一行（原書筆誤）
+原文：int ival=512 jval=1024, kval=4096;
+更正：int ival=512, jval=1024, kval=4096; （原行少一個逗號）</pre>
+
+<pre>■p230 L11（原書筆誤）
+原文：class ilist_item {
+更正：class ilist {
+感謝：aven</pre>
+
+<pre>■p242 L-4（筆誤）
+原文：...，後面緊跟著一串以中括號為界的參數。
+更正：...，後面緊跟著一串以角括號為界的參數。
+感謝：rago</pre>
+
+<pre>■p468, 第二大段程式碼的第五行（註解）出現一個中文亂碼
+原文：potentially dangerous depending on i掇 value
+更正：potentially dangerous depending on i's value
+感謝：edward</pre>
+
+<pre>■p504, L-1
+原文：根據各對應之「函式引數」所推導出來的「template 引數」，結果一定相同。
+更正：根據各對應之「函式引數」所推導出來的「template 引數」，結果必須相同。</pre>
+
+<pre>■p592, L16（原書筆誤）
+原文：Ires = IntNot( Ival1, Ival2 );
+更正：Ires = IntNot( Ival1 );
+說明：logical_not 是一個 unary function object.
+感謝：zychang（張振宇先生）</pre>
+
+<pre>■p599, L4（中譯本筆誤）
+原文：其中必須定義有一個 input 運算子（operator&lt;&lt;）
+更正：其中必須定義有一個 input 運算子（operator&gt;&gt;）
+感謝：zychang（張振宇先生）</pre>
+
+<pre>■p600, L5（原書筆誤）
+原文：其中必須定義有一個 output 運算子（operator&gt;&gt;）
+更正：其中必須定義有一個 output 運算子（operator&lt;&lt;）
+感謝：zychang（張振宇先生）</pre>
+
+<pre>■p694, L6（原書筆誤）
+原文：Account *pacct;
+更正：Account *pact;</pre>
+
+<pre>■p694, L9（原書筆誤）
+原文：pact-&gt;Acct.Account::Account(
+更正：pact-&gt;Account::Account(</pre>
+
+<pre>■p709, 練習14.8, L4（原書筆誤）
+原文：Accout acct;
+更正：Account acct;</pre>
+
+<pre>■p889, 練習17.1 之前兩行（錯別字）
+原文：物件導向程式設計的主要形帽便是...
+更正：物件導向程式設計的主要形貌便是...</pre>
+
+<pre>■p1015~1030（裝訂顛倒）
+少部份書品在這些頁次上裝訂顛倒。這是裝訂廠的誤失，請向經銷點
+重換一冊。如經銷點不願配合，請向 service@pearsoned.com.tw 反應，
+或向 http://www.gotop.com.tw 反應。</pre>
+
+<pre>■p1183, L6（譯筆重修）
+原文：傳回值 OutputIerator 指向被放進 result 所指之 container 內的
+      最後元素的下一位置。
+更正：傳回值 OutputIerator 指向「result 所指之 container」內的
+      最後元素的下一位置。</pre>
+
+<pre>■p1188, 小標題 swap_range()（原書錯誤）
+原文：swap_range()
+更正：swap_ranges()
+注意：該小段的函式原型、文字第一行、文字第四行各有一個 swap_range()，
+      皆應改為 swap_ranges()。同時請修改 p.xii 之目錄及 p.1235 之索引。
+感謝：zychang（張振宇先生）
+</pre>
+
+<pre><font color="#408080">-- ★★★ 以下是 2000/05/18 後的勘誤，改以日期而非頁數排序 ★★★ --</font></pre>
+
+<pre>■p729, L12 （誤譯）
+原文：會將 newAcct 的每一個 nonstatic member 一一指派給 oldAcct 的對應 member。
+更正：會將 oldAcct 的每一個 nonstatic member 一一指派給 newAcct 的對應 member。
+感謝：zychang（張振宇先生）
+日期：2000/06/25</pre>
+
+<pre>■p826, L9  （原書筆誤）
+原文：template &lt;int size&gt; Buf { ... };
+更正：template &lt;int size&gt; class Buf { ... };
+感謝：zychang（張振宇先生）
+日期：2000/06/25</pre>
+
+<pre>■p903, L9  （筆誤）
+原文：...必須統統出現於相同的 socpe 內。
+更正：...必須統統出現於相同的 scope 內。
+感謝：zychang（張振宇先生）
+日期：2000/06/25</pre>
+
+<pre>■p239 L-1（原書筆誤）
+原文：init_iter( ilist_item *it = 0 );
+更正：ilist_item* init_iter( ilist_item *it = 0 );
+感謝：Pei-Lun
+日期：2000/07/09</pre>
+
+<pre>■p1228, 索引右欄 L-10（筆誤）
+原文：increment(++) 遞減
+更正：increment(++) 遞增
+日期：2000/07/24</pre>
+
+<pre>■p1119, 表20-1 第一行 （筆誤）
+原文：Boolalpha
+更正：boolalpha
+日期：2000/07/27</pre>
+
+<pre>■p91 L-1（原書筆誤）
+原文：因此 ip+2 是否導致一個合法...
+更正：因此 pi+2 是否導致一個合法...
+感謝：George Yang
+日期：2000/07/29</pre>
+
+<pre>■p780 15.9.2 節，L1（重譯）
+原文：Class constructor 之中凡使用單一參數者，例如...
+更正：Class constructor 之中凡能接受單一引數者，例如...
+註：雖然原文是 &quot;taking a single parameter&quot;，但嚴格說
+    該處應該採用 &quot;argument&quot; 一詞才是。遂改之。
+日期：2000/07/30</pre>
+
+<pre>■p731 L-11（誤植1+錯字1）
+原文：一般而言，copy constructor 運算子和 copy assignment 運算子
+      應該被視為欒生兄弟。
+更正：一般而言，copy constructor 和 copy assignment 運算子
+      應該被視為孿生兄弟。
+感謝：edward
+日期：2000/08/01</pre>
+
+<pre>■p991 程式碼最後，class MI （原書遺漏）
+原文：class MI : public Derived, public Base2 {
+      public:
+      // ...
+更正：class MI : public Derived, public Base2 {
+      public:
+      void foo(double);     // 注意，新增此行
+      // ...
+註：原書遺漏 void foo(double); 並不一定是表達上的錯誤。
+    不過，加上去會更清楚些。那就加上吧。
+感謝：edward
+日期：2000/08/05</pre>
+
+<pre>■4.13 標題
+原文：4.13 優先權（Precedence）
+更正：4.13 優先序（Precedence）
+註：1. precedence 譯為優先序，比較不會和 priority（優先權）混淆。
+    2. 請檢修整個 4.13 節，並修改目錄 4.13 及索引 p1228。
+日期：2000/08/18</pre>
+
+<pre>■導讀 p12, L-4 （筆誤）
+原文：以天下興亡為己任，繼個人死生於度外
+更正：以天下興亡為己任，置個人死生於度外
+感謝：Oliver Chang
+日期：2000/09/07</pre>
+
+<pre>■導讀 p22, L9 （筆誤）
+原文：小括弧內稱為函式本體（function body）
+更正：大括弧內稱為函式本體（function body）
+感謝：Oliver Chang
+日期：2000/09/07</pre>
+
+<pre>■導讀 p23, L21（誤植）
+原文：// 使用者自定的轉換為行係由…
+更正：// 使用者自定的轉換行為係由…
+感謝：Oliver Chang
+日期：2000/09/07</pre>
+
+<pre>■導讀 p29, L-2 （筆誤）
+原文：…而不是針對所有的 tempalte 參數做特殊化…
+更正：…而不是針對所有的 template 參數做特殊化…
+感謝：Oliver Chang
+日期：2000/09/07</pre>
+
+<pre>■p46, L-10（誤譯）
+原文：並被含入於 IntArray.h 表頭檔中
+更正：並含入 IntArray.h 表頭檔
+感謝：Oliver Chang
+日期：2000/09/07</pre>
+
+<pre>■p49, L8 （原書筆誤）
+原文：#include &lt;IntArray.h&gt;
+更正：#include &quot;IntArray.h&quot;
+感謝：Oliver Chang
+日期：2000/09/07</pre>
+
+<pre>■p49, L9（原書筆誤）
+原文：#include &lt;IntArrayRC.h&gt;
+更正：#include &quot;IntArrayRC.h&quot;
+感謝：Oliver Chang
+日期：2000/09/07</pre>
+
+<pre>■p77, L-13（原書錯誤）
+原文：\14（new line）
+更正：\12（new line）
+感謝：Oliver Chang
+日期：2000/09/07</pre>
+
+<pre>■p78, L-2（原書題目設計錯誤）
+原文：(b) 10, 10u, 10L, 10uL, 012, 0xC
+更正：(b) 10, 10u, 10L, 10uL, 012, 0xA
+感謝：Oliver Chang
+日期：2000/09/07</pre>
+
+<pre>■p118, L-8 後半（原書文字不佳）
+原文：於是存取到 ia 的第三個 row 的第一個元素
+修改：於是獲得 ia 第三個 row 第一個元素的位址
+感謝：Oliver Chang
+日期：2000/09/07</pre>
+
+<pre>■p1027, L9（原書筆誤）
+原文：// use re to call programmer::bonus()
+修改：// use rm to call programmer::bonus()
+感謝：Rock
+日期：2000/09/11</pre>
+
+<pre>■p355, 練習 7.6 (b)（原書筆誤）
+原文：operator( matrix );
+修改：operate( matrix );
+感謝：jjhou
+日期：2000/10/10</pre>
+
+<pre>■p538, L1（製版遺漏）
+原文：    max( &amp;ad[0], size );
+修改：    max( &amp;ad[0], size );
+      }   // 書上少印了這個右大括弧
+感謝：jjhou
+日期：2000/10/11</pre>
+
+<pre>■p709, 練習14.8 題目（誤譯）
+原文：以下程式片段喚起 destrocutor 多少次？
+修改：以下程式片段可能在哪些地方喚起 destructor？
+感謝：jjhou
+日期：2000/10/13</pre>
+
+<pre>■p803, L7（誤譯）
+原文：宣告於某 namespace 內的「運算子 集」-- 該 namespace 定義有
+      該型別之運算子
+修改：宣告於某 namespace 內的「運算子 集」-- 該 namespace 定義有
+      被使用之運算元型別
+感謝：edward
+日期：2000/10/13</pre>
+
+<pre>■p1072, 練習 20.1 題目最後一行碼（原書筆誤）
+原文：complex purei( 0, 7 )
+修改：complex&lt;double&gt; purei( 0, 7 )
+感謝：jjhou
+日期：2000/10/23</pre>
+
+<pre>■p1143, find_end 文字說明第二行起（補強）
+原文：例如，給予字元序列 Mississippi 和第二序列 ss，
+      find_end() 會傳回一個 ForwardIterator 指向
+      第二個 ss 的第一個 s 的位置。
+修改：例如，給予字元序列 Mississippi 和第二序列 ss，
+      find_end() 會傳回一個 ForwardIterator 指向
+      Mississippi 中的第二個 ss 的第一個 s 的位置。
+感謝：jjhou
+日期：2000/12/08</pre>
+
+<pre>■p239, L3（原書錯誤）
+原文： : _at_front(0), _at_end(0)
+修改： : _at_front(0), _at_end(0), _size(0)
+說明：如果沒有這麼做，copy 之後，新的 list 的元素個數會出錯
+感謝：jjhou
+日期：2001/01/15</pre>
+
+<pre>■pxix, L12  （錯別字）
+原文： 趨吉避兇
+修改： 趨吉避凶
+感謝： jc_168
+日期：2001/01/19</pre>
+
+<pre>■p269, L6 （中譯本筆誤）
+原文：一個以的元素呢？
+修改：一個以上的元素呢？
+感謝：e2487229
+日期：2001/01/28</pre>
+
+<pre>■p288, L-3 （中譯本筆誤）
+原文：size_type endPos = name.find_last_off( 'a' );
+更正：size_type endPos = name.find_last_of( 'a' );
+感謝：e2487229
+日期：2001/03/03</pre>
+
+<pre>■p659, L20 （中譯本筆誤）
+原文：最大的資料型別是 dval，
+更正：最大的資料型別是 _dval，
+感謝：e2487229
+日期：2001/03/03</pre>
+
+<pre>■p119, L-12（誤譯）
+原文：上述對 ia 所作的提領 (deferencing) 動作，會傳回陣列中
+      第一個元素的位址；然後再加上 1。
+更正：上述對 ia 所作的提領 (deferencing) 動作，會傳回陣列中
+      第一個元素的值；然後再加上 1。
+感謝：e2487229
+日期：2001/03/03</pre>
+
+<pre>■p710, L-6（原書筆誤）
+原文：pooh_pals[1]._name != pooh_pals[2]._name();
+更正：pooh_pals[1]._name != pooh_pals[2]._name;
+感謝：e2487229
+日期：2001/03/03</pre>
+
+<pre>■p1125, L14 （原書錯誤）
+說明：這裡出現的 times，是某 function object 的舊名稱，
+      在 C++ standard 中已改名為 multiplies. 見 p590
+更正：將 times&lt;int&gt; 改為 multiplies&lt;int&gt;
+感謝：jjhou
+日期：2001/03/14</pre>
+
+<pre>■pix &amp; p825, 16.2.1 標題（誤譯）
+原文：為非型別參數（Nontype Parameters）指定 Template 引數
+更正：為 Template 的非型別參數（Nontype Parameters）指定引數
+感謝：jjhou
+日期：2001/03/25</pre>
+
+<pre>■p522, 上半部程式碼之下的第一段文字的第二行最後（原書錯誤）
+原文：Type 的 template 引數因而是 int 而非 int*。
+更正：template 引數 Type 因而是 int* 而非 int。
+感謝：jjhou
+日期：2001/03/29</pre>
+
+<pre>■p522, 上半部程式碼之下的第二段文字的第二行最後（中譯本錯誤）
+原文：例如稍早的 T* 和 T，template A（特製體）必須有個參數能夠接受
+      「template B 之對應參數」所能接受的引數的超集。
+更正：例如稍早的 T* 和 T，template B 必須有個參數，能夠接受
+      「template A（特製體）之對應參數」所能接受的引數的超集。
+感謝：James Tsao
+日期：2001/03/29</pre>
+
+<pre>■p532,L-8, p534,L6, p535,L2, p535,L-2, p536,L-16（原書筆誤）
+原文：#include &lt;primer.h&gt;
+更正：#include &quot;primer.h&quot;
+感謝：jjhou
+日期：2001/03/29</pre>
+
+<pre>■p537, L-7（原書筆誤）
+原文：#include &lt;exercise.h&gt;
+更正：#include &quot;exercise.h&quot;
+感謝：jjhou
+日期：2001/03/29</pre>
+
+<pre>■p763, 15.8 標題, pix, 15.8 標題（中譯本筆誤）
+原文：Operators new 和 Operator delete
+更正：Operator new 和 Operator delete
+感謝：jjhou
+日期：2001/04/06</pre>
+
+<pre>■p413,L15（錯別字）
+原文：聚砂成塔
+更正：聚沙成塔
+感謝：Eric Yu
+日期：2001/05/02</pre>
+
+<pre>■p739,L17（錯別字）
+原文：對內建型別之 obejcts ...
+更正：對內建型別之 objects ...
+感謝：Eric Yu
+日期：2001/05/02</pre>
+
+<pre>■P243 L8（原書筆誤）
+原文: template &lt;class elemenType&gt;
+更正: template &lt;class elemType&gt;
+感謝：Eric Yu
+日期：2001/05/26</pre>
+
+<pre>■P698 L-11（錯別字）
+原文: 導至
+更正: 導致
+感謝：Eric Yu
+日期：2001/05/26</pre>
+
+<pre>■P879 譯註 L2,L3（錯別字）
+原文: 延用
+更正: 沿用
+感謝：Eric Yu
+日期：2001/05/26</pre>
+
+<pre>■P1112 L17（中譯本筆誤）
+原文: (KERNIGHAN88] 對此有完整的討論)
+更正: ([KERNIGHAN88] 對此有完整的討論)
+感謝：Eric Yu
+日期：2001/05/26</pre>
+
+<pre>■p145, L10（原書筆誤）
+原文：例如 12 代表 newline 字元
+更正：例如 10 代表 newline 字元
+感謝：Alfred
+日期：2001/05/26</pre>
+
+<pre>■p383, L-10（錯別字）
+原文：// stopping comdition for recursion
+更正：// stopping condition for recursion
+感謝：Alfred
+日期：2001/05/26</pre>
+
+<pre>■p403, L7（錯別字）
+原文：導至
+更正：導致
+感謝：Alfred
+日期：2001/05/26</pre>
+
+<pre>■p506, L1（筆誤）
+原文：前一節只看個有限的幾個型別轉換動作
+更正：前一節只看到有限的幾個型別轉換動作
+感謝：Alfred
+日期：2001/05/26</pre>
+
+<pre>■p619, L16（修潤）
+原文：由於 friends 並非 class「讓渡友誼」的成份之一
+更正：由於 friends 並非「讓渡友誼之 class」的成員之一
+感謝：Alfred
+日期：2001/05/26</pre>
+
+<pre>■p693, L-3（修潤）
+原文：它會在被喚起時才擴展開來
+更正：它會在被喚起時擴展開來
+感謝：Alfred
+日期：2001/05/26</pre>
+
+<pre>■p778, L-16（原書錯誤）
+原文：// error: conversion char* to const char* not allowed
+更正：// error: conversion const char* to char* not allowed
+感謝：Alfred
+日期：2001/05/26
+</pre>
+
+<pre>■p970, 983（翻譯錯誤）
+endangered 應譯為「瀕臨絕種」。
+以下三處請修改如下：
+p970 L3 : 除了用以表述真實的動物園動物之外，另有其他 classes 封裝了
+         各式各樣的抽象性，例如「瀕臨絕種」。我的 Panda class 便是
+         多重繼承自 Bear 和 Endangered。
+p983 L-7 : 畢竟，無滅種之虞的動物何必硬扯上一個 Endangered class object呢？
+p983 L-2 : 在我的例子中，只有少數的 ZooAnimal 子型別才有瀕臨絕種的危險。
+         此外，所謂「瀕臨絕種」的性質應該是可以取消的（至少理論上如此），
+         因為貓熊或許有一天會因為繁殖而不再有滅種之虞。
+感謝：Alfred
+日期：2001/05/26
+</pre>
+
+<pre>■p1069, L9（原書筆誤）
+原文：'n'
+更正：'\n'
+感謝：Alfred
+日期：2001/05/26</pre>
+
+<pre>■p1085, L-2（修改並補充）
+原文：另一個函式 gcount() 可以讀取某數量的字元
+更正：另一個函式 gcount() 可以傳回最近一次 get() 或 getline() 所實際
+      讀取的字元數量
+感謝：Alfred
+日期：2001/05/26</pre>
+
+<pre>■p1109, L-9（中譯本處理錯誤）
+原文：characters input:
+更正：此句多餘，刪除
+感謝：Alfred
+日期：2001/05/26</pre>
+
+<pre>■p692, L-3（誤譯）
+原文：即使有這樣的需求，C++ class 規格也不允許這麼做。要知道，我們的...
+更正：啊呀，class Account 的規格並不允許這麼做（譯註：意指不允許「只指定
+      帳戶餘額卻不指定帳戶名稱」）。因此，我們的...
+感謝：rex
+日期：2001/07/13</pre>
+
+<pre>■p291, L12（英文版筆誤）
+原文：st[ index ];
+更正：st.at(index);
+感謝：willy
+日期：2001/07/23</pre>
+
+<pre>--------------------------------
+<font color="#0000FF">willy 讀者閱讀了最新英文版 (3/p) 勘誤表，並與中文版比對之後，
+提供以下勘誤。感謝 willy。</font></pre>
+
+<pre>■p108, L15（英文版勘誤）
+原文：int *const &amp;pi_ref = &amp;ival;
+更正：<font
+color="#FF0000">const</font> int *const &amp;pi_ref = &amp;ival;
+日期：2001/07/23</pre>
+
+<pre>■p131, L-8（英文版勘誤）
+原文：paramenter_list
+更正：parameter_list
+日期：2001/07/23</pre>
+
+<pre>■p137, L13（英文版勘誤）
+原文：operator&lt;&lt;( ostream&amp; os, const String &amp;s )
+更正：operator&lt;&lt;( ostream&amp; os, String &amp;s )
+日期：2001/07/23</pre>
+
+<pre>■p158, L11（英文版勘誤）
+原文：cout &lt;&lt; cval &lt;&lt; 'endl';
+更正：cout &lt;&lt; cval &lt;&lt; endl;
+日期：2001/07/23</pre>
+
+<pre>■p170, L-11（英文版勘誤）
+原文：// equivalent initialiation as bitvec3
+更正：// equivalent initialization as bitvec3
+日期：2001/07/23</pre>
+
+<pre>■p186, L2~L6（英文版勘誤）
+原文：</pre>
+
+<pre>如果 _top 等於 0，empty() 傳回 true；如果 _top 等於 _stack.size()-1，
+full() 傳回 true（上述 -1 是因為 vector 的元素編號和陣列一樣，都是
+從 0 開始起算）
+inline bool iStack::empty() { return _top ? false : true; }
+inline bool iStack::full()  {
+               return _top &lt; _stack.size()-1 ? false : true;</pre>
+
+<pre>更正：</pre>
+
+<pre>如果 _top 等於 0，empty() 傳回 true；如果 _top 等於 _stack.size()，
+full() 傳回 true：
+inline bool iStack::empty() { return _top ? false : true; }
+inline bool iStack::full()  {
+               return _top &lt; _stack.size() ? false : true;</pre>
+
+<pre>日期：2001/07/23
+</pre>
+
+<pre>■p266, L12（英文版勘誤）
+原文：
+if ( *c_iter % 2 )
+     pvec_even-&gt;push_back( *c_iter );
+else pvec_odd-&gt;push_back( *c_iter );
+更正：
+if ( *c_iter % 2 )
+     pvec_odd-&gt;push_back( *c_iter );
+else pvec_even-&gt;push_back( *c_iter );
+日期：2001/07/23</pre>
+
+<pre>■p266, L19（英文版勘誤）
+原文：vec-&gt;begin()+vec.size()/2;
+更正：vec.begin()+vec.size()/2;
+日期：2001/07/23</pre>
+
+<pre>■p271, L15（英文版勘誤）
+原文：for ( ; iter != buffer.end(); iter++ );
+更正：for ( ; iter != buffer.end(); ++iter );
+日期：2001/07/23</pre>
+
+<pre>■p271, 6.6.2 節以下，至本頁尾（英文版勘誤）
+原文：文中多處使用 svec1 和 svec2
+更正：請全部改為 slist1 和 slist2，以便與下一頁配合
+日期：2001/07/23</pre>
+
+<pre>■p282, L-11（英文版勘誤）
+原文：string sentence = line1 + line2 + line3;
+更正：string sentence = line1 + ' ' + line2 + ' ' + line3;
+注意：擁有本書題解者，請一併修正。
+日期：2001/07/23</pre>
+
+<pre>■p289, L1（英文版勘誤）
+原文：</pre>
+
+<pre>注意，第二個 iterator 所指的字元並不涵蓋於刪除範圍之內。
+erase() 的第三型式需要一個 iterator 做為引數，此 iterator 標示出一個
+起始位置，從該位置之後直到字串結束為止的所有字元都會被移除。例如：
+name.erase( name.begin() + 4 );
+會使 name 變成 &quot;Anna&quot;。</pre>
+
+<pre>更正：</pre>
+
+<pre>注意，第二個 iterator 所指的字元並不涵蓋於刪除範圍之內。這意味我們
+產生出來的是 Annaabelle 而不是 Annabelle。於是，我使用 erase() 的
+第三型式，以一個 iterator 做為引數，標示出欲移除的字元位置。
+我把 endPos 當做引數，用以刪除多餘的第二個 'a'：
+name.erase( endPos );
+現在我們的 name 變成了 &quot;Annabelle&quot;。</pre>
+
+<pre>日期：2001/07/23</pre>
+
+<pre>補充：jau_lueng su 指出，以上更正後的敘述有誤。
+檢討：的確，lippman 在此處挖東補西，寫得不好。
+重新更正：
+  注意，第二個 iterator 所指的字元並不涵蓋於刪除範圍之內。這意味我們
+  產生出來的是 Annaabelle 而不是 Annabelle。於是，我使用 erase() 的
+  第三型式，以一個 iterator 做為引數，標示出欲移除的字元位置。
+  name.erase( name.begin() + 4 );
+  現在我們的 name 變成了 &quot;Annabelle&quot;。
+日期：2001/10/07
+</pre>
+
+<pre>■p289, L12（英文版勘誤）
+原文：string_object.insert( pos+1, 's' );
+更正：string_object.insert( pos+1, &quot;s&quot; );
+日期：2001/07/23</pre>
+
+<pre>■p289, L-13（英文版勘誤）
+原文：posEnd // end position within new_string
+更正：posEnd // number of characters to copy
+日期：2001/07/23</pre>
+
+<pre>■p289, L-1（英文版勘誤）
+原文：s3.assign( s1, 4 );
+更正：s3.assign( s1, 0, 4 );
+日期：2001/07/23</pre>
+
+<pre>■p290, L6（英文版勘誤）
+原文：s3.append( s2, 4 );
+更正：s3.append( s2, 0, 4 );
+日期：2001/07/23</pre>
+
+<pre>■p290, L8（英文版勘誤）
+原文：s3.assign( s1, 4 ).append( ' ' ).append( s2, 4 );
+更正：s3.assign( s1, 0, 4 ).append( ' ' ).append( s2, 0, 4 );
+日期：2001/07/23
+補充：jau_lueng su 指出，append() 只能接受字串而非字元，上式應改為：
+更正：s3.assign( s1, 0, 4 ).append( &quot; &quot; ).append( s2, 0, 4 );
+日期：2001/10/07</pre>
+
+<pre>■p293, L18（英文版勘誤）
+原文：hmm.replace( position, 4, 'x', 4 );
+更正：hmm.replace( position, 4, 4, 'x' );
+日期：2001/07/23</pre>
+
+<pre>■p325, L-1（英文版勘誤）
+原文：inline bool iStack::size() { return _stack.size(); }
+更正：inline int  iStack::size() { return _stack.size(); }
+日期：2001/07/23</pre>
+
+<pre>■p456, L-6（英文版勘誤）
+原文：void main() {
+更正：int  main() {
+日期：2001/07/23</pre>
+
+<pre>■p463, L-4（英文版勘誤）
+原文：void func( int *parm ) {
+更正：int  func( int *parm ) {
+日期：2001/07/23</pre>
+
+<pre>■p467, L9, L10（英文版勘誤）
+原文：format( a1 );  // calls format( int )  譯註：a1 請見上一頁
+      format( a2 );  // calls format( unsigned int )  譯註：a2 請見上一頁
+更正：format( e1 );  // calls format( int )  譯註：e1 請見上一頁
+      format( e2 );  // calls format( unsigned int )  譯註：e2 請見上一頁
+日期：2001/07/23</pre>
+
+<pre>■p470, L-10（英文版勘誤）
+原文：void func( int *pi, string *ps ) {
+更正：int  func( int *pi, string *ps ) {
+日期：2001/07/23</pre>
+
+<pre>■p472, L4（英文版勘誤）
+原文：void manip( int i1, int i2 ) {
+更正：int  manip( int i1, int i2 ) {
+日期：2001/07/23</pre>
+
+<pre>■p605, L13（英文版勘誤）
+原文：remove_if_copy()
+更正：remove_copy_if()
+日期：2001/07/23</pre>
+
+<pre>■p616, L17（英文版勘誤）
+原文：void checkRange( int, int );
+更正：bool checkRange( int, int );
+日期：2001/07/23</pre>
+
+<pre>■p870, L-6（英文版勘誤）
+原文：for ( ; ix &lt; _size  ++ix )
+更正：for ( ; ix &lt; _size; ++ix )
+日期：2001/07/23</pre>
+
+<pre>■p1049, L-7（英文版勘誤）
+原文：range_error exception
+更正：out_of_range exception
+日期：2001/07/23</pre>
+
+<pre>■p1102, L16（英文版勘誤）
+原文：函式名稱中的 g 表示重新指位動作是為了取得（getting）字元
+      （用於 ofstream class object），p 則表示重新指位動作是為了放置
+      （putting）字元（用於 ifstream class object）。
+更正：函式名稱中的 g 表示重新指位動作是為了取得（getting）字元
+      （用於 ifstream class object），p 則表示重新指位動作是為了放置
+      （putting）字元（用於 ofstream class object）。
+日期：2001/07/23
+</pre>
+
+<pre>================================================================
+<font color="#0000FF">以上已於五刷（2001 修訂版）更正完成。</font></pre>
+
+<pre><font color="#0000FF">以下暫請讀者自行更正：
+</font>（注意，Lm 表示第 m 行，L-n 表示倒數第 n 行）</pre>
+
+<pre>■p1087, L-8（英文版錯誤）
+原文：const lineSize = 1024;
+更正：const <font
+color="#0000FF">int</font> lineSize = 1024;
+感謝：jjhou
+日期：2001/09/25</pre>
+
+<pre>■p999, L20（補充）
+原文：Panda::Panda( string name, bool onExhibit=true )
+補充：請在行後加上註解： <font
+color="#0000FF">// 有些編譯器不允許在此再次設定預設值 true</font>
+感謝：jjhou
+日期：2001/12/22</pre>
+
+<pre>■p1164, L14（英文版錯誤）
+原文：<font color="#FF0000">stable_sort</font>(...);
+更正：<font
+color="#0000FF">partial_sort</font>(...);
+感謝：jjhou
+日期：2001/12/31</pre>
+
+<pre>■p1165, L1（英文版錯誤）
+原文：<font color="#FF0000">stable_sort</font>(...);
+更正：<font
+color="#0000FF">partial_sort_copy</font>(...);
+感謝：jjhou
+日期：2001/12/31</pre>
+
+<pre>■p271, L15（英文版錯誤）
+原文：for ( ; iter != buffer.end()<font
+color="#FF0000">,</font> ++iter)
+更正：for ( ; iter != buffer.end()<font color="#0000FF">;</font> ++iter)
+感謝：Solstice
+日期：2002/01/25</pre>
+
+<pre>■p561, L4（英文版錯誤）
+原文：enum EHstate { noErr, zeroOp, negativeOp, severeErr<font
+color="#0000FF">or</font> };
+更正：enum EHstate { noErr, zeroOp, negativeOp, severeErr };
+感謝：jjhou
+日期：2002/02/15</pre>
+
+<pre>■p322, L14（中譯本處理錯誤）
+原文：while ( intStack.empty() == false )
+更正：while ( intStack.empty() == false ) <font
+color="#0000FF">{</font>
+感謝：hzm21
+日期：2002/02/15</pre>
+
+<pre>■p520, L5（英文版誤）
+原文：// (introduced in Section 2.<font
+color="#FF0000">4</font>)
+更正：// (introduced in Section 2.<font color="#0000FF">5</font>)
+感謝：hzm21
+日期：2002/02/15</pre>
+
+<pre>■p525, L-5（多一個字）
+原文：此一呼叫並<font color="#FF0000">並</font>沒有其他候選函式
+更正：此一呼叫並沒有其他候選函式
+感謝：hzm21
+日期：2002/02/15</pre>
+
+<pre>■p611, L5（錯別字）
+原文：導<font color="#FF0000">至</font>
+更正：導<font
+color="#0000FF">致</font>
+感謝：hzm21
+日期：2002/02/15</pre>
+
+<pre>■p211, L13（錯別字）
+原文：然而<font color="#FF0000">冒</font>號（;）不能省略
+更正：然而<font
+color="#0000FF">分</font>號（;）不能省略
+感謝：Uranus
+日期：2002/03/02</pre>
+
+<pre>■p259, L17（錯別字）
+原文：並同時在 vector 中安插 10,000 個元素<font
+color="#FF0000">什</font>時，
+更正：並同時在 vector 中安插 10,000 個元素時，
+感謝：Uranus
+日期：2002/03/28</pre>
+
+<pre>■p362, 練習 7.12 題目 (易起誤會，重新修潤)
+原文：請將 factorial() 重寫，使它成為一個非遞迴函式，
+      而是一個迭代（iterative）函式。
+更正：請<font
+color="#0000FF">重寫</font> factorial()，使它<font color="#0000FF">不再是個</font>遞迴（recursive）函式，
+      而<font
+color="#0000FF">成為一個</font>迭代（iterative）函式。
+<font color="#0000FF">提醒</font>：如果您有《C++ Primer 題解》，也請一併修正（p142）
+感謝：yeka
+日期：2002/05/23</pre>
+
+<pre>■p653, L17 (誤譯)
+原文：我們也可以在 member function 指標型別中宣告函式參數和傳回值型別，
+      還可以指定預設引數。
+原文：我們也可以<font
+color="#0000FF">將</font> member function 指標型別<font color="#0000FF">作為函式宣告中的</font>參數和傳回值型別，
+      還可以指定預設引數。
+感謝：steven guan
+日期：2002/05/31</pre>
+
+<pre>■p200, L19（中譯本處理錯誤）
+原文：for ( int ix = <font color="#FF0000">0</font>; ix &lt; size; ++ix )
+原文：for ( int ix = <font
+color="#0000FF">1</font>; ix &lt; size; ++ix )
+感謝：Aaron
+日期：2002/05/31</pre>
+
+<pre>■p239, L3（原書錯誤）
+原文： : _at_front(0), _at_end(0)
+修改： : _at_front(0), _at_end(0)<font
+color="#0000FF">, _size(0)</font>
+說明：如果沒有這麼做，copy 之後，新的 list 的元素個數會出錯
+感謝：jjhou
+日期：2001/01/15
+<font
+color="#0000FF">備註</font>：本錯誤先前已列出，應於第五刷（2001修訂版）改過。但疏忽未改，特再次提醒。</pre>
+
+<pre>■p1000,L13（漏印）
+原文：: ZooAnimal( name, onExhibit, &quot;Bear&quot; )
+更正：: ZooAnimal( name, onExhibit, &quot;Bear&quot; )<font
+color="#0000FF">,</font>
+提示：最後加一個逗點
+感謝：jaulueng
+日期：2002/06/01
+
+■p1000,L-7（英文版筆誤）
+原文：Endangered::critical )
+更正：Endangered::critical )<font
+color="#0000FF">,</font>
+提示：最後加一個逗點
+感謝：jaulueng
+日期：2002/06/01
+
+■p260,L-3
+原文：為了定義一個<font
+color="#FF0000"> container object（循序容器）</font>，
+更正：為了定義一個<font
+color="#0000FF">循序容器物件本身</font>，
+感謝：Thomas Tam
+日期：2002/06/02</pre>
+
+<pre>■p589~p592（英文版錯誤一大堆）</pre>
+
+<pre>0. 這四頁時而使用 int，時而使用 Int（定義於 p589 的一個 class）。這些在
+   中文版第一刷是正確的，但後來誤加修改，反而不正確了。以下標記出所有
+   用到 <strong>Int</strong>（而非 <strong>int</strong>）之處：
+   p589,L-6  <font
+color="#0000FF">I</font>nt Ival1, IVal2, Ires;
+   p590,L-7  modulus&lt;<font
+color="#0000FF">I</font>nt&gt; IntModulus;
+   p590,L-1  Ires = UnaryFunc( negate&lt;<font
+color="#0000FF">I</font>nt&gt;(), Ival1);
+   p591,L-9  less&lt;<font color="#0000FF">I</font>nt&gt; IntLess;
+   p592,L15  logical_not&lt;<font
+color="#0000FF">I</font>nt&gt; IntNot;</pre>
+
+<pre>   以下是英文版的失誤：
+
+1. p589, class Int 應添加以下 member function :
+     <font
+color="#0000FF">operator int() const { return _val; }  // 轉換函式</font>
+   這是因為 p590 之模數（Modulus）運算：
+     modulus&lt;Int&gt; IntModulus;
+     Ires = IntModulus(IVal1, IVal2);
+   會喚起 Int::operator%(int), 但參數 Int IVal2 需先轉換為 int 才行。
+   所以需要一個 Int -&gt; int 的轉換函式如上。
+
+2. p589,L-8, p590,L-15, p591,L10 各有 complex，應改為諸如 complex<font
+color="#0000FF">&lt;double&gt;</font>
+3. p591 之每一種運算的最後一行均應加上 bind2nd()，例如
+   equal_to&lt;string&gt;(), sval1
+   應改為：
+   <font
+color="#0000FF">bind2nd(</font>equal_to&lt;string&gt;(), sval1<font color="#0000FF">)</font>
+   再如：
+   not_equal_to&lt;string&gt;(), sval1
+   應改為：
+   <font
+color="#0000FF">bind2nd(</font>not_equal_to&lt;string&gt;(), sval1<font color="#0000FF">)</font>
+   依此類推。
+4. p591 每一種運算中的第一個運算均應傳回 bool，例如
+   <font
+color="#FF0000">sres</font> = stringEqual( sval1, sval2);
+   <font color="#FF0000">cres</font> = complexNotEqual( cval1, cval2);
+   <font
+color="#FF0000">ires</font> = intGreater( ival1, ival2);
+   ...
+   書上卻以 bool 以外的型別來接受運算結果。雖然（也許）可自動轉換，但沒有意義。
+   <font
+color="#0000FF">我建議</font>最好準備一個 bool 變數：
+   <font color="#0000FF">bool bres;</font> // 加在 p589 下方原 6 個變數定義處。
+   然後將上述運算都改為：
+   <font
+color="#0000FF">bres</font> = stringEqual( sval1, sval2);
+   <font color="#0000FF">bres</font> = complexNotEqual( cval1, cval2);
+   <font
+color="#0000FF">bres</font> = intGreater( ival1, ival2);
+   ...
+5. p592,L11,L12 之 int<font
+color="#FF0000">Sub</font> 應改為 int<font color="#0000FF">Or</font>
+6. p592 的 ■Logical Not 運算下面第二行：
+   Ires = IntNot( IVal1<font
+color="#FF0000">, Ival2 </font>);
+   應改為
+   Ires = IntNot( IVal1 );
+7. p592 每一種運算中的第一個運算均應傳回 bool，例如
+   <font
+color="#FF0000">ires</font> = intAnd( ival1, ival2 );
+   <font color="#FF0000">ires</font> = int<font
+color="#0000FF">Or</font>( ival1, ival2 );
+   <font color="#FF0000">Ires</font> = intNot( Ival1 );   // 此式只需一個參數，見上述第 6 點
+   ...
+   書上卻以 bool 以外的型別來接受運算結果。雖然（也許）可自動轉換，但沒有意義。
+   我建議最好準備一個 bool 變數（如上述第 4 點），然後將上述運算都改為：
+   <font
+color="#0000FF">bres</font> = intAnd( ival1, ival2 );
+   <font color="#0000FF">bres</font> = int<font
+color="#0000FF">Or</font>( ival1, ival2 );
+   <font color="#0000FF">bres</font> = intNot( Ival1 );   // 此式只需一個參數，見上述第 6 點
+感謝：jjhou
+日期：2002/09/14
+
+</pre>
+
+<pre>--- the end</pre>
+</body>
+</html>

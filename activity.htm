@@ -1,0 +1,4513 @@
+<html>
+
+<head>
+<title>演講授課活動</title>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+</head>
+
+<body background="file:///D:/jjweb" bgColor="#ffffff" text="#000000">
+
+<hr>
+
+<h2 align="center">公開活動</h2>
+
+<hr>
+
+<blockquote>
+  <p align="left">課程名稱 與 時數</p>
+  <p align="left">1. Advanced C (2 days, 12 hours)<br>
+  &nbsp;&nbsp;&nbsp; Day1, Object based programming in C, Functino pointers, Pack and 
+  Alignment (#progma), sophisticated macros, Pooled Allocator...<br>
+  &nbsp;&nbsp;&nbsp; Day2, mainCRTStartup, malloc/free inside</p>
+  <p align="left">2. Advanced C++ (3 days, 18 hours)<br>
+  &nbsp;&nbsp;&nbsp; Day1 : Object Based Programming (classes Foundamentals)<br>
+  &nbsp;&nbsp;&nbsp; Day2 : Object Oriented Programming (OOP), and a little Object Oriented 
+  Design (OOD)<br>
+  &nbsp;&nbsp;&nbsp; Day3 : Generic Programming and STL inside<br>
+  <br>
+  3. Advanced GP/STL (3 days, 18 hours)<br>
+  &nbsp;&nbsp;&nbsp; Day1 : C++ Templates, STL overviews, inside Allocators, inside 
+  Containers (1)<br>
+  &nbsp;&nbsp;&nbsp; Day2 : inside Containers (2), Algorithms, Iterators, Traits.<br>
+  &nbsp;&nbsp;&nbsp; Day3 : Adapters, functors, Design Patterns in STL (proxy, templalte 
+  method, adapter, iterator, reference counting)</p>
+  <p align="left">4. Advanced Memory Management (3 days, 18 hours)<br>
+  &nbsp;&nbsp;&nbsp; Day1 : * Memory management primitives in C++&nbsp;&nbsp; * Skeleton of 
+  &nbsp; Pooled Allocation.<br>
+  &nbsp;&nbsp;&nbsp; Day2 : * Anatomy of std::allocator&nbsp;&nbsp; * Anatomy of 
+  loki::SmallObjAllocator<br>
+  &nbsp;&nbsp;&nbsp; Day3 : * Anatomy of MFC's CFixedAlloc&nbsp;&nbsp; * Anatomy of 
+  boost::object_pool&nbsp;&nbsp; * malloc/free inside&nbsp;&nbsp; * To spy the 
+  mainCRTStartup.</p>
+  <p align="left">5. Advanced MFC (3 days, 18 hours)<br>
+  &nbsp;&nbsp;&nbsp; Day1 : MFC Skeleton, Documents/Views, MVC and Observer pattern<br>
+  &nbsp;&nbsp;&nbsp; Day2 : Message Mapping,&nbsp; Command Routing<br>
+  &nbsp;&nbsp;&nbsp; Day3 : Collections and Serialization, Design Patterns in MFC</p>
+  <p align="left">6. Design Pattenrs, in practice (3 days, 18 hours)<br>
+  &nbsp;&nbsp;&nbsp; Day1 : GoF's 23 design patterns (1)<br>
+  &nbsp;&nbsp;&nbsp; Day2 : GoF's 23 design patterns (2)<br>
+  &nbsp;&nbsp;&nbsp; Day3 : beyond GoF's design patterns</p>
+  <p align="left">7. Java / OOP (2 days, 12 hours)<br>
+  &nbsp;&nbsp;&nbsp; Day1 : Java Programming Fundamental<br>
+  &nbsp;&nbsp;&nbsp; Day2 : Advanced topics</p>
+  <p align="left">8. Win32 Programming (2 days, 12 hours)<br>
+  &nbsp;&nbsp;&nbsp; Day1 : Win32 Application Skeleton Anatomy<br>
+  &nbsp;&nbsp;&nbsp; Day2 : Win32 Addressing, Modules, Processes, Threads, Heaps...</p>
+  <p align="left">9. C++深入底層之高階培訓 (Under the hood, Advanced C++)</p>
+  <p align="left">Module1 C++底層機制剖析與實踐 (2 days, 12 hours)<br>
+  課程綱要：內容涵蓋 source code --(compile)--&gt; object code --(link)--&gt; 
+  executable code --(load)--&gt; process 的完整內部過程與設計，深入解析 
+  object file format, executable file format, process' memory layout, static link, dynamic 
+  link, C++ startup code, C++ dynamic binding, underlying implementation of C++. 
+  其中許多觀念不獨面向 C++，也面向其他編程語言。<br>
+  <br>
+  Module2 C++ Memory 管理及優化 (2 days, 12 hours)<br>
+  課程綱要：內容涵蓋 (1) malloc/free 
+  詳細運作與源碼剖析，讓我們從中了解已經做了什麼，還可能需要做些什麼，(2) 
+  立於 malloc/free 之上的種種內存管理作法，包括 C++ 標準庫、MFC、Boost、Loki 
+  的經典作法。(3) 內存管理相關的所有 C++ primitives.<br>
+  <br>
+  Module3 深度剖析 STL &amp; GP 的設計與應用 (2 days, 12 hours)<br>
+  課程綱要：深度剖析 GP（泛型編程）最重要最成功的產品：STL / C++ 
+  Standard Library，並以此為基礎，尋求高階應用上正確選擇 C++ 
+  標準庫的容器（containers）、算法（algorithms），乃至自行開發適配器（adapters）、迭代器（iterators）。<br>
+  <br>
+  課程面向高階程式員，目標：1. 對於技術，知其然並知其所以然 
+  &nbsp;&nbsp;&nbsp; 2. 
+  將底層的、內核相關的知識應用於項目改善，或提昇個人及團隊的技術水平。</p>
+  <hr>
+  <p align="left"><br>
+  ■ C++ STL 與泛型編程之設計及實踐 高級培訓 <br>
+  <br>
+  培訓簡介：徹底理解 C++ 標準庫（以下簡稱 STL）之設計與實現，是良好運用 
+  STL 的先決條件與較高起點，而良好運用 STL又是現今所有 C++ 
+  編程不可或缺的一環，也是事半功倍的最關鍵環節。太多軟件由於選擇了不當的容器或不當的算法，造成性能低下。本課程包括 
+  C++ Templates 全面鍛鍊，STL 
+  之總體設計、數據結構與實現技術，從而讓學員具備正確選擇容器和算法，乃至擴充 
+  STL 的能力。 <br>
+  培訓大綱 (2 天, 12 小時) <br>
+  <br>
+  Part 1：C++ Template 技術 <br>
+  * Generic Programming (泛型編程) 概觀 <br>
+  * C++ Template (模板) 概觀 <br>
+  * Class Template (類模板) and Function Template (函數模板) <br>
+  * Operator Overloading (操作符重載) <br>
+  <br>
+  Part 2：STL 之總體思想、結構設計、關鍵源代碼剖析 <br>
+  * Allocator 分配器 <br>
+  * Container 容器 <br>
+  * Algorithm 算法 <br>
+  * Functor 仿函式 <br>
+  * Adapter 適配器 <br>
+  * Iterator 迭代器 <br>
+  <br>
+  Part 3：STL 之檢討、選擇、擴充、改良 </p>
+  <hr>
+  <p align="left">■ 《卓越 C++ 程序設計之道》<br>
+  本課程主要分為三天進行 (相關主題可能會穿插講授，非按三天日期嚴格區分)：</p>
+  <p align="left">1, 陷阱、優化、質量、安全 <br>
+  mainCRTStartUp inside, <br>
+  C++ Underhood (this, constness, static, dynamic binding and virtual mechanism, something 
+  else veiled)<br>
+  Two typical Abstract Data Type design : std::complex and std::string<br>
+  C++ safety : stack overflow, heap overflow, string safety, <br>
+  C++ debugging design (Learning from CDumpContext, CMemoryState), <br>
+  Learning from classic books (Effective C++, More Effective C++, Exceptional C++, More 
+  Exceptional C++)<br>
+  Design Patterns : Template Method, Strategy, Composite, Adapter, Reference Counting, Proxy<br>
+  請注意：本課程側重一般書籍看不到的東西；上述 Learning from classic 
+  books 只羅列若干條款例證。<br>
+  考量原因：classic books 
+  已有很好的題目和說明，課外自行仔細閱讀即可。<br>
+  <br>
+  2, 內存管理<br>
+  C++ Primitives (new, operator new, placement new), <br>
+  C++ Allocator inside, <br>
+  malloc/free inside, <br>
+  Win32 Heap inside, <br>
+  CRT debug heap, <br>
+  CRT heap state reporting functions, usage and inside.<br>
+  請注意：以上大多是源代碼挖掘分析，不見於市面上任何書籍，是難得的技術資料。<br>
+  <br>
+  3, 標準庫<br>
+  C++ templates overview, <br>
+  STL structure overview, <br>
+  Containers inside, <br>
+  Adapters inside, <br>
+  Char Traits inside<br>
+  Iterator Traits Inside<br>
+  Learning from Effective STL<br>
+  請注意：主要側重於 STL 內部結構、關鍵源代碼，及隱晦難懂卻為 STL 
+  核心之知識。</p>
+  <hr>
+  <p align="left"><br>
+  ■ C++ 底層機制剖析 <br>
+  <br>
+  培訓簡介：本課程涵蓋 general C++ programming 
+  之外的多重議題，主旨在於讓 C++ Programmer 對於 C++ 
+  有更深入的了解和體會。探討的主題不一定能立刻反應於實際編程之中 
+  (取決於編程領域)，但對程序員的技能涵養的提昇很有幫助。<br>
+  <br>
+  培訓大綱 (2 天, 12 小時) <br>
+  Part 1：C++ 編譯期和運行期綜論 <br>
+  * 涵蓋 Compile (編譯) =&gt; Object File (目的文件) =&gt; Link (鏈接) =&gt; 
+  Executable File (可執行文件) =&gt; Load (裝載) =&gt; Process (進程) 
+  的內存佈局<br>
+  <br>
+  Part 2：Startup code (啟動碼) 詳論，兼談 CRT (runtime library) <br>
+  * 深度剖析 startup code 的作用、改編方式、代碼細節 (以 VC's 
+  mainCRTStartup 為分析對象)<br>
+  * 涵蓋 CRT 對 memory leak 的監控機制 (Heap State Reporting Functions)<br>
+  * 涵蓋 debug mode 對 C++ Object 的掌控機制 (Debug Heap)<br>
+  * 探討 Objects Dumping 作法 (以 MFC 的 CDumpContext, CMemoryState, CObject::Dump 
+  為例)<br>
+  <br>
+  Part 3：C++ Under the Hood (C++ 幕後機制) <br>
+  * From C to C++：以 C 模擬 C++ class, class members, 'this' pointer，揭示 Object 
+  Oriented (面向對象) 的幕後機制。 <br>
+  * Object Model (對象模型) 剖析<br>
+  * Virtual Mechanism (虛機制) 剖析<br>
+  * Polymorphism (多態) and Dynamic Binding (動態綁定) 剖析<br>
+  * Stack/Heap Overflow —— 淺談黑客手法<br>
+  * Others Underlying implementation in C++ <br>
+  <br>
+  <br>
+  ■ C++ 內存管理 (Memory Management)<br>
+  <br>
+  培訓簡介：C++ 允許 (並且要求) 程序員自行操控 Memory Heap (i.e. Dynamic 
+  Allocation)，這雖然帶給程序員負擔，從某個角度說卻也是 C++ 的優勢 (速度表現與空間自主)。為此，我們必須追求在此現實下如何使用 
+  memory 以符合空間和速度上的最佳利益。本課程在低階面全面介紹與 
+  memory 相關之 C++ 語言構件，在高階面深度剖析各大程序庫 (STL, Loki, 
+  MFC, Boost) 的 pooled allocation 
+  作法，並檢討它們的優缺點，作為可能的借鑑或改善方向。 <br>
+  <br>
+  培訓大綱 (2 天, 12 小時) <br>
+  <br>
+  Part 1：malloc/free：這是 C/C++ 
+  動態分配的根基和起點。此部分讓學員充份了解其中的精巧繁複，使足以評估在此之上添加內存管理的必要性與可能方向。 
+  <br>
+  * 圖解 malloc/free 的相關結構，及內存分配過程中的變化。 <br>
+  * 剖析 malloc/free 的關鍵源代碼 <br>
+  * 以 Visual C++ 和 <font color="#000000">GCC</font> 為剖析對象<br>
+  <br>
+  Part 2：C++ 內存管理相關構件和重載方式 <br>
+  * new expression vs. operator new <br>
+  * delete expression vs. operator delete <br>
+  * array new and array delete <br>
+  * placement new <br>
+  * new/delete operator overloading <br>
+  <br>
+  Part 3：實例分析 (含關鍵源碼分析) <br>
+  * Allocator in C++ Standard Library <br>
+  * Allocator in Loki <br>
+  * Allocator in MFC <br>
+  * Allocator in Boost </p>
+  <hr>
+  <p>　</p>
+  <p>↓2011/07 臺灣/大陸行</p>
+  <div align="left"><table border="1" width="624" height="71">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="83" height="16">星期</td>
+      <td width="196" height="16">課程</td>
+      <td width="119" height="16">地點</td>
+      <td width="269" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0" rowspan="2">06/30</td>
+      <td width="83" height="1" bgcolor="#C0C0C0" rowspan="2">四</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="119" height="1" bgcolor="#C0C0C0">溫哥華</td>
+      <td width="269" height="1" bgcolor="#C0C0C0"><font color="#000000">0220溫哥華-0530桃園 
+      <br>
+      BR09-66H</font></td>
+    </tr>
+    <tr>
+      <td width="584" height="0" bgcolor="#FFFFFF" colspan="3"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/05</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="119" height="1" bgcolor="#C0C0C0">桃園-浦東-<br>
+      南京</td>
+      <td width="269" height="1" bgcolor="#C0C0C0">長榮10:10-12:05<font color="#000000"> BR712 
+      (47G)</font><br>
+      </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/06</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="119" height="1" bgcolor="#C0C0C0">南京大學 3</td>
+      <td width="269" height="1" bgcolor="#C0C0C0">9:00-12:00 晶麗1011房</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/07</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="119" height="1" bgcolor="#C0C0C0">南京大學 3</td>
+      <td width="269" height="1" bgcolor="#C0C0C0">9:00-12:00</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/08</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="119" height="1" bgcolor="#C0C0C0">南京大學 6</td>
+      <td width="269" height="1" bgcolor="#C0C0C0">9:00-12:00 14:00-17:00</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/09</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"><font color="#000000">整理騰訊DP講義</font></td>
+      <td width="119" height="1" bgcolor="#C0C0C0"></td>
+      <td width="269" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/10</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="119" height="1" bgcolor="#C0C0C0"></td>
+      <td width="269" height="1" bgcolor="#C0C0C0">父病危</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/11</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="119" height="1" bgcolor="#C0C0C0">南京大學 6</td>
+      <td width="269" height="1" bgcolor="#C0C0C0">9:00-12:00 14:00-17:00<br>
+      08:59 父往生.&nbsp; 20:20飛台 <br>
+      行程全部取消</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF">08/10</td>
+      <td width="83" height="1" bgcolor="#FFFFFF">三</td>
+      <td width="196" height="1" bgcolor="#FFFFFF"></td>
+      <td width="119" height="1" bgcolor="#FFFFFF">桃園-溫哥華</td>
+      <td width="269" height="1" bgcolor="#FFFFFF"><font color="#000000">2355桃園-1945溫哥華 
+      <br>
+      BR10</font><strong>-</strong>62E (改 65A)</td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>↓2011/04/05&nbsp; 臺灣/大陸行</p>
+  <div align="left"><table border="1" width="624" height="87">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="77" height="16">星期</td>
+      <td width="216" height="16">課程</td>
+      <td width="114" height="16">地點</td>
+      <td width="260" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="2" rowspan="2" bgcolor="#C0C0C0"><font color="#000000">04/05</font></td>
+      <td width="77" height="2" rowspan="2" bgcolor="#C0C0C0">二</td>
+      <td width="216" height="1" bgcolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0"><font color="#000000">溫哥華</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">13:30 溫哥華 (東航 
+      MU582) </font></td>
+    </tr>
+    <tr>
+      <td width="590" height="1" colspan="3" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/06</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="216" height="1" bgcolor="#C0C0C0">抵達</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">浦東, 抵達</td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">1635</font> 浦東<font
+      color="#000000"> (12h05m)<br>
+      <small>上海世博東座酒店公寓 2104</small></font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/07</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="216" height="1" bgcolor="#C0C0C0">祝成</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">上海</td>
+      <td width="260" height="1" bgcolor="#C0C0C0">調時差</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/08<br>
+      04/09</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">五六</td>
+      <td width="216" height="1" bgcolor="#C0C0C0"><font color="#000000">公開課 1, C++ 
+      底層機制</font></td>
+      <td width="114" height="1" bgcolor="#C0C0C0">上海 </td>
+      <td width="260" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/10<br>
+      04/11</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">日一</td>
+      <td width="216" height="1" bgcolor="#C0C0C0"><font color="#000000">公開課 2, Memory </font></td>
+      <td width="114" height="1" bgcolor="#C0C0C0">上海</td>
+      <td width="260" height="1" bgcolor="#C0C0C0">課後祝成座談</td>
+    </tr>
+    <tr>
+      <td width="59" height="1"><font color="#808080">04/12<br>
+      04/13</font></td>
+      <td width="77" height="1"><font color="#808080">二三</font></td>
+      <td width="216" height="1"><font color="#808080">memory + OO(取消)</font></td>
+      <td width="114" height="1"><font color="#808080">蘇州</font></td>
+      <td width="260" height="1"><font color="#808080">新宇 (2 days)(取消)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/12<br>
+      04/13</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">二三</td>
+      <td width="216" height="1" bgcolor="#C0C0C0">休息+旅遊</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">紹興</td>
+      <td width="260" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/14</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="216" height="1" bgcolor="#C0C0C0">移動</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">紹興 - 廣州</td>
+      <td width="260" height="1" bgcolor="#C0C0C0">15:00 杭州-廣州 HU7362 <big><br>
+      </big>廣州逸豐酒店 649 (差)</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/15</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="216" height="1" bgcolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0">廣州</td>
+      <td width="260" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="3" bgcolor="#C0C0C0">04/16-04/17</td>
+      <td width="77" height="3" bgcolor="#C0C0C0">六日</td>
+      <td width="216" height="3" bgcolor="#C0C0C0">C++ 底層機制</td>
+      <td width="114" height="3" bgcolor="#C0C0C0">廣州<br>
+      廣州 - 深圳</td>
+      <td width="260" height="3" bgcolor="#C0C0C0">從興 (2 days)</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/18</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="216" height="1" bgcolor="#C0C0C0">休息</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">深圳</td>
+      <td width="260" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/19-04/20</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">二三</td>
+      <td width="216" height="1" bgcolor="#C0C0C0">C++ 底層機制</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">深圳</td>
+      <td width="260" height="1" bgcolor="#C0C0C0">騰訊 (2 days)</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/21</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="216" height="1" bgcolor="#C0C0C0">移動</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">深圳-北京</td>
+      <td width="260" height="1" bgcolor="#C0C0C0">CA1306 08:10 (機件故障)<br>
+      CA1308 09:30 (爆滿)<br>
+      CA1368 14:00-17:00<br>
+      <small>(06:00 離開, 22:00 住進飯店!!)</small></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/22<br>
+      04/23</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">五六</td>
+      <td width="216" height="1" bgcolor="#C0C0C0"><font color="#000000">公開課 3, C++ 
+      底層機制</font></td>
+      <td width="114" height="1" bgcolor="#C0C0C0">北京</td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000"><small>海淀區東北旺西路8號中關村軟件園易豪酒店(差)</small></font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/24<br>
+      04/25</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">日一</td>
+      <td width="216" height="1" bgcolor="#C0C0C0"><font color="#000000">公開課 4, Memory</font></td>
+      <td width="114" height="1" bgcolor="#C0C0C0"><font color="#000000">北京<br>
+      北京-虹橋</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">返台. </font><font
+      color="#FF0000"><br>
+      </font>MU5124 19:00</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/26</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="216" height="1" bgcolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0"><font color="#000000">虹橋-松山</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0">MU5097 14:25-16:15 (1h50m)</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">05/05</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="202" height="1" bgcolor="#C0C0C0">移動</td>
+      <td width="122" height="1" bgcolor="#C0C0C0">新竹-台北 <br>
+      桃園-浦東</td>
+      <td width="266" height="1" bgcolor="#C0C0C0">MU5008 15:05-16:40 (1h35m)</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">05/06</td>
+      <td width="77" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="202" height="1" bgcolor="#C0C0C0">移動</td>
+      <td width="122" height="1" bgcolor="#C0C0C0">浦東-溫哥華</td>
+      <td width="266" height="1" bgcolor="#C0C0C0">MU581 13:30-09:10 (10h40m)</td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>↓2010/11/21&nbsp; 臺灣/大陸行</p>
+  <div align="left"><table border="1" width="624" height="85">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="83" height="16">星期</td>
+      <td width="210" height="16">課程</td>
+      <td width="114" height="16">地點</td>
+      <td width="260" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="2" bgcolor="#C0C0C0" rowspan="2"><font color="#000000">11/21</font></td>
+      <td width="83" height="2" bgcolor="#C0C0C0" rowspan="2"><font color="#000000">日</font></td>
+      <td width="210" height="1" bgcolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0"><font color="#000000">溫哥華</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">1320溫哥華 (東航 
+      MU582)<br>
+      1745</font>浦東<font color="#000000"> (次日)&nbsp;費時 12:25 </font></td>
+    </tr>
+    <tr>
+      <td width="584" height="1" bgcolor="#FFFFFF" colspan="3"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0"><font color="#000000">11/22</font></td>
+      <td width="83" height="1" bgcolor="#C0C0C0"><font color="#000000">一</font></td>
+      <td width="210" height="1" bgcolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0">浦<font color="#000000">東</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0">17:45 抵達 <br>
+      19:45 進雅舍 218</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0"><font color="#000000">11/23</font></td>
+      <td width="83" height="1" bgcolor="#C0C0C0"><font color="#000000">二</font></td>
+      <td width="210" height="1" bgcolor="#C0C0C0">HSBC 卓越開戶<br>
+      漕溪北路 86號 1樓 魯曉雨<br>
+      13918146925</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">上海</td>
+      <td width="260" height="1" bgcolor="#C0C0C0">休息, 調時差</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/24</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="210" height="1" bgcolor="#C0C0C0">13:40 離開雅舍<br>
+      #4 + #2 + 磁浮, ~1h 到機場</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">浦<font color="#000000">東</font> - 深圳</td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#0000FF">1625浦東 - 1845深圳<br>
+      國航CA922 (延誤1h)</font><br>
+      金暉酒店</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/25</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="210" height="1" bgcolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0">深圳</td>
+      <td width="260" height="1" bgcolor="#C0C0C0">備課,<font color="#FF0000"> </font><font
+      color="#000000">寄出公開課講義</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/26-<br>
+      11/27</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五六</td>
+      <td width="210" height="1" bgcolor="#C0C0C0">C++ 內存管理與優化</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">深圳<br>
+      深圳<font color="#000000">-杭州</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0">卓望數碼 2 days<br>
+      <font color="#0000FF">南航 1920-2120 (誤1.5h)<br>
+      世貿君亭酒店 9428 房</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/28-11/30</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日-二</td>
+      <td width="210" height="1" bgcolor="#C0C0C0">C++ 底層機制<br>
+      剖析與實踐</td>
+      <td width="114" height="1" bgcolor="#C0C0C0"><font color="#000000">杭州<br>
+      杭州-北京</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">依賽通信</font> 3 
+      days<br>
+      <font color="#0000FF">國航CA1548 1900-2100 (誤1h)<br>
+      </font><font color="#000000">宿 mike place</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="2" bgcolor="#C0C0C0" rowspan="2" bordercolor="#C0C0C0"><font
+      color="#000000">12/01</font></td>
+      <td width="83" height="2" bgcolor="#C0C0C0" rowspan="2" bordercolor="#C0C0C0"><font
+      color="#000000">三</font></td>
+      <td width="210" height="1" bgcolor="#C0C0C0" bordercolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0" bordercolor="#C0C0C0">北京</td>
+      <td width="260" height="1" bgcolor="#C0C0C0" bordercolor="#C0C0C0"><font color="#000000">宿 
+      mike place</font></td>
+    </tr>
+    <tr>
+      <td width="584" height="1" bgcolor="#C0C0C0" colspan="3">14:00-15:30 電子社活動 <font
+      color="#0000FF">技術成長與精典閱讀</font><br>
+      16:30-18:00 北航學生活動. </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/02</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="210" height="1" bgcolor="#C0C0C0">13:15-14:15 內存管理<br>
+      1. 電子社新書簽名<br>
+      2. 微軟採訪:程序員與圖書</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">北京<br>
+      北京-上海</td>
+      <td width="260" height="1" bgcolor="#C0C0C0">Tech.Ed 大會<br>
+      <font color="#0000FF">東航MU5130&nbsp; 1905-2130 <br>
+      誤點，改上航 18:00 起飛. <br>
+      艾福敦酒店 (8420), 金玉其外</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/03</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="210" height="1" bgcolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0">上海</td>
+      <td width="260" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/04</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="210" height="1" bgcolor="#C0C0C0">13:30-14:40 Windows 內存管理與定址 
+      (.NET 大會)</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">上海<br>
+      上海-<font color="#000000">杭州</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">火車 虹橋 1700 
+      往杭州<br>
+      G7321 ($82)</font><font color="#FF0000"> </font><font color="#0000FF">世貿君亭9515房</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/05</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="210" height="1" bgcolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0"><font color="#000000">杭州</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0">植物園, 韓美林藝術館</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/06</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="210" height="1" bgcolor="#C0C0C0"><font color="#000000">程序人生 (3h) <br>
+      14:00-15:10 演講<br>
+      15:10-16:30 互動</font></td>
+      <td width="114" height="1" bgcolor="#C0C0C0"><font color="#000000">杭州<br>
+      杭州</font>-上海</td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">順網科技<br>
+      火車 杭州 18:00 往虹橋<br>
+      20:20 </font>進雅舍 218</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0"><font color="#000000">12/07-12/09</font></td>
+      <td width="83" height="1" bgcolor="#C0C0C0"><font color="#000000">二三四</font></td>
+      <td width="210" height="1" bgcolor="#C0C0C0">C++ 公開課</td>
+      <td width="114" height="1" bgcolor="#C0C0C0"></td>
+      <td width="260" height="1" bgcolor="#C0C0C0">祝成座談</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/10</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="210" height="1" bgcolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0">虹橋-松山<br>
+      新竹</td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">1610虹橋-1800松山 
+      (MU5097)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/13</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="210" height="1" bgcolor="#C0C0C0">15:00 ~ 18:00&nbsp;<font color="#0000FF">大班</font> 
+      (150人)&nbsp; <br>
+      19:00 ~ 21:00&nbsp;<br>
+      Memory Management</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">橫山<font color="#000000">-竹北</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">晨星半導體</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/14</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="210" height="1" bgcolor="#C0C0C0">19:00 ~ 21:00 <font color="#0000FF">小班</font> 
+      (40人)<br>
+      Procedure before main</td>
+      <td width="114" height="1" bgcolor="#C0C0C0"><font color="#000000">竹北</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">晨星半導體</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/15</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="210" height="1" bgcolor="#C0C0C0">15:00 ~ 18:00&nbsp;<font color="#0000FF">大班</font>&nbsp; 
+      <br>
+      C++ Standard Library</td>
+      <td width="114" height="1" bgcolor="#C0C0C0"><font color="#000000">竹北</font>-橫山</td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">晨星半導體</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/16</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="210" height="1" bgcolor="#C0C0C0">15:00 ~ 18:00&nbsp;<font color="#0000FF">小班</font>&nbsp; 
+      <br>
+      19:00 ~ 21:00&nbsp;<br>
+      Object Based-Programming</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">橫山<font color="#000000">-竹北</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">晨星半導體</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/17</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="210" height="1" bgcolor="#C0C0C0">15:00 ~ 18:00<font color="#0000FF">&nbsp;小班</font>&nbsp;&nbsp; 
+      <br>
+      19:00 ~ 21:00&nbsp;&nbsp;&nbsp; <br>
+      OO Programming</td>
+      <td width="114" height="1" bgcolor="#C0C0C0"><font color="#000000">竹北</font></td>
+      <td width="260" height="1" bgcolor="#C0C0C0"><font color="#000000">晨星半導體</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/21</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="210" height="1" bgcolor="#C0C0C0">上海浦東軟件園 <br>
+      地址：上海張江郭守敬路498號 1號樓2100教室</td>
+      <td width="114" height="1" bgcolor="#C0C0C0">松山-虹橋</td>
+      <td width="260" height="1" bgcolor="#C0C0C0">松山1030 - 虹橋 1210 <br>
+      FM852 (上海航空) <br>
+      延遲 1h 飛, 1240降落<br>
+      拉卡菲大酒店 604 房</td>
+    </tr>
+    <tr>
+      <td width="59" height="2" bgcolor="#C0C0C0" rowspan="2">12/22 </td>
+      <td width="83" height="2" bgcolor="#C0C0C0" rowspan="2">三</td>
+      <td width="210" height="1" bgcolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0">上海</td>
+      <td width="260" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="584" height="1" bgcolor="#C0C0C0" colspan="3">09:40-10:40 主題演講 <font
+      color="#0000FF">C++/OOP趨勢和教學熱點</font><br>
+      10:40-10:50 休息<br>
+      10:50-11:30 交流討論</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/23</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="210" height="1" bgcolor="#C0C0C0"></td>
+      <td width="114" height="1" bgcolor="#C0C0C0">浦<font color="#000000">東</font>-<br>
+      溫哥華</td>
+      <td width="260" height="1" bgcolor="#C0C0C0">1330 浦東PVG (<font color="#000000">東航</font> 
+      MU581)<br>
+      0750 溫哥華YVR&nbsp;&nbsp;<font color="#000000">費時 10:20 </font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <hr>
+  <p>↓2010/06/10 臺灣/大陸行</p>
+  <div align="left"><table border="1" width="624" height="73">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="83" height="16">星期</td>
+      <td width="196" height="16">課程</td>
+      <td width="120" height="16">地點</td>
+      <td width="268" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="2" bgcolor="#C0C0C0" rowspan="2">06/10</td>
+      <td width="83" height="2" bgcolor="#C0C0C0" rowspan="2">四</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="120" height="1" bgcolor="#C0C0C0"><font color="#000000">溫哥華</font></td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><font color="#000000">0220溫哥華 - 0530桃園 
+      <br>
+      (長榮 BR09)&nbsp;返程 (南大補助)</font></td>
+    </tr>
+    <tr>
+      <td width="584" height="1" bgcolor="#C0C0C0" colspan="3"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/11</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="120" height="1" bgcolor="#C0C0C0">台北-新竹</td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><font color="#000000">0450 降落. </font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/02</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="120" height="1" bgcolor="#C0C0C0">美靜咚咚<br>
+      返台</td>
+      <td width="268" height="1" bgcolor="#C0C0C0">14:05 YVR (AC3,台北05:05)<br>
+      15:55 NRT (Tokyo Narita) (台北14:55)<br>
+      19:00 NRT- 21:30 TPE (NH1083)</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/06</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="120" height="1" bgcolor="#C0C0C0">新竹-台北</td>
+      <td width="268" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/07</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="120" height="1" bgcolor="#C0C0C0">桃園-澳門</td>
+      <td width="268" height="1" bgcolor="#C0C0C0">06:30 出門. 10:00桃園 - 11:50澳門<br>
+      長榮BR 801<br>
+      澳門機場遺失行李, 復得<br>
+      珠海景山路62號中天酒店 1507 房</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/08</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">演講：程序人生</td>
+      <td width="120" height="1" bgcolor="#C0C0C0">珠海金山</td>
+      <td width="268" height="1" bgcolor="#C0C0C0">演講 14:30-17:30</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/09-07/10</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五六</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">內存管理與優化</td>
+      <td width="120" height="1" bgcolor="#C0C0C0">珠海金山</td>
+      <td width="268" height="1" bgcolor="#C0C0C0">09:00-12:00, 14:30-17:30<br>
+      09:00-12:00, 13:30-16:30</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0"><font color="#000000">07/11</font></td>
+      <td width="83" height="1" bgcolor="#C0C0C0"><font color="#000000">日</font></td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="122" height="1" bgcolor="#C0C0C0">珠海<font color="#000000">-</font>深圳<font
+      color="#000000">-南京 </font></td>
+      <td width="346" height="1" bgcolor="#C0C0C0">珠海-深圳 1.5h，機場 1h<br>
+      14:30深圳-16:20南京, 深航ZH9877<br>
+      <font color="#000000">晶麗酒店 907 房</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/12</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">停課 (教室協調)</td>
+      <td width="120" height="1" bgcolor="#C0C0C0"><font color="#000000">南京大學</font></td>
+      <td width="268" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/13-<br>
+      07/16</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">二-五</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">C++ Memory Management </td>
+      <td width="120" height="1" bgcolor="#C0C0C0"><font color="#000000">南京大學</font></td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><font color="#000000">3+6+6+3<br>
+      13,16 ==&gt;&nbsp; 9:00~12:00<br>
+      14,15 ==&gt;&nbsp; 9:00~12:00 &amp; 14:00~17:00</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/17-<br>
+      07/18</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">六日</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="120" height="1" bgcolor="#C0C0C0"></td>
+      <td width="268" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/19-<br>
+      07/20</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一二</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">C++ Memory Management</td>
+      <td width="120" height="1" bgcolor="#C0C0C0"><font color="#000000">南京大學</font></td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><font color="#000000">3+3<br>
+      19, 20 ==&gt; 9:00~12:00</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/21</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">C++ Memory Management</td>
+      <td width="120" height="1" bgcolor="#C0C0C0"><font color="#000000">南京大學<br>
+      南京-上海</font></td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><font color="#000000">3 (考試</font>, 
+      助教改<font color="#000000">)<br>
+      </font>14:00 高鐵 (一等座 $248)<br>
+      同濟, 嘉實招待所</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/22-07/24</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四五六</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">Design Patterns</td>
+      <td width="120" height="1" bgcolor="#C0C0C0">同濟大學</td>
+      <td width="268" height="1" bgcolor="#C0C0C0">3+3+3, 1800-2100</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/25</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="120" height="1" bgcolor="#C0C0C0"></td>
+      <td width="268" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/26- <br>
+      07/29</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一-四</td>
+      <td width="116" height="1" bgcolor="#C0C0C0">Design Patterns</td>
+      <td width="122" height="1" bgcolor="#C0C0C0">同濟大學</td>
+      <td width="346" height="1" bgcolor="#C0C0C0">3+3+3+3,&nbsp; 1800-2100</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/30 </td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">Design Patterns</td>
+      <td width="120" height="1" bgcolor="#C0C0C0">同濟大學<br>
+      返台<br>
+      台北-新竹</td>
+      <td width="268" height="1" bgcolor="#C0C0C0">考試, 助教批卷.&nbsp; 0900離開<br>
+      <font color="#000000">1310浦東２-1500桃園２&nbsp;BR711,58A</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/04</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="120" height="1" bgcolor="#C0C0C0">返溫</td>
+      <td width="268" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+  </table>
+  </div><p align="left">　</p>
+  <p>↓2010/04/01 臺灣/大陸行</p>
+  <div align="left"><table border="1" width="624" height="67">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="70" height="16">星期</td>
+      <td width="161" height="16">課程</td>
+      <td width="159" height="16">地點</td>
+      <td width="277" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/01</td>
+      <td width="70" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="161" height="1" bgcolor="#C0C0C0"></td>
+      <td width="159" height="1" bgcolor="#C0C0C0"><font color="#000000">溫哥華</font></td>
+      <td width="277" height="1" bgcolor="#C0C0C0"><font color="#000000">0200溫哥華 - 0545桃園 
+      <br>
+      長榮 BR0009&nbsp;</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">04/02</td>
+      <td width="70" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="161" height="1" bgcolor="#C0C0C0"></td>
+      <td width="159" height="1" bgcolor="#C0C0C0">台北</td>
+      <td width="277" height="1" bgcolor="#C0C0C0"><font color="#000000">05:45 降落</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0"><font color="#000000">04/14</font></td>
+      <td width="70" height="1" bgcolor="#C0C0C0"><font color="#000000">三</font></td>
+      <td width="161" height="1" bgcolor="#C0C0C0"></td>
+      <td width="159" height="1" bgcolor="#C0C0C0"><font color="#000000">新竹, 龍潭, 台北, 
+      <br>
+      龍潭,</font></td>
+      <td width="277" height="1" bgcolor="#C0C0C0"><font color="#000000">夜宿 shiau's place</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080"><font color="#000000">04/15</font></td>
+      <td width="70" height="1" bgcolor="#808080"><font color="#000000">四</font></td>
+      <td width="161" height="1" bgcolor="#808080"></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">台北-上海</font></td>
+      <td width="277" height="1" bgcolor="#808080"><font color="#000000">10:10桃園 - 12:05 
+      上海</font><br>
+      延誤 2 hours 起飛<strong><br>
+      </strong>上海濰坊西路88號鴻酒店3019</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080"><font color="#000000">04/16-04/17</font></td>
+      <td width="70" height="1" bgcolor="#808080"><font color="#000000">五六</font></td>
+      <td width="161" height="1" bgcolor="#808080"><font color="#000000">Advanced C++<br>
+      Module 1<br>
+      UnderTheHood</font></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">上海公開課</font></td>
+      <td width="277" height="1" bgcolor="#808080"><font color="#000000">day1: heapinit, malloc<br>
+      day2: ioinit, initterm, C++, linker</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080"><font color="#000000">04/18-04/19</font></td>
+      <td width="70" height="1" bgcolor="#808080"><font color="#000000">日一</font></td>
+      <td width="161" height="1" bgcolor="#808080"><font color="#000000">Advanced C++<br>
+      Module 2<br>
+      GP/STL</font></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">上海公開課</font></td>
+      <td width="277" height="1" bgcolor="#808080"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080"><font color="#000000">04/20-04/21</font></td>
+      <td width="70" height="1" bgcolor="#808080"><font color="#000000">二三</font></td>
+      <td width="161" height="1" bgcolor="#808080"><font color="#000000">Advanced C++<br>
+      Module 3<br>
+      MemoryManagement</font></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">上海公開課</font></td>
+      <td width="277" height="1" bgcolor="#808080">課後祝成座談</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080"><font color="#000000">04/22</font></td>
+      <td width="70" height="1" bgcolor="#808080"><font color="#000000">四</font></td>
+      <td width="161" height="1" bgcolor="#808080"></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">上海 - 揚州 </font></td>
+      <td width="277" height="1" bgcolor="#808080">上海南 10:44 T7786 車程 5.5h<br>
+      票價 97. 誤點 1h<br>
+      建國酒店 建國之家 4007</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080"><font color="#000000">04/23</font></td>
+      <td width="70" height="1" bgcolor="#808080"><font color="#000000">五</font></td>
+      <td width="161" height="1" bgcolor="#808080"></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">揚州 </font></td>
+      <td width="277" height="1" bgcolor="#808080">瘦西湖, 二十四橋, </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080"><font color="#000000">04/24</font></td>
+      <td width="70" height="1" bgcolor="#808080"><font color="#000000">六</font></td>
+      <td width="161" height="1" bgcolor="#808080"></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">揚州 - 上海</font></td>
+      <td width="277" height="1" bgcolor="#808080"><font color="#000000">揚州</font> 12:20 
+      T7788 車程 5.5h<br>
+      票價 97. 誤點 0.5h<br>
+      雅舍 218</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080"><font color="#000000">04/25</font></td>
+      <td width="70" height="1" bgcolor="#808080"><font color="#000000">日</font></td>
+      <td width="161" height="1" bgcolor="#808080"></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">上海</font></td>
+      <td width="277" height="1" bgcolor="#808080">1100-1400 JZ place</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080"><font color="#000000">04/26-04/27</font></td>
+      <td width="70" height="1" bgcolor="#808080"><font color="#000000">一二</font></td>
+      <td width="161" height="1" bgcolor="#808080"><font color="#000000">Advanced C++<br>
+      Module 1<br>
+      UnderTheHood</font></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">上海騰訊</font></td>
+      <td width="277" height="1" bgcolor="#808080"><font color="#000000">day1: heapinit, malloc, 
+      ioinit<br>
+      day2: initterm, C++, linker, PE</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080"><font color="#000000">04/28-04/29</font></td>
+      <td width="70" height="1" bgcolor="#808080"><font color="#000000">三四</font></td>
+      <td width="161" height="1" bgcolor="#808080"><font color="#000000">Advanced C++<br>
+      Module 2<br>
+      GP/STL</font></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">上海騰訊</font></td>
+      <td width="277" height="1" bgcolor="#808080">補充 Boost's serialization</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080"><font color="#000000">04/30</font></td>
+      <td width="70" height="1" bgcolor="#808080"><font color="#000000">五</font></td>
+      <td width="161" height="1" bgcolor="#808080"></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">無機位<br>
+      停留上海</font></td>
+      <td width="277" height="1" bgcolor="#808080"><font color="#000000">04/29 1935深圳-2125桃園<br>
+      改 07/30上海飛返 </font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#808080">05/01</td>
+      <td width="70" height="1" bgcolor="#808080">六</td>
+      <td width="161" height="1" bgcolor="#808080"></td>
+      <td width="159" height="1" bgcolor="#808080"><font color="#000000">上海-桃園</font></td>
+      <td width="277" height="1" bgcolor="#808080">1230浦東-1400桃園&nbsp; 南方航空 
+      &nbsp; <br>
+      返程<font color="#000000"> 06/25, 1505桃園-1635浦東</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="2" bgcolor="#C0C0C0" rowspan="2">05/12</td>
+      <td width="70" height="2" bgcolor="#C0C0C0" rowspan="2">三</td>
+      <td width="597" height="1" bgcolor="#C0C0C0" colspan="3"></td>
+    </tr>
+    <tr>
+      <td width="161" height="1" bgcolor="#C0C0C0">20:00 往機場 (Andy)</td>
+      <td width="159" height="1" bgcolor="#C0C0C0">台北-<font color="#000000">溫哥華</font></td>
+      <td width="277" height="1" bgcolor="#C0C0C0">BR10, 座位 82c, 走道<br>
+      桃園２23:55 - 溫哥華 19:35</td>
+    </tr>
+  </table>
+  </div><p align="left">　</p>
+  <p>↓2009/11 臺灣/大陸行</p>
+  <div align="left"><table border="1" width="624" height="72">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="83" height="16">星期</td>
+      <td width="196" height="16">課程</td>
+      <td width="137" height="16">地點</td>
+      <td width="251" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/02</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0"><font color="#000000">溫哥華</font></td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">0030溫哥華 - 0545桃園 
+      <br>
+      (長榮 BR0009)&nbsp;&nbsp;</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/08</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">台北 - 上海<br>
+      上海 - 南京</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">1010桃園 (長榮 
+      BR0702)<br>
+      1205上海&nbsp; NTD18800<br>
+      1520上海-1718南京 <br>
+      &nbsp; D82, RMB 93 <br>
+      &nbsp; 座位 7「雙人座靠道」</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/09-<br>
+      11/13</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一-五</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">C++ Memory Management </td>
+      <td width="137" height="1" bgcolor="#C0C0C0"><font color="#000000">南京大學仙林校區軟件學院</font></td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">3+3+3+3+6</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/14-<br>
+      11/15</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">六日</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0"><font color="#000000">南京</font></td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">休息</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/16-<br>
+      11/17</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一二</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">C++ Memory Management</td>
+      <td width="137" height="1" bgcolor="#C0C0C0"><font color="#000000">南京大學仙林校區軟件學院</font></td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">3+3 (考試另擇期, 
+      +3)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/18</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0"><font color="#000000">南京 - 上海</font></td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">1250南京-1517上海&nbsp; 
+      D5427, RMB 93+15(代購費) <br>
+      座位 52「雙人座靠窗」</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/19-<br>
+      11/21</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四五六</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0"><font color="#000000">上海</font></td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">休息. 雅舍 318<br>
+      準備 Win32 Programming 講義</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/22</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0"><font color="#000000">上海 - </font>廣州</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">移動 (10:00 航班)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/23-<br>
+      11/25</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一二三</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">Effective &amp; More Effective C++ </td>
+      <td width="137" height="1" bgcolor="#C0C0C0">廣州</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">從興電子<br>
+      (重慶電子深圳分公司)<br>
+      敦和公寓酒店, 差 </font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/26-<br>
+      11/27</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四五</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"><font color="#000000">Win32 Programming </font></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">深圳</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">騰訊 (QQ)<br>
+      金暉酒店 1821, 佳</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/28-<br>
+      11/29</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">六日</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">C++ </td>
+      <td width="137" height="1" bgcolor="#C0C0C0">深圳</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">卓望數碼</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/30-<br>
+      12/01</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一二</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">Memory Management</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">深圳</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">騰訊 (QQ)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/02</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"><font color="#000000">09:30-11:30 演講<br>
+      《技術分享之道》<br>
+      15:00-17:00 演講<br>
+      《程序人生成長》</font></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">深圳<br>
+      <br>
+      深圳 - 上海 </td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">騰訊 (QQ)<br>
+      <br>
+      移動 (21:50 航班)<br>
+      延誤1h. 入住酒店乃次日02:45</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/03</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">上海 </td>
+      <td width="251" height="1" bgcolor="#C0C0C0">休息</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/04</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">9:00-10:30 <font color="#000000">講</font>座<br>
+      Memory Management<br>
+      14:00-15:30 <font color="#000000">講</font>座<br>
+      GP &amp; STL </td>
+      <td width="137" height="1" valign="top" bgcolor="#C0C0C0">上海 <p>上海 - 台北</td>
+      <td width="251" height="1" valign="top" bgcolor="#C0C0C0"><font color="#000000">祝成 C++ 
+      大會 <br>
+      美靜咚咚 05:45 抵台.<br>
+      2010埔東- 2210桃園 <br>
+      (長榮 BR0721) 夜宿桃園</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/05</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0"></td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">返北, 民生+和平, 
+      夜回新竹</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/06-<br>
+      12/13 </td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日-日</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">臺灣</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/14 </td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">台北 - 廣州</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">0810桃園- 1015廣州 <br>
+      (長榮 BR0707)<br>
+      新珠江大酒店 714, 佳</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/15-<br>
+      12/17 </td>
+      <td width="83" height="1" bgcolor="#C0C0C0">二三四</td>
+      <td width="196" height="1" bgcolor="#C0C0C0">Effective &amp; More Effective C++ </td>
+      <td width="137" height="1" bgcolor="#C0C0C0">廣州</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">從興電子</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/18 </td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">廣州 - 台北</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">1130廣州- 1335桃園 <br>
+      (長榮 BR0708) </font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/19-<br>
+      01/14 </td>
+      <td width="83" height="1" bgcolor="#C0C0C0">六-四</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">臺灣</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">01/15</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="196" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">台北-溫哥華</td>
+      <td width="251" height="1" bgcolor="#C0C0C0"><font color="#000000">2355桃園 - 1810溫哥華 
+      <br>
+      (長榮 BR0010)&nbsp;&nbsp; </font></td>
+    </tr>
+  </table>
+  </div><p>↓2009 冬季返台&nbsp;&nbsp; </p>
+  <table border="1" width="100%">
+    <tr>
+      <td width="14%" align="center">日</td>
+      <td width="14%" align="center">一</td>
+      <td width="14%" align="center">二</td>
+      <td width="14%" align="center">三</td>
+      <td width="14%" align="center">四</td>
+      <td width="15%" align="center">五</td>
+      <td width="15%" align="center">六</td>
+    </tr>
+    <tr>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">　</td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">　</td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">　</td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">　</td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">　<br>
+      <br>
+      </td>
+      <td width="15%" valign="top">12/04<font color="#000000"><br>
+      桃園 0545<br>
+      </font>美靜咚咚抵台<br>
+      <font color="#000000">桃園 2210<br>
+      </font>侯捷抵台</td>
+      <td width="15%" valign="top">12/05<br>
+      </td>
+    </tr>
+    <tr>
+      <td width="14%" valign="top"><font color="#000000">12/13</font><font color="#0000FF"><br>
+      </font></td>
+      <td width="14%" valign="top"><font color="#0000FF">12/14<br>
+      飛陸<br>
+      </font></td>
+      <td width="14%" valign="top"><font color="#0000FF">12/15<br>
+      從興電子<br>
+      </font></td>
+      <td width="14%" valign="top"><font color="#0000FF">12/16<br>
+      從興電子<br>
+      </font></td>
+      <td width="14%" valign="top"><font color="#0000FF">12/17<br>
+      從興電子<br>
+      </font></td>
+      <td width="15%" valign="top"><font color="#0000FF">12/18<br>
+      返台<br>
+      </font></td>
+      <td width="15%" valign="top"><font color="#000000">12/19</font><font color="#0000FF"><br>
+      <br>
+      </font></td>
+    </tr>
+    <tr>
+      <td width="14%" valign="top">01/10<br>
+      </td>
+      <td width="14%" valign="top">01/11<br>
+      <br>
+      </td>
+      <td width="14%" valign="top">01/12<br>
+      </td>
+      <td width="14%" valign="top">01/13<br>
+      </td>
+      <td width="14%" valign="top">01/14<br>
+      <br>
+      </td>
+      <td width="15%" valign="top">01/15<font color="#000000"><br>
+      台北 2355&nbsp;溫哥華 1810<br>
+      長榮 BR0010</font></td>
+      <td width="15%" bgcolor="#FFFFFF" valign="top"><br>
+      </td>
+    </tr>
+  </table>
+  <p>　</p>
+  <p>　</p>
+  <p>↓2009/06 臺灣/大陸行</p>
+  <div align="left"><table border="1" width="624" height="73">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="83" height="16">星期</td>
+      <td width="116" height="16">課程</td>
+      <td width="139" height="16">地點</td>
+      <td width="329" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/11</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="139" height="1" bgcolor="#C0C0C0"><font color="#000000">溫哥華</font></td>
+      <td width="329" height="1" bgcolor="#C0C0C0"><font color="#FF00FF">0220 溫哥華-台北 (加航 
+      AC9841)</font><font color="#000000"><br>
+      seat 51C.&nbsp;&nbsp;</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/12</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="139" height="1" bgcolor="#C0C0C0">台北</td>
+      <td width="329" height="1" bgcolor="#C0C0C0"><font color="#000000">04:45</font> 降落 (提前 
+      45 分鐘)</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/13-<br>
+      06/16</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">六-二</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="139" height="1" bgcolor="#C0C0C0">新竹</td>
+      <td width="329" height="1" bgcolor="#C0C0C0">備課</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/17</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="139" height="1" bgcolor="#C0C0C0">台北-上海</td>
+      <td width="329" height="1" bgcolor="#C0C0C0"><font color="#FF00FF">09:05 桃園 (華航 CI 
+      7957)<br>
+      10:50 上海</font>&nbsp; <br>
+      <font color="#0000FF">新協通國際大酒店<br>
+      (上海市黃浦區北京東路398號)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/18</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="139" height="1" bgcolor="#C0C0C0"><font color="#000000">上海</font></td>
+      <td width="329" height="1" bgcolor="#C0C0C0">備課</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/19-<br>
+      06/20 </td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五六</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"><font color="#000000">軟件框架開發與設計模式</font></td>
+      <td width="139" height="1" bgcolor="#C0C0C0"><font color="#000000">上海</font></td>
+      <td width="329" height="1" bgcolor="#C0C0C0">Part B. 2D 侯捷，MFC+STL Framework (and/or 
+      Java) 為主, 談其中的設計思想和模式。側重 underlying technologies 剖析。</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/21</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="139" height="1" bgcolor="#C0C0C0"><font color="#000000">上海 - 杭州</font></td>
+      <td width="329" height="1" bgcolor="#C0C0C0"><font color="#000000">D5657 上海南 
+      (09:30)--&gt; 杭州 </font>華洋賓館<font color="#000000"> 7005 房. </font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/22-<br>
+      06/23 </td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一二</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"><font color="#000000">C++ 
+      內存管理與優化&nbsp;&nbsp; </font></td>
+      <td width="139" height="1" bgcolor="#C0C0C0"><font color="#000000">杭州<br>
+      杭州 - 上海</font></td>
+      <td width="329" height="1" bgcolor="#C0C0C0"><font color="#000000">阿里巴巴<br>
+      D5680 杭州 (18:23) --&gt; 上海南站<br>
+      </font><font color="#0000FF">雅舍賓館 318 房</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0"><font color="#000000">06/24</font></td>
+      <td width="83" height="1" bgcolor="#C0C0C0"><font color="#000000">三</font></td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="139" height="1" bgcolor="#C0C0C0"><font color="#000000">上海 - 台北</font></td>
+      <td width="329" height="1" bgcolor="#C0C0C0"><font color="#FF00FF">12:05 上海 (華航 CI 
+      7958)<br>
+      13:50 桃園</font></td>
+    </tr>
+    <tr>
+      <td width="726" height="1" bgcolor="#FFFFFF" colspan="5"><strong>以下灰色 全部取消</strong></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">06/24 </font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">三</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">杭州 (遊覽)<br>
+      杭州 - 北京</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">1905杭州&nbsp; 2115北京 
+      南航CZ6164<br>
+      北京博雅中心國際公寓101E</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">06/25</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">四</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">北京</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">備課</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">06/26-<br>
+      06/27 </font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">五六</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">軟件框架開發與設計模式高端培訓</font></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">北京</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">祝成科技 (同上海)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">06/28-<br>
+      06/29 </font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">日一</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">北京</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">mike place. &nbsp;</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">06/30 </font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">二</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">北京-上海</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">1800 北京 2000虹橋 
+      &nbsp; 南航 CZ5122<br>
+      雅舍賓館 216 房</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07/01</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">三</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">上海</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">備課</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07/02-<br>
+      07/04</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">四五六</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">設計模式 
+      &nbsp;&nbsp; </font></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">上海</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">SAP 研究院</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07/05</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">日</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">上海-南京 </font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">0939-1140 D5414 火車<br>
+      晶麗酒店 </font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07/06 - <br>
+      07/11</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">一 - 六</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">Memory Management</font></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">南京大學</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">27 hours. 6+3+6+3+6+3<br>
+      上午 0830開始，下午1400開始<br>
+      周末上午考試，下午批改</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07/12</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">日</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">南京 - 上海 </font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">1135-1350 D417 火車</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0"><font color="#000000">07/12</font></td>
+      <td width="83" height="1" bgcolor="#C0C0C0"><font color="#000000">日</font></td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="139" height="1" bgcolor="#C0C0C0"><font color="#000000">桃園 - 上海 </font></td>
+      <td width="329" height="1" bgcolor="#C0C0C0"><font color="#000000">桃園 10:10 - 上海 
+      12:05</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/13 - <br>
+      07/18</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一 - 六</td>
+      <td width="116" height="1" bgcolor="#C0C0C0">Design Patterns</td>
+      <td width="139" height="1" bgcolor="#C0C0C0">同濟大學</td>
+      <td width="329" height="1" bgcolor="#C0C0C0">24 hours. 3+6+3+6+3+3<br>
+      上午 9:00-12:00，傍晚 18:00-21:00<br>
+      周末上午考試 1.5h，助教批改.</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#000000">07/19</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#000000">日</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#000000">上海 - 桃園 </font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#000000">上海 13:10 - 桃園 
+      15:00 </font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1">07/20</td>
+      <td width="83" height="1">一</td>
+      <td width="116" height="1"></td>
+      <td width="139" height="1"><font color="#000000">新竹</font></td>
+      <td width="329" height="1"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1">07/21</td>
+      <td width="83" height="1">二</td>
+      <td width="116" height="1"></td>
+      <td width="139" height="1"><font color="#000000">新竹</font></td>
+      <td width="329" height="1"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1">07/22</td>
+      <td width="83" height="1">三</td>
+      <td width="116" height="1"></td>
+      <td width="139" height="1"><font color="#000000">新竹</font></td>
+      <td width="329" height="1"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1">07/23</td>
+      <td width="83" height="1">四</td>
+      <td width="116" height="1"></td>
+      <td width="139" height="1"><font color="#000000">新竹 - 溫哥華</font></td>
+      <td width="329" height="1"><font color="#FF00FF">2355桃園 - 1945溫哥華 (長榮BR010)</font></td>
+    </tr>
+    <tr>
+      <td width="726" height="1" bgcolor="#FFFFFF" colspan="5"><strong>以下灰色 全部取消</strong></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07/19</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">日</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">上海 - 瀋陽 </font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">1110上海浦東 -&nbsp;1310瀋陽<br>
+      (南航CZ6504)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07/20 - <br>
+      07/22</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">一 - 三</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">瀋陽東軟</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07/23 - <br>
+      07/25</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">四 - 六</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">瀋陽東軟</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07/26</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">日</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">瀋陽 - 大連 </font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07:35火車. 
+      大連速八酒店658房</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07/27 - <br>
+      07/29</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">一 - 三</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">大連東軟</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">07/30 - <br>
+      08/01</font></td>
+      <td width="83" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">四 - 六</font></td>
+      <td width="116" height="1" bgcolor="#FFFFFF"></td>
+      <td width="139" height="1" bgcolor="#FFFFFF"><font color="#C0C0C0">大連東軟</font></td>
+      <td width="329" height="1" bgcolor="#FFFFFF"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1"><font color="#C0C0C0">08/02</font></td>
+      <td width="83" height="1"><font color="#C0C0C0">日</font></td>
+      <td width="116" height="1"></td>
+      <td width="139" height="1"><font color="#C0C0C0">大連 - 台北</font></td>
+      <td width="329" height="1"><font color="#C0C0C0">大連 -&nbsp;上海 (x航)<br>
+      上海 12:05 - 桃園13:50 (x航)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1"><font color="#C0C0C0">08/03-<br>
+      08/09</font></td>
+      <td width="83" height="1"><font color="#C0C0C0">一-日</font></td>
+      <td width="116" height="1"></td>
+      <td width="139" height="1"><font color="#C0C0C0">新竹</font></td>
+      <td width="329" height="1"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1"><font color="#C0C0C0">08/10</font></td>
+      <td width="83" height="1"><font color="#C0C0C0">一</font></td>
+      <td width="116" height="1"></td>
+      <td width="139" height="1"><font color="#C0C0C0">新竹 - 溫哥華</font></td>
+      <td width="329" height="1"><font color="#C0C0C0">2355桃園 - 1945溫哥華(長榮BR010)</font></td>
+    </tr>
+  </table>
+  </div><p align="left">　</p>
+  <p>↓2008 冬季</p>
+  <table border="1" width="100%">
+    <tr>
+      <td width="14%" align="center">日</td>
+      <td width="14%" align="center">一</td>
+      <td width="14%" align="center">二</td>
+      <td width="14%" align="center">三</td>
+      <td width="14%" align="center">四</td>
+      <td width="15%" align="center">五</td>
+      <td width="15%" align="center">六</td>
+    </tr>
+    <tr>
+      <td width="14%" valign="top">　<p>　</td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">11/03<br>
+      <font color="#000000">溫哥華 0045&nbsp;<br>
+      長榮 BR0009</font></td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">11/04<br>
+      </td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">11/05<br>
+      <br>
+      </td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">11/06<p>　</td>
+      <td width="15%" bgcolor="#FFFFFF" valign="top">11/07<br>
+      <br>
+      </td>
+      <td width="15%" bgcolor="#FFFFFF" valign="top">11/08<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">11/16<br>
+      <br>
+      </td>
+      <td width="14%" valign="top">11/17<br>
+      <br>
+      </td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">11/18<br>
+      <br>
+      <br>
+      </td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">11/19<br>
+      <br>
+      <br>
+      </td>
+      <td width="14%" bgcolor="#C0C0C0" valign="top">11/20<br>
+      08:25 - 10:15 HK<br>
+      11:50 - 14:10 SH<br>
+      國泰+東航</td>
+      <td width="15%" bgcolor="#C0C0C0" valign="top">11/21<br>
+      上海<br>
+      祝成classroom<br>
+      <strong><font color="#0000FF">memory</font></strong></td>
+      <td width="15%" bgcolor="#C0C0C0" valign="top">11/22<br>
+      上海<br>
+      祝成classroom<br>
+      <strong><font color="#0000FF">memory</font></strong></td>
+    </tr>
+    <tr>
+      <td width="14%" bgcolor="#C0C0C0" valign="top">11/23<br>
+      上海<br>
+      祝成classroom<br>
+      <strong><font color="#0000FF">memory</font></strong></td>
+      <td width="14%" bgcolor="#C0C0C0" valign="top">11/24<br>
+      11:00 - 13:35 HK<br>
+      15:15 - 16:50 TPE<br>
+      東航+國泰</td>
+      <td width="14%" valign="top">11/25<br>
+      <br>
+      </td>
+      <td width="14%" valign="top">11/26<br>
+      </td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">11/27<br>
+      </td>
+      <td width="15%" bgcolor="#FFFFFF" valign="top">11/28<br>
+      </td>
+      <td width="15%" bgcolor="#FFFFFF" valign="top">11/29<br>
+      </td>
+    </tr>
+    <tr>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">11/30<br>
+      </td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">12/01<br>
+      </td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">12/02<br>
+      </td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">12/03<br>
+      </td>
+      <td width="14%" bgcolor="#FFFFFF" valign="top">12/04<br>
+      <br>
+      <font color="#000000">溫哥華 0045<br>
+      </font>美靜咚咚離溫</td>
+      <td width="15%" valign="top">12/05<br>
+      <font color="#000000"><br>
+      桃園 0545<br>
+      </font>美靜咚咚抵台</td>
+      <td width="15%" valign="top">12/06<br>
+      <br>
+      </td>
+    </tr>
+    <tr>
+      <td width="14%" valign="top">12/28<br>
+      <br>
+      </td>
+      <td width="14%" valign="top">12/29<br>
+      <br>
+      </td>
+      <td width="14%" valign="top">12/30<br>
+      <br>
+      </td>
+      <td width="14%" valign="top">12/31<br>
+      <br>
+      </td>
+      <td width="14%" valign="top">01/01<br>
+      </td>
+      <td width="15%" valign="top">01/02<font color="#000000"><br>
+      台北 2355,溫哥華 1810<br>
+      長榮 BR0010</font></td>
+      <td width="15%" bgcolor="#FFFFFF" valign="top">01/03<br>
+      </td>
+    </tr>
+  </table>
+  <p>　</p>
+  <p>↓2008/09 大陸行 17 天：</p>
+  <div align="left"><table border="1" width="666" height="76">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="83" height="16">星期</td>
+      <td width="164" height="16">課程</td>
+      <td width="146" height="16">地點</td>
+      <td width="316" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">09/13</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="164" height="1" bgcolor="#C0C0C0"></td>
+      <td width="146" height="1" bgcolor="#C0C0C0"><font color="#000000">溫哥華 起飛</font></td>
+      <td width="316" height="1" bgcolor="#C0C0C0"><font color="#000000">1220溫哥華 (東航 
+      MU582)<br>
+      (溫哥華-上海-溫哥華 )</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">09/14</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="164" height="1" bgcolor="#C0C0C0"></td>
+      <td width="146" height="1" bgcolor="#C0C0C0">上海 到達&nbsp; </td>
+      <td width="316" height="1" bgcolor="#C0C0C0"><font color="#000000">1525上海浦東<br>
+      宛平南路雅舍賓館 388 房</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">09/15</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="164" height="1" bgcolor="#C0C0C0"><font color="#000000">休息</font></td>
+      <td width="146" height="1" bgcolor="#C0C0C0">上海&nbsp; </td>
+      <td width="316" height="1" bgcolor="#C0C0C0"><font color="#000000">調整時差, 備課</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">09/16 - <br>
+      09/18</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">二三四</td>
+      <td width="164" height="1" bgcolor="#C0C0C0">C++/OOP 1.5D<br>
+      Memory 1.5D</td>
+      <td width="146" height="1" bgcolor="#C0C0C0">SAP中國研究院<br>
+      上海</td>
+      <td width="316" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">09/19 -<br>
+      09/21</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五六日</td>
+      <td width="164" height="1" bgcolor="#C0C0C0">C++/OOP</td>
+      <td width="146" height="1" bgcolor="#C0C0C0">Nokia研發中心<br>
+      上海</td>
+      <td width="316" height="1" bgcolor="#C0C0C0"><font color="#000000">09/21 早上退房，</font>課後飛北京<br>
+      <font color="#000000">1800虹橋&nbsp; 2015北京 南航CZ5121 <br>
+      09/21 夜宿 mike place</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">09/22</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="164" height="1" bgcolor="#C0C0C0">休息. CMB辦事.&nbsp; </td>
+      <td width="146" height="1" bgcolor="#C0C0C0"></td>
+      <td width="316" height="1" bgcolor="#C0C0C0"><font color="#000000">傍晚進飯店<br>
+      北京博雅中心公寓酒店豪華套間<br>
+      010-84782235<br>
+      北京市朝陽區望京 利澤中一路1號<br>
+      博雅中心國際公寓101E</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">09/23 - <br>
+      09/24</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">二三</td>
+      <td width="164" height="1" bgcolor="#C0C0C0">C++/OOP</td>
+      <td width="146" height="1" bgcolor="#C0C0C0">Agilent研發中心 <br>
+      北京</td>
+      <td width="316" height="1" bgcolor="#C0C0C0"><font color="#000000">09/24 早上退房，</font>課後飛上海<font
+      color="#000000"><br>
+      1800北京 2000虹橋 &nbsp; 南航 CZ5122<br>
+      宛平南路雅舍賓館 216 房 (good)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">09/25</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="164" height="1" bgcolor="#C0C0C0">STL &amp; GP</td>
+      <td width="146" height="1" bgcolor="#C0C0C0">Autodesk研發中心<br>
+      上海</td>
+      <td width="316" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">09/26</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="164" height="1" bgcolor="#C0C0C0">休息</td>
+      <td width="146" height="1" bgcolor="#C0C0C0">上海</td>
+      <td width="316" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">09/27 - <br>
+      09/28</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">六日</td>
+      <td width="164" height="1" bgcolor="#C0C0C0">STL &amp; GP</td>
+      <td width="146" height="1" bgcolor="#C0C0C0">Autodesk研發中心<br>
+      上海</td>
+      <td width="316" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">09/29</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="164" height="1" bgcolor="#C0C0C0"></td>
+      <td width="146" height="1" bgcolor="#C0C0C0"></td>
+      <td width="316" height="1" bgcolor="#C0C0C0"><font color="#000000">11:00 退房, taxi, 
+      11:45達機場(#1站)<br>
+      1450 上海浦東 (東航 MU581)<br>
+      1030 溫哥華</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>↓2008/07 大陸行 30 天 + 臺灣 8 天：</p>
+  <div align="left"><table border="1" width="666" height="72">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="83" height="16">星期</td>
+      <td width="116" height="16">課程</td>
+      <td width="137" height="16">地點</td>
+      <td width="373" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/19</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0"><font color="#000000">溫哥華 起飛</font></td>
+      <td width="373" height="1" bgcolor="#C0C0C0"><font color="#000000">1220溫哥華 (東航 
+      MU582)<br>
+      (溫哥華-上海-香港-台北-溫哥華)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/20</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">上海 到達<br>
+      上海 - 南京&nbsp; </td>
+      <td width="373" height="1" bgcolor="#C0C0C0"><font color="#000000">1525上海浦東</font><br>
+      磁浮+地鐵 #2(世紀大道)+地鐵 #4(火車站)<br>
+      1900-2109 D448火車移動至南京</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/21 - <br>
+      07/26</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一 - 六</td>
+      <td width="116" height="1" bgcolor="#C0C0C0">GP/STL</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">南京大學</td>
+      <td width="373" height="1" bgcolor="#C0C0C0">27 hours. 6+3+6+3+6+3<br>
+      上午 0830開始，下午1400開始<br>
+      Day1, 6 hours : overview, templates, vector<br>
+      Day2, 3 hours : Containers<br>
+      Day3, 6 hours : hashtable, Traits, Algorithms <br>
+      Day4, 3 hours : Exs, ostream iterator <br>
+      Day5, 6 hours : istream iterator, inserter, ...<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Functors, 
+      Function Adapters, Allocators<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 補充 VC's 
+      malloc<br>
+      Day6, 3 hours : 考試 + 批卷</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/27</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">南京 - 上海 </td>
+      <td width="373" height="1" bgcolor="#C0C0C0">11:35-13:50 D417火車移動至上海</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/28 - <br>
+      08/02</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一 - 六</td>
+      <td width="116" height="1" bgcolor="#C0C0C0">Design Patterns</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">同濟大學</td>
+      <td width="373" height="1" bgcolor="#C0C0C0">24 hours. 3+3+6+3+6+3<br>
+      last day : 考試 + 批卷</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/03</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">上海 - 瀋陽 </td>
+      <td width="373" height="1" bgcolor="#C0C0C0"><font color="#400000">1110上海浦東 -&nbsp;1310瀋陽<br>
+      (南航CZ6504,</font><font color="#000000"> RMB 680)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/04 - <br>
+      08/06</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一 - 三</td>
+      <td width="116" height="1" bgcolor="#C0C0C0">C/C++ Memory</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">瀋陽東軟</td>
+      <td width="373" height="1" bgcolor="#C0C0C0">18 hours.<br>
+      Day1: malloc. new/delete&nbsp; <br>
+      Day2: allocator in STL, in MFC <br>
+      Day3: allocator in Loki, in Boost. test</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/07 - <br>
+      08/09</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四 - 六</td>
+      <td width="116" height="1" bgcolor="#C0C0C0">C++ OOP</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">瀋陽東軟</td>
+      <td width="373" height="1" bgcolor="#C0C0C0">18 hours.<br>
+      Day1: C++ classes. <br>
+      Day2: OOP + samples<br>
+      Day3: STL + DP,&nbsp; test</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/10</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">瀋陽 - 大連 </td>
+      <td width="373" height="1" bgcolor="#C0C0C0">火車移動. 大連速八酒店658房不錯</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/11 - <br>
+      08/13</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一 - 三</td>
+      <td width="116" height="1" bgcolor="#C0C0C0">C/C++ Memory</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">大連東軟</td>
+      <td width="373" height="1" bgcolor="#C0C0C0">18 hours.</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/14 - <br>
+      08/16</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">四 - 六</td>
+      <td width="116" height="1" bgcolor="#C0C0C0">C++ OOP</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">大連東軟</td>
+      <td width="373" height="1" bgcolor="#C0C0C0">18 hours.</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/17</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">大連 - 上海<br>
+      上海 - 台北</td>
+      <td width="373" height="1" bgcolor="#C0C0C0"><font color="#400000">0750大連 - 0925上海 
+      (東航 MU5660)</font><font color="#808080"><br>
+      </font><font color="#000000">1100上海 - 1335香港 (東航 MU703)<br>
+      1530香港 -&nbsp;1710桃園 (長榮 BR870)<br>
+      0810 大連 - 0955 上海(南航CZ6521)<br>
+      1250 上海 - 1600 台北(國航, CA195)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/25</td>
+      <td width="83" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="116" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0"><font color="#000000">新竹 - 溫哥華</font></td>
+      <td width="373" height="1" bgcolor="#C0C0C0"><font color="#000000">2355 桃園 - 1940 
+      溫哥華(長榮BR010)</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>↓2007/12 大陸行（共 16 天）：</p>
+  <div align="left"><table border="1" width="603" height="76">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="84" height="16">星期</td>
+      <td width="115" height="16">課程</td>
+      <td width="137" height="16">地點</td>
+      <td width="310" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/09</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="115" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0"><font color="#000000">新竹 - 北京</font></td>
+      <td width="310" height="1" bgcolor="#C0C0C0"><font color="#000000">0925桃園-1120香港 (國泰)<br>
+      1245香港-1600北京 (國航)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/10</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="115" height="1" bgcolor="#C0C0C0">CMB 辦事</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">北京 - 瀋陽</td>
+      <td width="310" height="1" bgcolor="#C0C0C0"><font color="#000000">1710北京-1810</font>瀋陽<font
+      color="#000000"> (南航CZ6106)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/11 - <br>
+      12/13</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">二 - 四</td>
+      <td width="115" height="1" bgcolor="#C0C0C0">C++ Advanced</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">瀋陽</td>
+      <td width="310" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/14 - <br>
+      12/16</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">五 - 日</td>
+      <td width="115" height="1" bgcolor="#C0C0C0">Design Patterns</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">瀋陽</td>
+      <td width="310" height="1" bgcolor="#C0C0C0"><small>day1: Intro., Template Method, 
+      Strategy, Composite, Decorator, Reference Counting<br>
+      day2: Proxy, Singleton, Observer, Iterator, Pooled Allocation(alloc, loki)<br>
+      day3:Pooled Allocation(mfc, boost), Adapter, Factory Method, Abstract Factory, State, 
+      Flyweight, Command, Undoable</small></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/17</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="115" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">瀋陽 - 大連</td>
+      <td width="310" height="1" bgcolor="#C0C0C0">火車移動</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/18-<br>
+      12/20</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">二 - 四</td>
+      <td width="115" height="1" bgcolor="#C0C0C0">C++ Advanced</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">大連</td>
+      <td width="310" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/21-<br>
+      12/23</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">五 - 日</td>
+      <td width="115" height="1" bgcolor="#C0C0C0">Design Patterns</td>
+      <td width="137" height="1" bgcolor="#C0C0C0">大連</td>
+      <td width="310" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/24</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="115" height="1" bgcolor="#C0C0C0"></td>
+      <td width="137" height="1" bgcolor="#C0C0C0">大連<font color="#000000"> - 新竹</font></td>
+      <td width="310" height="1" bgcolor="#C0C0C0"><font color="#000000">1255大連 - 1625香港 
+      (國航)<br>
+      1825香港 -&nbsp;2000桃園 (國泰)</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>↓2007/11 大陸行（共 11 天，with 思源科技）：</p>
+  <div align="left"><table border="1" width="637" height="76">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="84" height="16">星期</td>
+      <td width="95" height="16">主題</td>
+      <td width="173" height="16">地點</td>
+      <td width="328" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/07</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="95" height="1" bgcolor="#C0C0C0">移動</td>
+      <td width="173" height="1" bgcolor="#C0C0C0"><font color="#000000">新竹 - 成都</font></td>
+      <td width="328" height="1" bgcolor="#C0C0C0"><font color="#000000">0820 桃園&nbsp;- 1000 
+      香港 BR851<br>
+      1110 香港&nbsp;- 1345 成都 CA412</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/08</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"><font color="#000000">演講</font></td>
+      <td width="173" height="1" bgcolor="#C0C0C0"><font color="#000000">成都電子科技大學</font></td>
+      <td width="328" height="1" bgcolor="#C0C0C0">0900-09105招聘會流程簡介<br>
+      0910-0940 思源簡介<br>
+      0940-0950 廈門簡介<br>
+      0950-1030 回答關於思源的問題1030-1120 侯捷演講<br>
+      1120-思源筆試口試<br>
+      <font face="新細明體" color="black" size="1"><span
+      style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: 新細明體">選擇軟體公司的問題分析</span></font><font
+      face="Arial" color="black" size="1"><span lang="EN-US"
+      style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: Arial">:<o:p></o:p><br>
+      </span></font><font face="新細明體" color="black" size="1"><span
+      style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: 新細明體">*所開發的軟體技術門檻是否夠高</span></font><font
+      face="Arial" color="black" size="1"><span lang="EN-US"
+      style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: Arial">?<o:p></o:p><br>
+      *</span></font><font face="新細明體" color="black" size="1"><span
+      style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: 新細明體">是否把軟體工程當一門學問並實踐在軟體開發上</span></font><span
+      lang="EN-US" style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: Arial"><font color="black"
+      size="1"> </font><font face="Arial" color="black" size="1">?<br>
+</o:p>      *</font></span><font face="新細明體" color="black" size="1"><span
+      style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: 新細明體">是否有學習的環境及學習的氣氛</span></font><span
+      lang="EN-US" style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: Arial"><font color="black"
+      size="1"> </font><font face="Arial" color="black" size="1">?<o:p></o:p><br>
+      *</font></span><font face="新細明體" color="black" size="1"><span
+      style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: 新細明體">軟體開發在公司內部是當主角還是配角</span></font><span
+      lang="EN-US" style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: Arial"><font color="black"
+      size="1"> </font><font face="Arial" color="black" size="1">?<o:p></o:p><br>
+      *</font></span><font face="新細明體" color="black" size="1"><span
+      style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: 新細明體">所開發的軟體是否有能力行銷全球</span></font><span
+      lang="EN-US" style="FONT-SIZE: 9pt; COLOR: black; FONT-FAMILY: Arial"><font color="black"
+      size="1"> </font><font face="Arial" color="black" size="1">?<o:p></o:p></font></span></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/09</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"><font color="#000000">座談</font></td>
+      <td width="173" height="1" bgcolor="#C0C0C0"><font color="#000000">成都電子科技大學</font></td>
+      <td width="328" height="1" bgcolor="#C0C0C0">0900-1200 思源面試 <br>
+      1300-1400 侯捷座談<br>
+      提供少量學生近距離談軟體相關問題，包括學習,生涯規劃<br>
+      1410-&nbsp; 思源內部作業</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/10</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="95" height="1" bgcolor="#C0C0C0">移動</td>
+      <td width="173" height="1" bgcolor="#C0C0C0"><font color="#000000">成都 - 西安</font></td>
+      <td width="328" height="1" bgcolor="#C0C0C0">1300<font color="#000000"> 成都</font> - 
+      1410 <font color="#000000">西安 CZ6434</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/11</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="95" height="1" bgcolor="#C0C0C0">休息</td>
+      <td width="173" height="1" bgcolor="#C0C0C0"><font color="#000000">西安</font></td>
+      <td width="328" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/12</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"><font color="#000000">演講</font></td>
+      <td width="173" height="1" bgcolor="#C0C0C0"><font color="#000000">西安交通大學</font></td>
+      <td width="328" height="1" bgcolor="#C0C0C0">10:30-11:20</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/13</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"><font color="#000000">座談</font></td>
+      <td width="173" height="1" bgcolor="#C0C0C0"><font color="#000000">西安交通大學</font></td>
+      <td width="328" height="1" bgcolor="#C0C0C0">13:00-14:00</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/14</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="95" height="1" bgcolor="#C0C0C0">移動</td>
+      <td width="173" height="1" bgcolor="#C0C0C0"><font color="#000000">西安 - 武漢</font></td>
+      <td width="328" height="1" bgcolor="#C0C0C0">1350<font color="#000000"> 西安</font> - 
+      1455 <font color="#000000">武漢 CZ6939</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/15</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"><font color="#000000">演講</font></td>
+      <td width="173" height="1" bgcolor="#C0C0C0"><font color="#000000">華中科技大學</font></td>
+      <td width="328" height="1" bgcolor="#C0C0C0">10:30-11:20</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/16</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"><font color="#000000">座談</font></td>
+      <td width="173" height="1" bgcolor="#C0C0C0"><font color="#000000">華中科技大學</font></td>
+      <td width="328" height="1" bgcolor="#C0C0C0">13:00-14:00</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/17</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="95" height="1" bgcolor="#C0C0C0">移動</td>
+      <td width="173" height="1" bgcolor="#C0C0C0"><font color="#000000">武漢 - 新竹</font></td>
+      <td width="328" height="1" bgcolor="#C0C0C0"><font color="#000000">0900 武漢- 1035 
+      香港 CZ3075<br>
+      1200 香港- 1340 桃園 BR866</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>↓2007/07 大陸行 39 天 + 溫哥華<font color="#000000">17</font><font
+  color="#FF0000"> </font>天：</p>
+  <div align="left"><table border="1" width="556" height="65">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="84" height="16">星期</td>
+      <td width="104" height="16">課程</td>
+      <td width="131" height="16">地點</td>
+      <td width="280" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/02</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0"><font color="#000000">新竹 - 南京</font></td>
+      <td width="280" height="1" bgcolor="#C0C0C0"><font color="#000000">0800 桃園&nbsp;- 1005 
+      香港 (國泰)<br>
+      1120 香港&nbsp;- 1330 南京 (東方)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/03 - <br>
+      07/06</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">二-五</td>
+      <td width="104" height="1" bgcolor="#C0C0C0">C++ Memory <br>
+      Management</td>
+      <td width="131" height="1" bgcolor="#C0C0C0"><font color="#000000">南京<br>
+      南京大學</font></td>
+      <td width="280" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/07 - <br>
+      07/08</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">六日</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0"><font color="#000000">南京</font></td>
+      <td width="280" height="1" bgcolor="#C0C0C0">休息 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/09 - <br>
+      07/13</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一-五</td>
+      <td width="104" height="1" bgcolor="#C0C0C0">C++ Memory <br>
+      Management</td>
+      <td width="131" height="1" bgcolor="#C0C0C0"><font color="#000000">南京<br>
+      南京大學</font></td>
+      <td width="280" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/14 </td>
+      <td width="84" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0"><font color="#000000">南京 - 上海</font></td>
+      <td width="280" height="1" bgcolor="#C0C0C0">火車移動 / 休息<br>
+      D411, 0930出發,&nbsp; $84 RMB</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/15</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0"><font color="#000000">上海</font></td>
+      <td width="280" height="1" bgcolor="#C0C0C0">休息</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/16-07/17</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一二</td>
+      <td width="104" height="1" bgcolor="#C0C0C0">Design Patterns </td>
+      <td width="131" height="1" bgcolor="#C0C0C0">上海<br>
+      同濟大學</td>
+      <td width="280" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/18</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0"><font color="#000000">上海</font></td>
+      <td width="280" height="1" bgcolor="#C0C0C0">休息</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/19-07/20</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">四五</td>
+      <td width="104" height="1" bgcolor="#C0C0C0">Design Patterns </td>
+      <td width="131" height="1" bgcolor="#C0C0C0">上海<br>
+      同濟大學</td>
+      <td width="280" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/21</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0"><font color="#000000">上海</font></td>
+      <td width="280" height="1" bgcolor="#C0C0C0">休息</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/22-07/25</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">日一二三</td>
+      <td width="104" height="1" bgcolor="#C0C0C0">Design Patterns </td>
+      <td width="131" height="1" bgcolor="#C0C0C0">上海<br>
+      同濟大學</td>
+      <td width="280" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/25</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0">上海 - 大連</td>
+      <td width="280" height="1" bgcolor="#C0C0C0"><font color="#000000">上海埔東</font> 
+      1730<font color="#000000"> 大連</font>1910 <br>
+      南航 CZ6542</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/26</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0"><font color="#000000">大連</font></td>
+      <td width="280" height="1" bgcolor="#C0C0C0">休息</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/27-<br>
+      07/30</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">五六日一</td>
+      <td width="104" height="1" bgcolor="#C0C0C0">Advanced C++</td>
+      <td width="131" height="1" bgcolor="#C0C0C0">大連東軟</td>
+      <td width="280" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/31</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0">大連-瀋陽</td>
+      <td width="280" height="1" bgcolor="#C0C0C0">火車移動 / 休息 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/01 - <br>
+      08/03 </td>
+      <td width="84" height="1" bgcolor="#C0C0C0">三四五</td>
+      <td width="104" height="1" bgcolor="#C0C0C0">C++ Memory <br>
+      Management </td>
+      <td width="131" height="1" bgcolor="#C0C0C0">瀋陽東軟</td>
+      <td width="280" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/04</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0">瀋陽</td>
+      <td width="280" height="1" bgcolor="#C0C0C0">休息 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/05 -<br>
+      08/08 </td>
+      <td width="84" height="1" bgcolor="#C0C0C0">日一二三</td>
+      <td width="104" height="1" bgcolor="#C0C0C0">Advanced C++</td>
+      <td width="131" height="1" bgcolor="#C0C0C0">瀋陽東軟</td>
+      <td width="280" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/08</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="104" height="1" bgcolor="#C0C0C0">美靜和咚咚</td>
+      <td width="131" height="1" bgcolor="#C0C0C0">台北 - 溫哥華</td>
+      <td width="280" height="1" bgcolor="#C0C0C0"><font color="#000000">台北 2355&nbsp;溫哥華 
+      1940</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/09</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0">瀋陽 - 溫哥華</td>
+      <td width="280" height="1" bgcolor="#C0C0C0"><font color="#000000">瀋陽 0810&nbsp;上海 
+      1000 (東航)<br>
+      上海&nbsp;1450&nbsp;溫哥華 1000 </font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">08/<font color="#000000">26</font></td>
+      <td width="84" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="104" height="1" bgcolor="#C0C0C0"></td>
+      <td width="131" height="1" bgcolor="#C0C0C0">溫哥華 - 台北</td>
+      <td width="280" height="1" bgcolor="#C0C0C0"><font color="#000000">溫哥華 0220&nbsp;台北 
+      0510 (長榮)</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>↓2007/05 大陸行（共 26 天）：</p>
+  <div align="left"><table border="1" width="603" height="76">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="84" height="16">星期</td>
+      <td width="95" height="16">課程</td>
+      <td width="157" height="16">地點</td>
+      <td width="310" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">05/14</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"></td>
+      <td width="157" height="1" bgcolor="#C0C0C0"><font color="#000000">新竹 - 上海</font></td>
+      <td width="310" height="1" bgcolor="#C0C0C0"><font color="#000000">0820 桃園&nbsp;- 1005 
+      香港 <br>
+      1115 香港&nbsp;- 1335 上海<br>
+      漢庭酒店</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">05/15-17</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">二三四</td>
+      <td width="95" height="1" bgcolor="#C0C0C0">Design Patterns </td>
+      <td width="157" height="1" bgcolor="#C0C0C0">漢略科技<br>
+      漕河涇軟件園</td>
+      <td width="310" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">05/18-20</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">五六日</td>
+      <td width="95" height="1" bgcolor="#C0C0C0">Design Patterns </td>
+      <td width="157" height="1" bgcolor="#C0C0C0">上海圖書館</td>
+      <td width="310" height="1" bgcolor="#C0C0C0">上海公開課（classroom）</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">05/21-23</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一二三</td>
+      <td width="95" height="1" bgcolor="#C0C0C0">Design Patterns </td>
+      <td width="157" height="1" bgcolor="#C0C0C0">柯達研發中心 <br>
+      上海金橋軟件園</td>
+      <td width="310" height="1" bgcolor="#C0C0C0">23號下午課畢19:15火車赴北京。</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">05/24</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"></td>
+      <td width="157" height="1" bgcolor="#C0C0C0">北京</td>
+      <td width="310" height="1" bgcolor="#C0C0C0"><font color="#0000FF">休息</font><font
+      color="#000000">. 富頓公寓酒店</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">05/25-27</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">五六日</td>
+      <td width="95" height="1" bgcolor="#C0C0C0">Design Patterns </td>
+      <td width="157" height="1" bgcolor="#C0C0C0">北京朝陽區</td>
+      <td width="310" height="1" bgcolor="#C0C0C0">北京公開課（classroom）</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">05/28</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"></td>
+      <td width="157" height="1" bgcolor="#C0C0C0">北京</td>
+      <td width="310" height="1" bgcolor="#C0C0C0"><font color="#0000FF">休息</font>。21:42夜車往南京。 
+      </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">05/29</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"></td>
+      <td width="157" height="1" bgcolor="#C0C0C0"></td>
+      <td width="310" height="1" bgcolor="#C0C0C0">晨抵南京趨勢</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">05/30-05/31<br>
+      06/01</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">三四五</td>
+      <td width="95" height="1" bgcolor="#C0C0C0">Design Patterns</td>
+      <td width="157" height="1" bgcolor="#C0C0C0">趨勢科技<br>
+      南京研究院</td>
+      <td width="310" height="1" bgcolor="#C0C0C0">1400-1800</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/02</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"></td>
+      <td width="157" height="1" bgcolor="#C0C0C0">南京--&gt;青島</td>
+      <td width="310" height="1" bgcolor="#C0C0C0"><font color="#0000FF">休息</font>。1350 
+      飛青島(1h)</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/03</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="95" height="1" bgcolor="#C0C0C0">Design Patterns</td>
+      <td width="157" height="1" bgcolor="#C0C0C0">青島軟件園</td>
+      <td width="310" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/04</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"></td>
+      <td width="157" height="1" bgcolor="#C0C0C0">青島</td>
+      <td width="310" height="1" bgcolor="#C0C0C0">嶗山。1350火車往洛陽(17h)</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/05</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"></td>
+      <td width="157" height="1" bgcolor="#C0C0C0">洛陽<br>
+      嵩山 </td>
+      <td width="310" height="1" bgcolor="#C0C0C0">0500 抵洛陽。上午遊龍門石窟。<br>
+      午後往少林寺(1.5h)<br>
+      夜宿少林寺附近農家</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/06</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"></td>
+      <td width="157" height="1" bgcolor="#C0C0C0">嵩山<br>
+      洛陽</td>
+      <td width="310" height="1" bgcolor="#C0C0C0">午前回到洛陽(1.5h)<br>
+      1600火車往西安 (5h)</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/07</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"></td>
+      <td width="157" height="1" bgcolor="#C0C0C0">西安 </td>
+      <td width="310" height="1" bgcolor="#C0C0C0">碑林+兵馬俑(1.5h)&nbsp;&nbsp; </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/08</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="95" height="1" bgcolor="#C0C0C0"></td>
+      <td width="157" height="1" bgcolor="#C0C0C0">西安 - 新竹 </td>
+      <td width="310" height="1" bgcolor="#C0C0C0"><font color="#000000">1420 西安- 1700 
+      香港<br>
+      1835 香港- 2015 桃園<br>
+      (兩段合誤3h，1130降落)</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>↓2006活動 </p>
+  <div align="left"><table border="1" width="606">
+    <tr>
+      <td width="101">日期</td>
+      <td width="112">單位</td>
+      <td width="95">性質</td>
+      <td width="165">題目</td>
+      <td width="103">時間</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2006/02/23 ~ <br>
+      2005/06/15</td>
+      <td width="112" bgcolor="#C0C0C0">內壢<br>
+      元智大學<br>
+      資訊工程學系</td>
+      <td width="95" bgcolor="#C0C0C0">學分課</td>
+      <td width="165" bgcolor="#C0C0C0">高等物件導向程式設計<br>
+      <small>(Advanced Object-Oriented Programming) </small><br>
+      <a href="unsaved:///course-dp-yzu-2006.htm" target="main"><small>元智大學94-2課程備忘錄</small></a></td>
+      <td width="103" bgcolor="#C0C0C0">每周四 18:30~21:20<br>
+      教室 1401B<br>
+      工程一館</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2006/07/03 ~ <br>
+      2006/07/09</td>
+      <td width="112" bgcolor="#C0C0C0">上海<br>
+      同濟大學<br>
+      軟件學院</td>
+      <td width="95" bgcolor="#C0C0C0">學分課<br>
+      (27學時）</td>
+      <td width="165" bgcolor="#C0C0C0">設計範式<br>
+      (Design Patterns)<br>
+      <a href="unsaved:///course-dp-tongji-2006.htm" target="main"><small>同濟大學2006課程備忘錄</small></a></td>
+      <td width="103" bgcolor="#C0C0C0">每天 3 hours</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2006/07/10 ~ <br>
+      2006/07/20</td>
+      <td width="112" bgcolor="#C0C0C0">南京<br>
+      南京大學<br>
+      軟件學院</td>
+      <td width="95" bgcolor="#C0C0C0">學分課<br>
+      (27學時）</td>
+      <td width="165" bgcolor="#C0C0C0">應用框架設計<br>
+      <small>(Application Framework <br>
+      Design, MFC-Like)</small><br>
+      <a href="unsaved:///course-af-nanjing-2006.htm" target="main"><small>南京大學2006課程備忘錄</small></a></td>
+      <td width="103" bgcolor="#C0C0C0">每天 3 hours</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2006/07/24</td>
+      <td width="112" bgcolor="#C0C0C0">北京雅虎</td>
+      <td width="95" bgcolor="#C0C0C0">6小時短課程</td>
+      <td width="165" bgcolor="#C0C0C0">泛講：泛型編程及應用<span lang="EN-US">, C++ </span>新發展<span
+      lang="EN-US">, OO</span></td>
+      <td width="103" bgcolor="#C0C0C0">09:00-12:00<br>
+      13:00-16:00</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">08/08<br>
+      JavaTwo2006</td>
+      <td width="112" bgcolor="#C0C0C0">台北<br>
+      昇陽公司<br>
+      Sun Taiwan</td>
+      <td width="95" bgcolor="#C0C0C0">70 分鐘<br>
+      講座</td>
+      <td width="165" bgcolor="#C0C0C0">Easy to Create an Undoable Application, <br>
+      using Swing Undoable APIs</td>
+      <td width="103" bgcolor="#C0C0C0">13:30~14:40</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2006/09/05 ~<br>
+      2006/09/21</td>
+      <td width="112" bgcolor="#C0C0C0">鑫創科技, 竹北</td>
+      <td width="95" bgcolor="#C0C0C0">18小時課程</td>
+      <td width="165" bgcolor="#C0C0C0"><a href="unsaved:///course-cpp-sss-2006.htm"
+      target="main">C++/OOP</a></td>
+      <td width="103" bgcolor="#C0C0C0">09/05-09/21<br>
+      每周二四<br>
+      1800-2100</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2006/10/12~<br>
+      2006/11/14</td>
+      <td width="112" bgcolor="#C0C0C0">鑫創科技, 竹北</td>
+      <td width="95" bgcolor="#C0C0C0">30小時課程</td>
+      <td width="165" bgcolor="#C0C0C0"><a href="unsaved:///course-mfc-sss-2006.htm"
+      target="main">MFC Programming</a></td>
+      <td width="103" bgcolor="#C0C0C0">每周二四<br>
+      1800-2100</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2006/12</td>
+      <td width="112" bgcolor="#C0C0C0">東軟</td>
+      <td width="95" bgcolor="#C0C0C0">18小時 * 2</td>
+      <td width="165" bgcolor="#C0C0C0"><a href="unsaved:///course-cpp-memory-neusoft-2006.htm"
+      target="main">C++ memory管理機制</a></td>
+      <td width="103" bgcolor="#C0C0C0">　</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2006/12</td>
+      <td width="112" bgcolor="#C0C0C0">東軟</td>
+      <td width="95" bgcolor="#C0C0C0">18小時 * 1</td>
+      <td width="165" bgcolor="#C0C0C0"><a href="unsaved:///course-mfc-oop-dp-neusoft-2006.htm"
+      target="main">MFCAdvanced+OOP+DP</a></td>
+      <td width="103" bgcolor="#C0C0C0">　</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2006/12</td>
+      <td width="112" bgcolor="#C0C0C0">東軟</td>
+      <td width="95" bgcolor="#C0C0C0">24小時 * 1</td>
+      <td width="165" bgcolor="#C0C0C0"><a href="unsaved:///course-cpp-neusoft-2006.htm"
+      target="main">C++<br>
+      ADT/OOP/GP/OOD/DP</a></td>
+      <td width="103" bgcolor="#C0C0C0">　</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2006/12</td>
+      <td width="112" bgcolor="#C0C0C0">東軟</td>
+      <td width="95" bgcolor="#C0C0C0">6小時 * 1</td>
+      <td width="165" bgcolor="#C0C0C0"><a href="unsaved:///course-c-adv-neusoft-2006.htm"
+      target="main">C Advanced</a></td>
+      <td width="103" bgcolor="#C0C0C0">　</td>
+    </tr>
+    <tr>
+      <td width="101"><font color="#C0C0C0">2006/12</font></td>
+      <td width="112"><font color="#C0C0C0">東軟</font></td>
+      <td width="95"><font color="#C0C0C0">24小時 * 1</font></td>
+      <td width="165"><font color="#C0C0C0"><a href="unsaved:///course-dp-neusoft-2006.htm"
+      target="main">Design Patterns, In Practice</a></font></td>
+      <td width="103"><font color="#C0C0C0">因故臨時取消</font></td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2006/12</td>
+      <td width="112" bgcolor="#C0C0C0">北京雅虎</td>
+      <td width="95" bgcolor="#C0C0C0">24小時 * 1</td>
+      <td width="165" bgcolor="#C0C0C0"><a href="unsaved:///course-cpp-yahoo-2006.htm"
+      target="main">OOP/GP/DP</a></td>
+      <td width="103" bgcolor="#C0C0C0">　</td>
+    </tr>
+  </table>
+  </div><p>↓<a name="2006-12-mainland">2006/12 大陸行</a>（共 33 天）：</p>
+  <div align="left"><table border="1" width="561" height="76">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="84" height="16">星期</td>
+      <td width="126" height="16">地點</td>
+      <td width="268" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/21</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="126" height="1" bgcolor="#C0C0C0"><font color="#0000FF">新竹-瀋陽</font></td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><font color="#000000">0740 桃園&nbsp; - 
+      0925 香港&nbsp; CI601 (華航)<br>
+      1040 香港&nbsp; - 1555 瀋陽&nbsp; KA920 (港龍)<br>
+      來回 NTD&nbsp; 20500+600 </font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11月23,24,25</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">四五六</td>
+      <td width="126" height="1" bgcolor="#C0C0C0">瀋陽, 東軟</td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><a
+      href="unsaved:///course-cpp-memory-neusoft-2006.htm" target="main">C++ memory管理機制</a><br>
+      臨時改為24,25,26上課</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11月<br>
+      27,28,29</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一二三</td>
+      <td width="126" height="1" bgcolor="#C0C0C0">瀋陽, 東軟</td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><a
+      href="unsaved:///course-mfc-oop-dp-neusoft-2006.htm" target="main">MFCAdvanced+OOP+DP</a></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      01</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="126" height="1" bgcolor="#C0C0C0"><font color="#0000FF">瀋陽-大連</font></td>
+      <td width="268" height="1" bgcolor="#C0C0C0">07:35火車, 四小時車程</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      02,03,04</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">六日一</td>
+      <td width="126" height="1" bgcolor="#C0C0C0">大連, 東軟</td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><a
+      href="unsaved:///course-cpp-memory-neusoft-2006.htm" target="main">C++ memory管理機制</a></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      05</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="126" height="1" bgcolor="#C0C0C0">大連</td>
+      <td width="268" height="1" bgcolor="#C0C0C0">休息. 略感冒.</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      6,7,8,9</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">三四五六</td>
+      <td width="126" height="1" bgcolor="#C0C0C0">大連, 東軟</td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><a
+      href="unsaved:///course-cpp-neusoft-2006.htm" target="main">C++ ADT/OOP/GP/OOD/DP</a></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      10</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="126" height="1" bgcolor="#C0C0C0">大連, 東軟</td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><a
+      href="unsaved:///course-c-adv-neusoft-2006.htm" target="main">C Advanced</a></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      11,12</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一二</td>
+      <td width="126" height="1" bgcolor="#C0C0C0">大連</td>
+      <td width="268" height="1" bgcolor="#C0C0C0">電車、星海廣場</td>
+    </tr>
+    <tr>
+      <td width="59" height="1"><font color="#808080">12月<br>
+      13,14,15,16</font></td>
+      <td width="84" height="1"><font color="#808080">三四五六</font></td>
+      <td width="126" height="1"><font color="#808080">大連, 東軟培訓</font></td>
+      <td width="268" height="1"><font color="#808080"><a
+      href="unsaved:///course-dp-neusoft-2006.htm" target="main">Design Patterns, In Practice</a> 
+      <br>
+      (因故臨時取消)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      14</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="126" height="1" bgcolor="#C0C0C0"><font color="#000000">提前抵京</font><font
+      color="#FF0000"><br>
+      </font><font color="#0000FF">大連-北京</font></td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><font color="#000000">09:00-10:10 CZ6123 
+      (RMB820自付)</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      15</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="126" height="1" bgcolor="#C0C0C0"><font color="#000000">清東陵</font></td>
+      <td width="268" height="1" bgcolor="#C0C0C0">with mike&amp;paili 自駕來回 5 小時</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      16</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="126" height="1" bgcolor="#C0C0C0">天安門,老舍茶館</td>
+      <td width="268" height="1" bgcolor="#C0C0C0">北風呼號, 甚寒</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      17</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="126" height="1" bgcolor="#C0C0C0"></td>
+      <td width="268" height="1" bgcolor="#C0C0C0">靜處靜思,整理講義</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      18</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="126" height="1" bgcolor="#C0C0C0">入住酒店</td>
+      <td width="268" height="1" bgcolor="#C0C0C0">午後茶聚 jinzital,zhou,myan </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      19,20,21,22</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">二三四五</td>
+      <td width="126" height="1" bgcolor="#C0C0C0">北京, 雅虎</td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><a
+      href="unsaved:///course-cpp-yahoo-2006.htm" target="main">OOP/GP/DP</a><br>
+      二三四：0930-1230, 1400-1700<br>
+      五：0930-1230, 1500-1800.<br>
+      夜會jiangtao</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12月<br>
+      23</td>
+      <td width="84" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="126" height="1" bgcolor="#C0C0C0"><font color="#0000FF">北京-新竹</font></td>
+      <td width="268" height="1" bgcolor="#C0C0C0"><font color="#000000">1005 北京 - 1350 
+      香港&nbsp; KA907 (港龍)<br>
+      1545 香港 - 1720 桃園&nbsp; CI610&nbsp;(華航)</font></td>
+    </tr>
+  </table>
+  </div><p>↓2006/07 大陸行（共 24 天）：</p>
+  <div align="left"><table border="1" width="561" height="76">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="49" height="16">星期</td>
+      <td width="148" height="16">地點</td>
+      <td width="281" height="16">備註 </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/02</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">台北-<font color="#000000">澳門</font>-上海</td>
+      <td width="281" height="1" bgcolor="#C0C0C0"><font color="#000000">0800 桃園 NX505<br>
+      0950 澳門<br>
+      1040 澳門 NX106<br>
+      1255 上海</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/03 ~<br>
+      07/09</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">一~日</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">同濟大學 </td>
+      <td width="281" height="1" bgcolor="#C0C0C0">同濟大學 嘉定校區</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/10 ~<br>
+      07/14</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">一~五</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">南京大學 </td>
+      <td width="281" height="1" bgcolor="#C0C0C0">南京大學 浦口校區</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/15 ~<br>
+      07/16</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">六~日</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">太湖農漁村</td>
+      <td width="281" height="1" bgcolor="#C0C0C0">蘇州、高新區、金雞湖、同里、太湖、東山半島、紫金庵、雕刻博物館、西山島、沼澤濕地公園</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/17 ~<br>
+      07/20</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">一~四</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">南京大學 </td>
+      <td width="281" height="1" bgcolor="#C0C0C0">南京大學 浦口校區<br>
+      周四中午結束返滬</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/21</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">上海<font FACE="新細明體" size="3"> </font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0">凌陽<br>
+      金茂大樓酒吧</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/22 ~<br>
+      07/23</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">六~日</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">上海-北京<font FACE="新細明體"
+      size="3"> </font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0">周六晚 Z8 班車，周日抵北京</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/24</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#000000">北京雅虎</font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0">泛講 GP、OO、DP、new C++ </td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/25</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#000000">北京-澳門</font>-台北</td>
+      <td width="281" height="1" bgcolor="#C0C0C0"><font color="#000000">1610 北京 <br>
+      1935 澳門<br>
+      2020 澳門<br>
+      2200 桃園 </font></td>
+    </tr>
+  </table>
+  </div><p>↓2005活動 </p>
+  <div align="left"><table border="1" width="606">
+    <tr>
+      <td width="101">日期</td>
+      <td width="112">單位</td>
+      <td width="95">性質</td>
+      <td width="165">題目</td>
+      <td width="103">時間</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2005/02/23 ~ <br>
+      2005/06/15</td>
+      <td width="112" bgcolor="#C0C0C0">內壢<br>
+      元智大學<br>
+      資訊工程學系</td>
+      <td width="95" bgcolor="#C0C0C0">學期課程</td>
+      <td width="165" bgcolor="#C0C0C0">泛型程式設計<br>
+      (Generic Programming) <br>
+      <a href="unsaved:///course-generic-yzu-932.htm" target="main"><small>元智大學93-2課程備忘錄</small></a></td>
+      <td width="103" bgcolor="#C0C0C0">每周三 18:30~21:20<br>
+      教室 1401B<br>
+      工程一館</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2005/03/07</td>
+      <td width="112" bgcolor="#C0C0C0">中壢<br>
+      中原大學<br>
+      資訊工程學系</td>
+      <td width="95" bgcolor="#C0C0C0">90min.演講+Q/A</td>
+      <td width="165" bgcolor="#C0C0C0">程式人生</td>
+      <td width="103" bgcolor="#C0C0C0">14:00開始<br>
+      工學館117</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2005/05/19</td>
+      <td width="112" bgcolor="#C0C0C0">新竹<br>
+      清華大學<br>
+      資訊工程學系</td>
+      <td width="95" bgcolor="#C0C0C0">90min.演講+Q/A</td>
+      <td width="165" bgcolor="#C0C0C0">程式人生</td>
+      <td width="103" bgcolor="#C0C0C0">19:00 開始<br>
+      資電館演講廳</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2005/07/04 ~ <br>
+      2005/07/20</td>
+      <td width="112" bgcolor="#C0C0C0">南京<br>
+      南京大學<br>
+      軟件學院</td>
+      <td width="95" bgcolor="#C0C0C0">學期課程<br>
+      (27學時）</td>
+      <td width="165" bgcolor="#C0C0C0">泛型編程<br>
+      (Generic Programming)<br>
+      <a href="unsaved:///course-gp-nanjing-2005.htm" target="main"><small>南京大學2005課程備忘錄</small></a></td>
+      <td width="103" bgcolor="#C0C0C0">每周一二三<br>
+      上午 3 hours</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2005/07/07 ~ <br>
+      2005/07/23</td>
+      <td width="112" bgcolor="#C0C0C0">上海<br>
+      同濟大學<br>
+      軟件學院</td>
+      <td width="95" bgcolor="#C0C0C0">學期課程<br>
+      (27學時）</td>
+      <td width="165" bgcolor="#C0C0C0">設計模式/範式<br>
+      (Design Patterns)<br>
+      <a href="unsaved:///course-dp-tongji-2005.htm" target="main"><small>同濟大學2005課程備忘錄</small></a></td>
+      <td width="103" bgcolor="#C0C0C0">每周四五六<br>
+      上午 3 hours</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">08/17<br>
+      JavaTwo2005</td>
+      <td width="112" bgcolor="#C0C0C0">台北<br>
+      昇陽公司<br>
+      Sun Taiwan</td>
+      <td width="95" bgcolor="#C0C0C0">70 分鐘<br>
+      講座</td>
+      <td width="165" bgcolor="#C0C0C0">Design Patterns in <br>
+      Java Standard Library</td>
+      <td width="103" bgcolor="#C0C0C0">13:30~14:40</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2005/11/19 ~ <br>
+      2005/11/22</td>
+      <td width="112" bgcolor="#C0C0C0">瀋陽東軟集團</td>
+      <td width="95" bgcolor="#C0C0C0">24 小時課程</td>
+      <td width="165" bgcolor="#C0C0C0"><a href="unsaved:///course-neusoft-2005.htm"
+      target="main">C++ ADT/OOP/OOD<br>
+      Advanced C</a></td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50<br>
+      13:30~16:20</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2005/11/24 ~ <br>
+      2005/11/27</td>
+      <td width="112" bgcolor="#C0C0C0">瀋陽東軟股份</td>
+      <td width="95" bgcolor="#C0C0C0">24 小時課程</td>
+      <td width="165" bgcolor="#C0C0C0"><a href="unsaved:///course-neusoft-2005.htm"
+      target="main">C++ ADT/OOP/OOD<br>
+      Advanced C</a></td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50<br>
+      13:30~16:20</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2005/12/01 ~ <br>
+      2005/12/04</td>
+      <td width="112" bgcolor="#C0C0C0">大連東軟集團</td>
+      <td width="95" bgcolor="#C0C0C0">24 小時課程</td>
+      <td width="165" bgcolor="#C0C0C0"><a href="unsaved:///course-neusoft-2005.htm"
+      target="main">C++ ADT/OOP/OOD<br>
+      Advanced C</a></td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50<br>
+      13:30~16:20</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2005/12/07 ~ <br>
+      2005/12/10</td>
+      <td width="112" bgcolor="#C0C0C0">大連東軟股份</td>
+      <td width="95" bgcolor="#C0C0C0">24 小時課程</td>
+      <td width="165" bgcolor="#C0C0C0"><a href="unsaved:///course-neusoft-2005.htm"
+      target="main">C++ ADT/OOP/OOD<br>
+      Advanced C</a></td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50<br>
+      13:30~16:20</td>
+    </tr>
+  </table>
+  </div><p>↓<a name="2005-12-mainland">2005/12 大陸行</a>（共28天）：</p>
+  <div align="left"><table border="1" width="561" height="76">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="49" height="16">星期</td>
+      <td width="148" height="16">地點</td>
+      <td width="281" height="16">備註</td>
+    </tr>
+    <tr>
+      <td width="59" height="1"><font color="#C0C0C0">11/17</font></td>
+      <td width="49" height="1"><font color="#C0C0C0">四</font></td>
+      <td width="148" height="1"><font color="#C0C0C0">新竹-瀋陽<br>
+      （取消）</font></td>
+      <td width="281" height="1"><font color="#C0C0C0">0835 桃園 CI160<br>
+      1200 首爾<small>（當地時間）</small><br>
+      1515 首爾 KE833<small>（當地時間）</small><br>
+      1605 瀋陽</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/18</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#FF0000">新竹-瀋陽</font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0"><font color="#000000">1620 桃園 CX405（國泰）<br>
+      1810 香港<br>
+      2030 香港 CZ636（中國南方）<br>
+      2350 瀋陽</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/19<br>
+      11/22</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">六-二</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#0000FF"><a
+      href="unsaved:///course-neusoft-2005.htm" target="main">東軟集團培訓</a><br>
+      </font>C++/ADT/OOP/OOD<br>
+      C</td>
+      <td width="281" height="1" bgcolor="#C0C0C0">09:00-11:50,&nbsp; 13:30-16:20</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/23</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">休息</td>
+      <td width="281" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/24<br>
+      11/27</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">四-日</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#0000FF">東軟股份培訓</font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0">09:00-11:50,&nbsp; 13:30-16:20</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/28</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">瀋陽</td>
+      <td width="281" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/29</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#FF0000">瀋陽-大連</font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0">0730 火車</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">11/30</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#000000">大連</font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/01<br>
+      12/04</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">四-日</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#0000FF">東軟集團培訓</font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0">09:00-11:50,&nbsp; 13:30-16:20</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/05</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">休息</td>
+      <td width="281" height="1" bgcolor="#C0C0C0">大連海洋公園</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/06</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">休息</td>
+      <td width="281" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/07<br>
+      12/10</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">三-六</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#0000FF">東軟股份培訓</font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0">09:00-11:50,&nbsp; 13:30-16:20</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/11</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#FF0000">大連-北京 </font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0">08:30-09:40</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/12</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">一</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">北京 </td>
+      <td width="281" height="1" bgcolor="#C0C0C0">hu, wlf</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/13</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">二</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">北京 </td>
+      <td width="281" height="1" bgcolor="#C0C0C0">《Word排版藝術》講座 -- &quot;Word的能與不能&quot;。主辦 
+      china-pub，電子社新大樓，時間 0930-1100。</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/14</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">三</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#000000">王府井圖書大廈</font><font
+      color="#FF0000"><br>
+      </font><font color="#808080">（北京-遵化 取消）</font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">12/15</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="148" height="1" bgcolor="#C0C0C0"><font color="#FF0000">北京-新竹<br>
+      </font><font color="#808080">（遵化-北京 取消）</font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0"><font color="#000000">0855 北京 CZ3018（中國南方）<br>
+      1240 香港<br>
+      1435 香港 CX420（國泰）<br>
+      1610 桃園 </font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1"><font color="#C0C0C0">12/16</font></td>
+      <td width="49" height="1"><font color="#C0C0C0">五</font></td>
+      <td width="148" height="1"><font color="#C0C0C0">取消 </font></td>
+      <td width="281" height="1"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1"><font color="#C0C0C0">12/17</font></td>
+      <td width="49" height="1"><font color="#C0C0C0">六</font></td>
+      <td width="148" height="1"><font color="#C0C0C0">（北京-新竹 取消）</font></td>
+      <td width="281" height="1"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1"><font color="#C0C0C0">12/17</font></td>
+      <td width="49" height="1"><font color="#C0C0C0">六</font></td>
+      <td width="148" height="1"><font color="#C0C0C0">北京-新竹</font></td>
+      <td width="281" height="1"><font color="#C0C0C0">0755 北京 KE854<br>
+      1045 首爾<small>（當地時間）</small><br>
+      1300 首爾 CI161<small>（當地時間）</small><br>
+      1445 桃園 </font></td>
+    </tr>
+  </table>
+  </div><p>↓2005/07 大陸行（<a href="unsaved:///article0507.htm" target="main">一月之跡</a>）（共29天）：</p>
+  <div align="left"><table border="1" width="561" height="76">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="49" height="16">星期</td>
+      <td width="148" height="16">地點</td>
+      <td width="281" height="16">備註</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">06/30</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">台北-<font color="#000000">澳門</font>-上海</td>
+      <td width="281" height="1" bgcolor="#C0C0C0"><font color="#000000">0800 桃園 NX505<br>
+      0950 澳門<br>
+      1040 澳門 NX106<br>
+      1255 上海</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/01</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">五</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">同濟大學</td>
+      <td width="281" height="1" bgcolor="#C0C0C0">辦理手續，認識環境</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/02</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">六</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">上海-南京</td>
+      <td width="281" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/03</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">日</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">南京大學</td>
+      <td width="281" height="1" bgcolor="#C0C0C0">辦理手續，認識環境</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/04 ~<br>
+      07/20</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">一<br>
+      二<br>
+      三</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">南京大學 <br>
+      Generic Programming<br>
+      課程</td>
+      <td width="281" height="1" bgcolor="#C0C0C0">南京大學 浦口校區</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/07 ~<br>
+      07/23</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">四<br>
+      五<br>
+      六</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">同濟大學 <br>
+      Design Patterns <br>
+      課程</td>
+      <td width="281" height="1" bgcolor="#C0C0C0">同濟大學 嘉定校區</td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/24 ~<br>
+      07/27</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">日~三</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">黃山,<font FACE="新細明體" size="3"> 
+      西遞, 宏村... </font></td>
+      <td width="281" height="1" bgcolor="#C0C0C0"></td>
+    </tr>
+    <tr>
+      <td width="59" height="1" bgcolor="#C0C0C0">07/28</td>
+      <td width="49" height="1" bgcolor="#C0C0C0">四</td>
+      <td width="148" height="1" bgcolor="#C0C0C0">上海<font color="#000000">-澳門</font>-台北</td>
+      <td width="281" height="1" bgcolor="#C0C0C0"><font FACE="新細明體" size="3">上海</font><font
+      size="3">09:50 (NX 107</font><font FACE="新細明體" size="3">)</font><font
+      FACE="新細明體" size="4"> </font><font FACE="新細明體" size="3">- 澳門</font><font
+      size="3"> 12:40</font><br>
+      <font FACE="新細明體" size="3">澳門</font><font size="3">13:50</font><font
+      FACE="新細明體" size="3"> </font><font size="3">(NX 622</font><font
+      FACE="新細明體" size="3">) - 台北</font><font size="3"> 15:30</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>↓2004活動 </p>
+  <div align="left"><table border="1" width="606">
+    <tr>
+      <td width="101">日期</td>
+      <td width="112">單位</td>
+      <td width="95">性質</td>
+      <td width="165">題目</td>
+      <td width="103">時間</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2004/02/18 ~ <br>
+      2004/06/16</td>
+      <td width="112" bgcolor="#C0C0C0">內壢<br>
+      元智資工<br>
+      YZU</td>
+      <td width="95" bgcolor="#C0C0C0">學期<br>
+      課程</td>
+      <td width="165" bgcolor="#C0C0C0">泛型程式設計與STL <br>
+      <br>
+      <small><a href="unsaved:///course-generic-yzu-922.htm" target="main">元智大學92-2課程備忘錄</a></small></td>
+      <td width="103" bgcolor="#C0C0C0">每周三 18:30~21:20<br>
+      教室 1102<br>
+      工程一館</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2004/04</td>
+      <td width="112" bgcolor="#C0C0C0">工研院</td>
+      <td width="95" bgcolor="#C0C0C0">12小時課程</td>
+      <td width="165" bgcolor="#C0C0C0">Java Programming</td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">2005/05</td>
+      <td width="112" bgcolor="#C0C0C0">工研院</td>
+      <td width="95" bgcolor="#C0C0C0">12小時課程</td>
+      <td width="165" bgcolor="#C0C0C0">C++ Programming</td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">08/03<br>
+      JavaTwo2004</td>
+      <td width="112" bgcolor="#C0C0C0">台北<br>
+      昇陽公司<br>
+      Sun Taiwan</td>
+      <td width="95" bgcolor="#C0C0C0">70 分鐘<br>
+      講座</td>
+      <td width="165" bgcolor="#C0C0C0">Reflection and Generics&nbsp; <br>
+      in JDK 1.5<br>
+      <font face="CG Times" size="3"><a target="main" href="unsaved:///javatwo-2004.htm">相關資料下載</a><br>
+      </font>會場留影</td>
+      <td width="103" bgcolor="#C0C0C0">13:30~14:40</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">09/15</td>
+      <td width="112" bgcolor="#C0C0C0">臺灣微軟<br>
+      <br>
+      <font FACE="新細明體" SIZE="2">新竹科技生活館.新竹市科學園區工業東二路</font><font
+      size="2"> <font FACE="Verdana">1</font><font FACE="新細明體">號</font></font></td>
+      <td width="95" bgcolor="#C0C0C0">120分鐘<br>
+      <font color="#000000">演講</font>&amp;座談</td>
+      <td width="165" bgcolor="#C0C0C0"><span
+      style="FONT-SIZE: 10pt; COLOR: blue; FONT-FAMILY: 新細明體"><font face="新細明體"
+      color="#000000" size="3">笑談程式人生<span lang="EN-US"> -- </span><br>
+      經驗分享 &amp;<br>
+      技術洪流中的生存之道</font></span></td>
+      <td width="103" bgcolor="#C0C0C0">14:00-16:00含<br>
+      (1) 演講 <br>
+      (2) 問答交流</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">09/16</td>
+      <td width="112" bgcolor="#C0C0C0">臺灣微軟<br>
+      <br>
+      <font FACE="新細明體" size="2">富邦國際會議中心</font><font size="2">C+D+F<font
+      FACE="新細明體">會議室</font>. <font FACE="新細明體">台北市敦化南路一段</font>108<font
+      FACE="新細明體">號</font>B2F-<font FACE="新細明體">市民大道旁</font></font></td>
+      <td width="95" bgcolor="#C0C0C0">同上</td>
+      <td width="165" bgcolor="#C0C0C0">同上</td>
+      <td width="103" bgcolor="#C0C0C0">同上</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">10/19</td>
+      <td width="107" bgcolor="#C0C0C0">上海 同濟大學<br>
+      軟件學院</td>
+      <td width="87" bgcolor="#C0C0C0">90分鐘<br>
+      <font color="#000000">演講</font>&amp;座談</td>
+      <td width="178" bgcolor="#C0C0C0"><font color="#000000">程序人生</font></td>
+      <td width="103" bgcolor="#C0C0C0">19:30~21:00</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">10/24</td>
+      <td width="107" bgcolor="#C0C0C0">武漢 <br>
+      華中科技大學+武漢大學</td>
+      <td width="87" bgcolor="#C0C0C0">90分鐘<br>
+      座談</td>
+      <td width="178" bgcolor="#C0C0C0"><font color="#000000">共話 IT 人生</font></td>
+      <td width="103" bgcolor="#C0C0C0">19:30~21:00</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">10/26,27,29</td>
+      <td width="107" bgcolor="#C0C0C0">瀋陽 東軟公司<br>
+      Neusoft</td>
+      <td width="87" bgcolor="#C0C0C0">18 小時<br>
+      課程</td>
+      <td width="178" bgcolor="#C0C0C0"><font color="#000000">C++/OOP/DP </font></td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50<br>
+      13:30~16:20</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">10/30</td>
+      <td width="107" bgcolor="#C0C0C0">瀋陽 東軟公司<br>
+      Neusoft</td>
+      <td width="87" bgcolor="#C0C0C0">6 小時<br>
+      課程</td>
+      <td width="178" bgcolor="#C0C0C0"><font color="#000000">Advanced C：&nbsp; <br>
+      </font>function/pointer/memory</td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50<br>
+      13:30~16:20</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">11/09,10,11</td>
+      <td width="107" bgcolor="#C0C0C0">瀋陽 東軟公司<br>
+      Neusoft</td>
+      <td width="87" bgcolor="#C0C0C0">18 小時<br>
+      課程</td>
+      <td width="178" bgcolor="#C0C0C0"><font color="#000000">C++/OOP/DP </font></td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50<br>
+      13:30~16:20</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">11/12</td>
+      <td width="107" bgcolor="#C0C0C0">瀋陽 東軟公司<br>
+      Neusoft</td>
+      <td width="87" bgcolor="#C0C0C0">6 小時<br>
+      課程</td>
+      <td width="178" bgcolor="#C0C0C0"><font color="#000000">Advanced C：&nbsp; <br>
+      </font>function/pointer/memory</td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50<br>
+      13:30~16:20</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0">12/01</td>
+      <td width="107" bgcolor="#C0C0C0"><a name="11-universities">台北<br>
+      師範大學<br>
+      資工所</a></td>
+      <td width="87" bgcolor="#C0C0C0">120分鐘<br>
+      <font color="#000000">演講</font>&amp;座談</td>
+      <td width="178" bgcolor="#C0C0C0">一個「大齡」資訊人<br>
+      的經驗分享</td>
+      <td width="103" bgcolor="#C0C0C0">14:00~16:00</td>
+    </tr>
+    <tr>
+      <td width="101" bgcolor="#C0C0C0"><a name="10-universities">12/02</a>（四）<br>
+      12/06（一）<br>
+      12/07（二）<br>
+      12/08（三）<br>
+      12/10（五）<br>
+      12/13（一）<br>
+      12/14（二）<br>
+      12/16（四）<br>
+      12/17（五）</td>
+      <td width="107" bgcolor="#C0C0C0">交大/清大<br>
+      元智<br>
+      中山<br>
+      中正<br>
+      逢甲<br>
+      中央<br>
+      淡江<br>
+      台科大<br>
+      台大</td>
+      <td width="87" bgcolor="#C0C0C0">社團 10m.<br>
+      演講 70m.<br>
+      答問 10m.</td>
+      <td width="178" bgcolor="#C0C0C0">笑談程式人生<br>
+      (1) 個人經歷<br>
+      (2) 生涯轉折<br>
+      (3) 人生體會<br>
+      (4) 兩岸接觸<br>
+      (5) 與君互勉</td>
+      <td width="103" bgcolor="#C0C0C0">開始時間：<br>
+      逢甲 1:10pm<br>
+      交清 7:00pm<br>
+      其他 6:30pm</td>
+    </tr>
+  </table>
+  </div><p>↓<a name="2004-mainland">2004 大陸行</a>：（<a
+  href="unsaved:///article04-08.htm" target="main">2004大陸紀行</a>）（共27天）</p>
+  <div align="left"><table border="1" width="561" height="365">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="49" height="16">星期</td>
+      <td width="148" height="16">地點</td>
+      <td width="281" height="16">備註</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/18</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">一</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">台北-<font color="#000000">澳門</font>-上海</td>
+      <td width="281" height="19" bgcolor="#C0C0C0"><font color="#000000">0800 桃園 NX505<br>
+      0950 澳門<br>
+      1040 澳門 NX106<br>
+      1255 上海</font><br>
+      宿: kevin</td>
+    </tr>
+    <tr>
+      <td width="59" height="32" bgcolor="#C0C0C0">10/19</td>
+      <td width="49" height="32" bgcolor="#C0C0C0">二</td>
+      <td width="148" height="32" bgcolor="#C0C0C0">上海<br>
+      F1 <font color="#000000">Equation</font></td>
+      <td width="281" height="32" bgcolor="#C0C0C0"><font color="#000000">上海同濟大學軟件學院安亭校區 
+      <br>
+      學生座談 1930-2100<br>
+      </font>宿: kevin</td>
+    </tr>
+    <tr>
+      <td width="59" height="35" bgcolor="#C0C0C0">10/20</td>
+      <td width="49" height="35" bgcolor="#C0C0C0">三</td>
+      <td width="148" height="35" bgcolor="#C0C0C0">上海<br>
+      上海15:44-蘇州16:31<br>
+      (票價22)</td>
+      <td width="281" height="35" bgcolor="#C0C0C0">zhou+jz+yongdan+zyan<font color="#000000">+linrui</font><br>
+      蘇州 老得月樓<br>
+      宿: 蘇州滄浪亭賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/21</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">四</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">蘇州 / 拙政園, 寒山寺<br>
+      蘇州15:03-南京17:45<br>
+      (票價52)</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">蘇州 zhou<br>
+      南京火車站, royal<br>
+      夫子廟，晚晴樓，夜秦淮，烏衣巷<br>
+      宿: 夫子廟旁如佳賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">11/22</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">五</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">南京 / 中山陵,明孝陵</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">南京 royal<br>
+      中山陵，明孝陵，靈谷寺，無樑殿<br>
+      15:30 新華書店見讀者<br>
+      17:00 趨勢科技<br>
+      宿: 夫子廟旁如佳賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="51" bgcolor="#C0C0C0">10/23</td>
+      <td width="49" height="51" bgcolor="#C0C0C0">六</td>
+      <td width="148" height="51" bgcolor="#C0C0C0">南京10:00-武漢10:50<br>
+      (南方航空)<br>
+      (票價 ~750)</td>
+      <td width="281" height="51" bgcolor="#C0C0C0">祿口機場出發<br>
+      武漢 zhou, ark...<br>
+      宿: 武漢大學珞珈山莊</td>
+    </tr>
+    <tr>
+      <td width="59" height="32" bgcolor="#C0C0C0">10/24</td>
+      <td width="49" height="32" bgcolor="#C0C0C0">日</td>
+      <td width="148" height="32" bgcolor="#C0C0C0">武漢</td>
+      <td width="281" height="32" bgcolor="#C0C0C0">華中科技大學, 學生座談<br>
+      宿: 武漢大學珞珈山莊</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/25</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">一</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">武漢<br>
+      武漢16:30-濟南17:50-瀋陽19:40<br>
+      (東方航空MU3943)</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">華中科技大學出版社<br>
+      <br>
+      <br>
+      宿: 東軟新賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/26</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">二</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">瀋陽 / 東軟</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">東軟/ C++OOP, 6 hours<br>
+      宿: 東軟新賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="32" bgcolor="#C0C0C0">10/27</td>
+      <td width="49" height="32" bgcolor="#C0C0C0">三</td>
+      <td width="148" height="32" bgcolor="#C0C0C0">瀋陽 / 東軟</td>
+      <td width="281" height="32" bgcolor="#C0C0C0">東軟/ C++OOP, 6 hours<br>
+      宿: 東軟新賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="35" bgcolor="#C0C0C0">10/28</td>
+      <td width="49" height="35" bgcolor="#C0C0C0">四</td>
+      <td width="148" height="35" bgcolor="#C0C0C0">瀋陽</td>
+      <td width="281" height="35" bgcolor="#C0C0C0">華儲書店<font color="#000000">讀者見面會, 
+      zhongming+lig</font>e<br>
+      宿: 東軟新賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/29</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">五</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">瀋陽&nbsp; / 東軟</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">東軟/ OO/DP, 6 hours<br>
+      宿: 東軟新賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="13" bgcolor="#C0C0C0">10/30</td>
+      <td width="49" height="13" bgcolor="#C0C0C0">六</td>
+      <td width="148" height="13" bgcolor="#C0C0C0">瀋陽&nbsp; / 東軟</td>
+      <td width="281" height="13" bgcolor="#C0C0C0">東軟/ Advanced C, 6 hours<br>
+      宿: 東軟新賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/31</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">日</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">瀋陽 / 東陵,北陵<br>
+      瀋陽-北京 (K54列車) </td>
+      <td width="281" height="19" bgcolor="#C0C0C0">lidong<br>
+      宿: K54列車</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">11/01</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">一</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">北京<br>
+      CA Company</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">CSDN+《程序員》<br>
+      與 mike, paili 共進晚餐(海鮮<font color="#000000">buffet</font>)<br>
+      宿: mike</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">11/02</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">二</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">北京<br>
+      北大計算機系所</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">PHEI+BoradView<br>
+      xinxing<br>
+      william+PTPress<br>
+      宿: mike</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">11/03</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">三</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">北京</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">CEPP<br>
+      wlf<font color="#000000">+liujiang+weidong</font><br>
+      西單圖書大廈, 讀者見面會<br>
+      CSDN 技術人沙龍<br>
+      宿: mike</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">11/04</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">四</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">北京07:16-承德11:15<br>
+      (票價61)<br>
+      承德 / 外八廟</td>
+      <td width="281" height="19" bgcolor="#C0C0C0"><font color="#000000"><br>
+      </font>宿: 福成賓館(房價120;導遊+交通60)</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">11/05</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">五</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">承德 / 避暑山莊<br>
+      承德14:40-北京18:38<br>
+      (票價61)</td>
+      <td width="281" height="19" bgcolor="#C0C0C0"><br>
+      宿: mike</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">11/06</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">六</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">北京</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">zhentang<br>
+      ruiqing<br>
+      william+CRPH<br>
+      宿: mike</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">11/07</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">日</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">北京 / 大覺寺</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">wuhear+myan<br>
+      jiangtao+<font color="#000000">aoran</font><font color="#FF0000"><br>
+      </font>與 mike, paili 共進晚餐<font color="#000000">(古越人家)</font><font
+      color="#FF0000"><br>
+      </font>宿: mike</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">11/08</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">一</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">北京13:55-瀋陽<br>
+      (CA932)</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">宿: 東軟新賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">11/09</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">二</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">瀋陽 / 東軟</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">東軟/ C++OOP, 6 hours<br>
+      宿: 東軟新賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="32" bgcolor="#C0C0C0">11/10</td>
+      <td width="49" height="32" bgcolor="#C0C0C0">三</td>
+      <td width="148" height="32" bgcolor="#C0C0C0">瀋陽 / 東軟</td>
+      <td width="281" height="32" bgcolor="#C0C0C0">東軟/ C++OOP, 6 hours<br>
+      宿: 東軟新賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">11/11</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">四</td>
+      <td width="148" height="19" bgcolor="#C0C0C0">瀋陽&nbsp; / 東軟</td>
+      <td width="281" height="19" bgcolor="#C0C0C0">東軟/ OOP/DP, 6 hours<br>
+      宿: 東軟新賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="13" bgcolor="#C0C0C0">11/12</td>
+      <td width="49" height="13" bgcolor="#C0C0C0">五</td>
+      <td width="148" height="13" bgcolor="#C0C0C0">瀋陽&nbsp; / 東軟</td>
+      <td width="281" height="13" bgcolor="#C0C0C0">東軟/ Advanced C, 6 hours<br>
+      宿: 東軟新賓館</td>
+    </tr>
+    <tr>
+      <td width="59" height="13" bgcolor="#C0C0C0">11/13</td>
+      <td width="49" height="13" bgcolor="#C0C0C0">六</td>
+      <td width="148" height="13" bgcolor="#C0C0C0">瀋陽13:00-北京14:10<br>
+      (CZ6111)<br>
+      北京16:10-<font color="#000000">澳門19:35</font><br>
+      <font color="#000000">(NX001</font>)<br>
+      <font color="#000000">澳門</font>2020-台北2200<br>
+      (<font color="#000000">NX626</font>)</td>
+      <td width="281" height="13" bgcolor="#C0C0C0">班機略有延誤<br>
+      23:30 抵家門</td>
+    </tr>
+  </table>
+  </div><hr>
+  <p>↓2003活動：</p>
+  <div align="left"><table border="1" width="606">
+    <tr>
+      <td width="108">日期</td>
+      <td width="82">單位</td>
+      <td width="62">性質</td>
+      <td width="221">題目</td>
+      <td width="103">時間</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2003&nbsp; 共12次<br>
+      Jan. 07,10,14,17,21,24<br>
+      Feb. <br>
+      18<br>
+      March<br>
+      04,11,18,25<br>
+      April<br>
+      01</td>
+      <td width="82" bgcolor="#C0C0C0">新竹<br>
+      台積電<br>
+      TSMC</td>
+      <td width="62" bgcolor="#C0C0C0">36 小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0"><a href="unsaved:///course-oo-series.txt.htm"
+      target="main">從基礎訓練到專家經驗 — <br>
+      OOP 系列課程</a><p><a href="unsaved:///2003-tsmc-pictures.htm" target="main">課後合影</a></td>
+      <td width="103" bgcolor="#C0C0C0">周二 18:00~21:00<br>
+      周五<br>
+      14:00~17:00</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2003&nbsp; 共12次<br>
+      Jan.<br>
+      13,16,20,23,27 <br>
+      Feb.<br>
+      10,13,17,20,24,27<br>
+      March<br>
+      03</td>
+      <td width="82" bgcolor="#C0C0C0">竹北<br>
+      亞旭電腦<br>
+      Askey</td>
+      <td width="62" bgcolor="#C0C0C0">36 小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0"><a href="unsaved:///course-oo-series.txt.htm"
+      target="main">從基礎訓練到專家經驗 — <br>
+      OOP 系列課程</a><p><a href="unsaved:///2003-askey-pictures.htm" target="main">課後合影</a></td>
+      <td width="103" bgcolor="#C0C0C0">周一 18:30~21:30<br>
+      周四<br>
+      18:30~21:30</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2003/02/26 ~ <br>
+      2003/06</td>
+      <td width="82" bgcolor="#C0C0C0">內壢<br>
+      元智資工<br>
+      YZU</td>
+      <td width="62" bgcolor="#C0C0C0">學期<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0">泛型程式設計與STL <br>
+      <br>
+      詳見 <a href="unsaved:///course-generic-yzu-912.htm" target="main">元智大學91-2課程備忘錄</a></td>
+      <td width="103" bgcolor="#C0C0C0">每周三 18:30~21:20<br>
+      教室 1102<br>
+      工程一館</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">08/12<br>
+      08/13<br>
+      JavaTwo2003</td>
+      <td width="82" bgcolor="#C0C0C0">台北<br>
+      昇陽公司<br>
+      Sun Taiwan<br>
+      </td>
+      <td width="62" bgcolor="#C0C0C0">70 分鐘<br>
+      研討</td>
+      <td width="221" bgcolor="#C0C0C0"><font face="CG Times" size="3">JavaTwo 2003 :</font><br>
+      Core Serialization <br>
+      Serialization 機制內核研討<br>
+      <font face="CG Times" size="3"><a target="main" href="unsaved:///javatwo-2003.htm">相關資料下載</a><br>
+      <br>
+      </font><a href="unsaved:///jjhou.htm#Javatwo-2003-1" target="main">會場留影</a></td>
+      <td width="103" bgcolor="#C0C0C0">08/12 <br>
+      13:30~14:40</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">10/22,23</td>
+      <td width="82" bgcolor="#C0C0C0">北京<br>
+      金山軟件<br>
+      KingSoft</td>
+      <td width="62" bgcolor="#C0C0C0">12小時<br>
+      課程<br>
+      </td>
+      <td width="221" bgcolor="#C0C0C0">1.Generic Programming<br>
+      2.Standard Template Library<br>
+      3.Desig-Pattern in STL<br>
+      <a target="main" href="unsaved:///2003-kingsoft-gp-stl-course-outline.htm">大綱</a><p><a
+      target="main" href="unsaved:///article03-20.htm#2003-kingsoft-beijing-pictures">課程留影</a></td>
+      <td width="103" bgcolor="#C0C0C0">09:00 - 12:00<br>
+      13:30 - 16:30</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">10/28,29</td>
+      <td width="82" bgcolor="#C0C0C0">珠海<br>
+      金山軟件<br>
+      KingSoft</td>
+      <td width="62" bgcolor="#C0C0C0">12小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0">1.Generic Programming<br>
+      2.Standard Template Library<br>
+      3.Desig-Pattern in STL<br>
+      <a target="main" href="unsaved:///2003-kingsoft-gp-stl-course-outline.htm">大綱</a> 
+      （與北京大綱同）<p><a
+      href="unsaved:///article03-20.htm#2003-kingsoft-zhuhai-pictures" target="main">課程留影</a></td>
+      <td width="103" bgcolor="#C0C0C0">09:00 - 12:00<br>
+      13:30 - 16:30</td>
+    </tr>
+  </table>
+  </div><p>↓2003 大陸行：（<a href="unsaved:///article03-20.htm" target="main">2003大陸紀行</a>）（共11天）</p>
+  <div align="left"><table border="1" width="561" height="365">
+    <tr>
+      <td width="59" height="16">日期</td>
+      <td width="49" height="16">星期</td>
+      <td width="115" height="16">地點</td>
+      <td width="314" height="16">備註</td>
+    </tr>
+    <tr>
+      <td width="59" height="51" bgcolor="#C0C0C0">10/20</td>
+      <td width="49" height="51" bgcolor="#C0C0C0">一</td>
+      <td width="115" height="51" bgcolor="#C0C0C0">台北-<font color="#000000">澳門</font>-北京</td>
+      <td width="314" height="51" bgcolor="#C0C0C0"><font color="#000000">0930台北起飛 
+      NX0617，1115抵澳門<br>
+      1200澳門起飛 NX0002，1510抵北京<br>
+      jiang+myan </font></td>
+    </tr>
+    <tr>
+      <td width="59" height="32" bgcolor="#C0C0C0">10/21</td>
+      <td width="49" height="32" bgcolor="#C0C0C0">二</td>
+      <td width="115" height="32" bgcolor="#C0C0C0">北京</td>
+      <td width="314" height="32" bgcolor="#C0C0C0"><font color="#000000">HuaZhang</font><font
+      color="#808080"><br>
+      </font><font color="#000000">北京聯合大學學生座談 1930-2100</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/22</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">三</td>
+      <td width="115" height="19" bgcolor="#C0C0C0">北京（課程）</td>
+      <td width="314" height="19" bgcolor="#C0C0C0"><font color="#000000">北京金山，GP/STL 
+      課程一 0900-1630</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/23</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">四</td>
+      <td width="115" height="19" bgcolor="#C0C0C0">北京（課程）</td>
+      <td width="314" height="19" bgcolor="#C0C0C0"><font color="#000000">北京金山，GP/STL 
+      課程二 0900-1630</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="32" bgcolor="#C0C0C0">10/24</td>
+      <td width="49" height="32" bgcolor="#C0C0C0">五</td>
+      <td width="115" height="32" bgcolor="#C0C0C0">北京</td>
+      <td width="314" height="32" bgcolor="#C0C0C0"><font color="#000000">TQBooks<br>
+      henry</font><br>
+      <font color="#000000">yang</font><font color="#808080"><br>
+      </font><font color="#000000">北京大學學生座談 1930-2100</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="35" bgcolor="#C0C0C0">10/25</td>
+      <td width="49" height="35" bgcolor="#C0C0C0">六</td>
+      <td width="115" height="35" bgcolor="#C0C0C0">北京</td>
+      <td width="314" height="35" bgcolor="#C0C0C0"><font color="#000000">BroadView+PHEI <br>
+      sunyong+xiaox</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/26</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">日</td>
+      <td width="115" height="19" bgcolor="#C0C0C0">北京</td>
+      <td width="314" height="19" bgcolor="#C0C0C0"><font color="#000000">wyj+zhangrq，潘家園</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="13" bgcolor="#C0C0C0">10/27</td>
+      <td width="49" height="13" bgcolor="#C0C0C0">一</td>
+      <td width="115" height="13" bgcolor="#C0C0C0">北京-珠海</td>
+      <td width="314" height="13" bgcolor="#C0C0C0">1250 北京起飛（南方航空<font
+      color="#000000">），1550抵</font>珠海</td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/28</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">二</td>
+      <td width="115" height="19" bgcolor="#C0C0C0">珠海（課程）</td>
+      <td width="314" height="19" bgcolor="#C0C0C0"><font color="#000000">珠海金山，GP/STL 
+      課程一 0900-1630</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/29</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">三</td>
+      <td width="115" height="19" bgcolor="#C0C0C0">珠海（課程）</td>
+      <td width="314" height="19" bgcolor="#C0C0C0"><font color="#000000">珠海金山，GP/STL 
+      課程二 0900-1630</font></td>
+    </tr>
+    <tr>
+      <td width="59" height="19" bgcolor="#C0C0C0">10/30</td>
+      <td width="49" height="19" bgcolor="#C0C0C0">四</td>
+      <td width="115" height="19" bgcolor="#C0C0C0">珠海-<font color="#000000">澳門</font>-台北</td>
+      <td width="314" height="19" bgcolor="#C0C0C0"><font color="#000000">1350澳門起飛 
+      NX0628，1535抵台北</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <hr>
+  <p>↓2002活動：</p>
+  <div align="left"><table border="1" width="606">
+    <tr>
+      <td width="108">日期</td>
+      <td width="77">單位</td>
+      <td width="67">活動性質</td>
+      <td width="221">題目</td>
+      <td width="103">時間</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/02/27 ~<br>
+      2002/06/12</td>
+      <td width="77" bgcolor="#C0C0C0">元智大學資訊工程系</td>
+      <td width="67" bgcolor="#C0C0C0">學期課程</td>
+      <td width="221" bgcolor="#C0C0C0">泛型程式設計與STL <br>
+      <br>
+      詳見 <a href="unsaved:///course-generic-yzu-902.htm" target="main">元智大學90-2課程備忘錄</a></td>
+      <td width="103" bgcolor="#C0C0C0">每周三 18:30~21:20<br>
+      教室 1102<br>
+      工程一館</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/07/3<br>
+      JavaTwo2002</td>
+      <td width="77" bgcolor="#C0C0C0">台北<br>
+      昇陽公司<br>
+      Sun Taiwan<br>
+      </td>
+      <td width="67" bgcolor="#C0C0C0">70 分鐘<br>
+      技術研討</td>
+      <td width="221" bgcolor="#C0C0C0"><font face="CG Times" size="3">JavaTwo 2002 :<br>
+      Java 泛型技術之發展與<br>
+      JDK1.4上的實現&nbsp;&nbsp; <br>
+      <a target="main" href="unsaved:///javatwo-2002.htm">相關資料下載</a></font></td>
+      <td width="103" bgcolor="#C0C0C0">13:30~14:40</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/07/2,8,9</td>
+      <td width="77" bgcolor="#C0C0C0">工研院<br>
+      電通所<br>
+      ITRI/CCL</td>
+      <td width="67" bgcolor="#C0C0C0">9小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0"><font face="CG Times" size="3">Introduction to C++ &amp; 
+      Object Oriented Programming for C Programmers</font></td>
+      <td width="103" bgcolor="#C0C0C0">每天上午<br>
+      09:00~11:50</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/07/<br>
+      09,11,16</td>
+      <td width="77" bgcolor="#C0C0C0">凌陽科技</td>
+      <td width="67" bgcolor="#C0C0C0">9小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0"><a href="unsaved:///course-usual.htm#Win32-API"
+      target="main">Win32 API programming model</a></td>
+      <td width="103" bgcolor="#C0C0C0">每週 2, 4下午<br>
+      16:30~19:30</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/07/<br>
+      18,23,25,30<br>
+      2002/08/<br>
+      <font color="#000000">01</font>,06</td>
+      <td width="77" bgcolor="#C0C0C0">凌陽科技</td>
+      <td width="67" bgcolor="#C0C0C0">18小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0"><br>
+      <a href="unsaved:///course-usual.htm#C++/OOP" target="main">C++/OOP</a><br>
+      </td>
+      <td width="103" bgcolor="#C0C0C0">每週 2, 4下午<br>
+      16:30~19:30</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/07/29~31</td>
+      <td width="77" bgcolor="#C0C0C0">工研院<br>
+      電通所</td>
+      <td width="67" bgcolor="#C0C0C0">9小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0"><font face="CG Times" size="3">Advanced Patterns &amp; 
+      Object Oriented Techniques in C++</font></td>
+      <td width="103" bgcolor="#C0C0C0">每天上午<br>
+      09:00~11:50</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/08/<br>
+      13,15,20,22</td>
+      <td width="77" bgcolor="#C0C0C0">凌陽科技</td>
+      <td width="67" bgcolor="#C0C0C0">12小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0"><a href="unsaved:///course-usual.htm#MFC-programming"
+      target="main">MFC Programming model</a></td>
+      <td width="103" bgcolor="#C0C0C0">每週 2, 4下午<br>
+      16:30~19:30</td>
+    </tr>
+    <tr>
+      <td width="108"><font color="#C0C0C0">2002/09/10,11,13<br>
+      （因故取消）</font></td>
+      <td width="77"><font color="#C0C0C0">鴻海</font></td>
+      <td width="67"><font color="#C0C0C0">18小時<br>
+      課程</font></td>
+      <td width="221"><font color="#C0C0C0"><a href="unsaved:///course-usual.htm#C++/OOP"
+      target="main">C++/OOP</a></font></td>
+      <td width="103"><font color="#C0C0C0">09:00~12:00<br>
+      13:30~16:30</font></td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/09/30~<br>
+      2002/10/03</td>
+      <td width="77" bgcolor="#C0C0C0">工研院<br>
+      電通所<br>
+      ITRI/CCL</td>
+      <td width="67" bgcolor="#C0C0C0">12小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0"><font face="CG Times" size="3"><a
+      href="unsaved:///course-usual.htm#Java-Programming" target="main">Java 程式設計</a><br>
+      <br>
+      主講 JAVA programming 的 OO（物件導向）核心精神，並不對繁瑣的語法花太多時間</font><p><a
+      target="main" href="unsaved:///JDK13Solution.txt">JDK13Solution.txt</a>&nbsp; <a
+      target="main" href="unsaved:///JDK13Patch.txt">JDK13Patch.txt</a></td>
+      <td width="103" bgcolor="#C0C0C0">每天上午<br>
+      09:00~11:50</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/10/16~<br>
+      2002/10/17</td>
+      <td width="77" bgcolor="#C0C0C0">上海<br>
+      華邦電子<br>
+      Winbond</td>
+      <td width="67" bgcolor="#C0C0C0">9小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0"><font face="CG Times" size="3"><a
+      href="unsaved:///course-usual.htm#GP-STL" target="main">STL 應用與架構</a><br>
+      <br>
+      以 STL的應用和架構為主。適時討論 STL的關鍵設計和GP技術。</font></td>
+      <td width="103" bgcolor="#C0C0C0">3+6</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/10/20~22<br>
+      </td>
+      <td width="77" bgcolor="#C0C0C0">大連<br>
+      東軟公司<br>
+      NeuSoft</td>
+      <td width="67" bgcolor="#C0C0C0">18 小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0"><font color="#000000">GP &amp; STL &amp; Design Pattern<br>
+      1. STL concepts<br>
+      2. Using STL<br>
+      3. STL implementation<br>
+      4. Extending STL<br>
+      5. Design patterns (in STL)<br>
+      第一天課程以 STL 運用為主<br>
+      第二天課程談 STL 關鍵技術<br>
+      第三天課程談 DP in STL</font></td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50<br>
+      13:30~16:20</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/10/24~26<br>
+      </td>
+      <td width="77" bgcolor="#C0C0C0">瀋陽<br>
+      東軟公司<br>
+      Neusoft</td>
+      <td width="67" bgcolor="#C0C0C0">18 小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0"><font color="#000000">C++ &amp; OOP &amp; Design Pattern 
+      <br>
+      1. C++ Classes<br>
+      2. OOP<br>
+      3. Large scale classes hierarchy<br>
+      4. Design patterns (in MFC) <br>
+      5. Patterns for small memory system<br>
+      第一天課程談 C++ Classes<br>
+      第二天課程談 OOP<br>
+      第三天課程談 OOD/DP</font></td>
+      <td width="103" bgcolor="#C0C0C0">09:00~11:50<br>
+      13:30~16:20</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/11/12&nbsp; ~<br>
+      2002/12/03<br>
+      </td>
+      <td width="77" bgcolor="#C0C0C0">新竹<br>
+      華邦電子<br>
+      Winbond</td>
+      <td width="67" bgcolor="#C0C0C0">21小時<br>
+      課程</td>
+      <td width="221" bgcolor="#C0C0C0">1. Design Patterns in MFC/STL<br>
+      2. memory pool design/implement<br>
+      3. GP in C++/Java<br>
+      4. Serialization in C++/STL/MFC/Java</td>
+      <td width="103" bgcolor="#C0C0C0">每週二 18:30~21:20,<br>
+      每週五 09:00~11:50</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2002/12/09（一）</td>
+      <td width="77" bgcolor="#C0C0C0">淡江大學<br>
+      資訊管理學系</td>
+      <td width="67" bgcolor="#C0C0C0">演講</td>
+      <td width="221" bgcolor="#C0C0C0">《資訊人漫談》<br>
+      學習/工作/生活/見聞</td>
+      <td width="103" bgcolor="#C0C0C0">19:30~21:00</td>
+    </tr>
+    <tr>
+      <td width="108"><font color="#808080">2002/12/16<br>
+      （一）<br>
+      （因病取消）</font></td>
+      <td width="77"><font color="#808080">中原大學<br>
+      資訊工程學系</font></td>
+      <td width="67"><font color="#808080">演講</font></td>
+      <td width="221"><font color="#808080">《自其不變而觀之》<br>
+      — 在快速變化的資訊潮流中充實自身能力</font></td>
+      <td width="103"><font color="#808080">(資訊工業講座)14:00~16:00</font></td>
+    </tr>
+  </table>
+  </div><p>↓2002 大陸行：（<a target="main" href="unsaved:///article02-27.htm">相片集</a>）（共22天）</p>
+  <div align="left"><table border="1" width="606">
+    <tr>
+      <td width="98">日期 (2002)</td>
+      <td width="75">星期</td>
+      <td width="118">地點</td>
+      <td width="291">備註</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/14</td>
+      <td width="75" bgcolor="#C0C0C0">一</td>
+      <td width="118" bgcolor="#C0C0C0">1030NX625 桃園<br>
+      1210澳門<br>
+      1325NX110澳門<br>
+      1540上海</td>
+      <td width="291" bgcolor="#C0C0C0">　</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/15</td>
+      <td width="75" bgcolor="#C0C0C0">二</td>
+      <td width="118" bgcolor="#C0C0C0">上海</td>
+      <td width="291" bgcolor="#C0C0C0">royal, yongdan, jianzhong, doggyzone, yao</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/16~17</td>
+      <td width="75" bgcolor="#C0C0C0">三、四</td>
+      <td width="118" bgcolor="#C0C0C0">上海</td>
+      <td width="291" bgcolor="#C0C0C0">上海華邦課程 (GP/STL) 3+6 小時</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/18</td>
+      <td width="75" bgcolor="#C0C0C0">五</td>
+      <td width="118" bgcolor="#C0C0C0">上海</td>
+      <td width="291" bgcolor="#C0C0C0">上海老街、浦東</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/19</td>
+      <td width="75" bgcolor="#C0C0C0">六</td>
+      <td width="118" bgcolor="#C0C0C0">大連</td>
+      <td width="291" bgcolor="#C0C0C0">14:55 <font FACE="新細明體">東方航空&nbsp; 
+      上海起飛<br>
+      東軟老師餐敘<br>
+      綠之都大酒店</font></td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/20~22</td>
+      <td width="75" bgcolor="#C0C0C0">日/一/二</td>
+      <td width="118" bgcolor="#C0C0C0">大連<br>
+      </td>
+      <td width="291" bgcolor="#C0C0C0">大連東軟課程 (GP/STL/DP)<br>
+      週一晚東軟座談：《自其不變而觀之》<br>
+      10/22 17:30<font FACE="新細明體">火車赴</font>瀋陽，<font FACE="新細明體">宿東軟新賓館</font></td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/23</td>
+      <td width="75" bgcolor="#C0C0C0">三</td>
+      <td width="118" bgcolor="#C0C0C0">瀋陽</td>
+      <td width="291" bgcolor="#C0C0C0">清故宮, <font FACE="新細明體">少帥府 
+      瀋陽彩電塔, </font>東北大學</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/24~26</td>
+      <td width="75" bgcolor="#C0C0C0">四/五/六</td>
+      <td width="118" bgcolor="#C0C0C0">瀋陽</td>
+      <td width="291" bgcolor="#C0C0C0">瀋陽東軟課程 (C++/OOP/DP)<br>
+      週四晚東軟座談：《自其不變而觀之》</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/27</td>
+      <td width="75" bgcolor="#C0C0C0">日</td>
+      <td width="118" bgcolor="#C0C0C0">瀋陽</td>
+      <td width="291" bgcolor="#C0C0C0">華儲, wangfei<br>
+      10:00am 華儲 讀友座談 <br>
+      21:30<font FACE="新細明體">火車赴</font>北京</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/28</td>
+      <td width="75" bgcolor="#C0C0C0">一</td>
+      <td width="118" bgcolor="#C0C0C0">北京</td>
+      <td width="291" bgcolor="#C0C0C0">CSDN, jiangtao<br>
+      gigix, myan, xiaox, solstice</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/29</td>
+      <td width="75" bgcolor="#C0C0C0">二</td>
+      <td width="118" bgcolor="#C0C0C0">北京</td>
+      <td width="291" bgcolor="#C0C0C0">wlf,&nbsp; 電子社<br>
+      21:50<font FACE="新細明體">火車赴</font>太原</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/30</td>
+      <td width="75" bgcolor="#C0C0C0">三</td>
+      <td width="118" bgcolor="#C0C0C0">太原、平遙</td>
+      <td width="291" bgcolor="#C0C0C0">喬家大院、平遙古城</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">10/31</td>
+      <td width="75" bgcolor="#C0C0C0">四</td>
+      <td width="118" bgcolor="#C0C0C0">平遙、太原</td>
+      <td width="291" bgcolor="#C0C0C0">雙林寺、常家莊園<br>
+      21:00<font FACE="新細明體">火車返北京</font></td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">11/01</td>
+      <td width="75" bgcolor="#C0C0C0">五</td>
+      <td width="118" bgcolor="#C0C0C0">北京</td>
+      <td width="291" bgcolor="#C0C0C0">華章、機械社<br>
+      chenjun</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">11/02</td>
+      <td width="75" bgcolor="#C0C0C0">六</td>
+      <td width="118" bgcolor="#C0C0C0">北京</td>
+      <td width="291" bgcolor="#C0C0C0">09:30am, China-Pub 讀友座談<br>
+      北大, 圓明園, pam, 文源</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">11/03</td>
+      <td width="75" bgcolor="#C0C0C0">日</td>
+      <td width="118" bgcolor="#C0C0C0">北京</td>
+      <td width="291" bgcolor="#C0C0C0">海碇圖書城、雍和宮</td>
+    </tr>
+    <tr>
+      <td width="98" bgcolor="#C0C0C0">11/04</td>
+      <td width="75" bgcolor="#C0C0C0">一</td>
+      <td width="118" bgcolor="#C0C0C0">1610 NX1北京<br>
+      1930 澳門<br>
+      2045 NX608澳門<br>
+      2225 桃園</td>
+      <td width="291" bgcolor="#C0C0C0">　</td>
+    </tr>
+  </table>
+  </div><hr>
+  <p>↓2001 大陸行： <a href="unsaved:///article01-5.htm" target="main">回憶與相片</a>（共14天）</p>
+  <div align="left"><table border="1">
+    <tr>
+      <td>日期 (2001)</td>
+      <td>星期</td>
+      <td>活動</td>
+      <td>備註</td>
+    </tr>
+    <tr>
+      <td bgcolor="#C0C0C0">10/14</td>
+      <td bgcolor="#C0C0C0">日</td>
+      <td bgcolor="#C0C0C0"><font FACE="新細明體">0820 BR851 台北出發<br>
+      1000 至香港<br>
+      1415 CA112 香港出發<br>
+      1720 至北京</font></td>
+      <td bgcolor="#C0C0C0"><font FACE="新細明體">住宿</font>委請CSDN<font
+      FACE="新細明體">協助</font></td>
+    </tr>
+    <tr>
+      <td bgcolor="#C0C0C0">10/15</td>
+      <td bgcolor="#C0C0C0">一</td>
+      <td bgcolor="#C0C0C0"><font FACE="新細明體">1645&nbsp; CJ6106 北京出發<br>
+      一小時至 瀋陽</font></td>
+      <td bgcolor="#C0C0C0"><font FACE="新細明體">交通</font>委請<font
+      FACE="新細明體">東軟安排</font></td>
+    </tr>
+    <tr>
+      <td bgcolor="#C0C0C0">10/16~10/18</td>
+      <td bgcolor="#C0C0C0">二~四</td>
+      <td bgcolor="#C0C0C0">瀋陽東軟. 課程三天<br>
+      0900-1200, 1330-1630<br>
+      10/17夜訪華儲書店</td>
+      <td bgcolor="#C0C0C0"><font FACE="新細明體">住宿 軟件園賓館</font></td>
+    </tr>
+    <tr>
+      <td bgcolor="#C0C0C0">10/19</td>
+      <td bgcolor="#C0C0C0">五</td>
+      <td bgcolor="#C0C0C0">1005&nbsp; CA1602 沈陽<font FACE="新細明體">出發<br>
+      一小時至 北京</font></td>
+      <td bgcolor="#C0C0C0">住宿委請CSDN<font FACE="新細明體">協助</font></td>
+    </tr>
+    <tr>
+      <td bgcolor="#C0C0C0">10/20~10/21</td>
+      <td bgcolor="#C0C0C0">六~日</td>
+      <td bgcolor="#C0C0C0">北京香山, 校園, 書店, <br>
+      CSDN 讀者座談<br>
+      <br>
+      <font color="#0000FF">清華大學. 演講與座談</font><br>
+      日期：10/21 晚<br>
+      地點：東主樓東階教室<br>
+      題目：程序人生</td>
+      <td bgcolor="#C0C0C0">　</td>
+    </tr>
+    <tr>
+      <td bgcolor="#C0C0C0">10/22</td>
+      <td bgcolor="#C0C0C0">一</td>
+      <td bgcolor="#C0C0C0">校園, 書店, <br>
+      午晚出發武漢</td>
+      <td bgcolor="#C0C0C0">京漢線，13小時</td>
+    </tr>
+    <tr>
+      <td bgcolor="#C0C0C0">10/23~10/26</td>
+      <td bgcolor="#C0C0C0">二~五</td>
+      <td bgcolor="#C0C0C0">華中出版社. 拜會<br>
+      校園, 書店<br>
+      <br>
+      <font color="#0000FF">華中科技大學. 演講與座談</font><br>
+      日期：10/24晚<br>
+      地點：人文講座教室<br>
+      題目：程序人生<br>
+      <br>
+      東湖，楚城<br>
+      湖北博物館，曾侯乙墓出土文物<br>
+      文赤壁（東坡 赤壁懷古）</td>
+      <td bgcolor="#C0C0C0">住宿委請華中<font FACE="新細明體">協助</font></td>
+    </tr>
+    <tr>
+      <td bgcolor="#C0C0C0">10/27</td>
+      <td bgcolor="#C0C0C0">六</td>
+      <td bgcolor="#C0C0C0">0900 CZ3075 武漢出發<br>
+      1050 至香港, <br>
+      1405 BR1852 香港出發<br>
+      1540 至台北</td>
+      <td bgcolor="#C0C0C0">　</td>
+    </tr>
+  </table>
+  </div><p>↓2001 活動：（逆時排列）</p>
+  <div align="left"><table border="1" width="606">
+    <tr>
+      <td width="108">日期</td>
+      <td width="77">單位</td>
+      <td width="67">活動性質</td>
+      <td width="216">題目</td>
+      <td width="108">時間</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/12/08</td>
+      <td width="77" bgcolor="#C0C0C0">師範大學翻譯研究所<br>
+      <br>
+      開放聽講</td>
+      <td width="67" bgcolor="#C0C0C0">演講</td>
+      <td width="216" bgcolor="#C0C0C0">科技翻譯面面觀 —<br>
+      從計算機領域講起</td>
+      <td width="108" bgcolor="#C0C0C0">2小時<br>
+      10:00 ~ 12:00</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/11/13,15,16</td>
+      <td width="77" bgcolor="#C0C0C0">工研院<br>
+      電通所<br>
+      開放全院</td>
+      <td width="67" bgcolor="#C0C0C0">授課</td>
+      <td width="216" bgcolor="#C0C0C0">Generic Programming and Standard Template Library In C++ 
+      <br>
+      教材：<br>
+      1. 五篇文章 by 侯捷<br>
+      2. 投影片與講義</td>
+      <td width="108" bgcolor="#C0C0C0">9小時<br>
+      11/13（二）<br>
+      11/15（四）<br>
+      11/16（五）09:00~12:00</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/10/14~27</td>
+      <td width="77" bgcolor="#C0C0C0">瀋陽<br>
+      北京<br>
+      武漢</td>
+      <td width="67" bgcolor="#C0C0C0">授課<br>
+      交流<br>
+      訪友<br>
+      演講</td>
+      <td width="216" bgcolor="#C0C0C0">北京清華大學.演講<br>
+      武漢華中科技大學.演講<br>
+      題目：程序人生</td>
+      <td width="108" bgcolor="#C0C0C0">　</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/10/16~18</td>
+      <td width="77" bgcolor="#C0C0C0">審陽<br>
+      東軟</td>
+      <td width="67" bgcolor="#C0C0C0">授課</td>
+      <td width="216" bgcolor="#C0C0C0">C++/OOP/Design-Patterns <br>
+      <font FACE="新細明體">從專家經驗中學習</font><p>教材：<br>
+      1. 《Effective C++ 2e》簡體版<br>
+      2. 投影片與講義</td>
+      <td width="108" bgcolor="#C0C0C0">18小時<br>
+      <br>
+      09:00~1200<br>
+      13:30~16:30</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0"><font color="#000000">2001/09/<br>
+      19,20,24,26</font></td>
+      <td width="77" bgcolor="#C0C0C0">工研院<br>
+      <font color="#000000">光電所<br>
+      部門內訓</font></td>
+      <td width="67" bgcolor="#C0C0C0"><font color="#000000">授課</font></td>
+      <td width="216" bgcolor="#C0C0C0"><font color="#000000">MFC Architecture &amp;&nbsp; 
+      programming —<br>
+      MFCApps Causal Relations Dynamic Creation, <br>
+      Object Serialization,<br>
+      Message Mapping, <br>
+      Message Routing<br>
+      </font>教材：《深入淺出MFC》chap1,6,7,8,9,13</td>
+      <td width="108" bgcolor="#C0C0C0"><font color="#000000">12 小時<br>
+      09/19（三）<br>
+      09/20（四）<br>
+      09/24（一）<br>
+      09/26（三）<br>
+      18:30~21:30</font></td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/09/04 始</td>
+      <td width="77" bgcolor="#C0C0C0">工研院<br>
+      電通所</td>
+      <td width="67" bgcolor="#C0C0C0">授課</td>
+      <td width="216" bgcolor="#C0C0C0">Advanced Patterns &amp; Object Oriented Techniques In 
+      C++ <br>
+      教材：講義</td>
+      <td width="108" bgcolor="#C0C0C0">9小時<br>
+      09/04（二）<br>
+      09/06（四）<br>
+      09/07（五） 09:00~12:00</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/08/20<br>
+      JavaTwo2001</td>
+      <td width="77" bgcolor="#C0C0C0">台北<br>
+      昇陽公司<br>
+      Sun Taiwan</td>
+      <td width="67" bgcolor="#C0C0C0">90分鐘<br>
+      技術研討</td>
+      <td width="216" bgcolor="#C0C0C0"><font face="CG Times" size="3">JavaTwo 2001 :</font><br>
+      Java v.s. C++<br>
+      <a target="main" href="unsaved:///javatwo-2001.htm"><font face="CG Times" size="3">相關資料下載</font></a></td>
+      <td width="108" bgcolor="#C0C0C0">下午第一堂</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/08/07,09,10</td>
+      <td width="77" bgcolor="#C0C0C0">工研院<br>
+      電通所</td>
+      <td width="67" bgcolor="#C0C0C0">授課</td>
+      <td width="216" bgcolor="#C0C0C0">Introduction to C++ &amp; Object Oriented Programming 
+      for C Programmers <br>
+      教材：講義、投影片</td>
+      <td width="108" bgcolor="#C0C0C0">9小時<br>
+      08/07（二）<br>
+      08/09（四）<br>
+      08/10（五）09:00~12:00</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/07/19 始</td>
+      <td width="77" bgcolor="#C0C0C0">新竹<br>
+      思源公司<br>
+      SpringSoft</td>
+      <td width="67" bgcolor="#C0C0C0">授課</td>
+      <td width="216" bgcolor="#C0C0C0">C++/OOP 基礎訓練<br>
+      並帶高階概念<br>
+      教材：講義、投影片<br>
+      參考書籍：<br>
+      1.《C++ Primer 3e》 <br>
+      2.《Effective C++ 2e》</td>
+      <td width="108" bgcolor="#C0C0C0">18小時 <br>
+      週四 18:30~20:30<br>
+      週六 13:30~17:30</td>
+    </tr>
+    <tr>
+      <td width="108"><font color="#C0C0C0">2001/07 之後<br>
+      （因故取消）</font></td>
+      <td width="77"><font color="#C0C0C0">明碁電通</font></td>
+      <td width="67"><font color="#C0C0C0">演講</font></td>
+      <td width="216"><font color="#C0C0C0">C++/OOP/GP 的近況與發展</font></td>
+      <td width="108"><font color="#C0C0C0">120分鐘</font></td>
+    </tr>
+    <tr>
+      <td width="108"><font color="#C0C0C0">2001/07 之後<br>
+      （因故取消）</font></td>
+      <td width="77"><font color="#C0C0C0">量測中心</font></td>
+      <td width="67"><font color="#C0C0C0">授課</font></td>
+      <td width="216"><font color="#C0C0C0">Efficiency in C++</font></td>
+      <td width="108"><font color="#C0C0C0">100分鐘</font></td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/07/03 始</td>
+      <td width="77" bgcolor="#C0C0C0">華邦</td>
+      <td width="67" bgcolor="#C0C0C0">授課</td>
+      <td width="216" bgcolor="#C0C0C0">C++/OOP/Design-Patterns&nbsp;<br>
+      從專家經驗中學習<br>
+      教材：<br>
+      1.《Effective C++ 2e》<br>
+      2.《More Effective C++》<br>
+      3.《Design Patterns》</td>
+      <td width="108" bgcolor="#C0C0C0">24小時<br>
+      周二18:30~21:30<br>
+      周四09:00~12:00</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/04/27</td>
+      <td width="77" bgcolor="#C0C0C0">中正理工</td>
+      <td width="67" bgcolor="#C0C0C0">演講</td>
+      <td width="216" bgcolor="#C0C0C0">走好資訊路</td>
+      <td width="108" bgcolor="#C0C0C0">90 分鐘</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/04/24</td>
+      <td width="77" bgcolor="#C0C0C0">交大資訊</td>
+      <td width="67" bgcolor="#C0C0C0">演講</td>
+      <td width="216" bgcolor="#C0C0C0">唯堅持，得成功</td>
+      <td width="108" bgcolor="#C0C0C0">90 分鐘</td>
+    </tr>
+    <tr>
+      <td width="108" bgcolor="#C0C0C0">2001/03/01 ~<br>
+      2001/06/14</td>
+      <td width="77" bgcolor="#C0C0C0">元智大學資訊工程系</td>
+      <td width="67" bgcolor="#C0C0C0">課程</td>
+      <td width="216" bgcolor="#C0C0C0">泛型程式設計與STL<br>
+      教材：<br>
+      1.《C++ Primer 3e》 <br>
+      2. 五篇文章 by 侯捷<br>
+      3.《泛型程式設計與STL》</td>
+      <td width="108" bgcolor="#C0C0C0">周四 18:30~21:20<br>
+      工程一館1102</td>
+    </tr>
+  </table>
+  </div><p>　</p>
+</blockquote>
+</body>
+</html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">

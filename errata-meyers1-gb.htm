@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>勘誤《Effective C++ 2e》簡體中文版</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><font color="#800000">《Effective C++ 2e》<br>
+簡體中文版<br>
+<br>
+勘誤表 <br>
+<br>
+<small>侯捷<br>
+<br>
+周筠 / 孟岩&nbsp; 協助</small><br>
+<br>
+<small><small>感謝所有來信指正的讀者</small></small></font></h2>
+
+<p align="center">　</p>
+
+<p align="center"><font color="#800000">侯捷觀點</font></p>
+
+<p align="center"><font color="#800000">有些讀者會仔細區分：技術錯誤，作（譯）者的責任，文字錯誤，編輯的責任，<br>
+印刷錯誤，出版社的責任…<br>
+（其實無所謂「印刷錯誤」— 印刷怎麼會有錯誤？）<br>
+<br>
+我認為，一本技術書籍，內容上的一切錯誤都是作（譯）者的責任。<big><br>
+</big>不論技術誤謬、錯別字、代碼誤植、頁次誤排、圖表編號錯誤…，<br>
+統統都是作（譯）者的責任。<br>
+只有裝訂錯誤、缺頁、折損才是出版社的責任。<br>
+<br>
+一本書的成功，作（譯）者享受最大的榮耀。<br>
+享受最大榮耀的人，要負起最大的責任。<br>
+侯捷書籍裡裡外外的所有責任，侯捷自己扛。</font></p>
+
+<p align="center"><font color="#800000">我的合作夥伴願意花大量成本，配合我，對紙本書不斷勘誤修正，<br>
+這很不容易。我認為他們的態度非常專業。</font></p>
+
+<hr>
+
+<blockquote>
+  <p><span lang="EN-US">本書之繁簡兩版書籍各自獨立維護。簡體版讀者只需注意此簡體版勘誤表即可。</span></p>
+  <p>　</p>
+  <p><span lang="EN-US">以下是簡體版新發現的錯誤，<strong>暫請自行修正</strong>：</span></p>
+  <p>■p6,L-13<br>
+  原文：你或許得使用條款<font color="#FF0000">14</font><br>
+  更正：你或許得使用條款<font color="#0000FF">M4</font><br>
+  感謝：Shom Mo<br>
+  日期：2001/11/01<br>
+  <span lang="EN-US"></span></p>
+  <p>■p45,最後一段<br>
+  說明：由於誤會了一個關鍵性的語意，導致翻譯錯誤。非常抱歉。</p>
+  <p>原文：</p>
+  <p>第一個理由是你可能想要「擁抱」定制型內存管理系統。有許多理由使你會這麼做，最平常的一個理由就是，默認的 
+  operator new 和 operator delete 
+  對你而言使用了太多內存或是速度太慢（或兩者兼具）。正是這樣，每一個你貢獻出來用以追蹤和釋放那些大塊內存的額外<font
+  color="#FF0000">程序</font>空間和額外的程序代碼都筆直地達陣得分：如果<font
+  color="#FF0000">採用</font> pool策略，你的軟件跑起來會比較慢而且耗用較多內存。<font
+  color="#000000">但是對那些抱持著「效率只不過是額外獎賞」態度的</font><font
+  color="#FF0000">數據</font><font color="#000000">庫和應用軟件而言，由於你可以預期pool 
+  的大小會合理地受到約束，所以 pool 作法可能是最好的一種策略。</font><br>
+  <br>
+  更正：</p>
+  <p>第一個理由是你可能想要「擁抱」定制型內存管理系統。有許多理由使你會這麼做，最平常的一個理由就是，默認的 
+  operator new 和 operator delete 
+  對你而言使用了太多內存或是速度太慢（或兩者兼具）。正是這樣，每一個你貢獻出來用以追蹤和釋放那些大塊內存的額外<font
+  color="#0000FF">內存</font>空間和額外的程序代碼都筆直地達陣得分：如果<font
+  color="#0000FF">不採用</font> pool策略，你的軟件跑起來會比較慢而且耗用較多內存。<font
+  color="#0000FF">對那些抱持「效率乃十分必要」之態度的程序庫和應用軟件而言（並且由於 
+  pool 的大小可受到適度約束）， pool 可能是最好的一種策略。</font><br>
+  <br>
+  感謝：Prog_cn<br>
+  日期：2002/01/21<br>
+  討論：關鍵在於此句：<br>
+  <font size="3">your software runs slower and uses more memory than <strong>it would if</strong> 
+  you adopted the</font><big> </big><font size="3">pool strategy.</font><big> </big></p>
+  <p><font size="3">意思是哪一個呢？：</font><big> </big><br>
+  <font size="3">(1) 如果採用 pool策略，你的軟件跑起來會比較慢而且耗用較多內存。</font><big> 
+  <br>
+  </big><font size="3">(2) 如果<font color="#0000FF">不</font>採用 pool策略，你的軟件跑起來會比較慢而且耗用較多內存。</font><big> 
+  </big></p>
+  <p>這樣寫很容易令人誤解。正確的想法是，if 子句用來修飾 it would，關鍵在於時態。後半句是假設語氣所以都用過去式，如 
+  would 及 adopted. 前一句說的是事實，所以用現在式。</p>
+  <p>我翻譯此段時前前後後確實感到不太對勁兒，但沒能瞧出這個英文關鍵所在，導致連整段稍後的語氣語感也都弄擰了。從技術面討論，pool雖然會帶來較多的memory耗費，但如果將free-list的每個node的前4個bytes拿來做為維護free-list之用（這是常見手法，可參考《<a
+  href="jjwbooks-tass.htm" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm" target="main">STL源碼剖析</a>》圖2-4），便可去除overhead。至於 
+  memory pool的速度，比起 ::operator new確實是比較快的（後者需搜尋system 
+  heap中的可用memory）。另外，::operator new抓取system heap時會連帶挖取一塊所謂cookie（p40圖），也會浪費memory。總之，memory 
+  pool 是比較高級的技巧，比system heap management 
+  在空間和時間上都有優勢。SGI STL的allocator便實作有16個大小分別為 8, 
+  16, 24, 32, 40, 48, ...128 bytes的memory pool。詳見《<a href="jjwbooks-tass.htm" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm"
+  target="main">STL源碼剖析</a>》第二章。</p>
+  <p>■p131,條款31標題<br>
+  原文：千萬不要傳回「函式內local物件的reference」或<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 「函式內<font color="#FF0000">以new獲得的指標所指的物件</font>」<br>
+  更正：千萬不要傳回「函式內local物件的reference」或<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 「函式內<font color="#0000FF">以new所獲指標所指物件的reference</font>」<br>
+  <font color="#0000FF">提示</font>：請一併修改目錄<br>
+  感謝：john_chang1977<br>
+  日期：2002/06/02<br>
+  </p>
+</blockquote>
+</body>
+</html>

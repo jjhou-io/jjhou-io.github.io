@@ -1,0 +1,665 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>勘誤：深度探索 C++ 物件模型</title>
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="723" height="426">
+  <tr>
+    <td align="right" valign="top" width="18" height="34">&nbsp; <!--mstheme--></font></td>
+    <td width="18" height="34"><!--mstheme--></font></td>
+    <td valign="bottom" width="663" height="34"><big><big><font face="華康粗明體"
+    color="#0000FF">深度探索 C++ 物件模型</font>&nbsp; 勘誤、討論、補充</big></big><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="18" height="376" bgcolor="#C0C0C0"><font size="3"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td width="18" height="376"><!--mstheme--></font></td>
+    <td valign="top" width="663" height="376">原著：<font color="#0000FF">Inside the C++ 
+    Object Model</font>, by Stanley B. Lippman, Addison Wesley/1996<p><br>
+    <a href="jjtbooks-inside-cpp-obj-model.htm" tppabs="http://jjhou.boolan.com/jjtbooks-inside-cpp-obj-model.htm"><img src="lippman.jpg" tppabs="http://jjhou.boolan.com/lippman.jpg" width="181"
+    height="221" alt="lippman.jpg (18840 bytes)"></a></p>
+    <p><font color="#FF0000">注意，本書英文版之錯誤（errata）已修正於中文版內。<br>
+    </font></p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p>我的譯作 <font color="#0000FF">深度探索 C++ 物件模型</font> 
+    經各方指正，以及我自己的覆閱，<br>
+    發現了一些錯誤。這些錯誤，有的是我筆誤，有的是我誤譯，有的是新<br>
+    發現的原作者 Lippman 錯誤。茲記錄於下。凡能寫碼驗證的，我都寫碼<br>
+    驗證後，才敢說是 Lippman 原書有誤。<br>
+    <br>
+    筆誤或誤譯的部份，當於新刷更正。本文最重要的，大約是補充討論<br>
+    的部份了，此部份無法於新刷中加上（因為這不是 Lippman 
+    原書內容）。<br>
+    <br>
+    感謝 <font color="#0000FF">chilong、黃昕暐先生、林昆穎先生、黃俊達先生、劉東岳先生、<br>
+    黃俊堯先生、唐志青先生、梁明思先生</font> 提供我許多寶貴意見。<br>
+    <br>
+    在這份豐富的 &lt;討論、勘誤、補充&gt; 
+    文件中，黃俊達先生和劉東岳先生做出<br>
+    最大貢獻。黃俊達先生是交大電子博士，做的是 IC 設計工作，OO 
+    為其<br>
+    業餘興趣。四眼王蟲為電腦圍棋高手，出沒於網路 Programming/OOP 版，<br>
+    為人排憂解難。我很高興因為這本書，結識這兩位熱心人士。一個人願意在<br>
+    看過一本書之後提筆寫下數十頁意見，與作者（譯者）討論，實在需要絕大<br>
+    的熱情支持。我雖然被他們操了個半死（也因此我要把手上一些書的 
+    delay<br>
+    責任算一部份在他們頭上 :)），但真是很感謝兩位的心意。<br>
+    <br>
+    其他寫信與我的朋友，我也有相同的感謝。<br>
+    <br>
+    以下是更正內容。其中 <font color="#0000FF">Lm 表示第 m 行，L-n 
+    表示倒數第 n 行</font>。<br>
+    <br>
+    <br>
+    <strong><font color="#FF0000">以下已於二刷書籍中修正 :</font></strong><br>
+    <br>
+    ■ p.132 L7（Lippman 錯誤）<br>
+    <br>
+    原文：所得結果加上 z 的偏移值（相對於 origin 起始位址），並減 1，就會...<br>
+    更正：所得結果<font color="#0000FF">減去 </font>z 的偏移值（相對於 origin 
+    起始位址），並<font color="#0000FF">加</font> 1，就會...<br>
+    致謝：林昆穎先生<br>
+    <br>
+    ■ p.145 L-5 （侯俊傑筆誤）<br>
+    <br>
+    原文：void print { const Point3d&amp; ) { ... }<br>
+    更正：void print<font color="#0000FF"> <strong>(</strong></font> const Point3d&amp; ) { 
+    ... }<br>
+    <br>
+    ■ p.194 L-11 （Lippman 錯誤）<br>
+    <br>
+    原文：Abstract_base::mumble_set()<br>
+    更正：Abstract_base::<font color="#0000FF">mumble</font>()<br>
+    致謝：chilong<br>
+    <br>
+    ■ p.243 中央 （Lippman 錯誤）<br>
+    <br>
+    原文：_identity 表示檔案中所定義的第一個 nonstatic object。<br>
+    更正：_identity 表示檔案中所定義的第一個 <font color="#0000FF">static</font> 
+    object。<br>
+    致謝：chilong<br>
+    <br>
+    ■ p.314 中央的程式碼（侯俊傑筆誤）<br>
+    <br>
+    原文：if (typeif (rt) == .......)<br>
+    更正：if (<font color="#0000FF">typeid</font> (rt) == .......)<br>
+    致謝：chilong<br>
+    </p>
+    <p><br>
+    <br>
+    <strong><font color="#FF0000">以下為後續發現之錯誤，暫請讀者自行更正</font></strong><br>
+    <br>
+    ■ p.28 討論<br>
+    <br>
+    討論：劉東岳先生認為 Lippman 對 word 的看法是 computer science 的<br>
+    習慣說法，我的譯註中對 word 的看法似乎是 Windows 上才有的說法。<br>
+    <br>
+    致謝：謝謝提醒。我在譯註中用詞還算委婉，並不獨斷，大概不致引起誤會。<br>
+    <br>
+    ■ p.39 L6（侯俊傑筆誤）<br>
+    <br>
+    原文：出現不尋常活動的第一個徵候時<br>
+    更正：出現不尋常活動的第一個<font color="#0000FF">癥</font>候時<br>
+    <br>
+    ■ p.61 L7（侯俊傑筆誤）<br>
+    <br>
+    原文：X x3 = x( x0 );<br>
+    更正：X x3 = <font color="#0000FF">X</font>( x0 );<br>
+    致謝：黃俊達先生、黃俊堯先生<br>
+    <br>
+    ■ p.63 L-3（侯俊傑筆誤）<br>
+    <br>
+    原文：Stroustrups<br>
+    更正：Stroustrup<br>
+    致謝：黃俊堯先生</p>
+    <p>■ p.66 上 （原書錯誤）<br>
+    <br>
+    原文：bar( X &amp;__result )<br>
+    更正：bar( X &amp;__result<font color="#0000FF">, const T &amp;y, const T &amp;z</font> 
+    )<br>
+    致謝：Huang Angus<br>
+    <br>
+    ■ p.66 中 （侯俊傑誤譯）<br>
+    <br>
+    原文：以 named return value 取代 result 參數<br>
+    更正：以 result 參數取代 named return value<br>
+    致謝：唐志青先生<br>
+    <br>
+    ■ p.72 L-6 （侯俊傑誤譯）<br>
+    <br>
+    原文：如果答案是 yes，那麼提供一個 copy constructor 的 explicit inline 
+    函式<br>
+    實體就非常合理，那將要求你的編譯器提供 NRV 最佳化。<br>
+    <br>
+    更正：如果答案是 yes，那麼提供一個 copy constructor 的 explicit inline 
+    函式<br>
+    實體就非常合理 -- 在「你的編譯器提供 NRV 最佳化」的前提下。<br>
+    <br>
+    ■ p.91 code 中段（Lippman 錯誤）<br>
+    <br>
+    原文： mumble( length val ) { _val = val; }<br>
+    更正：<font color="#0000FF">void</font> mumble( length val ) { _val = val; }<br>
+    致謝：劉東岳先生<br>
+    <br>
+    ■ p.101 L14（侯俊傑筆誤）</p>
+<!--mstheme-->    </font><div align="left"><table border="0" width="260">
+      <tr>
+        <td width="57">原文：<!--mstheme--></font></td>
+        <td width="191">private:<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="57"><!--mstheme--></font></td>
+        <td width="191">float _x, _y;<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="57">更正：<!--mstheme--></font></td>
+        <td width="191"><font color="#0000FF">protected:</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="57"><!--mstheme--></font></td>
+        <td width="191">float _x, _y;<!--mstheme--></font></td>
+      </tr>
+    </table>
+    </div><p>致謝：梁明思先生<br>
+    <br>
+    ■ p119 下, p120 上 （Lippman 錯誤）</p>
+<!--mstheme-->    </font><div align="left"><table border="0" width="483">
+      <tr>
+        <td width="57">原文：<!--mstheme--></font></td>
+        <td width="414">Vertex *pv = pv3d; (此行在 p119)<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="57"><!--mstheme--></font></td>
+        <td width="414">Vertex *pv = pv3d ? pv3d-&gt;__vbcPoint2d : 0;<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="57">修改：<!--mstheme--></font></td>
+        <td width="414">Point2d *p2d = pv3d;<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="57"><!--mstheme--></font></td>
+        <td width="414">Point2d *p2d = pv3d ? pv3d-&gt;__vbcPoint2d : 0;<!--mstheme--></font></td>
+      </tr>
+    </table>
+    </div><p>致謝：黃俊達先生、劉東岳先生<br>
+    侯俊傑感想：從 Lippman 的錯誤去推想其原意，真是不容易啊！<br>
+    <br>
+    ■ p122 上 （Lippman 錯誤）</p>
+<!--mstheme-->    </font><div align="left"><table border="0" width="482">
+      <tr>
+        <td width="56">原文：<!--mstheme--></font></td>
+        <td width="414">Vertex *pv = pv3d;<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="56"><!--mstheme--></font></td>
+        <td width="414">Vertex *pv = pv3d ? pv3d + pv3d-&gt;__vptr__Point3d[-1] : 0;<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="56">修改：<!--mstheme--></font></td>
+        <td width="414">Point2d *p2d = pv3d;<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="56"><!--mstheme--></font></td>
+        <td width="414">Point2d *p2d = pv3d ? pv3d + pv3d-&gt;__vptr__Point3d[-1] : 0;<!--mstheme--></font></td>
+      </tr>
+    </table>
+    </div><p>致謝：黃俊達先生、劉東岳先生<br>
+    侯俊傑感想：從 Lippman 的錯誤去推想其原意，真是不容易啊！<br>
+    <br>
+    ■ p131 L-5（討論）<br>
+    <br>
+    原文：為了區分 p1 和 p2，每一個真正的 member offset 值都被加上 1。<br>
+    討論：BCB, g++, CC 均如此，唯 VC 沒有加 1。<br>
+    致謝：黃俊堯先生<br>
+    <br>
+    ■ p.160 L-1 （侯俊傑筆誤）<br>
+    <br>
+    原文：Derived::close()<br>
+    更正：Derived::<font color="#0000FF">clone</font>()<br>
+    致謝：黃昕暐先生<br>
+    <br>
+    ■ p.165 討論<br>
+    <br>
+    網友 chilong 問：為什麼圖4.2 Deived object 的 Base1 subobject<br>
+    中的 vptr 所指的 vtbl 之中，#4 slot 竟然指向 Base2::mumble()？<br>
+    他認為，由於 Base1 class 中並沒有 mumble() 這個虛擬函式，所以<br>
+    Base1 subobject 中不應該有對應的 slot。<br>
+    <br>
+    侯俊傑答覆：這是因為經過圖4.2（即 p160 
+    碼）的多重繼承，程式可經由<br>
+    Derived* 呼叫 Base2::mumble()，而 Derived* 其實指的是 Derived object<br>
+    中的 Base1 subobject（是一種自然多型），所以 Base1 subobject 的 vtbl<br>
+    必須有 slot 指向 Base2::mumble() 才可以。這其實就是 p.166 的第二種<br>
+    情況。圖4.2 無誤！<br>
+    <br>
+    ■ p.181 L7 （討論）</p>
+<!--mstheme-->    </font><div align="left"><table border="0" width="419">
+      <tr>
+        <td width="69">原文：<!--mstheme--></font></td>
+        <td width="338">Point3d* (Point3d::*pmf)(const Point3d&amp;) const =<!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td width="69"><!--mstheme--></font></td>
+        <td width="338"><font color="#0000FF">&amp;</font>Point3d::cross_product;<!--mstheme--></font></td>
+      </tr>
+    </table>
+    </div><p>討論：第二行最前面不管有沒有 '&amp;'，效果都一樣，都是表示函式位址。<br>
+    <br>
+    ■ p.181 L11 （Lippman 錯誤）<br>
+    <br>
+    原文：(*pA.pmf)(pB);<br>
+    更正：(pA.*pmf)(pB);<br>
+    <br>
+    ■ p.181 L-7 （Lippman 錯誤）<br>
+    <br>
+    原文： ? ( *pmf.faddr )( &amp;pA + pmf.delta )<br>
+    更正： ? ( *pmf.faddr )( &amp;pA + pmf.delta<font color="#0000FF">, pB</font> )<br>
+    致謝：黃俊達先生<br>
+    <br>
+    ■ p.181 L-5 （討論）<br>
+    <br>
+    原文： (&amp;pA + pA.__vptr__Point3d[ pmf.index ].delta, pB);<br>
+    討論： 黃俊達先生認為應改為<br>
+    (&amp;pA + pA.__vptr__Point3d[ pmf.index ].offset, pB); --- (1)<br>
+    或是可寫為：<br>
+    (&amp;pA + pmf.delta, pB) --- (2)<br>
+    <br>
+    侯俊傑同意 (2) 式。至於 (1) 式，參悟中。<br>
+    <br>
+    ■ p.211 L-13 （侯俊傑誤譯）<br>
+    <br>
+    原文：而更後繼（第二個 base class 以後）的繼承，則由 PVertex ...<br>
+    更正：而更往後（往下）的繼承，則由 PVertex ...<br>
+    <br>
+    ■ p.215 L11 （侯俊傑誤譯）<br>
+    <br>
+    原文：也就是說，我們必須多少對虛擬機制有點認識，才知道是否這個呼叫源自...<br>
+    更正：也就是說，虛擬機制本身必須知道是否這個呼叫源自...<br>
+    <br>
+    ■ p.217 code （Lippman 錯誤）<br>
+    <br>
+    原義：code 中段有兩個 vptr 初始化設定動作。<br>
+    更正：由此例之 class hierarchy 看，恐怕不只兩個 vptr。<br>
+    致謝：黃俊達先生<br>
+    <br>
+    ■ p.221 L-14 補充說明<br>
+    <br>
+    原文：<small><font color="#0000FF" face="Courier New">// </font><font color="#0000FF">譯註：原書有誤，這裡缺少一個 
+    </font><font color="#0000FF" face="Courier New">return</font><font color="#0000FF">。</font></small><br>
+    補充說明：上述的 return 動作完整寫法是 <font color="#0000FF">return *this</font>;<br>
+    致謝：黃俊達先生<br>
+    <br>
+    ■ p.231 5.5 節第一行（侯俊傑誤譯）<br>
+    <br>
+    原文：如果 class 沒有定義 destructor，那麼只有在 class 內含一個 member<br>
+    或其 class 擁有 destructor 的情況下，編譯器才會<br>
+    自動合成出一個來。<br>
+    <br>
+    更正：如果 class 沒有定義 destructor，那麼只有在 class 內含的 member 
+    object<br>
+    （抑或 class 自己的 base class）擁有 destructor 的情況下，編譯器才會<br>
+    自動合成出一個來。<br>
+    <br>
+    ■ p.234 L1（侯俊傑誤譯）<br>
+    <br>
+    原文：1. ...把相關的 virtual table 清除。<br>
+    更正：1. ...把相關的 virtual table 重新設定（為適當之 base class vtbl）。<br>
+    致謝：黃俊達先生<br>
+    <br>
+    ■ p.234 最上（Lippman 錯誤）<br>
+    <br>
+    原義：dtor 的內部實際動作（含被編譯器附加的動作）如書中之 
+    1,2,3,4,5。<br>
+    更正：應該是 2,3,1,4,5（才符合 p.233 最下所說的「與 ctor 
+    次序相反」）<br>
+    致謝：黃俊達先生<br>
+    <br>
+    ■ p.234 L-10（侯俊傑筆誤）<br>
+    <br>
+    原文：destructory<br>
+    更正：destructor<br>
+    致謝：劉東岳先生<br>
+    <br>
+    ■ p.237 L-4 （Lippman 錯誤）<br>
+    <br>
+    原文：operator==( const Y&amp; ) const;<br>
+    更正：<font color="#0000FF">bool</font> operator==( const Y&amp; ) const;<br>
+    致謝：黃俊達先生<br>
+    <br>
+    ■ p.238 L5 （侯俊傑筆誤）<br>
+    <br>
+    原文：// 譯註：convertion 運算子<br>
+    更正：// 譯註：conver<font color="#0000FF">s</font>ion 運算子<br>
+    <br>
+    ■ p.250 L5 （侯俊傑誤譯）<br>
+    <br>
+    原文：如果 Point 既沒有定義一個 constructor 也沒有定義一個 destructor，<br>
+    那麼我們需要做比「內建（build-in）型別所組成之陣列」更多的工作，<br>
+    也就是說配置足夠的記憶體以儲存 10 個連續的 Point 元素。<br>
+    <br>
+    更正：如果 Point 既沒有定義一個 constructor 也沒有定義一個 destructor，<br>
+    那麼我們的工作不會比建立一個「內建（build-in）型別所組成之陣列」更多，<br>
+    也就是說我們只要配置足夠記憶體以儲存 10 個連續的 Point 
+    元素即可。<br>
+    <br>
+    ■ p.262~p.263 討論<br>
+    <br>
+    原義：如果 Point *ptr = new Point3d[10]; // Point 是 Point3d 的 base class<br>
+    那麼 delete [] ptr; 只會喚起 Point::~Point() （p.262）<br>
+    書中（p.263）並說此問題的解決之道在程式員層面，而非語言層面。<br>
+    <br>
+    討論：<br>
+    C++ Standard Draft CD2 上說，此情況為 undefined。<br>
+    此亦即 &lt;More Effective C++&gt; item3 : &quot;<font color="#0000FF">never treat 
+    arrays polymorphically</font>&quot;.<br>
+    <br>
+    不過我們發現，某些編譯器能夠「部份解決」此問題。以下例而言：<br>
+    <br>
+    Point *ptr = new Point3d[2]; // Point3d : public Point , dtor is virtual.<br>
+    delete [] ptr;<br>
+    <br>
+    <font color="#0000FF">VC5 (and VC6) 執行結果:</font><br>
+    ~Point3d()<br>
+    ~Pointd()<br>
+    ~Point3d()<br>
+    ~Pointd()<br>
+    <br>
+    而且每個 dtor 都能 access 到正確的 data members。但我們尚不能夠<br>
+    因為 VC 有這種表現就放心大膽地 &quot;treat array polymorphically&quot;，<br>
+    因為在多重繼承等更複雜的情況中，還是有不正確的情況發生。<br>
+    <br>
+    <font color="#0000FF">BCB3 執行結果:</font><br>
+    ~Pointd()<br>
+    ~Pointd()<br>
+    ~Pointd()<br>
+    ~Pointd()<br>
+    <br>
+    所以在 BCB3 中 &quot;never treat array polymorphically&quot;。<br>
+    <br>
+    <font color="#0000FF">g++ 結果:</font><br>
+    segmentation fault (in Pentium/FreeBSD)<br>
+    (or bus error, in Sparc/Solaris)<br>
+    <br>
+    所以在 g++ 中 &quot;never treat array polymorphically&quot;。<br>
+    <br>
+    在這個主題上，黃俊達先生、劉東岳先生以及侯俊傑寫了不少有趣的<br>
+    tiny program 
+    來驗證一些推論以及想法，得到上述結果。其間細節目前沒時間<br>
+    整理（在一份正式的 document 
+    中以圖形和足夠的篇幅來介紹，才是好作法）。<br>
+    <font color="#0000FF">我們的結論是</font>，既然 C++ Standard 說此情況為 
+    undefined，所以三家編譯器都<br>
+    沒有錯。不過 VC 做得不錯，走得較遠，解決了部份問題。<br>
+    當然，請注意，如果直接以上述 ptr 去處理 Point3d[3] 的 public data 
+    members，<br>
+    一定會出錯（因為 object layout 之故）；所幸很少情況會把 data members<br>
+    設計為 public，於是迂迴避免了此種錯誤。<br>
+    <br>
+    致謝：黃俊達先生、劉東岳先生<br>
+    提示：可從 &lt;More Effective C++&gt; item 8 獲得一些有用的相關觀念：<br>
+    &quot;Understand the different meanings of new and delete&quot;<br>
+    <br>
+    ■ p.263 L6 （Lippman 錯誤）<br>
+    <br>
+    原文：錯誤的 constructor，而且自從第一個元素之後，該 constructor 
+    即被<br>
+    更正：錯誤的 destructor，而且自從第一個元素之後，該 destructor 即被<br>
+    <br>
+    ■ p.264 L8 （Lippman 錯誤）<br>
+    <br>
+    原文：Point2w ptw = ( Point2w* ) arena;<br>
+    更正：Point2w *ptw = ( Point2w* ) arena;<br>
+    <br>
+    ■ p.266 下方程式碼 （討論）<br>
+    <br>
+    原義：這段碼討論 placement new operator 的一個潛在問題<br>
+    討論：為獲得 VC5 對 placement new operator 的支援，必須含入 new.h。<br>
+    但在 BCB3 中則不必含入 new.h。<br>
+    <br>
+    致謝：劉東岳先生<br>
+    <br>
+    ■ p.267 L1 （侯俊傑筆誤）<br>
+    <br>
+    原文：請看本書 3.8 節<br>
+    更正：請看 <font color="#0000FF">C++ Standard</font> 3.8 節<br>
+    <br>
+    ■ p.267 L-4（侯俊傑筆誤）<br>
+    <br>
+    原文：避免避免 copy constructor 和...<br>
+    更正：避免<font color="#0000FF">執行</font> copy constructor 和...<br>
+    <br>
+    ■ p.268 L-8 （Lippman 錯誤）<br>
+    <br>
+    原文：a.operator+( temp, b )<br>
+    更正：temp.operator+( a, b )<br>
+    致謝：黃俊達先生<br>
+    <br>
+    ■ p.277 L9 （侯俊傑筆誤）<br>
+    <br>
+    原文：clas<br>
+    更正：class<br>
+    <br>
+    ■ p.281 L-1 （侯俊傑筆誤）<br>
+    <br>
+    原文：void* operator delete( void*, size_t );<br>
+    更正：void operator delete( void*, size_t );<br>
+    <br>
+    ■ p.289 L11（侯俊傑筆誤）<br>
+    <br>
+    原文：template defin<font color="#0000FF">a</font>ition<br>
+    更正：template definition<br>
+    <br>
+    ■ p.289 中下 （侯俊傑筆誤）<br>
+    <br>
+    原文：_member = foo( _member );<br>
+    更正：_member = foo( <font color="#0000FF">_val</font> );<br>
+    致謝：劉東岳先生<br>
+    <br>
+    ■ p.310 下 （侯俊傑誤譯）<br>
+    <br>
+    原文：RTTI 機制提供一個安全的 downcast 
+    設備，但只對那些抑制「多型（也就...<br>
+    更正：RTTI 機制提供一個安全的 downcast 設備，但只對那些<font
+    color="#0000FF">展現</font>「多型（也就...<br>
+    致謝：劉東岳先生<br>
+    <br>
+    ■ p.240 下 （中譯本筆誤）<br>
+    <br>
+    原文：多處出現 memble <br>
+    更正：應改為 m<strong><font color="#0000FF">u</font></strong>mble<br>
+    致謝：wking</p>
+    <p>■ <font color="#000000">P25, L-9（重新修潤）<br>
+    原譯文為：</font><br>
+    <font color="#408080">舉個例子，px 可能指向自我類型的一個 object，或指向以 
+    public 派生而來的一個類型。</font><br>
+    <font color="#000000">請改為：<br>
+    </font><font color="#0000FF">舉個例子，px 
+    可以指向某個類型，也可以指向「根據 public 繼承關係而衍生」<br>
+    的一個子類型。</font></p>
+    <p>■ <font color="#000000">p64﹐第18行﹕（英文版錯誤）</font><font
+    color="#408080"><br>
+    __result.X::X</font><font color="#FF0000">X</font><font color="#408080">( xx );<br>
+    </font><font color="#000000">請改為：</font><font color="#408080"><br>
+    </font><font color="#000000">__result.X::X( xx );</font></p>
+    <p>■ <font color="#000000">p20, L7﹕（英文版錯誤）</font><font color="#408080"><br>
+    strcpy(&amp;memble.pc,string);<br>
+    </font><font color="#000000">請改為﹕</font><font color="#408080"><br>
+    </font><font color="#000000">strcpy(</font><font color="#0000FF">pmumbl-&gt;pc</font><font
+    color="#000000">,string);</font></p>
+    <p>■ <font color="#000000">p3, L11﹕（英文版錯誤）</font><font color="#408080"><br>
+    os &lt;&lt; &quot;(&quot; &lt;&lt; pt.x() &lt;&lt; &quot;, &quot; ...<br>
+    </font><font color="#000000">請改為﹕</font><font color="#408080"><br>
+    </font><font color="#0000FF">return</font><font color="#408080"> os &lt;&lt; &quot;(&quot; 
+    &lt;&lt; pt.x() &lt;&lt; &quot;, &quot; ...</font></p>
+    <p>■ <font color="#000000">p252, L14﹕（2002/04/07 讀者來信討論）</font></p>
+    <font FACE="新細明體"><p>侯先生</font>:1998<font FACE="新細明體">年</font>8<font
+    FACE="新細明體">月購買了你所翻譯的深度探索</font>C++<font
+    FACE="新細明體">物件模型</font>.<br>
+    <font FACE="新細明體">當時</font>,<font FACE="新細明體">看這本書十分吃力</font>,<font
+    FACE="新細明體">每頁都看了許久</font>,<br>
+    <font FACE="新細明體">甚至</font>,<font FACE="新細明體">一天只看了兩頁</font>.<font
+    FACE="新細明體">花了半年的時間才把這本書看完</font>,<br>
+    <font FACE="新細明體">當然</font>,<font FACE="新細明體">離融會貫通還有一段距離</font>.<br>
+    <font FACE="新細明體">隨著程式功力的累積</font>,<font FACE="新細明體">當時看不懂的部分也漸漸明瞭</font>.<br>
+    <font FACE="新細明體">近日</font>,<font FACE="新細明體">在重溫這本書時</font>,<font
+    FACE="新細明體">翻到了第</font>252<font FACE="新細明體">頁</font>,Default 
+    Constructors <font FACE="新細明體">和</font> <font FACE="新細明體">陣列單元</font>.<br>
+    <font FACE="新細明體">您有一段句子沒有翻譯</font>,<font FACE="新細明體">句子為</font>:<br>
+    <font color="#0000FF">This has always resulted in less that first class handling of the 
+    initialization of <br>
+    an array of class objects.</font></p>
+    <font FACE="新細明體"><p>當初</font>,<font FACE="新細明體">在看這個句子時</font>,<font
+    FACE="新細明體">也是看不懂</font>.<font FACE="新細明體">於是</font>,<font
+    FACE="新細明體">我去翻閱原文本</font>,<font FACE="新細明體">發現</font>,<font
+    FACE="新細明體">原文為</font>:<br>
+    <font color="#0000FF">This has always resulted in less that </font><font color="#FF0000">firstclass</font><font
+    color="#0000FF"> handling of the initialization of <br>
+    an array of class objects.</font></p>
+    <font FACE="新細明體"><p>不知作者的意思是否要表達</font>:<br>
+    <font FACE="新細明體">不管使用何種優異的技巧來初始化</font> class 
+    objects <font FACE="新細明體">都是沒有用的</font>.<br>
+    (<font FACE="新細明體">因為</font>,<font FACE="新細明體">使用指標來啟動</font>constructor<font
+    FACE="新細明體">是無法存取</font>default argument values,<font
+    FACE="新細明體">而</font><br>
+    class objects <font FACE="新細明體">陣列的初始化往往需要</font> default 
+    argument values.)</p>
+    <font FACE="新細明體"><p>不知我這樣詮釋是否正確</font>?<br>
+    <font FACE="新細明體">忠實的讀者</font></p>
+    <p>PS : STL <font FACE="新細明體">源碼剖析太棒了</font>,<font
+    FACE="新細明體">目前正在研讀中</font>.</p>
+    <p>-- the end </p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p>黃俊達先生和劉東岳先生（dyliu，四眼王蟲）給我許多寶貴的意見<br>
+    和廣泛的討論。以下是整理。<br>
+    <br>
+    <strong><font color="#0000FF">■主題１：NRV 最佳化</font></strong> p.67~69<br>
+    <br>
+    ★NRV 重點整理：當函式以 object 做為 return value 時，<br>
+    通常會引發 copy constructor。但編譯器可以有比較聰明的<br>
+    作法，避免引發 copy constructor，是謂之 NRV 最佳化。<br>
+    這對程式的執行效率可能帶來很大的幫助（在某些情況下）。<br>
+    <br>
+    ★劉東岳先生詢問：p69 之譯註，是否表示 VC 支援 NRV 最佳化？<br>
+    <br>
+    ★侯俊傑答覆：不！觀察測試結果，第一組數據為 2:21，第二組數據為 
+    2:26。<br>
+    顯示 10000000 次迴路後，累積差異極微。所以我認為 VC 
+    應該沒有對此例<br>
+    實施 NRV 最佳化。<font color="#0000FF">p.69 
+    譯註中的表格的欄位標題可能引起誤會</font>，請將：</p>
+<!--mstheme-->    </font><div align="left"><table border="0" width="501">
+      <tr>
+        <td width="114"><font color="#000000">未實施 NRV</font><!--mstheme--></font></td>
+        <td width="97"><font color="#000000">實施 NRV</font><!--mstheme--></font></td>
+        <td width="251"><font color="#000000">實施 NRV + -O（-O 表示最佳化）</font><!--mstheme--></font></td>
+        <td width="15"><!--mstheme--></font></td>
+      </tr>
+    </table>
+    </div><p>改為：</p>
+<!--mstheme-->    </font><div align="left"><table border="0" width="501">
+      <tr>
+        <td width="114"><font color="#0000FF">版本 1</font><!--mstheme--></font></td>
+        <td width="99"><font color="#0000FF">版本 2 </font><!--mstheme--></font></td>
+        <td width="249"><font color="#0000FF">版本 2 + -O （-O 表示最佳化）</font><!--mstheme--></font></td>
+        <td width="15"><!--mstheme--></font></td>
+      </tr>
+    </table>
+    </div><p>(版本 1 表示沒有 explicit copy constructor，版本 2 表示<br>
+    有 explicit copy constructor，如 p.67 最後所言）<br>
+    <br>
+    ★黃俊達先生認為：Lippman 在 p67 
+    最後一行所言『這個程式的第一個版本<br>
+    不能實施 NRV 最佳化，因為 test class 缺少一個 copy constructor』，此語錯誤。<br>
+    黃先生認為如果程式沒有 explicit copy constructor，編譯器會<br>
+    自動為我們做出來（如為 trivial，則直接 bitwise copy；如為 nontrivial，<br>
+    則由編譯器為我們合成出一個 copy constructor）。因此，有沒有 explicit<br>
+    copy constructor 並不影響 NRV 最佳化的實施。他認為 NRV 最佳化主要是<br>
+    由編譯器 option 來決定要不要實施。他並且做了一些實驗，判斷 VC 和 
+    gcc<br>
+    都沒有做到 NRV 
+    最佳化，而其不做的理由不是因為技術上的困難，是為了<br>
+    避免造成「user defined copy constructor 之副作用失效」-- 所謂副作用<br>
+    是指，例如「在 user defined copy constructor 中做一個 cout 輸出」之類<br>
+    這種「與 memberwise copy 無關」的動作。<br>
+    <br>
+    ★侯俊傑答覆：頗有道理。但請注意，Lippman<br>
+    在 p.205 下方, p.221 上方等處，仍再三強調 copy constructor<br>
+    對於 NRV 最佳化的導引之功，不知是否其間有什麼是我們沒想到的？<br>
+    <br>
+    ★唐志青先生亦來信對於 NRV 提出與黃俊達先生相同的看法。感謝。<br>
+    <br>
+    <br>
+    <strong><font color="#0000FF">■主題２</font></strong>：假設 B 和 D 分別為 
+    based 和 derived；B 有虛擬函式 vfunc()。<br>
+    現在 D::vfunc() 改寫 B::vfunc()，請問 D::vfunc() 的<br>
+    return type 是否一定要和 B::vfunc() 的相同？<br>
+    <br>
+    Lippman 在 p160 所舉例子中，上述兩者的 return type 不相同（但有某種<br>
+    繼承關係存在）。侯俊傑給了一個譯註，說兩者必須相同，否則過不了 
+    VC 編譯器。<br>
+    <br>
+    ★劉東岳先生和黃俊達先生都認為，侯俊傑的譯註在過去是對的，現在則是錯的，<br>
+    因為 C++ Standard 已做了修正。Lippman 的範例程式之所以無法通過 VC，<br>
+    是因為 VC 在這一點沒有遵循 C++ Standard。此主題可參閱 C++ Standard Draft 
+    CD2<br>
+    的 10.3 [class.virtual]，亦可參閱本書 p.166 所載的第三種情況。<br>
+    黃俊達先生並提示，此與 &quot;virtual ctor&quot; 這個題目有關。<br>
+    <br>
+    ★侯俊傑答覆：同意，謝謝指正。<br>
+    <br>
+    <br>
+    <strong><font color="#0000FF">■主題３：assignment operator 之 return type</font></strong><br>
+    <br>
+    ★黃俊達先生認為，Lippman 在 101,107,109,119 等頁中都把 operator+=<br>
+    之 return type 定為 void，這是不好的設計觀念。通常有 assignment 動作<br>
+    之 operator（如 =, +=, -=）應傳回 *this（如本書 p221。見本檔稍早之修改）。<br>
+    如此才能與 C++ build-in type 之 assignment operator 的習慣行為一致。<br>
+    此觀念可見 &lt;<font color="#0000FF">Effective C++</font>&gt; Item15。<br>
+    <br>
+    ★侯俊傑答覆：同意。<br>
+    <br>
+    <br>
+    <strong><font color="#0000FF">■主題４：destructor 之必要性</font></strong><br>
+    <br>
+    ★黃俊達先生認為，Lippman 在 p232~p233 對於「dtor 是否必要」的敘述，<br>
+    有必要再討論。他認為，基本上 base class 無論如何最好都設計一個<br>
+    virtual dtor -- 即使是個空函式都好。因為如果沒有 virtual dtor，<br>
+    那麼當 base class &quot;be used polymorphically&quot;，一旦我們 delete 其 object，<br>
+    就會有災難發生（※侯註）。此觀念可見 &lt;Effective C++&gt; Item14。如果我們一開始<br>
+    沒有定義 virtual dtor，待程式發展到一定程度，也就是<br>
+    base class &quot;used polymorphically&quot; 的情況發生了，才回頭為 base class<br>
+    定義一個 virtual dtor，那麼，由於改變了 vtbl 的 layout，導至所有<br>
+    與此 base class 有關的程式碼，都需要重新編譯。<br>
+    ※侯註：為什麼會發生災難，可參考 &lt;多型與虛擬&gt; ch1,p59。<br>
+    <br>
+    ★侯俊傑答覆：同意。至於 base class 是否常常會 &quot;be used 
+    polymorphically&quot;<br>
+    呢？是的，常常。所以，上述觀念十分重要。至於「事後才回頭加上<br>
+    virtual dtor」，的確會改變 vtbl layout，但這裡衍生出 COM 的一個討論：<br>
+    「COM interface 如果在尾端加上新的 virtual functions，其新的<br>
+    COM object（DLL）並不會影響舊程式（與舊的 COM interface 
+    聯結者）的崩潰」。<br>
+    這個觀念可見 &lt;<font color="#0000FF">Essential COM</font>&gt; chap1 &quot;Object 
+    Extensibility&quot;。<br>
+    <br>
+    <br>
+    <br>
+<!--mstheme-->    </font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

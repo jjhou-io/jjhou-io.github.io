@@ -1,0 +1,783 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>勘誤《深入淺出 MFC》2e</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="723">
+  <tr>
+    <td align="right" valign="top" width="40" bgcolor="#C0C0C0">&nbsp; <!--mstheme--></font></td>
+    <td valign="bottom" width="641"><font color="#0000FF"><big><big><font
+    face="華康粗黑體">深入淺出 </font><font face="Arial Black">MFC</font>&nbsp; </big></big><strong>2/e</strong></font> 
+    &nbsp; 各刷變化（bug fix）<!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="40" bgcolor="#C0C0C0"><font size="3"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td valign="top" width="641"><br>
+    <font size="3"><a href="jjwbooks-dissecting-mfc-2e.htm" tppabs="http://jjhou.boolan.com/jjwbooks-dissecting-mfc-2e.htm"><img src="u002p.jpg" tppabs="http://jjhou.boolan.com/u002p.jpg" width="189"
+    height="232" alt="u002p.jpg (14505 bytes)"></a></font><p>　</p>
+    <p>過去，我對每本作品（著譯皆然），總是把握新刷機會，修正<br>
+    書中的錯誤或不妥。偶也在不影響頁次的情況下，做一些內容<br>
+    補充。但是並未有系統地將這些動作記錄下來。<br>
+    <br>
+    由於經驗的累積，逐漸知道，應該有系統地將書籍的各刷變化<br>
+    提供給讀者。<br>
+    <br>
+    在我陸續建立起晚近各書的 bug fix 資料後，有不少讀者關心<br>
+    &lt;深入淺出 MFC&gt; 2/e 的各刷變化。於是我回頭整理下來，供<br>
+    讀者參考。<br>
+    <br>
+    各位手上若為 x 刷，即應注意下列 x+1 刷之變化。<br>
+    <br>
+    如何判別手上書籍的刷次？很簡單，翻到書後版權頁，上面即註<br>
+    明有 x 版 x 刷。不過，本書 &lt;深入淺出 MFC&gt; 雖在封面上明白<br>
+    顯示為二版，版權頁上卻總是寫初版。這是不正確的寫法。<br>
+    <br>
+    以下為各刷變化情況。<br>
+    <br>
+    <br>
+    <strong><font color="#FF0000">★ &lt;深入淺出 MFC&gt; 二版１刷 ★ 
+    出版日期：1997/05</font></strong><br>
+    <br>
+    1997/05 出版<br>
+    <br>
+    <br>
+    <font color="#FF0000"><strong>★ &lt;深入淺出 MFC&gt; 二版２刷 ★ 
+    出版日期：1997/07</strong></font><br>
+    <br>
+    當時我對 bug fix 的作法，都是在出版公司通知新刷時，根據個人<br>
+    平時記錄於書中的心得直接在 Word 檔上修改，直接交給出版公司。<br>
+    由於未思及有系統地為讀者提供 bug fix 資訊，因此未將每一個修正<br>
+    頁次完整記錄下來，很抱歉。幸多為易判讀之錯別字。</p>
+    <p><font color="#0000FF">以下為回憶所及之重大修改</font>：<br>
+    <br>
+    ● p.127 插圖與 p.128 插圖對調<br>
+    <br>
+    ● p.131 插圖最右上之 CThreadApp::classCThreadApp<br>
+    改為 <font color="#0000FF">CWinThread</font>::classCWinThread。其下第一格之<br>
+    &quot;CThreadApp&quot; 改為 <font color="#0000FF">&quot;CWinThread&quot;</font>。<br>
+    <br>
+    ● p.148 插圖最右上之 CThreadApp::classCThreadApp<br>
+    改為 <font color="#0000FF">CWinThread</font>::classCWinThread。<br>
+    <br>
+    ● p.144 倒數第三行：<br>
+    <br>
+    CObject* PASCAL class_name::CreateObject()<br>
+    { return new class_name; }<br>
+    <br>
+    改為：<br>
+    <br>
+    CObject* PASCAL <font color="#0000FF">CFrameWnd</font>::CreateObject()<br>
+    { return new <font color="#0000FF">CFrameWnd</font>; }<br>
+    <br>
+    ● p.149 第一段文字：<br>
+    <br>
+    並設計 CRuntimeClass::ConstructObject 和 ...<br>
+    <br>
+    改為：<br>
+    <br>
+    並設計 CRuntimeClass::<font color="#0000FF">CreateObject</font> 和 ...<br>
+    </p>
+    <p>● p.541 補充約半頁，提示如何為 Scribble 程式加上<br>
+    新 shape（因此 p541~p545 版面略有更動後移）。以下<br>
+    為補充的半頁內容：<br>
+    </p>
+    <p><font FACE="新細明體"><img SRC="Image1.gif" tppabs="http://jjhou.boolan.com/Image1.gif" WIDTH="370" HEIGHT="115"></font></p>
+    <p ALIGN="JUSTIFY"><font color="#0000FF"><font FACE="細明體" size="3">每次滑鼠左鍵按下，開始一條線條，</font><font
+    FACE="華康中黑體" size="3">圖</font><font FACE="Arial Black" size="3">8-10a</font><font
+    FACE="細明體" size="3">中的程式立刻</font><font size="3"><i>new </i><font
+    FACE="細明體">一個<br>
+    四方形和一個圓形，並和線條一起加入</font> <i>CObList </i><font
+    FACE="細明體">之中，然後才開始接<br>
+    受左鍵的座標。所以</font><font FACE="華康中黑體">圖</font><font
+    FACE="Arial Black">8-10a</font><font FACE="細明體">的執行畫面造成本圖的資料結構。</font></font></font></p>
+    <p ALIGN="JUSTIFY">　</p>
+    <p ALIGN="JUSTIFY">● p.541 的圖8-10b 修正如下（<font color="#FF0000">紅色</font>部份）：<br>
+    </p>
+<!--mstheme-->    </font><table BORDER="1" CELLSPACING="2" CELLPADDING="1" WIDTH="624"
+    bordercolorlight="#CC3300" bordercolordark="#000000">
+      <tr>
+        <td WIDTH="206" VALIGN="TOP" BGCOLOR="#ffffff"><font FACE="細明體" size="3">數值（</font><font
+        size="3">hex<font FACE="細明體">）</font></font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP" BGCOLOR="#ffffff"><font FACE="細明體" size="3">說明</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">0006</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">表示此檔有<font
+        color="#FF0000"><strong>六</strong></font>個</font><font size="3"> <i>CObList</i> <font
+        FACE="細明體">元素</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">FFFF</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">FFFF <font FACE="細明體">亦即</font> 
+        -1<font FACE="細明體">，表示</font> New Class Tag</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">0001</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">這是</font><font size="3"> 
+        Schema no.<font FACE="細明體">，代表資料的版本號碼</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">0007</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">表示後面接著的「類別名稱」有</font><font
+        size="3"> 7 <font FACE="細明體">個字元</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">43 53 74 72 6F 6B 65</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font size="3">&quot;CStroke&quot;<font FACE="細明體">（類別名稱）的</font> 
+        ASCII <font FACE="細明體">碼</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">0002</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第一條線條的寬度</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">0002</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第一條線條的點陣列大小（點數）</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000066,0000001B</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第一條線條的第一個點座標</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000066,0000001B</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第一條線條的第二個點座標</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">FFFF</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">FFFF <font FACE="細明體">亦即</font> 
+        -1<font FACE="細明體">，表示</font> New Class Tag</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">0001</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">這是</font><font size="3"> 
+        Schema no.<font FACE="細明體">，代表資料的版本號碼。</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">000A</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">後面接著的「類別名稱」有</font><font
+        size="3"> Ah <font FACE="細明體">個字元。</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">43 52 65 63 74 61 6E 67 6C 65</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font size="3">&quot;CRectangle&quot;<font FACE="細明體">（類別名稱）的</font> 
+        ASCII <font FACE="細明體">碼。</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000011</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第一個四方形的左</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000022</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第一個四方形的上</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000033</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第一個四方形的右</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000044</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第一個四方形的下</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">FFFF</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">FFFF <font FACE="細明體">亦即</font> 
+        -1<font FACE="細明體">，表示</font> New Class Tag</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">0001</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">這是</font><font size="3"> 
+        Schema no.<font FACE="細明體">，代表資料的版本號碼。</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">0007</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">後面接著的「類別名稱」有</font><font
+        size="3"> 7 <font FACE="細明體">個字元。</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">43 43 69 72 63 6C 65</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font size="3">&quot;CCircle&quot;<font FACE="細明體">（類別名稱）的</font> 
+        ASCII <font FACE="細明體">碼。</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000055</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第一個圓形的中心點</font><font
+        size="3"> X <font FACE="細明體">座標</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000066</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第一個圓形的中心點</font><font
+        size="3"> Y <font FACE="細明體">座標</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000077</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第一個圓形的半徑</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">8001</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP" BGCOLOR="#ffffff"><font FACE="細明體" size="3">這是</font><font
+        size="3"> (<i>wOldClassTag</i> | <i>nClassIndex</i>) <font FACE="細明體">的組合結果，表示接下來的物件使用索引為</font> 
+        1 <font FACE="細明體">的舊類別。</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">0002</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第二條線條的寬度</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">0002</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第二條線條的點陣列大小</font><font
+        size="3"> (<font FACE="細明體">點數</font>)</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000066,00000031</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第二條線條的第一個點座標</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000066,00000031</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第二條線條的第二個點座標</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">8003</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP" BGCOLOR="#ffffff"><font FACE="細明體" size="3">這是</font><font
+        size="3"> (<i>wOldClassTag</i> | <i>nClassIndex</i>) <font FACE="細明體">的組合結果，表示接下來的物件使用索引為</font> 
+        3 <font FACE="細明體">的舊類別。</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000011</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第<font color="#FF0000"><strong>二</strong></font>個四方形的左</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000022</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第<font color="#FF0000"><strong>二</strong></font>個四方形的上</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000033</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第<font color="#FF0000"><strong>二</strong></font>個四方形的右</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000044</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第<font color="#FF0000"><strong>二</strong></font>個四方形的下</font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">8005</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP" BGCOLOR="#ffffff"><font FACE="細明體" size="3">這是</font><font
+        size="3"> (<i>wOldClassTag</i> | <i>nClassIndex</i>) <font FACE="細明體">的組合結果，表示接下來的物件使用索引為</font> 
+        5 <font FACE="細明體">的舊類別。</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000055</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第二個圓形的中心點</font><font
+        size="3"> X <font FACE="細明體">座標</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000066</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第二個圓形的中心點</font><font
+        size="3"> Y <font FACE="細明體">座標</font></font><!--mstheme--></font></td>
+      </tr>
+      <tr>
+        <td WIDTH="206" VALIGN="TOP"><font size="3">00000077</font><!--mstheme--></font></td>
+        <td WIDTH="406" VALIGN="TOP"><font FACE="細明體" size="3">第二個圓形的半徑</font><!--mstheme--></font></td>
+      </tr>
+    </table>
+    <p><br>
+    <br>
+    <br>
+    <strong><font color="#FF0000">★ &lt;深入淺出 MFC&gt; 二版３刷 ★ 
+    出版日期：1997/10</font></strong><br>
+    <br>
+    本刷與２刷內容完全相同，唯因出版過程誤失，漏植一張 <font
+    color="#0000FF">MFC 全圖</font>。<br>
+    以下為發現後之當時公告（<font color="#0000FF">永遠有效</font>）。<br>
+    <br>
+    <font color="#0000FF">各位親愛的讀友：<br>
+    <br>
+    我是侯俊傑。最近我開一個課程，使用 &lt;深入淺出 MFC&gt; 2/e<br>
+    做教材（ISBN 957-22-2518-9，松崗書號 2101629），<br>
+    發現本書第３刷缺少一張跨頁彩色圖，此圖應該出現在封面<br>
+    之後的扉頁位置。第１刷和第２刷均有此圖，獨第３刷漏失。<br>
+    <br>
+    此圖為 MFC 4.21 類別階層架構圖，至為重要。我個人<br>
+    以及松崗公司對此裝訂上的疏失深感懊惱與抱歉。松崗<br>
+    公司為維護讀者權益，決定加印此圖，免費提供給<br>
+    &lt;深入淺出 MFC&gt; 二版３刷之讀者索取。索取方式有三：<br>
+    <br>
+    1. 親至松崗各門市索取。<br>
+    2. 進入松崗網頁（www.unalis.com.tw），對客服部留言函索。<br>
+    3. FAX 至松崗客服部（02-23257956）函索此圖。<br>
+    <br>
+    以 2 或 3 方式索取者，請留下您的郵寄地址；松崗將以<br>
+    郵遞方式將圖寄給您。您不必出示任何讀者證明。<br>
+    <br>
+    因此疏失而為您帶來麻煩，我與松崗公司謹至最大的歉意。<br>
+    雖然疏失的發現時機有點遲，我們願盡最大的努力彌補。<br>
+    同時也請您將此訊息告訴您的朋友。<br>
+    <br>
+    我與松崗公司均力圖在每一次可能的機會中，修正內容誤失，<br>
+    力求讓此書更美好。我要藉此機會感謝每一位寫信給我，<br>
+    向我指正或給我意見的讀友。<br>
+    <br>
+    -- 侯俊傑 1998.05.16</font><br>
+    <br>
+    <br>
+    <strong><font color="#FF0000">★ &lt;深入淺出 MFC&gt; 二版４刷 ★ 
+    出版日期：1998/??</font></strong><br>
+    <br>
+    本刷內容與３刷完全相同。<br>
+    <br>
+    <br>
+    <font color="#FF0000"><strong>★ &lt;深入淺出 MFC&gt; 二版五刷 ★ 
+    出版日期：1998/09<br>
+    </strong></font><br>
+    ●新增<br>
+    <br>
+    讀者來函 i~xvi（16 頁）<br>
+    二版五刷感言 4 頁<br>
+    <br>
+    ●模糊不清 重製（括號內為 chap1 之前的頁次）：<br>
+    <br>
+    (11,17,18,19,26,28,33,)<br>
+    1,35,53,68,81,83,84,101,119,121,137,147,149,<br>
+    269,293,296,641,771,779,784,795,834,839<br>
+    <br>
+    ●內容誤失：<br>
+    <br>
+    頁次：p9 方塊內 L5<br>
+    原文： eneric.res : generic.rc generic.h<br>
+    更正：<font color="#0000FF">generic.res</font> : generic.rc generic.h<br>
+    <br>
+    頁次：p16 圖1-3 左下 L-6<br>
+    原文：CW_USEDEFAULT, // hieght<br>
+    更正：CW_USEDEFAULT, // <font color="#0000FF">height</font><br>
+    <br>
+    頁次：p27 中段程式碼 L2 片段<br>
+    原文：if (PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE)<br>
+    更正：if (PeekMessage(&amp;msg, NULL, 0, 0, PM_REMOVE) <font color="#0000FF">{</font><br>
+    <br>
+    頁次：p58<br>
+    原文：#0029<br>
+    更正：#0029 <font color="#0000FF">{</font><br>
+    <br>
+    頁次：p65 中段程式碼片段<br>
+    原文：void setComm(float comm);<br>
+    更正：void <font color="#0000FF">setCommission</font>(float comm);<br>
+    <br>
+    頁次：p74 L8<br>
+    原文：蹤合<br>
+    更正：<font color="#0000FF">綜</font>合<br>
+    <br>
+    頁次：p75 第四段 L3<br>
+    原文：CYaohoo<br>
+    更正：<font color="#0000FF">CYahoo</font><br>
+    <br>
+    頁次：p94 L-1<br>
+    原文：vitual<br>
+    更正：<font color="#0000FF">virtual</font><br>
+    <br>
+    頁次：p132 Frame3 範例程式 之前 L-3<br>
+    原文：Cobject<br>
+    更正：C<font color="#0000FF">O</font>bject<br>
+    <br>
+    頁次：p262 L2<br>
+    原文：預設市關閉狀態<br>
+    更正：預設<font color="#0000FF">是</font>關閉狀態<br>
+    <br>
+    頁次：p408 程式碼片段 L5<br>
+    原文：filename = dlg.GetPathNMe();<br>
+    更正：filename = <font color="#0000FF">opendlg</font>.GetPathNMe();<br>
+    <br>
+    頁次：p408 程式碼片段下第一行<br>
+    原文：opdndlg 構建式的第一個參數被指定為...<br>
+    更正：<font color="#0000FF">opendlg</font> 構建式的第一個參數被指定為...<br>
+    <br>
+    頁次：p493 L-4 尾<br>
+    原文：Document/View/Frmae<br>
+    更正：Document/View/<font color="#0000FF">Frame</font><br>
+    <br>
+    頁次：p535 L-6<br>
+    原文：包容 DYNCREATION 巨集，並且在...<br>
+    更正：包容 <font color="#0000FF">DYNCREATE</font> 巨集，並且在...<br>
+    <br>
+    頁次：p541 L-1,L-3<br>
+    原文：圖10-a<br>
+    更正：圖<font color="#0000FF">8-10a</font><br>
+    <br>
+    <br>
+    <br>
+    <strong><font color="#FF0000">★ &lt;深入淺出 MFC&gt; 二版六刷 ★ 
+    出版日期：1999/01</font></strong><br>
+    <br>
+    頁次：p72 L12<br>
+    原文：pEmp = &amp;aBoss;<br>
+    更正：pEmp = &amp;<font color="#0000FF">aManager</font>;<br>
+    <br>
+    ◆以下 <font color="#0000FF">p85~p88</font> 的錯誤主要是 <font color="#0000FF">SavingAccount</font> 
+    筆誤為 SavingAccout。<br>
+    <br>
+    頁次：p85 L-11<br>
+    原文：class SavingAccout<br>
+    更正：class SavingAccou<font color="#0000FF">n</font>t<br>
+    <br>
+    頁次：p86 L3<br>
+    原文：class SavingAccout<br>
+    更正：class SavingAccou<font color="#0000FF">n</font>t<br>
+    <br>
+    頁次：p86 中段程式碼<br>
+    原文：double SavingAccout::m_rate = 0.0075;<br>
+    更正：double SavingAccou<font color="#0000FF">n</font>t::m_rate = 0.0075;<br>
+    <br>
+    頁次：p86 L-7<br>
+    原文：...是在這時候（而不是在類別宣告中）才宣告出來的。<br>
+    更正：...是在這時候（而不是在類別宣告中）才<font color="#0000FF">定義</font>出來的。<br>
+    <br>
+    頁次：p86 L-2<br>
+    原文：...也有一個。第２章的「RTTI...<br>
+    更正：...也有一個。第<font color="#0000FF">３</font>章的「RTTI...<br>
+    <br>
+    頁次：p87 L5<br>
+    原文：SavingAccout::m_rate = 0.0075;<br>
+    更正：SavingAccou<font color="#0000FF">n</font>t::m_rate = 0.0075; <font
+    color="#0000FF">// 欲此行成立，需把 m_rate 改為 public</font><br>
+    <br>
+    頁次：p87 L11<br>
+    原文：SavingAccout myAccount;<br>
+    更正：SavingAccou<font color="#0000FF">n</font>t myAccount;<br>
+    <br>
+    頁次：p87 最後一段文字（一整段）<br>
+    原文：既然 static 成員變數是超乎物件之外存在，如果...<br>
+    更正：<font color="#0000FF">只要 access level 
+    允許，任何函式（包括全域函式或成員函式，<br>
+    static 或 non-static）都可以存取 static 成員變數。但如果你希望在<br>
+    產生任何 object 之前就存取其 class 的 private static 成員變數，<br>
+    則必須設計出一個 static 成員函式（例如以下的 setRate）：</font><br>
+    <br>
+    頁次：p87 L-14<br>
+    原文：class SavingAccout<br>
+    更正：class SavingAccou<font color="#0000FF">n</font>t<br>
+    <br>
+    頁次：p87 L-3<br>
+    原文：}<br>
+    更正：}<font color="#0000FF">;</font><br>
+    <br>
+    頁次：p87 L-2<br>
+    原文：double SavingAccout::m_rate = 0.0075;<br>
+    更正：double SavingAccou<font color="#0000FF">n</font>t::m_rate = 0.0075;<br>
+    <br>
+    頁次：p88 L2<br>
+    原文：SavingAccout myAccount;<br>
+    更正：SavingAccou<font color="#0000FF">n</font>t myAccount;<br>
+    <br>
+    頁次：p88 L4<br>
+    原文：SavingAccout::setRate(0.0074);<br>
+    更正：SavingAccou<font color="#0000FF">n</font>t::setRate(0.0074);<br>
+    <br>
+    <br>
+    <a name="p173~p208">◆以下 <font color="#0000FF">p173~p208</font> 
+    的錯誤主要是因為誤把 <font color="#0000FF">&quot;afxmsg_.h&quot;</font> 寫為 
+    &lt;afxmsg_.h&gt;<br>
+    <br>
+    感謝台北蕭祖台先生</a><br>
+    <br>
+    說明：<br>
+    <br>
+    在 &lt;深入淺出 MFC&gt; 1/e, chap3 中，我曾以 frame7 和 frame8 兩個<br>
+    小小的 DOS-like 程式模擬 MFC 的 msggage mapping 和 command routing。<br>
+    這程式在當時（VC4.0）是好的，但當我撰寫 &lt;深入淺出 MFC&gt; 2/e，這兩個程式<br>
+    過不了 VC4.2 和 VC5.0 的關口。當時一下子找不出 bug，自忖<br>
+    這只是份模擬，設計架構和模擬結果也都交待很清楚了，只是移植有問題，<br>
+    所以也就打了個馬虎眼，附上的仍是 VC40 所編譯的可執行檔。<br>
+    <br>
+    原因出在，我為了模擬 msggage mapping 和 command routing，必須設計<br>
+    一些 structures 以及 macros，那是從 MFC source afxmsg_.h 中學來的。<br>
+    而為了與 MFC 儘量雷同，<font color="#0000FF">我連我自己的檔名也叫做 
+    afxmsg_.h</font>。<br>
+    <br>
+    <font color="#0000FF">壞就壞在應該 #include &quot;afxmsg_.h&quot; 
+    的地方，我卻寫成 #include &lt;afxmsg_.h&gt;</font>。<br>
+    這在 VC40（MFC40）陰錯陽差地 OK 了，但在 VC42+（MFC42）中則因為 MFC 
+    內部<br>
+    的變化，導至 error msg C2102 : &amp; on constant.<br>
+    <br>
+    所以，只要把書中的 #include &lt;afxmsg_.h&gt; 改為 #include 
+    &quot;afxmsg_.h&quot;，<br>
+    就 OK 了。<font color="#0000FF">但又陰錯陽差地</font>，由於我曾在程式中使用 
+    CN_COMMAND 這個常數，<br>
+    卻忘記在自己的 afxmsg_.h 
+    中定義，所以一者是加上這個定義（隨便定義為<br>
+    什麼常數都行，因為其實它在此範例程式中沒有實際用途），一者是<font
+    color="#0000FF">把程式中<br>
+    的 CN_COMMAND 全改為 0。</font><br>
+    <br>
+    整理如下：<br>
+    <br>
+    頁次：p173 中段<br>
+    原文： { WM_COMMAND, CN_COMMAND, (WORD)id, (WORD)id, AfxSig_vv, (AFX_PMSG)memberFxn },<br>
+    更正： { WM_COMMAND, <strong><font color="#0000FF">0</font></strong>, (WORD)id, 
+    (WORD)id, AfxSig_vv, (AFX_PMSG)memberFxn },<br>
+    <br>
+    頁次：p174 L-4<br>
+    原文： { WM_COMMAND, CN_COMMAND, (WORD)122, (WORD)122, 1, (AFX_PMSG)0 },<br>
+    更正： { WM_COMMAND, <strong><font color="#0000FF">0</font></strong>, (WORD)122, 
+    (WORD)122, 1, (AFX_PMSG)0 },<br>
+    <br>
+    頁次：p175 上圖<br>
+    更正： 圖中的 CN_COMMAND 改為 <strong><font color="#0000FF">0</font></strong><br>
+    <br>
+    頁次：p182<br>
+    原文： #0061 #include &lt;afxmsg_.h&gt;<br>
+    更正： #0061 #include <strong><font color="#0000FF">&quot;afxmsg_.h&quot;</font></strong><br>
+    <br>
+    頁次：p185 AFXMSG_.h<br>
+    原文： #0008 { WM_COMMAND, CN_COMMAND, (WORD)id, (WORD)id, AfxSig_vv, 
+    (AFX_PMSG)memberFxn },<br>
+    更正： #0008 { WM_COMMAND, <strong><font color="#0000FF">0</font></strong>, (WORD)id, 
+    (WORD)id, AfxSig_vv, (AFX_PMSG)memberFxn },<br>
+    <br>
+    頁次：p204<br>
+    原文： #0070 #include &lt;afxmsg_.h&gt;<br>
+    更正： #0070 #include <strong><font color="#0000FF">&quot;afxmsg_.h&quot;</font></strong><br>
+    <br>
+    頁次：p208 AFXMSG_.h<br>
+    原文： #0008 { WM_COMMAND, CN_COMMAND, (WORD)id, (WORD)id, AfxSig_vv, 
+    (AFX_PMSG)memberFxn },<br>
+    更正： #0008 { WM_COMMAND, <strong><font color="#0000FF">0</font></strong>, (WORD)id, 
+    (WORD)id, AfxSig_vv, (AFX_PMSG)memberFxn },<br>
+    <br>
+    <br>
+    ◆其他錯誤<br>
+    <br>
+    頁次：p469 L5<br>
+    原文： List：無次序性，無索引的雙向串列。...<br>
+    更正： List：<font color="#0000FF">有</font>次序性，無索引的雙向串列。...<br>
+    <br>
+    頁次：p540 L-1<br>
+    更正：在最後一行「重新編譯聯結，...」之前補充兩行：<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <font color="#0000FF">並將 
+    scribbledoc.h 中的 m_strokeList 修改為：<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    CTypedPtrList&lt;CObList, CObject*&gt; m_strokeList;</font></p>
+    <p align="left">頁次：p749 圖14-2 右上方<br>
+    原文： Module Database（PDB）<br>
+    更正： Module Database（<font color="#0000FF"><strong>M</strong></font>DB）<br>
+    </p>
+    <p align="left"><strong><font color="#FF0000">★ &lt;深入淺出 MFC&gt; 二版七刷 
+    ★ 出版日期：1999/04</font></strong></p>
+    <p align="left">本刷內容與 6 刷完全相同。</p>
+    <p align="left"><strong><font color="#FF0000">★ &lt;深入淺出 MFC&gt; 二版八刷 
+    ★ 出版日期：1999/0<font face="Arial">7</font></font></strong></p>
+    <p align="left">本刷內容與 6 刷完全相同。</p>
+    <p align="left"><strong><font color="#FF0000">★ &lt;深入淺出 MFC&gt; 二版九刷 
+    ★ 出版日期：1999/10</font></strong></p>
+    <p align="left">本刷內容與 6 刷完全相同。</p>
+    <p align="left"><strong><font color="#FF0000">★ &lt;深入淺出 MFC&gt; 二版十刷 
+    ★ 出版日期：2001/01</font></strong></p>
+    <p align="left">本刷內容與 6 刷完全相同。</p>
+    <p align="left"><strong><font color="#FF0000">★ &lt;深入淺出 MFC&gt; 二版十一刷 
+    ★ 出版日期：2001/03</font></strong></p>
+    <p align="left">本刷內容與 6 刷完全相同。</p>
+    <p align="left">請注意，因松崗出版公司在本書第十刷、十一刷出版過程中發生誤失，<br>
+    漏植一張 <a href="u002p-gb-mfc-hierarchy.jpg" tppabs="http://jjhou.boolan.com/u002p-gb-mfc-hierarchy.jpg" target="main"><font color="#0000FF">MFC 
+    全圖</font></a><font color="#000000">。請在這裡自行下載列印，我對各位感到非常抱歉。</font></p>
+    <p align="left">　</p>
+    <p align="left"><strong><font color="#FF0000">★ 以下暫請讀者自行更正</font></strong>：<br>
+    </p>
+    <p align="left">頁次：p568 #0027<br>
+    原文： // chche<br>
+    更正： // c<strong><font color="#0000FF">a</font></strong>che </p>
+    <p align="left">頁次：p500 L-5<br>
+    原文：CFileException::fileNot<strong><font color="#0000FF">e</font></strong>Found<br>
+    更正：CFileException::fileNotFound<br>
+    感謝：Franklin<br>
+    日期：2000/08/17<br>
+    <br>
+    頁次：p500 L-3<br>
+    原文：CFileException::tooManyOpeFiles<br>
+    更正：CFileException::tooManyOpe<strong><font color="#0000FF">n</font></strong>Files<br>
+    感謝：Franklin<br>
+    日期：2000/08/17<br>
+    <br>
+    頁次：p501 L10<br>
+    原文：delete [] pByffer;<br>
+    更正：delete [] pB<strong><font color="#0000FF">u</font></strong>ffer;<br>
+    感謝：Franklin<br>
+    日期：2000/08/17<br>
+    <br>
+    頁次：p501 L14<br>
+    原文：Framework 呼叫 CSribbleDoc::Serialize，用以對付文件。<br>
+    更正：Framework 呼叫 CS<strong><font color="#0000FF">c</font></strong>ribbleDoc::Serialize，用以對付文件。<br>
+    感謝：Franklin<br>
+    日期：2000/08/17<br>
+    <br>
+    頁次：p117 L2<br>
+    原文：<small><font face="Courier New">CreateEx(); // CreateEx </font>是虛擬函式，但 
+    <font face="Courier New">CFrameWnd </font>未改寫之，所以引發<br>
+    <font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    // CWnd::CreateEx</font></small><br>
+    更正：<font color="#0000FF"><small><font face="Courier New">CreateEx(); // CreateEx </font>不是虛擬函式，它係繼承自 
+    <font face="Courier New">CWnd</font>，而 <font face="Courier New">CFrameWnd</font></small> 
+    <small>之中</small><br>
+    <small><font face="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    // </font>又不曾重新定義它，所以喚起的是 <font face="Courier New">CWnd::CreateEx</font>。</small></font><br>
+    感謝：Tank (expando)<br>
+    日期：2000/08/18<br>
+    <br>
+    <br>
+    頁次：第一版序（p10）, L3<br>
+    原文：昨日黃花<br>
+    更正：<font color="#0000FF">明</font>日黃花<br>
+    感謝：佚失（非常抱歉）<br>
+    日期：2001/04/08</p>
+    <p align="left">頁次：p371, L-2<br>
+    原文：昨日黃花<br>
+    更正：<font color="#0000FF">明</font>日黃花<br>
+    感謝：lao_o<br>
+    日期：2001/04/20</p>
+    <p align="left">頁次：p403, L-8<br>
+    原文：CThread::OnIdle<br>
+    更正：C<font color="#0000FF">Win</font>Thread::OnIdle<br>
+    感謝：PanNongfei<br>
+    日期：2001/07/08</p>
+    <p align="left">頁次：p128, L4<br>
+    原文：{ szCObject, sizeof(CObject), 0xffff, NULL, NULL };<br>
+    更正：{ szCObject, sizeof(CObject), 0xffff, NULL, NULL<font color="#0000FF">, NULL</font> 
+    };<br>
+    感謝：Tony<br>
+    日期：2001/07/14</p>
+    <p align="left">頁次：p136, MFC.CPP, #0007<br>
+    原文：{ szCObject, sizeof(CObject), 0xffff, NULL, NULL };<br>
+    更正：{ szCObject, sizeof(CObject), 0xffff, NULL, NULL<font color="#0000FF">, NULL</font> 
+    };<br>
+    感謝：Tony<br>
+    日期：2001/07/14</p>
+    <p align="left">頁次：p565, 圖右下角<br>
+    原文：CWL_WNDPROC<br>
+    更正：<strong><font color="#0000FF">G</font></strong>WL_WNDPROC<br>
+    感謝：jjhou<br>
+    日期：2001/07/20</p>
+    <p align="left">頁次：p510, 上圖陰影方框第四行<br>
+    原文：Scribble Docment<br>
+    更正：Scribble Doc<font color="#0000FF"><strong>u</strong></font>ment<br>
+    感謝：jjhou<br>
+    日期：2001/07/20</p>
+    <p align="left">P455, L1﹕ &quot;完全由AppW<font color="#FF0000">zi</font>ard&quot;應為&quot;完全由AppWizard&quot;﹔<br>
+    P482, L3﹕<font color="#0000FF">RemoveHead: 
+    把串列的最前端元素拿掉，並回傳一個指標指向它</font>。<br>
+    P483: L13﹕&quot;■DeleteContent&quot; 應為 &quot;■DeleteContent<strong><font
+    color="#0000FF">s</font></strong>&quot;﹔<br>
+    P486﹕圖8-4左上方框內 &quot;DeleteContent&quot; 應是 &quot;DeleteContent<strong><font
+    color="#0000FF">s</font></strong>&quot;﹔<br>
+    P500 L1, L3, L20&nbsp; 將mydoc<font color="#FF0000">.doc</font>換成mytxt<font
+    color="#0000FF">.txt</font>。<br>
+    感謝：pannongfei<br>
+    日期：2001/07/27</p>
+    <p align="left">頁次：p462, 方框以下第一段<br>
+    原文：<br>
+    <font FACE="細明體" size="3">當使用者選按【</font><font size="3">File/New<font
+    FACE="細明體">】命令項，根據</font> AppWizard <font FACE="細明體">為我們所做的</font> 
+    Message Map<font FACE="細明體">，此一命令由</font> <i>CWinApp</i>::<i>OnFileNew</i> 
+    <font FACE="細明體">接手處理。後者呼叫</font> <i>CDocManager</i>::<i>OnFileNew</i><font
+    FACE="細明體">，</font></font><font color="#FF0000" FACE="細明體" size="3">後者再呼叫</font><font
+    size="3" color="#FF0000"> <i>CWinApp</i>::<i>OpenDocumentFile</i></font><font
+    color="#FF0000" FACE="細明體" size="3">，</font><font size="3"><font FACE="細明體">後者再呼叫</font> 
+    <i>CDocManager</i>::<i>OpenDocumentFile</i><font FACE="細明體">，後者再呼叫</font> 
+    <i>CMultiDocTemplate</i>::<i>OpenDocumentFile</i><font FACE="細明體">（這是觀察</font>MFC<font
+    FACE="細明體">原始碼所得結果）：</font></font><br>
+    更正：刪除以上<font color="#FF0000">紅色</font>部份。<br>
+    感謝：唐偉清<br>
+    日期：2001/09/05<br>
+    <strong>註</strong>（2002/06/01）：此一修正仍不完全，後面另有修正。</p>
+    <p align="left">頁次：p712, 第一行<br>
+    原文：m_wndSplitter2.CreateView(1, 0, RUNTIME_CLASS(<font color="#FF0000">CCurveView</font>),<br>
+    更正：m_wndSplitter2.CreateView(1, 0, RUNTIME_CLASS(<font color="#0000FF">CGraphView</font>),<br>
+    說明：光碟中的程式是正確的。以上錯誤是因程式發展過程中更改命名而未對應修正。<br>
+    感謝：jjhou<br>
+    日期：2001/09/15</p>
+    <p align="left">第一版序 P7, L4：&quot;<font color="#FF0000">彷</font>佛&quot; 
+    改為 &quot;<font color="#0000FF">仿</font>佛&quot;。<br>
+    p252，L-5：&quot;手形按<font color="#FF0000">紐</font>&quot; 改為 &quot;手形按<font
+    color="#0000FF">鈕</font>&quot;<br>
+    p847，L10：&quot;心煩氣<font color="#FF0000">燥</font>&quot; 改為 &quot;心煩氣<font
+    color="#0000FF">躁</font>&quot;<br>
+    p868，L2：&quot;翻兩<font color="#FF0000">翻</font>&quot; 改為 &quot;翻兩<font
+    color="#0000FF">番</font>&quot;<br>
+    感謝：yeka<br>
+    日期：2001/11/24<br>
+    <br>
+    頁次：p727, 第12行<br>
+    原文：<font FACE="新細明體">絕不是要去改</font> MFC <font FACE="新細明體">原始碼，而是要</font><font
+    color="#FF0000" FACE="新細明體">改寫虛擬函式</font><font color="#FF0000"> <i>OnWindowNew</i></font><font
+    color="#FF0000" FACE="新細明體">，使</font><font FACE="新細明體">為我們所用。</font><br>
+    更正：<font FACE="新細明體">絕不是要去改</font> MFC <font FACE="新細明體">原始碼，而是要</font><font
+    color="#0000FF" FACE="新細明體">另寫一個類似</font><font color="#0000FF"><i>OnWindowNew</i></font><font
+    color="#0000FF" FACE="新細明體">的函式</font><font FACE="新細明體">為我們所用。</font><br>
+    說明：<font color="#000000"><i>OnWindowNew</i></font><font face="新細明體"
+    color="#000000">並非虛擬函式。</font><br>
+    感謝：jjhou<br>
+    日期：2001/11/30</p>
+    <p align="left"><font color="#000000">頁次：P388, #0019<br>
+    原文：</font><font face="Fixedsys">className = <font color="#FF0000">TRACEWND</font>_CLASSNAME;</font><font
+    color="#000000"><br>
+    更正：</font><font face="Fixedsys">className = <font color="#0000FF">MY</font>_CLASSNAME;</font><br>
+    <font color="#000000">感謝：Chengdan Zheng<br>
+    日期：2002/02/01</font></p>
+    <p align="left"><font color="#000000">頁次：P70, L-2<br>
+    原文：</font><font face="Fixedsys">它傳回 CEm<font color="#FF0000">P</font>loyee*</font><font
+    color="#000000"><br>
+    更正：</font><font face="Fixedsys">它傳回 CEm<font color="#0000FF">p</font>loyee*</font><br>
+    <font color="#000000">感謝：Hades<br>
+    日期：2002/02/15</font></p>
+    <p align="left"><font color="#000000">頁次：P405, 第二段程式碼（灰底）<br>
+    說明：</font><font face="Fixedsys">函式 CMyFrameWnd::IdleTimeHandler() 內只有 new 
+    的動作，<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 缺少 delete動作，造成</font> memory leak<font
+    face="Fixedsys">。</font><font color="#000000"><br>
+    更正：</font><font face="Fixedsys">在函式結束前加上 <font color="#0000FF">delete 
+    pDC;</font> <br>
+    <font color="#0000FF">備註：紙本不打算更改，以免與書附光碟不一致，反生誤會。請讀者注意。</font></font><br>
+    <font color="#000000">感謝：</font>duqiang<br>
+    <font color="#000000">日期：2002/02/20</font></p>
+    <p align="left"><font color="#000000">頁次：P429, 程式碼說明 (7)<br>
+    原文：new 一個 <em>CMyMDIFrameWnd</em> 物件，做為主視窗物件<br>
+    更正：new 一個 <em>CMainFrame</em>（<em>CMDIFrameWnd</em>-derived）物件，做為主視窗物件</font><br>
+    <font color="#000000">感謝：佚失，很抱歉</font><br>
+    <font color="#000000">日期：2002/03/12</font></p>
+    <p align="left">頁次：p155, MFC.CPP, #0007<br>
+    原文：{ szCObject, sizeof(CObject), 0xffff, NULL, NULL };<br>
+    更正：{ szCObject, sizeof(CObject), 0xffff, NULL, NULL<font color="#0000FF">, NULL</font> 
+    };<br>
+    感謝：shinexr<br>
+    日期：2002/05/31</p>
+    <p align="left">頁次：p462, 方框以下第一段<br>
+    原文：<br>
+    <font FACE="細明體" size="3">當使用者選按【</font><font size="3">File/New<font
+    FACE="細明體">】命令項，根據</font> AppWizard <font FACE="細明體">為我們所做的</font> 
+    Message Map<font FACE="細明體">，此一命令由</font> <i>CWinApp</i>::<i>OnFileNew</i> 
+    <font FACE="細明體">接手處理。後者呼叫</font> <i>CDocManager</i>::<i>OnFileNew</i><font
+    FACE="細明體">，</font></font><font color="#FF0000" FACE="細明體" size="3">後者再呼叫</font><font
+    size="3" color="#FF0000"> <i>CWinApp</i>::<i>OpenDocumentFile</i></font><font size="3"
+    color="#FF0000" FACE="細明體">，後者再呼叫</font><font size="3" color="#FF0000"> <i>CDocManager</i>::<i>OpenDocumentFile</i></font><font
+    FACE="細明體" size="3" color="#FF0000">，</font><font size="3"><font FACE="細明體">後者再呼叫</font> 
+    <i>CMultiDocTemplate</i>::<i>OpenDocumentFile</i><font FACE="細明體">（這是觀察</font>MFC<font
+    FACE="細明體">原始碼所得結果）：</font></font><br>
+    更正：刪除以上<font color="#FF0000">紅色</font>部份。<br>
+    感謝：唐偉清, 鄭榕<br>
+    日期：2002/06/01</p>
+    <p align="left">-- the end</p>
+    <p align="left">　<!--mstheme--></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

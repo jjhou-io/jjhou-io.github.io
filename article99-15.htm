@@ -1,0 +1,161 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>pointer to data member 的疑惑</title>
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font>
+
+<table border="0" cellpadding="6" cellspacing="0" width="750">
+  <tr>
+    <td width="53"><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td width="564"><p align="center"><big><big>pointer to data member 的疑惑</big></big></p>
+    <p align="center">1999.07.21 第一次發表<!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td width="69"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="53"><font size="3"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td valign="top" width="564"><br>
+    ●讀者來函<br>
+    <br>
+    &gt; 侯老師您好<br>
+    &gt;<br>
+    &gt; 我是您的讀者,在您所著的 &lt;虛擬與多型&gt; 一書中曾提及<br>
+    &gt; pointers to data member, 但我不懂的是為何要有<br>
+    &gt; 這種東西。有勞您看以下的 example<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; class foo {<br>
+    &gt; public:<br>
+    &gt;&nbsp;&nbsp; int k;<br>
+    &gt;&nbsp;&nbsp; int *ptr; // named <font color="#0000FF">No.1</font><br>
+    &gt; };<br>
+    &gt;<br>
+    &gt; void main(void)<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; int foo::*ptr = &amp;foo::k; // pointer to data member named <font
+    color="#0000FF">No.2</font><br>
+    &gt;&nbsp;&nbsp; // then assign the address to No.2<br>
+    &gt;&nbsp;&nbsp; int *p; //named <font color="#0000FF">No.3</font><br>
+    &gt;<br>
+    &gt;&nbsp;&nbsp; foo s1 = foo();<br>
+    &gt;<br>
+    &gt;&nbsp;&nbsp; p = &amp;s1.k; // assign the &quot;k &quot; address to <font
+    color="#0000FF">No.3</font><br>
+    &gt;&nbsp;&nbsp; s1.ptr = &amp;s1.k; // assign the &quot;k &quot; address to <font
+    color="#0000FF">No.1</font><br>
+    &gt;&nbsp;&nbsp; s1.*ptr = 100; // assign value 100 to <font color="#0000FF">No.1</font><br>
+    &gt;&nbsp;&nbsp; *(s1.ptr) = 200; // assign value 200 to <font color="#0000FF">No.2</font><br>
+    &gt; }</font></small><br>
+    &gt;<br>
+    &gt; 我的問題:<br>
+    &gt;<br>
+    &gt; 1. pointer to data member (like No.2) 是屬於 foo class 的<br>
+    &gt; member 嗎? 若是, 為何不像 No.1 一樣直接寫在 class 的宣告裡就<br>
+    &gt; 好而要多此一舉? 如果是屬於 foo 的 member的話 ,應該能像 No.1<br>
+    &gt; 一樣 access 到 foo class 中的 private member 才對吧?<br>
+    &gt; 或者說，pointer to data memeber 是和 No.3 一樣，屬於一般 pointer，<br>
+    &gt; 只是 No.2 是 &quot;專門&quot; 指向 class data 的指標呢?<br>
+    &gt;<br>
+    &gt; 2. 我是個大一資訊科系的準新生 ,常看到學長們學 C++ 似乎就像是<br>
+    &gt; 在研究哲學理論一樣,懂得考試(考的也是C++的關念:polyforphism..)<br>
+    &gt; 但實作方面似乎很缺少. 我想請教侯老師在我學習C++過程中,有很多<br>
+    &gt; 關念我該用什麼樣的方式去把他implement,不然就好比您講的&quot;拿有毛<br>
+    &gt; 的筆寫字一樣&quot;.<br>
+    &gt;<br>
+    &gt; 煩請您抽空回答並抱歉打擾您寶貴的時間<br>
+    &gt; 祝心怡 ycchang<br>
+    <br>
+    <br>
+    ●我的回覆<br>
+    <br>
+    Hi, ycchang:<br>
+    <br>
+    來信收悉。你的 sample 有個觀念上的錯誤。由於你在程式中將<br>
+    &quot;<font color="#0000FF">class 內的 pointer to data</font>&quot; 和 &quot;<font
+    color="#0000FF">pointer to data member</font>&quot;<br>
+    取了相同的名稱，都命名為 ptr，所以你自己被自己搞混了。<br>
+    <br>
+    請將<br>
+    int foo::*ptr = &amp;foo::k; // No.2<br>
+    改為<br>
+    int foo::*mptr = &amp;foo::k; // No.2<br>
+    <br>
+    然後你會發現，你的 sample 中的最後兩行應該改為：<br>
+    <br>
+    s1.*mptr = 100; // assign value 100 to No.2（★注意，是 No.2）<br>
+    *(s1.ptr) = 200; // assign value 200 to No.1（★注意，是 No.1）<br>
+    <br>
+    結論：<br>
+    <br>
+    你用了三種指標來指向 class data member（上例的 s1.k)：<br>
+    <br>
+    1. 一般指標 int* p;<br>
+    2. class 內的一般指標 int* foo::ptr;<br>
+    3. 指向 class data member 的指標 int foo::* mptr;<br>
+    <br>
+    這都是可以的。運用之妙，存乎一心。不過至少可下一個結論，就是：<br>
+    pointer to data member 比一般的 pointer to data，有更多的限制。<br>
+    它只能指向 class data member，不能指向一般 data。<br>
+    <br>
+    pointer to member 之中，pointer to data member 的用處較少，<br>
+    pointer to member function 的用處較大。<br>
+    <br>
+    現在回答你的問題：<br>
+    <br>
+    &gt; 1. pointer to data member (like No.2) 是屬於 foo class 的<br>
+    &gt; member 嗎?<br>
+    <br>
+    不是。<br>
+    <br>
+    &gt; 或者說，pointer to data memeber 是和 No.3 一樣，「屬於」一般 pointer，<br>
+    &gt; 只是 No.2 是 &quot;專門&quot; 指向 class data 的指標呢?<br>
+    <br>
+    是的。但不能說「屬於」，應說「近似於」。<br>
+    <br>
+    &gt; 2. 我是個大一資訊科系的準新生 ,常看到學長們學 C++ 似乎就像是<br>
+    &gt; 在研究哲學理論一樣,懂得考試(考的也是C++的關念:polymorphism..)<br>
+    &gt; 但實作方面似乎很缺少. 我想請教侯老師在我學習C++過程中,有很多<br>
+    &gt; 關念我該用什麼樣的方式去把他implement,不然就好比您講的&quot;拿有毛<br>
+    &gt; 的筆寫字一樣&quot;.<br>
+    <br>
+    C++ object-oriented 領域內的確有不少「哲學理論」:)。我的意思是<br>
+    有許多許多觀念在裡面，很需要靜心思考，不像 procedural programming<br>
+    那麼直覺。<br>
+    <br>
+    學習有三個階段，第一是完全被動的吸收，第二是主動思考並寫些小例子來印證。像你寫上面那個小例子，就已經到「主動思考並印證」的層次了。第三則是寫點實用性的東西（所謂 
+    real world program，呵呵）。由於教育體制的關係，臺灣學生很缺乏創造力，所以很不容易自己想點有趣題目。其實俯拾可得。寫一個太陽系星體運轉程式，或一個動物園分類檢索系統，就非常好。這當中你必須去圖書館查一些動物學名或太空資料，無形中也就多了不少動物學或天文學的基礎知識。<br>
+    <br>
+    初學 C++，設計重點要放在程式核心部份，等有了繪圖能力，再完成 
+    UI。想像一下，你能在你的 PC 
+    上秀出目前此刻的太陽系星體位置，以各種角度觀察它，多棒的一件事。為了得到一些星體圖片，你還得連上NASA 
+    網站，那不又是一個大收穫嗎。我敢說，經過這樣一番經歷，你在眼界上、做學問的方法與態度上，都將超越同儕甚多。<br>
+    <br>
+    最後我要請教你一個問題。你說你是大一資訊科系的準新生，這麼說你高中就開始讀 
+    &lt;多型與虛擬&gt; 
+    了嗎？你是高中電腦社員嗎？你能說說在你週遭，電腦的學習情況嗎？我很有興趣聽。<br>
+    <br>
+    --- the end<br>
+    <br>
+<!--mstheme-->    </font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td valign="top" width="69"><p align="center"><br>
+    </p>
+    <p align="center">　<!--mstheme--></font></td>
+  </tr>
+</table>
+
+<p>　</p>
+<!--mstheme--></font>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>虛擬記憶體</title>
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font>
+
+<table border="0" cellpadding="6" cellspacing="0" width="724">
+  <tr>
+    <td width="18"><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td width="512"><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td width="162"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="18"><font size="3"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td valign="top" width="512"><p align="left"><font color="#FF0000">【基本資料】<br>
+    </font><br>
+    書名：<font color="#0000FF">虛擬記憶體：觀念、設計與實作</font><br>
+    出版：旗標 1991.08<br>
+    ISBN：957-717-?????<br>
+    頁數： 9 章， 542 頁<br>
+    定價：NT$ 450.0<br>
+    </p>
+    <p align="left"><font color="#FF0000">【自序】</font></p>
+    <p align="center"><font color="#0000FF">若能以此書榮耀雙親，是我最大的欣慰</font></p>
+    <p align="left"><br>
+    如果說硬體是電腦的軀體， 
+    軟體是電腦的靈魂，那麼記憶體可以說是電腦的大腦所在位置了。 
+    所有人類的思維都在大腦中進行，而所有的軟體程式碼以及軟體所需要的資料都必需在記憶體中運算並貯存。這可以解釋記憶體之於電腦的重要性。遺憾的是個人電腦雖然在硬體的中央處理器 
+    (CPU) 方面有長足的進步，但是 DOS 
+    這個擁有廣大客戶群、個人電腦史上最重要的作業系統卻沒有跟上腳步，一直侷限在 
+    8086/8088 
+    的格局裡，導至應用程式的發展受到記憶體方面嚴重的限制。<br>
+    <br>
+    雖然 DOS 不能直接突破 1 Mega 
+    的定址能力，但是透過各種間接的方法，仍然可以存取超過 1 Mega 
+    的記憶體。這些 1 Mega 
+    以外的輔助記憶體裝置配合本書發展的驅動管理程式，就稱為虛擬記憶體系統，可以使得應用程式發展者不再需要負擔資料量過大而記憶體不足的沉重壓力，<br>
+    <br>
+    本書適合給對電腦架構以及程式設計已經有經驗的人閱讀。作者假設讀者已經具備 
+    C 語言的寫作能力 ，並且對 DOS 
+    的功能有基本的了解。如果讀者曾經學習過組合語言更佳，對於傳統記憶體的定址方式以及 
+    DOS 和 BIOS 的中斷服務常式一定更有深刻的體會。<br>
+    <br>
+    研讀本書可以得到記憶體方面完整而豐富的知識 
+    、各種輔助記憶體裝置的差異、優缺點、以及驅動這些輔助記憶裝置的程式技巧。書中的進階部份 
+    (Part II) 更以大型而實用的系統 (程式庫) 
+    為目的，將這些技巧整合起來。作者表現在範例程式中的一些 C 
+    語言寫作技巧以及對系統的規劃方式，對大部份的程式設計者而言，或許也具有參考價值。書中討論的程式，編譯製作成程式庫後， 
+    實用性極高，很容易 embeded 
+    進入您原先的系統中，提昇您軟體的威力。<br>
+    <br>
+    本書所有程式均以 C 
+    語言撰寫，這是考慮到易讀性的緣故。事實上一小部份最基層的常式如果能夠以組合語言重新撰寫，更能增加程式的執行效率。對於值得以組合語言再寫過的部份書中均特別提出說明， 
+    並提示設計方向和作法。作者非常贊成並鼓勵擁有組合語言能力的人將這些部份再改寫過。<br>
+    <br>
+    所有書內的 C 程式在 Microsoft C 或 Turbo C 
+    這兩種編譯器下均能順利編譯其奧妙處在於一個前置處理的步驟，在 
+    1.5 
+    節中將有介紹。這是一種值得推薦的作法，如果您的應用程式也希望能夠使用不同編譯器的話。<br>
+    <br>
+    本書如果能夠帶給讀者任何實質上的幫助，將是作者莫大的快樂。<br>
+    <br>
+    -- 侯俊傑 (J. J. Hou) -- 80/05/09</p>
+    <p align="left">　</p>
+    <p align="left"><font color="#FF0000">【目錄】</font></p>
+    <p align="left">第一部份 : 基礎技巧篇<br>
+    <br>
+    第一章 : 基礎觀念<br>
+    1.1 什麼是虛擬記憶體<br>
+    1.2 為什麼需要虛擬記憶體<br>
+    1.3 名稱與觀念<br>
+    1.4 各式各樣的記憶體驅動程式<br>
+    1.5 本書的程式和風格<br>
+    <br>
+    第二章 : 延伸記憶體<br>
+    2.1 DOS 位址 和 實體位址 (physical address)<br>
+    2.2 區塊搬移描述表格 (Block Move Description Table) (BMDT).<br>
+    2.3 BIOS 中斷服務常式 : 中斷 15h&nbsp; 功能 87h、88h<br>
+    2.4 程式設計 (原始碼與說明文件)<br>
+    2.5 測試<br>
+    <br>
+    第三章 : 擴展記憶體<br>
+    3.1 擴展記憶體規格 (EMS)<br>
+    3.2 安裝擴展記憶體驅動程式<br>
+    3.3 BIOS 中斷服務常式 : 中斷 67h&nbsp; 功能 41h、42h、43h、<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 44h、45h、47h、48h<br>
+    3.4 程式設計 (原始碼與說明文件).<br>
+    3.5 測試<br>
+    3.6 延伸記憶體和擴展記憶體的比較<br>
+    <br>
+    第四章 : 磁碟記憶體<br>
+    4.1 低層次磁碟檔案 輸入/輸出<br>
+    4.2 DOS 中斷服務常式 : 中斷 21h&nbsp; 功能 36h、3ch、3eh、<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3fh、40h、42h<br>
+    4.3 程式設計 (原始碼與說明文件)<br>
+    4.4 三種輔助記憶體裝置驅動程式的函數比較<br>
+    4.5 POWRDEVC 測試<br>
+    <br>
+    第二部份 : 進階應用篇<br>
+    <br>
+    第五章 : 一個快速存取螢幕影像的系統 (POWRVIDO)<br>
+    5.1 視訊記憶體 (Video Memory) 回顧.<br>
+    5.2 EGA/VGA 程式設計技巧<br>
+    * 16 色模式 (Plane System)<br>
+    * 256 色模式 (Linear Bytes System)<br>
+    5.3 利用外部檔案 (config file) 指定輔助記憶體配置情況<br>
+    5.4 一個簡單的記憶體區塊管理.<br>
+    5.5 POWRVIDO 的內部動作<br>
+    5.6 程式設計 (原始碼與說明文件)<br>
+    5.7 POWRVIDO 測試<br>
+    <br>
+    第六章 : 虛擬記憶體管理系統 (POWRSTOR)<br>
+    6.1 混合運用三種輔助記憶體裝置<br>
+    6.2 POWRSTOR 初始陣列<br>
+    6.3 POWRSTOR 內部運作 (從 memory pool 中配置記憶體)<br>
+    6.4 程式設計 (原始碼與說明文件)<br>
+    6.5 POWRSTOR 測試<br>
+    <br>
+    第七章 : 虛擬記憶體 --- 堆積 (POWRVMEM-heap)<br>
+    7.1 虛擬記憶體核心部份 (POWRVMEM-kernal)<br>
+    * 外部檔案 (config file) 指定輔助記憶體配置情況<br>
+    * 以 POWRSTOR 作為 POWRVMEM 的核心<br>
+    7.2 什麼是堆積<br>
+    7.3 虛擬堆積的管理<br>
+    7.4 程式設計 (原始碼和說明文件)<br>
+    7.5 測試<br>
+    <br>
+    第八章 : 虛擬記憶體 --- 一維陣列 (POWRVMEM-1Darray)<br>
+    8.1 不受限制的陣列大小<br>
+    8.2 陣列的形成 --- 陣列元素的資料型態<br>
+    8.3 速度最佳化和空間最佳化<br>
+    8.4 程式設計 (原始碼與說明文件)<br>
+    8.5 測試<br>
+    <br>
+    第九章 : 虛擬記憶體 --- 三維陣列 (POWRVMEM-3Darray)<br>
+    9.1 不受限制的陣列大小<br>
+    9.2 陣列的形成 --- 陣列元素的資料型態<br>
+    9.3 速度最佳化和空間最佳化<br>
+    9.4 程式設計 (原始碼與說明文件)<br>
+    9.5 POWRVMEM 測試<br>
+    <br>
+    第三部份 : 本書程式原始碼列表<br>
+    <br>
+    * 函數名稱<br>
+    * 引數說明<br>
+    * 功能說明<br>
+    * 原始碼<br>
+    <br>
+    附錄<br>
+    A : 記憶體空間配置<br>
+    B : PowerSTOR 簡介: 一個功能強大的虛擬記憶體程式庫<br>
+    C : 如何製作本書的程式庫<br>
+    D : 中英文名辭對照<br>
+<!--mstheme-->    </font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td valign="top" width="162" bgcolor="#C0C0C0"><p align="center"><img src="f306.jpg" tppabs="http://jjhou.boolan.com/f306.jpg"
+    alt="f306.jpg (10955 bytes)" WIDTH="160" HEIGHT="222"><br>
+<!--mstheme-->    </font></td>
+  </tr>
+</table>
+
+<p>　</p>
+<!--mstheme--></font>
+</body>
+</html>

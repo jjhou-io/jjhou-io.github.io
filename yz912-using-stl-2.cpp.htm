@@ -1,0 +1,136 @@
+<html>// 第三週程式
+
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include <string>
+#include <map>
+#include <deque>
+#include <utility>
+using namespace std;
+
+
+// 一個用以列印的 functor
+template<typename T>
+class printElem
+{
+public:
+   void operator()(const T& i)
+   {
+      cout << i << ' ';
+   }
+};
+
+// 為滿足上述 functor 所接受的 T 是個 pair，我們必須寫出下面這個 operator<<
+template<typename T1, typename T2>
+ostream& operator<< (ostream& os, const pair<T1,T2>& p)
+{
+  os << '[' << p.first << ',' << p.second << "] ";
+  return os;
+}
+
+int main()
+{
+  int ia[10] = {2,6,9,14,49,70,38,90,71,28};
+
+  {
+  // 使用 vector
+
+  vector<int>  vi(&ia[0], &ia[10]);
+  vi.push_back(38);
+
+  cout << vi.size() << endl;      // 11
+  cout << vi.capacity() << endl;  // 20（每次成長兩倍）
+  for(int i=0; i<vi.size(); ++i)
+      cout << vi[i] << ' ';
+
+  // 使用 iterators
+  vector<int>::iterator  ite1 = find(vi.begin(), vi.end(), 49);
+  vector<int>::iterator  ite2 = find(vi.begin(), vi.end(), 90);
+
+  if (find(vi.begin(), vi.end(), 27) == vi.end())
+      cout << "not found!" << endl;
+  else
+      cout << "found!" << endl;
+
+
+  cout << *ite1 << endl;  // 49
+  cout << *ite2 << endl;  // 90
+
+  // erasing...（待查）
+
+  cout << "temp object:" << int(5) << endl; // 暫時物件
+
+  sort(vi.begin(), vi.end());
+
+  for_each(vi.begin(), vi.end(), printElem<int>());
+  }
+
+  {
+  // 使用 list
+  list<long> li(ia, ia+10);
+  list<long>::iterator ite3 = find(li.begin(), li.end(), 70);
+  cout << *ite3  << endl;      // 70
+  cout << *(++ite3) << endl;   // 38
+  }
+
+  {
+  // 使用 map
+  map<string, int>  msi;
+  msi[string("jjhou")] = 100; // 索引不存在，進行 insertion
+  msi[string("jjhou")] = 101; // 索引存在，進行 assignment
+  msi[string("jason")] = 98;
+  msi[string("jerry")] = 95;
+  msi[string("jamie")] = 93;
+
+  for_each(msi.begin(), msi.end(), printElem< pair<string,int> >());
+
+  // 另一種巡訪列印方式
+  map<string, int>::iterator ite1 = msi.begin();
+  map<string, int>::iterator ite2 = msi.end();
+  for(;ite1!=ite2; ++ite1)
+      cout << '[' << (*ite1).first << ',' << (*ite1).second << "] ";
+  }
+
+  {
+  // 使用 deque（和 vector 相比，特點在於可以 push_front）
+  deque<int> di(&ia[0], &ia[10]);
+  di.push_front(-5);
+  di.push_front(-8);
+  for_each(di.begin(), di.end(), printElem<int>());
+  cout << endl;
+  }
+
+  {
+  // 使用 stack
+  // ref. TASS p169;
+  }
+
+  {
+  // 使用 queue
+  // ref. TASS p171;
+  }
+
+  {
+  // 使用各種 algorithms
+  // int ia[10] = {2,6,9,14,49,70,38,90,71,28};
+  list<long> li(ia, ia+10);
+  li.sort();  
+  // 千萬注意：std::sort 要求的是 random access iterator，
+  // 而 list's iterator 卻是 bi-directional iterator 
+  
+  for_each(li.begin(), li.end(), printElem<long>());
+  cout << endl;
+
+  cout << binary_search(li.begin(), li.end(), 38) << endl;
+  }
+
+  {
+  // 使用 adapters
+  // int ia[10] = {2,6,9,14,49,70,38,90,71,28};
+  vector<int> vec( ia, ia+10 );
+  cout << count_if(vec.begin(), vec.end(), 
+                   not1(bind2nd(less_equal<int>(), 40)));  // 4
+  }
+}

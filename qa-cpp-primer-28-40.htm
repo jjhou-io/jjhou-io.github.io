@@ -1,0 +1,1696 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>C++ Primer 答客問28~40</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="723">
+  <tr>
+    <td align="right" valign="top" width="33">&nbsp; <!--mstheme--></font></td>
+    <td width="22"><!--mstheme--></font></td>
+    <td valign="bottom" width="644"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="33" bgcolor="#C0C0C0"><!--mstheme--></font></td>
+    <td width="22"><!--mstheme--></font></td>
+    <td valign="top" width="644"><a name="C++ Primer qa28"><big><big>C++ Primer 答客問 (28)</big></big></a> 
+    2000.01.09<big><big><br>
+    </big></big><br>
+    Jimmy wrote (2000/01/09):<br>
+    <br>
+    <font color="#0000FF">&gt; 侯 sir 您好：<br>
+    &gt; 上次我詢問您幾個泛型演算法的問題。蒙您回覆，<br>
+    &gt; 解我疑惑，實在是很感激。<br>
+    &gt;<br>
+    &gt; 現在我又有了一個新的問題。C++ Primer 中文版<br>
+    &gt; p1186 談到 stable_sort()，您對此函式的解釋是：<br>
+    &gt; 排序並保持等值元素的相對次序。範例執行結果是：<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; original element sequence:<br>
+    &gt; 29 23 20 22 12 17 15 26 51 19 12 23 35 40<br>
+    &gt; stable sort -- default ascending order:<br>
+    &gt; 12 12 15 17 19 20 22 23 23 26 29 35 40 51</font></small><br>
+    &gt;<br>
+    &gt; 我的疑問是，如果是等值元素，何必在乎它們原先<br>
+    &gt; 的相對次序呢？以上例而言，兩個等值元素 12 排<br>
+    &gt; 在一起，又怎麼知道或何必在乎它們是原先的哪一<br>
+    &gt; 個呢？<br>
+    &gt;<br>
+    &gt; 再次盼望您的回答。我從此書學到許多技術與觀念，<br>
+    &gt; 非常感謝您。亦盼您趕快繼續寫作。</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    的確。一開始很容易對此感到迷惑。但你必須知道，<br>
+    所謂等值元素，是以元素的 less-than 運算子，或是以你<br>
+    所指定的比較函式（comparison function），來進行比較。<br>
+    像上例那樣，兩個 12 之間當然沒有任何差別。但是如果<br>
+    元素型別是一個比較豐富的 class 呢？例如：<br>
+    <br>
+    <small><font face="Courier New">#0001 // vc6[x] cb4[o] g++[o]<br>
+    #0002 // vc6 </font>不能成功是因為 <font face="Courier New">vc6 </font>的 <font
+    face="Courier New">&lt;iostream&gt; </font>不支援 <font face="Courier New">friend</font>。<br>
+    <font face="Courier New">#0003 // </font>這是 <font face="Courier New">vc6 </font>的一個 
+    <font face="Courier New">bug</font>。見 <font face="Courier New">&quot;C++ </font>答客問 
+    <font face="Courier New">(27)&quot;.<br>
+    #0004<br>
+    #0005 #include &lt;iostream&gt;<br>
+    #0006 #include &lt;vector&gt;<br>
+    #0007 #include &lt;set&gt;<br>
+    #0008 #include &lt;algorithm&gt;<br>
+    #0009 #include &lt;string&gt;<br>
+    #0010 using namespace std;<br>
+    #0011<br>
+    #0012 class student<br>
+    #0013 {<br>
+    #0014 friend ostream&amp; operator&lt;&lt;(ostream&amp; os, const student&amp; rhs);<br>
+    #0015 public:<br>
+    #0016 // constructor<br>
+    #0017 student(string name, int score)<br>
+    #0018 : _name(name), _score(score) { }<br>
+    #0019 // copy constructor<br>
+    #0020 student(const student&amp; rhs)<br>
+    #0021 : _name(rhs._name), _score(rhs._score) { }<br>
+    #0022 // less-than operator<br>
+    #0023 bool operator&lt;(const student&amp; rhs)<br>
+    #0024 { return (this-&gt;_score &lt; rhs._score); } // </font>以分數高低為比較依據<br>
+    <font face="Courier New">#0025<br>
+    #0026 int score() { return _score; }<br>
+    #0027<br>
+    #0028 private:<br>
+    #0029 string _name; // </font>人名<br>
+    <font face="Courier New">#0030 int _score; // </font>分數<br>
+    <font face="Courier New">#0031 };<br>
+    #0032<br>
+    #0033 // </font>為了方便對 <font face="Courier New">student object </font>進行 <font
+    face="Courier New">cout </font>輸出。<br>
+    <font face="Courier New">#0034 ostream&amp; operator&lt;&lt;(ostream&amp; os, const 
+    student&amp; rhs)<br>
+    #0035 {<br>
+    #0036 cout &lt;&lt; '&lt;' &lt;&lt; rhs._name &lt;&lt; ',' &lt;&lt; rhs._score &lt;&lt; 
+    '&gt;';<br>
+    #0037 return os;<br>
+    #0038 }<br>
+    #0039<br>
+    #0040 // </font>準備給泛型演算法 <font face="Courier New">for_each() </font>使用<br>
+    <font face="Courier New">#0041 void printstudent(const student&amp; elem)<br>
+    #0042 { cout &lt;&lt; elem; }<br>
+    #0043<br>
+    #0044 // </font>準備用於 <font face="Courier New">stable_sort() </font>第二版本的第三個函式引數<br>
+    <font face="Courier New">#0045 bool lessstudent(const student&amp; lhs, const student&amp; 
+    rhs)<br>
+    #0046 { return lhs.score() &lt; rhs.score(); }<br>
+    #0047<br>
+    #0048 int main()<br>
+    #0049 {<br>
+    #0050 vector&lt;student&gt; v;<br>
+    #0051 v.push_back(student(&quot;</font>侯捷<font face="Courier New">&quot;, 95));<br>
+    #0052 v.push_back(student(&quot;</font>侯崴<font face="Courier New">&quot;, 59));<br>
+    #0053 v.push_back(student(&quot;</font>美靜<font face="Courier New">&quot;, 85));<br>
+    #0054 v.push_back(student(&quot;</font>咚咚<font face="Courier New">&quot;, 59));<br>
+    #0055<br>
+    #0056 for_each(v.begin(), v.end(), printstudent);<br>
+    #0057 // &lt;</font>侯捷<font face="Courier New">,95&gt;&lt;</font>侯崴<font
+    face="Courier New">,59&gt;&lt;</font>美靜<font face="Courier New">,85&gt;&lt;</font>咚咚<font
+    face="Courier New">,59&gt;<br>
+    #0058<br>
+    #0059 //</font>★為什麼下式錯誤？<font face="Courier New">class student </font>擁有 
+    <font face="Courier New">operator&lt; </font>呀！<br>
+    <font face="Courier New">#0060 //stable_sort(v.begin(), v.end()); // (1)<br>
+    #0061<br>
+    #0062 stable_sort(v.begin(), v.end(), lessstudent); // (2)<br>
+    #0063<br>
+    #0064 for_each(v.begin(), v.end(), printstudent);<br>
+    #0065 // &lt;</font>侯崴<font face="Courier New">,59&gt;&lt;</font>咚咚<font
+    face="Courier New">,59&gt;&lt;</font>美靜<font face="Courier New">,85&gt;&lt;</font>侯捷<font
+    face="Courier New">,95&gt;<br>
+    #0066 }</font></small><br>
+    <br>
+    此例你便可發現，兩個所謂「等值元素」其實是有差別的。<br>
+    <br>
+    用英文來講，就會更清楚些：這裡所謂的「「等值元素」是 equivalent，<br>
+    而不是 identical,。&lt;Generic Programming and the STL&gt; p.292 說：<br>
+    <br>
+    Stability is often an irrelevant criterion. It only matters<br>
+    when a range contains elements that are equivalent but not identical,<br>
+    and when the ordering of those elements within the initial range<br>
+    is significant.<br>
+    <br>
+    <br>
+    ★我的疑惑<br>
+    <br>
+    我在撰寫這個範例程式時，遇到了一個不解之處。<br>
+    stable_sort() 的規格說，如果我們不指定第三個引數，<br>
+    它便以元素所屬型別的 less-than operator 做為排序標準。<br>
+    我明明為 class student 準備了 operator&lt;，為什麼 (1)<br>
+    式無法通過編譯？<br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    <font color="#FF0000">william</font> wrote (2000/01/10) :<br>
+    <br>
+    <font color="#408080">&gt;&gt; // less-than operator<br>
+    &gt;&gt; bool operator&lt;(const student&amp; rhs)<br>
+    ↑ 補上一個 const<br>
+    &gt;&gt; { return (this-&gt;_score &lt; rhs._score); } // 以分數高低為比較依據<br>
+    &gt;&gt;<br>
+    &gt;&gt; [略]<br>
+    &gt;&gt;<br>
+    &gt;&gt; //★為什麼下式錯誤？class student 擁有 operator&lt; 呀！<br>
+    &gt;&gt; //stable_sort(v.begin(), v.end()); // (1)<br>
+    &gt;&gt; [略]<br>
+    &gt;&gt; 請注意，我在撰寫這個範例程式時，遇到了一個不解之處。<br>
+    &gt;&gt; stable_sort() 的規格說明，如果我們不指定第三個引數，<br>
+    &gt;&gt; 它便以元素型別的 less-than operator 做為排序標準。<br>
+    &gt;&gt; 我明明為 class student 準備了 operator&lt;，為什麼 (1)<br>
+    &gt;&gt; 式無法通過編譯？</font><br>
+    <br>
+    <br>
+    <font color="#0000FF">把上面的 &quot;const&quot; 字眼補上, 即可通過 BCB4 和 
+    g++ 2.8.1。<br>
+    <br>
+    除了上述問題外, 也會看到幾個編譯器發出的 warnings：<br>
+    call by reference、const member function。</font><br>
+    <br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    <font color="#FF0000">ctang</font> wrote (2000/01/10) :<br>
+    <br>
+    <font color="#408080">&gt; // 準備用於 stable_sort() 
+    第二版本的第三個函式引數<br>
+    &gt; bool lessstudent(const student&amp; lhs, const student&amp; rhs)<br>
+    &gt; { return lhs.score() &lt; rhs.score(); }</font><br>
+    <br>
+    <font color="#0000FF">I think compiler should also give an error here, which means the<br>
+    (2) is not correct either. (at least a warning, tho)<br>
+    score() doesn't &quot;promise&quot; the &quot;const student&quot;.<br>
+    However, compiler might be SMART enough to ASSUME the<br>
+    correct result. Or it concerns only the reference.<br>
+    In the later case, there is a semantics flaw.<br>
+    <br>
+    I might misunderstand something here ~~~</font><br>
+    <br>
+    <font color="#408080">&gt;<br>
+    &gt; file://★為什麼下式錯誤？class student 擁有 operator&lt; 呀！<br>
+    &gt; file://stable_sort(v.begin(), v.end()); // (1)<br>
+    &gt;<br>
+    &gt; stable_sort(v.begin(), v.end(), lessstudent); // (2)<br>
+    &gt;<br>
+    &gt; 請注意，我在撰寫這個範例程式時，遇到了一個不解之處。<br>
+    &gt; stable_sort() 的規格說明，如果我們不指定第三個引數，<br>
+    &gt; 它便以元素型別的 less-than operator 做為排序標準。<br>
+    &gt; 我明明為 class student 準備了 operator&lt;，為什麼 (1)<br>
+    &gt; 式無法通過編譯？</font><br>
+    <br>
+    <font color="#0000FF">The question, to me, should be &quot;Why (2) can pass the 
+    compiling?&quot;</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    是的，按理說 const object 不應能夠喚起其 non-const member function。<br>
+    事實上 BCB4 和 G++2.91.57 的確都對下行給予警告：<br>
+    <br>
+    &gt; bool lessstudent(const student&amp; lhs, const student&amp; rhs)<br>
+    &gt; { return lhs.score() &lt; rhs.score(); }<br>
+    <br>
+    我應該把 student::score() 設計為 const member function：<br>
+    <br>
+    <small><font face="Courier New">#0026 int score() <strong>const</strong> { return _score; 
+    }</font></small><br>
+    <br>
+    這給我的教訓是：C++ 的 constness 絕不是一件微不足道的小事。<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;<!--msthemeseparator--><p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><a name="C++ Primer qa29"><big><big>C++ Primer 答客問 (29)</big></big></a>&nbsp; 
+    2000.01.20 <br>
+    <br>
+    Jimmy wrote (2000/01/10):<br>
+    <br>
+    <font color="#0000FF">&gt; 侯 sir 您好：<br>
+    &gt;<br>
+    &gt; 真抱歉，我又來問問題了。<br>
+    &gt;<br>
+    &gt; C++ Primer 中文版 p.1177 對於 rotate() 的說明，我覺得有點<br>
+    &gt; 奇怪。書上說：<br>
+    &gt;<br>
+    &gt; rotate() 會將 [first,middle) 範圍內的元素搬移到 container<br>
+    &gt; 尾端，被 middle 指向的元素會成為 container 的第一個元素。<br>
+    &gt; 例如，如果有個字元序列 &quot;hissboo&quot;，對元素 'b' 
+    所做的旋轉動作<br>
+    &gt; 會形成 &quot;boohiss&quot;。<br>
+    &gt;<br>
+    &gt; 我的問題是，在整段說明中，沒有提到 last 扮演的角色。</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    我很感謝你的發問，促使我對自己的著作或譯作做更多的檢驗。<br>
+    <br>
+    的確，《C++ Primer 中文版》p1177 對於 rotate() 的說明中<br>
+    並沒有提到 last 扮演的角色。我檢查原書，並沒有發現誤譯或漏譯。<br>
+    但是沒有 last 的參與，是奇怪而幾乎可以斷定有問題的。<br>
+    於是我查《Generic Programming and the STL》(by Austern, AW 1999)，<br>
+    這是我認為目前最佳的 STL 工具書。它的 p266 對 rotate() 的解釋，<br>
+    簡言之就是：<br>
+    <br>
+    it exchanges the two ranges [first, middle) and [middle, last).<br>
+    <br>
+    我寫一個實例如下：<br>
+    <br>
+    <small><font face="Courier New">int ia[] = { 7, 7, 7, 2, 2, 2, 1, 1 };<br>
+    vector&lt;int&gt; iv(ia, ia+8);<br>
+    <br>
+    // </font>旋轉，將 <font face="Courier New">[first, middle) </font>與 <font
+    face="Courier New">[middle, last) </font>兩範圍整個對調<br>
+    <font face="Courier New">rotate(iv.begin(), iv.begin()+3, iv.begin()+6);<br>
+    copy(iv.begin(), iv.end(), ostream_iterator&lt;int&gt;(cout, &quot; &quot;));<br>
+    // 2 2 2 7 7 7 1 1</font></small><br>
+    <br>
+    所以，我要把《C++ Primer 中文版》p1177 修改如下：<br>
+    <br>
+    ■p1177, rotate() 規格說明第一行（原書錯誤）<br>
+    原文：rotate() 會將 [first,middle) 範圍內的元素搬移到 <font color="#0000FF">container 
+    尾端</font>。<br>
+    更正：rotate() 會將 [first,middle) 範圍內的元素搬移到 <font color="#0000FF">last 
+    所指位置</font>。<br>
+    <br>
+    我會在《C++ Primer 中文版》第三刷修正此一錯誤。<br>
+    <br>
+    再次謝謝 Jimmy。<br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    另外，我又檢查到一個錯誤。請修改如下：<br>
+    <br>
+    ■p1149, inner_product() 規格說明最後一行（原書錯誤）<br>
+    原文： (2+1) - (3+2) - (5+3) - (8+4)<br>
+    更正：<strong><font color="#0000FF">-</font></strong> (2+1) - (3+2) - (5+3) - (8+4)<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><a name="C++ Primer qa30"><big><big>C++ Primer 答客問 (30)</big></big></a>&nbsp; 
+    2000.01.20<br>
+    <br>
+    我在 BBS/Programming 版看到《C++ Primer 中文版》讀者<br>
+    詢問的幾個問題。都是一些起手問題，雖然我曾經回答過這類問題，<br>
+    書上也有說明，但是我不能責問讀者為什麼不把書看清楚看明白，<br>
+    畢竟該書將近 1300 頁。<br>
+    <br>
+    受困於這些起手問題，想必挫折感很深。因此我稍加整理，再次<br>
+    回答於下。希望你可以愉快地開始你的第一個 C++ 程式，並立刻<br>
+    開始使用 C++ Standard Library 帶來的許多便利。<br>
+    <br>
+    Bjarne Stroustrup 曾經在 Dr. Dobb's Journal, May 1999.<br>
+    發表一篇文章：Learning Standard C++ as a New Language。<br>
+    他說，由於 C++ Standard Library 的加入，C++ 的學習方式<br>
+    應該改變，改為從 C++ Standard Library 提供的各種美妙的<br>
+    containers、algorithms 入手，獲得愉快的經驗後，再開始<br>
+    學習 Object-Oriented 和 Generic programming 技術。我有<br>
+    同感。使用 C++ Standard Library，第一個要緊的是知道含入<br>
+    些什麼檔，第二個要緊的是知道它們存在於哪個 namespace 中。<br>
+    <br>
+    1. header files<br>
+    <br>
+    兩種風格：C-style 有 .h 副檔名，C++-style 則無。過去的<br>
+    C headers 例如 &lt;stdio.h&gt;, &lt;assert.h&gt;，其對應的 C++-style<br>
+    檔名為 &lt;cstdio&gt;, &lt;cassert&gt;，也就是去除 .h，並加上前置字元 'c'。<br>
+    所以你可以寫：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;stdio.h&gt;<br>
+    #include &lt;assert.h&gt;</font></small><br>
+    <br>
+    也可以寫：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;cstdio&gt;<br>
+    #include &lt;cassert&gt;<br>
+    // </font>但如果你使用 <font face="Courier New">C++ style</font>，必須突破 <font
+    face="Courier New">namespace std </font>的束縛。後述。</small><br>
+    <br>
+    至於 C++ Standard Library 的 header files，一概沒有 .h 副檔名。<br>
+    例如：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;iostream&gt;<br>
+    #include &lt;vector&gt;<br>
+    #include &lt;string&gt; // </font>這並不是 <font face="Courier New">C-style 
+    &lt;string.h&gt; </font>省略了 <font face="Courier New">.h </font>後的結果<br>
+    <font face="Courier New">#include &lt;list&gt;</font></small><br>
+    <br>
+    你可以在 \msdev\vc98\include 中看到這些「有副檔名」和<br>
+    「無副檔名」的各個 header files。<br>
+    <br>
+    你在 \inprise\cbuilder4\include 中看到的 header files，<br>
+    全部都有 .h 副檔名。這是為什麼？可能是 C++Builder 的前處理器<br>
+    （preprocessor）將程式中所含入的所有「無副檔名」的各個<br>
+    header files 都改為「有副檔名」。這大概是為了與過去的碼<br>
+    相容（在 C++ Standard 未定案之前，&lt;vector&gt; 和 &lt;list&gt; 也<br>
+    是有副檔名的：&lt;vector.h&gt; 和 &lt;list.h&gt;）<br>
+    <br>
+    你也會在 \cygnus\cygwin-b20\include\g++ 中看到「有副檔名」<br>
+    和「無副檔名」的各個 header files。它們都滿小的，事實上<br>
+    它們內部又含入相應的 stl_xxx header files。例如 &lt;vector&gt;<br>
+    含入 &lt;stl_vector.h&gt;，&lt;list&gt; 含入 &lt;stl_list.h&gt;。當然，<br>
+    千萬不要在你的程式中直接含入這些 stl_xxx.h。<br>
+    <br>
+    <br>
+    2. namespace std<br>
+    <br>
+    C++ Standard Library 提供的所有 components，都被封裝於<br>
+    名為 std 的這個 namespace 中。要「突破」某個 namespace，有<br>
+    數種方法。最簡單的一種，就是把它「完全打開」，也就是使用<br>
+    using directive 如下：<br>
+    <br>
+    <small><font face="Courier New">using namespace std; // </font>打開 <font
+    face="Courier New">namespace 'std'</font></small><br>
+    <br>
+    這雖然有一點小小的副作用，但對程式新手而言（或對程式不大，<br>
+    組織不複雜者而言），夠了。<br>
+    <br>
+    因此，如果你這麼寫：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;iostream.h&gt;</font></small><br>
+    <br>
+    你用的是過去的（pre-Standard）iostream library。如果你這麼寫：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;iostream&gt;<br>
+    using namespace std;</font></small><br>
+    <br>
+    你用的便是 C++ Standard 所規範的 iostream library。<br>
+    <br>
+    -----------------------------------------------------------------<br>
+    ★順帶一提，你可能會問 &lt;iostream.h&gt; 和 &lt;iostream&gt; 有差嗎？<br>
+    應該是沒差。但是 VC6 竟然有差。如果你使用 VC6 的<br>
+    &lt;iostream&gt; 來設計 friend operator&lt;&lt;，你會氣死！<br>
+    下面節錄「C++ Primer 答客問 (27)」：<br>
+    <br>
+    ■C++ Primer p1090<br>
+    主題：friend operator&lt;&lt;<br>
+    測試結果：VC6[x] BCB4[o] G++[o]<br>
+    注意：如果使用 &lt;iostream.h&gt; 而不是 &lt;iostream&gt;，在 VC6 中<br>
+    運用 friend 就比較沒有問題。但如果這麼做的話，由於下例<br>
+    用到 &lt;string&gt;，一定得 using namespace std; 而這在 VC6 中似乎<br>
+    導至暗中含入 &lt;iostream&gt;，於是與 &lt;iostream.h&gt; 起衝突。總之，<br>
+    挖東補西，很煩。VC6 在這主題上表現不佳。<br>
+    -----------------------------------------------------------------<br>
+    <br>
+    <br>
+    《C++ Primer 中文版》的各個範例程式，有一個缺點：它們<br>
+    通常都未寫出 using namespace std; 這一行。這是源於作者<br>
+    所使用的編譯平台之故（非標準）。請你記得加上去。<br>
+    <br>
+    朋友，現在開始享受你的第一個運用 C++ Standard Library 的程式吧。<br>
+    你已經擁有各種資料結構如 vector, list, stack, queue,...，也擁有<br>
+    各種演算法如 sort, search, find, copy...。你已經站在巨人的肩膀上了。<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa31"><big><big>C++ Primer 答客問 (31)</big></big></a>&nbsp; 
+    2000.01.21<br>
+    <br>
+    李俊德 wrote (2000/01/17) :<br>
+    <br>
+    <font color="#0000FF">&gt; &quot;Bug at C++ Primer Page 155&quot;<br>
+    &gt;<br>
+    &gt; 第五行：<br>
+    &gt; int ix_vec = -1, ix_ia = 10;<br>
+    &gt; while( ix_vec &lt; 10 )<br>
+    &gt; ivec[ ++ix_vec ] = ia[ --ix_ia ];<br>
+    &gt;<br>
+    &gt; 這一段 code 有問題。<br>
+    &gt; 當 ix_vec 累加到 9 時，ix_vec &lt; 10 為 true，<br>
+    &gt; 於是進入 loop 執行 ivec[ ++ix_vec ] = ia[ --ix_ia ];<br>
+    &gt; 亦即 ivec[ 10 ] = ia[ -1 ]; &lt;= error!<br>
+    &gt;<br>
+    &gt; 應改成:<br>
+    &gt;<br>
+    &gt; while( ix_vec &lt; 9 )</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    是的，感謝李俊德先生的指正。請修改如下：<br>
+    <br>
+    ■p155 L6（原書錯誤）<br>
+    原文：while( ix_vec &lt; 10 )<br>
+    更正：while( ix_vec &lt; 9 )<br>
+    感謝：李俊德先生<br>
+    <br>
+    -- the end<br>
+    <br>
+    </p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa32"><big><big>C++ Primer 答客問 (32)</big></big></a> -- about 
+    union&nbsp; 2000.01.21 <br>
+    <br>
+    FeiYu wrote (2000/01/17) : &quot;C++ Primer v.s. VC&quot;<br>
+    <br>
+    <font color="#0000FF">&gt; Dear Sir:<br>
+    &gt; I read the contents of 'Union' recently, then I tried to write<br>
+    &gt; the program to testify the behavior of 'Union' under the VC++ 6.0.<br>
+    &gt; The result confused me a lot.<br>
+    &gt; The code and the result are listed below:<br>
+    &gt;<br>
+    &gt; Sincerly Yours.<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; // this program is used to testify the UNION 
+    structure<br>
+    &gt; #include &lt;iostream&gt;<br>
+    &gt; using namespace std;<br>
+    &gt;<br>
+    &gt; union Test {<br>
+    &gt; static int _siVal;<br>
+    &gt; int _iVal;<br>
+    &gt; char* _sVal[10];<br>
+    &gt; double _dVal;<br>
+    &gt; }; // end union<br>
+    &gt;<br>
+    &gt; int Test::_siVal = 10;<br>
+    &gt;<br>
+    &gt; void main()<br>
+    &gt; {<br>
+    &gt; Test Obj;<br>
+    &gt;<br>
+    &gt; Obj._iVal = 1000;<br>
+    &gt; cout &lt;&lt; &quot;_iVal= &quot; &lt;&lt; Obj._iVal &lt;&lt; endl; // 1000<br>
+    &gt; Obj._dVal = 10.32;<br>
+    &gt; cout &lt;&lt; &quot;_dVal= &quot; &lt;&lt; Obj._dVal &lt;&lt; endl; // 10.32<br>
+    &gt; cout &lt;&lt; &quot;_iVal= &quot; &lt;&lt; Obj._iVal &lt;&lt; endl; // 171798692<br>
+    &gt; //<br>
+    &gt; // </font>果如書上所言，後面定義的 <font face="Courier New">_dVal </font>覆蓋<br>
+    <font face="Courier New">&gt; // </font>先前 <font face="Courier New">_iVal</font>的值，造成重新讀取 
+    <font face="Courier New">_iVal </font>值時發生錯誤。<br>
+    <font face="Courier New">&gt;<br>
+    &gt; // strange behavior </font>以相反順序重複上面的行為，結果卻得到正確的值。<br>
+    <font face="Courier New">&gt; // </font>與書中所說：「一個覆疊一個」的行為不符！<br>
+    <font face="Courier New">&gt; //<br>
+    &gt; Obj._iVal = 1000;<br>
+    &gt; cout &lt;&lt; &quot;_iVal= &quot; &lt;&lt; Obj._iVal &lt;&lt; endl; // 1000<br>
+    &gt; cout &lt;&lt; &quot;_dVal= &quot; &lt;&lt; Obj._dVal &lt;&lt; endl; // 10.32<br>
+    &gt;<br>
+    &gt; // </font>不是說 <font face="Courier New">union </font>不可有 <font
+    face="Courier New">static data member? (in p.660)<br>
+    &gt; cout &lt;&lt; &quot;The static data member: &quot; &lt;&lt; Test::_siVal &lt;&lt; 
+    endl; // 10<br>
+    &gt; }</font></small></font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    (1) union 之中不可以有 static members。你的這個程式在<br>
+    C++Builder4 和 G++2.91.57 都過不了。把 static members<br>
+    去掉就可以了。VC6 太過寬鬆！<br>
+    <br>
+    (2) 為什麼新的 Obj._iVal 數值沒有覆蓋掉原先的 Obj._dVal<br>
+    數值呢？唔，你問倒我了。有沒有網友能夠回答這個問題？<br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    <font color="#FF0000">jyhuang </font>wrote (2000/01/21) :<br>
+    <br>
+    <font color="#0000FF">int 長度為 4 bytes，double 長度為 8 byte，因為在 PC 
+    上的<br>
+    byte ordering 的關係，int 在此例中 _iVal 所影響的部分是<br>
+    _dVal 的 least significant bytes，所以 cout 用 default<br>
+    prescision 看不出來差異。在程式前面加上如：<br>
+    cout.precision(10) 就可以看出其中差異了。</font><br>
+    <br>
+    <br>
+    --- the end<br>
+    </p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa33"><big><big>C++ Primer 答客問 (33)</big></big></a> - using 
+    declaration&nbsp; 2000.01.25 <br>
+    <br>
+    Yuhder Lin wrote (2000/01/22) :<br>
+    <br>
+    <small><font face="Courier New" color="#0000FF">&gt; </font><font color="#0000FF">侯先生您好</font><font
+    face="Courier New" color="#0000FF">:)<br>
+    &gt; </font><font color="#0000FF">在</font><font face="Courier New" color="#0000FF">C++ 
+    primer</font><font color="#0000FF">中文版第</font><font face="Courier New"
+    color="#0000FF">1154</font><font color="#0000FF">頁，提到可以用</font><font
+    face="Courier New" color="#0000FF">using declarations<br>
+    &gt; </font><font color="#0000FF">來解決繼承類別和基底類別成員函式間的重載問題；<br>
+    </font><font face="Courier New" color="#0000FF">&gt; </font><font color="#0000FF">但是在</font><font
+    face="Courier New" color="#0000FF">436</font><font color="#0000FF">頁中，又提到了，</font><font
+    face="Courier New" color="#0000FF">using delarations</font><font color="#0000FF">在該</font><font
+    face="Courier New" color="#0000FF">scope</font><font color="#0000FF">內必須<br>
+    </font><font face="Courier New" color="#0000FF">&gt; </font><font color="#0000FF">是獨一無二的。於是，我寫了一個這樣的測試程式：<br>
+    </font><font face="Courier New" color="#0000FF">&gt;<br>
+    &gt; class A<br>
+    &gt; {<br>
+    &gt; public:<br>
+    &gt; int write(char *a, int size) { return 0;}<br>
+    &gt; int write(char *a, int i, int size) { return 0;}<br>
+    &gt; };<br>
+    &gt;<br>
+    &gt; class B : public A<br>
+    &gt; {<br>
+    &gt; public:<br>
+    &gt; using A::write;<br>
+    &gt; int write(char a) { return 0; }<br>
+    &gt; };<br>
+    &gt;<br>
+    &gt; int main() {<br>
+    &gt; B kk;<br>
+    &gt; char aa[10];<br>
+    &gt; kk.write(aa,0);<br>
+    &gt; return 0;<br>
+    &gt; }<br>
+    &gt;<br>
+    &gt; </font><font color="#0000FF">結果在</font><font face="Courier New" color="#0000FF">compile</font><font
+    color="#0000FF">時出現如下的 </font><font face="Courier New" color="#0000FF">error</font><font
+    color="#0000FF">。</font><font face="Courier New" color="#0000FF">(gcc-2.95.2 on Linux)<br>
+    &gt; star[/home2/student/ydlin/c] -ydlin- g++ iii.cpp<br>
+    &gt; iii.cpp:15: cannot adjust access to<br>
+    &gt; `int A::write(char *, int, int)' in `class B'<br>
+    &gt; iii.cpp:13: because of local method `int B::write(char)' with same name<br>
+    &gt; iii.cpp: In function `int main()':<br>
+    &gt; iii.cpp:21: no matching function for call to `B::write (char[10], int)'<br>
+    &gt; iii.cpp:13: candidates are: B::write(char)<br>
+    &gt;<br>
+    &gt; </font><font color="#0000FF">看來是因為</font><font face="Courier New"
+    color="#0000FF">436</font><font color="#0000FF">頁的那個</font><font
+    face="Courier New" color="#0000FF">rule</font><font color="#0000FF">？<br>
+    </font><font face="Courier New" color="#0000FF">&gt; </font><font color="#0000FF">而在</font><font
+    face="Courier New" color="#0000FF">Visual C++ 5</font><font color="#0000FF">中則是完全如預期地動作，成功編譯完成；<br>
+    </font><font face="Courier New" color="#0000FF">&gt; BCB</font><font color="#0000FF">則是根本不用加</font><font
+    face="Courier New" color="#0000FF">using A::write;</font><font color="#0000FF">就可以編譯成功。<br>
+    </font><font face="Courier New" color="#0000FF">&gt;<br>
+    &gt; </font><font color="#0000FF">我想請問的是：以上面這個程式而言，是否符合</font><font
+    face="Courier New" color="#0000FF">C++</font><font color="#0000FF">規範？也<br>
+    </font><font face="Courier New" color="#0000FF">&gt; </font><font color="#0000FF">就是</font><font
+    face="Courier New" color="#0000FF">gcc</font><font color="#0000FF">對</font><font
+    face="Courier New" color="#0000FF">using declarations</font><font color="#0000FF">的支援不夠完整？以及，</font><font
+    face="Courier New" color="#0000FF">BCB</font><font color="#0000FF">這種作<br>
+    </font><font face="Courier New" color="#0000FF">&gt; </font><font color="#0000FF">法就</font><font
+    face="Courier New" color="#0000FF">standard</font><font color="#0000FF">本身而言是否合乎規定？<br>
+    </font><font face="Courier New" color="#0000FF">&gt;<br>
+    &gt; </font><font color="#0000FF">希望我沒有辭不達意</font><font
+    face="Courier New" color="#0000FF">:)<br>
+    &gt; Regards,</font></small><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    你沒有辭不達意 :)<br>
+    <br>
+    我的看法如下：<br>
+    <br>
+    (1) 你的這個程式，符合 C++ Standard。<br>
+    <br>
+    (2) 換言之，在「利用 using declarations，將 base class member<br>
+    functions 導入 derived class scope 內」這一點上，G++ 未符標準。<br>
+    我以手上的 G++2.91.57 on Win32 試之，錯誤訊息與你類似，無法編譯。<br>
+    <br>
+    (3) 我以手上的 C++Builder4 試之，如果程式中沒有 using A::write;<br>
+    無法編譯。我以手上的 VC6 試之，如果程式中沒有 using A::write;<br>
+    亦無法編譯。換言之 CB4 和 VC6 表現良好，都無過度寬鬆的問題。<br>
+    <br>
+    (4)《C++ Primer 中文版》p.436 的那個 rule 說「using declaration<br>
+    帶入的名稱，在 scope 
+    中必須是獨一無二的」，這點與你的程式並不相悖。<br>
+    你的程式中的三個 write()，都進入了 main() 的 scope 中（或說它們<br>
+    在 main() scope 中都可見），而它們都是獨一無二，因為它們的<br>
+    function signature 都不相同。<br>
+    <br>
+    上述 (4) 的說法，如果有誤，請網友指正。<br>
+    <br>
+    <br>
+    事實上，我對 G++ 的 using declaration 能力，有另一個疑惑。<br>
+    《C++ Primer 中文版》p981 說，可以「以 using declaration<br>
+    突破 private inheritance 的限制」。範例如下：<br>
+    <br>
+    <small><font face="Courier New">// vc6[o] cb4[o] g++[o]<br>
+    #include &lt;iostream&gt;<br>
+    using namespace std;<br>
+    <br>
+    class IntArray {<br>
+    public:<br>
+    &nbsp; IntArray() : _size(7) { }<br>
+    &nbsp; int size() { return _size; }<br>
+    &nbsp; protected:<br>
+    &nbsp; int _size;<br>
+    <br>
+    private:<br>
+    };<br>
+    <br>
+    class PeekbackStack : <strong>private</strong> IntArray // </font>注意是 <font
+    face="Courier New">private inheritance!<br>
+    {<br>
+    public:<br>
+    &nbsp; using IntArray::size;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // (2). 
+    </font>使繼承而來的 <font face="Courier New">size()<br>
+    &nbsp; // </font>不因 <font face="Courier New">private inheritance </font>而無法被看見<br>
+    <font face="Courier New">&nbsp; int size1() { return _size; } // (3). </font>之所以可存取 
+    <font face="Courier New">_size</font>，是因為 <font face="Courier New">(4).<br>
+    protected:<br>
+    &nbsp; using IntArray::_size;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // (4). </font>使繼承而來的 
+    <font face="Courier New">_size<br>
+    &nbsp; // </font>不因 <font face="Courier New">private inheritance </font>而無法被看見<br>
+    <font face="Courier New">private:<br>
+    };<br>
+    <br>
+    void main()<br>
+    {<br>
+    &nbsp; PeekbackStack s;<br>
+    &nbsp; cout &lt;&lt; s.size() &lt;&lt; endl; // 7<br>
+    &nbsp; cout &lt;&lt; s.size1() &lt;&lt; endl; // 7<br>
+    }</font></small><br>
+    <br>
+    這個程式在 VC6, CB4, G++2.91.57 on Win32 上都可編譯。表示<br>
+    「以 using declaration 突破 private inheritance 的限制」確實可行。<br>
+    但是 DDJ 1999/10 的一篇文章 &quot;Implementing operator-&gt;* for smart 
+    pointers&quot;<br>
+    （註）有個程式，使用 private inheritance 並以 using declaration<br>
+    突破 scope 的束縛，卻無法在 G++2.91.57 on Win32 上過關。<br>
+    我不知道為什麼？最後只好把該程式的 private inheritance 改為<br>
+    public inheritance，才解決。（該文程式太長，技術程度又太深，<br>
+    不適合放在這裡討論）。<br>
+    <br>
+    總之，從這些跡象看來，G++ 在 using declaration 主題上的表現，<br>
+    未臻理想。<br>
+    <br>
+    註：&quot;Implementing <small><font face="Courier New">operator-&gt;*</font></small> for 
+    smart pointers&quot; 這篇文章<br>
+    我非常喜歡，可幫助我們複習許多 C++ 高深技術。作者 Scott Meyers，<br>
+    大名如雷貫耳，他是《Effective C++》和《More Effective C++》<br>
+    二書作者。這兩本書我極力推薦。<br>
+    <br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    <font color="#FF0000">JoeLu</font> wrote (2000/01/26) :<br>
+    <br>
+    <font color="#408080">&gt;&gt; ※ 引述《jjhou.bbs@bbs.cs.nthu.edu.tw (jjhou)》之銘言：<br>
+    &gt;&gt;: 總之，從這些跡象看來，G++ 在 using declaration 主題上的表現，<br>
+    &gt;&gt;: 未臻理想。</font><br>
+    <br>
+    <font color="#0000FF">這是 g++ 2.95.2 的 known bug，在 gcc.gnu.org 
+    的網頁有提到：<br>
+    <br>
+    http://gcc.gnu.org/bugs.html<br>
+    <br>
+    標題是 &quot;Using declarations in classes do not work&quot;</font><br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa34"><big><big>C++ Primer 答客問 (34)</big></big></a> - general&nbsp; 
+    2000.01.25 <br>
+    <br>
+    Tzong wrote (2000/01/24) :<br>
+    <br>
+    <font color="#0000FF">&gt; 候先生您好:<br>
+    &gt;<br>
+    &gt; 這本c++ Primer中譯本是我所看過中譯本之中,對讀者最負責的一本書,<br>
+    &gt; 因為有許多翻譯書,常硬綁綁地把英文翻譯成中文,就好像是用那種翻譯<br>
+    &gt; 軟體所翻出來的一樣,簡直比看原文還累.<br>
+    &gt;<br>
+    &gt; 在看過這本書的幾個章節後,我的確能深深感受到您對此本書的用心,<br>
+    &gt; 對於英文不太懂的人,它實在是一本想紮實學c++的好書,而且讓我感覺到<br>
+    &gt; 又不失原文的本意,讓我節省了不少在英文文法上思索的時間.<br>
+    &gt;<br>
+    &gt; 最近對Component Object Model有興趣,想直接去買您的com本質論來研<br>
+    &gt; 究, 我相信一定不會讓我失望的.<br>
+    &gt;<br>
+    &gt; 最後,我想請教一件事情,如果對書中的某些觀念實在不能理解時,可以<br>
+    &gt; 向您請教嗎?</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    呵呵，「侯」和「候」不一樣。我姓侯，不姓候。我還沒遇過<br>
+    姓候的人。<br>
+    <br>
+    謝謝你讓我知道，你欣賞這本書。讀者的回饋對一個深居簡出<br>
+    的寫作人而言，很是重要。你的來信，使我的辛勞獲得很大的<br>
+    安慰。<br>
+    <br>
+    對書中的任何觀念不能理解，歡迎寫信給我討論。我不能保證<br>
+    一定答覆或立刻答覆，不過我會儘量撥時間來答覆。什麼樣的<br>
+    問題我會回答呢？經過思考後的問題 :)<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa35"><big><big>C++ Primer 答客問 (35)</big></big></a> - 
+    玩個遊戲&nbsp; 2000.01.26 <br>
+    <br>
+    上次在 C++ Primer 答客問 (33) 中我回答了讀者所問的<br>
+    using declaration 疑問。很巧的是（註1）當晚我閱讀<br>
+    &quot;Exceptional C++&quot;（註2）item21，其中對於 base/derived<br>
+    classes 內的同名函式可能引發的三個動作有清楚的區分：<br>
+    <br>
+    (1) overload (for non-virtual member functions)<br>
+    (2) override (for virtual member functions)<br>
+    (3) hide (for non-virtual member functions)<br>
+    <br>
+    而如果要破除 hide，改為 overload，就得使用 C++ Primer<br>
+    答客問 (33) 所討論的 using declaration 技巧。<br>
+    <br>
+    下面是 &quot;Exceptional C++&quot; item21 所舉的例子。我玩心大發，<br>
+    想給大家玩個遊戲。這個程式有六個輸出，一個錯誤設計（但可執行）<br>
+    和一個不符 C++ Standard 的寫法。各位看看是否可以答對。<br>
+    <br>
+    雖然難度各異，平頭平等地令每一題 12.5 分好了。一般人<br>
+    大概得 37.5 分（分別是 (1)(4)(5) 三個輸出）。對<br>
+    C++ Standard 稍有注意的人，可能再得 12.5 分。有過<br>
+    繼承架構實戰經驗的人，或能挑出那個錯誤的設計，再得<br>
+    12.5 分，恰達及格邊緣。要答對另外三題得滿分，可沒那麼容易。<br>
+    （歪打正著不算，你得說出個道理才行）。<br>
+    <br>
+    這個程式的輸出是什麼，答案我就不公佈了，你自己把<br>
+    程式編譯執行一遍即知。Inprise C++Builder4 的使用者<br>
+    會看到兩個警告，這時候你還可以修改你的答案，球進照算。<br>
+    （Inprise C++Builder4 果然讚！）<br>
+    <br>
+    如對結果大惑不解，請不要寫信來問，請在版上公開討論。<br>
+    <br>
+    <br>
+    註1：我常有這樣的經驗，遇上什麼疑難，剛好就能夠讀到<br>
+    相關資料。很幸運。<br>
+    <br>
+    註2：&quot;Exceptional C++&quot; by Herb Sutter, AW 1999.<br>
+    這是一本類似 &quot;Effective C++&quot;, &quot;More Effective C++&quot; 的<br>
+    小書，才 208 pages。列有 C++ 程式設計上的 47 條疑惑、<br>
+    問題、解答。很棒的小書。<br>
+    <br>
+    <br>
+    考題來了：<br>
+    <br>
+    <small><font face="Courier New">#0001 // vc6[o] cb4[o] g++2.91.57_on_win32[o]<br>
+    #0002 #include &lt;iostream&gt;<br>
+    #0003 #include &lt;complex&gt;<br>
+    #0004 using namespace std;<br>
+    #0005<br>
+    #0006 class Base<br>
+    #0007 {<br>
+    #0008 public:<br>
+    #0009&nbsp;&nbsp; virtual void f( int );<br>
+    #0010&nbsp;&nbsp; virtual void f( double );<br>
+    #0011&nbsp;&nbsp; virtual void g( int i = 10 );<br>
+    #0012 };<br>
+    #0013<br>
+    #0014 void Base::f( int )<br>
+    #0015 {<br>
+    #0016&nbsp;&nbsp; cout &lt;&lt; &quot;Base::f(int)&quot; &lt;&lt; endl;<br>
+    #0017 }<br>
+    #0018 void Base::f( double )<br>
+    #0019 {<br>
+    #0020&nbsp;&nbsp; cout &lt;&lt; &quot;Base::f(double)&quot; &lt;&lt; endl;<br>
+    #0021 }<br>
+    #0022 void Base::g( int i )<br>
+    #0023 {<br>
+    #0024&nbsp;&nbsp; cout &lt;&lt; i &lt;&lt; endl;<br>
+    #0025 }<br>
+    #0026<br>
+    #0027 class Derived : public Base<br>
+    #0028 {<br>
+    #0029 public:<br>
+    #0030&nbsp;&nbsp; void f( complex&lt;double&gt; );<br>
+    #0031&nbsp;&nbsp; void g( int i = 20 );<br>
+    #0032 };<br>
+    #0033<br>
+    #0034 void Derived::f( complex&lt;double&gt; )<br>
+    #0035 {<br>
+    #0036&nbsp;&nbsp; cout &lt;&lt; &quot;Derived::f(complex)&quot; &lt;&lt; endl;<br>
+    #0037 }<br>
+    #0038 void Derived::g( int i )<br>
+    #0039 {<br>
+    #0040&nbsp;&nbsp; cout &lt;&lt; &quot;Derived::g() &quot; &lt;&lt; i &lt;&lt; endl;<br>
+    #0041 }<br>
+    #0042<br>
+    #0043 void main()<br>
+    #0044 {<br>
+    #0045&nbsp;&nbsp; Base b;<br>
+    #0046&nbsp;&nbsp; Derived d;<br>
+    #0047&nbsp;&nbsp; Base* pb = new Derived;<br>
+    #0048&nbsp;&nbsp; b.f(1.0); // (1)<br>
+    #0049&nbsp;&nbsp; d.f(1.0); // (2)<br>
+    #0050&nbsp;&nbsp; pb-&gt;f(1.0); // (3)<br>
+    #0051&nbsp;&nbsp; b.g(); // (4)<br>
+    #0052&nbsp;&nbsp; d.g(); // (5)<br>
+    #0053&nbsp;&nbsp; pb-&gt;g(); // (6)<br>
+    #0054&nbsp;&nbsp; delete pb;<br>
+    #0055 }<br>
+    </font></small><br>
+    <br>
+    * * * * * * * * * * * * * * * * * * * * * * * * * * * *<br>
+    <br>
+    Caesar wrote (2000/01/28) :<br>
+    <br>
+    <font color="#0000FF">&gt; 這裡我想反過來請教侯sir，就這個例子，如果想在虛擬機制用到<br>
+    &gt; derived::g 的預設引數又該如何咧？</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    《C++ Primer 中文版》p931：<br>
+    <br>
+    「預設引數並非在執行時期決定，而是在編譯時期根據呼叫者的靜態型別而定」<br>
+    <br>
+    這便是為什麼本例的：<br>
+    <br>
+    <small><font face="Courier New">#0053 pb-&gt;g(); // (6)</font></small><br>
+    <br>
+    預設引數為 10 而非 20 之故 -- 因為 pb 的靜態型別是 Base。<br>
+    <br>
+    那麼如 Caesar 所問，『就這個例子，如果想在虛擬機制用到<br>
+    derived::g 的預設引數又該如何咧？』<br>
+    <br>
+    這個問題嘛…呃…語言本身沒有提供這樣的機制，我們得<br>
+    繞個彎解決。以下應用《C++ Primer 中文版》p931 提供<br>
+    的一種作法，(1)~(9) 為新增或修改的碼。<br>
+    <br>
+    <small><font face="Courier New">#0001 // vc6[o] cb4[o] g++2.91.57_on_win32[o]<br>
+    #0002 #include &lt;iostream&gt;<br>
+    #0003 #include &lt;complex&gt;<br>
+    #0004 using namespace std;<br>
+    #0005<br>
+    #0006 const int base_default_value = -9999; // (1)<br>
+    #0007<br>
+    #0008 class Base<br>
+    #0009 {<br>
+    #0010 public:<br>
+    #0011&nbsp;&nbsp; virtual void g( int i = base_default_value ); // (2)<br>
+    #0012&nbsp;&nbsp; virtual ~Base() { };<br>
+    #0013 };<br>
+    #0014<br>
+    #0015 void Base::g( int i )<br>
+    #0016 {<br>
+    #0017&nbsp;&nbsp; int real_default_value = 10; // (3)<br>
+    #0018&nbsp;&nbsp; if (i == base_default_value) // (4)<br>
+    #0019&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i = real_default_value;&nbsp; // (5)<br>
+    #0020<br>
+    #0021&nbsp;&nbsp; cout &lt;&lt; i &lt;&lt; endl;<br>
+    #0022 }<br>
+    #0023<br>
+    #0024 class Derived : public Base<br>
+    #0025 {<br>
+    #0026 public:<br>
+    #0027&nbsp;&nbsp; void g( int i = base_default_value ); // (6)<br>
+    #0028 };<br>
+    #0029<br>
+    #0030 void Derived::g( int i )<br>
+    #0031 {<br>
+    #0032&nbsp;&nbsp; int real_default_value = 20; // (7)<br>
+    #0033&nbsp;&nbsp; if (i == base_default_value) // (8)<br>
+    #0034&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; i = real_default_value;&nbsp; // (9)<br>
+    #0035<br>
+    #0036&nbsp;&nbsp; cout &lt;&lt; &quot;Derived::g() &quot; &lt;&lt; i &lt;&lt; endl;<br>
+    #0037 }<br>
+    #0038<br>
+    #0039 void main()<br>
+    #0040 {<br>
+    #0041&nbsp;&nbsp; Base b;<br>
+    #0042&nbsp;&nbsp; Derived d;<br>
+    #0043&nbsp;&nbsp; Base* pb = new Derived;<br>
+    #0044<br>
+    #0045&nbsp;&nbsp; b.g(); // 10<br>
+    #0046&nbsp;&nbsp; d.g(); // Derived::g() 20<br>
+    #0047&nbsp;&nbsp; pb-&gt;g(); // Derived::g() 20 &lt;-- </font>這是 <font
+    face="Courier New">Caesar </font>想要的結果！<br>
+    <font face="Courier New">#0048&nbsp;&nbsp; delete pb;<br>
+    #0049 }</font></small><br>
+    <br>
+    這個遊戲所問的，除了六個輸出外，還有：<br>
+    (a) 一個不符 C++ Standard 的寫法<br>
+    (b) 一個錯誤設計（但可執行）<br>
+    <br>
+    答案：<br>
+    <br>
+    (a): void main() 是不符合 C++ Standard 的寫法。應為 int main()。<br>
+    若 main() 之中沒有寫出 return 句，則自動 return 0，<br>
+    見《C++ Primer 中文版》p7。許多編譯器為了回溯相容，<br>
+    仍接受 void main() 寫法。<br>
+    <br>
+    (b) base class 的 destructor 應該設計為 virtual。<br>
+    本例雖不受影響，但是此點請常記在心。可參考<br>
+    《C++ Primer 中文版》p932，或《Effective C++ 2/e》Item 14:<br>
+    &quot;Make sure base classes have virtual destructors&quot;.<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa36"><big><big>C++ Primer 答客問 (36)</big></big></a> - 
+    書籍風格&nbsp; 2000.02.24<br>
+    <br>
+    renny wrote (2000/02/22) :<br>
+    <br>
+    <font color="#0000FF">&gt; 侯先生 你好：<br>
+    &gt;<br>
+    &gt; 不對，我應該稱呼您為 侯老師...才對。以前在元智<br>
+    &gt; 讀書的時候，曾經受教於老師的 Windows Programing 。<br>
+    &gt; 想當初還真是座無虛席，想必現在還是一樣吧！<br>
+    &gt;<br>
+    &gt; 從沒有想過再跟老師聯絡，之所以想寫 mail 給老師，<br>
+    &gt; 主要是一本書的緣故....<br>
+    &gt; 都是 &quot;C++ Primer 中文本&quot; 這本書的關係！<br>
+    &gt;<br>
+    &gt; 話說幾天前，我在&quot;天龍&quot;隨便逛逛，眼睛一瞥，就發現了<br>
+    &gt; 這本書，...是侯捷翻譯的書，應該在水準以上...我想。<br>
+    &gt; 於是我就信手拿來翻翻（基本上我一直對老師的作品有興趣）<br>
+    &gt; ，唉！不翻還好，翻了一下...光是看完導讀...手就粉自動地<br>
+    &gt; 把卡拿出來刷了（老師知道自己害人不淺了吧！光是序跟導讀<br>
+    &gt; 就有讓人想花錢的魔力了）。<br>
+    &gt;<br>
+    &gt; 我對於老師在導讀中所提的觀念很贊同！自己讀書讀到<br>
+    &gt; 現在也看了不少了原文書和中譯本（偷懶嘛），很多很多<br>
+    &gt; 中譯書翻譯得簡直是狗屁不通（對不起，我太激動了），<br>
+    &gt; 一堆非專業人士的傑作。他們以為只要把英文字翻成中文字<br>
+    &gt; 就可以了。結果就造成了...看了中譯本就像看一串中文字<br>
+    &gt; 排在一齊，每個字都懂，串在一起就是狗屁不通（再次抱歉）。<br>
+    &gt; 最後還必須把原文書找回來，對照著看。如此一來，<br>
+    &gt; 實在搞不清楚，中譯本的存在價值為何？（騙錢乎？）<br>
+    &gt;<br>
+    &gt; 我很佩服老師對於原文術語的堅持，身處在資訊界<br>
+    &gt; （不管是學生或工程師），周遭本來就有無數的原文術語<br>
+    &gt; ，而使用原文術語本來就是天經地義的事。那些希望能看到<br>
+    &gt; &quot;完全&quot;中譯本的人，只能說他們的想法太天真了。<br>
+    &gt; 一旦將那些原文術語翻成中文字，就能讓讀者瞭解它們<br>
+    &gt; 真正所代表的含意嗎？我很懷疑！！！既然如此，何不保留<br>
+    &gt; 原味，再針對那些術語做詳細的解釋，不是更好嗎？<br>
+    &gt; 而且使用大量的原文術語，絕對不是偷懶，因為如此一來<br>
+    &gt; 只會讓版面更破碎，排版更困難。困難度絕對數倍於：僅僅將<br>
+    &gt; 那些原文術語翻成中文字。<br>
+    &gt;<br>
+    &gt; 老師對於一本好書的堅持，我不知道別人的感覺為何？<br>
+    &gt; 但至少...我感受的到！<br>
+    &gt;<br>
+    &gt; 最後再請教老師一個問題：因為就我所知，侯捷是老師的<br>
+    &gt; 筆名。&quot;侯捷&quot;與&quot;侯俊傑&quot;的文章定位是有所不同的！從以前的<br>
+    &gt; Pc Magazine 無責任書評開始，侯捷的文章感覺就比較軟性，<br>
+    &gt; 侯俊傑的文章感覺就比較硬一點，通常偏向技術文章。<br>
+    &gt; 而此書，老師使用的是&quot;侯捷&quot;這個筆名？！基本上我尚未<br>
+    &gt; 綜觀全書（我只看了導讀），所以我不知道軟不軟，可是就我<br>
+    &gt; 自己的感覺...C++...不軟啊？！<br>
+    </font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    很開心地知道你贊同保留「原文術語」的作法。我說過了，<br>
+    以後所有我經手製作的書，都依此原則。<br>
+    <br>
+    這種作法還是有個隱憂，我在《C++ Primer 中文版》導讀中<br>
+    提過，那就是每個人對於「哪些術語該保留原文，哪些宜中譯」<br>
+    有不同的見解，見仁見智。我也只能以自己的教學經驗及自己<br>
+    的喜好，來取捨。<br>
+    <br>
+    以下兩點，也許你太激進了：<br>
+    <br>
+    1.<br>
+    <font color="#0000FF">&gt; 
+    自己讀書讀到現在也看了不少了原文書和中譯本（偷懶嘛）..</font>.<br>
+    <br>
+    許多人對於看中譯本有點不好意思，所以都先「罪己」一下<br>
+    薄表心意。我認為好的中譯本是值得看的，值得推薦的。<br>
+    只要能節省你的學習時間，都是值得看值得推薦的；多出來<br>
+    的時間，便可做更深層的思考和更多的學習。<br>
+    <br>
+    我的最大興趣、最重目標、最高價值觀一直都是放在著作上面。<br>
+    之所以譯作，是因為：<br>
+    <br>
+    (1) 這些重要書籍，把它譯出來，對我的技術能力也是一種成長<br>
+    (2) 在漫長的著作過程中穿插一些譯作，是對讀者最快速的貢獻<br>
+    (3) 我希望我的譯作在讀者心中達到這般（放心享用）的份量：<br>
+    「只比原作好，絕不比原作差」。<br>
+    <br>
+    翻譯第一本書時，就發過這樣的豪語：<br>
+    <br>
+    讓買了原文書的朋友後悔，是我的第一個目標，<br>
+    讓買了原文書的朋友再掏一次腰包，是我的第二個目標。<br>
+    讓原書滯銷，是我的第三個目標（不然做中譯本幹嘛？）<br>
+    <br>
+    過去的水準未能盡善盡美（至少，沒能做出 index 就是一大缺失），<br>
+    所以上面的豪語只能說是一種狂語。但是狂者進取，終能改善。<br>
+    抱持相同理想的譯者諒亦不乏其人。在這樣的理想下，中譯本<br>
+    不是做來讓學生偷懶用的 :)<br>
+    <br>
+    <br>
+    2<br>
+    <font color="#0000FF">&gt; 
+    最後還必須把原文書找回來，對照著看。如此一來，<br>
+    &gt; 實在搞不清楚，中譯本的存在價值為何？（騙錢乎？）</font><br>
+    <br>
+    如果只因全書「中文化」而亦被你歸類為「騙錢乎？」之流，<br>
+    我想並不公平，許多用心的譯者會傷心。<br>
+    <br>
+    其實科技寫譯領域裡，想在作品（不論著譯）之中使用<br>
+    適量原文術語的人，太多了（所謂適量，在可行性的原則下<br>
+    當然是指作者自己的標準）。但是不太有人敢這麼做，因為<br>
+    沒有人曾經這麼做。<br>
+    <br>
+    最大的原因是豪氣不足，自信心不足，突破心不足。<br>
+    <br>
+    所以我要鼓勵所有作者和譯者，如果你不喜歡看你自己的書<br>
+    的呈現方式，你就應該勇敢地改變。做為專業領域的專業<br>
+    人士的你，自己都不喜歡看自己書中的呈現，還有誰會喜歡看？<br>
+    或是還能起什麼引導功用？<br>
+    <br>
+    當然，肯定會有很喜歡全書中文化的譯者和讀者（在這種不是<br>
+    科普讀物的專業書籍中），那就不在上述討論範圍內。<br>
+    <br>
+    拉雜說了一堆，略抒己懷而已。<br>
+    <br>
+    <br>
+    你說：<br>
+    <br>
+    <font color="#0000FF">&gt; 
+    而且使用大量的原文術語，絕對不是偷懶，因為如此一來<br>
+    &gt; 只會讓版面更破碎，排版更困難。困難度絕對數倍於：僅僅將<br>
+    &gt; 那些原文術語翻成中文字。</font><br>
+    <br>
+    這讓我想起設計《C++ Primer 中文版》版面時的辛苦。真的，<br>
+    那是個難忘的回憶。<br>
+    <br>
+    你問：<br>
+    <br>
+    <font color="#0000FF">&gt; 
+    最後再請教老師一個問題：因為就我所知，侯捷是老師的<br>
+    &gt; 筆名。&quot;侯捷&quot;與&quot;侯俊傑&quot;的文章定位是有所不同的！從以前的<br>
+    &gt; Pc Magazine 無責任書評開始，侯捷的文章感覺就比較軟性，<br>
+    &gt; 侯俊傑的文章感覺就比較硬一點，通常偏向技術文章。<br>
+    &gt; 而此書，老師使用的是&quot;侯捷&quot;這個筆名？！基本上我尚未<br>
+    &gt; 綜觀全書（我只看了導讀），所以我不知道軟不軟，可是就我<br>
+    &gt; 自己的感覺...C++...不軟啊？！</font><br>
+    <br>
+    呵呵，原本只是個人私事，有勞讀者相問，實不敢當。<br>
+    <br>
+    以前的確是將筆名和本名的用途分得很清楚。後來在文章中<br>
+    時有為難之處，又恐有故弄玄虛之譏，逐漸就不刻意避開，<br>
+    甚而「雖未點破，意在言外」了。<br>
+    <br>
+    當一個文字工作者選用了一個筆名，各位一定要知道，他必然<br>
+    很喜愛那個他自己取的名字。由於慢慢地我不再刻意區分筆名<br>
+    和本名原本的用途，所以決定，從《C++ Primer 中文版》開始，<br>
+    我的所有作品（不論著譯）都以筆名行之。<br>
+    <br>
+    另一個因素是：我的簡體版譯本，侯俊傑成了侯俊杰，因為簡體字<br>
+    沒有「傑」，只有「杰」。我不喜歡被改名字。「捷」就沒有<br>
+    這種困擾。<br>
+    <br>
+    四年前有位學弟問我，為什麼要用兩個名字？我問他不喜歡<br>
+    侯捷嗎？他說不是，而是兩個名字會分散品牌力量，畢竟<br>
+    有不少人以為這是兩個人。感謝他的好意，但我並不以品牌<br>
+    力量為念。如果書好，作者叫做侯大頭或是大頭捷，書還是好。<br>
+    品牌的建立，對作者（乃至於公司、團體、任何人）都是一種<br>
+    榮譽與安慰，但絕不能拿來依恃。<br>
+    <br>
+    其實我滿享受來自讀者那種「原來 xxx 和 xxx 是同一個人」<br>
+    的驚訝口氣，一種調皮的趣味。是的，只要別再叫我「候俊傑」<br>
+    或「候捷」就好了 :)<br>
+    <br>
+    --- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa37"><big><big>C++ Primer 答客問 (37)</big></big></a> - reference, 
+    allocator&nbsp; 2000.02.24 <br>
+    <br>
+    mfc42 wrote (2000/02/19) :<br>
+    <br>
+    <font color="#0000FF">&gt; 侯老師您好：<br>
+    &gt; 最近拜讀您的譯作〝C++ Primer 3/e〞時，發現有兩個問題，<br>
+    &gt; 想要請教您，希望老師能為我解答，謝謝！不過我目前是學生，<br>
+    &gt; 沒有要趕project的壓力，所以要是老師最近很忙的話，我的<br>
+    &gt; 這一封信可以等老師有空閒時再撥空幫我解答。<br>
+    &gt;<br>
+    &gt; ==================================================================<br>
+    &gt; 1.在書中p.108有介紹如何將一個reference的初值設為某個const object的<br>
+    &gt; 
+    位址的方法，一開始看時也沒覺得有什麼奇怪的地方，但後來寫了一個<br>
+    &gt; 測試程式如下：(我使用的是VC6)<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; void main()<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; const int ival = 1024;<br>
+    &gt;&nbsp;&nbsp; int *const &amp;pi_ref = &amp;ival;<br>
+    &gt; }</font></small><br>
+    &gt;<br>
+    &gt; 卻產生編譯錯誤：<br>
+    &gt;<br>
+    &gt; --------------------Configuration: test - Win32 Debug--------------------<br>
+    &gt; Compiling...<br>
+    &gt; test.cpp<br>
+    &gt; E:\Microsoft Visual Studio\Vc98\MyProjects\test\test.cpp(8) :<br>
+    &gt; error C2440: 'initializing' : cannot convert from<br>
+    &gt; 'const int *' to 'int *const &amp; '<br>
+    &gt; Reason: cannot convert from 'const int *' to 'int *const '<br>
+    &gt; Conversion loses qualifiers<br>
+    &gt; Error executing cl.exe.<br>
+    &gt;<br>
+    &gt; test.exe - 1 error(s), 0 warning(s)<br>
+    &gt;<br>
+    &gt; 
+    我覺得很奇怪，明明是照書上打的，一字不漏呀！是不是應該要加什麼<br>
+    &gt; header file(s) 咧？而且照Stanley所用的解釋方法來解那一行程式：pi_ref<br>
+    &gt; 是一個reference，也就是說pi_ref是要去代表某一個東西，是什麼東西呢？<br>
+    &gt; 是一個常數指標，指向int object。也就是說常數指標一旦指向了一個object<br>
+    &gt; ，其內容就不能再改變了，所以是int *const。但是在rvalue的部份：&amp;ival是個<br>
+    &gt; const int object的位址。再怎麼樣解釋也是const int*呀！看起來...<br>
+    &gt; 一定無法指派給pi_ref的嘛！是不是哪裡有問題咧？<br>
+    &gt;<br>
+    &gt; ==================================================================<br>
+    &gt; 2.這是container的問題，在書中Stanley有提過allocator。不知VC6有沒有<br>
+    &gt; 支援 default template parameters。寫了一個測試程式：<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; #include &lt;vector&gt;<br>
+    &gt; #include &lt;string&gt;<br>
+    &gt;<br>
+    &gt; using namespace std;<br>
+    &gt;<br>
+    &gt; void main()<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; vector&lt;string, allocator&gt; svec;<br>
+    &gt; }</font></small><br>
+    &gt;<br>
+    &gt; 結果有errors：<br>
+    &gt; --------------------Configuration: test - Win32 Debug--------------------<br>
+    &gt; Compiling...<br>
+    &gt; test.cpp<br>
+    &gt; E:\Microsoft Visual Studio\Vc98\MyProjects\test\test.cpp(8) : error C2955: 
+    'allocator' : use of class template requires template argument list<br>
+    &gt; e:\microsoft visual studio\vc98\include\xmemory(72) : see declaration of 'allocator'<br>
+    &gt; E:\Microsoft Visual Studio\Vc98\MyProjects\test\test.cpp(8) : error C2133: 'svec' : 
+    unknown size<br>
+    &gt; E:\Microsoft Visual Studio\Vc98\MyProjects\test\test.cpp(8) : error C2512: 
+    'vector&lt;class std::basic_string&lt;char,struct std::char_traits&lt;char&gt;,class 
+    std::allocator&lt;char&gt; &gt;,class std::allocator&gt;' : no appropriate default 
+    constructor available<br>
+    &gt; E:\Microsoft Visual Studio\Vc98\MyProjects\test\test.cpp(8) : error C2262: 'svec' : 
+    cannot be destroyed<br>
+    &gt; Error executing cl.exe.<br>
+    &gt;<br>
+    &gt; test.obj - 4 error(s), 0 warning(s)<br>
+    &gt;<br>
+    &gt; 如果不加allocator，則會有warnings：<br>
+    &gt;<br>
+    &gt; --------------------Configuration: test - Win32 Debug--------------------<br>
+    &gt; Compiling...<br>
+    &gt; test.cpp<br>
+    &gt; E:\Microsoft Visual Studio\Vc98\MyProjects\test\test.cpp(9) : warning C4786: 
+    'std::reverse_iterator&lt;std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt; const 
+    *,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt;,std<br>
+    &gt; ::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt; 
+    const 
+    &amp;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt; const *,int&gt;' : identifier was truncated to '255' characters in the debug 
+    information<br>
+    &gt; E:\Microsoft Visual Studio\Vc98\MyProjects\test\test.cpp(9) : warning C4786: 
+    'std::reverse_iterator&lt;std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt; *,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt;,std::basi<br>
+    &gt; c_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt; 
+    &amp;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt; *,int&gt;' : identifier was truncated to '255' characters in the debug information<br>
+    &gt; e:\microsoft visual studio\vc98\include\vector(39) : warning C4786: 
+    'std::vector&lt;std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt;,std::allocator&lt;std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt; &gt; &gt;::vector&lt;std<br>
+    &gt; ::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt;,std::allocator&lt;std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt; &gt; &gt;' : identifier was truncated to '255' characters in the debug information<br>
+    &gt; e:\microsoft visual studio\vc98\include\vector(60) : warning C4786: 
+    'std::vector&lt;std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt;,std::allocator&lt;std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt; &gt; &gt;::~vector&lt;st<br>
+    &gt; d::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt;,std::allocator&lt;std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; 
+    &gt; &gt; &gt;' : identifier was truncated to '255' characters in the debug information<br>
+    &gt;<br>
+    &gt; test.obj - 0 error(s), 4 warning(s)<br>
+    &gt;<br>
+    &gt; 不過不管是error還是warning，我都看不懂它在說什麼，請老師告訴我<br>
+    &gt; 這部份該怎麼寫才好、才對呢？<br>
+    &gt;<br>
+    &gt; 以上兩個問題希望老師能為我解答，謝謝！</font><br>
+    <br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    你的第一個問題，關於 p108 範例，我以三種編譯器編譯結果如下<br>
+    （希望你看得懂我的安排）：（我的 g++ 是 2.91.57_on_win32）<br>
+    <br>
+    <small><font face="Courier New">#01 #include &lt;iostream&gt;<br>
+    #02 using namespace std;<br>
+    #03<br>
+    #04 int main()<br>
+    #05 {<br>
+    #06 const int ival = 1024;<br>
+    #07<br>
+    #08 { // </font>情況 <font face="Courier New">1<br>
+    #09 int *&amp;pi_ref = &amp;ival; // </font>書上說這不可以<font face="Courier New">. 
+    vc6[x] cb4[x] g++[o]<br>
+    #10 cout &lt;&lt; pi_ref &lt;&lt; endl; // 0x259fc90<br>
+    #11 cout &lt;&lt; *pi_ref &lt;&lt; endl; // 1024<br>
+    #12 }<br>
+    #13 /*<br>
+    #14 VC6<br>
+    #15 error C2440: 'initializing' : cannot convert from 'const int *' to 'int *&amp; '<br>
+    #16 A reference that is not to 'const' cannot be bound to a non-lvalue<br>
+    #17<br>
+    #18 BCB4<br>
+    #19 Warning W8028 : Temporary used to initialize 'pi_ref' in function main()<br>
+    #20 Error E2034 : Cannot convert 'const int *' to 'int *' in function main()<br>
+    #21<br>
+    #22 G++<br>
+    #23 warning: converting to `int *' from `const int *' discards const<br>
+    #24 warning: initializing non-const `int *&amp;' with `const int *' will use a temporary<br>
+    #25 */<br>
+    #26<br>
+    #27<br>
+    #28 { // </font>情況 <font face="Courier New">2<br>
+    #29 const int *&amp;pi_ref = &amp;ival; // </font>書上說這不可以<font
+    face="Courier New">. vc6[x] cb4[o] g++[o]<br>
+    #30 cout &lt;&lt; pi_ref &lt;&lt; endl; // 0x0065FE00 0x259fc90<br>
+    #31 cout &lt;&lt; *pi_ref &lt;&lt; endl; // 1024 1024<br>
+    #32 }<br>
+    #33 /*<br>
+    #34 VC6<br>
+    #35 error C2440: 'initializing' : cannot convert from 'const int *' to 'const int *&amp; '<br>
+    #36 A reference that is not to 'const' cannot be bound to a non-lvalue<br>
+    #37<br>
+    #38 BCB4<br>
+    #39 Warning W8028 : Temporary used to initialize 'pi_ref' in function main()<br>
+    #40<br>
+    #41 G++<br>
+    #42 warning: initialization of non-const reference `const int *&amp;' from rvalue `const 
+    int *'<br>
+    #43 */<br>
+    #44<br>
+    #45<br>
+    #46 { // </font>情況 <font face="Courier New">3<br>
+    #47 int *const &amp;pi_ref = &amp;ival; // </font>書上說這可以<font
+    face="Courier New">. vc6[x] cb4[x] g++[o]<br>
+    #48 cout &lt;&lt; pi_ref &lt;&lt; endl; // 0x259fc90<br>
+    #49 cout &lt;&lt; *pi_ref &lt;&lt; endl; // 1024<br>
+    #50 }<br>
+    #51 /*<br>
+    #52 VC6<br>
+    #53 error C2440: 'initializing' : cannot convert from 'const int *' to 'int *const &amp; '<br>
+    #54 Reason: cannot convert from 'const int *' to 'int *const '<br>
+    #55 Conversion loses qualifiers<br>
+    #56<br>
+    #57 BCB4<br>
+    #58 Warning W8028 : Temporary used to initialize 'pi_ref' in function main()<br>
+    #59 Error E2034 : Cannot convert 'const int *' to 'int *' in function main()<br>
+    #60<br>
+    #61 G++<br>
+    #62 warning: converting to `int *' from `const int *' discards const<br>
+    #63 */<br>
+    #64<br>
+    #65 { // </font>情況 <font face="Courier New">4<br>
+    #66 const int *const &amp;pi_ref = &amp;ival; // </font>我的看法 <font
+    face="Courier New">vc6[o] cb4[o] g++[o]<br>
+    #67 cout &lt;&lt; pi_ref &lt;&lt; endl; // 0064FDF4 0065FE00 0x259fc90<br>
+    #68 cout &lt;&lt; *pi_ref &lt;&lt; endl; // 1024 1024 1024<br>
+    #69 }<br>
+    #70 /*<br>
+    #71 VC6<br>
+    #72 no warning, no error<br>
+    #73<br>
+    #74 BCB4<br>
+    #75 Warning W8028 : Temporary used to initialize 'pi_ref' in funcion main()<br>
+    #76<br>
+    #77 G++<br>
+    #78 no warning, no error<br>
+    #79 */<br>
+    #80<br>
+    #81 }<br>
+    </font></small><br>
+    看來各家編譯器對 constness 的解釋與作法上的嚴謹程度多有不同。<br>
+    <br>
+    看到你對書中文字的見解，我決定重新把原文找出來，看看有否<br>
+    誤譯。再三斟酌後，我修改如下：<br>
+    <br>
+    ■p108, L10<br>
+    <font color="#FF0000">原文：</font><br>
+    If we read this definition from right to left, we discover that<br>
+    pi_ref is a reference to a pointer to an object of type int<br>
+    defined to be const. Our reference isn't to a constant but<br>
+    rather to a nonconstant pointer that addresses a constant object.<br>
+    <br>
+    <font color="#FF0000">原譯：</font><br>
+    如果由右往左閱讀上述定義，我們會發現，pi_ref 是個 reference，<br>
+    代表一個指標，此指標指向一個型別為 int 的 const object。<br>
+    但是我們的 reference 實際上卻未被用來代表一個常數，而是被用來<br>
+    代表一個非常數指標（該指標指向一個常數 object）。<br>
+    <br>
+    <font color="#FF0000">更正：</font><br>
+    如果由右往左閱讀上述定義，我們會發現，pi_ref 是個 reference，<br>
+    代表一個指標，此指標指向一個型別為 int 的 const object。<br>
+    <font color="#FF0000">我們的 reference 
+    代表的不是一個常數指標，而是一個非常數指標，<br>
+    指向一個常數 object</font>。<br>
+    <br>
+    不過即使修改為這樣，這段文字仍然不能給讀者很直覺的意義。<br>
+    要在這裡將整個 constness 的精神說清楚，我實是也力有未逮。<br>
+    建議你再全盤思索一遍，甚至包括 const member function。<br>
+    <br>
+    <br>
+    至於你的第二個問題。是的，VC6 支援 default template parameters。<br>
+    你的程式應該這麼寫：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;vector&gt;<br>
+    #include &lt;string&gt;<br>
+    using namespace std;<br>
+    <br>
+    void main()<br>
+    {<br>
+    &nbsp; // </font>不用 <font face="Courier New">default template parameters<br>
+    &nbsp; vector&lt;string, allocator&lt;string&gt; &gt; svec;<br>
+    }<br>
+    <br>
+    </font>或是：<br>
+    <br>
+    <font face="Courier New">#include &lt;vector&gt;<br>
+    #include &lt;string&gt;<br>
+    using namespace std;<br>
+    <br>
+    void main()<br>
+    {<br>
+    &nbsp; // </font>使用 <font face="Courier New">default template parameters<br>
+    &nbsp; vector&lt;string&gt; svec;<br>
+    }</font></small><br>
+    <br>
+    《C++ Primer》全書對於 container's default template parameters<br>
+    的用法，都寫得不標準。可能因為作者 Lippman 使用早期的編譯器<br>
+    或怎麼地 (who knowns, and who care!）<br>
+    <br>
+    使用 STL，動不動就會來一堆令人畏懼的 error msg 或 warning msg。<br>
+    所以，把根本觀念搞懂，至為重要，因為<font color="#0000FF">目前能輔助除錯或追蹤 
+    STL 的<br>
+    工具並不多</font>（誰有這方面的使用經驗，請提供，謝謝）<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa38"><big><big>C++ Primer 答客問 (38)</big></big></a> - 元智的 
+    STL 課程&nbsp; 2000.02.24 <br>
+    <br>
+    airstone wrote (2000/02/21) :<br>
+    <br>
+    <font color="#0000FF">&gt; 親愛的侯老大...:)<br>
+    &gt;<br>
+    &gt; 小弟得知你這學期有在元智開一門泛型演算,想帶一群兄弟過去旁聽...<br>
+    &gt; 不知方不方便，問題是我們不知道上課時間及教室...<br>
+    &gt; 煩請老大告知<br>
+    &gt;<br>
+    &gt; 仰慕你的小混混上...</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    你的文風相當一致，很有兄弟味 :)<br>
+    <br>
+    我的課程一向歡迎旁聽<br>
+    <br>
+    日期：2000/02/25（五）第一次上課。每週五 18:30~21:20<br>
+    地點：元智資訊系 工程一館 1102 教室（大概是那個階梯教室）<br>
+    課程：泛型程式設計 (with STL）<br>
+    先修科目：C++<br>
+    上課用書：<br>
+    &nbsp;&nbsp; 《C++ Primer 中文版》chap6,10,12,16, and appendix以及補充講義（同學自行影印）<br>
+    參考書：<br>
+    &nbsp;&nbsp;&nbsp; 1. Generic Programming and the STL（偏重理論、架構、規格）<br>
+    &nbsp;&nbsp;&nbsp; 2. The C++ Standard Library （偏重實用、資料整理）<br>
+    進度（大約）：<br>
+    1~ 2 週：泛型程式設計概觀<br>
+    3~ 6 週：C++ function templates and class templates<br>
+    7~ 8 週：STL Organization, Traits Tech. in STL<br>
+    9~10 週：STL Containers<br>
+    11~12 週：STL Algorithms<br>
+    13~14 週：STL Function Objects<br>
+    15~16 週：STL Iterators<br>
+    17 週：期末作業討論<br>
+    18 週：期末作業討論<br>
+    <br>
+    沒有寒假收心緩衝期。第一堂課就進入主題。第一堂課將<br>
+    讓同學對泛型程式設計以及 STL 有整體概念，並介紹相關<br>
+    書籍、資源，以及課程遊戲規則。<br>
+    <br>
+    -- the end<br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa39"><big><big>C++ Primer 答客問 (39)</big></big></a> - little 
+    endian, big endian &nbsp; 2000.03.25 <br>
+    <br>
+    kylin 與我分享了一個看似奇怪的問題，是他的同事所寫的一段碼，<br>
+    沒有註解，其結果令人丈二金剛摸不著頭腦。<br>
+    <br>
+    大意是這樣：同事 A 所寫的一段程式碼中，將一份 DWORD 資料輸出<br>
+    到 port 去，然後在讀入時以「chars 陣列」處理之。程式中運用了<br>
+    DWORD 和 char[] 之間的型別轉換動作。奇怪的是同事 A 將 char 陣列<br>
+    內容兩兩對換處理（這是奇怪之處）。舉例示範如下：<br>
+    <br>
+    <small><font face="Courier New">// vc6[o] bcb4[o] g++[o]<br>
+    #include &lt;iostream&gt;<br>
+    using namespace std;<br>
+    <br>
+    typedef unsigned long DWORD;<br>
+    <br>
+    int main()<br>
+    {<br>
+    &nbsp; char szByteData[32] = &quot;abcdefgh&quot;; // 0x61,62,63,64,65,66,67,68<br>
+    <br>
+    &nbsp; DWORD dwDwordData[5];<br>
+    &nbsp; dwDwordData[0] = 0x41424344; // 'A','B','C','D'<br>
+    &nbsp; dwDwordData[1] = 0x45464748; // 'E','F','G','H'<br>
+    <br>
+    &nbsp; char* pPtrToByteData = (char*)dwDwordData;<br>
+    &nbsp; DWORD* dwPtrToDwordData = (DWORD*)szByteData;<br>
+    <br>
+    &nbsp; for (int i = 0; i &lt; 8; i++)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; pPtrToByteData[i]; // DCBA HGFE </font>（顛倒了，所以同事 
+    <font face="Courier New">A<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    // </font>才需做兩兩對換處理。此處未示範）<br>
+    <font face="Courier New">&nbsp; cout &lt;&lt; endl;<br>
+    <br>
+    &nbsp; cout &lt;&lt; hex &lt;&lt; &quot;dwPtrToDwordData[0] = &quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; dwPtrToDwordData[0] &lt;&lt; endl; // 
+    64636261 </font>（顛倒了）<br>
+    <br>
+    <font face="Courier New">&nbsp; cout &lt;&lt; hex &lt;&lt; &quot;dwPtrToDwordData[1] = 
+    &quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; dwPtrToDwordData[1] &lt;&lt; endl; // 
+    68676665 </font>（顛倒了）<br>
+    <font face="Courier New">}</font></small><br>
+    <br>
+    <br>
+    初看實在令人訝異。後來我們才想到是 big endian 和 little endian 之故。<br>
+    <br>
+    是的，這個程式在 Windows 9x 環境下跑，而 Windows 9x 的硬體平台<br>
+    是 Intel x86，而 Intel x86 採用 little endian 的位元組排列模式，<br>
+    也就是 &quot;least significant byte appears first in the number&quot;.<br>
+    所以當 DWORD 放到 Intel x86 系統的記憶體中，會 word 和 word<br>
+    顛倒放置、byte 和 byte 顛倒放置。如果要以 bytes（chars）將它<br>
+    一一讀入，必須自行顛倒各 bytes 的次序。<br>
+    <br>
+    把這個程式拿到 FreeBSD on i386 上執行，結果與上相同。<br>
+    <br>
+    <br>
+    但是如果把這個程式拿到 Solaris on Sparc 上執行，結果如下：<br>
+    <br>
+    <small><font face="Courier New">for (int i = 0; i &lt; 8; i++)<br>
+    &nbsp;&nbsp;&nbsp; cout &lt;&lt; pPtrToByteData[i]; // ABCD EFGH</font>（次序沒變）<br>
+    <font face="Courier New">cout &lt;&lt; endl;<br>
+    <br>
+    cout &lt;&lt; hex &lt;&lt; &quot;dwPtrToDwordData[0] = &quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; dwPtrToDwordData[0] &lt;&lt; endl; // 61626364</font>（次序沒變）<br>
+    <br>
+    <font face="Courier New">cout &lt;&lt; hex &lt;&lt; &quot;dwPtrToDwordData[1] = &quot;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; dwPtrToDwordData[1] &lt;&lt; endl; // 65666768</font>（次序沒變）</small><br>
+    <br>
+    因為 Sun Sparc 機器採用 big endian 的位元組排列模式，意即<br>
+    &quot;most significant byte is placed first&quot;。<br>
+    <br>
+    這給我們一個教訓：<br>
+    (1) 詭異的動作，卻不寫註解，害人害己。<br>
+    (2) 移植性不高的程式碼，宜儘量避免 — 至少應有詳細說明。<br>
+    <br>
+    順帶一提，很多人都不知道 big/little endian 的典故。<br>
+    Microsoft Press Computer Dictionary 3/e p.49 說：<br>
+    <br>
+    &quot;The term big endian is derived from Jonathan Swift's<br>
+    Gulliver's Travels, in which the Big-Endians were a group<br>
+    of people who opposed the emperor's decree that eggs<br>
+    should be broken at the small end before they were eaten.&quot;<br>
+    <br>
+    一笑！<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <a name="C++ Primer qa40"><big><big>C++ Primer 答客問 (40)</big></big></a> - static in 
+    template&nbsp; 2000.03.25 <br>
+    <br>
+    s874105 wrote (2000/03/03) :<br>
+    <br>
+    <font color="#0000FF">&gt; 老師你好...<br>
+    &gt; 我有兩個問題，一個是跟課內有關一個是我看書的問題。<br>
+    &gt;<br>
+    &gt; 假設今天有一個 class template<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; template&lt;typename T&gt;<br>
+    &gt; class vi<br>
+    &gt; {<br>
+    &gt; static void func(T a) { cout &lt;&lt; a &lt;&lt; &quot; &quot;; }<br>
+    &gt; };</font></small><br>
+    &gt;<br>
+    &gt; 像這樣的 static member function ... 可以成為 template 的一份子嗎?<br>
+    &gt; 如果可以，是什麼道理呢？因為就我的想法中，<br>
+    &gt; static member 是要事先就先配置好。所以我怎麼想都想不出方法。<br>
+    &gt;<br>
+    &gt; 第二個問題有關於 cast<br>
+    &gt; 問題源自 Polymorphism in C++ (多型與虛擬) p164.<br>
+    &gt; 書裡面寫著<br>
+    <small><font face="Courier New">&gt; char str[] = &quot;Hello&quot;;<br>
+    &gt; char *pc = &amp;str // error</font></small><br>
+    &gt;<br>
+    &gt; 錯誤訊息是 cannot convert form 'char (*)[6]' to 'char *' ...<br>
+    &gt; 那麼當 cout &lt;&lt; str 時，operator&lt;&lt; 有支援 char (*)[6] 這種 type 
+    嗎？<br>
+    &gt; 
+    還是輸出時有先轉型過呢？假設今天轉型過後，他的型態被改變了，<br>
+    &gt; 
+    對他本身的陣列會有什麼影響呢？如果沒有影響，我實在不懂為什麼<br>
+    &gt; type 要設成 char (*)[6] 說...<br>
+    &gt; 因為我一直認為 operator&lt;&lt; 只支援 &quot;char&quot; &amp; 
+    &quot;int&quot; &amp; &quot;float&quot; &amp; &quot;double&quot;...<br>
+    &gt; 這問題很笨，可是我一直搞不懂... 只好問一下老師了~ 謝謝...</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    這問題不笨。只要思考過的問題，都不笨。<br>
+    <br>
+    你的第一個問題，template 的 members 可否為 static。<br>
+    如果只是想要確定可不可以，寫個程式不就結了 :)<br>
+    <br>
+    <small><font face="Courier New">#include &lt;iostream&gt;<br>
+    using namespace std;<br>
+    <br>
+    template&lt;typename T&gt;<br>
+    class C<br>
+    {<br>
+    public:<br>
+    &nbsp; static void func() { cout &lt;&lt; m_data &lt;&lt; &quot; &quot;; }<br>
+    &nbsp; C(T data) { m_data = data; }<br>
+    private:<br>
+    &nbsp; static T m_data;<br>
+    };<br>
+    <br>
+    // static data member initialization.</font>（注意，很多人會忘記寫這行）<br>
+    <font face="Courier New">template&lt;typename T&gt;<br>
+    T C&lt;T&gt;::m_data;<br>
+    <br>
+    int main()<br>
+    {<br>
+    &nbsp; C&lt;int&gt; c1(5);<br>
+    &nbsp; C&lt;float&gt; c2(9.28);<br>
+    &nbsp; C&lt;char&gt; c3('J');<br>
+    <br>
+    &nbsp; c1.func(); // 5<br>
+    &nbsp; c2.func(); // 9.28<br>
+    &nbsp; c3.func(); // J<br>
+    }</font></small><br>
+    <br>
+    這個程式中的 class template 既有 static data member，也有<br>
+    static member function。可順利編譯。執行結果也正確。<br>
+    <br>
+    《C++ Primer 中文版》16.5 節「Class Templates 的 Static Data Members」<br>
+    便是專講這個題目。<br>
+    <br>
+    <br>
+    我想你這個問題更有價值的是，你問：<br>
+    <br>
+    <font color="#0000FF">&gt; 如果可以，是什麼道理呢？因為就我的想法中，<br>
+    &gt; static member 是要事先就先配置好。所以我怎麼想都想不出方法。</font><br>
+    <br>
+    你的說法不夠精準，應該說：「static member 是獨立於 class 
+    之外配置的」。<br>
+    修正成這樣，你應該就不會有問題了。注意，template instantiation 是在<br>
+    編譯時期（而非執行時期）完成；面對 static members，編譯器會為每一個<br>
+    template instantiation 製作出一份相應的 static members。<br>
+    所以上例的三個 instantiations，各有自己的一份 m_data 和一份 func()。<br>
+    <br>
+    <br>
+    你的第二個問題：<br>
+    <br>
+    <small><font face="Courier New">char str[] = &quot;Hello&quot;;<br>
+    char *pc = &amp;str; // error</font></small><br>
+    <br>
+    這個問題，《多型與虛擬》書中說，必須寫為這樣才可編譯：<br>
+    <br>
+    <small><font face="Courier New">char str[] = &quot;Hello&quot;;<br>
+    char *pc = (char*)&amp;str; // </font>明白轉型<font face="Courier New">. </font>亦可利用 
+    <font face="Courier New">C++ cast operators.</font></small><br>
+    <br>
+    你問：<br>
+    <br>
+    <font color="#0000FF">&gt; 那麼當 cout &lt;&lt; str 時，operator&lt;&lt; 有支援 
+    char (*)[6] 這種 type 嗎？</font><br>
+    <br>
+    有可能。<br>
+    <br>
+    <font color="#0000FF">&gt; 還是輸出時有先轉型過呢？</font><br>
+    <br>
+    我不知道。也有可能。<br>
+    <br>
+    <font color="#0000FF">&gt; 假設今天轉型過後，他的型態被改變了，<br>
+    &gt; 對他本身的陣列會有什麼影響呢？</font><br>
+    <br>
+    沒有影響。資料被轉型，改變的是外界（也就是將它轉型的人）對它<br>
+    的「看法」，並不影響資料本身。<br>
+    <br>
+    <font color="#0000FF">&gt; 如果沒有影響，我實在不懂為什麼<br>
+    &gt; type 要設成 char (*)[6] 說...<br>
+    &gt; 因為我一直認為 operator&lt;&lt; 只支援 &quot;char&quot; &amp; 
+    &quot;int&quot; &amp; &quot;float&quot; &amp; &quot;double&quot;...</font><br>
+    <br>
+    你一定忘了，C++ 允許 operator overloading（多載化運算子）。<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;<!--mstheme--></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

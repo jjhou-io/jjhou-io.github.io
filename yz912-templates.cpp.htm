@@ -1,0 +1,146 @@
+<html>// yz912-templates.cpp
+#include <iostream>
+using namespace std;
+
+// C++ class template
+
+template <typename T>
+class Complex
+{
+public:
+  // default ctor
+  Complex(const T& real=0, const T& imag=0)
+     : m_real(real), m_imag(imag)
+  { }
+
+  T real() const { return m_real; }
+  T imag() const { return m_imag; }
+
+private:
+  T m_real, m_imag;
+};
+
+template <typename T>
+ostream& operator<<(ostream& os, const Complex<T>& c)
+{
+    os << '[' << c.real() << ',' << c.imag() << "i]";
+    return os;
+}
+
+
+// 函式泛化演進
+// 寫一個 find()，接受一個 array，要求找出某特定值
+// 版本一，接受 array 和其大小，以及待尋值
+int* find(int* arrayHead, int arraySize, int value)
+{
+   int i;
+   for(i=0; i< arraySize; ++i)
+       if (arrayHead[i] == value)
+           break;
+
+   return &(arrayHead[i]);
+}
+
+// 版本二，接受 array（頭、尾），以及待尋值
+int* find(int* first, int* last, int value)
+{
+   while( (first != last)  && (*first != value) )
+         ++first;
+
+   return first;
+}
+
+// 版本三，改為 function template。
+template<typename T>
+T* find(T* first, T* last, T value)
+{
+   while( (first != last)  && (*first != value) )
+         ++first;
+
+   return first;
+}
+
+// 版本四，改為 function template。
+// 這就是 STL source。見《STL源碼剖析》p345。
+template<typename I, typename T>
+I find(I first, I last, T value)
+{
+   while( (first != last)  && (*first != value) )
+         ++first;
+
+   return first;
+}
+
+// 以上述版本四的方式思考，寫一個 find_if()。
+// 見《STL源碼剖析》p345。
+template<typename I, typename P>
+I find_if(I first, I last, P p)
+{
+   while( (first != last)  && (  !p(*first) ))
+         ++first;
+
+   return first;
+}
+
+// 為配合上述的 find_if 所需的條件式（predicate），寫一個 functor。
+template <typename T>
+class greater_4
+{
+public:
+  bool operator()(const T& elem)
+     {  return (elem > 4) ? true : false;  }
+};
+
+//---------------------------------------------
+
+int main()
+{
+  Complex<int>    c1;
+  Complex<double> c2(2.3, 3.8);
+
+  cout << c1 << endl;   // [0,0i]
+  cout << c2 << endl;   // [2,3i]
+
+  // find() version1 test
+
+  int ia[6] = {1,2,3,4,5,6};
+  if ( find(ia, 6, 3) != (ia+6) )
+       cout << "found" << endl;
+  else
+       cout << "not found" << endl;
+
+  if ( find(ia, 6, 20) != (ia+6) )
+       cout << "found" << endl;
+  else
+       cout << "not found" << endl;
+
+  // find() version2 test
+
+  if ( find(ia, ia+6, 3) != (ia+6) )
+       cout << "found" << endl;
+  else
+       cout << "not found" << endl;
+
+  if ( find(ia, ia+6, 20) != (ia+6) )
+       cout << "found" << endl;
+  else
+       cout << "not found" << endl;
+
+  // find() version3,4 test
+
+  double da[6] = {1.1, 2.2, 3.3, 4.4, 5.5, 6.6};
+
+  if ( find(da, da+6, 3.3) != (da+6) )
+       cout << "found" << endl;
+  else
+       cout << "not found" << endl;
+
+  if ( find(da, da+6, 20.2) != (da+6) )
+       cout << "found" << endl;
+  else
+       cout << "not found" << endl;
+
+  // find_if() test。
+  // 注意，如果沒有找到任何元素滿足條件，以下寫法就有點危險（關於 dereference）。
+  cout << *find_if(ia, ia+6,  greater_4<int>() ) << endl;
+}

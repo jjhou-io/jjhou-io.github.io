@@ -1,0 +1,733 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>把標準C++視為一個新語言</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<p>　</p>
+
+<hr>
+
+<h2 align="center"><font color="#800000">將標準 C++ 視為一個新語言<br>
+<small><small>Learning Standard C++ as a New Language</small></small></font></h2>
+
+<h3 align="center"><font color="#800000">作者 Bjarne Stroustrup<br>
+譯者 陳崴</font></h3>
+
+<blockquote>
+  <h4 align="center"><font color="#800000">就別再把 C++ 視為 C 
+  的後一個語言了吧。這個問題問 C++ 之父就對了。</font></h4>
+  <p align="center">　</p>
+  <p align="center">侯捷註：本文係北京《程序員》雜誌 2001/04 
+  的文章。譯筆順暢，技術飽滿。<br>
+  承譯者<font color="#000000">陳崴先生與</font>《程序員》<font color="#000000">雜誌負責人蔣濤先生答允，<br>
+  轉載於此，以饗臺灣讀者，非常感謝。<br>
+  <br>
+  未得陳崴先生與蔣濤先生二人之同意，任何人請勿將此文再做轉載。</font></p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p><i>C/C++ User's Journal</i>&nbsp;&nbsp;&nbsp; May,1999</p>
+  <p><strong><big><big>Learning Standard C++ as a New Language</big></big></strong></p>
+  <h4>by Bjarne Stroustrup</h4>
+  <hr>
+  <h4><font color="#000080">導入</font></h4>
+  <p>想要獲得標準 C++ <font color="#0000FF">[參考資料 1]</font> 
+  的最大優點，我們必須重新思考 C++ 
+  程式的撰寫方式。重新思考的方式之一就是，想想 C++ 
+  應該如何學習（和教育）。我們應該強調什麼樣的編程技術？我們應該先學習這個語言的哪一部份？在真正程式碼中我們想要突顯的又是哪一部份？</p>
+  <p>這篇文章把幾個簡單的 C++ 
+  程式拿來比較，其中有些以現代化風格（使用標準程式庫）撰寫，有些以傳統的 
+  C 
+  語言風格撰寫。從這些簡單例子所學到的功課，對大程式而言仍然具有重要意義。大體而言，這篇文章主張將 
+  C++ 
+  視為一個更高階的語言來使用，這個語言依賴抽象性提供簡練與優雅，但又不失低階風格下的效率。</p>
+  <p>我們都希望程式容易撰寫，正確執行，易於維護，並且效率可被接受。這意味我們應該以最接近此一理想的方式來使用 
+  C++（或任何其他語言）。我猜想 C++ 族群尚未能夠消化標準 C++ 
+  所帶來的種種設施；重新思考我們對 C++ 
+  的使用方式，可獲得一些重要的改善並進而達到上述理想。本文所重視的編程風格，焦點在於充份運用標準 
+  C++ 所支援的設施，而不在那些設施本身。</p>
+  <p>主要的改善關鍵就是，透過對程式庫的運用，降低我們所寫的碼的大小和複雜度。以下我要在一些簡單例子中，示範並量化這些降低程度。這類簡單實例可能出現在任何 
+  C++ 導入性課程中。</p>
+  <p>由於降低了大小和複雜度，我們也就減少了開發時間，減輕了維護成本，並且降低了測試成本。另一個重點是，透過程式庫的運用，我們還可以簡化 
+  C++ 
+  的學習。對於小型程式以及只求獲得好成績的學生而言，這樣的簡化應該是相當充裕的了。然而專業程式員對效率極為要求，只有在效率不被犧牲的情況下，我們才能期許自己提昇編程風格，以滿足現代化服務和商務之於資料和即時回應的嚴格需求。為此我展示了一份量測結果，證明複雜度的降低並不會損失效率。最後我還討論了這種觀點對於學習和教育 
+  C++ 所帶來的影響。</p>
+  <h4><font color="#000080">複雜度&nbsp; </font><font color="#000080" face="Garamond">Complexity</font></h4>
+  <p>試考慮一個題目，它很適合做為程式語言課程的第二道練習（<font
+  color="#0000FF">譯註</font>：第一道練習當然是 &quot;hello world&quot; 啦）：<ul>
+    <p><strong>輸出一個提示句 “Please enter your name”<br>
+    讀入名字<br>
+    輸出“Hello &lt;name&gt;”</strong></p>
+  </ul>
+  <p>在標準 C++ 中，明顯的解答是：</p>
+  <pre>#include&lt;iostream&gt; // 取得標準 I/O 設施
+#include&lt;string&gt;   // 取得標準 string 設施
+
+int main()
+{
+   // 獲得對標準程式庫的取用權利
+   using namespace std; 
+
+   cout &lt;&lt; &quot;Please enter your name: \n&quot;;
+   string name;
+   cin &gt;&gt; name;
+   cout &lt;&lt; &quot;Hello&quot; &lt;&lt; name &lt;&lt; '\n';
+}
+</pre>
+  <p>對一個真正的初學者，我們必須解釋整個架構。什麼是 <b>main()</b>？<b>#include</b> 
+  做了些什麼事？<b>using</b> 
+  做什麼用？此外我們還得對所有的細瑣規矩有所了解，例如 <b>\n</b> 
+  的意義，哪裡應該加上分號…等等。</p>
+  <p>然而這個程式的主要成份，觀念非常簡單，和題目的文字敘述之間只是表示法的不同。我們必須學習這種表示法，那很簡單：<b>string</b> 
+  就是一個 string（字串），<b>cout</b> 就是一個 output（輸出設備），<b>&lt;&lt;</b> 
+  就是一個我們用來寫到輸出設備去的運算子…等等等。</p>
+  <p>為了進行比較，下面是傳統的 C-style 解法 <font color="#0000FF">[註 1]</font>：</p>
+  <pre>#include&lt;stdio. h&gt; // 取得標準的 I/O 設施
+
+int main()
+{
+   const int max = 20; // name 的最大長度為 19
+   char name[max];
+   
+   printf(&quot;Please enter your name: \n&quot;);
+
+   // 將字元讀入 name 之中
+   scanf( &quot;%s&quot; , name); 
+   printf( &quot;Hello %s\n&quot; ,name);
+   
+   return 0;
+}
+</pre>
+  <p>很明顯，主要邏輯有了輕微的 — 只是輕微的 — 改變，比 C++-style 
+  版本複雜一些，因為我們必須解釋陣列和怪異符號 <b>%s</b>。主要的問題在於，這個簡單的 
+  C-style 解答沒什麼價值。如果有人輸入一個長度大於 19 的名字（所謂 
+  19，是上述指定的 20 再減 1 ，扣除的那個 1 用來放置 C-style 
+  字串的結束字元），這個程式就完蛋了。</p>
+  <p>有人認為這種劣質品其實不會造成傷害，只要運用「稍後介紹」的某種適當解法。然而就算如此，引起爭議的那一行也只不過是「可接受」而已，還達不到「良好」的境界。理想上我們不應該讓一個菜鳥使用者面對一個容易當機的程式。</p>
+  <p>這個 C-style 程式如何才能夠像 C++-style 
+  程式一樣地舉止合宜呢？首先我們可以適度運用 <b>scanf</b> 
+  來避免陣列溢位（array overflow）：</p>
+  <pre>#include&lt;stdio. h&gt; // 取得標準的 I/O 設施
+
+int min()
+{
+    const int max 20;
+    char name [max];
+    
+    printf( &quot;Please enter your first name: \n&quot;);
+    scanf( &quot;%19s&quot;, name); // 讀入最多 19 個字元
+    printf( &quot;Hello %s\n&quot;, name);
+    
+    return 0;
+}
+</pre>
+  <p>沒有什麼標準方法可以直接在 <b>scanf</b> 
+  的格式字串中直接使用符號型式的緩衝區大小，所以我必須像上面那樣地使用整數字面常數。那是一種不良風格，也是日後維護時的一顆不定時炸彈。下面是專家級的作法，但實在難以對初學者啟口：</p>
+  <pre>char fmt[10];
+// 產生一個格式字串，如使用單純的 %s 可能會造成溢位（overflow）
+sprintf(fmt, &quot;%%%ds&quot;, max-1);
+// 讀入至多 max-1 個字元到 name 之中。
+scanf(fmt, name);
+</pre>
+  <p>猶有進者，這個程式會把 &quot;超過緩衝區大小&quot; 
+  的字元砍掉。然而我們卻希望字串能隨著輸入而成長。為了做到這一點，我們必須將抽象性下降到一個較低層次，處理個別的字元：</p>
+  <pre>#include&lt;stdio.h&gt;
+#include&lt;ctype.h&gt;
+#include&lt;stdlib.h&gt;
+
+void quit()
+{
+    // 寫出錯誤訊息並離開
+    fprintf( stderr, &quot;memory exhausted\n&quot;);
+    exit (1);
+}
+
+int main()
+{
+    int max= 20;
+    // 配置緩衝區:
+    char* name = (char*) malloc(max);
+    if (name ==0) quit();
+    printf( &quot;Please enter your first name: \n&quot;);
+    
+    // 跳過前導的空白字元
+    while (true) {
+        int c = getchar();
+        if (c = EOF) break;     // 檔案結束
+        if (!isspace(c)) {
+            ungetc (c, stdin);
+            break;
+        }
+    }
+
+    int i = 0;
+    while (true) {
+        int c = getchar();
+        if (c == '\n' || c == EOF) {
+            // 在尾端加上結束字元 0
+            name[i] = 0;
+            break;
+        }
+        name[i] = c;
+        if (i == max-1) {       // 緩衝區填滿了
+            max = max+max;
+            name = (char*) realloc(name, max);
+            if (name == 0) quit();
+        }
+        itt;
+    }
+
+    printf( &quot;Hello %s\n&quot;, name);
+    free(name);                 // 釋放記憶體
+    return 0;
+}
+</pre>
+  <p>和先前的版本比較，這個版本明顯複雜得多。加上一段「跳過前導空白字元」的處理，使我感覺有些罪惡，因為我並未在題目敘述中明白提出這項需求。不過「跳過前導空白字元」是很正常的行為，稍後其他版本也都會這麼做。</p>
+  <p>可能有人認為這個例子並不是那麼糟糕。大部份有經驗的 C 
+  程式員和 C++ 
+  程式員在真正的應用程式中或許（順利的話）已經寫過某些這樣的東西。我們甚至可能認為，如果你寫不出那樣的程式，你就不能算是一個專業程式員。然而，想想這些東西加諸於初學者的觀念負擔吧。上面這個程式使用七個不同的 
+  C 
+  標準函式，在非常瑣屑的層次上處理字元層面的輸入，運用了指標，並自行處理自由空間（free 
+  store，<font color="#0000FF">譯註</font>：通常即是 heap）。為了使用 <b>realloc</b>，我必須採用 
+  <b>malloc</b>（而不是 <b>new</b>）。這把我們帶入了大小和型別轉換 <font
+  color="#0000FF">[註 2]</font> 
+  的議題。在一個如此的小程式中，什麼才是處理可能發生之記憶體耗盡問題的最佳作法呢？答案並不明顯。這裡我只是做某些事情，<font
+  color="#000000">以杜絕這個討論變質為另一個毫不相干的主題</font>。慣用 
+  C-style 
+  作法的人必須謹慎地想想，哪一種作法對於更深一層的教學和最後的實際運用能夠形成良好的基礎。</p>
+  <p>總結來說，為了解決原本那個簡單問題，除了問題核心本身，我還得介紹迴圈，測試，儲存空間之大小，指標，轉型，以及自由空間之顯式管理。而且這種編程風格充滿了出錯的機會。感謝長久累積下來的經驗，我才能夠避免出現任何明顯的大小差一錯誤（ 
+  off-by-one）或記憶體配置錯誤。我在面對 stream I/O 
+  時，一開始也犯了典型的初學者錯誤：讀入一個 <b>char</b>（而不是一個 
+  <b>int</b>）並忘記檢查 <b>EOF</b>。在 C++ 
+  標準程式庫尚未出現的那個年代，一點也不令人驚訝，許多教師無法擺脫這些不值錢的東西，暫時擱置它們稍後再教。不幸的是，許多學生也僅僅注意到這種劣等風格 
+  &quot;夠好&quot;，寫起來比其 C++ style 
+  兄弟快。於是他們養成了一種很難打破的習慣並留下一條容易犯錯的軌跡。</p>
+  <p>最後那個 C-style 程式有 41 行，而功能相當的 C++-style 程式只有 10 
+  行。扣除基本架構之後，比值是 30 : 4。更重要的是， C++-style 
+  的那幾行不但較短，其本質也比較容易被瞭解。C++-style 和 C-style 
+  兩種版本的行數及觀念複雜度很難客觀量測，但我認為 C++-style 
+  版本有 10 : 1 的優勢。</p>
+  <h4><font color="#000080">效率 </font><font color="#000080" face="Garamond">Efficiency</font></h4>
+  <p>對一個無關痛癢如上述小例子的程式而言，效率算不上是個議題。面對這類程式，簡化和（型別）安全才是重點所在。然而，真正的系統往往由一些極重視效率的成份組成。對於這類系統，問題就變成了 
+  &quot;我們能夠給予較高階的抽象性嗎？&quot;</p>
+  <p>考慮這類重視效率的程式，下面是個簡單的例子：<ul>
+    <p><strong>讀入未知數量的元素<br>
+    對每個元素做某些動作<br>
+    做某些涉及所有元素的動作</strong></p>
+  </ul>
+  <p>我能夠想到的最簡單而明確的例子就是，在程式中計算來自輸入裝置的一系列雙精度浮點數的平均值（mean）和中間值（ 
+  median）。下面是傳統的 C-style 解法：</p>
+  <pre>// C-style 解法：
+#include&lt;stdlib.h&gt;
+#include&lt;stdio.h&gt;
+    
+// 一個比較函式，稍後將給 qsort() 使用。
+int compare (const void* p, const void* q)
+{
+    register double p0 = * (double* )p;
+    register double q0 = * (double*)q;
+    if (p0 &gt; q0) return 1;
+    if (pO &lt; qO) return -1;
+    return 0;
+}
+    
+void quit()
+{
+    fprintf(stderr, &quot;memory exhausted\n&quot;);
+    exit(1);
+}
+
+int main(int argc, char*argv[])
+{
+    int res = 1000;     // 最初的配置量
+    char* file = argv[2];
+    double* buf= (double*) malloc(sizeof(double) * res);
+    if (buf == 0) quit();
+    
+    double median = 0;
+    double mean = 0;
+    int n = 0;
+        
+    FILE* fin = fopen(file, &quot;r&quot;);   // 開檔做為輸入用（reading）
+    double d;
+    while (fscanf(fin, &quot;%lg&quot;, &amp;d) == 1) {
+        if(n == res) {
+            res += res;
+            buf = (double*) realloc(buf, sizeof(double) * res);
+            if (buf == 0) quit();
+        }
+        buf[n++] = d;
+        // 有 rounding errors 的傾向
+        mean = (n==1) ? d : mean+(d-mean)/n;
+    }
+
+    qsort(buf, n, sizeof(double), compare);
+    
+    if (n) {
+        int mid=n/2;
+        median = (n%2) ? buf[mid] : (buf[mid-1]+buf[mid])/2;
+    }
+    
+    printf( &quot;number of elements=%d, median=%g, mean=%g\n&quot;,
+            n, median, mean);
+    
+    free(buf);
+}
+</pre>
+  <p>下面是常見的 C++ 解法：</p>
+  <pre>// 使用 C++ 標準程式庫的解法：
+
+#include &lt;vector&gt;
+#include &lt;fstream&gt;
+#include &lt;algorithm&gt;
+
+using namespace std;
+
+main(int argc, char*argv[])
+{
+    char* file = argv[2];
+    vector&lt;double&gt; buf;
+    
+    double median = 0;
+    double mean = 0;
+    
+    fstream fin(file,ios::in);
+    double d;
+    while (fin &gt;&gt; d) {
+        buf.push_back(d);
+        mean = (buf.size() == 1) ?
+            d : mean+(d-mean)/buf.size();
+    }
+    sort(buf.begin(),buf.end());
+    
+    if (buf.size()) {
+        int mid = buf.size() /2;
+        median =
+            (buf.size() % 2) ?
+                buf[mid] : (buf[mid-1] + buf[mid] )/2;
+    }
+    
+    cout &lt;&lt; &quot;number of elements = &quot; &lt;&lt; buf.size()
+         &lt;&lt; &quot;, median = &quot; &lt;&lt; median &lt;&lt; &quot;, mean = &quot;
+         &lt;&lt; mean &lt;&lt; '\n';
+}
+</pre>
+  <p>這兩個程式的大小，不再像前一個例子有那麼懸殊的差異（43 : 24，空行不計）。扣除無法刪減的共同元素，例如 
+  <b>main()</b> 的宣告和中間值的計算（共 13 行），兩者的行數差異是 20 
+  : 11。關鍵性的「輸入並儲存」迴圈和排序動作，在 &nbsp; C++-style 
+  程式中都有顯著的縮短（「輸入並儲存」迴圈的行數差異是 9 : 4，排序動作的行數差異是 
+  9 : 1）。更重要的是，在 C++ 
+  版本中，每一行所包含的邏輯遠遠簡單得多 — 
+  獲得正確性的機會當然也就多得多。</p>
+  <p>再一次，記憶體管理在 C++-style 程式中隱喻實施；當元素以 <b>push_back</b> 
+  加入，vector 便自動成長。C-style 程式則是以 <b>realloc</b> 
+  做記憶體顯式管理。出現在 C++-style 程式中的 vector 建構式和 <b>push_back</b> 
+  函式會做掉 C-style 程式中的&nbsp; <b>malloc</b>, <b>realloc</b> 
+  動作，以及對於「被配置之記憶體大小」的追蹤動作。在 C++-style 
+  程式中，我依賴異常處理（exception handling）來記錄記憶體的耗盡。在 
+  C-style 程式中，我明白地測試以避免可能的記憶體耗盡問題。</p>
+  <p>一點也不令人驚訝，C++ 
+  版本比較容易獲得正確。我以剪貼的方式從 C-style 版本產生出這個 
+  C++-style 版本。我忘記含入<b>&lt;algorithm&gt;</b>；我留下了 <b>n</b> 
+  而忘了使用 <b>buf.size</b>；此外，我的編譯器不支援局域（ local）內的 
+  using 指令，迫使我必須把它移到 <b>main</b> 
+  之外。修正了這四個錯誤之後，程式就可以正確執行了。</p>
+  <p>對一個初學者而言，<b>qsort</b> 
+  很是詭異。為什麼你必須給予元素個數？（因為陣列不知道它自己有多少個元素）為什麼你必須給予 
+  <b>double</b> 的大小？（因為 <b>qsort</b> 不知道它要排序的單位是 <b>double</b>s.）為什麼你必須寫那個醜陋的、用來比較 
+  <b>double</b>s 數值的函式？（因為 <b>qsort</b> 
+  需要一個指標指向某個函式，因為它不知道它所要排序的元素型別）為什麼 
+  <b>qsort</b> 所使用的比較函式接受的是 <b>const void*</b> 引數而不是 <b>char*</b> 
+  引數？（因為 <b>qsort</b> 可以對非字串的數值排序）<b>void*</b> 
+  是什麼意思？前面加上 <b>const</b> 
+  又是什麼意思？（唔，稍後我們再來談這個話題）對初學者解釋這些問題，恐怕很難不使他們兩眼發直。相較之下解釋 
+  <b>sort(v.begin( ), v.end())</b> 就容易得多：「單純的 <b>sort(v)</b> 
+  比較簡單，但有時候我們想要對容器的某一部份做排序，所以更一般化的方式就是指定排序運作範圍」。</p>
+  <p>為了比較效率，我首先必須決定多少筆輸入才能使效率的比較饒富意義。由於 
+  50,000 筆資料也不過是用了此程式半秒鐘不到， 因此我選擇以 500,000 
+  筆輸入和 5,000,000 筆輸入來做比較。結果顯示於<font color="#0000FF">表一</font>。</p>
+  <p><font color="#0000FF">表一 / 讀入、排序、輸出 浮點數</font></p>
+  <div align="left"><table border="1">
+    <tr>
+      <td>　</td>
+      <td><font color="#0000FF">最佳化前</font></td>
+      <td><font color="#0000FF">最佳化後</font></td>
+    </tr>
+    <tr>
+      <td>　</td>
+      <td><font color="#0000FF">C++&nbsp;&nbsp;&nbsp; C 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C/C++ 比值</font></td>
+      <td><font color="#0000FF">C++&nbsp;&nbsp;&nbsp; C 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C/C++ 比值</font></td>
+    </tr>
+    <tr>
+      <td><font color="#0000FF">500,000 筆資料</font></td>
+      <td><font color="#0000FF">3.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.1 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.74</font></td>
+      <td><font color="#0000FF">2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.1 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.04</font></td>
+    </tr>
+    <tr>
+      <td><font color="#0000FF">5,000,000 筆資料</font></td>
+      <td><font color="#0000FF">38.4&nbsp;&nbsp;&nbsp; 172.6&nbsp;&nbsp;&nbsp; 4.49</font></td>
+      <td><font color="#0000FF">27.4&nbsp;&nbsp;&nbsp; 126.6&nbsp;&nbsp;&nbsp; 4.62</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>關鍵數字在於比值。比值大於 1 表示 C++-style 
+  版本比較快。語言、程式庫、編程風格之間的比較，眾所周知十分棘手，所以請不要根據這些簡單的測試就做出徹底的結論。這些比值是不同機器上數次執行結果的平均值。同一個程式的不同執行環境，其間差異低於 
+  1 個百分比。我也執行了我這個 C-style 程式的 ISO C 
+  嚴格相容版本，一如預期，其間並沒有效率上的差異。</p>
+  <p>我預期 C++-style 程式會稍微快一點點。檢驗不同的 C++ 
+  編譯器實作品後，我發現執行結果有著令人驚訝的變化。某些時候， 
+  C-style 版本在小資料量的情況下表現優於 C++- style 
+  版本。然而本例的重點在於，我們可以面對目前已知的技術，提供一個較高階的抽象性和一個針對錯誤的較佳保護。我所使用的 
+  C++ 編譯器既普遍又便宜 — 
+  不是研究室裡的玩具。那些宣稱可以提供更高效率的編譯器，當然也適用本結果。</p>
+  <p>要找到一些人，願意在方便性和較佳的錯誤防範上面付出 3, 10 
+  或甚至 50 
+  的比值，倒也還不罕見。但如果把這些效益放在一起，再加上兩倍或四倍的速度，那就非常壯觀而吸引人了。這些數字應該是一個 
+  C++ 
+  程式庫供應商樂意接受的最小值。為了知道時間花在什麼地方，我又進行了一些額外測試（<font
+  color="#0000FF">見表二</font>）。</p>
+  <p><font color="#0000FF">表二 / 
+  讀入浮點數並排序。為瞭解輸入動作所耗費的成本，我加上一個 
+  &quot;generate&quot; 函式，用來產生隨機數值。</font></p>
+  <p><font color="#0000FF">500,000 筆資料：</font></p>
+  <div align="left"><table border="1">
+    <tr>
+      <td>　</td>
+      <td><font color="#0000FF">最佳化前</font></td>
+      <td><font color="#0000FF">最佳化後</font></td>
+    </tr>
+    <tr>
+      <td>　</td>
+      <td><font color="#0000FF">C++&nbsp;&nbsp;&nbsp; C 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C/C++ 比值</font></td>
+      <td><font color="#0000FF">C++&nbsp;&nbsp;&nbsp; C 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C/C++ 比值</font></td>
+    </tr>
+    <tr>
+      <td><font color="#0000FF">讀入資料 read</font></td>
+      <td><font color="#0000FF">2.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.8 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.33</font></td>
+      <td><font color="#0000FF">2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.8 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.4</font></td>
+    </tr>
+    <tr>
+      <td><font color="#0000FF">產生資料 generate </font></td>
+      <td><font color="#0000FF">0.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.3 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.5</font></td>
+      <td><font color="#0000FF">0.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.3 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.75</font></td>
+    </tr>
+    <tr>
+      <td><font color="#0000FF">讀入並排序 read &amp; sort </font></td>
+      <td><font color="#0000FF">3.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6.1 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.75</font></td>
+      <td><font color="#0000FF">2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.1 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.04</font></td>
+    </tr>
+    <tr>
+      <td><font color="#0000FF">產生並排序 generate &amp; sort </font></td>
+      <td><font color="#0000FF">2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.5 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.75</font></td>
+      <td><font color="#0000FF">0.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.6 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.89</font></td>
+    </tr>
+  </table>
+  </div><p><font color="#0000FF">5,000,000 筆資料：</font></p>
+  <div align="left"><table border="1">
+    <tr>
+      <td>　</td>
+      <td><font color="#0000FF">最佳化前</font></td>
+      <td><font color="#0000FF">最佳化後</font></td>
+    </tr>
+    <tr>
+      <td>　</td>
+      <td><font color="#0000FF">C++&nbsp;&nbsp;&nbsp; C 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C/C++ 比值</font></td>
+      <td><font color="#0000FF">C++&nbsp;&nbsp;&nbsp; C 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C/C++ 比值</font></td>
+    </tr>
+    <tr>
+      <td><font color="#0000FF">讀入資料 read</font></td>
+      <td><font color="#0000FF">21.5&nbsp;&nbsp;&nbsp; 29.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.35</font></td>
+      <td><font color="#0000FF">21.3&nbsp;&nbsp;&nbsp; 28.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1.34</font></td>
+    </tr>
+    <tr>
+      <td><font color="#0000FF">產生資料 generate </font></td>
+      <td><font color="#0000FF">7.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.1 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.57</font></td>
+      <td><font color="#0000FF">5.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.6 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.69</font></td>
+    </tr>
+    <tr>
+      <td><font color="#0000FF">讀入並排序 read &amp; sort </font></td>
+      <td><font color="#0000FF">38.4&nbsp;&nbsp;&nbsp; 172.6&nbsp;&nbsp;&nbsp; 4.49</font></td>
+      <td><font color="#0000FF">27.4&nbsp;&nbsp;&nbsp; 126.6&nbsp;&nbsp;&nbsp; 4.62</font></td>
+    </tr>
+    <tr>
+      <td><font color="#0000FF">產生並排序 generate &amp; sort </font></td>
+      <td><font color="#0000FF">24.4&nbsp;&nbsp;&nbsp; 147.1&nbsp;&nbsp;&nbsp; 6.03</font></td>
+      <td><font color="#0000FF">11.3&nbsp;&nbsp;&nbsp;&nbsp; 100.6&nbsp;&nbsp; 8.9</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>當然，&quot;read&quot; 僅僅只是讀入資料，&quot;read&amp;sort&quot; 
+  僅僅只是讀入資料並排序，它們都不會產生任何輸出。為了對輸入成本獲得比較好的感覺，&quot;generate&quot; 
+  用來產生隨機數值，而非從輸入設備讀入資料。</p>
+  <p>在其他的例子和其他的編譯器身上，我料想 C++ stream I/O 會比 <b>stdio</b> 
+  稍稍慢一些。本程式的前一版本使用<b> cin</b> 而非 file stream，情況的確如此。在某些 
+  C++ 編譯器上，檔案的 I/O 確實遠比 <b>cin</b> 
+  快速得多，其理由至少有一部份是因為<b> cin</b> 和 <b>cout</b> 
+  之間的繫結的拙劣處理。然而，以上數值顯示，C++-style I/O 可以像 
+  C-style I/O 一樣地有效率。</p>
+  <p>如果改變這些程式，使它們讀入並排序的對象是整數而非浮點數，並不會改變相對效率 
+  — 雖然我們可以驚喜地發現，這種改變對 C++-style 
+  程式而言實在非常簡單（只需兩個改變，C-style 程式需要 12 
+  個改變）。這對於易維護性是一個好兆頭。 &quot;generate&quot; 
+  測試所呈現的差異顯示出配置所花費的成本。一個 <b>vector</b> 加上 <b>push_back</b> 
+  應該就像一個陣列加上 <b>malloc/free</b> 
+  一樣快，但實際卻非如此。其原因是難以在最佳化過程中將「什麼事都沒做的初值設定列（ 
+  initializers）」的呼叫動作去除。幸運的是，配置所引發的成本，在輸入（造成配置需求）所引發的成本面前，幾乎總是顯得渺小。至於<b> 
+  sort</b>，一如預期遠比 <b>qsort</b> 快得多，主要原因是 <b>sort</b> 
+  內的比較動作是行內展開（inlines），而 <b>qsort</b> 
+  必須呼叫某個函式。</p>
+  <p>實在很難選擇一個例子可以好好說明效率議題。我從同事身上獲得的意見是，讀入並比較「數值」還不夠寫實，應該讀入「字串」並排序。所以我寫了以下程式：</p>
+  <pre>#include&lt;vector&gt;
+#include&lt;fstream&gt;
+#include&lt;algorithm&gt;
+#include&lt;string&gt;
+
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+    char* file = argv[2];   // 輸入檔的檔名
+    char* ofile = argv[3];  // 輸出檔的檔名
+
+    vector&lt;string&gt; buf;
+    
+    fstream fin (file,ios::in);
+    string d;
+    while (getline (fin, d))
+        buf.push_back (d);
+        
+    sort(buf.begin(), buf.end());
+    
+    fstream fout (ofile, ios: out);
+    copy(buf.begin(), buf.end(),
+        ostream_iterator&lt;string&gt; (fout, &quot;\n&quot;));
+}
+</pre>
+  <p>我把它改寫為 C 的型式，並設法讓字元的讀入得以最佳化。C++-style 
+  版本執行得很好 — 即使是面對經過手動調整而達到最佳化效果的 
+  C-style 
+  版本（後者消除了字串的拷貝動作）。對於小量輸出而言，沒有什麼顯著差異，但對於大量資料而言，<b>sort</b> 
+  再一次擊敗了 <b>qsort</b>，因為其較佳的行內展開（inlines），見<font
+  color="#0000FF">表三</font>。</p>
+  <p><font color="#0000FF">表三 / 讀入、排序、輸出 字串</font></p>
+  <div align="left"><table border="1" width="548">
+    <tr>
+      <td width="124">　</td>
+      <td width="47"><font color="#0000FF">C++</font></td>
+      <td width="48"><font color="#0000FF">C</font></td>
+      <td width="62"><font color="#0000FF">C/C++ <br>
+      比值</font></td>
+      <td width="112"><font color="#0000FF">C，去除<br>
+      字串拷貝動作</font></td>
+      <td width="119"><font color="#0000FF">最佳化後的<br>
+      C/C++ 比值</font></td>
+    </tr>
+    <tr>
+      <td width="124"><font color="#0000FF">500,000 筆資料</font></td>
+      <td width="47"><font color="#0000FF">8.4</font></td>
+      <td width="48"><font color="#0000FF">9.5</font></td>
+      <td width="62"><font color="#0000FF">1.13</font></td>
+      <td width="112"><font color="#0000FF">8.3</font></td>
+      <td width="119"><font color="#0000FF">0.99</font></td>
+    </tr>
+    <tr>
+      <td width="124"><font color="#0000FF">2,000,000 筆資料</font></td>
+      <td width="47"><font color="#0000FF">37.4</font></td>
+      <td width="48"><font color="#0000FF">81.3</font></td>
+      <td width="62"><font color="#0000FF">2.17</font></td>
+      <td width="112"><font color="#0000FF">76.1</font></td>
+      <td width="119"><font color="#0000FF">2.03</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>我採用兩百萬筆字串，因為我沒有足夠的主記憶體來容納五百萬個字串而不引起分頁置換（paging）。</p>
+  <p>為了知道時間花費在哪裡，我也執行了刻意遺漏 <b>sort</b> 
+  的程式（見<font color="#0000FF">表格四</font>）。我所準備的字串相對較短（平均由七個字元構成）。</p>
+  <p><font color="#0000FF">表四 / 讀入並輸出字串 — 刻意遺漏 <b>sort</b></font></p>
+  <div align="left"><table border="1" width="548">
+    <tr>
+      <td width="124">　</td>
+      <td width="47"><font color="#0000FF">C++</font></td>
+      <td width="48"><font color="#0000FF">C</font></td>
+      <td width="62"><font color="#0000FF">C/C++ <br>
+      比值</font></td>
+      <td width="112"><font color="#0000FF">C，去除<br>
+      字串拷貝動作</font></td>
+      <td width="119"><font color="#0000FF">最佳化後的<br>
+      C/C++ 比值</font></td>
+    </tr>
+    <tr>
+      <td width="124"><font color="#0000FF">500,000 筆資料</font></td>
+      <td width="47"><font color="#0000FF">2.5</font></td>
+      <td width="48"><font color="#0000FF">3.0</font></td>
+      <td width="62"><font color="#0000FF">1.2</font></td>
+      <td width="112"><font color="#0000FF">2</font></td>
+      <td width="119"><font color="#0000FF">0.8</font></td>
+    </tr>
+    <tr>
+      <td width="124"><font color="#0000FF">2,000,000 筆資料</font></td>
+      <td width="47"><font color="#0000FF">9.8</font></td>
+      <td width="48"><font color="#0000FF">12.6</font></td>
+      <td width="62"><font color="#0000FF">1.29</font></td>
+      <td width="112"><font color="#0000FF">8.9</font></td>
+      <td width="119"><font color="#0000FF">0.91</font></td>
+    </tr>
+  </table>
+  </div><p>　</p>
+  <p>注意，<b>string</b> 
+  是一個很完美的使用者自定型別，而它只不過是標準程式庫的一部份而已。如果我們能夠因為使用<b> 
+  string</b> 
+  而獲得效率和精緻，我們也能夠因為使用其他使用者自定型別而獲得效率和精緻。</p>
+  <p>為什麼我要在編程風格和教學的文章中討論效率呢？因為，編程風格以及我們所教導的技術，必須為真實世界的問題服務。 
+  C++ 
+  的創造是為了運用於大規模系統以及對效率有嚴格規範的系統。因此我認為，如果 
+  C++ 
+  的某種教育方式會導致人們所使用的編程風格和技術只在玩具程式中才有效率可言，那是令人無法茍同的，那會使人們挫敗並因而放棄學習。以上的量測結果顯示，如果你的 
+  C++ 風格極為依賴泛型編程（generic programming）和具象型別，以此提供更簡單更達到「型別安全（type-safe）」的碼，其效率可以和傳統的 
+  C 風格一較長短。類似的結果在物件導向（object-oriented）風格中也可獲得。</p>
+  <p>不同的標準程式庫實作品的效率表現，有戲劇性的差異，這是一個重要問題。對一個決定大量依賴標準程式庫（或廣為流傳的非標準程式庫）的程式員而言，很重要的一點是，你所採用的編程風格應該能夠在不同的系統上都有至少可被接受的效率。我很驚駭地發現，我的測試程式在某個系統上，C++ 
+  style 和 C style 
+  相比有兩倍快，而在另一個系統上卻只有一半快。如果系統間的變動因素超過 
+  4，程式員就不該接受。就我所能理解，這種變異性並非由於基本因素而形成，所以不需要程式庫實作者過份誇張的努力，就應該可以達到效率的一致性。採用優化程度較佳的程式庫，或許是改善對標準 
+  C++ 
+  的認知和實際效率表現的最輕易方式。是的，編譯器實作者很努力地消除各個編譯器之間的微小效率差異；我估量在效率方面，標準程式庫的實作者影響較大。</p>
+  <p>很明顯，上述 C++-style 解法相較於 C-style 
+  解法所帶來的編程與邏輯上的簡化，可以藉由 C++ 
+  標準程式庫而達到。這樣的比較是否不夠實在或不夠公平呢？我不這麼認為。C++ 
+  的一個關鍵形貌就是，它對程式庫的支援能力，精緻而且高效。上述簡單程式所展現的種種優點，在任何應用領域中都可以保持 
+  — 只要其間存在著精緻而高效率的程式庫。C++ 
+  族群的挑戰在於擴充領域，讓一般程序員也都享受得到這些利益。也就是說，我們必須針對更多應用領域，設計並實作精緻而富有效率的程式庫，並讓這些程式庫被廣泛運用。</p>
+  <h4><font color="#000080">學習 </font><font color="#000080" face="Garamond">C++</font></h4>
+  <p>即使是專業程序員，也不可能一開始就先將整個語言的全貌學習完畢，然後才開始使用它。程式語言應該要分段學習，以小型的練習來試驗其種種設施。所以我們總是以分段精通的方式來學習一個語言。真正的問題不在於 
+  &quot;我應該先學習語言的一部份嗎？&quot; 而在於 &quot;我應該先學習語言的哪一部份？&quot;</p>
+  <p>關於這個問題，傳統的回答是 &quot;先學習 C++ 中與 C 相容的子集&quot;。但是從我所思考的觀點來看，這不是一個好答案。這種學習法會導致過早專注於低階細節。它也會因為強迫學生過早面對許多技術難點而模糊了編程風格與設計上的議題，進而壓抑了許多有趣的東西。本文先前的兩個例子已經說明這一點。C++ 
+  擁有較佳的程式庫支援，較佳的表示法，較佳的型別檢驗，無疑地在在對於 
+  &quot;C 優先&quot; 
+  的作法投了一張反對票。然而，注意，我也並不是說要 &quot;純粹的物件導向編程風格為最優先&quot;。我認為那又是另一種極端。</p>
+  <p>對於編程初學者而言，學習一個編程語言，應該涵蓋具有實際效益的編程技術。對一個編程經驗豐富但對 
+  C++ 陌生的程式員而言，其學習應該專注於如何在 C++ 
+  中表現具有實際效益的編程技術，以及對他自己而言嶄新的技術。經驗豐富的程式員所面臨的最大陷阱往往在於企圖以 
+  C++ &nbsp; 
+  來表現其他語言的效益。不論對初學者或有經驗的程式員而言，重點都應該是觀念和技術。了解 
+  C++ 的語法和語意細節，相對於了解 C++ 
+  所支援的設計和編程技術，是次要的。</p>
+  <p>教學最好是從經過良好挑選的具象實例開始，然後往更一般化更抽象的方向走去。這是孩童的學習方式，也是我們大部份人領悟新觀念的方式。語言特性應該總是表現在他們所運用的環境上。否則程式員的焦點便會從產品本身移轉到技術的艱澀面。專注於語言技術細節，可能很有趣，但卻不是高效益的教育方式。</p>
+  <p>從另一方面說，僅僅把編程工作視為分析和設計之後的一種勞力行為，也是不對的。擱置實際程式碼的討論，直到每一個高階議題以及工程主題都已徹底呈現，這種作法對許多人而言將會是一種成本高昂的錯誤。這種作法會驅使人們遠離編程實際工作並導致許多人嚴重低估產生一個高品質程式的智力挑戰。</p>
+  <p>「設計優先」的極端反面就是，拿起一個 C++ 
+  編譯器來就開始寫碼幹活。遭遇一個問題，就點選一下螢幕，看看線上說明提供了什麼幫助。這種作法的問題在於其重心完全傾斜，只著重個別特性和個別設施的了解。泛用性的概念和技術不容易以這種方式學習得到。對於有經驗的程式員，這種方式帶來的額外問題就是，它會擴大某種傾向，在運用 
+  C++ 
+  語法和程式庫所提供的函式時，無可避免地聯想先前用過的語言。對於初學者，那會造成許多 
+  if-then-else 
+  碼，混合著某些節錄自廠商提供的範例的片段。節錄並進來的程式碼，其原始目的對初學者而言往往朦朧而晦暗，為了達到效果，其所採用的手法亦可能完全超出可理解的範圍。即使你才智過人，恐怕也難逃此下場。這種改寫而後截用的學習方式，做為一個好課程或一本好教科書的附添物，可能最為有用，但它本身其實很容易導致災難。</p>
+  <p>簡略地說，我推薦的方式是：<ul>
+    <li>先具象，再抽象 </li>
+    <li>以語言所支援的編程技術和設計技術，來表現語言的特性。&nbsp; </li>
+    <li>在走向低階細節之前（那對於建立程式庫是有必要的），先仰賴相對高階的程式庫。 
+    </li>
+    <li>避免那些無法納入真實世界的技術。 </li>
+    <li>進入細節之前，先認識共通而有用的技術和性質 </li>
+    <li>專注於概念和技術（而不是語言本身的性質）</li>
+  </ul>
+  <p>喔不，我並不認為這樣的教學方式特別新奇或帶有明顯的革新。我視它們為一種常識。然而，常識往往在更激昂的討論中被大家捨棄了，例如討論是否應該在學習 
+  C++ 之前先學習 C、是否你必須寫過 Smalltalk 
+  才能真正了解物件導向編程精神、是否你一定得從一個純粹 OO 
+  的方式（不管那究竟代表什麼意思）開始學習編程、是否有必要在嘗試寫任何碼之前先對軟體開發程序做一個徹底的了解。</p>
+  <p>幸運的是，C++ 
+  族群已經有了某些經驗，他們的學習方式符合我的標準。我最喜歡的方式是，一開始先教導基本的語言概念如變數，宣告，迴圈等等，以及一個優良的程式庫。這個程式庫能夠讓學生把心力集中在編程身上，而非紛紛亂亂的雜務像是 
+  C-style 字串等等。我推薦使用 C++ 
+  標準程式庫或是其中某個子集。這種作法正被美國高中的計算機科學資優班課程所採用<font
+  color="#0000FF"> [參考資料 2]</font>。瞄準經驗豐富的程式員而設計的更先進教育方式也已經實證成功，實例請看 
+  <font color="#0000FF">[參考資料 3]</font>。</p>
+  <p>這些特定教學法的罩門在於，無法早期就提供一個簡單的圖形程式庫，和一個標準程式庫圖形使用介面。這一點很容易彌補，只要我們有一個很簡單的程式庫商業化介面就行了。所謂很簡單，我意思是在 
+  C++ 
+  課程的第二天，學生就能夠上手。不過，目前並沒有這樣簡單而又被廣泛使用的圖形程式庫以及 
+  C++ 程式庫圖形使用介面。</p>
+  <p>通過最初的教學（極度倚重程式庫）之後，課程可以根據學生的需要和興趣，往不同的方向進行。某些時候某些場合，即使是 
+  C++ 
+  那些令人頭皮發麻的低階性質也有必要驗證之。教導（或學習）指標，轉型，配置等等的方法之一，就是驗證那些被用來做為學習基礎的 
+  classes 究竟如何實作。例如 <b>string</b>, <b>vector</b> 和 <b>list</b> classes 
+  的實作細節，對於探討「從 C 到 C++ 
+  的語言設施進化」課程而言就是絕佳題材與內容。但這最好不要安排在課程的第一階段。</p>
+  <p>像 <b>vector</b> 和 <b>string</b> 這樣的類別 classes，用來管理數量不定的資料，必須在其實作碼中使用自由空間和指標。在導入那些特性之前，某些並不需要該特性的 
+  classes — 例如具象的 <b>Date</b>, <b>Point</b> 和 <b>Complex</b> — 
+  也可以被用來做為 class 實作技術的入門。</p>
+  <p>我傾向於在討論過容器和其實作技術之後再來介紹抽象的 classes 和 
+  classes 
+  的繼承，但這裡面有許多方向與選擇。主題的實際安排次序應該視程式庫的運用而定。例如，一個運用了圖形程式庫（這種東西必然大量仰賴類別繼承）的課程，就需要在較早的時候引入對多型（polymorphism）以及衍生類別（derived 
+  classes）的介紹。</p>
+  <p>最後，請記住，學習和教育 C++（及其相應的設計與編程技術），並沒有什麼唯一正確的法門。畢竟，學生的目標與背景大不相同，老師和教科書作者的背景和經驗也大不相同。</p>
+  <h4><font color="#000080">摘要</font></h4>
+  <p>我們希望我們的程式容易撰寫，執行正確，易於維護，而且其效率表現可被接受。為了達到這些目的，我們必須在較高的抽象層次上進行設計和編程。透過程式庫的運用，這樣的想法可以達成，無需損失低階風格所享有的效率。因此，請站在程式庫的肩膀上，站在被廣泛使用並具有一致性的更多程式庫（例如 
+  C++ 標準程式庫）肩膀上。程式庫愈被更廣泛運用，愈可以為 C++ 
+  族群帶來更大的利益。</p>
+  <p>移往更乾淨更高階的編程風格的過程中，教育必須扮演主要角色。C++ 
+  社群不需要那種總使用最低階語言特性和最低階程式庫設施的程式員 
+  — 他們時時把自己誤放在效率不足的恐懼之中。C++ 
+  初學者，以及有經驗的 C++ 
+  程式員，都必須在歷經一些課程訓練之後，把標準 C++ 
+  當做一個更新而更高階的語言，只在絕對必要的時候才將抽象性下降到較低層次。把標準 
+  C++ 拿來當做一個美化後的 C 或美化後的 C with Classes 
+  來耍弄，只是浪費了標準 C++ 所提供的美好機會。 </p>
+  <h4><font color="#000080">致謝</font></h4>
+  <p>感謝 Chuck Allison 建議我寫一篇如何學習標準 C++ 的文章。感謝 Andrew 
+  Koenig 和 Mike Yang 對初稿提供了建設性的意見。我的程式以 Cygnus 的 
+  EGCS 1.1 編譯，執行於 Sun Ultrasparc 10。文章中的程式可以從我的網頁取得：<br>
+  <b>http://www.research.att.com/~bs</b>.</p>
+  <h4><font color="#000080">註釋</font></h4>
+  <p><font color="#0000FF">[註 1]</font> 為了美學的理由，我採用 C++ 
+  風格的符號常數和 C++ 風格的<b> //</b> 註解。如果要嚴格服從 ISO C 
+  的規範，應該使用 <b>#define</b> 和 <b>/* */</b> 註解。</p>
+  <p><font color="#0000FF">[註 2] </font>我知道，在這裡，C 
+  允許我們不做顯式轉型動作。然而其所帶來的成本是，可以將一個 <b>void*</b> 
+  隱式轉換為任意指標型別，而那是不安全的。所以 C++ 
+  要求必須有明白的轉型動作。</p>
+  <h4><font color="#000080">參考資料</font></h4>
+  <p><font color="#0000FF">[1]</font> X3 Secretariat. <i>Standard </i>—<i> The C++ 
+  Language.</i> ISO/IEC 14882:1998(E). Information Technology Council (NCITS). Washington, 
+  DC, USA. (見 <b>http://www.ncits.org/cplusplus.htm</b>).</p>
+  <p><font color="#0000FF">[2]</font> Susan Horwitz. <i>Addison-Wesley’s Review for the 
+  Computer Science AP Exam in C++</i> (Addison-Wesley, 1999). ISBN 0-201-35755-0.</p>
+  <p><font color="#0000FF">[3]</font> Andrew Koenig and Barbara Moo. &quot;Teaching Standard 
+  C++,&quot; Parts 1-4, <i>Journal of Object-Oriented Programming,</i> Vol 11 (8,9) 1998 and 
+  Vol 12 (1,2) 1999.</p>
+  <p><font color="#0000FF">[4]</font> Bjarne Stroustrup. <i>The C++ Programming language</i> 
+  (Third Edition) (Addison-Wesley, 1997). ISBN 0-201-88954-4.</p>
+  <p><strong><font color="#0000FF">作者</font></strong>：Bjarne Stroustrup 是 C++ 
+  語言設計者和第一位實作者。他是 The C++ Programming Language 和 The Design 
+  and Evolution of C++ 
+  的作者。他的研究興趣包括分散式系統，作業系統，模擬，設計，以及編程。他是 
+  AT&amp;T 研究員，也是 AT&amp;T 
+  實驗室的「大型編程研究」部門領導人。他的活動涉及 C++ 的 ANSI/ISO 
+  標準化。他是 1993 ACM Grace Murray Hopper award 的得主，也是一位 ACM 
+  特別研究員。</p>
+  <p><font color="#0000FF"><strong>譯者</strong></font>：<font color="#000000">陳崴，自由撰稿人，專長 
+  C++/Java/OOP/Genericity。慣以熱情的文字表現冰冷的技術，以冷冽的文字表現深層的關懷。</font></p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<html>// vc6[x]  cb4[o]  g++[o]
+// vc6 不能成功是因為 vc6 的 <iostream> 不支援 friend。
+// 這是 vc6 的一個 bug。見 "C++ 答客問 (27)".
+
+// 本例要測試 sort 和 stable_sort，而且 conatiner 的元素是 class type。
+
+#include <iostream>
+#include <vector>
+#include <set>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+class student
+{
+  friend ostream& operator<<(ostream& os, const student& rhs);
+public:
+  // constructor
+  student(string name, int cscore, int mscore)
+    : _name(name), _cscore(cscore), _mscore(mscore) {  }
+  // copy constructor
+  student(const student& rhs)
+    : _name(rhs._name), _cscore(rhs._cscore), _mscore(rhs._mscore) {  }
+
+  // 我設計這個 operator< 是為了 sort() 之用。原本我並非設計為
+  //   'const' member function，無法通過編譯！
+  //   william : 在函式最後加上 const，即可通過 BCB4 和 G++2.81
+  bool operator<(const student& rhs) const
+    {  return (this->_cscore < rhs._cscore); }  // 以國學分數高低做為比較標準
+
+  int cscore() { return _cscore; }
+  int mscore() { return _mscore; }
+
+private:
+  string _name;  // 人名
+  int _cscore;   // 國學分數
+  int _mscore;   // 數學分數
+};
+
+ostream& operator<<(ostream& os, const student& rhs)
+{
+  cout << '<' << rhs._name << ','
+              << rhs._cscore << ','
+              << rhs._mscore
+       << '>';
+  return os;
+}
+
+void printstudent(const student& elem)
+{   cout << elem;  }
+
+// 以國學分數高低做為比較標準
+bool lessthan_cscore(const student& lhs, const student& rhs)
+{   return lhs.cscore() < rhs.cscore();  }
+
+// 以數學分數高低做為比較標準
+bool lessthan_mscore(const student& lhs, const student& rhs)
+{   return lhs.mscore() < rhs.mscore();  }
+
+int main()
+{
+  vector<student> v;
+  v.push_back(student("蘇軾", 99, 20));
+  v.push_back(student("杜甫", 99, 20));
+  v.push_back(student("侯捷", 59, 95));
+  v.push_back(student("李白", 99, 20));
+  v.push_back(student("孔融", 95, 30));
+  v.push_back(student("韓愈", 95, 40));
+
+  /* 測試 operator< 和兩個 comparison functions
+  cout << (v[0] < v[2]) ;   // 0
+  cout << (v[1] < v[2]) ;   // 0
+  cout << (v[2] < v[2]) ;   // 0
+  cout << lessthan_cscore(v[0], v[2]) ;   // 0
+  cout << lessthan_cscore(v[1], v[2]) ;   // 0
+  cout << lessthan_cscore(v[2], v[2]) ;   // 0
+  cout << lessthan_mscore(v[0], v[2]) ;   // 1
+  cout << lessthan_mscore(v[1], v[2]) ;   // 1
+  cout << lessthan_mscore(v[2], v[2]) ;   // 0
+  */
+
+  for_each(v.begin(), v.end(), printstudent);
+  cout << endl;
+  // <蘇軾,99,20><杜甫,99,20><侯捷,59,95><李白,99,20><孔融,95,30><韓愈,95,40>
+
+  stable_sort(v.begin(), v.end());
+  for_each(v.begin(), v.end(), printstudent);
+  cout << endl;
+  // <侯捷,59,95><孔融,95,30><韓愈,95,40><蘇軾,99,20><杜甫,99,20><李白,99,20>
+
+  sort(v.begin(), v.end());
+  for_each(v.begin(), v.end(), printstudent);
+  cout << endl;
+  // <侯捷,59,95><孔融,95,30><韓愈,95,40><蘇軾,99,20><杜甫,99,20><李白,99,20>
+
+  // 根據 csorce 來排序
+  stable_sort(v.begin(), v.end(), lessthan_cscore);
+  for_each(v.begin(), v.end(), printstudent);
+  cout << endl;
+  // <侯捷,59,95><孔融,95,30><韓愈,95,40><蘇軾,99,20><杜甫,99,20><李白,99,20>
+
+  // 根據 msorce 來排序
+  stable_sort(v.begin(), v.end(), lessthan_mscore);
+  for_each(v.begin(), v.end(), printstudent);
+  cout << endl;
+  // <蘇軾,99,20><杜甫,99,20><李白,99,20><孔融,95,30><韓愈,95,40><侯捷,59,95>
+
+  // 注意，我本以為所謂先依某值來排序，再依另一值來排序，只要使用
+  //   stable_sort 即可達到目的。但非如此。我想正確作法應該是，根據 key1
+  //   排序一次後，利用 find 找出一段段 key1 相同的範圍，再根據 key2，在
+  //   此範圍中以 stable_sort 排序。第二次排序全部完成後，再利用 find 找出
+  //   一段段 key2 相同的範圍，再根據 key3，在此範圍中以 stable_sort 排序。
+  //   依此類推…。
+}
+
+

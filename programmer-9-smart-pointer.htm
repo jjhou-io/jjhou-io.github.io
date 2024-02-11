@@ -1,0 +1,921 @@
+<html>
+
+<head>
+<title>為智能指標實作 operator-&gt;*</title>
+</head>
+
+<body BGCOLOR="#ffffff" LINK="#0000ff" VLINK="#330066" ALINK="#ff0000" TEXT="#000000">
+<!--Copyright &#169; Dr. Dobb's Journal-->
+
+<hr>
+
+<h2 ALIGN="center"><font color="#800000">為</font><font color="#0000FF">智能指標</font><font
+color="#800000">實作 operator-&gt;*<br>
+<br>
+<small><small>Implementing <i>operator-&gt;*</i> for </font><font color="#0000FF">Smart 
+Pointers</font></small></small><font color="#800000"><br>
+<small><small>(<i>Dr. Dobb's Journal</i> October 1999/10)</small></small></font></h2>
+
+<h3 ALIGN="center"><font color="#800000">作者：Scott Meyers<br>
+譯者：陳崴</font></h3>
+
+<blockquote>
+  <p align="center">侯捷註：本文係北京《程序員》雜誌 2001/09 
+  的文章。譯筆順暢，技術飽滿。<br>
+  承譯者<font color="#000000">陳崴先生與</font>《程序員》<font color="#000000">雜誌負責人蔣濤先生答允，<br>
+  轉載於此，以饗臺灣讀者，非常感謝。<br>
+  <br>
+  未得陳崴先生與蔣濤先生二人之同意，任何人請勿將此文再做轉載。</font></p>
+</blockquote>
+
+<hr>
+
+<p><font color="#FF0000">譯註：</font>以下是本文所採用的幾個特別請讀者注意的術語：<br>
+<br>
+client ：客端。<br>
+type：型別。為避免和其他近似術語混淆，本文譯為「型別」而非「類型」。<br>
+instantiated：具現化。「針對一個 template，具體實現出一份實體」的意思。<br>
+instance：實體。「案例」是錯誤的譯法。<br>
+parameter：參數。或稱型式參數，形參。<br>
+argument：引數。或稱實質參數，實參。<br>
+user-defined：使用者自定<br>
+<br>
+至於 class, object, data member, member function, constructor, destructor, template 
+等術語，皆保留不譯。</p>
+
+<hr>
+
+<p>當我撰寫 <i>More Effective C++: 35 Ways to Improve Your Programs and Designs</i> 
+(Addison-Wesley, 1995) 時，我在其中探討了一個主題：<font color="#0000FF">智能指標（smart 
+pointers）</font>。結果，我收到許多詢問，其中最有趣的一個問題來自 
+Andrei Alexandrescu，他問到：『一個真正很有智能的智能指標，該不該對 
+operator-&gt;* 
+實施多載化呢？我從未看過有人那麼做』。是啊，我也從未看過有人那麼做，所以我決定試試。我所獲得的結果深具啟發意義，遠比「實現 
+<i>operator-&gt;</i>*」更多，其中涉及極有趣也極有用的 templates 
+運用方式。</p>
+
+<h3><font color="#0000FF">檢閱 <i>operator-&gt;*</i></font></h3>
+
+<p>如果你和絕大多數程式員一樣，你大概不曾用過 <i>operator-&gt;</i>*。因此，在我解釋如何針對智能指標實作這個 
+operator 之前，我得先帶你檢閱一下它的內建行為。 </p>
+<DDJADVERTISEMENT INLINE>
+
+<p>假設有一個 class C，一個指標 <i>pmf</i> ，用以指向 C 的無參數 member 
+function，以及一個指標 <i>pc</i>，用以指向 C object。以下運算式：</p>
+
+<blockquote>
+  <p>(pc-&gt;*pmf)();&nbsp;&nbsp; // 在 *pc 身上喚起 member function *pmf。 </p>
+</blockquote>
+
+<p>會在「<i>pc</i> 所指的那個 object」身上喚起 <i>pmf</i> 所指的那個 
+member function。一如<font color="#8080FF">程式列表一</font>所示，一個指向 
+member functions 
+的指標，其行為類似指向一般函式的指標，只是語法稍稍複雜些而已。透過這種方式來寫碼，環繞 
+<i>pc-&gt;</i>*<i>pmf</i> &nbsp; 
+的小括號是必要的，因為編譯器會把以下式子：</p>
+
+<blockquote>
+  <p>pc-&gt;*pmf();&nbsp;&nbsp; 　// 錯誤！</p>
+</blockquote>
+
+<p>視為： </p>
+
+<blockquote>
+  <p>pc-&gt;*(pmf()); 　// 錯誤！</p>
+</blockquote>
+
+<p><a NAME="l2">　</p>
+</a>
+
+<h4>程式列表一</h4>
+<a NAME="l1">
+
+<pre>class Wombat {          // wombats 是澳洲特產的一種有袋動物，
+public:                 // 看起來有點像狗。
+
+    int dig();          // 傳回 depth dug
+    int sleep();        // 傳回 time slept
+};
+
+typedef int (<font
+color="#0000FF">Wombat::*</font>PWMF)(); // PWMF：一個</a>指向<a NAME="l1"> Wombat member function 的指標。
+Wombat *pw = new Wombat;  
+
+PWMF pmf = &amp;Wombat::dig;   // 令 pmf 指向 Wombat::dig
+(<font
+color="#0000FF">pw-&gt;*</font>pmf)();              // 這和 pw-&gt;dig(); 相同。
+pmf = &amp;Wombat::sleep;      // 令 pmf 指向 Wombat::sleep
+(<font
+color="#0000FF">pw-&gt;*</font>pmf)();              // 這和 pw-&gt;sleep(); 相同。
+</pre>
+</a>
+
+<p>　</p>
+
+<h3><font color="#0000FF">為支援 <i>operator-&gt;* </i>而做的設計</font></h3>
+
+<p>就像許多運算子一樣，<i>operator-&gt;</i>* 
+也是二元的：它接受兩個引數。當我們針對智能指標實作 <i>operator-&gt;</i>*時，其左引數是個智能指標，指向一個型別為 
+T 的物件。其右引數是個指標，指向 class T 的一個 member function。<font
+color="#8080FF">呼叫 <i>operator-&gt;</i>*之後，我們對其回傳值唯一能做的事情就是給它一個參數列，使它成為一個「函式呼叫」。所以，<i>operator- 
+&gt;</i>* 的回傳型別必須是某種「<i>operator()</i>（所謂 function call 
+operator）得以施行於上」的東西。<i>operator-&gt;</i>* 的回傳值代表一個<font
+FACE="新細明體">審理中的、未完成的</font>函式呼叫，所以我把<i> 
+operator-&gt;</i>* 傳回的物件型別稱為<i> PMFC</i>，意思是一個 &quot;Pending 
+Member Function Call.&quot;</font></p>
+
+<p>把這些整合在一起，於是我們獲得<a NAME="rl2"></a><font color="#8080FF">程式列表二</font>的虛擬碼（pseudocode）：</p>
+
+<p>　</p>
+
+<h4>程式列表二（pseudocode）<a NAME="l2"></h4>
+
+<pre>class <font color="#0000FF">PMFC</font> {               // &quot;Pending Member Function Call&quot;
+public:
+    ...
+    <font
+color="#0000FF"><b>return type</b></font> <font color="#FF0000">operator()</font>(<font
+color="#0000FF"> <b>parameters</b></font> ) const;	// 譯註(1)
+    ...
+};
+
+template&lt;typename T&gt;        // template，用於 T 智能指標，可以支援 operator-&gt;*。
+class SP {                  
+public:
+    ...
+    const <font
+color="#0000FF">PMFC</font> <font color="#FF0000">operator-&gt;*</font>( <font
+color="#0000FF"><b>return type</b> (T::*</font><font color="#000000">pmf</font><font
+color="#0000FF">)(<b> parameters</b> ) </font>) const;	// 譯註(2)
+    ...
+};
+// 譯註：上述(1)的 return type 和 parameters 必須和 (2) 中的對應物完全一樣。</pre>
+</a>
+
+<p>　</p>
+
+<p>由於每一個 <i>PMFC</i> object 都代表著一個未完成的呼叫：呼叫 <i>operator-&gt;</i>* 
+所接收到的 member function，因此 member function 和 <i>PMFC::operator()</i> 
+所期待的參數列完全相同。為了簡化事情，我假設<i> T</i> 的 member 
+functions 
+不接受任何引數（稍後我會移除這項限制），這意味你可以將程式列表二重新定義為<font
+color="#8080FF">程式列表三</font>。 </p>
+
+<p>　</p>
+
+<h4>程式列表三<a NAME="l2"></h4>
+</a><a NAME="l3">
+
+<pre>class PMFC {
+public:
+    ...
+    <font color="#0000FF"><b>return type</b></font> <font
+color="#FF0000">operator()</font>() const;
+    ...
+};
+
+template&lt;typename T&gt;
+class SP { 
+public:
+   ...
+    const PMFC <font
+color="#FF0000">operator-&gt;*</font>( <font color="#0000FF"><b>return type</b> (T::*</font><font
+color="#000000">pmf</font><font color="#0000FF">)()</font> ) const;
+    ...
+};
+</pre>
+</a>
+
+<p>　</p>
+
+<p>上述「<i>pmf</i>&nbsp; 所指向之 member function」的回傳型別究竟會是什麼呢？可能是 
+<i>int</i>, <i>double</i>, 也可能是 <i>const Wombat</i>&amp;。是的，它可能是任何型別。你應該將這種無窮可能的組合以 
+template 來表現。於是，<i>operator-&gt;</i>* 現在變成了一個 member function 
+template。此外，<i>PMFC</i> 也變成了一個 template，因為不同的「<i>operator-&gt;</i>* 
+具現體」會傳回不同型別的 <i>PMFC</i> objects。每個 <i>PMFC</i> object 
+在其 <i>operator()</i> &nbsp;被喚起時，都必須知道回傳型別是什麼。</p>
+
+<p>一旦將它模板化（templatization）之後，你便可以捨棄虛擬碼（pseudocode），寫出真正的 
+<i>PMFC</i> 和 <i>SP::operator-&gt;</i>*，如<a NAME="rl4"></a><font color="#8080FF">程式列表四</font>。</p>
+
+<p>　</p>
+
+<h4>程式列表四<a NAME="l2"></h4>
+</a><a NAME="l4">
+
+<pre><font color="#0000FF">template&lt;typename ReturnType&gt;</font>   // template，用於一個「回傳型別為 ReturnType」的
+class PMFC {                    // 未完成的 member function call。
+public:
+    ...
+    <font
+color="#0000FF">ReturnType</font> <font color="#FF0000">operator()</font>() const;
+    ...
+};
+
+template&lt;typename T&gt;
+class SP { 
+public:
+    ...
+    <font
+color="#0000FF">template&lt;typename ReturnType&gt;</font>
+        const PMFC<font
+color="#0000FF">&lt;ReturnType&gt;</font>
+            <font color="#FF0000">operator-&gt;*</font>( <font
+color="#0000FF">ReturnType (T::*</font><font color="#000000">pmf</font><font
+color="#0000FF">)()</font> ) const;
+    ...
+};
+</pre>
+</a>
+
+<p>　</p>
+
+<h3><font color="#0000FF">無任何參數的 Member Functions</font></h3>
+
+<p>身為一個未完成的 member function call，<i>PMFC</i> 
+需要知道兩樣東西，才能實作其 <i>operator()</i>：(1) 
+它究竟要呼叫哪個 member function，(2) 在哪個 object 身上喚起該 member 
+function。<i>PMFC</i> constructor 
+應該是索取這些引數的一個合適地點。此外，將上述兩樣東西放在一個標準的 
+pair object 內似乎也是個好主意。於是我們獲得<font color="#8080FF">程式列表五</font>。</p>
+
+<p>　</p>
+
+<h4>程式列表五<a NAME="l2"></h4>
+</a><a NAME="l5">
+
+<pre>template&lt;typename <font color="#FF00FF">ObjectType</font>,        // 提供 mem func 的那個 class。
+         typename <font
+color="#0000FF">ReturnType</font>,        // mem func 的回傳型別。
+         typename <font
+color="#FF00FF">MemFuncPtrType</font>&gt;    // mem func 的完整標記。
+class PMFC { 
+public:
+    typedef std::pair&lt;<font
+color="#FF00FF">ObjectType*, MemFuncPtrType</font>&gt; CallInfo;
+
+    PMFC(const CallInfo&amp; info): callInfo(info) {}
+    <font
+color="#0000FF">ReturnType</font> <font color="#FF0000">operator()</font>() const 
+        { return (<font
+color="#0000FF">callInfo.first</font><font color="#FF0000">-&gt;*</font><font
+color="#0000FF">callInfo.second</font>)(); } 
+private:
+    CallInfo callInfo;
+};
+</pre>
+</a>
+
+<p>　</p>
+
+<p>乍見之下雖然似乎很複雜，其實相當簡單。當你產生一個 <i>PMFC</i>，你必須指出要呼叫哪一種 
+member function<font color="#FF0000">（譯註：這就是上述MemFuncPtrType的作用）</font>，並指出在哪一種 
+object 身上喚起它<font color="#FF0000">（譯註：這就是上述 ObjectType的作用）</font>。稍後當你喚起 
+<i>PMFC</i> 的 <i>operator()</i> 
+函式，後者所喚起的便是這個「型別已被完整儲存（記錄）下來」的 
+member function。 </p>
+
+<p>請注意上述的 <i>operator()</i>&nbsp;係根據語言內建的 <i>operator-&gt;</i>* 
+實作出來。要知道，只有當智能指標的「使用者自定之 <i>operator-&gt;*</i>」被呼叫，才會產生出一個 
+<i>PMFC</i> objects，這暗喻「使用者自定之 <i>operator-&gt;</i>*」應該根據「語言內建的 
+<i>operator-&gt;</i>*」實作出來。這和我們所熟知的以下事實是一個很好的對稱：「使用者自定之 
+<i>operator-&gt;</i>」的行為，和「語言內建之<i> operator-&gt;</i>」彼此關連，因為 
+C++ 對於「使用者自定之 <i>operator-&gt;</i>」的每一個呼叫，最終都是（隱喻地）呼叫到「語言內建的 
+<i>operator-&gt;</i>」。如此的對稱現象令人安心，表示目前的設計走在正確的方向上。</p>
+
+<p>你可能已經注意到了，<i>ObjectType</i>, <i>ReturnType</i>, 和 <i>MemFuncPtrType</i> 
+&nbsp; 三個 template parameters 似乎有點贅餘。因為如果我們擁有 <i>MemFuncPtrType</i>，我們就能夠推演出 
+<i>ObjectType</i> 和 <i>ReturnType</i>。畢竟不論 <i>ObjectType</i> 或 <i>ReturnType</i>，都是 
+<i>MemFuncPtrType</i> 的一部份。的確，我們能夠使用<font color="#0000FF">「模板偏特化」（partial 
+template specialization）</font>技術，從 <i>MemFuncPtrType</i> 推導出 <i>ObjectType</i> 
+和 <i>ReturnType</i>，但由於支援「偏特化」技術之商用編譯器還不十分普及<font
+color="#FF0000">（譯註：例如 Visual C++ 6 就沒有支援）</font>，所以我沒有選擇這種作法。如果想基於「偏特化技術」來進行設計，相關細節請看稍後的「Partial 
+Template Specialization 與 <i>operator-&gt;</i>*」方塊文字。</p>
+
+<p>有了<font color="#8080FF">程式列表五</font>中的 <i>PMFC</i> 實作內容，<i>SP&lt;T&gt;</i> 
+的<i> operator-&gt;</i>* 幾乎已經完成。它所傳回的 <i>PMFC</i> object 
+需要一個 object pointer 和一個 member function pointer 做為初值。一如<font
+color="#8080FF">程式列表六</font>所示，智能指標習慣上會有一個 data 
+member 用來存放 object pointer；至於 member function pointer，其實就是 <i>operator-&gt;</i>* 
+所接獲的引數。因此，<a NAME="rl7"></a><font color="#8080FF">程式列表七</font>的代碼應該可以有效運作。以我所測試的兩個編譯器（Visual 
+C++ 6 和 egcs 1.1.2）而言，的確如此。</p>
+
+<p>　</p>
+
+<h4>程式列表六<a NAME="l2"></h4>
+</a><a NAME="l6">
+
+<pre>template &lt;typename T&gt;
+class SP {
+public:
+    SP(T *p): <strong>ptr</strong>(p) {}
+
+    template &lt;typename ReturnType&gt;
+        const PMFC&lt;T, ReturnType, <font
+color="#0000FF">ReturnType (T::*)()</font>&gt;
+            <font color="#FF0000">operator-&gt;*</font>(<font
+color="#0000FF">ReturnType (T::*</font><strong><font color="#000000">pmf</font></strong><font
+color="#0000FF">)()</font>) const 
+                { return std::make_pair(<strong>ptr</strong>, <strong>pmf</strong>); }
+    ... 
+private:
+    T* <strong>ptr</strong>;
+};
+</pre>
+</a>
+
+<h4>程式列表七<a NAME="l2"></h4>
+</a><a NAME="l7">
+
+<pre>#include &lt;iostream&gt;
+#include &lt;utility&gt;
+using namespace std;  
+
+template&lt;typename ObjectType, typename ReturnType, typename MemFuncPtrType&gt;
+class PMFC { ... };              // 一如以往
+
+template &lt;typename T&gt;            // 一如以往
+class SP { ... }; 
+
+class Wombat { 
+public: 
+    int dig() 
+    {
+        cout &lt;&lt; &quot;Digging...&quot; &lt;&lt; endl;
+        return 1;
+    } 
+    int sleep() 
+    {
+        cout &lt;&lt; &quot;Sleeping...&quot; &lt;&lt; endl;
+        return 5;
+    }
+};
+
+int main()
+{                                     // 一如以往，PWMF 是個指標， 
+    typedef int (Wombat::*<font
+color="#0000FF">PWMF</font>)();    // 指向一個 Wombat member function
+
+    SP&lt;Wombat&gt; pw = new Wombat;
+
+    PWMF pmf = <font
+color="#0000FF">&amp;Wombat::dig</font>;   // 令 pmf 指向 Wombat::dig 
+    (pw<font
+color="#FF0000">-&gt;*</font>pmf)<font color="#FF0000">()</font>;              // 喚起我們的 operator-&gt;*;
+                               // 印出 &quot;Digging...&quot; 
+
+    pmf =<font
+color="#0000FF"> &amp;Wombat::sleep</font>;      // 令 pmf 指向 Wombat::sleep 
+    (pw<font
+color="#FF0000">-&gt;*</font>pmf)<font color="#FF0000">()</font>;              // 喚起我們的 operator-&gt;*;
+}                              // 印出 &quot;Sleeping...&quot;
+</pre>
+</a>
+
+<p>　</p>
+
+<p>是的，我發現了，這份程式碼會出現資源漏洞（resource leak），因為被 
+<i>new</i> 出來的 <i>Wombat</i>&nbsp; 從未被 <i>delete</i>。此外，這份程式碼使用了一個 
+using directive（也就是 <i>using namespace std;</i>），而其實使用 using 
+declarations 也就夠了。請試著把焦點放在 <i>SP::operator-&gt;</i>*<i> </i>和 <i>PMFC</i> 
+的互動上，不要太拘泥如此小節。如果你了解 <i>(pw-&gt; </i>*<i>pmf)()</i> 
+的行為由來，毫無問題你的實力必可輕易修正上例關於編程風格上的缺失。</p>
+
+<p>順帶一提，由於 <i>operator-</i>&gt;* member functions 和所有的 <i>PMFC</i> 
+member functions 都是 inline 
+函式（雖然並無明顯宣告），因此，你可以預期，針對以下述句所產生出來的碼： 
+</p>
+
+<blockquote>
+  <p>(pw-&gt;*pmf)();</p>
+</blockquote>
+
+<p>其中運用 <i>SP</i>&nbsp; 和 <i>PMFC</i> 
+的情況，將和以下等值述句所產生出來的碼沒有兩樣：</p>
+
+<blockquote>
+  <p>(pw.ptr-&gt;*pmf)();</p>
+</blockquote>
+
+<p>其中只使用內建運算動作。因此，使用 <i>SP</i>'s 的多載化 <i>operator-&gt;</i>* 
+和 <i>PMFC</i>'s 的多載化 <i>operator()</i>，執行期成本可以為零：程式碼的額外成本為 
+零，資料的額外成本也為零。當然，實際成本視你的編譯器的最佳化能力、你的標準程式庫對於 
+<i>pair</i> 和 <i>make_ pair</i> 
+的實作而定。以我所測試的兩個編譯器（及其附帶的標準程式庫）而言，打開所有最佳化選項後，有一個編譯器會獲得執行期零成本的 
+<i>operator-&gt;</i>* 實作碼，另一個不會。 </p>
+
+<h3><font color="#0000FF">加上對 <i>const</i> Member Functions 的支援</font></h3>
+
+<p>請仔細看看<i> SP&lt;T&gt;</i> 的 <i>operator-&gt;</i>* 函式的正式參數：<i>ReturnType 
+(T::</i>*<i>pmf)()</i>。讓我更明確地提示你，它不是 <i>ReturnType (T::</i>*<i>pmf)() 
+<font color="#0000FF">const</font></i>。這意味，沒有任何一個「指向 <i>const</i> 
+member function」的指標可以被傳遞給 <i>operator-&gt;</i>*，這也就意味 <i>operator-&gt;</i>* 
+不支援 <font color="#0000FF"><i>const</i></font> member functions。如此露骨的不公平待遇在一個具有良好設計的軟體系統中是毫無地位的。幸運的是，我們很容易破除這項限制。只要為 
+<i>SP</i> 加上第二個 <i>operator-&gt;</i>* template，整份設計就可適用於「指向 
+<font color="#0000FF"><i>const</i></font> member functions」的指標；見<font
+color="#8080FF">程式列表八</font>。有趣的是，<i>PMFC</i> 
+的內容不需有任何改變，因為其型別參數 <i>MemFuncPtrType </i>會繫結到任何一個 
+member function pointer 型別身上，不論那個 member function 是否為 <font
+color="#0000FF"><i>const</i></font>。</p>
+
+<p>　</p>
+
+<h4>程式列表八<a NAME="l2"></h4>
+</a><a NAME="l8">
+
+<pre>template &lt;typename T&gt;
+class SP {
+public:
+    ...                     // 如前
+
+    template &lt;typename ReturnType&gt;
+        const PMFC&lt;T, ReturnType, <font
+color="#0000FF">ReturnType (T::*)() const</font>&gt;  // 加上 const
+            operator-&gt;*(<font
+color="#0000FF">ReturnType (T::*</font><font color="#000000">pmf</font><font
+color="#0000FF">)() const</font>) const   // 加上 const
+                { return std::make_pair(ptr, pmf); }
+
+    ...                     // 如前
+};
+</pre>
+</a>
+
+<h3><font color="#0000FF">支援「擁有參數的 Member Functions」</font></h3>
+
+<p>有了零參數的經驗在手，我們接下來設法支援「一個指標，指向 
+member function，該 member function 
+擁有一個參數」。整個過程出乎意料地簡單，因為你唯一需要做的就是修改 
+<i>operator-&gt;</i>* 所接受的參數型別，然後透過 <i>PMFC</i> 
+傳播這項改變。事實上，你唯一需要做的就是為<i>operator-&gt;</i>* 
+增加一個新的 template 參數，其型別應該是被指向的 member function 
+所能（所願）接受的參數型別。然後修改其他每一樣需要與此保持一致性的東西。此外，由於 
+<i>SP&lt;T&gt;</i> 也應該同時支援「接受零個參數」的 member functions 
+和「接受一個參數」的member functions，所以你應該為它添加一個新的 <i>operator-&gt;</i>* 
+template。在<a NAME="rl9"></a><font color="#8080FF">程式列表九</font>中，我只展示對於 
+non<i>const</i> member functions 的支援，事實上對 <i>const</i> member functions 
+的支援也應該同時完成。</p>
+
+<p>　</p>
+
+<h4>程式列表九<a NAME="l2"></h4>
+</a><a NAME="l9">
+
+<pre>template &lt;typename ObjectType, typename ReturnType, typename MemFuncPtrType&gt;
+class PMFC {
+public:
+    typedef pair&lt;ObjectType*, MemFuncPtrType&gt; CallInfo;
+
+    PMFC(const CallInfo&amp; info)
+   : callInfo(info) {}
+
+    // 支援 0 個參數
+    ReturnType <font
+color="#FF0000">operator()</font>() const 
+        { return (callInfo.first-&gt;*callInfo.second)(); }
+    // 支援 1 個參數
+    template&lt;typename <font
+color="#0000FF">Param1Type</font>&gt;
+    ReturnType <font color="#FF0000">operator()</font>(<font
+color="#0000FF">Param1Type</font> <font color="#FF0000">p1</font>) const
+            { return (callInfo.first-&gt;*callInfo.second)(<font
+color="#FF0000">p1</font>); }
+private:
+    CallInfo callInfo;
+}; 
+
+template &lt;typename T&gt;
+class SP {
+public:
+    SP(T *p): ptr(p) {} 
+
+    // 支援 0 個參數
+    template &lt;typename ReturnType&gt;
+        const PMFC&lt;T, ReturnType, ReturnType (T::*)()&gt; 
+            <font
+color="#FF0000">operator-&gt;*</font>(ReturnType (T::*pmf)()) const
+                { return std::make_pair(ptr, pmf); }
+
+    // 支援 1 個參數
+    template &lt;typename ReturnType, <font
+color="#0000FF">typename Param1Type</font>&gt;
+        const PMFC&lt;T, ReturnType, ReturnType (T::*)(<font
+color="#0000FF">Param1Type</font>)&gt;
+            <font color="#FF0000">operator-&gt;*</font>(ReturnType (T::*pmf)(<font
+color="#0000FF">Param1Type</font>)) const
+                { return std::make_pair(ptr, pmf); }
+    ... 
+private:
+    T* ptr;
+};
+</pre>
+</a>
+
+<p>一旦你能夠處理零個參數和一個參數，就很容易處理任意個數的參數。讓我做個整理，為了支援「具有 
+n 個參數」的&nbsp; member functions，請在 <i>SP</i>&nbsp; 中宣告兩個 member 
+template <i>operator-&gt;</i>*，一個用來支援 <font color="#0000FF">non<i>const</i></font> 
+member functions，一個用來支援 <font color="#0000FF"><i>const</i></font> 
+版本。每一個 <i>operator-&gt;</i>* template 都應該獲得 <i>n</i>+1 
+個型別參數，其中 <i>n</i> 
+個做為函式參數使用，剩餘那個用來指定函式回傳型別。接下來，在 
+<i>PMFC </i>中加上對應的<i> operator()</i> template，就大功告成了。</p>
+
+<p>　</p>
+
+<h3><font color="#0000FF">將所有對<i> operator-&gt;</i><b>*</b> 
+的支援工作包裝起來 </font></h3>
+
+<p>許多應用軟體對智能指標有多種不同的變化運用，如果他們必須針對每一種應用，重複上述工作，他們一定不會高興。如果你想看看智能指標的變化應用，包括像殺手一般酷的 
+C++ 程式，請看 Kevin S. Van Horn 的網站 http:// www.xmission.com/ 
+~ksvsoft/code/smart_ ptrs.html。幸運的是，對 <i>operator-&gt;</i>* 
+的所有支援工作，可以被包裝為一個 base class 型式，如<a NAME="rl10"></a><font
+color="#8080FF">程式列表十。</font></p>
+
+<h4>程式列表十<a NAME="l2"></h4>
+</a><a NAME="l10">
+
+<pre>template &lt;typename T&gt;   // 這是一個 base class，用來包裝</a>智能指標<a
+NAME="l10">
+class SmartPtrBase {    // 對 operator-&gt;* 的支援。
+public:
+    SmartPtrBase(T *initVal): <strong>ptr</strong>(initVal) {}
+
+    // 支援 0 個參數。
+    template &lt;typename ReturnType&gt;
+        const PMFC&lt;T, ReturnType, ReturnType (T::*)()&gt; 
+            <font
+color="#FF0000">operator-&gt;*</font>(ReturnType (T::*<strong>pmf</strong>)()) const
+                { return std::make_pair(<strong>ptr</strong>, <strong>pmf</strong>); }
+
+    // 支援 1 個參數。
+    template &lt;   typename ReturnType, typename <font
+color="#0000FF">Param1Type</font>&gt;
+        const PMFC&lt;T, ReturnType, ReturnType (T::*)(<font
+color="#0000FF">Param1Type</font>)&gt;
+            <font color="#FF0000">operator-&gt;*</font>(ReturnType (T::*<strong>pmf</strong>)(Param1Type)) const
+                { return make_pair(<strong>ptr</strong>, <strong>pmf</strong>); }
+    ...
+protected:
+    T* <strong>ptr</strong>;
+};
+</pre>
+</a>
+
+<p>凡是希望提供 <i>operator-&gt;</i>*支援能力的智能指標，只需繼承 <i>SmartPtrBase</i> 
+即可。但是，只有當「智能指標內含一個一般指標，用以完成真正的指向動作」時，上述設計才適用。「內含一般指標」是最常見的一種智能指標設計方式，但還有其他不同的設計，這類不同的設計可能需要以不同於此處所描述的方式，將 
+<i>operator-&gt;</i>* 機能包裝起來。其中最好的方式或許是利用 <font
+color="#0000FF">private 繼承機制</font>，因為如果使用 public 
+繼承機制，便有必要為 <i>SmartPtrBase</i> 加上一個 virtual destructor，因而增加其大小（以及其所有 
+derived classes 的大小）。Private 
+繼承機制可以避免付出這樣的代價，雖然，它需要一個 using declaration（見<a
+NAME="rl11"></a><font color="#8080FF">程式列表十一</font>）以便讓「以 private 
+方式繼承而來的 <i>operator-&gt;</i>* templates」成為 public。如果要把它們包裝得更好，可以將 
+<i>SmartPtrBase</i> 和 <i>PMFC</i> template 都放進一個命名空間（namespace）中。</p>
+
+<p>　</p>
+
+<h4>程式列表十一<a NAME="l2"></h4>
+</a><a NAME="l11">
+
+<pre>template &lt;typename T&gt;
+class SP: <font color="#0000FF">private</font> SmartPtrBase&lt;T&gt; {
+public:
+    SP(T *p ): SmartPtrBase&lt;T&gt;(p) {}
+
+    <font
+color="#0000FF">using</font> SmartPtrBase&lt;T&gt;::<font color="#FF0000">operator-&gt;*</font>;    // 讓「private 繼承而來的
+                                           // operator-&gt;* templates」成為 public。
+
+    // </a>智能指標的<a
+NAME="l11">一般</a>函式放在這兒。<a NAME="l11">operator-&gt;* 機能則是藉由繼承機制獲得。
+};
+</pre>
+</a>
+
+<h3><font color="#0000FF">鬆散的結尾</font></h3>
+
+<p>在我完成針對智能指標而做的 <i>operator-&gt;</i>* 
+支援工作後，我把我的解法公佈於 Usenet 的消息群組 
+comp.lang.c++.moderated，看看我是否遺漏了什麼。很快地 Esa Pulkkinen 
+做出了以下言論：</p>
+
+<p><font color="#8080FF">你的方法至少有兩個問題：</font></p>
+
+<p><font color="#8080FF">1. 你無法使用 &nbsp;pointers to data members（雖然這很容易解決）。</font></p>
+
+<p><font color="#8080FF">2. 你無法使用「使用者自定（user-defined）」的 
+pointers-to-members。如果有人多載化了 <i>operator-&gt;*</i>，令它接受「行為類似 
+member pointers」的某些 objects，你可能會想要在你的 smart pointer class 
+中支援如此的 &quot;smart pointers to members&quot; 。不幸的是，你需要 
+traits classes 才能獲得這種多載化後的<i>operator-&gt;*</i> 的回傳型別。</font></p>
+
+<p>Smart pointers to members! 喔歐，Esa 
+是對的。（事實上比我最初所了解的還要正確。就在撰寫本文草稿之後的很短時間內，我的一個客戶對我展現了一個問題，該問題可以使用 
+smart pointers to members 
+自然地解決掉。我也很驚訝。）幸運的是，本文已經夠長了，我可以在這裡停下來，把解決 
+Esa 的評論的工作留給讀者。我決定這麼做。</p>
+
+<h3><font color="#0000FF">摘要</font></h3>
+
+<p>如果你的目標是要讓你的智能指標（smart pointers）的行為儘可能相容於內建（原生）指標，你應該支援 
+<i>operator-&gt;</i>*，就像內建指標的作為一樣。運用 class templates 和 
+member templates，我們得以比較輕鬆地實作出如此的支援能力。把這些實作碼包裝為一個 
+base class，可以增加其復用性，方便其他智能指標的設計者。 </p>
+
+<h3><font color="#0000FF">致謝</font></h3>
+
+<p>Andrei Alexandrescu 除了引起我對 <i>operator-&gt;</i>* 
+的最初興趣，也幫我簡化了我對 <i>PMFC</i> 的實作。Andrei 
+還針對本文早期草稿提供了極富深刻意義的見解，並附帶原始碼。Esa 
+Pulkkinen 和 Mark Rodgers 
+也做了相同的貢獻。他們對本文提供的協助，使我受惠良多。</p>
+
+<h3><font color="#0000FF">作者</font></h3>
+
+<p>Scott 是一位 C++ 顧問，也是 Effective C++ CD-ROM, Effective C++, 和 More 
+Effective C++ 的作者。你可以透過 <a href="javascript:if(confirm(%27http://www.aristeia.com/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.aristeia.com/%27" tppabs="http://www.aristeia.com/">http://www.aristeia.com/</a> 
+和他聯絡。 </p>
+
+<h3><font color="#0000FF">譯者</font></h3>
+
+<p><font color="#000000">陳崴，自由撰稿人，專長 C++/Java/OOP/GP/DP。</font></p>
+
+<p>　</p>
+
+<p>　</p>
+
+<hr>
+
+<h2 align="center"><font color="#FF8000">sidebar : </font><font color="#800000">Partial 
+Template Specialization 與 <i>operator-&gt;*</i></font></h2>
+
+<hr>
+
+<p>在我撰寫本文期間，Esa Pulkkinen 和 Mark Rodgers 告訴我，<font
+color="#0000FF">模板偏特化技術（partial template specialization）</font>可用來從一個「 
+pointer to member function」型別中萃取出該 member function 所屬的 class 
+型別，以及函式回傳型別。唯一需要的是施行 traits 
+技術，那是一種被廣泛運用於 C++ 標準程式庫的技術。關於 traits 
+技術，請參考 Nathan Myers 的文章：&quot;Traits: A New and Useful Template 
+Technique,&quot; <i>C++ Report</i>, June 1995，此文也出現於 http://www.cantrip 
+.org/traits.html。 </p>
+
+<p>Mark Rodgers 建議<a name="rl12"></a><font color="#8080FF">程式列表十二</font>所列的那些 
+templates，它們用來接受零個參數或一個參數的 member functions。要將它們擴充為接受更多參數，當然毫無問題而且作法十分直接了當。有了這些 
+templates，<i>PMFC</i> 就可以簡化為「只需一個型別參數，亦即 <i>MemFuncPtrType</i>」。那是因為，另兩個型別參數<i>ObjectType</i> 
+和 <i>ReturnType</i>can 可根據 <i>MemFuncPtrType</i> 推導出來：<DDJADVERTISEMENT INLINE> 
+
+<ul>
+  <li><i>ObjectType</i> 是 <i>MemFuncTraits&lt;Mem FuncPtrType&gt;::ObjectType.</i> </li>
+  <li><i>ReturnType</i> 是 <i>MemFuncTraits&lt;Mem FuncPtrType&gt;::ReturnType.</i> </li>
+</ul>
+
+<h4>程式列表十二</h4>
+<a NAME="l12">
+
+<pre>template &lt;typename T&gt;                       // traits class
+struct <font
+color="#800080">MemFuncTraits</font> {};
+
+template &lt;typename R, typename O&gt;           // partial specialization
+struct <font
+color="#800080">MemFuncTraits</font>&lt;R (O::*)()&gt; {          // for zero-parameter
+    typedef R ReturnType;                   // non-const member
+    typedef O ObjectType;                   // functions
+};
+
+template &lt;typename R, typename O&gt;           // partial specialization
+struct <font
+color="#800080">MemFuncTraits</font>&lt;R (O::*)() <font color="#0000FF">const</font>&gt; {    // for zero-parameter
+    typedef R ReturnType;                   // const member
+    typedef O ObjectType;                   // functions
+};
+
+template &lt;typename R, typename O, typename <font
+color="#0000FF">P1</font>&gt;  // partial specialization
+struct <font color="#800080">MemFuncTraits</font>&lt;R (O::*)(<font
+color="#0000FF">P1</font>)&gt; {            // for one-parameter
+    typedef R ReturnType;                       // non-const member
+    typedef O ObjectType;                       // functions
+};
+
+template &lt;typename R, typename O, typename <font
+color="#0000FF">P1</font>&gt; // partial specialization
+struct <font color="#800080">MemFuncTraits</font>&lt;R (O::*)(<font
+color="#0000FF">P1</font>) <font color="#0000FF">const</font>&gt; {     // for one-parameter
+    typedef R ReturnType;                      // const member
+    typedef O ObjectType;                      // functions
+};
+</pre>
+</a>
+
+<p>運用這些 templates，我們便可獲得<font color="#8080FF">程式列表十三</font>中新的PMFC。我不打算在這裡告訴你 
+traits 的技術細節，也不打算解釋為什麼 <i>typename </i>必須出現在 
+template 內的型別名稱之前。上述這些 templates 可以大量降低 smart 
+pointer classes「欲支援 <i>operator-&gt;*</i>」時的工作量。事實上，Mark 
+Rodgers 提醒了我們，單單一個<i> operator-&gt;*</i> <i>template </i>就可以支援所有可能的 
+member function pointers，不論後者所指向的 member functions 
+接受多少個參數，也不論那些 member functions 是否為 <i>const</i>。是的，只要將 
+<i>SP</i>（或 <i>SmartPtrBase</i>）中所有的 <i>operator-&gt;*</i> templates 全部<font
+color="#000000">取代</font>為<font color="#8080FF">程式列表十四</font><font
+color="#000000">的碼即可。</font>型別參數 <i>MemFuncPtrType</i> 
+將被繫結於任何一種 pointer to member function 型別身上，不論該 member 
+function&nbsp; 的參數個數、回傳型別、常數性（<i>const</i>ness）。整個 
+pointer to member function 型別會被傳遞給 <i>PMFC</i>，在那裡，<font
+color="#000000">偏特化機制（partial specialization）</font>會起而行，將我們所在乎的各個型別抓出來。 
+</p>
+
+<h4>程式列表十三<a NAME="l2"></h4>
+</a><a NAME="l13">
+
+<pre>template &lt;typename MemFuncPtrType&gt;
+class PMFC {
+public:
+    typedef <font
+color="#FF0000">typename</font><font color="#0000FF"> MemFuncTraits&lt;MemFuncPtrType&gt;::ObjectType</font> ObjectType;
+    typedef <font
+color="#FF0000">typename</font><font color="#0000FF"> MemFuncTraits&lt;MemFuncPtrType&gt;::ReturnType</font> ReturnType;
+
+    ...                 // 一如以往
+};
+</pre>
+</a>
+
+<h4>程式列表十四<a NAME="l2"></h4>
+</a><a NAME="l14">
+
+<pre>template &lt;typename <font color="#0000FF">MemFuncPtrType</font>&gt;
+const PMFC&lt;<font
+color="#0000FF">MemFuncPtrType</font>&gt;
+<font color="#FF0000">operator-&gt;*</font>(<font
+color="#0000FF">MemFuncPtrType</font> <strong><font color="#000000">pmf</font></strong>) const
+{ return std::make_pair(<strong>ptr</strong>, <strong>pmf</strong>); }</pre>
+</a>
+
+<p>　</p>
+
+<p>　</p>
+
+<hr>
+
+<pre><font color="#FF0000">陳崴註1：</font><font color="#408080">完整程式碼如下，並附個人測試心得：
+
+// vc6[x]  cb4[x]  gcc2.91.57_on_win32[o]</font></pre>
+
+<pre><font color="#408080">#include &lt;iostream&gt;
+#include &lt;utility&gt;   // for pair and make_pair()
+using namespace std;</font></pre>
+
+<pre><font color="#408080">// partial specialization 技術只有 GCC 和 BCB 支援。VC6 失敗。</font></pre>
+
+<pre><font color="#408080">template &lt;typename T&gt;
+struct </font><font color="#800080">MemFuncTraits</font><font
+color="#408080"> { };</font></pre>
+
+<pre><font color="#408080">template &lt;typename R, typename O&gt;
+struct </font><font
+color="#800080">MemFuncTraits</font><font color="#408080">&lt;R (O::*)()&gt; {
+  typedef R ReturnType;
+  typedef O ObjectType;
+};</font></pre>
+
+<pre><font color="#408080">template &lt;typename R, typename O&gt;
+struct </font><font
+color="#800080">MemFuncTraits</font><font color="#408080">&lt;R (O::*)() const&gt; {
+  typedef R ReturnType;
+  typedef O ObjectType;
+};</font></pre>
+
+<pre><font color="#408080">template &lt;typename R, typename O, typename P1&gt;
+struct </font><font
+color="#800080">MemFuncTraits</font><font color="#408080">&lt;R (O::*)(P1)&gt; {
+  typedef R ReturnType;
+  typedef O ObjectType;
+};</font></pre>
+
+<pre><font color="#408080">template &lt;typename R, typename O, typename P1&gt;
+struct </font><font
+color="#800080">MemFuncTraits</font><font color="#408080">&lt;R (O::*)(P1) const&gt; {
+  typedef R ReturnType;
+  typedef O ObjectType;
+};</font></pre>
+
+<pre><font color="#408080">template &lt;typename MemFuncPtrType&gt;
+class <strong>PMFC</strong> {
+public:
+  typedef typename MemFuncTraits&lt;MemFuncPtrType&gt;::ObjectType ObjectType;
+  typedef typename MemFuncTraits&lt;MemFuncPtrType&gt;::ReturnType ReturnType;</font></pre>
+
+<pre><font color="#408080">  typedef std::pair&lt;ObjectType*, MemFuncPtrType&gt; CallInfo;</font></pre>
+
+<pre><font color="#408080">  PMFC(const CallInfo&amp; info) : _callinfo(info) { }</font></pre>
+
+<pre><font color="#408080">  // support for 0 parameter
+  ReturnType </font><font
+color="#FF0000">operator()</font><font color="#408080">() const
+    { return (_callinfo.first</font><font
+color="#FF0000">-&gt;*</font><font color="#408080">_callinfo.second)(); }</font></pre>
+
+<pre><font color="#408080">  // support for 1 parameter
+  template &lt;typename Param1Type&gt;
+    ReturnType </font><font
+color="#FF0000">operator()</font><font color="#408080">(Param1Type p1) const
+      { return (_callinfo.first</font><font
+color="#FF0000">-&gt;*</font><font color="#408080">_callinfo.second)(p1); }</font></pre>
+
+<pre><font color="#408080">private:
+  CallInfo _callinfo;
+};</font></pre>
+
+<pre><font color="#408080">template &lt;typename T&gt;
+class <strong>SmartPtrBase</strong> {
+public:
+  SmartPtrBase(T *p) : ptr(p) { }</font></pre>
+
+<pre><font color="#408080">  template &lt;typename MemFuncPtrType&gt;
+    const PMFC&lt;MemFuncPtrType&gt; </font><font
+color="#FF0000">operator-&gt;*</font><font color="#408080">(MemFuncPtrType pmf) const
+      {  return std::make_pair(ptr, pmf); }</font></pre>
+
+<pre><font color="#408080">private:
+  T* ptr;  // dumb pointer
+};
+</font></pre>
+
+<pre><font color="#408080">template &lt;typename T&gt;
+class <strong>SP</strong> : public SmartPtrBase&lt;T&gt; {   </font><font
+color="#0000FF">// (1) 原文採用 private 繼承，GCC 失敗。註</font><font
+color="#408080">
+public:
+  SP(T *p) : SmartPtrBase&lt;T&gt;(p) { }</font></pre>
+
+<pre><font color="#408080">  using SmartPtrBase&lt;T&gt;::operator-&gt;*;  </font><font
+color="#0000FF">// (2) 在 G++ 中可編譯但無作用</font><font color="#408080">
+  // normal smart pointer functions would go here.
+};</font></pre>
+
+<pre><font color="#0000FF">/*
+註：
+原文 (1) 採用 private 繼承，但是 GCC 不支援「以 using declaration 突破 
+private inheritance的限制」（可卻又允許 (2) 通過編譯，怪！），造成 main() 
+之中凡使用 pw-&gt;* 即出現編譯錯誤。
+只好在此改為 public。既然採用 public inheritance，(2) 的有無也就無關宏旨了。</font></pre>
+
+<pre><font color="#0000FF">但是，《C++ Primer 中文版》p.981 講「以 using declaration 突破 
+private inheritance 的限制」，
+我以 981.cpp 試之，G++ 卻又表現良好。為什麼？
+請參考：</font><font
+color="#FF0000">well-known bug in G++: &quot;Using declarations in classes do not work!&quot;</font><font
+color="#0000FF">
+見 Frequently Reported Bugs in GCC 2.95 (http://gcc.gnu.org/bugs.html)
+*/</font></pre>
+
+<pre><font color="#408080">class <strong>Wombat</strong> {
+public:
+  int dig() { cout &lt;&lt; &quot;Digging...&quot; &lt;&lt; endl;  return 1; }
+  int sleep() { cout &lt;&lt; &quot;Sleeping...&quot; &lt;&lt; endl;  return 5; }
+  int eat() const { cout &lt;&lt; &quot;Eatting...&quot; &lt;&lt; endl;  return 7; }
+  int move(int op) { cout &lt;&lt; &quot;Moving...&quot; &lt;&lt; endl;  return 9; }
+};</font></pre>
+
+<pre><font color="#408080">typedef int(Wombat::*PWMF)();
+typedef int(Wombat::*PWMFC)() const;
+typedef int(Wombat::*PWMF1)(int);</font></pre>
+
+<pre><font color="#408080">void <strong>main</strong>()
+{
+  SP&lt;Wombat&gt; pw = new Wombat;</font></pre>
+
+<pre><font color="#408080">  PWMF pmf = &amp;Wombat::dig;
+  (pw-&gt;*pmf)();               // Digging...
+  pmf = &amp;Wombat::sleep;
+  (pw-&gt;*pmf)();               // Sleeping...</font></pre>
+
+<pre><font color="#408080">  PWMFC pmfc = &amp;Wombat::eat;
+  (pw-&gt;*pmfc)();              // Eatting...</font></pre>
+
+<pre><font color="#408080">  PWMF1 pmf1 = &amp;Wombat::move;
+  (pw-&gt;*pmf1)(2);             // Eatting...
+}</font></pre>
+
+<hr>
+
+<p><font color="#FF0000">陳崴註2：</font><font color="#000000">作者在文中提到 
+wombat 是一種</font><a NAME="l1">澳洲特產的一種有袋動物，看起來有點像狗。</a>但從像片來看並非如此。<font
+face="Arial" size="3">wombat</font><font face="新細明體" size="3">是夜行性動物，喜歡掘土，並不凶猛</font>。下面是 
+wombat 的玉容：</p>
+
+<p><img src="wombat.jpg" tppabs="http://jjhou.boolan.com/wombat.jpg" width="342" height="257" alt="wombat.jpg (32093 bytes)"></p>
+<font face="Arial" size="2">
+
+<p></font>作者也許想成另一種<a NAME="l1">澳洲特產</a><font face="Arial"
+size="3">dingo</font><font face="新細明體" size="3">，那是野生而極似狗的凶猛動作，有攻擊性，曾有小孩被這種動物咬死。</font><big> 
+</big></p>
+
+<p><img src="dingo.jpg" tppabs="http://jjhou.boolan.com/dingo.jpg" width="222" height="158" alt="dingo.jpg (12311 bytes)"></p>
+
+<p>（感謝華邦公司 CTWu 提供像片與資料）</p>
+
+<hr>
+</body>
+</html>

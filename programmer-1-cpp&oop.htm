@@ -1,0 +1,425 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>侯捷觀點【C++/OOP 大系】</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font>
+
+<table border="0" cellpadding="6" cellspacing="0" width="779">
+  <tr>
+    <td width="25"><!--mstheme--></font></td>
+    <td width="4"><!--mstheme--></font></td>
+    <td width="591"><p align="center">侯捷觀點（系列書評 1/2）<br>
+    <br>
+    <big><big>【C++/OOP 大系】<br>
+    </big></big><br>
+    《程序員》2001.01<!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td width="97"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="25"><font size="3"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td width="4"><!--mstheme--></font></td>
+    <td valign="top" width="591"><br>
+    作者簡介：侯捷，臺灣電腦技術作家，著譯評兼擅。常著文章自娛，頗示己志。<br>
+    個人網站：www.jjhou.com<br>
+    北京鏡站：www.csdn.net/expert/jjhou<p><br>
+    ●開場白<br>
+    <br>
+    《程序員》雜誌邀我開一個專欄。我向來期待一本為程序員打造、以程序員為主體對象的刊物，因此這樣的邀請很難推卻。再加上蔣濤先生與我的私交，我於是要求自己，儘可能撥出時間來為《程序員》寫稿。專欄可以開，能不能全無間斷則不敢保證。<br>
+    <br>
+    大陸讀者對我肯定陌生，容我簡介自己。我是一名資訊教育工作者，寫譯書籍，培訓業界人員，主持網站回應讀者與學員，並於大學開課。進入教育領域之前，我分別擔任過臺灣工業技術研究院機械所和電通所的副研究員和特約研究員，分別研發 
+    CAD/CAM 軟體和 Windows 多媒體系統。有人戲稱工研院為少林寺 — 
+    位在山上，男多女少，高手如雲，藝成下山闖蕩江湖者不計其數。<br>
+    <br>
+    寫這篇稿子的此刻，我投入教育領域正好十年。這是一條科技人很少想過的路子，於我也是生命中一個不經意的轉彎。不過，這種迥異於軟體研發也迥異於象牙塔教學的生涯，實在是多彩多姿，與讀者的互動尤其曼妙無比。<br>
+    <br>
+    我的鑽研領域，前七年都在 Windows 
+    編程方法和作業系統原理，近三年則放在更基礎的、與平台無關的層面。</p>
+    <p><br>
+    ●書籍是永遠的良師益友<br>
+    <br>
+    過去十年中，有一件事最是奇特有趣：我於 1993 
+    開始《無責任書評》專欄，介紹我所能夠掌握的技術範圍內的一些世界名著。這樣的題材與文體，吸引了很多目光，也開創了某種先河。《無責任書評》夾雜對臺灣電腦出版業的觀點與評論，由於當時臺灣電腦書的良窳程度極端不均（現在也是），初階汎濫而高階貧血（現在也是），我以程序員的角度所給的評論顯得尖銳不群。<br>
+    <br>
+    1998 
+    年網際網路興盛，我把所有電腦散文都移到網路上發表，範圍擴及學習方向與學習態度（但不涉及細節技術）。過去的書評文章也重新整理了起來。各位可從侯捷網站上看到所有這些文章。<br>
+    <br>
+    書評之所以受人歡迎，一方面在它的知識性，一方面在它的辛辣味。通常我的原則是只評好書（該說是「薦」而不是「評」了），所以辛辣味只藏在旁徵博引的明喻暗諷之中，或偶爾忍不住的一把火。一般而言，只要有豐富的知識含量，而不是單純地將章節照錄一遍，書評專欄就夠吸引人了，辛辣味只是附帶紅利。諸君如想嚐嚐真正的川辣子，看看國外期刊的書評，肯定叫溫良恭儉讓的中國人頻頻撫胸，大驚失色。<br>
+    <br>
+    好書之於學習（尤其是自修），重要性自不待言，所以書評永遠受歡迎。好書是一支釣桿，好書評則讓你認識這支釣桿並告訴你到哪兒去買。單一書評固然好，如果能系列化、系統化、根據技術的演進與層次，鋪陳一條學習的紅地毯，就更有價值。過去我曾經分篇為臺灣讀者介紹過 
+    C++/OOP 
+    方面的許多好書。做為本專欄的第一篇，我決定將它們匯總結集，讓你一次看飽買足。</p>
+    <p><br>
+    ●閱讀之前<br>
+    <br>
+    往下閱讀之前，我想先談一些打底的話。<br>
+    <br>
+    第一，以下介紹的全都是外來書。各位購買這些書籍或許有經濟壓力，但畢竟它們都是成名已久的世界名著，我想，為讀者開這扇窗絕對是很重要的。<br>
+    <br>
+    購買這些書籍其實很方便，只要你有信用卡，連上亞馬遜網路書店（<a
+    href="javascript:if(confirm(%27http://jjhou.boolan.com/www.amazon.com  \n\nThis file was not retrieved by Teleport Ultra, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://jjhou.boolan.com/www.amazon.com%27" tppabs="http://jjhou.boolan.com/www.amazon.com">www.amazon.com</a>）愛怎麼買就怎麼買。我們的困難可能在於信用卡和書價。唔，加上運費真的很貴。<br>
+    <br>
+    第二，在我少不更事的時候，讀了一本好書並不會回頭特別記下作者姓名。這是個絕對錯誤的態度。茫茫書海中該如何選書？第一次當然是到書店去亂槍打鳥，浪費一點子彈。但是你不能老停留在少不更事的階段，你的子彈還有你的書架空間都很寶貴，你的時間更寶貴。牢記優秀作家的名字，是找好書的捷徑。這其實也是寫閱環境的一個進步表徵：讓好作家有自己的品牌。<br>
+    <br>
+    第三，OO（Object-Oriented，物件導向）領域，從編程到設計，可概分為 
+    OOP（Progrmming）、OOA（Analysis）、OOD（Design）。目前國外十分成熟的 
+    UML（Unified Modeling Language）屬於OO 
+    領域裡頭用來將設計概念表現出來的一種 notation（符號表現法）。本篇文章只介紹到 
+    OOP 這個層次（唯 [Gamma95]稍屬例外），這比較具體，也比較貼近大部份程序員。愈往上去愈抽象，愈接近軟體工程或方法論。<br>
+    <br>
+    第四，以下介紹的這些 C++/OOP 
+    書籍，幾乎成為我初步判斷一個人在這方面水平的基準。一個具備數年經驗的 
+    C++ 程序員，或許自己能夠摸索出「總是讓 base class 擁有 virtual 
+    destructor」這樣的準則，但初出茅廬的程序員，恐怕連 virtual destructor 
+    是什麼都不甚有概念，更別說該如何正確運用它。如果他說他看過 
+    [Meyers98]，我會比較放心他的水平。<br>
+    <br>
+    有趣的是，我曾經在自己班上（學生從大二到研究生都有）做了一個調查。擁有這些書籍的學生人數並不多，而且老是同樣幾位。這讓我感覺，強者恆強弱者恆弱，悲夫。就我和業界的廣泛接觸經驗，我也發現，許多程序員離開學校後就不太看書了，或者因為忙碌，或者因為安於現況。專案做了不少，技術卻沒有精進太多。三兩下招數一再用老，人特別容易空乏。請你打開這扇窗，你會發現巨著之所以為巨著，專家經驗之所以為專家經驗，是有道理的。愈是看了這些書，你愈會發現這些書的價值，並覺醒過去的一些愚蠢行為。<br>
+    <br>
+    第五，下面開出來的書單都是我熟讀過的，其中甚且不少繁體中文版是我翻譯的，所以我放心推薦並接受質詢。然而書海浩瀚，遺珠難免。<br>
+    <br>
+    第六，為求方便，以下以學術界習慣的標示法，標示書籍代名。文中即使用這些代名。凡有中文版者，我會特別加註。<br>
+    <br>
+    <strong>[Ellis90]</strong>: The Annotated C++ Reference Manual, by Margaret A. Ellis and 
+    Bjarne Stroustrup, Addison-Wesley, 1990. 447 pages.<br>
+    <img src="arm-l.gif" tppabs="http://jjhou.boolan.com/arm-l.gif" width="192" height="296" alt="arm-l.gif (70013 bytes)"></p>
+    <p><br>
+    <strong>[Gamma95]</strong>: Design Patterns: Elements of Reusable Object-Oriented 
+    Software,<br>
+    by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, Addison-Wesley, 1995. 395 
+    pages<br>
+    簡體中文版：《設計模式》，李英軍等譯，機械工業出版社，2000. 254 
+    頁<br>
+    <img src="design-patterns-l.gif" tppabs="http://jjhou.boolan.com/design-patterns-l.gif" width="211" height="280"
+    alt="design-patterns-l.gif (56368 bytes)"></p>
+    <p><br>
+    <strong>[Lippman98]</strong>: C++ Primer, 3rd Editoin, by Stanley Lippman and Josee 
+    Lajoie,<br>
+    Addison Wesley Longman, 1998. 1237 pages.<br>
+    繁體中文版：《<a href="jjtbooks-cpp-primer.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-primer.htm">C++ Primer 中文版</a>》，侯捷譯，碁峰 
+    1999. 1237 頁<br>
+    <img src="cpp-primer-3e-l.gif" tppabs="http://jjhou.boolan.com/cpp-primer-3e-l.gif" width="211" height="263"
+    alt="cpp-primer-3e-l.gif (117286 bytes)"></p>
+    <p><br>
+    <strong>[Lippman96]</strong>: Inside the C++ Object Model, by Stanley Lippman, Addison 
+    Wesley Longman, 1996. 280 pages<br>
+    繁體中文版：《<a href="jjtbooks-inside-cpp-obj-model.htm" tppabs="http://jjhou.boolan.com/jjtbooks-inside-cpp-obj-model.htm">深度探索 C++ 
+    物件模型</a>》，侯捷譯，碁峰 1998. 320 頁<br>
+    <img src="inside-the-cpp-object-model-l.gif" tppabs="http://jjhou.boolan.com/inside-the-cpp-object-model-l.gif" width="209" height="309"
+    alt="inside-the-cpp-object-model-l.gif (51459 bytes)"></p>
+    <p><br>
+    <strong>[Meyers96]</strong>: More Effective C++, by Scott Meyers, Addison-Wesley, 1996. 
+    318 pages<br>
+    繁體中文版：《<a href="jjtbooks-more-effective-cpp.htm" tppabs="http://jjhou.boolan.com/jjtbooks-more-effective-cpp.htm">More Effective C++ 
+    中文版</a>》，侯捷譯，培生 2000. 318 頁<br>
+    <img src="more-effective-cpp.jpg" tppabs="http://jjhou.boolan.com/more-effective-cpp.jpg" width="212" height="269"
+    alt="more-effective-cpp.jpg (30509 bytes)"></p>
+    <p><br>
+    <strong>[Meyers98]</strong>: Effective C++, Second Edition, by Scott Meyers. Addison 
+    Wesley Longman, 1998. 256 pages<br>
+    繁體中文版：《<a href="jjtbooks-effective-cpp.htm" tppabs="http://jjhou.boolan.com/jjtbooks-effective-cpp.htm">Effective C++ 2/e 中文版</a>》侯捷譯，培生 
+    2000. 256 頁<br>
+    <img src="effective-cpp-2e.jpg" tppabs="http://jjhou.boolan.com/effective-cpp-2e.jpg" width="213" height="274"
+    alt="effective-cpp-2e.jpg (25375 bytes)"><br>
+    <br>
+    <strong>[Struostrup97]</strong>: The C++ Programming Language, 3rd Editoin, by Bjarne 
+    Stroustrup, Addison Wesley Longman, 1997. 910 pages<br>
+    繁體中文版：《C++ 程式語言經典本》，葉秉哲譯，儒林 1999.（未錄總頁數）<br>
+    <img src="bjarne.jpg" tppabs="http://jjhou.boolan.com/bjarne.jpg" width="220" height="272" alt="bjarne.jpg (19218 bytes)"></p>
+    <p><br>
+    <strong>[Sutter99]</strong>: Exceptional C++, by Herb Sutter, Addison Wesley Longman, 
+    2000. 208 pages<br>
+    繁體中文版：《<a href="jjtbooks-exceptional-cpp.htm" tppabs="http://jjhou.boolan.com/jjtbooks-exceptional-cpp.htm">Exceptional C++ 中文版</a>》侯捷譯，培生 
+    2000. 248 頁<br>
+    <img src="exceptional-Cpp.jpg" tppabs="http://jjhou.boolan.com/exceptional-Cpp.jpg" width="222" height="280"
+    alt="exceptional-Cpp.jpg (33071 bytes)"><br>
+    </p>
+    <p><br>
+    ●層級一：語法/語意（C++）<br>
+    <br>
+    學習語言，當然首先從語法開始。初學者究竟要從輕鬆小品出發，或一開始就接觸巨著，殊無定論，因為初學者有很多種，「初學者」一詞卻無法反映他們的真實狀態。我的學生群中有 
+    13 歲的，也有 31 
+    歲的（年紀更大的當然也有），有人連電腦基本概念都尚未建立，有人已是經驗豐富的軟體工程師。不同背景、不同年齡、不同領悟力、不同學習速度的人，需要不同層級的教材來滿足他們。同一個人在不同階段，也需要不同層面的教材來提昇其功力與視野。<br>
+    <br>
+    但，不論新生或老手（新生有一天會變成老手），任何一位C++ 
+    程序員，我都強烈建議你的書架上要有<strong> [Lippman98]</strong> 和<strong> 
+    [Struostrup97] </strong>這兩本書。它們是 C++ 語法/語意層面的百科全書；所有相關問題，這兩本書都是最後仲裁，說了算！它們不適合連電腦基本概念都缺乏的人，但頗為適合已有編程經驗的人。<br>
+    <br>
+    這兩本書都已經在 C++ 領域馳逞十年。最新版本都是第三版，印映 
+    1998 定案的 C++ 標準規格。由於 C++ 
+    標準規格帶入一個十分龐大的標準程式庫，所以這兩本書也都比其前一版有巨幅的改變。如果要拿這兩本書做特性比較，我的個人觀感是，[Lippman98] 
+    適合做為教本，教學自修參考皆宜，[Struostrup97]比較生澀難讀，學術味重，參考性濃厚，權威性最高（畢竟 
+    Struostrup 創造了 C++）。<br>
+    <br>
+    這兩本書的每一版壽命大約是五年。C++ 
+    標準規格定案後，國際標準組織（ISO）每五年開會覆審一次，所以第三版至少也是五年壽命。也許有人以為，做為疑問辯論的最終裁判，還是以 
+    C++ 規格書為準（1998/09/01 出版，編號 ISO/IEC 14882），而且網路下載只需 
+    18 美元，PDF 
+    格式，索引極為方便。這當然是很好的一份工具，但是這份文件絕不適合做為學習材料，太硬了。<br>
+    <br>
+    目前全世界還沒有任何一個 C++ 編譯器支援完整的 C++ 
+    標準規格，互有長短，所以晚近新增的語言特性，不見得能夠在你手上的編譯器演練。關於 
+    Visual C++, Borland C++, CYGNUS C++ 三套工具在C++ 
+    標準規格上的表現，我個人有一些經驗，整理於<a
+    href="javascript:if(confirm(%27http://www.jjhou.com/qa-cpp-primer-27.txt  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.jjhou.com/qa-cpp-primer-27.txt%27" tppabs="http://www.jjhou.com/qa-cpp-primer-27.txt">http://www.jjhou.com/qa-cpp-primer-27.txt</a>。為什麼遲遲未有完全支援標準規格的 
+    C++ 編譯器問世呢？因為這已經不成為市場競爭重點；C++ 
+    開發工具市場已經轉到對視窗介面的支援以及對企業的完整解決方案。<br>
+    <br>
+    這兩本書深具工具參考價值，因此索引格外重要。兩本繁體版譯本皆用心地製作了索引（仍以英文術語來排列），此可為大陸借鏡。中文電腦書帶有索引，在臺灣亦不常見，兩本譯本皆因譯者的特別用心才得如此。索引採用英文術語，導出一個問題：如果書內文本沒有保留英文術語，怎麼辦？索引的製作與配套辦法，是科技翻譯亟需深思的一個問題。我的作法是，把諸多科技術語保留原文不譯，並努力維持中英頁頁對照，這麼一來原書索引就可以完整而輕鬆地保留下來。保留原文術語不譯，不完全是為了索引的製作，而是因為某些字眼強譯為中文，不但與業界習慣脫節，也與世界脫節。我所採行的這種作法受到很多讀者的喜愛，但是哪些原文術語要保留，哪些要中譯，又是見仁見智。大凡如果譯者真正是業內人士，他的選擇不會脫離業界習慣太遠。<br>
+    </p>
+    <p>●層級二：專家經驗（C++/OOP）<br>
+    <br>
+    能夠在學習語法並開始練習編程的同時，就接觸專家的經驗，最是理想，但實際上很難如此。一方面，每一條經過淬煉的編程規則，其來龍去脈可能牽涉到多方面的知識，甚至可能涉及底層技術，這對新手的負擔過重。另一方面，初學者往往只顧眼前半畝田，眼光沒太高遠。不過，如果有良師帶引，依樣畫葫蘆不失為一種初期的權宜學習方式。<br>
+    <br>
+    無論如何，為了提昇自己的 OOP 
+    功力，專家經驗是一條終南捷徑，讓你一次吸取高手十數年功力。<strong>[Meyers96]</strong> 
+    和 <strong>[Meyers98]</strong> 
+    是我極為推薦的兩本專家經驗書。以下試摘書中條款數例，諸君可掂掂自己的斤兩，看看自己平時實踐了多少，從各條款中又聯想了多少。<br>
+    <br>
+    ⊙以下摘自 <strong>[Meyers98]</strong>：<br>
+    <br>
+    條款1：儘量以 const 和 inline 取代 #define<br>
+    條款2：儘量以 &lt;iostream&gt; 取代 &lt;stdio.h&gt;<br>
+    條款3：儘量以 new 和 delete 取代 malloc() 和 free()<br>
+    條款5：使用相同型式的 new 和 delete<br>
+    條款6：記得在 destructors 中以 delete 對付 pointer member<br>
+    條款7：為記憶體不足的狀況預做準備<br>
+    條款8：撰寫 operator new 和 operator delete 時，應奉行慣常行為<br>
+    條款9：避免遮掩了 new 的正規型式<br>
+    條款10：如果你寫了 operator new，請對應寫一個 operator delete<br>
+    條款11：classes 內如果動態配置記憶體，請為它宣告一個 copy constructor 
+    和一個 assignment 運算子<br>
+    條款12：在 constructor 中儘量以 initialization 動作取代 assignment 動作<br>
+    條款13：initialization list 中的 members 初始化排列次序應該和其在 class 
+    內的宣告次序相同<br>
+    條款14：總是讓 base class 擁有 virtual destructor<br>
+    條款15：令 operator= 傳回 *this 的 reference<br>
+    條款16：在 operator= 中為所有的 data members 賦值。<br>
+    條款17：在 operator= 中檢查是否「自己賦值給自己」<br>
+    條款19：區分 member functions, non-member functions 和 friend functions 三者<br>
+    條款20：避免將 data members 放在公開介面中<br>
+    條款21：儘可能使用 const<br>
+    條款22：儘量使用 pass-by-reference（傳址），少用 pass-by-value（傳值）<br>
+    條款23：當你必須傳回一個 object 時，不要嘗試傳回一個 reference<br>
+    條款29：避免傳回內部資料的 handles<br>
+    條款30：避免寫出「傳回 non-const pointers 或 references 
+    並以之指向較低存取層級之 members」的 member functions<br>
+    條款31：千萬不要傳回「函式內的 local 物件的 reference」，或是「函式中以 
+    new 獲得的指標的所指物件」。<br>
+    條款32：儘可能延緩變數定義式的出現<br>
+    條款33：明智地運用 inlining<br>
+    條款34：將檔案之間的編譯相依關係（compilation dependencies）降至最低<br>
+    條款35：確定你的 public inheritance 模塑出 &quot;isa&quot; 的關係<br>
+    條款36：區分「介面繼承（interface inheritance）」和「實作繼承（implementation 
+    inheritance）」<br>
+    條款37：絕對不要重新定義一個繼承而來的非虛擬函式<br>
+    條款38：絕對不要重新定義一個繼承而來的預設參數值<br>
+    條款39：避免在繼承體系中做 cast down（向下轉型）動作<br>
+    條款40：透過 layering（分層技術）來模塑 has-a 或 is-implemented-in-terms-of 
+    的關係<br>
+    條款41：區分 inheritance 和 templates<br>
+    條款42：明智地運用 private inheritance（私有繼承）<br>
+    條款43：明智地運用多重繼承（multiple inheritance，MI）<br>
+    條款45：知道 C++（編譯器）默默為我們完成和呼叫哪些函式<br>
+    條款47：使用 non-local static objects 之前，確定它已有初值<br>
+    條款49：儘量讓自己熟悉 C++ 標準程式庫<br>
+    <br>
+    <br>
+    ⊙以下摘自<strong> [Meyers96]</strong>：<br>
+    <br>
+    條款1：仔細區別 pointers 和 references <br>
+    條款2：最好使用 C++ 轉型運算子 <br>
+    條款3：絕對不要以 polymorphically（多型）方式來處理陣列<br>
+    條款4：非必要不使用 default constructor<br>
+    條款5：對自定的型別轉換函式保持警覺<br>
+    條款6：區別 increment/decrement 運算子的前序（prefix）和後序（postfix）型式<br>
+    條款7：千萬不要多載化 &amp;&amp;, ||, 和 , 運算子<br>
+    條款8：瞭解各種不同意義的 new 和 delete<br>
+    條款9：利用 destructors 避免遺失資源<br>
+    條款10：在 constructors 內阻止資源遺失（resource leaks）<br>
+    條款11：禁止異常訊息（exceptions）流出 destructors 之外<br>
+    條款12：瞭解「丟出一個 exception」與「傳遞一個參數」或「呼叫一個虛擬函式」之間的差異<br>
+    條款13：以 by reference 方式捕捉 exceptions<br>
+    條款15：瞭解異常處理（exception handling）的成本<br>
+    條款17：考慮使用 lazy evaluation<br>
+    條款18：分期攤還預期的計算成本<br>
+    條款19：瞭解暫時物件的來源<br>
+    條款20：協助完成「傳回值最佳化（RVO）」<br>
+    條款21：利用多載化技術（overload）避免隱式型別轉換<br>
+    條款22：考慮以運算子的複合型式（op=）取代其獨身型式（op）<br>
+    條款24：瞭解 virtual functions、multiple inheritance、virtual base classes、<br>
+    runtime type identification 所需的成本<br>
+    條款25：將 constructor 和 non-member functions 虛擬化<br>
+    條款26：限制某個 class 所能產生的物件數量<br>
+    條款27：要求（或禁止）物件產生於 heap 之中<br>
+    條款28：Smart Pointers（精靈指標）<br>
+    條款29：Reference counting（參用計數）<br>
+    條款30：Proxy classes（替身類別、代理人類別）<br>
+    條款31：讓函式根據一個以上的物件型別來決定如何虛擬化<br>
+    條款33：將非尾端類別（non-leaf classes）設計為抽象類別（abstract 
+    classes）<br>
+    </p>
+    <font FACE="新細明體"><p>其中條款</font>25~31<font FACE="新細明體">層次甚高，用來解決</font>C++ 
+    <font FACE="新細明體">軟體開發過程中一再出現的問題，作者把這類問題及其解法稱為</font> 
+    idioms<font FACE="新細明體">（慣用法）或</font> patterns<font
+    FACE="新細明體">（樣式），與著名的</font>23<font FACE="新細明體">個精典</font> 
+    patterns<font FACE="新細明體">（見</font> <strong>[Gamma95]</strong><font
+    FACE="新細明體">）相呼應。雖然這裡所談的規模格局部都比較小，但正因為如此，作者得以完成比較具體的實現，反而比</font> 
+    <strong>[Gamma95]</strong> <font FACE="新細明體">容易閱讀。</font></p>
+    <p><strong>[Meyers96]</strong> 和<strong> [Meyers98]</strong> 
+    這兩本書成名已久，獲得極大的聲譽。以下的讚美可以使你更瞭解這兩本書的性質和價值：<br>
+    <br>
+    ◆在你開始著手第一個真正的 C++ 
+    專案之前，你應該閱讀本書；在你獲得一些實務經驗之後，你應該再讀一遍。-- 
+    comp.lang.c++<br>
+    <br>
+    ◆作者不只提供你撰寫 C++ 
+    碼時應該遵循的明白規則，也提供了深入的解釋與範例。-- Sun Expert<br>
+    <br>
+    ◆每一位 C++ 
+    程式員不只應該擁有這本書，而且應該確實運用這本書。書中文字極易拿來實際運用，交叉參考與索引的功夫做得很好。-- 
+    Computer Language<br>
+    <br>
+    ◆這本絕妙好書提供的招數，幫助我們把 C++ 運用得更好。每一位 C++ 
+    程式員桌上都應該有這本書。在提昇 C++ 程式設計的整體品質上， 
+    Scott Meyers 這份珍貴的禮物或許比業內任何人士的貢獻都大。-- Jesse 
+    Liberty, C++ Report<br>
+    <br>
+    <br>
+    <strong>[Sutter99]</strong> 是另一本專家經驗談。作者是 C++ Report 
+    期刊主編，並主持網路上一個名為每週之星（a Guru of the Week，GotW）的 
+    C++ 
+    特別節目。以他的背景和經歷，接觸的疑難雜症自然是又多又猛。這本書整理了 
+    47 
+    個條款，由於條款名稱無法表現某種具體準則，所以我不條列於此。本書主要分為八大項：<br>
+    <br>
+    1. 泛型程式設計與 C++ 標準程式庫<br>
+    2. Exception-Safety（異常發生時仍安全）的主題與相關技術<br>
+    3. Class 的設計與繼承<br>
+    4. 編譯器防火牆（Firewalls）及 Pimpl 慣用手法<br>
+    5. 名稱查詢、命名空間、介面原則<br>
+    6. 記憶體管理<br>
+    7. 陷阱、易犯錯誤與有害作法<br>
+    8. 雜項主題<br>
+    <br>
+    Scott Meyers 為此書所寫的序，點出了這本書的特質：<br>
+    <br>
+    『從語言的特性到標準程式庫內的組件，再到程式編寫技術，本書在不同的主題之間跳躍，總是使你稍稍失去平衡，總是使你必須付出全然的注意力。...我把 
+    GotW 發音為 &quot;Gotcha&quot;（意思是「這下可逮到你了」），或許很適當。當我把書中測驗的（我的）答案拿來和 
+    Sutter 的答案比較，我掉進他（和 C++）鋪設的陷阱中 — 
+    雖然我實在不想承認這點。我幾乎可以看見 Herb 
+    微笑並溫柔地對我所犯的每一個錯誤說 &quot;Gotcha!&quot;。...當你選擇 
+    C++ 做為工具，你必須小心地思考你正在做些什麼。C++ 
+    是一個威力強大的語言，用來協助解決吃力的問題，其重要性使你必須儘可能面對語言本身、程式庫、程式慣用手法來磨鍊你的知識。』<br>
+    <br>
+    就我的英文程度而言，[Sutter99] 讀起來不若 [Meyers96] 和 [Meyers98] 
+    那般平順，原因是其中用了很多厘語、口語、典故。舉個例子，Morphy 
+    law 
+    是什麼，大家知道嗎？（莫菲定律說：會出錯的，一定會出錯。）Machiavelli 
+    又代表了什麼意思？（意大利政治家，以詐術聞名。）<br>
+    <br>
+    這類專家經驗談，多半薄而貴，但貴得有價值。好消息是，[Meyers96] 
+    和 [Meyers98] 已經集結為電子書，以光碟呈現，採用 HTML 
+    格式，可使用任何支援 Java（以便進行全文檢索）的瀏覽器閱讀。多少錢一片？請上亞馬遜瞧瞧。<br>
+    <img src="effective-cpp-cd.gif" tppabs="http://jjhou.boolan.com/effective-cpp-cd.gif" width="215" height="264"
+    alt="effective-cpp-cd.gif (82006 bytes)"></p>
+    <p><br>
+    ●層級三：底層機制（C++ Object Model）<br>
+    <br>
+    如果對於迥異傳統編程方式的 C++ 特性，諸如 virtual functions、constructors、destructors…等特異功能一直無法心領神會，可能有必要到內部機制去深度遊歷一番。不要以為鑽到這麼深層的技術，會愈搞愈糊塗，愈搞愈恍忽。很多人，包括我自己，是在遊歷過底層機制一遍之後，才徹底覺悟並接受了 
+    C++。<br>
+    <br>
+    所謂底層機制主要是指 (1) object 的記憶體佈局：data members 
+    分佈在哪裡？加了 static 又如何？member functions 分佈在哪裡？加了 
+    virtual 又如何？有了繼承又如何？(2) constructors 和 destructors為什麼會自動被喚起？(3) 
+    template 模板機制是怎麼回事？(4) this 指標是怎麼回事？(5) runtime type 
+    identification（RTTI）是怎麼實作出來的？<br>
+    <br>
+    知道了這些底層機制，你便能夠對自己在 C++ 
+    程式中的每一個動作所引發的影響，瞭如指掌。學習這些底層技術，不是為了自行開發一套編譯器，而是為了徹底掌握 
+    C++ 語言；底層技術的學習，只是過程，不是目標。這種情況和《<a
+    href="jjwbooks-dissecting-mfc-2e.htm" tppabs="http://jjhou.boolan.com/jjwbooks-dissecting-mfc-2e.htm">深入淺出 MFC</a>》（侯捷著，松崗 1997）的情況很像，數萬名讀者不是為了自行開發 
+    framework 而歡喜閱讀該書對 MFC 的剖析，是為了徹底掌握自己在撰寫 
+    MFC 應用程式時的一言一行。<br>
+    <br>
+    底層機制方面的專論書籍非常稀少。我所僅見的兩本，一是 <strong>[Ellis90]</strong>，一是 
+    <strong>[Lippman96]</strong>。前者被暱稱為 ARM（帶註解的參考手冊），是早期 
+    C++ 編譯器的實作依循準則，但因年代過遠，我寧願更推薦後者。[Lippman96] 
+    筆誤非常多，我翻譯此書的過程中至少修正了100 個以上的筆誤。<br>
+    <br>
+    瞭解事務的本質，到底有沒有必要？這個問題太簡單了：如果你必須走那麼一遭，才能接受事務的表徵，那麼於你就有必要。如果你天生是個 
+    OO 奇才，或你一開始接觸的第一個語言就是OO 
+    語言，以至於有可能認為其中的一切都是理所當然，可以完全領受各種特性的運用，那麼底層機制於你就不需要。<br>
+    <br>
+    我個人是如此地真正第一線面對大量的學習者，就我的教學經驗（乃至於我個人的學習經驗），我要說，瞭解事務的本質，對絕大多數人都有極正面的幫助。關於這一點，我最喜歡引用林語堂先生在《朱門》一書裡頭的一句話：<font
+    color="#0000FF">『只用一樣東西，不明白它的道理，實在不高明。』</font></p>
+    <p><br>
+    <a name="●層級四：設計觀念的復用（C++/Patterns）">●層級四：設計觀念的復用（C++/Patterns）</a><br>
+    <br>
+    軟體工程的所有努力，無非是為了美好的復用性（reusibility）。從早期的subroutines, 
+    procedures, functions, 到後來的 classes, templates。在在為了相同的目標。如今我們已經能夠將「資料，以及處理資料的動作」封裝得很好，甚至能夠把資料型別都抽取出來成為參數，甚至更進一步將資料本體和處理資料的各種演算法獨立開來，各自發展而又能夠藉著某種「黏膠」彼此作用（<font
+    color="#0000FF">註</font>）。<br>
+    <br>
+    <font color="#0000FF">註</font>：這便是所謂泛型編程（generic programming）的精神。下個月我為大家介紹這個主題。<br>
+    <br>
+    很好，很好。但是長久以來我們卻無法將設計概念以規格化的方式傳承下去。面對資料結構（data 
+    structures），我們只要說 <strong>stack, queue, list</strong>, 
+    不必多言，聞者馬上就知道stack 是先進後出，queue 是先進先出，list 
+    是單向或雙向串鏈。面對演算法（algorithms），我們只要說 <strong>quick-sort</strong> 
+    和<strong> binary-search</strong>，不必多言，聞者馬上就知道其複雜度分別是 
+    O(N log N) 和 O(log N)，其行為模式如何如何。但是當我們希望保證某個 
+    class 在整個系統中只有一份 object 
+    時，該如何設計？當我們希望對某個 object 
+    架構出一個替身（或說代理人）以控制對本尊的存取（進而達成緩式評估lazy-evaluation）時，該如何設計？當我們希望以某種方法走過某個聚合物件內某一範圍的所有元素，而不需曝露該物件的底層結構時，該如何設計？當我們希望以共享方式來處理系統中的基本元素（例如龐大文檔內數量相對極少的基本字符）時，該如何設計？<br>
+    <br>
+    如果這些一再被反覆大量運用、並且早經眾人淬煉出極佳作法的設計（一整組解決方案），能夠系統化地分類整理，給定標準名稱、定義、效果、實作法、甚至示例代碼，我們就不必每次都從輪子造起（還造得不比專家圓呢）。如果程序員之間只要說<strong>Singleton, 
+    Proxy, Iterator, Flyweight</strong>，聞者馬上知道其背後代表的是某種特定設計，有著特定的邏輯，用以解決某種特定問題，可多好。這正是將設計觀念及其實作邏輯的寶貴經驗，以簡潔而可復用的形式表達出來。<br>
+    <br>
+    <strong>[Gamma95]</strong> 一書內含精心整理的 23 個 design patterns。四位作者的主要貢獻不在於 
+    patterns 的創建，而在於 patterns 的整理形式與發揚光大。書中所提的 
+    patterns 名稱，幾乎已經成為 OO 
+    設計領域裡頭的標準辭彙。《程序員》去年 11 
+    月份有一份蔣濤先生針對 [Gamma95] 的評論，其中對於 patterns 
+    的比喻，令人激賞：<font color="#0000FF">『patterns 
+    需要反復練習體會，才能應用自如。這有點像圍棋中的定式，圍棋定式是百年來高手下法的總結，但不能簡單地應用，要看場合選擇合適的定式，還要按棋理變通下法。』</font><br>
+    <br>
+    幸運，真幸運，[Gamma95] 也有電子書出版，以光碟呈現，採用 HTML 
+    格式，可使用任何支援 Java（以便進行全文檢索）的瀏覽器閱讀。<br>
+    <img src="design-patterns-cd.gif" tppabs="http://jjhou.boolan.com/design-patterns-cd.gif" width="194" height="242"
+    alt="design-patterns-cd.gif (111324 bytes)"><br>
+    <br>
+    <br>
+    <br>
+    程式設計究竟是一門工匠技藝還是一門藝術？都可以是！看你從哪個角度出發。有人說連設計概念都可以以 
+    patterns 
+    規格化地傳承，還談什麼藝術？如果你是這樣想，我說三件事給你聽。建築是一門技術還是藝術？很多人都認為建築是一門藝術。然而 
+    patterns 的概念正是濫觴於建築設計領域。目前軟體界所使用的 pattern 
+    一詞源自建築理論大師 Christopher Alexander 
+    的著作，他的書探討的雖然都是建築設計與都市規劃的課題，但其精神與本質卻適用其它領域，包括軟體開發。另一件事是，軟體界開始流行 
+    framework 
+    工具時，也有人認為程式主框架都被限死了，談什麼設計與彈性？我說：只要饅頭好吃，我從不在乎是機器饅頭還是純手工精製。你的設計精力應該放在專業領域如繪圖、影像處理、統計、數學分析…，而不是放在共通的基礎框架上。如果你真的對基礎共通的事務感興趣，你不應走應用軟體開發之路，應該將設計天份用來研究更新更好的資料結構，更新更好的演算法，更新更好的框架。</p>
+    <p><br>
+    ●線性學習？沒的事！<br>
+    <br>
+    雖然我把 C++/OOP 
+    的學習階段分為四層，但除了第四層得萬事俱備才能水到渠成，其他三層的學習並不是那麼涇渭分明。通常你要你的C++ 
+    堅軔鋒利，你得讓它歷經多次回火，在高熱和驟冷之間焠鍊，在學術與實用之間震盪。我無法為你畫出一條單行道，你勢必得走些回頭路，時而品味一下曾經忽略的小花，時而啜飲一口被你遺忘的甘泉，填實了某種縫隙之後，才能神清氣爽充實盈滿地再出發。<br>
+    <br>
+    -- the end<!--mstheme--></font></td>
+  </tr>
+</table>
+
+<p>　</p>
+<!--mstheme--></font>
+</body>
+</html>

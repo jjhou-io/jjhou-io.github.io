@@ -1,0 +1,222 @@
+<html>老師您好：
+    關於上次上課我們所寫的那個程式，我在練習之後，
+有幾個小問題想像老師您確認一下，怕觀念不正確。
+
+(1)
+    為了方便性，我先做這樣的宣告：
+    int ia[]={1,2,3,4,5};
+    vector<int> vi(ia,ia+5);
+    vector<int>::iterator iter = find(vi.begin(), vi.end(), 10);
+
+    在上禮拜有向老師您問過一個問題：find() 如果找
+不到要找的資料，會回傳什麼？
+    記得當時老師的說法是回傳 vi 這個 vector 的尾端
+所指的地方(也就是下圖 * 的地方)：
+
+           -------------------
+           | 1 | 2 | 3| 4 | 5|
+           -------------------
+                             *
+這麼說的話，如果我們嘗試去把 iter 的值印出來 (cout << *iter)
+這個值就會像我們做了這樣的動作：印了不可預期的值？
+(我有做了一些測試，的確每次值都不太一樣)
+
+int i;	// 未設初值
+cout << i;
+
+(問：事實上，這個值就得看當時記憶體的這個值是多少囉？)
+
+    一般來說，我們在使用 find() 後，應該希望知道的是：
+究竟有沒有找到這個值？那是否有方法得知這個消息呢？
+
+
+(2)
+    還記得我們的程式曾經因為 iter++／++iter 的問題而停
+下來討論過一會兒。
+(a)    cout << *(iter++) << endl;   //似乎不是我們當時要的結果
+於是我改成了
+(b)    iter++;
+       cout << *iter;               //這是我們想要的結果
+
+在以前上過的課程中，常用這樣簡單的一個例子來說明 num++／++num 的差別：
+int num=5;
+cout << num++ ;         //會把 num 加 1，但傳回 num 加 1 前的值給 cout
+
+這邊我想問的問題是：
+() 優先權較高，iter++ 為什麼不會因為被放在 () 之內
+先被執行完，再去做 derefrence 呢？
+(或說，我希望 (a) 和 (b) 是等價的程式碼  )
+
+
+(3)
+    最後是 class functor 在 constructor 部分的問題：
+記得有人提過這個問題，如果我在 class functor 中有撰
+寫 constructor，當我們在 for_each 用上這個 class functor
+時，constructor 會被執行幾次？ (當然，我們知道是一次，我也試過了。)
+    我想確定的是，我們這樣去使用這個 class functor 時
+一個上課的例子： for_each(vi.begin(), vi.end(), printElem<int>() );
+究竟 printElem 產生的 "暫時物件"，其生命週期是多長？
+
+我直覺的這樣做解釋：
+
+01	for_each(...)
+02	{
+03	  printElem<int>();	//這個暫時物件的生命開始
+04
+05	  //something to do
+06
+07	  // 這邊猜測是個 for loop 之類的東西
+08	  /* 當 for_each 讀到一個 vi 的 element
+09	     去呼叫這個暫時物件的 operator() method
+10	     直到讀完該讀的 elements                 */
+11	}
+
+其實 printElem 的暫時物件從 for_each 開始
+直到第 11 行才真的結束。
+只是我們在 main 中看到的這行：
+for_each(vi.begin(), vi.end(), printElem<int>() );
+
+自然而然地就會說，啊.. printElem 的暫時物件，在這行 statement 完就結束了
+我在想，如果我的解釋 (line 01 ~ 11) 是正確的
+那麼，constructor 只被執行一次，自然就是 "很自然" 的想法了吧！
+不知道老師的看法又是如何？
+
+
+希望我的問題，老師可以看懂。
+
+
+
+
+
+
+
+
+侯老師您好：
+
+        在上課的時候有討論到在for_each()演算法中functor暫時物件生成的問題，
+老師以在constructor中出現訊息的手法，證明了constructor只被喚起一次。我回
+來後自己再測試一遍，同時也在destructor中加入訊息，程式碼如下：
+
+// gcc 3.2.2
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+template< typename T >
+class printElem
+{
+        public:
+        printElem(){ cout << "Call Constructor!" << endl; }
+        ~printElem(){ cout << "Call Destructor!" << endl; }
+
+        void operator()( const T& elem )
+        { cout << elem << ' '; }
+};
+
+int main()
+{
+
+        int ia[] = { 2, 35, 34, 38 };
+        vector<int> vi( ia, ia+4 );
+        for_each( vi.begin(), vi.end(), printElem<int>() );
+
+        return 0;
+}
+
+沒想到結果卻出乎我意料之外：
+
+Call Constructor!
+2 35 34 38 Call Destructor!
+Call Destructor!
+
+destructor竟被喚起兩次？
+
+於是我在 "STL 源碼剖析" 中找出 for_each() 的源碼：
+
+template< typename InputIterator, typename Function >
+Function for_each( InputIterator first, InputIterator last, Function f )
+{
+        for( ; first != last; ++first )
+                f( *first );
+        return f;
+}
+
+我直覺的想到會不會是傳回值所引起的，於是我在 global space 寫出相同的
+for_each()，
+只是傳回型別改成void：
+
+void for_each( ... ) //其餘同上
+
+::for_each( vi.begin(), vi.end(), printElem<int>() ); //其餘同上
+
+結果就正常了：
+
+Call Constructor!
+2 35 34 38 Call  Destructor!
+
+雖然現在知道是傳回值的關係造成destructor的喚起，
+但這不是相當不合理嗎？object都被消滅掉了，又怎能喚起它的destructor？
+
+
+
+
+
+侯老師您好:
+ 
+        學生在測試上次您上課所寫的程式時
+        發現一個 "強迫轉型" 小問題.
+ 
+        例如:
+ 
+        int Ary[] = {5,6,7,10,11,12};
+ 
+        list<int> lint(Ary, Ary + 6);            // 這行沒有問題
+        list<long> llong(Ary, Ary + 6);       //  這裡 MinGW, BC 都可以過, VC6 不過
+ 
+        再設計個複雜點的型別, 看看編譯器對強迫轉型的容忍度有多高
+ 
+        class clsA
+        {
+             int iM1_;
+             int iM2_;
+        };
+ 
+        class clsB
+        {
+             long lM1_;
+             long lM2_;
+        };
+ 
+        clsA clsAAry[10];
+ 
+        list<clsA> lclsA(clsAAry, clsAAry+10); 
+        list<clsB> lclsB(clsAAry, clsAAry+10);        //  這裡 MinGW, BC, VC6 都不過
+ 
+        推測:
+                對於基本型別的轉型,  STL 依照原本 "基本型別的轉型規則" 進行轉換
+                例如 int 可以轉成 long, 但是 VC 在這裡卻沒有做
+ 
+                對於使用者定義型別的轉型, 就不會通過了
+ 
+        以上是目前暫時的測試結果, 
+        學生再去參考其他資料, 看看是否有其他答案.
+ 
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

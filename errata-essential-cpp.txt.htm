@@ -1,0 +1,1075 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>勘誤《Essential C++ 中文版》</title>
+</head>
+
+<body>
+
+<pre>本勘誤檔更新日期:2002/12/13</pre>
+
+<pre>《Essential C++ 中文版》
+碁峰,2001</pre>
+
+<pre>目前刷次:2001/01 第一刷 印量 0001~3000
+         2001/11 第二刷 印量 3001~4000
+              ★ 本表所載勘誤至 2001/10/12 止皆已修正於紙本第二刷</pre>
+
+<pre>原著：Essential C++, by Stanley B.Lippman
+      Addison Wesley,2000</pre>
+
+<pre>注意：以下按修正日期排序。</pre>
+
+<pre>======================================================</pre>
+
+<pre>書籍內容更正，有兩種作法，一是在網際網路上做個專屬勘誤
+網頁，讓大家上去看。這是比較即時的作法。而更理想更負責
+的作法是：不但有勘誤網頁，並且在新刷中予以更正 — 如果
+有新刷的話 :)</pre>
+
+<pre>不過，理想與現實之間需要一點協調。書籍的製作是這樣的，
+製版與印刷時，是以檯（8 或 16 頁）為單位。因此，每換一
+頁，同檯的各頁統統要換過。這便造成印製成本的大量增加。</pre>
+
+<pre>以前，我從不考慮成本，只要我認為書籍內容有修改必要，即
+使只是某個字詞用得不甚理想，我都會請出版社更新。出版社
+也都全力配合（這一點讓我非常感謝）。</pre>
+
+<pre>慢慢地，我的行事不再這麼霹靂，我覺得我多少也要站在出版
+社的立場想想。所以我打算，如果是關係到對錯正誤的根本性
+問題，我便一定在新刷修正。如果是易判別的錯別字或排版誤
+失或用詞不很恰當…等等，我便先在勘誤網頁上明載，但不求
+一定於新刷中更正。直到收集來的這類誤失較為密集了，才一
+併於下一刷修正。</pre>
+
+<pre>哪些是新刷已修正的，哪些是暫請讀者自行動手更改的，我會
+在勘誤網頁（網址見書封底）上清楚說明。</pre>
+
+<pre>這是個便宜法門，請讀者見諒。</pre>
+
+<pre>書籍應該在出版前就詳細檢查，以完美之姿出現。但是完美很
+難達到。對於下列大大小小輕重不等的誤失，我謹向讀者說抱
+歉。</pre>
+
+<pre>本檔歡迎廣為流傳，謝謝。</pre>
+
+<pre>以下為更新記錄。如果您購買的是第 n 刷，請將以下第 n+1
+刷之後的更新內容自行修正至書上。謝謝</pre>
+
+<pre>======================================================</pre>
+
+<pre><font color="#0000FF">二刷更正內容：
+</font>（注意，Lm 表示第 m 行，L-n 表示倒數第 n 行）</pre>
+
+<pre>■p115, L-9,L-8
+原文：_next = _beg_pos;                   // 此行為中譯本筆誤
+      int elem_cnt = _beg_pos + _length;  // 此行為原書錯誤（載於原書勘誤表）
+更正：_next = _beg_pos - 1;
+      int elem_cnt = _beg_pos + _length - 1;
+感謝：minbobo
+日期：2001/01/23</pre>
+
+<pre>■p128, 4.10 節以下 #8 行（中譯本筆誤）
+原文：&lt;&lt; rhs.length() &lt;&lt; &quot;;
+更正：&lt;&lt; rhs.length() &lt;&lt; &quot;)&quot;;
+感謝：minbobo
+日期：2001/01/23</pre>
+
+<pre>■p142, 5.3 節以下 #1 行（原書筆誤）
+原文：4.10 節的...
+更正：4.11 節的...
+感謝：minbobo
+日期：2001/01/23</pre>
+
+<pre>■p151, L-6（中譯本筆誤）
+原文：注意，elems() 和 print() ...
+更正：注意，elem() 和 print() ...
+感謝：minbobo
+日期：2001/01/23</pre>
+
+<pre>■p156, L8（原書筆誤）
+原文：請注意，這個程式的輸出結果和稍早 4.10 節...
+更正：請注意，這個程式的輸出結果和稍早 4.11 節...
+感謝：minbobo
+日期：2001/01/23</pre>
+
+<pre>■p159, L14（原書筆誤）
+原文：num_sequence( len, beg_pos, &amp;_elems )
+更正：num_sequence( len, beg_pos, _elems )
+感謝：minbobo
+日期：2001/01/23</pre>
+
+<pre>■p159, L-11（原書筆誤）
+原文：  : _length( len ), _beg_pos( bp ), _pelems( re ) { }
+更正：  : _length( len ), _beg_pos( bp ), _pelems( pe ) { }
+感謝：minbobo
+日期：2001/01/23</pre>
+
+<pre>■p163, L-5（原書筆誤）
+原文：gen_elems( iWish, &amp;iWish, iWish );
+更正：print( iWish, &amp;iWish, iWish );
+感謝：minbobo
+日期：2001/01/23</pre>
+
+<pre>■p164, L16（原書筆誤）
+原文：num_sequence( len, beg_pos, &amp;_elems, &quot;Fibonacci&quot; )
+更正：num_sequence( len, beg_pos, _elems, &quot;Fibonacci&quot; )
+感謝：minbobo
+日期：2001/01/23</pre>
+
+<pre>■p75, L17（中譯本筆誤）
+原文：int *pa = find( ia, ia+asize, 1024);
+更正：int *pia = find( ia, ia+asize, 1024);
+感謝：ikai
+日期：2001/01/27</pre>
+
+<pre>■p75, L22（中譯本筆誤）
+原文：if ( pia != ia+asize )
+更正：if ( it != ivec.end() )
+感謝：ikai
+日期：2001/01/27</pre>
+
+<pre>■p132, L-1（原書筆誤）
+原文：要到 5.2 節才介紹。
+更正：要到 5.3 節才介紹。
+感謝：jjhou
+日期：2001/01/29</pre>
+
+<pre>■p149, L8（轉碼錯誤）
+原文：return 銫ibonacci&quot;;
+更正：return &quot;Fibonacci&quot;;
+感謝：jjhou
+日期：2001/01/29</pre>
+
+<pre>■p20, L8（中譯本筆誤）
+原文：bool next_sg = true;
+更正：bool next_seq = true;
+感謝：chenyuyuan
+日期：2001/01/30</pre>
+
+<pre>■p20, L25（中譯本筆誤）
+原文：num_cor++;
+更正：num_right++;
+感謝：chenyuyuan
+日期：2001/01/30</pre>
+
+<pre>■p20, L-3（中譯本筆誤）
+原文： }  // while( mext_seq == true ) 結束
+更正： }  // while( next_seq == true ) 結束
+感謝：chenyuyuan
+日期：2001/01/30</pre>
+
+<pre>■p27, L7（中譯本筆誤）
+原文：並給予初值 1,204
+更正：並給予初值 1,024
+感謝：Galway Chang
+日期：2001/02/04</pre>
+
+<pre>■p31, L-12（中譯本誤譯）
+原文：如果要開啟一個可供寫入的檔案，我們定義一個 istream（供輸入的 file stream）物件
+更正：如果要開啟一個可供讀取的檔案，我們定義一個 istream（input file stream）物件
+感謝：alberta
+日期：2001/02/04</pre>
+
+<pre>■p31, L-9（中譯本誤譯）
+原文：// 以寫入模式（input mode）開啟 infile
+更正：// 以讀取模式（input mode）開啟 infile
+感謝：alberta
+日期：2001/02/04</pre>
+
+<pre>■p14, L7（中譯本筆誤）
+原文：其核定（evaulate）順序
+更正：其核定（evaluate）順序
+感謝：jiing
+日期：2001/02/06</pre>
+
+<pre>■p29, L-4（原書筆誤）
+原文：第一個元素
+更正：第二個元素
+感謝：jiing
+日期：2001/02/06</pre>
+
+<pre>■p38, L1（中譯本筆誤）
+原文：參數 post 和 elem
+更正：參數 pos 和 elem
+感謝：jiing
+日期：2001/02/06</pre>
+
+<pre>■p45, L12（中譯本筆誤）
+原文：宣告 val1 和 value
+更正：宣告 val1 和 val2
+感謝：jiing
+日期：2001/02/06</pre>
+
+<pre>■p51, L21, bubble_sort() 函式宣告（中譯本筆誤）
+原文：ofstream &amp;ofil =0)
+更正：ofstream *ofil =0)
+感謝：jiing
+日期：2001/02/06</pre>
+
+<pre>■p57, L3（中譯本筆誤）
+原文：Numeric Sequence&quot;');
+更正：Numeric Sequence&quot;);
+感謝：jiing
+日期：2001/02/06</pre>
+
+<pre>■p57, L4（中譯本筆誤）
+原文：(greeting);s
+更正：(greeting);
+感謝：jiing
+日期：2001/02/06</pre>
+
+<pre>■p52, 中段，display() 函式宣告（中譯本筆誤）
+原文：ofstream &amp;os = cout
+更正：ostream &amp;os = cout
+感謝：pclover
+日期：2001/02/06</pre>
+
+<pre>■p15, L-18，虛擬碼第7行（中譯本筆誤）
+原文：{
+更正：{ #2
+感謝：kuoting
+日期：2001/02/07</pre>
+
+<pre>■p2, L-13（中譯本筆誤）
+原文：舉例來說，如果我們撰寫 main() 函式，使其傳回兩數中較小者，
+更正：舉例來說，如果我們撰寫 min() 函式，使其傳回兩數中較小者，
+感謝：michael liang
+日期：2001/02/13</pre>
+
+<pre>■p180, L-2（中譯本誤譯）
+原文：為了讓上述的 output 運算子得以順利呼叫 print()，print() 必須成為...
+更正：為了讓上述的 output 運算子得以順利呼叫 print()，output 運算子必須成為...
+感謝：Joseph
+日期：2001/02/16</pre>
+
+<pre>■p181, L-5（中譯本筆誤）
+原文：stemplate &lt;int len, int beg_pos&gt;
+更正：template &lt;int len, int beg_pos&gt;
+感謝：Joseph
+日期：2001/02/16</pre>
+
+<pre>■p188, L5（原文書筆誤）
+原文：我們勢必得為不同的型別各自建立一份 class template。
+更正：我們勢必得為不同的型別各自建立一份 class。
+感謝：Joseph
+日期：2001/02/16</pre>
+
+<pre>■p194, L-14（中譯本筆誤）
+原文：指定省略符合（...）即可
+更正：指定省略符號（...）即可
+感謝：Joseph
+日期：2001/02/16</pre>
+
+<pre>■p54, L-13（前一錯誤為原文書筆誤，後一錯誤為中譯本筆誤）
+原文：// 如果 size 等於或大於 elems_size()
+更正：// 如果 size 等於或小於 elems.size()
+感謝：alberta
+日期：2001/02/24</pre>
+
+<pre>■p27, L2（中譯本筆誤）
+原文: 代表某持定記憶體位址
+更正: 代表某特定記憶體位址
+感謝：Eric Yu
+日期：2001/02/26</pre>
+
+<pre>■p49 L1（中譯本筆誤）
+原文: 因為 elems 在 ibon_seq() ...
+更正: 因為 elems 在 fibon_seq() ...
+感謝：Eric Yu
+日期：2001/02/26</pre>
+
+<pre>■p76 L3（中譯本筆誤）
+原文: search alogrithm
+更正: search algorithm
+感謝：Eric Yu
+日期：2001/02/26</pre>
+
+<pre>■p35 L2（中譯本筆誤）
+原文：將它們實作為為獨立函式
+更正：將它們實作為獨立函式
+感謝：張振宇先生
+日期：2001/02/27</pre>
+
+<pre>■p72 L13（中譯本筆誤）
+原文：find(begin(sevc), send(sevc), search_value)
+更正：find(begin(sevc), end(sevc), search_value)
+感謝：張振宇先生
+日期：2001/02/27</pre>
+
+<pre>■p55, L-20（中譯本誤植）
+原文：if ( ! is_size_ok( size )) {
+更正：把最後面的左大括弧拿掉
+感謝：alberta
+日期：2001/02/27</pre>
+
+<pre>■p105 L3（中譯本資料處理錯誤）
+原文：// 一組多載化的 constructors
+      Triangular( int len = 1, int bp = 1 );
+      Triangular( const Triangular&amp; );
+      Triangular&amp; operator=( const Triangular &amp;rhs );
+更正：// 一組多載化的 constructors
+      Triangular( );
+      Triangular( int len );
+      Triangular( int len, int beg_pos );
+感謝：張振宇先生
+日期：2001/03/03
+說明：這種莫名其妙的錯誤，是怎麼發生的呢？我檢查了國外原檔，上面並沒錯。
+      問題出在初譯者的處理，以及侯捷檢閱時沒有檢查出來。
+      基本上，對於合譯書籍，我檢閱書籍時不會細看程式碼。總以為程式碼
+      來自國外原檔，理不應有誤，處理者也不應有誤。當然，我還是要負起
+      這個責任。這種錯誤真讓我無地自容。哎，以後我會對各方面都謹慎…
+</pre>
+
+<pre>■p121 中間部份的兩段程式碼3（原書錯誤）
+原文：</pre>
+
+<pre>inline int&amp; Triangular_iterator::
+operator++()
+{   // prefix instance
+    ++_index;
+    check_integrity();
+    return Triangular::_elems[ _index ];
+}</pre>
+
+<pre>inline int Triangular_iterator::
+operator++( int )
+{   // postfix instance
+    check_integrity();
+    return Triangular::_elems[ _index++ ];
+}</pre>
+
+<pre>更正：</pre>
+
+<pre>inline Triangular_iterator&amp; Triangular_iterator::
+operator++()
+{   // prefix instance
+    ++_index;
+    check_integrity();
+    return *this;
+}</pre>
+
+<pre>inline Triangular_iterator Triangular_iterator::
+operator++( int )
+{   // postfix instance
+    Triangular_iterator tmp = *this;
+    ++_index;
+    check_integrity();
+    return tmp;
+}</pre>
+
+<pre>感謝：dragonyy
+日期：2001/03/30
+說明：Lippman 的老毛病又犯了：書的層次很好，架構很好，但是不夠嚴謹。
+      他在 Inside the C++ Object Model 的各種筆誤，讓我印象深刻。修改後
+      的 operator++ 如上，才是正確寫法，大致符合 &lt;More Effective C++&gt; item6.
+      以上程式碼是從源碼檔案取來。源碼正確，書上錯誤。由於我譯書時不常
+      核對書上的程式碼（都是直接拿原書檔案放進來），所以挑不出這種錯誤。
+      無論如何還是要說抱歉。
+      另，p119 的 operator++ 宣告式，原書也有誤，中譯本已改妥。
+建議：看 &lt;Essential C++&gt; 的同時，如對書中程式碼有問題，請看看源碼檔案，
+      並寫信給我。謝謝。源碼檔案可於支援網站（書後有載）取得。</pre>
+
+<pre>■p101 L-4（中譯本筆誤）
+原文：}
+更正：};
+感謝：Eric Yu
+日期：2001/04/02</pre>
+
+<pre>■p123 L-15（中譯本筆誤）
+原文：protype
+更正：prototype
+感謝：Eric Yu
+日期：2001/04/02</pre>
+
+<pre>■p29 L-12（中譯本筆誤）
+原文：rand() &amp; seq_cnt;
+更正：rand() % seq_cnt;
+感謝：J.Y.Zhou
+日期：2001/04/12</pre>
+
+<pre>■p72, L-7（中譯本錯別字）
+原文：大相脛庭
+更正：大相逕庭
+感謝：jiing
+日期：2001/04/20</pre>
+
+<pre>■p75, L-8（中譯本錯別字）
+原文：收獲豐富
+更正：收穫豐富
+感謝：jiing
+日期：2001/04/20</pre>
+
+<pre>■p81, L7（中譯本處理錯誤）
+原文：iterator it1
+更正：iterator it2
+感謝：jiing
+日期：2001/04/20</pre>
+
+<pre>■p91, 3.8 節上數第五行（中譯本處理錯誤。侯捷對這種錯誤深感羞愧與抱歉）
+原文：map&lt;string,int&gt; ::iterator it;
+更正：string search_word(&quot;vermeer&quot;);
+感謝：jiing
+日期：2001/04/20</pre>
+
+<pre>■p94, L-7（中譯本處理錯誤）
+原文：back_inserter(ivec2);
+更正：back_inserter(ivec2),   注意 ; 改為 ,
+感謝：jiing
+日期：2001/04/20</pre>
+
+<pre>■p103, L-7，p227, L14（中譯本筆誤）
+原文：建立 stack.h 和 stakc.suffix,
+更正：建立 stack.h 和 stack.suffix,
+感謝：jiing
+日期：2001/04/20</pre>
+
+<pre>■p104, L-12（中譯本處理錯誤）
+原文：}
+更正：};
+感謝：jiing
+日期：2001/04/20</pre>
+
+<pre>■p106, L-9
+原文：}
+更正：};
+感謝：jiing
+日期：2001/04/20</pre>
+
+<pre>■p126 L-5（中譯本處理錯誤。侯捷對這種錯誤深感羞愧與抱歉）
+原文： void comp_val( int val ) { _val = _nval; }
+更正： void comp_val( int nval ) { _val = nval; }
+感謝：jiing
+日期：2001/04/20</pre>
+
+<pre>■p129 L-5（中譯本排版處理錯誤）
+原文： ( 4,10 )
+更正： ( 4,10 )  改為粗體字
+感謝：jiing
+日期：2001/04/20</pre>
+
+<pre>■p131 L-10（中譯本筆誤）
+原文： _pfm 值
+更正： _pmf 值
+感謝：jiing
+日期：2001/04/20
+</pre>
+
+<pre>■px L-1（錯別字）
+原文：垂手可得
+更正：唾手可得
+感謝：edward
+日期：2001/05/26</pre>
+
+<pre>■p4 L13（中譯本筆誤）
+原文：please enter your firzst name :
+更正：please enter your first name :
+感謝：edward
+日期：2001/05/26</pre>
+
+<pre>■p30 L-13（中譯本處理錯誤）
+原文：我們定義一個 ostream ...
+更正：我們定義一個 ofstream ...
+感謝：edward
+日期：2001/05/26</pre>
+
+<pre>■p46 L9（誤譯）
+原文：哎呀！這真是難啊！但許多程式員都喜歡它。
+更正：哎呀！這真是難啊！但大部分編程工作皆是如此。
+感謝：edward
+日期：2001/05/26</pre>
+
+<pre>■p51 L14（中譯本處理錯誤）
+原文：每次呼叫 bubble_sort() 都必須傳入一個 fstream 物件，
+更正：每次呼叫 bubble_sort() 都必須傳入一個 ofstream 物件，
+感謝：edward
+日期：2001/05/26</pre>
+
+<pre>■p52 L-3（中譯本處理錯誤）
+原文：我們之所以含入 stdlib 表頭檔，
+更正：我們之所以含入 cstdlib 表頭檔，
+感謝：edward
+日期：2001/05/26</pre>
+
+<pre>■p53 L9（中譯本處理錯誤）
+原文：void display( const vector&lt;int&gt; &amp;vec, ofstream &amp;os )
+更正：void display( const vector&lt;int&gt; &amp;vec, ostream &amp;os )
+感謝：matini
+日期：2001/05/26</pre>
+
+<pre>■p16 L2（中譯本筆誤）
+原文：conditaion expression
+更正：condition expression
+感謝：ceknight
+日期：2001/06/06</pre>
+
+<pre>■p100 L4（中譯本筆誤）
+原文：protype
+更正：prototype
+感謝：ceknight
+日期：2001/06/21</pre>
+
+<pre>■p25 L20（中譯本筆誤）
+原文：cout &lt;&lt; &quot; The fitst &quot; &lt;&lt; elem_seq.size()
+更正：cout &lt;&lt; &quot; The first &quot; &lt;&lt; elem_seq.size()
+感謝：Chu Dennis
+日期：2001/07/06</pre>
+
+<pre>■p59 L-5（中譯本處理錯誤）
+原文：vector&lt; string &gt; vec
+更正：vector&lt; string &gt; svec
+感謝：sercocn
+日期：2001/07/31</pre>
+
+<pre>■p212 L-10（英文版錯誤）
+原文：if ( ch != 'y' || ch != 'Y' )
+更正：if ( ch != 'y' &amp;&amp; ch != 'Y' )
+感謝：seaweed
+日期：2001/08/22</pre>
+
+<pre>■p80（英文版錯誤）
+原文：本頁最上程式，while 迴圈內缺少一個 ++it 動作。
+感謝：Honesty
+日期：2001/08/22
+更正：以下我寫一個完整示範程式。</pre>
+
+<pre>// Essential C++, p79 最下
+// 以下程式碼會將 ival 插入 ilist 內，並維持其遞增次序：</pre>
+
+<pre>#include &lt;list&gt;
+#include &lt;iostream&gt;
+#include &lt;iterator&gt;  // for ostream_iterator
+using namespace std;</pre>
+
+<pre>int main()
+{
+  list&lt;int&gt; ilist;</pre>
+
+<pre>  // ... 充填 ilist
+  ilist.push_back(1);
+  ilist.push_back(3);
+  ilist.push_back(5);
+  ilist.push_back(7);
+  ilist.push_back(9);</pre>
+
+<pre>  ostream_iterator&lt;int&gt; out(cout, &quot; &quot;);
+  copy(ilist.begin(), ilist.end(), out); // 1 3 5 7 9
+  cout &lt;&lt; endl;</pre>
+
+<pre>  int ival = 6;
+  list&lt;int&gt;::iterator it = ilist.begin();
+  while ( it != ilist.end() ) {
+    if ( *it &gt;= ival ) {
+          ilist.insert( it, ival );
+          break; // 跳離迴圈
+    }
+    it++;  // &lt;-- note!!
+  }</pre>
+
+<pre>  if ( it == ilist.end() )
+       ilist.push_back( ival );</pre>
+
+<pre>  copy(ilist.begin(), ilist.end(), out); // 1 3 5 6 7 9
+}</pre>
+
+<pre>■pv, 目錄 1.4（中譯本筆誤）
+原文：條件（Conditaional）述句
+更正：條件（Conditional）述句
+感謝：reader
+日期：2001/09/19</pre>
+
+<pre>■p15, 標題 1.4（中譯本筆誤）
+原文：條件（Conditaional）述句
+更正：條件（Conditional）述句
+感謝：reader
+日期：2001/09/19</pre>
+
+<pre>■p74, L14（英文版錯誤）
+原文：vector&lt;string&gt;::const_iterator = cs_vec.begin();
+更正：vector&lt;string&gt;::const_iterator iter = cs_vec.begin();
+感謝：reader
+日期：2001/09/19</pre>
+
+<pre>■p203, L10（中譯本筆誤）
+原文：[STROUPSTRUP97]
+更正：[STROUSTRUP97]
+感謝：SolStice
+日期：2001/09/23</pre>
+
+<pre>■pvi, 目錄5.1（中譯本筆誤）
+原文：物件導向（Object-Oriented 編程概念
+更正：物件導向（Object-Oriented）編程概念
+感謝：DreamHead
+日期：2001/09/30</pre>
+
+<pre>■p96, L3（中譯本處理錯誤）
+原文：copy( is, eof, backinserter( text ));
+更正：copy( is, eof, back_inserter( text ));
+感謝：DreamHead
+日期：2001/09/30</pre>
+
+<pre>■p124, L-6（中譯本處理錯誤）
+原文：if ( _index &gt;= Triangular::elems.size() )
+更正：if ( _index &gt;= Triangular::elems_size() )
+感謝：DreamHead
+日期：2001/09/30</pre>
+
+<pre>■p128, L11（中譯本處理錯誤）
+原文：cout &lt;&lt; trian &lt;&lt; end;
+更正：cout &lt;&lt; trian &lt;&lt; endl;
+感謝：DreamHead
+日期：2001/09/30</pre>
+
+<pre>■p71, L-10, L-11（中譯本處理錯誤）
+原文：double *pd = find( da, da+6, ia[3] );
+      string *ps = find( sa, sa+4, ia[3] );
+更正：double *pd = find( da, da+6, da[3] );
+      string *ps = find( sa, sa+4, sa[3] );
+感謝：chenshuo
+日期：2001/10/02</pre>
+
+<pre>■p52, L8（中譯本處理錯誤）
+原文：display(&amp;vec);
+更正：display(vec);
+感謝：ericdc
+日期：2001/10/02</pre>
+
+<pre>■p75 L-9（中譯本錯別字）
+原文：嘎然而止
+更正：戛然而止
+感謝：wangf501
+日期：2001/10/03</pre>
+
+<pre>■p99 L11（中譯本處理錯誤）
+原文：#included &lt;vector&gt;
+更正：#include &lt;vector&gt;
+感謝：wangf501
+日期：2001/10/06</pre>
+
+<pre>■p122 L-3（中譯本處理錯誤）
+原文：Pell:iterator
+更正：Pell::iterator
+感謝：wangf501
+日期：2001/10/06</pre>
+
+<pre>■p18 L6（中譯本排版錯誤）
+原文：next_ elem
+更正：next_elem
+感謝：Puma
+日期：2001/10/12</pre>
+
+<pre>■p14 L-11
+原文：! ival % 2  // 不完全正確
+更正：! ival % 2  // 不正確
+感謝：Puma
+日期：2001/10/12</pre>
+
+<pre>======================================================</pre>
+
+<pre><font color="#0000FF">以下暫請讀者自行更正：</font></pre>
+
+<pre>■p33 L2（中譯本處理錯誤）
+原文：ios_base:in | ios_base::app
+更正：ios_base::in | ios_base::app
+感謝：Maldini
+日期：2001/10/30</pre>
+
+<pre>■p124 L4（中譯本處理錯誤）
+原文：friend class TGriangular_iterator;
+更正：friend class Triangular_iterator;
+感謝：Jackychan
+日期：2001/10/30</pre>
+
+<pre>■p130 L12（英文版筆誤）
+原文：num_sequence::nstype( ix )
+更正：函式名稱 nstype() 與接下來的文字描述不符（文中稱為 ns_type()）。
+      應修改一致。
+感謝：Jackychan
+日期：2001/10/30</pre>
+
+<pre>■p43 L13（中譯本處理錯誤）
+原文：about to call swap! ix: 0 jx: 7 swapping: 8 with 3
+更正：about to call swap! ix: 0 jx: 7 swapping: 8 with 2
+感謝：Maldini
+日期：2001/10/30</pre>
+
+<pre>■p207 L18（中譯本筆誤）
+原文：manipolator
+更正：manipulator
+感謝：shi_xiao_d
+日期：2001/10/30</pre>
+
+<pre>■p172 L-10, L-9（中譯本筆誤）
+原文：tempalte
+更正：template
+感謝：lh666
+日期：2001/10/30
+註：請一併修正 pvi 的目錄 6.3, 6.8</pre>
+
+<pre>■p86 L-9（中譯本處理錯誤）
+原文：fib_plus_pell_begin(),
+更正：fib_plus_pell.begin(),
+感謝：somn
+日期：2001/10/31</pre>
+
+<pre>■p68~p72 3.1 節（英文版錯誤）
+原文：本節所有的 find() 的 return type 都缺少一個 const。
+更正：請自行加上。
+備註：新刷將不予修改，恐牽一髮動全局。這種錯誤留待原作者全盤考量。
+備註：接受端（例如 p71,L-12的 pi, pd, ps）也都應該加上 const。
+日期：2001/10/31</pre>
+
+<pre>■p82 L18（英文版錯誤）
+原文：is_elem(...) 函式碼有誤
+更正：建議將本頁所用之 max_element() 改為 max()。注意，程式碼和文字都要改。
+備註：新刷將不予修改，恐牽一髮動全局。這種錯誤留待原作者全盤考量。
+日期：2001/10/31</pre>
+
+<pre>■p31 L-8（中譯本處理錯誤）
+原文：ifstream infile( &quot;seq_data.txt&quot; )
+更正：ifstream infile( &quot;seq_data.txt&quot; );
+感謝：jackychan
+日期：2001/11/01</pre>
+
+<pre>■p164 L-4（中譯本處理錯誤）
+原文：cosnt char*
+更正：const char*
+感謝：jackychan
+日期：2001/11/01</pre>
+
+<pre>■p72 L13（中譯本處理錯誤）
+原文：find(begin(sevc),end(svec),search_value);
+更正：find(begin(svec),end(svec),search_value);
+感謝：Vale
+日期：2001/11/01</pre>
+
+<pre>■p114 L-12（中譯本處理錯誤）
+原文：Triangular&amp; Triangular
+更正：Triangular&amp; Triangular::
+感謝：Vale
+日期：2001/11/01</pre>
+
+<pre>■p229 L16（英文版錯誤）
+原文：return    ::find(_stack.begin(),end_it,elem )!=end_it;
+更正：return std::find(_stack.begin(),end_it,elem )!=end_it;
+感謝：Vale
+日期：2001/11/01
+備註：新刷將不予修改，因為作者在接下來的文字中說：『為了喚起這兩個泛型演算法，
+      我必須使用 global scope（全域範圍）運算子。如果不這麼做...』，侯捷猜想
+      作者是在一個比較老舊的環境下進行這段編程。如果侯捷依上述更正內容做修改，
+      難保在什麼地方出現前後不一致的情況。請讀者注意。</pre>
+
+<pre>■p229 L19（英文版錯誤）
+原文：return    ::count(_stack.begin(),_stack.end(),elem );
+更正：return std::count(_stack.begin(),_stack.end(),elem );
+感謝：Vale
+日期：2001/11/01
+備註：同上一個勘誤。</pre>
+
+<pre>■p88 L-5（中譯本處理錯誤）
+原文：filtering integer array for values greater than 8
+更正：filtering integer vector for values greater than 8
+感謝：liux
+日期：2001/11/03</pre>
+
+<pre>■p94 L3（中譯本處理錯誤）
+原文：vector&lt;string&gt; svec.res;
+更正：vector&lt;string&gt; svec_res;
+感謝：liux
+日期：2001/11/08</pre>
+
+<pre>■p3 L1（中譯本筆誤）
+原文：class hierachy
+更正：class hierarchy
+感謝：Hfeng_zhu
+日期：2001/12/22</pre>
+
+<pre>■p122,L-15（中譯本筆誤）
+原文：typedef existing_name new_name;
+更正：typedef existing_type new_name;
+感謝：deng2001
+日期：2001/12/22</pre>
+
+<pre>■p103,L1（中譯本筆誤）
+原文：該檔案通常和 class 相名
+更正：該檔案通常和 class 同名
+感謝：deng2001
+日期：2001/12/25</pre>
+
+<pre>■p125,L-4（中譯本筆誤）
+原文：_row = rhs._row; _col = rhs.col;
+更正：_row = rhs._row; _col = rhs._col;
+感謝：song qi
+日期：2002/01/01</pre>
+
+<pre>■p38,L8（中譯本筆誤）
+原文：如果我將 elem 的型別改成 unsigend int
+更正：如果我將 elem 的型別改成 unsigned int
+感謝：BILL_WFM
+日期：2002/01/13</pre>
+
+<pre>■p30,L1（中譯本筆誤）
+原文：fibonacci 和 empty() 兩字之間的逗號
+更正：fibonacci 和 empty() 兩字之間的句點
+感謝：zyt
+日期：2002/01/25</pre>
+
+<pre>■p102,L5（中譯本筆誤）
+原文：Stack.push( str );
+更正：stack.push( str );
+感謝：zyt
+日期：2002/01/25</pre>
+
+<pre>■p189,L9（中譯本筆誤）
+原文：clas  template
+更正：class template
+感謝：zyt
+日期：2002/01/25</pre>
+
+<pre>■p200,L4（中譯本筆誤）
+原文：derefernece
+更正：dereference
+感謝：zyt
+日期：2002/01/25</pre>
+
+<pre>■p29,倒數第二段（中譯本錯誤）
+原文：
+rand() 和 srand() 都是標準程式庫提供的所謂虛擬亂數（pseudo-random number）
+產生器。srand() 的參數是所謂亂數產生器種子（seed）。要知道，每次呼叫 rand()，
+都會傳回一個介於 0 和「int 所能表示之最大整數」間的一個整數。現在，
+將亂數產生器的種子（seed）設為 5，我們就可以將 rand() 的傳回值限制在 0 和 5
+之間，以便成為本例的一個有效索引。這兩個函式的宣告式位於 cstdlib 表頭檔。</pre>
+
+<pre>更正：
+rand() 和 srand() 都是標準程式庫提供的所謂虛擬亂數（pseudo-random number）
+產生器。srand() 的參數是所謂亂數產生器種子（seed）。要知道，每次呼叫 rand()，
+都會傳回一個介於 0 和「int 所能表示之最大整數」間的一個整數。現在我們必須
+將該值限制在 0 和 5
+之間，以便成為本例的一個有效索引。這兩個函式的宣告式位於 cstdlib 表頭檔。</pre>
+
+<pre>感謝：（佚失，抱歉）
+日期：2002/02/15</pre>
+
+<pre>■第二章（英文版筆誤）
+說明：本章許多地方混用了 num_right 和 num_cor 兩個變數名稱，例如 p16 就有多處。
+      這是作者的疏失。為恐掛一漏萬，身為譯者的我並不打算修改之。請讀者注意。
+      Lippman 的書常出現這類錯誤，著眼大處卻耽誤於小處。
+感謝：zming
+日期：2002/02/15</pre>
+
+<pre>■p19,L15（英文版筆誤）
+原文：Hmm. Sorry. Wrong <font color="#FF0000">again</font>.
+更正：Hmm. Sorry. Wrong <font
+color="#0000FF">a second time</font>.
+說明：配合 p18 L-5 的程式碼。
+感謝：zming
+日期：2002/02/15</pre>
+
+<pre>■p30,L-5（中譯本筆誤）
+原文：傳給 ostream
+更正：傳給 o<font
+color="#0000FF">f</font>stream
+感謝：zming
+日期：2002/02/15</pre>
+
+<pre>■p11,L16（中譯本筆誤）
+原文：是所謂的條件運算子（coditional operator）
+更正：是所謂的條件運算子（co<font
+color="#0000FF">n</font>ditional operator）
+感謝：mymonday
+日期：2002/03/18</pre>
+
+<pre>■p60,L-2（中譯本筆誤）
+原文：在 fibon_elm() 定義式中，唯一
+更正：在 fibon_el<font
+color="#0000FF">e</font>m() 定義式中，唯一
+感謝：mymonday
+日期：2002/03/18</pre>
+
+<pre>■p125,L4（中譯本處理錯誤）
+原文：Triangular tri( 20<font color="#FF0000">, 12</font> );
+更正：Triangular tri( 20 );
+感謝：Join Smith
+日期：2002/05/31</pre>
+
+<pre>■p222,習題3.3（讀者來信討論）
+說明：讀者kenshin81對本題解答很認真地做了學習和檢討，並將心得分享給大家。
+     非常感謝。來函完整列出如附。
+感謝：kenshin81
+日期：2002/06/02
+<font
+color="#000000">讀者來函：</font><font color="#408080">
+侯老師﹕您好。我是上海交通大學的學生。
+最近我買了您的譯作《Essential C++》（簡體版）。
+在做書後習題3.3（P222~P225)時發現了一點問題。
+我按照書上所附的解答輸入﹐編譯﹑執行後的結果如下﹕
+Please enter a family name or q to quit <strong>ranier</strong>
+The ranier has 4 children: alphonse lou robert brodie
+Please enter a family name or q to quit <strong>franz</strong>
+</font><font
+color="#FF0000">Sorry. The franz is not currently entered.</font><font color="#408080">
+Please enter a family name or q to quit <strong>kafka</strong>
+Sorry. The kafka is not currently entered.
+Please enter a family name or q to quit <strong>q</strong>
+</font><font
+color="#FF0000">The  family has 1 children: franz</font><font color="#408080">
+The lippman family has 2 children: danny anna
+The mailer family has 2 children: tommy june
+The orlen family has 1 children: orley
+The ranier family has 4 children: alphonse lou robert brodie
+The smith family has 3 children: john henry frieda
+Press any key to continue
+
+與書上的結果不同﹐主要是 franz 出了問題﹐因為 franz 家庭沒有孩子﹗
+我仔細看了代碼﹐覺得 populate_map() 函數有問題。原始代碼如下﹕
+void populate_map( ifstream &amp;nameFile, map&lt;string,vstring&gt; &amp;families )
+{
+  string textline;
+  while ( getline( nameFile, textline ) )
+  {
+      string fam_name;
+      vector&lt;string&gt; child;
+      string::size_type pos = 0, prev_pos = 0, text_size = textline.size();
+
+      while ( ( pos = textline.find_first_of( ' ', pos ) ) != string::npos )
+      {
+        string::size_type end_pos = pos - prev_pos;
+
+        if ( ! prev_pos )
+            fam_name = textline.substr( prev_pos, end_pos );
+        else
+            child.push_back( textline.substr( prev_pos, end_pos ) );
+        prev_pos = ++pos;
+      }
+
+</font><font
+color="#FF0000">      if ( prev_pos &lt; text_size )
+          child.push_back(textline.substr(prev_pos,pos-prev_pos));</font><font
+color="#408080">
+
+      if ( ! families.count ( fam_name ) )
+          families[ fam_name ] = child;
+      else
+          cerr &lt;&lt; &quot;Opps! We already have a &quot;
+               &lt;&lt; fam_name &lt;&lt; &quot; family in our map!\n&quot;;
+  }
+}
+
+我注意到如果一個家庭沒有孩子（就像franz），那麼內嵌的那個 while 循環
+while((pos = ... )）就不會執行。這樣的話按照上述代碼，這個家庭的 fam_name
+就是一個空的 string﹐而它真正的家庭名則變成了這個家庭的唯一個孩子了
+（這由兩個 if 語句所導致）。因此最後的結果才會出現
+</font><font
+color="#FF0000">The family has 1 children: franz</font><font color="#408080">
+和
+</font><font
+color="#FF0000">Sorry. The franz is not currently entered</font><font color="#408080">
+因為 map 裡沒有 franz 這個家庭索引。
+
+我將代碼改動了一下﹐把
+</font><font
+color="#FF0000">if ( prev_pos &lt; text_size )
+     child.push_back(textline.substr(prev_pos,pos-prev_pos));</font><font
+color="#408080">
+改為﹕
+</font><font color="#0000FF">if ( prev_pos &lt; text_size )
+  if( prev_pos )    //如果做過循環﹐則prev_pos不為0﹐就處理最後一個孩子
+      child.push_back(textline.substr(prev_pos,pos-prev_pos));
+  else
+      fam_name = textline.substr( prev_pos, pos - prev_pos );
+      //prev_pos為0﹐說明該家庭無孩子﹐處理家庭名</font><font
+color="#408080">
+
+改後運行結果就與答案完全相同了。
+我見老師的網站上的勘誤表上沒有上述這一條﹐不知道自己說得到底對不對。
+望侯老師指正。謝謝。</font></pre>
+
+<p>　</p>
+
+<pre>■p92,L-11（中譯本筆誤）
+原文：可使用單一參數的 <font
+color="#FF0000">isnert()</font>
+更正：可使用單一參數的 <font color="#0000FF">insert()</font>
+感謝：Liuken
+日期：2002/08/08
+註：簡體版無此錯誤
+
+■p92,L-9（中譯本筆誤）
+原文：可使用雙參數的<font
+color="#FF0000"> isnert()</font>
+更正：可使用雙參數的<font color="#0000FF"> insert()</font>
+感謝：Liuken
+日期：2002/08/08
+註：簡體版無此錯誤</pre>
+
+<pre>■p33,L4
+<font color="#408080">讀者來函：
+    我買了先生出版的 Essential C++ 和 C++ Primer，其中有一段程式碼是這樣的
+    （在 C++ Primer 1102頁，和 Essential C++ 1.7節內）
+
+    #include &lt;fstream&gt;
+    using namespace std;
+    void main()
+    {
+      ...
+      fstream io(&quot;word.txt&quot;, ios_base::in | ios_base::app);
+      ...
+    }
+
+    編譯與連結皆無問題，但以 ios_base::in 和 ios_base::app 兩個參數所執行的
+    io（fstream 物件）卻無法開啟 word.txt 並對它進行讀寫，我用的是
+    VC6。這是 VC 的問題還是 C++ 本身語法中參數搭配的問題?
+
+    之後我發現
+    將此行程式碼改為如下
+      fstream io(&quot;word.txt&quot;, ios_base::in | ios_base::app | ios_base::out );
+    就能正常的開啟word.txt
+
+    請幫忙解答，謝謝。這個錯誤是我上課時學生發現的，之後我再加以測試的結果。
+</font>
+侯捷回覆：
+    我寫了一個小程式測試之，並加上註解，如下。
+
+    #include &lt;fstream&gt;
+    #include &lt;iostream&gt;
+    using namespace std;
+
+    int main()
+    {
+      // 註：書上只有 ios_base::in | ios_base::app
+      fstream io(&quot;word.out&quot;, ios_base::in | ios_base::app <font
+color="#0000FF">| ios_base::out</font>);
+      if (!io) {
+          cout &lt;&lt; &quot;can not open&quot;;
+          exit(-1);
+      }
+
+      int i;
+      io &gt;&gt; i;
+      cout &lt;&lt; i &lt;&lt; endl;
+      io &lt;&lt; 23;
+      io &lt;&lt; 28;
+      // 寫是寫了，將來如何讀出？因此還需總體格式上的考量。這裡不考慮那麼多。
+    }
+
+    /*
+    注意，觀察檔案內容時，以 type word.out 是不準確的。
+    應使用諸如 tdump.exe 之類的 binary dumper.
+
+    在 VC6 中，無法正確開起檔案，除非加上 ios_base::out。
+    但即使加上 ios_base::out，也無法順利 append.
+
+    在 CB5 中，可順利開啟檔案並讀資料，但卻無法順利而正確地 append，
+    必須加上 ios_base::out 才可順利 append。
+
+    在 G291 中無法編譯。
+    */
+
+感謝：Tse-Chen Yeh
+日期：2002/12/13</pre>
+
+<pre>--- the end</pre>
+</body>
+</html>

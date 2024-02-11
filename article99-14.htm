@@ -1,0 +1,865 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>技術引導乎 文化傳承乎</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<blockquote>
+  <h2 align="center"><font color="#0000FF">技術引導乎 文化傳承乎</font></h2>
+  <p align="center">侯捷 1999.06.28</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p>● &lt;C++ Primer 中文版&gt; 進度<br>
+  <br>
+  &lt;C++ Primer 3/e&gt; 的翻譯工作已達 92%。預計 1999.07.05 
+  完成初稿。完成後，我要把它雷射輸出，雙面影印，裁切裝訂成一本書的樣子。做好樣書之後，打算每天帶著它到光明新村湖邊，校對修潤。不想待在書房做這件事，眼睛真的需要休息了。湖光翠影，正好撫慰我可憐的雙眸。<br>
+  <br>
+  校潤、重製、再校潤、再重製…，我想大約三次輪迴，這本書就可以付梓。打算在這上面花 
+  25 天的時間。如果都如預期，那麼，或許 08/01 便可交稿，或許 08/20 
+  左右便可看到它上市，but no promise :)<br>
+  <br>
+  一個大困擾是：書這麼厚，怎麼辦？原書 1237+22 
+  頁，一頁一頁對譯的結果，也是 1237+22 
+  頁，再加上譯序和導讀，總共大約要到 1270 
+  頁。採用一般紙張，全書厚度肯定不低於 6.0 
+  公分。用進口紙，哎，時間內買不買得到是個問題（畢竟國內電腦出版界沒有先例，沒有經驗），成本也是個問題。我強力企圖說服出版公司用進口紙，但結果如何，實難預言。<br>
+  <br>
+  很苦惱一本 4.0 
+  公分的原文書被我做成巨無霸，而這還是一頁一頁對譯，內文用９號字體，程式碼用８號字體的結果。<br>
+  <br>
+  真不希望看到它成為一塊破記錄的磚頭。<br>
+  <br>
+  我很苦惱！<br>
+  <br>
+  <br>
+  ●第一次嘗試<br>
+  <br>
+  為什麼要把書稿裁切裝訂做成樣書？第一次嘗試這麼做，原因有三：<br>
+  <br>
+  1. 
+  這樣子才能夠感覺並掌握書籍出版後的真實模樣。左頁的確在左側，右頁的確在右側；邊緣留白是否合宜，天地是否足夠，都能夠因此有精準的感覺。<br>
+  <br>
+  2. 
+  自從電腦打字排版盛行，再沒有手稿這種東西了。自行裝訂的這三版初稿，上面將有我的修潤、圈點、眉批，算是給自己留個紀念。畢竟 
+  C++ Primer 
+  是我最重要的譯作之一，是我自認為譯筆逐漸成熟之後的重要作品，也將是我影響最廣的譯作。<br>
+  <br>
+  3. 
+  最重要的一點。經由最終形式的呈現，我要試驗如何在滿篇中英夾雜的文字上，以版面技巧讓讀者有良好的接受度。<br>
+  <br>
+  第 3 點其實是我寫這篇文章的真正動機。<br>
+  <br>
+  換句話說，這本 &lt;C++ Primer 中文版&gt;，有許多許多英文術語出現。數量之多，前無古人！這些術語，不但包括名詞，還包括形容詞，以及極少數的動詞。只要是這個領域裡被朗朗上口（註）的英文術語，我都儘量保留或中英並陳。<br>
+  <br>
+  註：朗朗上口與否，見仁見智啦。後述。<br>
+  <br>
+  ●最大的痛苦<br>
+  <br>
+  若問我，翻譯 &lt;C++ Primer&gt; 
+  的最大困難點與痛苦在哪裡，我說，對我而言，不是語文上的隔閡，不是技術上的難度，是「術語的處理」。<br>
+  <br>
+  1993.12 年我在 &lt;Windows DDE 動態資料交換&gt; 一書序言中寫道：</p>
+  <div align="left"><table border="0">
+    <tr>
+      <td bgcolor="#C0C0C0">關於電腦書籍中無法避免的英文字，一方面我希望專有名詞和術語儘量使用原文（英文），一方面卻不希望太多的英文充斥在字裡行間。兩難！本書的衝突更是明顯，原因是 
+      DDE 的許多術語以及 DDE 
+      函式名稱都十分冗長。我盡了我的能力去達到一個自己還算滿意的平衡程度。</td>
+    </tr>
+  </table>
+  </div><p>六年過去了，這種兩難的情況在侯捷的寫作風格中益形擴大。<br>
+  <br>
+  <br>
+  ●原文術語<br>
+  <br>
+  通常一個人的做事風格，反應出他的成長經歷。我早年在研究單位、近年在高專教育、長年與資訊業界朋友互動，接觸的技術人員都慣用原文術語來溝通與思考，這是我希望儘量在書中保留原文術語的因素之一（當然，這就涉及一本書的定位議題，後述）。<br>
+  <br>
+  習慣使用原文術語的技術人，我敢說，絕對不是不食人間煙火的少數族群。事實上，堅持把所有（或絕大部份）原文術語都轉為中文來使用的人，在資訊業界恐怕才是不食人間煙火的少數族群。<br>
+  <br>
+  我希望保留原文術語，並且保留區日益擴大，另一個因素是，在技術領域裡頭，沒有哪個資訊人不需要接觸原文（英文）資訊。你看了這本中文書、看了那本中文書，你早晚總還需要接觸英文書的。那麼，早早習慣原文術語，有絕對必要性。</p>
+  <p>侯捷決定用個人的影響力來引領讀者。<br>
+  <br>
+  <br>
+  ●初學者最好都不要接觸到英文？<br>
+  <br>
+  我在其他的 web site 
+  中陸陸續續看到對我這種「保留原文術語」作法的評論。對我的任何批評，我都很歡迎。其中有一點很引起我的興趣：<br>
+  <br>
+  <font color="#408080">&gt; 目前在 Run!PC上 看到的 C++ Primer 
+  片斷文章似乎也是如此處理法，<br>
+  &gt; 
+  就令人有些匪疑所思了，畢竟這是本入門書啊！看來英文不好真是<br>
+  &gt; 
+  罪惡。我心目中理想的譯本是，手邊不需要英漢字典一樣能看，英<br>
+  &gt; 文程度不好一樣能懂的「中文」翻譯書。</font><br>
+  <br>
+  我想談一談，書籍定位與原文術語的引用，有沒有什麼必然的關係。<br>
+  <br>
+  我也想請大家思考一下，在專業領域中，原文術語的接受度，和英文程度<br>
+  好不好有沒有什麼必然的關係。<br>
+  <br>
+  一位初學者，踏入一個新的領域，他的困難不在英文單字，而在整句、整段文字所要表達的技術觀念。而且，一位初學者，並不一定是個大一學生，或專一學生，或高一學生，他也非常非常可能是另一個領域中經驗豐富的工程師。<br>
+  <br>
+  不管初學者是什麼年齡，什麼身份，當他準備開始學習 C++，我絕對認為，不論是名詞如 
+  class, object, scope, 形容詞如virtual, local, global, 
+  這些原文單字對他們都不構成困難 -- 
+  只要他們知道這些名詞真正代表什麼意義。<br>
+  <br>
+  我正在教導小學六年級的姪子學習 C++ programming，他對上述單字一點困難都沒有。polymorphism、inheritance、encapsulation、reference、overloading、instantiate、exception、dereference、template…這些長單字對他也沒有困難。他並非英文資優，他是個很平凡的 
+  12 
+  歲小男孩，談不上具備任何英文程度，只認識幾個英文單字。遇上不懂的生字，我告訴他字面意義與技術上的意義，他就懂了；我告訴他這個字很重要，要用原文表達，他也就記下來了，下回朗朗上口。<br>
+  <br>
+  是的，英文單字完全不會造成閱讀的困難 -- 
+  只要讀者懂得單字背後的意義！<br>
+  <br>
+  事實上我認為，初學者更需要在一開始接觸新領域時就熟悉原文術語，就接觸行內話，並習慣使用原文術語。原因很簡單，剛才我說了，在技術領域裡，沒有哪個資訊人不需要接觸原文（最大宗是英文）資訊。你看了這本中文書、看了那本中文書，總有一天你還需要接觸英文書（除非你很混，或是不想混了）。那麼，早早習慣並使用原文術語，有絕對必要性。<br>
+  <br>
+  此外，關於 &lt;C++ Primer&gt; 
+  的書籍定位，我也要提出我的看法：此書由於用詞絕大多數還算淺顯，切入面也還算親和，所以初學者可以看；但許多 
+  C++ senior programmer 
+  也都把它放在一旁當重要參考。所以我絕不會為了初學者可能需要什麼樣特殊的對待（如果真有的話），而讓C++ 
+  老手看此書看得很彆扭。C++ Primer（不論中英）的讀者群中，初學者一定比老手多嗎？我說那可不見得。<br>
+  <br>
+  新手有一天會變成老手，有一天會需要自己找原文書看。學生有一天會成為工程師，有一天會需要和別人用「行內話」溝通。那時候再讓自己重新熟悉一次原文術語？重新痛苦一次？改變習慣是很痛苦的！我不希望如此，我也不希望我的讀者如此！<br>
+  <br>
+  我永遠記得初次看到 member function 
+  被譯為「成員函式」時的錯愕與不適。這種譯法你覺得有錯嗎？沒有，它四平八穩。你有更好的譯法嗎？沒有，它幾乎無可取代。那麼你錯愕什麼？不適什麼？<br>
+  <br>
+  我錯愕是因為，把中文慣用的兩個名詞合成在一起，唸起來卻拗口。我不適是因為，我的業界朋友沒有人這樣唸。<br>
+  <br>
+  很多年過去了，甚至在我自己所寫所譯的書中，也不敢造次地蕭規曹隨地延用「成員函式」；甚至我也已經能夠在閱讀到「成員函式」時不加思索地想到「就是 
+  member function 啦」，但是我時時思考解放的那一天。<br>
+  <br>
+  我漸次地解放。從著作 &lt;多型與虛擬&gt;，到譯作 &lt;COM 本質論&gt;，到最新譯作 
+  &lt;C++ Primer 中文版&gt;，我漸次地解放。<br>
+  <br>
+  網友曾謂：<br>
+  <br>
+  <font color="#408080">&gt; 侯先生在保留原文字方面可真是不遺餘力. 
+  甚至連<br>
+  &gt; static, global 這兩個平凡的單字都要保留. 我的感覺是霧裡<br>
+  &gt; 看花, 有點不忍卒讀, 看起來像是一堆殘破的英文字和中文字,<br>
+  &gt; 組成一段奇怪的程式碼. 我覺得很不妥, 也許侯先生另有用意,<br>
+  &gt; 可是我總以為既然是中譯本何不來個大解放呢? 讓中譯本看起來<br>
+  &gt; 像中文書呢 (而不是像程式碼).</font><br>
+  <br>
+  我是要解放，只是解放的方向與這位網友所想的恰恰相反 :) &nbsp; 
+  至於殘破與否，<br>
+  奇怪與否，見仁見智啦。後敘。<br>
+  <br>
+  <br>
+  ●閱讀原文書的最大障礙<br>
+  <br>
+  單字不是障礙，長句子才是！句子背後隱喻的技術觀念才是！<br>
+  <br>
+  這便是一本技術書籍中譯的價值所在：<br>
+  <br>
+  1. 
+  將長句子轉化為本國語文的習慣語法（短句子當然也要轉，我特別強調長句子，因為它難度高）。讓讀者快速掌握字面意義，全付心思得以放在技術層面的思考，而不是用在拆解句型或翻查字典。<br>
+  <br>
+  2. 
+  將上下文突兀處（對本國人而言）加以修潤、磨平。由於語文習慣的因素，有許多時候我們覺得外文累贅，嘮嘮叨叨，有許多時候我們又覺得外文的上下段連接性不夠，明明在講同一件事情，乍見之下卻以為是另一個起點。換句話說外文用來牽引上下文脈絡的習慣，和中文有許多不同。此外，英文的 
+  which, one, the other, it, that... 
+  讓人乍見之下不知所指，那麼亦該明確修潤。<br>
+  <br>
+  3. 
+  以譯者的技術能力來撫平可能出現的閱讀上的坎坷崎嶇。上述兩點都有賴這一點（專業技術）的輔助。任何一個人如果不懂 
+  C++，無論如何也譯不出一本好的 C++ 
+  書籍。就算他是翻譯博士，亦然。<br>
+  <br>
+  我在翻譯 &lt;C++ Primer&gt; 
+  的過程中，興之所至，隨手記錄了幾則例句。剛好此處派上用場。摘錄幾則，請大家一觀。<br>
+  <br>
+  ⊙C++ Primer 3e p443（這一句是這裡面最簡單的）<br>
+  <br>
+  &gt; A typedef name provides an alternative name for an existing data type;<br>
+  &gt; it does not create a new data type. Therefore, two function parameter<br>
+  &gt; lists that differ only in that one uses a typedef and the other uses<br>
+  &gt; the type to which the typedef corresponeds are not different parameter<br>
+  &gt; lists.<br>
+  <br>
+  ⊙C++ Primer 3e p559（這一句需要的技術背景多些）<br>
+  <br>
+  &gt; The process by which compound statements and function definitions<br>
+  &gt; exit because of a thrown exception in the search for a catch clause<br>
+  &gt; to handle the exception is called stack unwinding。<br>
+  &gt; As the stack is unwound，the lifetime of local objects declared in the<br>
+  &gt; compound statements and in function definitions that are exited ends.<br>
+  <br>
+  ⊙C++ Primer 3e p688（這一句很長）<br>
+  <br>
+  &gt; The resolution of names used in the body of the member functions of<br>
+  &gt; a local class are first looked up in the complete scope of<br>
+  &gt; the class before the enclosing scopes are searched.<br>
+  <br>
+  ⊙C++ Primer 3e p730（這一句可得好好分析語法）<br>
+  <br>
+  &gt; This is particularly inappropriate in a copy assignment operator<br>
+  &gt; that first frees a resource currently associated with the class in<br>
+  &gt; order to assign the resource associated with the class being copied.<br>
+  <br>
+  ⊙C++ Primer 3e p849（三個 in which，真不好看）<br>
+  <br>
+  &gt; As is the case with class types, in which a class definition must be<br>
+  &gt; provided in every file in which the class members are used,<br>
+  &gt; the compiler instantiates a class template for a<br>
+  &gt; particular type in every file in which this instantiation is used in<br>
+  &gt; a context that requires a complete class definition.<br>
+  <br>
+  ⊙C++ Primer 3e p955（代名詞一堆，each, one, the other, it..., 不知誰指誰）<br>
+  <br>
+  &gt; Here are the various eval operations. We've defined each to be inline.<br>
+  &gt; The evalAnd() and evalOr() operations execute the following steps. Each<br>
+  &gt; pops _query_stack (this takes two operations with the standard library<br>
+  &gt; stack class, recall: top() to get the element and pop() to remove it from<br>
+  &gt; the stack.) One or the other allocates either an AndQuery or an OrQuery <br>
+  &gt; object from the heap, passing it the object retrieved from _query_stack. <br>
+  &gt; Each passes the AndQuery or OrQuery object the count of any left and <br>
+  &gt; right parentheses the operator needs to output on displaying itself. Finally,<br>
+  &gt; each pushes the incomplete operator onto _current_op :<br>
+  <br>
+  ⊙C++ Primer 3e p1021（那麼多 'to'，真累人）<br>
+  <br>
+  &gt; RTTI allow programs that manipulate objects as pointers or references<br>
+  &gt; to base classes to retireve the actual derived types of the objects<br>
+  &gt; to which these pointers or references refer.<br>
+  <br>
+  <br>
+  這裡沒有呈現上下文，也沒有特殊字形的輔助，單單閱讀孤段，很不好做正確的理解。但是各位多少能夠體會一下這些句子對中國人的閱讀難度。有的是句子過長，倒裝句、連接子句過多；有的是代名詞一大堆，不知誰指誰，有的是隱含的技術過於深澀，沒有內行人（譯者）為你指點迷津，不知伊於胡底。<br>
+  <br>
+  所以，我說，閱讀的困難，不在單字，在於長句子和技術基礎。翻譯一本電腦技術書，最重要的工作，以我的理念而言，在於掃平這些障礙，不在於「建立本國文化」或是「讓它成為一本道地的中文書」或是「掃除英漢字典的需要」。<br>
+  <br>
+  註：事實上，閱讀 &lt;C++ Primer 中文版&gt; 
+  時，你是不需要英漢字典的，除非你不看譯序，不看導讀。我在書前加了份量頗重的導讀，對於書中的原文術語做了相當份量的解釋。<br>
+  <br>
+  <br>
+  ●如果術語本身不是問題，為什麼不用中文術語？<br>
+  <br>
+  我也想用中文術語，如果：<br>
+  <br>
+  (1) 中文術語統一<br>
+  (2) 業界人士都（或大部份）以這些中文術語溝通<br>
+  <br>
+  可是這兩個條件都不成立！<br>
+  <br>
+  另一個重要因素，讓我不厭其煩地再強調一次：<br>
+  <br>
+  在技術領域裡，沒有哪個資訊人不需要接觸原文（最大宗是英文）資訊。你看了這本中文書、看了那本中文書，你早晚還要接觸到英文書的。那麼，早早習慣並使用原文術語，免得做二次翻譯。</p>
+  <p>「化身」是什麼？ reference<br>
+  「定字」是什麼？ literal<br>
+  「執行所」是什麼？ apartment<br>
+  「公寓式」是什麼？ apartment<br>
+  「斷言」是什麼？ assert<br>
+  「迭代子」是什麼？ iterator<br>
+  「游標」是什麼？ iterator（這字譯得不錯，但如何讓人不聯想 cursor？）<br>
+  「配置者」是什麼？ allocator<small>（這字雖譯得沒什麼可挑剔，但它是 
+  STL 的一個專門東西...）</small><br>
+  「樣板」是什麼？ template（這字滿常見的，但其他書裡出現模板或範本該如何？）<br>
+  <br>
+  這些術語其實譯得都不算差，也都有道理。但是當工程師都以原詞溝通交談，誰會在乎它們被譯成什麼呢？誰又會在乎有沒有更文，更雅，更貼切，更傳神的譯詞呢？<br>
+  <br>
+  術語該怎樣譯，才文，才雅，才貼切，才傳神，在某些時候這種討論是必要的（尤其是在文史藝術等方面），在某些時候是不必要的（尤其是在給專業人士看的技術專業讀物上面）。上面這些術語，我都以為不必要譯。至於什麼時候是必要的，什麼時候是不必要的，見仁見智啦。後述。<br>
+  <br>
+  一本書如果要給入門者看，它會在書中某處（或多處）對術語做出解釋，不必一定得靠「中文」術語才能達意。如果書是要是進階者看，我相信它的讀者應該更希望讀到原文術語，不必玩「我猜,我猜,我猜猜猜」的遊戲。<br>
+  <br>
+  <br>
+  ●另一些原因<br>
+  <br>
+  切莫以為我提倡使用原文術語，我就是滿口英文。不，除了專業術語之外，我不是一個脫口就英語的人（我不喜歡如此，也沒這樣的能力）。<br>
+  <br>
+  日常生活中我會上口的英文詞，大約只有名詞。我不喜歡把 
+  complain,ridiculous 
+  等等很多人習用的動詞或形容詞穿插在日常用語中，那很怪異，我覺得。（但是我有尊重別人習慣的習慣，所以我勉力去聽懂這些中英夾雜的日常對話）。<br>
+  <br>
+  絕大部份我所採用的原文術語，也都是名詞。但是有些動詞或形容詞有必要讓讀者知道（這時候我會三不五時地讓它中英並列），原因是：<br>
+  <br>
+  (1) C++ 
+  編譯器的錯誤訊息並沒有中文化。所以，萬一錯誤訊息中出現以下字眼：unresolve, 
+  instantiated, ambiguous, overrided，而 C++ programmer 
+  不熟悉或不懂這些動詞或形容詞的技術上真切的意義，就不妙了。<br>
+  <br>
+  (2) 有些動作關係到 library functions 的名稱，而 library functions並沒有被中文化（當然！）。例如 
+  insert, delete, sort。當這些字眼出現，視出現時與 library functions 
+  的關係強度而定，我可能會選擇使用英文術語。這些術語會突兀嗎，我想不會，我們不都隨口使用這些原文術語嗎？<br>
+  <br>
+  (3) 如果術語關係到 C++ 
+  關鍵字，為了讓讀者有最直接的感受與聯想，我一定用原文，例如 
+  static, private, protected, public, friend,inline, extern。<br>
+  <br>
+  <br>
+  ●版面像一張破碎的臉?<br>
+  <br>
+  無法避免地，大量中英夾雜的結果，就是版面的破碎。在一行 20 
+  公分長的文字中，看到 10 
+  公分以上是英文，而這本書卻又是一本中文書，恐怕任何人乍見之下都覺得怪怪的。<br>
+  <br>
+  我的態度有二：<br>
+  <br>
+  一. 
+  莫可奈何。為了實現我以為合宜的資訊技術翻譯方式，我必須犧牲版面的「全中文化」或「絕大部份中文化」。版面的破碎是否會造成生硬呢？見仁見智！譬如你唸這句（我臨時隨便想的）：<br>
+  <br>
+  (a). class A 的 private data members 只能被 class A 及其 friends 的member functions 
+  處理，至於其 protected data members 則不僅是如此，還可以被 class A 及其 
+  friends 的 derived classes 處理。<br>
+  <br>
+  然後唸這句：<br>
+  <br>
+  (b). 類別 A 的私有資料成員只能被類別 A 
+  及其夥伴的成員函式處理，至於其受保護的資料成員則不僅如此，還可以被類別 
+  A 及其夥伴的衍生類別處理。<br>
+  <br>
+  感覺如何？或是你唸這句：<br>
+  <br>
+  (a). Function template 可以被宣告為 inline 或 extern，方式和一般函式相同。<br>
+  <br>
+  然後唸這句：<br>
+  <br>
+  (b). 函式樣板可以被宣告為行內或外部，方式和一般函式相同。<br>
+  <br>
+  誰比較生硬呢？不同的人看法不同。業內人士會怎麼說這兩句？我相信很多人（至少我週遭的人）都會說 
+  (a) 而不是 (b)。看書，不就是在心中默唸書中的句子嗎？如果你平常習慣以 
+  (a) 的方式溝通，我相信你看到 (a) 句不會認為它生硬。<br>
+  <br>
+  如果你是初學者，我要引導你用 (a) 
+  的方式來說。如果你本就已經習慣 (a)，我的作法會讓你很快樂。如果你一向習慣 
+  (b)，，又不願接受 (a)，那麼，容我說聲抱歉了，此書在敘述風格上不適合你。<br>
+  <br>
+  二. 儘量以版面技術來控制視覺上的順暢。<br>
+  <br>
+  我打算採用不同的字形，來代表不同屬性的英文字。語言關鍵字用一種字形、程式碼出現過的符號名稱用一種字形、運算子名稱用一種字形（是的，幾乎所有的運算子名稱我也都保留原文），特別重要的術語用一種字形（例如 
+  function template, stack unwinding...）。<br>
+  <br>
+  這便是為什麼要製作樣書的原因，我要在書籍出版之前看到它出版之後的樣子，從而體會一下閱讀的感受。如果我說服不了我自己，我根本說服不了任何人。（但我也知道，當我說服了我自己，我還是無法說服所有的人）。<br>
+  <br>
+  <br>
+  ●以己度人 ?!（度，音 ㄉㄨㄛ，四聲）<br>
+  <br>
+  自從學到了「以己度人」這句成語，我就很喜歡拿來反省自己，也檢視別人。<br>
+  <br>
+  以己度人，意思是拿自己的想法去衡量別人。<br>
+  <br>
+  把自己的鞋子硬套到別人的腳上，尺寸剛好，是運氣（別人的運氣）；尺寸不合，可就難過了（別人很難過）。<br>
+  <br>
+  我們每個人或多或少都有以己度人的習慣。<br>
+  <br>
+  以己度人是好是壞呢？有時候它是好的，有時候它是壞的。<br>
+  <br>
+  寫書/授課，就是以自己的想法和經驗來揣度他人（讀者/學生）的學習狀況，以自己的學習經歷來分享給別人或供做借鏡。要講多深，要講多淺，講什麼例子，用什麼說明方式，全都是「以己度人」。用的好，字字句句敲到心坎裡，棒棒打中要害。讀者/學生如沐春風，大嘆何其幸哉，得聞斯言，得見斯人。<br>
+  <br>
+  「以己度人」用過了頭，它就壞了。全然以自己的需求為需求，以自己的思考為思考，以自己的意志為意志，完全用自己的觀點來看待別人的作為，這就壞了。<br>
+  <br>
+  前面我曾說過，只要是 C++ programming 
+  領域裡被朗朗上口的英文術語，我都在 &lt;C++ Primer 中文版&gt; 
+  儘量保留或中英並陳。問題是，什麼才是被朗朗上口的英文術語？誰認定的？<br>
+  <br>
+  所以，我的選擇跳脫不了「以己度人」的原始方式。我把我所習慣的和我週遭所接觸的，當成了選擇的標準。取捨標準其實是我最大的痛苦來源。<br>
+  <br>
+  本文至此一共用了四個「見仁見智」，顯然，「原文術語的採用」這件事被我認定是不可能有客觀的答案了，恐怕也沒有辦法察納雅言，皆大歡喜了。<br>
+  <br>
+  公有公的道理，婆有婆的道理！<br>
+  <br>
+  沒有人能夠說出全國有：<br>
+  百分之多少的人說 &quot;object&quot;， 百分之多少的人說「物件」；<br>
+  百分之多少的人說 &quot;class&quot;， 百分之多少的人說「類別」；<br>
+  百分之多少的人說 &quot;scope&quot;， 百分之多少的人說「範圍」；<br>
+  百分之多少的人說 &quot;global 變數&quot;，百分之多少的人說「全域變數」；<br>
+  百分之多少的人說 &quot;local 變數&quot;， 
+  百分之多少的人說「區域變數」；<br>
+  百分之多少的人說 &quot;friend&quot;， 百分之多少的人說「夥伴」；<br>
+  百分之多少的人說 &quot;data member&quot;，百分之多少的人說「資料成員」；<br>
+  百分之多少的人說 &quot;member function&quot;， 
+  百分之多少的人說「成員函式」；<br>
+  百分之多少的人說 &quot;virtual function&quot;，百分之多少的人說「虛擬函式」；<br>
+  <br>
+  侯捷批評別人為什麼用「配置者（allocator）」，別人也一樣會批評侯捷何必用「具現化（instantiated）」。侯捷批評別人為什麼不用 
+  reference，別人也一樣會批評侯捷為什麼不保留 pointer 而用「指標」。<br>
+  <br>
+  雖然我極度建議使用原文術語，但是其間的取捨（哪個該用原文，哪個已經普遍化到可以用中文），沒有辦法得到客觀的標準。我能夠做的，就是以己度人。我曾在最近密集地詢問朋友們對於術語的採用有什麼看法，後來也就放棄詢問了。為什麼？一樣習性的人才會聚在一塊兒，我問來問去，問到的還不就是差不多的看法。我如果問到一個人，他告訴我『喔，在班上（or 
+  辦公室），我們都說成員函式而不說 member function』，我又會因此改變我對原文術語的執著嗎？<br>
+  <br>
+  不會！<br>
+  <br>
+  很重要的原因是，我不只為了原文術語被廣泛使用而終於大膽地大幅度採用它，還有一個很主要的因素（我要說第四次了）：<br>
+  <br>
+  在技術領域裡，沒有哪個資訊人不需要接觸原文（最大宗是英文）資訊。你看了這本中文書、看了那本中文書，你早晚還要接觸到英文書的（除非你很混，或是不想混了）。那麼，早早習慣並使用原文術語，免得做二次翻譯。<br>
+  <br>
+  我在這個議題上的「以己度人」，是好是壞？我相信以我在業界的經驗，以我的接觸面的廣泛程度，它會是好的，合宜的。<br>
+  <br>
+  最後，只能說，在施（譯者）與受（讀者）之間：<br>
+  <br>
+  1. 磁場要對（風格要合）<br>
+  2. 施者要經驗豐富，才能做出合宜的引導<br>
+  3. 受者願意接納施者的經驗或理念，彼此才能送做堆。<br>
+  <br>
+  <br>
+  ●我想影響誰<br>
+  <br>
+  我有尊重別人習慣的習慣。<br>
+  <br>
+  早說過，使用中文術語或原文術語，沒有對錯的問題，是風格和理念的不同而已。<br>
+  <br>
+  所以，別人專注於別人認為好的事情，侯捷專注於侯捷認為好的事情。我不企圖說服整個電腦翻譯界，也不企圖說服任何一位出從事技術寫作的朋友。<br>
+  <br>
+  我只企圖說服我的讀者，接受這種習慣。<br>
+  <br>
+  ●文化的議題<br>
+  <br>
+  有些朋友談翻譯，談呀談呀就談上了文化傳承的議題。<br>
+  <br>
+  有些朋友對侯捷很愛載，愛呀載呀就希望侯捷能夠以中華文化為己任。<br>
+  <br>
+  科技翻譯和文化傳承有沒有什麼關係？我很保留。<br>
+  <br>
+  不管科技翻譯和文化傳承有沒有關係，侯捷都不定位自己要在這個方面「繼往聖，開絕學」，或是要「以天下興亡為己任，繼個人死生於度外」。雖然我很喜歡中國古典文學，我也努力在比較輕鬆的文章中加上一些很中國味（甚至有章回小說味道）的用語，可是我對自己的定位清楚得很。在科技翻譯上該扮演什麼角色，在科技著作上該扮演什麼角色，在技術書評方面該扮演什麼角色，我都有定見。<br>
+  <br>
+  我以為，翻譯一本科技書，最重要的工作是省下讀者看原文書時拆解句型或翻查字典的時間，俾使他們得以專心致志地研究文中的技術內涵。讓他們快速地（比閱讀原文快個五倍十倍地）進入書中領域並吸收其中知識。是為科技翻譯之功。<br>
+  <br>
+  至於科技「生根」嘛（可能有人會提到這個詞），對，讓科技的內涵完全被國人吸收，就是生根。科技生根和科技術語中文化，怕是完全兩碼事兒。<br>
+  <br>
+  <br>
+  ●譯無定法，法無定論<br>
+  <br>
+  翻譯如果沒有變通，就不是再創作。那末，用機器來瓜代就可以了。<br>
+  <br>
+  同樣的科技，同樣的主題，不同的讀者群，應該有不同的翻譯作法。像侯捷這種大幅度採用原文術語的作法，就不適合科普文章，也不一定適合其他技術層面。<br>
+  <br>
+  我因為（被動地）知道自己所著所譯的讀者對象，或者說，我因為（主動地）清楚界定了我的讀者對象，所以大膽地做了本文所述的決定。<br>
+  <br>
+  --- the end</p>
+  <hr align="left">
+  <p><font color="#0000FF">From: &quot;Lawrence Ho&quot; &lt;lawrence@inforian.com&gt;</font><br>
+  <br>
+  有關翻譯的部分啊，這點我更是贊成啊，<a
+  href="javascript:if(confirm(%27http://jjhou.boolan.com/temp/jjfbooks-inforian.htm  \n\nThis file was not retrieved by Teleport Ultra, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://jjhou.boolan.com/temp/jjfbooks-inforian.htm%27" tppabs="http://jjhou.boolan.com/temp/jjfbooks-inforian.htm">世紀末軟體革命</a>裡面我是最喜歡 
+  English 
+  與中文合用的，因為我覺得，甚至有機會大家可以去看最近的一本好書───語言本能，裡面有提到，真正讓人覺得困難的是「文法」，並不是單字。<br>
+  <br>
+  以一般台灣人的英文程度，或學習能力，多吸收幾個正確文意的原文單字，反而會比吸收「以原來中文文意」猜測原文文意的單字來得容易（哇！這句話也寫得真長又不好懂）<br>
+  <br>
+  我的意思是，與其叫做「範例模版」（I try my best) 不如直接在mind set中形成一個新的單字 
+  ── template 來得好。<font color="#0000FF">中文的翻譯重點是在破解長句</font>（中國人對英語文法的主要障礙之一）<font
+  color="#0000FF">以及協助理解原文理論</font>（這點侯大哥的書是做的很棒的）<br>
+  <br>
+  認為太多英文單字夾在中間看起來會覺得不舒服的話，其實可以想想日本外來語所佔比例之高就可以理解了。（只是他們依音而形成新單字）也就是因為日本的這套系統完整，而且對於翻譯有極高的重視，所以日本才始終在西學東漸<br>
+  的幾個重要科目上取得領先。<br>
+  <br>
+  所以呢？要是實在不能接受，就把template叫做「甜不累」總成了吧（開玩笑的）， 
+  反正我相信 Bus叫做「巴士」，一開始的時候大家看了也覺得奇怪，不過總比叫做「多人共乘式汽車」來得簡單吧？ 
+  (在 Taxi 的翻譯上就可以看到分歧啦，台灣叫作計程車，香港就叫&quot;的士&quot;了）<br>
+  <br>
+  講到翻譯，想到當初Nelson為了翻譯 WWW而痛苦的樣子，最後翻成叫做──全球資訊網（算是很天才的翻譯，I 
+  think)也想起那時候我與賴明宗／劉燈通宵爭辯 Class要不要翻？Template要怎麼翻？<br>
+  <br>
+  唉！這是辛苦，卻又是值得鼓勵的事啊。<br>
+  <br>
+  成功的翻譯，就是未來的影響力，就是國家的競爭力！(這才是我要講的重點)<br>
+  <br>
+  侯大哥，加油。</p>
+  <hr align="left">
+  <p><font color="#0000FF">From: PG21 PLChen &lt;PLCHEN@winbond.com.tw&gt;</font></p>
+  <p>有關譯作之論,&nbsp; 都給您老說透徹了, 我只能說 十分同意! </p>
+  <hr align="left">
+  <p><font color="#0000FF">From: PG21 PLChen &lt;PLCHEN@winbond.com.tw&gt;</font></p>
+  <p>侯 Sir:<br>
+  <br>
+  講實話, 我覺得您的書看起來很舒服, 
+  我壓根也沒有想到譯著者究竟花了多少苦心! 
+  要不是看了您的這番論述, 才猛然驚覺在一本好書背後的心血! 
+  身為一個讀者也是受惠者,偶而提筆, 提供一下建設性意見及肯定, 
+  應該是利人利己, 甚至是利於優良著作, 推而至社會國家的. 
+  所以這次我就寫一下我的看法 :<br>
+  <br>
+  (1) 我認為應該堅持使用某些英文術語. 中英夾雜的表達最清楚!<br>
+  (2) 我認為應該將原文中的長句子重新處理, 
+  甚至乾脆按自己的意思將整句或整段重寫.<br>
+  (3) 如果可能, 將書中精義或重點依自己的意思摘要條列. 此點不勉強, 
+  或者乾脆另著一書不受原著限制.&nbsp;&nbsp;&nbsp;&nbsp; <br>
+  (4) 導讀, 索引, 對照表等輔助部分, 對於大部頭書而言, 應該視為必要.<br>
+  <br>
+  其實大哥您的自我要求及敬業態度, 
+  我看您的著作品質就知道您是懷有熱忱理想的!&nbsp; 
+  絕非單純為了糊口!這份心是最可貴的! 我希望您能樂在其中, 
+  不斷成長並且傳承給後進. 以便讓我們的資訊科技能有源源不絕活力.<br>
+  <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Chen, 
+  Pen-Li</p>
+  <hr align="left">
+  <p><font color="#0000FF">From: &quot;Tseng, Ming-Yuan&quot; 
+  &lt;Ming-Yuan.Tseng@CAI.COM&gt;</font></p>
+  <p>Dear Hou sir:<br>
+  <br>
+  You are absolutely right. I prefer not to translate 'class', 'data member', 'virtual 
+  function' all these terminology. <font color="#FF0000">Terminology only makes sense to 
+  people in that particular field, why bother to give it another alias</font> (Chinese 
+  translation)? Let me give you a example: A<br>
+  while back, I interviewed a candidate straight from Mainland China, since we cannot 
+  communicate well in English, we used Chinese instead. However, I cannot understand a lot 
+  of computer terms he used. This was because same terminology being given different alias 
+  (translations) in Taiwan and China.<br>
+  <br>
+  What's your thoughts on producing Index for 'C++ Primer' ? I guess this might be 
+  mission-impossible for now, given you are pretty much set for this book. Just want to 
+  stress out that I foresee people would like keep this book near their keyboard as a 
+  reference while coding C++. Index will help them a lot, no? Well, don't kill yourself for 
+  doing this:-) You have to make the deadline.<br>
+  <br>
+  -- Mike Tseng</p>
+  <hr align="left">
+  <p>作者 vsun (y2k孤鷹全新出擊)<br>
+  標題 請問一下老師<br>
+  時間 Mon Jun 28 14:37:14 1999<br>
+  ────────────────────────────────<br>
+  侯老師：<br>
+  <br>
+  相信您最近一定是再忙著您一些9月要出版的一些書籍在譯術學院裡面也看到一些討論您譯的 
+  &quot;COM的本質論&quot; 的一些批評嗯...不知您以為何?<br>
+  <br>
+  C++ Primer 中文版..真是令人期待的一本作品很希望第一刷就很完美..因為我已經打算買第一刷了...</p>
+  <hr align="left">
+  <p>侯先生的 【技術引導乎？文化傳承乎？】<br>
+  macbeth寫道：<br>
+  <br>
+  相信已有些人讀到這篇文章了 不知道各位的看法如何<br>
+  <br>
+  這樣的觀點 肯定在譯界引起軒然大波<br>
+  專有名詞之譯與不譯 爭論已久<br>
+  可是各位還記得以前上物理化學的那些名詞嘛<br>
+  如果不譯 國高中生又如何學習呢<br>
+  再看天下文化出版的大量科普書<br>
+  不也設法把各領域的專有名詞給譯出來了<br>
+  譯名之不妥 可能是譯的不好 或未成定論 或未為大家所接受<br>
+  但是 果真不能譯嘛<br>
+  譯成中文再附個英文不就得了 嗯<br>
+  看來有的吵了<br>
+  <br>
+  文中提到指標 這也是個譯名 侯先生為何會採用 
+  只因譯的漂亮那其它詞為何不能譯呢難道不能想個漂亮的譯名嗎<br>
+  <br>
+  以前上翻譯課的時候 
+  曾經問過教授是否人名或某些特定名詞該保留原文教授只說 
+  既為翻譯就是翻成中國人的字嗯 
+  看來這個觀點在電腦翻譯上可能也會受到質疑<br>
+  <br>
+  至於我本身嘛 上次那個 Jini 
+  就只保留原文而未譯出實在是找不出恰當的中文 
+  而我找不出來並不表示恰當的譯名並不存在只是才疏學淺 
+  未能翻出而已<br>
+  <br>
+  唉 果真是兩難</p>
+  <hr align="left">
+  <p>作者 william.bbs@cis.nctu.edu.tw (何陋居主), 看板 CompBook<br>
+  標題 Re: 【技術引導乎？文化傳承乎？】<br>
+  時間 交大資科_BBS (Mon Jun 28 20:19:44 1999)<br>
+  ────────────────────────────────<br>
+  <br>
+  ==&gt; 在 jjhou.bbs@bbs.cs.nthu.edu.tw (jjhou) 的文章中提到:<br>
+  &gt; 【技術引導乎？文化傳承乎？】<br>
+  &gt; 侯捷 jjhou@ccca.nctu.edu.tw<br>
+  <br>
+  全文頗長, 也滿佈值得大家討論的議題（爭議性議題? 呵）.<br>
+  <br>
+  我只針對其中一則很顯然的是由我引發的案例來解釋解釋...<br>
+  其他地方, 就稍微閒聊閒聊... :p<br>
+  <br>
+  &gt; 
+  完成後，我要把它雷射輸出，雙面影印，裁切裝訂成一本書的樣子。<br>
+  &gt; 做好樣書之後，打算每天帶著它到光明新村湖邊，校對修潤。<br>
+  &gt; 不想待在書房做這件事，眼睛真的需要休息了。湖光翠影，<br>
+  &gt; 正好撫慰我可憐的雙眸。<br>
+  <br>
+  尤其是習慣了大螢幕的眼睛, 又得換去適應 notebook 的小螢幕... :)<br>
+  <br>
+  &gt; 一個大困擾是：書這麼厚，怎麼辦？原書 1237+22 頁，<br>
+  &gt; 一頁一頁對譯的結果，也是 1237+22 頁，再加上譯序和導讀，<br>
+  &gt; 總共大約要到 1270 頁。採用一般紙張，全書厚度肯定不低於 6.0 
+  公分。<br>
+  &gt; 
+  用進口紙，哎，時間內買不買得到是個問題（畢竟國內電腦出版界<br>
+  &gt; 
+  沒有先例，沒有經驗），成本也是個問題。我強力企圖說服出版公司<br>
+  &gt; 用進口紙，但結果如何，實難預言。<br>
+  &gt;<br>
+  &gt; 很苦惱一本 4.0 公分的原文書被我做成巨無霸，而這還是<br>
+  &gt; 一頁一頁對譯，內文用９號字體，程式碼用８號字體的結果。<br>
+  &gt; 真不希望看到它成為一塊破記錄的磚頭。<br>
+  <br>
+  我也滿希望看到國內的電腦書也能有如洋文書籍的那種觸感...不過, 
+  成本...<br>
+  <br>
+  &gt; 「定字」是什麼？ literal<br>
+  <br>
+  我也不是很滿意這個詞兒,不過, 
+  這算是國內慣用的譯法了（系統程式方面的高普考應考書籍）...<br>
+  <br>
+  蔡寶進譯的 Java Virtual Machine 書中, 曾譯為「原詞」,算是比較獨樹一幟的。<br>
+  <br>
+  &gt; 「游標」是什麼？ iterator（這字譯得不錯，但如何讓人不聯想 
+  cursor？）<br>
+  我也考慮過這種聯想, 不過後來我主觀的認為：讓讀者有這種聯想, 
+  也無妨；<br>
+  反正：<br>
+  <br>
+  * 在 container class 設計的領域裡, iterator 和 cursor 
+  都是很常出現的東東。<br>
+  * 在 design pattern 角度來看, 兩者是同類的。<br>
+  * 在關連式資料庫領域裡的 cursor, 與 OOP 領域裡的 iterator, 作用相同。<br>
+  <br>
+  唯一可能有不當聯想的, 可能只剩下「螢幕游標」這個個案...不過, I 
+  don't care... :p<br>
+  <br>
+  所以, 我主觀的決定, 在程式設計領域裡, 
+  尤其是在物件導向程式設計領域裡,讓讀者有這種聯想, 也無妨。</p>
+  <hr align="left">
+  <p>作者 viewer@bbs.ee.ntu.edu.tw (小嘉嘉), 看板 CompBook<br>
+  標題 Re: 【技術引導乎？文化傳承乎？】<br>
+  時間 台大電機 Maxwell BBS (Fri Jul 16 01:13:05 1999)<br>
+  ─────────────────────────────────<br>
+  侯老師辛苦了...<br>
+  <br>
+  學生手中只有 C++ primer 3/e 的原文第一刷板本，配合著errata 
+  和作者網站上面的addiional errata 
+  ，對著看有點累。想請教候老師，您在翻譯的時候，對於原文較新刷次的c++ 
+  primer，是如何解決：<br>
+  <br>
+  [The follows were cited from&quot; Additional Errata for the C++ Primer,3rd Edition by 
+  Bernd Mothr&quot;.]<br>
+  <br>
+  ::::::::::::::::::::::::::::::::::::<br>
+  <br>
+  Chapter 5, Statements<br>
+  Page 200: the function min() does not work for &quot;empty&quot; vectors<br>
+  (size==0)<br>
+  <br>
+  Correction: modified text on pages 200-201 to discuss this issue.<br>
+  Required dropping example program in order to keep page layout.<br>
+  <br>
+  :::::::::::::::（以下容略:) ）<br>
+  <br>
+  這樣一對照起來，全書的格式，範例，習作題讓學生深覺風馬牛不相及，閱讀時十分的痛苦，不知道如何是好。故同時想請教侯老師，您在翻譯的同時，是否有參考新板的errata 
+  ，同時您在翻譯的過程中也加以改正呢？對於如我是一位文科的同學，在學習程式的過程中更期待有一本好的本子，可以經得起時光的考驗來品讀。以解救迷失於茫茫的學海之中。<br>
+  <br>
+  再次說聲，謝謝您，翻譯辛苦了。:)<br>
+  <br>
+  my e-mail is: s06212@cc.nnu.edu.tw<br>
+  <br>
+  敬祝教安<br>
+  <br>
+  學生 viewer 敬上:)</p>
+  <hr align="left">
+  <p>作者 &quot;man&quot; &lt;abcy@hello.com.tw&gt;, 看板 CompBook<br>
+  標題 Re: 【技術引導乎？文化傳承乎？】<br>
+  時間 SEEDNet News Service (Fri Jul 16 05:49:11 1999)<br>
+  ─────────────────────────────────<br>
+  EASY(smart) WAY：<br>
+  在書後附上「中英名詞對照索引」如:<br>
+  <br>
+  abstract data type (ADT) 抽象資料型態<br>
+  overflow 超上限<br>
+  <br>
+  如此一來，不管你是初學者也好，半途生也好，高級生也好，自用送人兩相宜，大家和和氣氣，我道彼道皆順意，哈！哈！這買賣成！這買賣成！<br>
+  <br>
+  －－黃真</p>
+  <hr align="left">
+  <p>【關於 C++ Primer 中文版】<br>
+  <br>
+  侯捷 jjhou@ccca.nctu.edu.tw<br>
+  1999.07.20 第一次發表於<br>
+  清大.楓橋驛站（140.114.87.5）.電腦書訊版（Computer/CompBook）<br>
+  <br>
+  ●回覆網友意見 1<br>
+  <br>
+  &gt; 作者 viewer@bbs.ee.ntu.edu.tw (小嘉嘉), 看板 CompBook<br>
+  &gt; 標題 Re: 【技術引導乎？文化傳承乎？】<br>
+  &gt; 時間 台大電機 Maxwell BBS (Fri Jul 16 01:13:05 1999)<br>
+  &gt; 
+  ─────────────────────────────────────<br>
+  &gt; 侯老師辛苦了...<br>
+  &gt;<br>
+  &gt; 學生手中只有 C++ primer 3/e 的原文第一刷板本，配合著<br>
+  &gt; errata 和作者網站上面的 addiional errata ，對著看有點累。想<br>
+  &gt; 請教候老師，您在翻譯的時候，對於原文較新刷次的 C++ Primer，<br>
+  &gt; 是如何解決：<br>
+  &gt;<br>
+  &gt; [The follows were cited from&quot; Additional Errata for the C++<br>
+  &gt; Primer,3rd Edition by Bernd Mothr&quot;.]<br>
+  &gt; ::::::::::::::::::::::::::::::::::::<br>
+  &gt; Chapter 5, Statements<br>
+  &gt; Page 200: the function min() does not work for &quot;empty&quot; vectors<br>
+  &gt; (size==0)<br>
+  &gt;<br>
+  &gt; Correction: modified text on pages 200-201 to discuss this issue.<br>
+  &gt; Required dropping example program in order to keep page layout.<br>
+  &gt; :::::::::::::::（以下容略:) ）<br>
+  &gt;<br>
+  &gt; 
+  這樣一對照起來，全書的格式，範例，習作題讓學生深覺風馬牛不相及，閱讀<br>
+  &gt; 
+  時十分的痛苦，不知道如何是好。故同時想請教侯老師，您在翻譯的同時，是<br>
+  &gt; 否有參考新板的errata 
+  ，同時您在翻譯的過程中也加以改正呢？對於如我是<br>
+  &gt; 
+  一位文科的同學，在學習程式的過程中更期待有一本好的本子，可以經得起<br>
+  &gt; 時光的考驗來品讀。以解救迷失於茫茫的學海之中。<br>
+  &gt;<br>
+  &gt; 再次說聲，謝謝您，翻譯辛苦了。:)<br>
+  &gt; 敬祝教安 學生 viewer 敬上:)<br>
+  <br>
+  Hi, viewer :<br>
+  <br>
+  我會將 1999.07.30（預定交稿日）前的所有 &lt;C++ Primer&gt; errata，都修定到中文版上。但如遇到會更動版面者，就無法直接修訂上來（因為我採一頁對譯一頁的作法，俾得以最經濟方式獲得原書 
+  index），那麼我會權宜處理，例如在該處提醒讀者上網查看完整的修訂。<br>
+  <br>
+  我很好奇，為什麼文科的你，需要學習 C++？你願意告訴我嗎？<br>
+  <br>
+  你說：</p>
+  <p>&gt; 在學習程式的過程中更期待有一本好的本子，可以經得起時光<br>
+  &gt; 的考驗來品讀。以解救迷失於茫茫的學海之中。<br>
+  <br>
+  我有把握 &lt;C++ Primer 中文版&gt; 
+  會是這樣一本書籍。這本書肯定不會讓你在閱讀時牙齒咬到舌頭。此外，像 
+  object-oriented 
+  這種內含許多觀念的東西，用詞的精準很是重要，這方面我特別花費心力。<br>
+  <br>
+  不過，object-oriented 
+  是個比較深奧的題目，我想你必須得有相當的心理準備。一本好書買進來，並不就是『耗子躦牛角：穩答答』（台諺）了。在一些高階議題上，許多讀者還是會遭遇相當程度的窒礙，這是因為技術基礎與實作經驗的不足所致。當然我相信，文科背景的你願意學習 
+  C++，必有著一份濃濃的興趣做為推手。祝你的學習順利成功。<br>
+  <br>
+  <br>
+  ●回覆網友意見 2<br>
+  <br>
+  &gt; 作者 &quot;man&quot; &lt;abcy@hello.com.tw&gt;, 看板 CompBook<br>
+  &gt; 標題 Re: 【技術引導乎？文化傳承乎？】<br>
+  &gt; 時間 SEEDNet News Service (Fri Jul 16 05:49:11 1999)<br>
+  &gt; 
+  ─────────────────────────────────────<br>
+  &gt; EASY(smart) WAY：<br>
+  &gt; 在書後附上「中英名詞對照索引」如:<br>
+  &gt;<br>
+  &gt; abstract data type (ADT) 抽象資料型態<br>
+  &gt; overflow 超上限<br>
+  &gt;<br>
+  &gt; 如此一來，不管你是初學者也好，半途生也好，高級生也好，<br>
+  &gt; 自用送人兩相宜，大家和和氣氣，我道彼道皆順意，哈！哈！<br>
+  &gt; 這買賣成！這買賣成！<br>
+  &gt;<br>
+  &gt; －－黃真<br>
+  <br>
+  Hi, 黃真同志：<br>
+  <br>
+  感謝你的意見。是的，我已在導讀中整理出「中英名詞對照表」（目前已達 
+  150 
+  個左右）。不過正文中的術語主要還是以英文表達。其原因已在【技術引導乎 
+  文化傳承乎】 一文做了說明。<br>
+  <br>
+  從您的來信判斷，似乎是對岸同志 :)，所以會將 overflow 
+  譯為超上限。我岸同胞的譯詞是溢位。我也知道，對岸將 
+  object-oriented 
+  譯為面向對象，我岸則譯為物件導向。這突顯了中譯術語的另一個問題。<br>
+  <br>
+  使用原文術語，就沒有這種困擾。<br>
+  <br>
+  當然，建立一個完善的、統一的中文術語標準，讓大家遵循使用，是很有意義的工作，but 
+  it is not my business。我的角色是幫助大家快速學習專業技術。<br>
+  <br>
+  <br>
+  ●老朋友的來信<br>
+  <br>
+  說到兩岸術語，以下引我的老朋友曾銘源先生的來信一封，給大家參考。<br>
+  <br>
+  &gt; Dear Hou sir:<br>
+  &gt;<br>
+  &gt; You are absoluely right. I prefer not to translate 'class', 'data member',<br>
+  &gt; 'vrtual function' all these terminology.<br>
+  &gt; Terminology only makes sense to people on that particular field, why bother<br>
+  &gt; to give it another alias (Chinese translation)? Let me give you a example: A<br>
+  &gt; while back, I interviewed a candidate straight from Mainland China, since we<br>
+  &gt; cannot communicate well in English, we used Chinese instead. However, I<br>
+  &gt; cannot understand a lot of computer terms he used. This was because same<br>
+  &gt; terminology being given differen alias (translations) in Taiwan and China.<br>
+  &gt;<br>
+  &gt; What's your thoughts on producing Index for 'C++ Primer' ? I guess this<br>
+  &gt; might be mission-impossible for now, given you are pretty much set for this<br>
+  &gt; book. Just want to stress out that I foresee people would like keep this<br>
+  &gt; book near their keyboard as a reference while coding C++. Index will help<br>
+  &gt; them a lot, no?<br>
+  &gt; Well, don't kill yourself for doing this :-) You have to make the deadline.<br>
+  <br>
+  -- Mike Tseng<br>
+  <br>
+  註：信後所提的 index 一事，不會 &quot;kill myself&quot;，因為我以一頁對譯一頁的方式<br>
+  進行，又大量採用原文術語，所以原書 index 
+  垂手可得，反掌折枝。這正是為什麼要採「一頁對譯一頁」的原因。是的，我要以最經濟方式獲得原書水準的 
+  index。當然，副作用就是，任何人可以輕易找到原文書對應章節，進行中英比對，檢驗我的翻譯水準。不過我不擔心這一點，技術工作乃至翻譯工作如果擔心受到嚴格的檢驗，那就不必做了。<br>
+  <br>
+  <br>
+  ● &lt;C++ Primer 中文版&gt; 進度<br>
+  <br>
+  已完成第一本樣書，目前正在精潤。果不其然，在 70 
+  磅影印紙以及熱捲效應的影響下，1300 
+  頁竟然無法裝訂成一冊，必須分兩冊安裝。正式印刷時這一點可以改善，但改善到什麼地步我無法預期。<br>
+  <br>
+  對這本書的期望，促使我正在努力瞭解紙質。與印刷廠老板一談，發現紙的學問真不小。<br>
+  <br>
+  到底這本書最後是什麼風貌什麼厚度呢？，連我自己都好奇！<br>
+  <br>
+  <br>
+  ●覺今是而昨非<br>
+  <br>
+  很多朋友、讀者、網友好奇並詢問一本書的完成過程。或許，所有不曾寫過書的人都對這一點感到好奇吧。<br>
+  <br>
+  技術上的鑽研與驗證就不說了。整個寫作過程是「不斷的修改、調動」。修改和調動的不是技術性的正誤，而是文字內容與行文動線。如果你看侯捷的作品「很順暢」，那是無數調整與修飾的結果。<br>
+  <br>
+  所以，由於侯捷沒有援筆立就、文不加點的功力，一旦我無法在電腦上直接輸入文字，少了文書軟體的協助，我無法想像如何著作。有人說：『哎唷，作家還自己打字，太 
+  trivial 
+  了吧！』言下之意是打字這種平凡瑣屑的工作，交給工讀生、學生、秘書、太太、女朋友、下屬…任何其他人就可以了，怎麼自己動手做「這種事」呢？<br>
+  <br>
+  對我而言，打字是寫作的一種必要工具，無關乎「學打字是否太浪費時間」，或是否「時間應該放在更重要的工作上」。<br>
+  <br>
+  然而從文字電子稿到完稿，還有一大段距離。這一大段距離就是排版。雖然過去我屢屢為了版面搞得疲累不堪，但當時我的確認為，排版不應該是一個作家的事！<br>
+  <br>
+  1995 
+  年初經歷一件慘痛的教訓之後，我決定學排版。很慶幸有張鈞傑先生教導我，解決所有我對 
+  Word 的疑惑。我一直想以 top-down 的方式學習排版，所有的 Word 
+  書籍卻都採用 bottom-up 的教導方式！<br>
+  <br>
+  幸運的是鈞傑可以隨時回答我的任何問題。<br>
+  <br>
+  從那時候開始，所有我自己的書，都由我自己排版。<br>
+  <br>
+  看著眼前這本 &lt;C++ Primer 中文版&gt; 
+  樣書，回想前一陣子對它一字一句的校潤、設定字形（<font
+  color="#FF0000">註</font>），以及今後十數天相同的工作，心裡明白，除非是自己排版，再無第二人可以這樣子處理這本書。<br>
+  <br>
+  <font color="#FF0000">註</font>：我分別以 Courier New, FootLight MT Light, Arial, 
+  Verdata, Times New Roman, Lucida Sans 六種英文字形表現大量的各類型 C++ 
+  英文術語，所以每一個單字都需仔細看過，無法套用 template。不過我想，VBA 
+  或可助我一臂之力。VBA 
+  是我在排版領域的下一個學習目標。達智是此中高手，我不愁找不到好老師 
+  :)<br>
+  <br>
+  <br>
+  這種心情並非從這本書才有。自從我第一次有能力對自己的作品排版，我就慶幸經歷了那一件慘痛的教訓（真是印證「禍兮福所倚 
+  福兮禍所伏」這句話）。現在，我可以完全掌握我的書的最後面世形貌（除了封面、紙張、印刷品質）。<br>
+  <br>
+  對今天的我而言，排版也成了我寫作的一種必要工具，無關乎「學排版是否太浪費時間」，或是否「時間應該放在更重要的工作上」。<br>
+  <br>
+  「世界不是一個人可以完成的，偉大的事業也不是一個人可以完成的。做大事的人，應該要學習怎麼統合領導一群人共同完成一件任務，而不是自己從頭幹到尾」。啊，話是不錯，鏗鏘有聲。但如果說，對我而言，把自己的每一部作品做到自己滿意，便是我侯捷給自己定下的偉大事業，那麼這中間的每一個過程都是我願意學習的。雖然我也希望能夠把全部時間花在鑽研新知、創作、教學上，雖然我也希望有得力的幫手把這些後續非創作性工作攬下來，但是在這樣的人沒有出現之前（而且我也不敢想像能出現這樣的人），這些非創作性的、一般人以為 
+  trivial 的工作，我甘之如飴。我可以因為發現 FootLight MT Light 和 Lucida 
+  Sans 這兩種字形很漂亮而高興半天，也可以因為學會使用 Word 
+  的功能變數（感謝俊堯）而高興半天。<br>
+  <br>
+  我想我還有很多很多高興的日子可以期待。該 :) 還是該 :(。<br>
+  <br>
+  --- the end</p>
+</blockquote>
+</body>
+</html>

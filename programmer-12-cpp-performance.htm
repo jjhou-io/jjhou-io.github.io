@@ -1,0 +1,369 @@
+<html>
+
+<head>
+<title>改善C++程式的效率</title>
+</head>
+
+<body BGCOLOR="#ffffff" LINK="#0000ff" VLINK="#330066" ALINK="#ff0000" TEXT="#000000">
+<!--Copyright &#169; Dr. Dobb's Journal-->
+
+<hr>
+
+<h2 ALIGN="center"><font color="#800000">改善C++程式的效率<br>
+<br>
+<small><small>Improving C++ Program Performance</small></small><br>
+<small><small>(<i>Dr. Dobb's Journal</i> October 1999/10)</small></small></font></h2>
+
+<h3 ALIGN="center"><font color="#800000">作者：Stanley Lippman<br>
+譯者：陳崴</font></h3>
+
+<blockquote>
+  <p align="center">侯捷註：本文係北京《程序員》雜誌 2001/12 的文章。<br>
+  承譯者<font color="#000000">陳崴先生與</font>《程序員》<font color="#000000">雜誌負責人蔣濤先生答允，<br>
+  轉載於此，以饗臺灣讀者，非常感謝。<br>
+  <br>
+  未得陳崴先生與蔣濤先生二人之同意，任何人請勿將此文再做轉載。</font></p>
+</blockquote>
+
+<hr>
+
+<p><font color="#FF0000">譯註：</font>以下是本文所採用的幾個術語：<br>
+<br>
+instance：實體。<br>
+<br>
+class, object, data member, member function, constructor, destructor, template 
+等術語，皆保留不譯。</p>
+
+<hr>
+
+<p>對 C++ 程序員而言，認知什麼情況下不要定義 copy constructors, 
+copy-assignment operators,&nbsp; destructors，其重要性就像認知這些特殊member 
+functions 什麼時候是必要的，一樣重要。舉個例子，考慮<font
+color="#8080FF">表格一</font>的測試結果：</p>
+
+<table border="1" width="62%">
+  <tr>
+    <td width="34%">程式版本</td>
+    <td width="31%">未最佳化 (Nonoptimized)</td>
+    <td width="35%">最佳化 (Optimized)</td>
+  </tr>
+  <tr>
+    <td width="34%">基本型式</td>
+    <td width="31%">28.59</td>
+    <td width="35%">15.22</td>
+  </tr>
+  <tr>
+    <td width="34%">修改 #1</td>
+    <td width="31%">22.25 (22%)</td>
+    <td width="35%">12.27 (19%)</td>
+  </tr>
+  <tr>
+    <td width="34%">修改 #2</td>
+    <td width="31%">15.88 (44%)</td>
+    <td width="35%">9.50 (37%)</td>
+  </tr>
+  <tr>
+    <td width="34%">整合（#1 和 #2）</td>
+    <td width="31%">12.97 (54%)</td>
+    <td width="35%">7.51 (51%)</td>
+  </tr>
+</table>
+
+<p>表格一：執行時間的測試結果</p>
+
+<p>「基本型式」欄所呈現的，是一個擁有整組特殊化 member functions（copy 
+constructor, copy-assignment operator, destructor）的程式的執行時間。在此基本型式中，沒有任何一個 
+class member functions 或任何它所支援的 friend functions 被宣告為 inline。是的，不使用 
+inline、三個特殊 member functions 
+全員到齊，並且相當程度地符合普遍流行的 C++ 編程規則（例如 <i>Taligent's 
+Guide to Designing Programs</i>, Addison-Wesley, 1994, ISBN 0-201-40888-0）。</p>
+<DDJADVERTISEMENT INLINE>
+
+<p>為了繼續討論，我們假設這個程式的效率太差，而你的工作就是要使它快些。你該怎麼做？</p>
+
+<p>常見的加速策略有三種： </p>
+
+<p>1. 
+將目前所用的演算法以更有效率的演算法取代（但這樣的演算法往往更複雜，例如以快速排序法 
+quicksort 取代氣泡排序法 bubble sort）。 </p>
+
+<p>2. 
+將目前所用的資料結構以更有效率的資料結構取代（但這樣的資料結構往往更複雜，例如以紅黑樹 
+red-black tree 取代二元樹 binary tree）。 </p>
+
+<p>3. 
+將目前所用的程式碼以更有效率的程式碼取代（這種情況下所增加的效率往往伴之以控制流程和程式碼可讀性的減少）。</p>
+
+<p>許多情況下，訴諸上述三個策略中的任何一個，其實都是非必要的。通常，檢閱並挑出不適當的 
+C++ 
+編程手法，不但簡單而且效果不錯。所謂不適當的編程習慣，其中一個就是非必要地定義 
+copy constructor, copy-assignment operator 和 destructor。<a NAME="rl1"></a><font
+color="#8080FF">列表一</font>表現的是一個基本型式的<i>Vector</i> class 
+和其應用程式<font color="#FF0000">（譯註：此處<i>Vector</i> 並不是指 C++ 
+標準程式庫所提供的容器，而是指數學中的三度空間向量）</font>，第一次修改只是簡單地將每一個 
+friend function和 member function改為 inline。第二次修改移除了 copy 
+constructor, copy-assignment operator 和 destructor 
+的定義。第三次修改則是第一次修改和第二次修改的結合。本文所列的這些程式都通過 
+SGI 7.2 版編譯器，時間的量測以 timex 指令完成。 </p>
+
+<p>　</p>
+
+<h4>列表一<a NAME="l1"></h4>
+
+<pre>class Vector {    
+    friend Vector 
+           operator+( const Vector&amp;, const Vector&amp; );
+    friend Vector 
+           operator-( const Vector&amp;, const Vector&amp; );
+public:
+    Vector( double x=0.0, 
+             double y=0.0, double z=0.0 );
+    Vector( const Vector&amp; );
+    Vector&amp; operator=( const Vector&amp; );
+    ~Vector();
+    bool operator==( const Vector&amp; );
+    Vector operator/( double );
+
+    double mag();
+    double dot( const Vector&amp; );
+    Vector cross( const Vector&amp; );
+    void normalize();
+
+    double x() const;
+    double y() const;
+    double z() const;
+
+    void x( double newx );
+    void y( double newy );
+    void z( double newz );
+
+private:
+    double _x, _y, _z;
+};
+Vector::Vector( double x, double y, double z )
+    { _x = x; _y = y; _z = z; }
+Vector::Vector( const Vector &amp;rhs )
+    { _x = rhs._x; _y = rhs._y; _z = rhs._z; }
+Vector::~Vector()
+    {_x = 0.0; _y = 0.0; _z = 0.0; }
+Vector&amp; Vector::operator=( const Vector &amp;rhs )
+{
+    _x = rhs._x; _y = rhs._y; _z = rhs._z;
+    return *this;
+}
+Vector
+operator+( const Vector &amp;lhs, const Vector &amp;rhs )
+{
+    Vector result;
+
+    result._x = lhs._x + rhs._x;
+    result._y = lhs._y + rhs._y;
+    result._z = lhs._z + rhs._z;
+
+    return result;
+}
+Vector
+operator-( const Vector &amp;lhs, const Vector &amp;rhs )
+{
+    Vector result;
+
+    result._x = lhs._x - rhs._x;
+    result._y = lhs._y - rhs._y;
+    result._z = lhs._z - rhs._z;
+
+    return result;
+}
+#include &lt;math.h&gt;
+double Vector::mag()
+    { return sqrt( _x*_x + _y*_y +_z*_z ); }
+Vector Vector::cross( const Vector &amp;rhs )
+{
+    Vector result;
+
+    result._x = _y * rhs._z - rhs._y * _z;
+    result._y = _z * rhs._x - rhs._z * _x;
+    result._z = _x * rhs._y - rhs._z * _y;
+
+    return result;
+}
+void Vector::normalize()
+{
+    double d = mag();
+    _x /= d; _y /= d; _z /= d;
+}
+double Vector::dot( const Vector &amp;rhs )
+    { return _x*rhs._x + _y*rhs._y + _z*rhs._z; }
+bool Vector::operator==( const Vector &amp;rhs )
+{
+    return _x == rhs._x &amp;&amp; 
+            _y == rhs._y &amp;&amp; _z == rhs._z;
+}
+Vector
+Vector::
+operator /( double val )
+{
+    Vector result;
+
+    if ( val != 0 ) {
+        result._x = _x / val;
+        result._y = _y / val;
+        result._z = _z / val;
+    }
+    return  result;
+}
+double Vector::x() const { return _x; } 
+double Vector::y() const { return _y; } 
+double Vector::z() const { return _z; } 
+
+void Vector::x( double newx ) {  _x = newx; } 
+void Vector::y( double newy ) {  _y = newy; } 
+void Vector::z( double newz ) {  _z = newz; } 
+
+#include &lt;vector&gt;
+int main()
+{
+    Vector a( 0.231, 2.4745, 0.023 ),
+           b( 1.475, 4.8916, -1.23 );
+    vector&lt; Vector &gt; vv;
+    for ( int ix = 0; ix &lt; 2000000; ++ix )
+    {
+        Vector c( a.mag(), b.dot(a), ix );
+
+        vv.push_back( a.cross( c ));    
+        vv.push_back( a + c );
+        vv.push_back( a - c );
+        vv.push_back( a / c.mag() );
+        vv.push_back( a.cross( c ));
+
+        if ( c == a )
+             vv.push_back( b );
+        else vv.push_back( a );
+
+        c.normalize();
+        vv.push_back( c );
+    }
+}</pre>
+</a>
+
+<h3>第一次修改：加上 Inline</h3>
+
+<p>第一個修改動作就是將 <i>Vector</i> class 的 member functions 和 friend 
+functions 加以「inline 
+化」。這種改變真是太容易了：只要為每一個你想修改的目標加上關鍵字 
+<i>inline</i> 即可。一下子你就增加了大約 20%的效率。一般而言，一個應用程式從完全沒有「inlining 
+化」轉變為適當「inlining化」，估計可獲得 20% ~ 25% 的效率提昇。</p>
+
+<p>如果 inlining 
+帶來程式效率的提昇，而你又不需要明顯的努力，為什麼許多編程標準手冊都不贊成「inlining 
+化」？是的，它的主要缺點就是，你必須重新編譯「內含 inline 
+函式」的每一個檔案。對於一個應用於大型專案的 class library 
+而言，重新編譯的成本相當昂貴。</p>
+
+<p>當你在 C++ 中針對一個被廣泛使用的 class，增加或移除其 data member 
+時，或是當你修改某個既存的 data member 
+的型別時，同樣的問題也會浮現。為了完全解決重新編譯的問題，你需要轉移到另一個物件模型（object 
+model）上，例如 COM 所支援的那個物件模式（可參考 <i>Essential COM</i>, 
+by Don Box, Addison-Wesley Longman, 1998, ISBN 0-201-63446-5；以及 <i>Inside the C++ 
+Object Model</i>, by Stanley Lippman, Addison-Wesley, 1996, ISBN 0-201-83454-5）。</p>
+
+<p>專案編程標準手冊中禁止大家使用 inlining，其實是一種誤導。但是從另一個角度看，也並不是每一個 
+C++ 函式都應該成為 inline。inlining 
+的另一個潛在缺點是程式的膨脹問題。一般而言只有不大的函式（例如<i>Vector</i> 
+的 member functions）才適合被 inline 
+化。實際運用時究竟該如何取捨，有待你的明智判斷。</p>
+
+<h3>第二次修改：移除非必要的 Member Functions</h3>
+
+<p>第二個修改是移除<i>Vector</i> class 之中非必要的 copy constructor, 
+copy-assignment operator 和 destructor。（為了這項修改，我讓所有的 member 
+functions 成為 noninline。在第三次修改中，我會將兩者整合起來）。這項改變甚至比加上 
+inline 
+更為直接易懂；你只要刪除三個函式的宣告和定義就好。其結果是幾近 
+40% 的效率提昇。</p>
+
+<p>這樣的結果往往帶給程序員極大的驚訝，但如果你了解編譯器底部的行為，你就不會驚訝。 
+</p>
+
+<h3>何時需要明顯的 Copy Operators?</h3>
+
+<p>預設情況下，一個 class object 是以 &quot;memberwise copy&quot;（成員逐一拷貝）的方式被初始化或被賦值。觀念上，以 
+<i>Vector</i> class 為例，首先是 x<i> </i>座標，然後是 y座標，然後是 z-座標被輪番拷貝。就好像你所寫的函式碼，請看<font
+color="#8080FF">列表一</font>。</p>
+
+<p>然而，實際上，編譯器並不是以上述方式來拷貝 objects： 
+
+<ul>
+  <li>它並不會產生一個明顯的（explicit）copy constructor 和 copy-assignment 
+    operator。 </li>
+  <li>它不會輪番拷貝每一個代表座標值的 data member，而是直接對整個 
+    object 的所有資料做一次 &quot;bitwise copy&quot;（位元逐一拷貝），就像 
+    C 的行為那樣。編譯器並不會為你產生預設的 memberwise functions。我們所寫的實作碼（列表一）和編譯器暗中的行為，兩者差別非常大，明顯反應於效率表現上。 
+  </li>
+</ul>
+
+<p>這對所有情況都是真的嗎？不，一般而言，編譯器會在四種情況下為你合成出一個 
+copy constructor 和一個 copy-assignment operator： 
+
+<ul>
+  <li>當 class 內含一個 member class object，而後者有一個相應的 copy 
+    constructor 和/或 copy-assignment operator。</li>
+  <li>當 class 衍生自一個或多個 base classes，而後者有一個相應的 copy 
+    constructor 和/或 copy-assignment operator。</li>
+  <li>當 class 宣告或繼承了一個虛擬函式（virtual function）。 </li>
+  <li>當 class 直接或間接衍生自一個 virtual base class。 </li>
+</ul>
+
+<p>C++ Standard 將這樣的 classes 稱為 nontrivial。換句話說，前述的<i>Vector</i> 
+class 是 trivial，也就是說它不符合上述四種情況。（更詳細的討論，請看我的書籍 
+<i>Inside the C++ Object Model</i>。）</p>
+
+<p>那麼，是不是說，你絕不應該定義一個 copy constructor 和 
+copy-assignment operator 
+呢？當然不是。某些情況下為它們提供一個顯式定義是必要的。最常見的必要情況就是當你的 
+class 內含一個或多個 pointer members，而後者在 class object 
+壽命期間，不是被初始化，就是被設值為某一塊 heap記憶體位址，那塊記憶體隨後在 
+destructor 內被刪除。C++ 
+編程的基本觀點之一就是對此情勢有所認知。如果你需要更從容而且帶實例的討論，請看 
+<i>C++ Primer</i>, 第三版, by Stanley Lippman and Jos&eacute;e Lajoie, Addison-Wesley 
+Longman, 1998, ISBN 0-201-82470-1.）<font color="#FF0000">（譯註：也可以閱讀 
+Effective C++ 2/e，條款11：「如果 classes 內部動態配置記憶體，請為此 
+class 宣告一個 copy constructor 和一個 copy-assignment operator）</font></p>
+
+<p>面對一個「所有 data members 都以 by value方式存在」的 class（例如<i>Vector</i> 
+class），編譯器預設的初始化動作和拷貝動作會比我們自己撰寫的動作更有效率。這對於程式和程式員而言，都是很少量的工作。對程式員而言，你的任務就是辨識什麼情況下需要自己實作一個顯式 
+copy constructor 和 copy-assignment operator。</p>
+
+<h3>何時需要一個顯式（explicit）Destructor?</h3>
+
+<p>同樣道理，面對一個「所有 data members 都以 by value方式存在」的 
+class（例如<i>Vector</i> class 的三個座標值），destructor 
+是沒有必要的。是的，並非每個 class 都需要 destructor，縱使你已經為此 
+class 提供了一個或多個 constructors。Destructors 的任務主要是撤回被&nbsp; 
+constructor 索取的資源，或是 class object 
+壽命期間索取的資源。例如釋放一個多工互斥器鎖定（mutual exclusion 
+lock），或是刪除「operator <i>new</i>; 配置而得的記憶體」，請參考 <i>C++ 
+Primer</i>。</p>
+
+<h3>為什麼它不是一個被推薦的編程手法？</h3>
+
+<p>如果「不提供顯式 copy constructor 和 copy-assignment operator 和 destructor」就可以改善你的程式效率，而又不需要你多做什麼努力，為什麼許多編程標準手冊都建議我們儘量提供一個顯式版本呢？這個議題，我相信，牽涉到一個檯面下的可能性，那就是，做為一個 
+C++ 
+程式員，你是否獲得足夠的信賴去發揮你的判斷？（縮小範圍地說， 
+inlining 議題也是同樣的情況。）要知道，萬一它們（那些特殊的member 
+functions）必須存在，而你卻沒有提供其實體，會導致嚴重的程式錯誤。</p>
+
+<p>該如何選擇？辦法之一是允許你自由選擇，前提是「做出正確選擇之前的所有必要資訊」都必須齊備。辦法之二是很單純地墨守成規 
+— 是的，通常這些（編程標準手冊上的）規則在 80% - 90% 
+的情況下都適用。兩種解法之間的抉擇關係到你究竟如何管理一個軟件專案。</p>
+
+<p>在<i>Vector</i> class 中，提供非必要的 copy constructor, copy-assignment 
+operator, destructor 
+的顯式實體，帶來的結果並非不正確，而是效率不彰。認知此一事實，有助於你調整你的實作碼而不必整個重新翻修一遍。</p>
+
+<h3>致謝</h3>
+
+<p>Jos&eacute;e Lajoie 檢閱了本文初稿，並提供許多深刻的看法和建議。</p>
+
+<hr>
+</body>
+</html>

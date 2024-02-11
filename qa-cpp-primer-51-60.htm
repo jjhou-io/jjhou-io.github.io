@@ -1,0 +1,972 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>C++ Primer 答客問51~60</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="628">
+  <tr>
+    <td align="right" valign="top" width="35">&nbsp; <!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="bottom" width="551"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="35" bgcolor="#C0C0C0"><!--mstheme--></font></td>
+    <td width="18"><!--mstheme--></font></td>
+    <td valign="top" width="551"><br>
+    <a name="C++ Primer qa51"><big><big>C++ Primer 答客問 (51)</big></big></a> - 
+    勘誤與疑問<br>
+    2000.05.18<br>
+    <br>
+    zychang wrote (2000/05/12) :<br>
+    <br>
+    <font color="#0000FF">&gt; 侯老師您好：<br>
+    &gt;<br>
+    &gt; 首先是勘誤方面：<br>
+    &gt; p.1188<br>
+    &gt; swap_range() ==&gt; swap_ranges() (要加 s 才對)</font><br>
+    <br>
+    是的，謝謝。我將記錄於勘誤列表之中。摘錄如下：<br>
+    <br>
+    ■p1188, 小標題 swap_range()（原書錯誤）<br>
+    原文：swap_range()<br>
+    更正：swap_ranges()<br>
+    注意：該小段的函式原型、文字第一行、文字第四行各有一個 
+    swap_range()，<br>
+    皆應改為 swap_ranges()。同時請修改 p.vii 之目錄及 p.1235 之索引。<br>
+    感謝：zychang（張振宇先生）<br>
+    <br>
+    <br>
+    <font color="#0000FF">&gt; 疑問與請益方面：<br>
+    &gt;<br>
+    &gt; p.1183<br>
+    &gt; set_union() 建構出一個排序過的序列... 這一段。<br>
+    &gt;<br>
+    &gt; 事實是 set_union() 所需的兩個 containers 需先排序過，<br>
+    &gt; set_union() 執行完的結果才有 ordering。<br>
+    &gt; 您這樣的譯筆是乎是說 set_union() 所需的兩個 containers<br>
+    &gt; 不需先排序過，set_union() 執行完後就能將結果排序。<br>
+    &gt; 而您給的範例程式亦沒有強調這一點（即沒有 sort 的程式碼）</font><br>
+    <br>
+    我同意你所說：set_union() 所接受的兩個 ranges 需先排過序。<br>
+    （見 &quot;Generic Programming and the STL&quot; p.324）<br>
+    <br>
+    C++ Primer 原書在解釋 set_union() 時並未特別強調這一點，<br>
+    所以我的譯文也就沒有出現這一點。<br>
+    <br>
+    另我發現譯文有一處值得修潤。收錄於勘誤列表之中。摘錄如下：<br>
+    <br>
+    ■p1183, L6（譯筆重修）<br>
+    原文：傳回值 OutputIerator 指向被放進 result 所指之 container 內的<br>
+    最後元素的下一位置。<br>
+    更正：傳回值 OutputIerator 指向「result 所指之 container」內的<br>
+    最後元素的下一位置。<br>
+    <br>
+    <br>
+    <font color="#0000FF">&gt; p.1136<br>
+    &gt; equal_range()<br>
+    &gt; 這個泛型演算法的文字說明與範例程式讓我摸不著頭緒。<br>
+    &gt; 我無法從而得知這個泛型演算法到底在做什麼...<br>
+    &gt; 我是看了 Rogue Wave Standard C++ Library 的 Help 才看懂的<br>
+    &gt; 這與此書對此泛型演算法的文字說明差異很大<br>
+    &gt; 附上 Rogue Wave Standard C++ Library 的 Help 對 equal_range()<br>
+    &gt; 的說明：<br>
+    &gt;<br>
+    &gt; =======================================================<br>
+    &gt; Determines the valid range for insertion of a value in a container.<br>
+    &gt;<br>
+    &gt; Description<br>
+    &gt;<br>
+    &gt; The equal_range algorithm performs a binary search on an<br>
+    &gt; ordered container to determine where the element value can be<br>
+    &gt; inserted without violating the container's ordering. The library<br>
+    &gt; provides two versions of the algorithm. The first version uses the<br>
+    &gt; less than operator (operator &lt;) to search for the valid insertion<br>
+    &gt; range, and assumes that the sequence was sorted using the less<br>
+    &gt; than operator. The second version allows you to specify a<br>
+    &gt; function object of type compare, and assumes that compare was<br>
+    &gt; the function used to sort the sequence. The function object must<br>
+    &gt; be a binary predicate.<br>
+    &gt;<br>
+    &gt; equal_range returns a pair of iterators, i and j that define a range<br>
+    &gt; containing elements equivalent to value, i.e., the first and last<br>
+    &gt; valid insertion points for value. If value is not an element in the<br>
+    &gt; container, i and j are equal. Otherwise,<br>
+    &gt; i will point to the first element not &quot;less&quot; than value, and j will<br>
+    &gt; point to the first element greater than value. In the second<br>
+    &gt; version, &quot;less&quot; is defined by the comparison object. Formally,<br>
+    &gt; equal_range returns a sub-range [i, j) such that value can be<br>
+    &gt; inserted at any iterator k within the range. Depending upon the<br>
+    &gt; version of the algorithm used, k must satisfy one of the following<br>
+    &gt; conditions:<br>
+    &gt;<br>
+    &gt; !(*k &lt; value) &amp;&amp; !(value &lt; *k)<br>
+    &gt;<br>
+    &gt; or<br>
+    &gt;<br>
+    &gt; comp(*k,value) == false &amp;&amp; comp(value, *k) == false<br>
+    &gt;<br>
+    &gt; equal_range performs at most 2 * log(last - first) + 1<br>
+    &gt; comparisons.<br>
+    &gt; ==============================================================<br>
+    </font><br>
+    《C++ Primer》對於 equal_range() 的文字解釋，要求讀者<br>
+    跳躍參考 lower_bound() 和 upper_bound() 的意義與用法，因此<br>
+    的確比較不好理解。你能夠以 Rogue Wave 的 Help 做為輔助，極好。<br>
+    <br>
+    <br>
+    <font color="#0000FF">&gt; p.654<br>
+    &gt; 下方程式碼<br>
+    &gt;<br>
+    &gt; ps_Screen pH = &amp;Screen::_height;<br>
+    &gt; ps_Screen pW = &amp;Screen::_width;<br>
+    &gt;<br>
+    &gt; 我覺得怪怪的.....<br>
+    &gt; _height 與 _width 是屬於 private data member;<br>
+    &gt; 為何能在非 class scope （以此段程式碼來看，並非定義於<br>
+    &gt; class scope）內被 access 呢？</font><br>
+    <br>
+    的確不行。作者 Lippman 有時候會偷懶（或疏忽）以 private data members<br>
+    直接拿來說明「只有 public data members 才能做」的事。<br>
+    <br>
+    <br>
+    <font color="#0000FF">&gt; p.632<br>
+    &gt; 上方文字:<br>
+    &gt; 只有宣告為const的member functions，才可以處理const object...<br>
+    &gt; 以我於 BCB5 測試結果，const object 還是可以呼叫 non-const function<br>
+    &gt; 不過 BCB 會給個警告：<br>
+    &gt; Non-const function called for for const object<br>
+    &gt; 因此我覺得這句話不完全成立<br>
+    &gt; （抱歉，我並不知道 C++ Standard 所定的規則為何，可否請<br>
+    &gt; 侯老師說明一下）</font><br>
+    <br>
+    《C++ Primer》所說的即為 C++ standard 所說的 :)<br>
+    <br>
+    這方面各家編譯器寬緊不一。BCC 和 GCC 都只給警告，VC6 則給錯誤。<br>
+    以下是我的測試。<br>
+    <br>
+    <small><font face="Courier New">#01 // </font>測試：《<font face="Courier New">C++ 
+    Primer </font>中文版》<font face="Courier New">p.632<br>
+    #02 // (1) const object can invoke const member function<br>
+    #03 // (2) const object can't invoke non-const member function<br>
+    #04 // (3) non-const object can invoke const member function<br>
+    #05 // (4) non-const object can invoke non-const member function<br>
+    #06<br>
+    #07 #include &lt;iostream&gt;<br>
+    #08 using namespace std;<br>
+    #09<br>
+    #10 class A {<br>
+    #11 public:<br>
+    #12 A() { _i = 1; }<br>
+    #13 void set(int i) { _i = i; } // non-const member function<br>
+    #14 int get() const { return _i; } // const member function<br>
+    #15<br>
+    #16 private:<br>
+    #17 int _i;<br>
+    #18 };<br>
+    #19<br>
+    #20 int main()<br>
+    #21 {<br>
+    #22 A const ca; // const object<br>
+    #23 A a; // non-const object<br>
+    #24<br>
+    #25 <font color="#FF0000">ca.set(7);</font> // (a)<br>
+    #26 // <font color="#FF0000">VC6 error</font> C2662: 'set' : cannot convert 'this' pointer 
+    from 'const class A' to 'class A &amp;', Conversion loses qualifiers<br>
+    #27 // <font color="#FF0000">BCB4 Warning</font> W8037 : Non-const function A::set(int) 
+    called for const object in function main()<br>
+    #28 // <font color="#FF0000">GCC warning</font>: passing `const A' as `this' argument of 
+    `void A::set(int)' discards const<br>
+    #29<br>
+    #30 cout &lt;&lt; ca.get() &lt;&lt; endl; // 7 in BCB4 and G++.<br>
+    #31 // 1 in VC6 if (a) is remarked off<br>
+    #32 a.set(5);<br>
+    #33 cout &lt;&lt; a.get() &lt;&lt; endl; // 5<br>
+    #34 }</font></small><br>
+    <br>
+    <br>
+    <font color="#0000FF">&gt; p.643<br>
+    &gt; 中間一段文字:<br>
+    &gt; 必須被定義於class 定義區之外(譯註：上例(10) )<br>
+    &gt;<br>
+    &gt; 事實上，在BCB5 中，沒有行號(10) const int Account::nameSize 
+    這程式碼，<br>
+    &gt; 是沒有任何error 與warning的<br>
+    &gt; Why?? 是否這是BCB自己所擴充的呢？<br>
+    &gt; 謝謝您的解答...<br>
+    &gt; Best Regards</font><br>
+    <br>
+    「在 class body 內直接對 static const integral data member 設定初值」，<br>
+    此性質此稱為 in-class initialization。<br>
+    這是 C++ 很晚近的新特性。照理，既有此一規則，即不需要在 class 
+    body<br>
+    之外再寫 static data member 的定義式（書中的 (10)）。不過，這一點<br>
+    各家編譯器表現不一。情況有點混亂。<br>
+    <br>
+    我曾有一篇文章：C++ Primer 答客問 (27)【標準與實作之間】<br>
+    可資參考。<br>
+    <br>
+    -- the end<br>
+    &#26;<small><font face="Courier New"><br>
+    </font></small><font color="#0000FF"><br>
+    </font><br>
+    <a name="C++ Primer qa52"><big><big>C++ Primer 答客問 (52)</big></big></a> - C++ 
+    Standard 編譯器<br>
+    <br>
+    2000.07.09 第一次發表<br>
+    <br>
+    lucas wrote (2000/05/24) :<br>
+    <br>
+    <font color="#408080">&gt; 您好：<br>
+    &gt;<br>
+    &gt; 不知書中提到之<br>
+    &gt; c++standard編譯器何時問世？<br>
+    &gt; 因為目前要依照通則修改程式實在麻煩！<br>
+    &gt; 希望早點看到它！<br>
+    &gt;<br>
+    &gt; lucas</font><br>
+    <p><br>
+    侯捷回覆：<br>
+    <br>
+    目前沒有「完全符合 C++ Standard」的編譯器，何時會有也未可知。不過 
+    Borland C++Builder<br>
+    和 GNU C++ 在這方面的表現都還算很不錯。<br>
+    <br>
+    從您的用詞：<br>
+    <br>
+    <font color="#408080">&gt; 因為目前要依照通則修改程式實在麻煩！</font><br>
+    <br>
+    我猜你所謂「通則」是指我在侯捷網站上對於《C++ Primer 
+    中文版》附錄程式的修改通則？如是，我得告訴您，那是一定得修改的。因為這些程式之所以不能通過目前許多編譯器，是因為作者 
+    L&amp;L 沒有依照 C++ Standard 
+    來寫，而不是因為他們所用的特性沒有被目前的編譯器支援。<br>
+    <br>
+    這是這本號稱經典的 C++ 
+    教本的一個瑕疵。不過事既如此，一方面侯捷網站上有修改方式與說明，一方面觀看（或使用）這些程式碼時提高警覺，讓自己對這些點機敏一些，或許反而得到一些意外的訓練。這是壞情況下的好想法 
+    :)。<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+    <p><br>
+    <a name="C++ Primer qa53"><big><big>C++ Primer 答客問 (53)</big></big></a> - comparison 
+    operations for pair<br>
+    2000.07.09 第一次發表<br>
+    <br>
+    allan wrote (2000/07/08) :<br>
+    <br>
+    <font color="#408080">&gt; 侯老師：<br>
+    &gt; 請問您，如果我要在 vector 之中放置 pair，pair 由 int 和 string<br>
+    &gt; 構成，請問如何排序？<br>
+    &gt; 謝謝。</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    pair 本身有 comparison operations. 所以直接使用 sort() 即可。<br>
+    下面是個例子：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;utility&gt;<br>
+    #include &lt;string&gt;<br>
+    #include &lt;iostream&gt;<br>
+    #include &lt;vector&gt;<br>
+    #include &lt;algorithm&gt;<br>
+    using namespace std;<br>
+    <br>
+    void print_element(pair&lt;int, string&gt; p)<br>
+    {<br>
+    &nbsp; cout &lt;&lt; '&lt;'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; p.first<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; ','<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; p.second<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; '&gt;'<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; endl;<br>
+    }<br>
+    <br>
+    int main()<br>
+    {<br>
+    &nbsp; pair&lt;int, string&gt; pair1, pair2, pair3;<br>
+    <br>
+    &nbsp; pair1 = make_pair(16, &quot;jjhou&quot;);<br>
+    &nbsp; pair2 = make_pair(29, &quot;jason&quot;);<br>
+    &nbsp; pair3 = make_pair(15, &quot;who&quot;);<br>
+    <br>
+    &nbsp; // </font>測試 <font face="Courier New">pair </font>有 <font face="Courier New">comparison 
+    operations<br>
+    &nbsp; cout &lt;&lt; (pair1 &lt; pair2); // 1 (true)<br>
+    &nbsp; cout &lt;&lt; (pair1 &lt; pair3); // 0 (false)<br>
+    &nbsp; cout &lt;&lt; (pair2 &lt; pair3); // 0 (false)<br>
+    &nbsp; cout &lt;&lt; endl;<br>
+    <br>
+    &nbsp; vector&lt; pair&lt;int, string&gt; &gt; vec;<br>
+    &nbsp; vec.push_back(pair1);<br>
+    &nbsp; vec.push_back(pair2);<br>
+    &nbsp; vec.push_back(pair3);<br>
+    <br>
+    &nbsp; for_each(vec.begin(), vec.end(), print_element );<br>
+    &nbsp; // &lt;16,jjhou&gt;<br>
+    &nbsp; // &lt;29,jason&gt;<br>
+    &nbsp; // &lt;15,who&gt;<br>
+    <br>
+    &nbsp; sort(vec.begin(), vec.end());<br>
+    <br>
+    &nbsp; for_each(vec.begin(), vec.end(), print_element );<br>
+    &nbsp; // &lt;15,who&gt;<br>
+    &nbsp; // &lt;16,jjhou&gt;<br>
+    &nbsp; // &lt;29,jason&gt;<br>
+    }</font><small><small><font face="8514fix"><br>
+    </font></small></small></small><br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+    <p><br>
+    <big><big><a name="C++ Primer qa54">C++ Primer 答客問 (54)</a></big> - 
+    懷疑編譯器前，先懷疑自己</big><br>
+    <br>
+    2000.09.08 第一次發表<br>
+    <br>
+    <br>
+    &gt; 發信人: nioni.bbs@bbs.ntu.edu.tw (泥喔泥), 看板: programming<br>
+    &gt; 標 題: <font color="#FF0000">可怕的 C++ Compiler</font><br>
+    &gt;<br>
+    &gt; 同一個 class:<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; class array {<br>
+    &gt; public:<br>
+    &gt; int a[2];<br>
+    &gt; array update() {<br>
+    &gt; a[0]=a[0]*3;<br>
+    &gt; a[1]=a[1]*3;<br>
+    &gt; return(*this); }<br>
+    &gt; };</font></small><br>
+    &gt;<br>
+    &gt; 兩個不同的 main:<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; main()<br>
+    &gt; {<br>
+    &gt; array n;<br>
+    &gt; n.a[0]=1; n.a[1]=2;<br>
+    &gt; n.update();<br>
+    &gt; n.a[0]=0;<br>
+    &gt; cout &lt;&lt; n.a[0] &lt;&lt; endl &lt;&lt; n.a[1] &lt;&lt; endl;<br>
+    &gt; }<br>
+    &gt;<br>
+    &gt; main()<br>
+    &gt; {<br>
+    &gt; array n;<br>
+    &gt; n.a[0]=1; n.a[1]=2;<br>
+    &gt; (n.update()).a[0]=0; // </font>兩行合併成一行<br>
+    <font face="Courier New">&gt; cout &lt;&lt; n.a[0] &lt;&lt; endl &lt;&lt; n.a[1] &lt;&lt; 
+    endl;<br>
+    &gt; }</font></small><br>
+    &gt;<br>
+    &gt; 結果第一個程式跑出預期結果:0,6<br>
+    &gt; 二 錯誤 :1,2 (data沒有真的update到)<br>
+    &gt;<br>
+    &gt; 我猜和compiler自己又做出copy constructor有關.<br>
+    &gt; 但是對compiler的行為我不是很清楚.<br>
+    &gt; 可否請您告訴我: (n.update()).a[0]=0; 這行compiler處理的&quot;細節&quot;呢?<br>
+    &gt; 謝謝您~~<br>
+    <br>
+    <br>
+    同學，我有幾個勸告：<br>
+    <br>
+    1. 不要用那麼舊的編譯器。TC3.0 實在太久遠了。C++ Standard 是 1998 
+    定案的。買一套「現役」的 C++ 
+    編譯器教育版，不花多少錢。真拿不出這錢，10 
+    個人合買一套（雖然這其實不合法，但社會對於好學的學生是不會計較的），<br>
+    一個人出不了 200~300 
+    塊錢左右。你的時間遠昂貴於你的金錢，有許多許多東西要學呢。<br>
+    <br>
+    2. 學習正規的、正統的、大格局的程式寫法。上面那個 class 
+    犯了太多的寫作毛病：<br>
+    <br>
+    a. Effctive C++:<br>
+    條款20：避免將 data members 放在公開介面中<br>
+    Item 20: Avoid data members in the public interface.<br>
+    <br>
+    b. Effctive C++:<br>
+    條款22：儘量使用 pass-by-reference（傳址），少用 pass-by-value（傳值）<br>
+    Item 22: Prefer pass-by-reference to pass-by-value.<br>
+    <br>
+    c. Effctive C++:<br>
+    條款29：避免傳回內部資料的 handles<br>
+    Item 29: Avoid returning &quot;handles&quot; to internal data.<br>
+    <br>
+    d. More Effctive C++:<br>
+    條款19：瞭解暫時性物件的來源<br>
+    Item 19: Understand the origin of temporary objects<br>
+    <br>
+    e. More Effctive C++:<br>
+    條款22：考慮以複合運算子 op= 取代單一運算子 op<br>
+    Item 22: Consider using op= instead of stand-alone op<br>
+    <br>
+    在不良的程式上做太多檢討，就像在錯誤的時間和錯誤的地點打一場錯誤的戰爭，只會獲得錯誤的結果。<br>
+    <br>
+    3. 上述程式在 VC6, BCB4 和 CYGUNS G++2.91.57 都獲得一樣的結果：<br>
+    main1 : 0,6<br>
+    main2 : 3,6<br>
+    <br>
+    為什麼 main2 的結果是 3,6？因為 array::update() 是 return by value。<br>
+    （雖然你可能以為它 return (*this); 看起來好像是 by reference 或<br>
+    by pointer 什麼的...），所以 (n.update()).a[0]=0; 改變的不是原本<br>
+    那個陣列，而是原陣列的一份 copy。<br>
+    <br>
+    讓我再強調一次，一開始起步，就要學習正規的、正統的、大格局的程式寫法。讓自己接受一個良好的訓練。<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+    <p><br>
+    <big><big><a name="C++ Primer qa55">C++ Primer 答客問 (55)</a> - declaration v.s. 
+    definition</big></big><br>
+    <br>
+    2000.09.08 第一次發表<br>
+    <br>
+    James Gai wrote (2000.08.28) :<br>
+    <br>
+    <font color="#408080">&gt; 侯捷老師您好:<br>
+    &gt;<br>
+    &gt; (1)請問C++Primer中396頁,global objects的宣告與定義到底有什麼差別呢?<br>
+    &gt; (2)如果 type_specifier object_name; 是定義的話,那好像不用宣告也可以用呀?<br>
+    &gt; (3)EX:<br>
+    &gt; extern int i;<br>
+    &gt; int i=4;<br>
+    &gt; void main(void)<br>
+    &gt; {<br>
+    &gt; int i=5;<br>
+    &gt; cout&lt;&lt;i;<br>
+    &gt; }<br>
+    &gt; 上面程式再vc++中run的結果是5,是不是算宣告一次,定義兩次呢<br>
+    &gt; (但書中寫說一個global objects在程式中只能定義一次)?<br>
+    &gt; 疑惑的小蓋子 敬上</font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    關於 declaration 和 definition，沒有一份文字定義可針對 variables,<br>
+    objects, functions, classes, templates 有放之四海皆準的效果，<br>
+    應該分別討論。我以為最全面、最有系統的敘述是 Scott Meyers 於<br>
+    《Effective C++》導讀 p.4 的文字：<br>
+    <br>
+    <font color="#8000FF">所謂宣告（declaration），用來將一個 object、function、class 
+    或 template 的<br>
+    型別名稱告訴編譯器。宣告式並不帶有細目（detail）資訊。下面統統都是宣告：<br>
+    <br>
+    <small><font face="Courier New">extern int x; // object declaration<br>
+    <br>
+    int numDigits(int number); // function declaration<br>
+    <br>
+    class Clock; // class declaration<br>
+    <br>
+    template&lt;class T&gt;<br>
+    class SmartPointer; // template declaration</font></small><br>
+    <br>
+    所謂定義（definition），用來將細目（detail）資訊提供給編譯器。對 
+    object 而言，定義式是編譯器為它配置記憶體的地點。對 function 或 
+    function template 而言，定義式提供了函式本體（function body）。對 class 
+    或 class template 而言，<br>
+    定義式必須列出該 class 或 template 的所有 members：<br>
+    <br>
+    <small><font face="Courier New">int x; // </font>這是物件的定義式<br>
+    <br>
+    <font face="Courier New">int numDigits(int number) // </font>這是函式的定義式。<br>
+    <font face="Courier New">{ 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    // </font>此函式傳回其參數的阿拉伯數字個數。<br>
+    <font face="Courier New">&nbsp; int digitsSoFar = 1;<br>
+    <br>
+    &nbsp; if (number &lt; 0) {<br>
+    &nbsp;&nbsp;&nbsp; number = -number;<br>
+    &nbsp;&nbsp;&nbsp; ++digitsSoFar;<br>
+    &nbsp; }<br>
+    &nbsp; while (number /= 10) ++digitsSoFar;<br>
+    &nbsp; return digitsSoFar;<br>
+    }<br>
+    <br>
+    class Clock { // </font>這是 <font face="Courier New">class </font>的定義式<br>
+    <font face="Courier New">public:<br>
+    &nbsp; Clock();<br>
+    &nbsp; ~Clock();<br>
+    &nbsp; int hour() const;<br>
+    &nbsp; int minute() const;<br>
+    &nbsp; int second() const;<br>
+    &nbsp; ...<br>
+    };<br>
+    <br>
+    template&lt;class T&gt;<br>
+    class SmartPointer { // </font>這是 <font face="Courier New">template </font>的定義式<br>
+    <font face="Courier New">public:<br>
+    &nbsp; SmartPointer(T *p = 0);<br>
+    &nbsp; ~SmartPointer();<br>
+    &nbsp; T * operator-&gt;() const;<br>
+    &nbsp; T&amp; operator*() const;<br>
+    &nbsp; ...<br>
+    };</font></small></font><br>
+    <br>
+    <br>
+    另外我再補充一點：<font color="#FF0000">definition 本身，亦被視為一個 
+    declaration。<br>
+    </font><br>
+    <br>
+    好了，上面對 declaration 和 definition 的定義應能解除所有的疑惑。<br>
+    <br>
+    現在回答 James Gai 的三個問題：<br>
+    <br>
+    <font color="#408080">&gt; (1)請問C++Primer中396頁,global objects的宣告與定義到底有什麼差別呢?</font><br>
+    <br>
+    Ans: global objects 的 definition 本身亦被視為一種 declaration。<br>
+    <br>
+    <font color="#408080">&gt; (2)如果 type_specifier object_name; 是定義的話,那好像不用宣告也可以用呀?</font><br>
+    <br>
+    Ans: 是的。因為 global objects 的 definition 本身亦被視為一種 declaration。<br>
+    <br>
+    <font color="#408080">&gt; (3)EX:<br>
+    <small><font face="Courier New">&gt; #001 extern int i;<br>
+    &gt; #002 int i=4;<br>
+    &gt; #003 void main(void)<br>
+    &gt; #004 {<br>
+    &gt; #005 int i=5;<br>
+    &gt; #006 cout&lt;&lt;i;<br>
+    &gt; #007 }</font></small><br>
+    &gt; 上面程式在vc++中run的結果是5,是不是算宣告一次,定義兩次呢</font><br>
+    <br>
+    #001 告訴編譯器說，有一個 extern global variable，int i<br>
+    #002 告訴編譯器說，有一個 global variable，int i=4;<br>
+    <br>
+    這兩行原本是衝突的（因為 i 同名）。但由於你沒有真正給予 extern 
+    int i;<br>
+    所以編譯器也就讓它們通過了。如果你加上第二個檔案，其內有個 
+    global int i;<br>
+    那麼 #002 便會出現編譯錯誤。<br>
+    <br>
+    #005 告訴編譯器說，有一筆 local variable, int i=5;<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+    <p><br>
+    <big><big><a name="C++ Primer qa56">C++ Primer 答客問 (56)</a> - parameters v.s. 
+    arguments<br>
+    </big></big><br>
+    2000.09.08 第一次發表<br>
+    <br>
+    majesty wrote (2000.08.22)<br>
+    <br>
+    <font color="#408080">&gt; 侯老師你好：<br>
+    &gt; 我是元智大學升大二的資工系學生，當然我也是你的忠實讀者。<br>
+    &gt; 在讀c++ primer 
+    時對以下的名詞有點模糊不清，可否請老師詳細說明一下...<br>
+    &gt; 『函式引數』、『函式參數』、『template 引數』、『template參數』<br>
+    &gt; 謝謝！！</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    <font face="Courier New"><small>double func(int i1, int i2) // (1)<br>
+    { ... }<br>
+    <br>
+    double d = func(3, 4); // (2)</small></font><br>
+    <br>
+    (1) 中的 i1 和 i2 就是 <font color="#0000FF">func() 的參數</font><br>
+    (2) 中的 3 和 4 就是<font color="#0000FF">呼叫 func() 時所使用的引數</font><br>
+    <br>
+    這兩個術語運用於 templates 時，情況亦同。<br>
+    <br>
+    很多時候，很多人，把以上兩個情況都稱為參數。最近我到大陸講課，<br>
+    發現那邊便是把 parameters 和 arguments 都稱為「參數」。<br>
+    <br>
+    -- the end<br>
+    <br>
+    <br>
+    <font color="#408080">發信人: <a href="mailto:william.bbs@cis.nctu.edu.tw">william.bbs@cis.nctu.edu.tw</a> 
+    (何陋居主), 看板: CompBook<br>
+    標&nbsp; 題: Re: C++ Primer 答客問 (56)<br>
+    發信站: 交大資科_BBS (Sat Sep&nbsp; 9 14:28:22 2000)<br>
+    轉信站: maple!news.cs.nthu!netnews.csie.nctu!freebsd.ntu!news.cis.nctu!cis_nctu<br>
+    Origin: ts66175.tp.silkera.net<br>
+    <br>
+    ==&gt; 在 <a href="mailto:jjhou.bbs@bbs.cs.nthu.edu.tw">jjhou.bbs@bbs.cs.nthu.edu.tw</a> 
+    (jjhou) 的文章中提到:<br>
+    &gt; 
+    很多時候，很多人，把以上兩個情況都稱為參數。最近我到大陸講課，<br>
+    &gt; 發現那邊便是把 parameters 和 arguments 都稱為「參數」。<br>
+    <br>
+    記得我第一次看到 argument 這個字眼, 是 K&amp;R 第二版<br>
+    （以下摘自蔡文能 1989 譯本, §1.7, p.1-28）：<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; 
+    以後我們將稱函數定義時函數名後括弧內的變數為參數（parameter）,<br>
+    &nbsp;&nbsp;&nbsp; 稱叫用函數時函數名後要傳過去的值為引數（argument）；<br>
+    &nbsp;&nbsp;&nbsp; 或者前者叫形式參數（formal parameter）,<br>
+    &nbsp;&nbsp;&nbsp; 後者叫實際引數（actual argument）。<br>
+    &nbsp;&nbsp;&nbsp; 不過在很多書中這參數和引數是不區分的, 
+    只用形式與實際這術語來分別。<br>
+    <br>
+    不過, 剛剛好奇的考古一下, 發現 &quot;argument&quot; 字眼,<br>
+    沒有出現在龍書（&quot;Compilers: Principles, Techniques, and Tools&quot;）<br>
+    及小熊書（&quot;Programming Languages: Concepts and Constructs&quot;）的<br>
+    索引項目裡面；&quot;parameter&quot; 就有。<br>
+    <br>
+    龍書 1988 年版 §7.1 一節的 p.390：<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; Some of the identifiers appearing in a procedure definition<br>
+    &nbsp;&nbsp;&nbsp; are special, and are called &lt;i&gt;formal parameters&lt;/i&gt;<br>
+    &nbsp;&nbsp;&nbsp; (or just &lt;i&gt;formals&lt;/i&gt;) of the procedure.&nbsp; (C calls 
+    them<br>
+    &nbsp;&nbsp;&nbsp; &quot;formal arguments&quot; and Fortran calls them &quot;dummy 
+    arguments.&quot;)<br>
+    &nbsp;&nbsp;&nbsp; ......<br>
+    &nbsp;&nbsp;&nbsp; Arguments, known as &lt;i&gt;actual parameters&lt;/i&gt; (or 
+    &lt;i&gt;actuals&lt;/i&gt;)<br>
+    &nbsp;&nbsp;&nbsp; may be passed to a called procedure; they are substituted for<br>
+    &nbsp;&nbsp;&nbsp; the formals in the body.<br>
+    <br>
+    文字中雖然有出現過 &quot;argument&quot; 字眼, 但並未斜體標示, 
+    也沒出現在索引中。<br>
+    </font><br>
+    <font color="#408080">所以, 我認為, 一般情況下, 逕稱之「參數」可也；<br>
+    真有必要區分, 再補上「形式」與「實際、實質」字眼即可。<br>
+    <br>
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --<br>
+    ≡ 何陋居 ≡ 
+    資源和時間，應該用來使「表現一流」的人進步到「登峰造極」。一個人的精力一定要用在自己所擅長的方面。 
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+    Peter Drucker《21世紀的管理挑戰》<br>
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --</font><br>
+    <br>
+    <br>
+    &#26;</p>
+    <p><a name="C++ Primer qa57"><big>C++ Primer 答客問 (57)</big></a> - ctor 
+    內能否呼叫 dtor? 程式可否直接呼叫 ctor?<br>
+    2000.09.15 第一次發表<br>
+    <br>
+    我在上海華邦授課時，學員熱烈討論兩個問題：<br>
+    (1) ctor 內能否呼叫 dtor<br>
+    (2) 程式可否直接呼叫 ctor<br>
+    <br>
+    學員 ZChen 
+    並且做了許多測試。我於是寫下一個例子，在三個編譯器上<br>
+    做試驗。總結來講：<br>
+    <br>
+    a. 不可直接呼叫 ctor。<br>
+    b. ctor 內唯一保證可成功呼叫 dtor 的形式是：this-&gt;~Foo();<br>
+    <br>
+    <small><font face="Courier New">#0001 #include &lt;iostream&gt;<br>
+    #0002 #include &lt;cstdlib&gt; // for malloc()<br>
+    #0003 using namespace std;<br>
+    #0004<br>
+    #0005 class Foo<br>
+    #0006 {<br>
+    #0007 public:<br>
+    #0008 Foo() {<br>
+    #0009&nbsp;&nbsp; cout &lt;&lt; &quot;ctor&quot; &lt;&lt; endl;<br>
+    #0010&nbsp;&nbsp; // ~Foo(); // <font color="#FF0000">error in BCB4 and VC6 and GCC</font><br>
+    #0011&nbsp;&nbsp; // VC6: unary '~' : 'class Foo' does not define this operator<br>
+    #0012&nbsp;&nbsp; //&nbsp;&nbsp; or a conversion to a type acceptable to the predefined 
+    operator<br>
+    #0013&nbsp;&nbsp; // BCB4: 'operator~' not implemented in type 'Foo' for <br>
+    #0014&nbsp;&nbsp; //&nbsp;&nbsp;&nbsp; arguments of the same type in function Foo::Foo()<br>
+    #0015&nbsp;&nbsp; // GCC: no match for `~Foo'<br>
+    #0016&nbsp;&nbsp; // </font>結論：不能在 <font face="Courier New">ctor </font>中以上述方式喚起 
+    <font face="Courier New">dtor</font>。但以下方式則可。<br>
+    <font face="Courier New">#0017&nbsp;&nbsp; //&nbsp;&nbsp; </font>其實，任何 <font
+    face="Courier New">member functions </font>都不能以上述方式喚起 <font
+    face="Courier New">dtor.<br>
+    #0018<br>
+    #0019&nbsp;&nbsp; this-&gt;~Foo();<br>
+    #0020&nbsp;&nbsp; //Foo::~Foo(); // <font color="#FF0000">only VC6 &amp; BCB4 ok</font>.<br>
+    #0021&nbsp;&nbsp; // GCC error: cannot call destructor `Foo::~Foo' without object<br>
+    #0022 }<br>
+    #0023<br>
+    #0024 ~Foo() { cout &lt;&lt; &quot;dtor&quot; &lt;&lt; endl; }<br>
+    #0025 };<br>
+    #0026<br>
+    #0027 void main()<br>
+    #0028 {<br>
+    #0029 Foo foo;<br>
+    #0030<br>
+    #0031 // foo.Foo(); // <font color="#FF0000">error in BCB4 and VC6 and GCC</font><br>
+    #0032 // VC6: 'function-style cast' : illegal as right side of '.' operator<br>
+    #0033 // BCB4: 'Foo' is not a member of 'Foo'<br>
+    #0034 // GCC: calling type `Foo' like a method<br>
+    #0035 // </font>結論：不能夠直接喚起 <font face="Courier New">class ctor</font>。<br>
+    <font face="Courier New">#0036 //&nbsp; </font>除非是在 <font face="Courier New">derived 
+    class </font>中以 <font face="Courier New">member initialization list </font>喚起其<br>
+    <font face="Courier New">#0037 //&nbsp; </font>直接（上一層，<font
+    face="Courier New">immediate</font>）<font face="Courier New">base class's ctor. </font>見 
+    <font face="Courier New">C++ Primer p915</font>。<br>
+    <font face="Courier New">#0038 //&nbsp; </font>通常這為的是傳遞引數給 <font
+    face="Courier New">base class's ctor</font>。<br>
+    <font face="Courier New">#0039 //&nbsp; </font>（如不這麼做，喚起的將是 <font
+    face="Courier New">base class's default ctor</font>）<br>
+    <font face="Courier New">#0040<br>
+    #0041&nbsp;&nbsp; foo.~Foo(); // </font>可直接喚起 <font face="Courier New">dtor<br>
+    #0042<br>
+    #0043&nbsp;&nbsp; foo.Foo::Foo(); // </font>直接喚起 <font face="Courier New">ctor! (<font
+    color="#FF0000">only VC6 ok</font>)<br>
+    #0044&nbsp;&nbsp; // GCC error: parse error before `('<br>
+    #0045&nbsp;&nbsp; // BCB4 error: 'Foo' is not a member of 'Foo'<br>
+    #0046<br>
+    #0047&nbsp;&nbsp; Foo* pfoo = (Foo*)malloc(sizeof(Foo));<br>
+    #0048&nbsp;&nbsp; pfoo-&gt;Foo::Foo(); // <font color="#FF0000">only VC6 ok</font><br>
+    #0049&nbsp;&nbsp; // GCC error: parse error before `('<br>
+    #0050&nbsp;&nbsp; // BCB4 error: 'Foo' is not a member of 'Foo'<br>
+    #0051 }<br>
+    </font></small><br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+    <p><br>
+    <a name="C++ Primer qa58"><big><big>C++ Primer 答客問 (58)</big></big></a> - iterator 
+    的算術運算<br>
+    2000.09.15 第一次發表<br>
+    <br>
+    Simon Chang wrote (2000/08/24) :<br>
+    <br>
+    <font color="#408080">&gt; 你好:<br>
+    &gt; 有一個關於 list 的問題想請教你,就在你所譯的 C++ Primer 中<br>
+    &gt; P.266 有題到 Iterator 的算術運算只有在 vector 和 deque 身上才<br>
+    &gt; 管用, 不適用於 list,因為 list 的元素並不連續儲存於 Memory 之中<br>
+    &gt;<br>
+    &gt; 因為敝人有實做過 Link list 的經驗所以可以聊解,可是不解的地<br>
+    &gt; 方是以下的程式碼<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; list&lt;int&gt; ilist;<br>
+    &gt;<br>
+    &gt; for(int i = 0;i &lt; 10; i++)<br>
+    &gt;&nbsp;&nbsp; ilist.push_back(i);<br>
+    &gt;<br>
+    &gt; list&lt;int&gt;::iterator ptr;<br>
+    &gt; for(ptr = ilist.begin();ptr != ilist.end();ptr++)<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; ...<br>
+    &gt; }</font></small><br>
+    &gt;<br>
+    &gt; 在這裡的 ptr++ 是否不算是算術運算<br>
+    &gt; list 在 memory 中是不連續的，用 ptr++ 
+    這種方法在定址時不會有問題嗎<br>
+    </font><br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    所謂算術運算，是指四則運算之類。在指標的運用中是如：<br>
+    <br>
+    ilist.begin() + 2;<br>
+    <br>
+    或<br>
+    <br>
+    ilist.begin() - 3;<br>
+    <br>
+    上述動作對 list iterator 都是無效的。<br>
+    <br>
+    <br>
+    但你舉的例子：<br>
+    <br>
+    list&lt;int&gt;::iterator ptr;<br>
+    ptr++;<br>
+    <br>
+    卻有效，原因是 list container 對 operator++ 做了 overloading 動作。<br>
+    因此知道如何前進到下一個 node 去。如果把 ++ 視為算術運算，那麼<br>
+    就算是個特案吧 :)<br>
+    <br>
+    by the way，雖然 list 對 operator++ 做了 overloading 動作，但<br>
+    對其他運算就難說，所以為求保險，不要將 list 應用於某些<br>
+    generic algorithm 如 sort(), merge(), reverse() 身上。<br>
+    見《C++ Primer 中文版》12.6 節，p.606。<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+    <p><br>
+    <a name="C++ Primer qa59"><big><big>C++ Primer 答客問 (59)</big></big></a> - exception 
+    specification<br>
+    <br>
+    2001.01.09 第一次發表<br>
+    <br>
+    <br>
+    <font color="#408080">&gt; 日期: 2001年1月5日 AM 06:36<br>
+    &gt;<br>
+    &gt; 我在讀您譯的C++ Primer中文本時,有個問題不解.<br>
+    &gt; 還請老師為我解答.<br>
+    &gt; 問題在page 566, 此頁中間部分有段code<br>
+    &gt;<br>
+    &gt; extern void doit(int,int) throw(string, exceptionType);<br>
+    &gt;<br>
+    &gt; void action(int op1, int op2) throw(string){<br>
+    &gt; doit(op1,op2);<br>
+    &gt; }<br>
+    &gt;<br>
+    &gt; 在文章中您譯到<br>
+    &gt; &quot;此例中函式doit()可能丟出一個型別為exceptionType的exception<br>
+    &gt; ,而那並未被action()的exception specification所允許.........<br>
+    &gt; 如果有一個違反exception specification的exception<br>
+    &gt; 被丟出,run-time library 中的unexpected()函式會被喚起&quot;<br>
+    &gt;<br>
+    &gt; 我寫一段code來測試, 可是執行時卻都很順利.理論上不是應該<br>
+    &gt; unexcepted()函式會被喚起嗎? (my compiler is VC++ 6.0)<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; #include&lt;iostream&gt;<br>
+    &gt; #include&lt;string&gt;<br>
+    &gt; using namespace std;<br>
+    &gt;<br>
+    &gt; void doit() throw(int, string)<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; throw string(&quot;got you&quot;);<br>
+    &gt; }<br>
+    &gt;<br>
+    &gt; void action() throw(int)<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; doit();<br>
+    &gt; }<br>
+    &gt;<br>
+    &gt; void main()<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; try<br>
+    &gt;&nbsp;&nbsp; {<br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; action();<br>
+    &gt;&nbsp;&nbsp; }<br>
+    &gt;&nbsp;&nbsp; catch(string k)<br>
+    &gt;&nbsp;&nbsp; {<br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; k &lt;&lt; endl;<br>
+    &gt;&nbsp;&nbsp; }<br>
+    &gt; }</font></small></font><br>
+    <br>
+    <br>
+    ●侯捷回覆：<br>
+    <br>
+    VC6 對 C++ Standard 的支援程度實在不夠理想。<br>
+    <br>
+    你這個程式，VC6 編譯後，執行結果為 got you<br>
+    你這個程式，BCB4 編譯後，執行結果為 <font color="#0000FF">Abnormal program 
+    termination</font><br>
+    <br>
+    關於 exceptions，More Effective C++ 的條款9~15 有更豐富而深入<br>
+    的說明，可以參考。<br>
+    <br>
+    <br>
+    <br>
+    <font color="#408080">日期: 2001年1月5日 AM 06:36<br>
+    <br>
+    &gt; 不好意思, 忘了問另一個問題<br>
+    &gt; 還是page566.<br>
+    &gt; 文中 &quot;一個空的exception specification可保證函式不丟出任何exception&quot;<br>
+    &gt; 這句話的意思是&quot;不能丟出&quot;亦或是&quot;不會丟出&quot;任何exception.<br>
+    &gt; 我的測試碼action()後有一個空的exception specification,可是什麼問題也<br>
+    &gt; 沒有呀?!<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; #include&lt;iostream&gt;<br>
+    &gt; #include&lt;string&gt;<br>
+    &gt; using namespace std;<br>
+    &gt;<br>
+    &gt; void action() throw()<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; throw string(&quot;Got you&quot;);<br>
+    &gt; }<br>
+    &gt;<br>
+    &gt; void main()<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; try<br>
+    &gt;&nbsp;&nbsp; {<br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; action();<br>
+    &gt;&nbsp;&nbsp; }<br>
+    &gt;&nbsp;&nbsp; catch(string k)<br>
+    &gt;&nbsp;&nbsp; {<br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; cout &lt;&lt; k &lt;&lt; endl;<br>
+    &gt;&nbsp;&nbsp; }<br>
+    &gt; }</font></small><br>
+    </font><br>
+    ●侯捷回覆：</p>
+    <p>&quot;一個空的exception specification可保證函式不丟出任何exception&quot;<br>
+    意思是 &quot;不能丟出&quot; 並且也 &quot;不會丟出&quot;.</p>
+    <p>老問題，VC6 對 C++ Standard 的支援程度不夠理想！你這個程式，VC6 
+    編譯後，無任何警告或錯誤訊息，執行結果為 Got you。若以 BCB4 
+    編譯，有一個警告訊息如下：<br>
+    <br>
+    &nbsp; <font color="#0000FF">Throw expression violates exception specification in function 
+    action() throw()</font><br>
+    <br>
+    執行結果為 <font color="#0000FF">Abnormal program termination</font></p>
+    <p>　</p>
+    <p>　</p>
+    <p><a name="C++ Primer qa60"><big><big>C++ Primer 答客問 (60)</big></big></a> - 
+    initialization v.s assignment 效率問題<br>
+    <br>
+    2001.03.03 第一次發表於<br>
+    <br>
+    <br>
+    Chou Lee-Sen wrote (2001/02/19) :<br>
+    <br>
+    <font color="#408080">&gt;老師您好：<br>
+    &gt; 最近在讀您的譯的 C++ Primer這本書，<br>
+    &gt; 謝謝您翻譯這本書，<br>
+    &gt; 讓我對於C++有更深一層的瞭解。<br>
+    &gt;<br>
+    &gt; 目前幾個問題想跟老師請教，<br>
+    &gt; 首先，就是 在C++ Primer（14.8 p.735）中所提到的一個效率的問題<br>
+    &gt;<br>
+    &gt; a)<br>
+    &gt; for(int ix=0; ix&lt;size-2; ++ix) {<br>
+    &gt;&nbsp;&nbsp;&nbsp; Matrix matSum = mat[ix] + mat[ix+1];<br>
+    &gt; }<br>
+    &gt;<br>
+    &gt; b)<br>
+    &gt; Matrix matSum;<br>
+    &gt; for(int ix=0; ix&lt;size-2; ++ix) {<br>
+    &gt;&nbsp;&nbsp;&nbsp; matSum = mat[ix] + mat[ix+1];<br>
+    &gt; }<br>
+    &gt;<br>
+    &gt; 書中說，a)的效率比b)來的好，<br>
+    &gt; 這是不是指當Matrix的initialization(初始化)不需要付出太多成本的情況下。<br>
+    &gt;<br>
+    &gt; 因為，如果Matrix這個class是繼承好幾個class，<br>
+    &gt; 那麼如果每次ix加1就要喚起很多的constructor 和 destructor，<br>
+    &gt; 如此的話，a)的效率還一定會大於b)嗎？？<br>
+    &gt;<br>
+    &gt; 另外一個問題，是關於開發使用者介面的問題，<br>
+    &gt; 因為我需要設計美觀及方面使用的UI<br>
+    &gt; 
+    但是坊間的書籍，似乎沒有針對這個部分有很完整的說明（也可能是我找的不夠用心）<br>
+    &gt; 當使用一些CAD/CAM軟體時，看到他們滿好的UI時，想學習並模擬它的功能時，<br>
+    &gt; 卻不知從哪裡下手，所以想請教侯老師，對於這部分的領域，<br>
+    &gt; 學生該如何學習才好？謝謝老師的指教！！<br>
+    &gt;<br>
+    &gt; 最後， 敬祝老師身體健康 書籍暢銷</font><br>
+    <br>
+    ●侯捷回覆：<br>
+    <br>
+    回答你的第一個問題。你以為 (a) 每次都做 initialization 動作，而 (b) 
+    只做一次，是嗎？從表面上看是。但如果知道 operator= 
+    的實際動作（可參考 <a href="jjtbooks-inside-cpp-obj-model.htm" tppabs="http://jjhou.boolan.com/jjtbooks-inside-cpp-obj-model.htm" target="main">Inside 
+    the C++ object model</a>, 2.3 節, 或 <a href="jjtbooks-more-effective-cpp.htm" tppabs="http://jjhou.boolan.com/jjtbooks-more-effective-cpp.htm"
+    target="main">More Effective C++</a> 條款20），你便會知道，為了 operator= 
+    函式中必須出現的暫時物件，(b) 迴圈的每次迭代仍然都做了initialization 
+    動作。所以 (a) 永遠是效率比較好的 -- 除非有了 RVO（Return Value 
+    Optimization），那就還值得再討論。<br>
+    <br>
+    關於 RVO 或 NRV（Named Return Value），仍請參考Inside the C++ object model, 2.3 
+    節 或 More Effective C++ 條款20）。<br>
+    <br>
+    回答你的第二個問題。Microsoft Press 多年前有一本講 UI 
+    設計的書籍。我沒看過。上 amazon 找找看。<br>
+    <br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;<br>
+    <font size="3"><br>
+    </font><!--mstheme--></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

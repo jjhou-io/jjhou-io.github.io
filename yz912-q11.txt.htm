@@ -1,0 +1,62 @@
+<html>侯老師您好，我是上次課後對operator  overloading有疑惑的學生，
+我的疑惑敘述如下，煩請老師指點迷津：
+ 
+在我的程式當中，當我使用 pair<int,int> 當容器的時候，
+欲自行為 pair<int,int> 多載 '<' 運算子，
+雖然我可以多載成功，但由於 STL 原本就已經有定義 pair 的 '<' 運算子，
+我產生了一些困惑：
+ 
+1. 既然 STL 裡面有定義 pair 的 '<' 運算子，為何我自行多載的 '<' 會通過編譯？
+2. 如此一來，我如何確定編譯器一定會使用我的多載版本？ 
+ 
+(p.s. 我使用g++編譯 )
+ 
+//========以下是我的測試程式=============================================
+#include<iostream>
+#include<utility>
+using namespace std;
+ 
+//以下定義 op<
+// 如果 (p1.first)*(p2.second)-(p1.second)*(p2.first) > 0, 則 p1<p2 為true。 
+inline bool operator < (const pair<int, int>& p1, const pair<int, int>& p2)
+{
+    return(  (p1.first)*(p2.second)-(p1.second)*(p2.first) > 0   );       
+}
+ 
+int main()
+{
+    pair<int,int> p1(-1,3), p2(2,4);     
+      //(p1.first)*(p2.second)-(p1.second)*(p2.first) = (-1*4)-(3*2) = -10 < 0
+      
+    cout << "p1 < p2 :" << (p1<p2) << endl; // 0
+    cout << "p2 < p1 :" << (p2<p1) << endl; // 1   
+    return 0;
+}
+ 
+//======== 以下是已經存在於 STL 的 pair 中的 operator< ==========
+
+template <class _T1, class _T2>
+inline bool operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+{ 
+  return __x.first < __y.first || 
+         (!(__y.first < __x.first) && __x.second < __y.second); 
+}
+
+●侯捷回覆：
+
+你所寫的，是泛化的 op< for pair<T1,T2> 的一個特化版（specialization）
+下面是 STL 源碼：
+
+template <class T1, class T2>
+inline bool operator<(const pair<T1, T2>& x, const pair<T1, T2>& y)
+
+下面是你的版本：
+
+inline bool operator<(const pair<int, int>& p1, const pair<int, int>& p2)
+
+你看，你的版本就是將 STL 的泛型版 op< for pari<T1, T2> 
+特化為 op< for pair<int,int>。
+編譯器當然挑特化的版本來用（這就是特化的意義）。這便解釋了 
+(1) 為什麼你的版本可以編譯通過
+(2) 編譯器一定選用你的特化版本，因為那是你為本例中的資料型別（int）
+    特別打造的。

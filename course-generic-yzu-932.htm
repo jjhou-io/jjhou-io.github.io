@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>泛型程式設計 元智大學 93-2 課程備忘錄</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><font color="#800000">泛型程式設計（Generic Programming）<br>
+<br>
+元智大學 93-2 課程備忘錄 (3學分)<br>
+<br>
+<small>侯捷</small></font></h2>
+
+<p align="center"><font color="#0000FF">請注意：此為備忘錄，不是呈現完整教材或學習討論的地方。</font></p>
+
+<p align="center">每周三 18:30~21:20<br>
+工程一館1401B</p>
+
+<p align="center"><a href="javascript:if(confirm(%27http://jjhou.boolan.com/gp-yz-2005.ppt  \n\nThis file was not retrieved by Teleport Ultra, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://jjhou.boolan.com/gp-yz-2005.ppt%27" tppabs="http://jjhou.boolan.com/gp-yz-2005.ppt" target="main">課程投影片</a>（ 2005/05/18更新）</p>
+
+<p align="center"><font color="#FF0000">06/08, 06/15 
+分組口試。報告文件和程式碼請於<strong>上台前一天 </strong>email 
+送達。<br>
+口試時每組請帶<strong>隨身碟</strong>，使用教室現成之電腦+投影設備</font>。</p>
+
+<hr>
+
+<blockquote>
+  <p><font color="#0000FF">教材</font>（5 為教材，1,2,3,4,6,7,8,9 
+  為相關資料或書籍）：</p>
+  <p>&nbsp;&nbsp; 1.《<a href="jjtbooks-cpp-primer.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-primer.htm" target="main">C++ Primer 3e</a>》by 
+  Lippman &amp; Lajoie. <font color="#408080">chap6,10,12,15,16, appendix</font> <br>
+  &nbsp;&nbsp; 2.&nbsp; &quot;<a href="main-l.htm#STL series articles" tppabs="http://jjhou.boolan.com/main-l.htm#STL series articles" target="contents"><font
+  color="#0000FF">STL系列文章</font></a>&quot; by 侯捷，共五篇，<a
+  href="main-l.htm#STL series articles" tppabs="http://jjhou.boolan.com/main-l.htm#STL series articles" target="contents">見左視窗目錄大標題（白色）</a> 
+  <br>
+  &nbsp;&nbsp; 3.《<a href="jjtbooks-generic-programming-and-the-stl.htm" tppabs="http://jjhou.boolan.com/jjtbooks-generic-programming-and-the-stl.htm" target="main">泛型程式設計與STL</a>》, 
+  &quot;<font color="#0000FF">Generic Programming and the STL</font>&quot; by <small>Matthew 
+  H. Austern</small>.<br>
+  &nbsp;&nbsp; 4.《<a href="jjtbooks-the-cpp-standard-library.htm" tppabs="http://jjhou.boolan.com/jjtbooks-the-cpp-standard-library.htm" target="main">C++ 
+  標準程式庫</a>》, &quot;<font color="#0000FF">The C++ Standard Library</font>&quot;, 
+  by Nicolai M. Josuttis.<br>
+  * 5.《<a target="main" href="jjwbooks-tass.htm" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm">STL源碼剖析</a>》by 侯捷<br>
+  &nbsp;&nbsp; 6.《<a href="jjtbooks-cpp-templates.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-templates.htm" target="main">C++ Templates 全覽</a>》, 
+  &quot;<font color="#0000FF">C++ Tempaltes</font>&quot;, by Vandevoorde &amp; Josuttis.<br>
+  &nbsp;&nbsp; 7.《<a href="jjtbooks-modern-cpp-design.htm" tppabs="http://jjhou.boolan.com/jjtbooks-modern-cpp-design.htm" target="main">C++ 
+  設計新思維</a>》, &quot;<font color="#0000FF">Modern C++ Design</font>&quot; by 
+  Andrei Alexandrescu.<br>
+  &nbsp;&nbsp; 8.《<a
+  href="javascript:if(confirm(%27http://www.amazon.com/exec/obidos/ASIN/0201749629/qid=1104904048/sr=2-1/ref=pd_ka_b_2_1/103-3801140-8395826  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.amazon.com/exec/obidos/ASIN/0201749629/qid=1104904048/sr=2-1/ref=pd_ka_b_2_1/103-3801140-8395826%27" tppabs="http://www.amazon.com/exec/obidos/ASIN/0201749629/qid=1104904048/sr=2-1/ref=pd_ka_b_2_1/103-3801140-8395826"
+  target="_blank"><font color="#0000FF">Effective STL</font></a>》by Scott Meyers.<br>
+  &nbsp;&nbsp; 9.《<a
+  href="javascript:if(confirm(%27http://www.amazon.com/exec/obidos/ASIN/0321227255/qid=1109140516/sr=2-1/ref=pd_ka_b_2_1/002-3462514-8210403  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.amazon.com/exec/obidos/ASIN/0321227255/qid=1109140516/sr=2-1/ref=pd_ka_b_2_1/002-3462514-8210403%27" tppabs="http://www.amazon.com/exec/obidos/ASIN/0321227255/qid=1109140516/sr=2-1/ref=pd_ka_b_2_1/002-3462514-8210403"
+  target="_blank">C++ Template Metaprogramming</a>》by David Abrahams, Aleksey Gurtovoy.</p>
+  <font color="#ff0000"><p></font><font color="#0000FF">成績評量：</font></p>
+  <p><font color="#000000">平時成績佔 20%，期末作業佔 80%。期末作業需上台簡報並接受口試，未及時繳交或未到場者 
+  0 分（不接受補繳）。過去有多位同學因疏忽或不在乎而得到 0 
+  分，甚且（大四同學）導致無法畢業。慎之哉慎之哉。</font></p>
+  <p><font color="#0000FF">期末作業：</font></p>
+  <p><font color="#000000">4~6人一組，期末口試時交出</font><font color="#0000FF">程式碼+書面報告</font><font
+  color="#000000">（均以email方式提交，</font><font color="#0000FF">於口試前一天傳送</font><font
+  color="#000000">），並推派代表上台以</font><font color="#0000FF">投影片</font><font
+  color="#000000">進行簡報。</font><font color="#0000FF">文件+簡報佔很重的評分比例</font><font
+  color="#000000">。要的不只是各位能夠把程式寫出來，還要能夠流暢地讓別人知道你的想法（以書面方式，以口頭方式...）。</font></p>
+  <p><font color="#000000">以下二題都要完成：</font><br>
+  ■1. 寫個程式練習運用 STL hashtable 的各種動作。元素為 pairs，其中 <em>key</em> 
+  是個 std::string，<em>value</em> 是個 int。可參考《STL源碼剖析》5.7.6節。</p>
+  <p>※提示1：由於 <em>key</em> 是個 std::string，所以必須為 STL加上 
+  std::string's hash function。可參考《STL源碼剖析》5.7.7節。這也就是讓同學解決書中 
+  p.269 最下的問題。</p>
+  <p>※提示2：std::string's member function c_str() 會以 char* 形式傳回 string 
+  內含字串。</p>
+  <p>※提示3：hashtable 無 default ctor。也就是說必須在宣告 hashtable object 
+  的同時給出某些 arguments。可參考《STL源碼剖析》5.7.6節。</p>
+  <p>※提示4：hashtable 需要的 template arguments 
+  很多。如果不知如何寫出它們，可先在程式中宣告一個 hash_map object（參考 
+  p.278），並觀察 hash_map 源碼，看看後者如何宣告其底部的 hashtable（p.276）。然後依樣畫葫蘆可也。</p>
+  <p>※<font color="#408080">教學 memo</font>：檢視不同版本之 STL hashtable 
+  source。</p>
+  <p><br>
+  ■2. 寫個程式，以 iterator 巡訪磁碟檔案，使能滿足以下 main() 函式：</p>
+  <p><font color="#408080">int main()<br>
+  {<br>
+  &nbsp; // count of file entries in the directory<br>
+  &nbsp; cout &lt;&lt; &quot;Total count: &quot;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; count_if( file_iterator(), 
+  file_iterator(0), always_true&lt;file_iterator::value_type&gt;() )<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; endl;<br>
+  <br>
+  &nbsp; // for_each() to display all entries<br>
+  &nbsp; for_each( file_iterator() , file_iterator(0) , display_file_entry() );<br>
+  <br>
+  &nbsp; // accumulate() to add up the size of all file entries<br>
+  &nbsp; cout &lt;&lt; &quot;Total: &quot;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; accumulate( 
+  file_iterator() , file_iterator(0), 0 , file_size() )<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;&lt; &quot; bytes.&quot; 
+  &lt;&lt; endl;<br>
+  <br>
+  &nbsp; return 0;<br>
+  }</font></p>
+  <p>※提示1：參考 &quot;C++ and STL: Take Advantage of STL Algorithms by Implementing 
+  a Custom Iterator&quot; by <span class="pd">Samir Bajaj（</span><a
+  href="javascript:if(confirm(%27http://msdn.microsoft.com/msdnmag/issues/01/04/STL/default.aspx  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://msdn.microsoft.com/msdnmag/issues/01/04/STL/default.aspx%27" tppabs="http://msdn.microsoft.com/msdnmag/issues/01/04/STL/default.aspx" target="_blank">http://msdn.microsoft.com/msdnmag/issues/01/04/STL/default.aspx</a>）。為恐 
+  Internet 網頁佚失，故為上述網頁做了<a href="msj-stl-iterator.htm" tppabs="http://jjhou.boolan.com/msj-stl-iterator.htm"
+  target="main">一個備份</a>。</p>
+  <p>※提示2：參考 std::istream_iterator 和 std::ostream_iterator 源碼。</p>
+  <p>※提示3：參考 Win32 APIs : FindFirstFile(), FindNextFile(),&nbsp; WIN32_FIND_DATA</p>
+  <p>　</p>
+  <table BORDER="1" CELLSPACING="1" CELLPADDING="1" WIDTH="529">
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font FACE="新細明體" SIZE="4">周次</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font FACE="新細明體" SIZE="4">日期</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font FACE="新細明體" SIZE="4">時數</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font FACE="新細明體" SIZE="4">內容</font></td>
+      <td WIDTH="9%" VALIGN="TOP"><font FACE="新細明體" SIZE="4">備註</font></td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">1</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">02/23</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">1</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font FACE="新細明體" SIZE="4">課程介紹，遊戲規則，書籍評介，期末作業題目</font></td>
+      <td WIDTH="9%" VALIGN="TOP"><font FACE="新細明體" SIZE="4">購書</font></td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">1</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">02/23</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">2</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font FACE="新細明體" SIZE="4">示範數個</font><font
+      SIZE="4"> STL applications</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">2</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">03/02</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">3</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4">C++ Class Templates &amp; Function Templates<p>(</font><font
+      FACE="新細明體" SIZE="4">複習</font><font SIZE="4"> pass/return by value, member 
+      initialization list)</font></td>
+      <td WIDTH="9%" VALIGN="TOP"><font FACE="新細明體" SIZE="4">書到</font></td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">3</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">03/09</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">3</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4">C++ Operator Overloading<p>(</font><font
+      FACE="新細明體" SIZE="4">複習</font><font SIZE="4">constness, inline)</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">4,5</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">03/16<br>
+      03/23</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">4</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4"><a href="stllite.zip" tppabs="http://jjhou.boolan.com/stllite.zip" target="main">STL-Lite</a> 
+      (.zip)</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">5</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">03/23</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">2</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4">STL Allocators</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">6,7</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">03/30<br>
+      <font color="#C0C0C0">04/06</font></font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">6</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4">STL Containers (Vector, List, Deque, 
+      HashTable, Map)</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">8</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">04/13</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">1</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4">STL Algorithms</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP" BGCOLOR="#ffffff"><font SIZE="4">9</font></td>
+      <td WIDTH="11%" VALIGN="TOP" BGCOLOR="#ffffff"><font SIZE="4">04/20</font></td>
+      <td WIDTH="7%" VALIGN="TOP" BGCOLOR="#ffffff">　</td>
+      <td WIDTH="66%" VALIGN="TOP" BGCOLOR="#ffffff"><font FACE="新細明體" SIZE="4">期中考，停課</font></td>
+      <td WIDTH="9%" VALIGN="TOP" BGCOLOR="#ffffff">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">8,10</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">04/13<br>
+      04/27</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">4</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4">STL Iterators &amp; Iterator Traits</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">10</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">04/27</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">1</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4">STL Functors</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">11</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">05/04</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">3</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4">STL Adapters (Iterator Adapters, Function 
+      Adapters)</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">12</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">05/11</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">3</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4">Patterns in STL (<em>Reference Counting</em> 
+      in std::string)</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">13</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">05/18</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">3</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4">Patterns in STL (<em>Proxy</em>, <em>Adapter</em>, 
+      <em>Iterator</em>…)</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">14</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">05/25</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">3</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4">Generics in Java (ref. <a
+      href="javatwo-2004.htm" tppabs="http://jjhou.boolan.com/javatwo-2004.htm" target="main">JavaTwo 2004</a>)</font></td>
+      <td WIDTH="9%" VALIGN="TOP">.ppt</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">15</font></td>
+      <td WIDTH="11%" VALIGN="TOP"><font SIZE="4">06/01</font></td>
+      <td WIDTH="7%" VALIGN="TOP"><font SIZE="4">3</font></td>
+      <td WIDTH="66%" VALIGN="TOP"><font SIZE="4"><em>Command</em>, <em>Iterator</em> in Java</font></td>
+      <td WIDTH="9%" VALIGN="TOP">　</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP" BGCOLOR="#ffffff"><font SIZE="4">16</font></td>
+      <td WIDTH="11%" VALIGN="TOP" BGCOLOR="#ffffff"><font SIZE="4">06/08</font></td>
+      <td WIDTH="7%" VALIGN="TOP" BGCOLOR="#ffffff"><font SIZE="4">3</font></td>
+      <td WIDTH="66%" VALIGN="TOP" BGCOLOR="#ffffff"><font FACE="新細明體" SIZE="4">期末作業，分組報告與口試</font></td>
+      <td WIDTH="9%" VALIGN="TOP" BGCOLOR="#ffffff">每組 20min.</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP" BGCOLOR="#ffffff"><font SIZE="4">17</font></td>
+      <td WIDTH="11%" VALIGN="TOP" BGCOLOR="#ffffff"><font SIZE="4">06/15</font></td>
+      <td WIDTH="7%" VALIGN="TOP" BGCOLOR="#ffffff"><font SIZE="4">3</font></td>
+      <td WIDTH="66%" VALIGN="TOP" BGCOLOR="#ffffff"><font FACE="新細明體" SIZE="4">期末作業，分組報告與口試</font></td>
+      <td WIDTH="9%" VALIGN="TOP" BGCOLOR="#ffffff">每組 20min.</td>
+    </tr>
+    <tr>
+      <td WIDTH="7%" VALIGN="TOP" BGCOLOR="#ffffff"><font SIZE="4">18</font></td>
+      <td WIDTH="11%" VALIGN="TOP" BGCOLOR="#ffffff"><font SIZE="4">06/22</font></td>
+      <td WIDTH="7%" VALIGN="TOP" BGCOLOR="#ffffff"><font SIZE="4">3</font></td>
+      <td WIDTH="66%" VALIGN="TOP" BGCOLOR="#ffffff"><font FACE="新細明體" SIZE="4">期末考，停課</font></td>
+      <td WIDTH="9%" VALIGN="TOP" BGCOLOR="#ffffff">　</td>
+    </tr>
+  </table>
+  <p>　</p>
+  <p>分組名單。（簡報+口試時，逆序進行。亦即第1組最後一個上場）</p>
+  <p>第1組：<br>
+  902206 陳君豪<br>
+  902210 黃逸華<br>
+  902215 林宗翰<br>
+  902217 林貞喬<br>
+  902224 王妍榮<br>
+  902239 陳大鵬</p>
+  <p>第2組：<br>
+  902353 葉柏均<br>
+  912307 許志揚<br>
+  912353 林易達<br>
+  912360 巫青樺<br>
+  912325 <font size="3"><span lang="ZH-TW"
+  style="FONT-SIZE: 117%; FONT-FAMILY: 新細明體; mso-ascii-font-family: Arial; mso-fareast-font-family: 新細明體; mso-hansi-font-family: Arial; mso-ansi-language: EN-US">鐘健毓<br>
+  </span>912350 </font><font size="2"> <span lang="ZH-TW"
+  style="FONT-SIZE: 117%; FONT-FAMILY: 新細明體; mso-ascii-font-family: Arial; mso-fareast-font-family: 新細明體; mso-hansi-font-family: Arial; mso-ansi-language: EN-US">王呈佑</span></font></p>
+  <p>第3組：<br>
+  902306 盧風其<br>
+  902316 林俊雄<br>
+  902318 蕭以潔<br>
+  902333 張乃中<br>
+  902339 戴才淵<br>
+  902354 梁秉洋</p>
+  <p>第4組：<br>
+  922211 劉雨芊<br>
+  922303 周君樺<br>
+  922321 林東潁<br>
+  922328 張慈殷<br>
+  922330 黃昱琦<br>
+  922338 曾子安</p>
+  <p>第5組：（破例 7 人）<br>
+  912212 馮彥儒<br>
+  912256 廖勇盛<br>
+  912220 黃泰一<br>
+  912241 周雨霆<br>
+  912244 何周達<br>
+  912245 黃彥彰<br>
+  <font color="#000000">912229 蔡弘道</font><font color="#ff0000" size="3"> 
+  &nbsp;&nbsp;&nbsp; </font></p>
+  <p>第6組：<br>
+  912222 蔡松達<br>
+  912223 申慶堯<br>
+  912233 姜國程<br>
+  912236 林敬航<br>
+  912255 郭柏鋒<br>
+  912260 蔡承勳</p>
+  <p>第7組：（破例 7 人）<br>
+  912305 呂安勝<br>
+  912319 陳俊瑋 <br>
+  912348 簡健宇<br>
+  912363 邱一航<br>
+  922264 蔡昌富 <br>
+  <font size="3" color="#000000">912228 王上維</font><font color="#ff0000" size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+  </font><font size="3" color="#000000">912215 周柏因</font><font color="#ff0000"
+  size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></p>
+  <p>第8組：<br>
+  912338 蔡景翔<br>
+  912326 許宏國<br>
+  912335 逄皓宇<br>
+  922254 王維成<br>
+  901034 廖名寬 </p>
+  <p>第9組：<br>
+  912312 朱柏衡<br>
+  912334 王?霖<br>
+  912346 徐榮彬 <br>
+  912351 洪崇紳</p>
+  <p>第10組：<br>
+  911320 吳政霖<br>
+  912211 蕭建文<br>
+  912217 吳宜穎<br>
+  912231 陳俊竹<br>
+  912232 黃健智<br>
+  912248 黃俊豪 </p>
+  <p>第11組：（破例 7 人）<br>
+  922216 吳顯如 <br>
+  922225 盧育龍<br>
+  922208 黃志睿<br>
+  922228 江元浩<br>
+  922251 蔡明釗<br>
+  912548 武芝羽<br>
+  922244 吳靜宜</p>
+  <p>第12組：<br>
+  912207 許梓亭<br>
+  912210 朱詩敏<br>
+  912250 吳秉蓉<br>
+  912324 張彥倫</p>
+  <p>-- the end</p>
+</blockquote>
+</body>
+</html>

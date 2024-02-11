@@ -1,0 +1,160 @@
+<html>
+這是我為 W 公司上海分部授課之後，出給學員的練習題。放在這裡給各位參考。
+
+
+題目一（摘錄自 "Exceptional C++" item21）
+根據以下程式，請寫出所有輸出。
+
+請參閱
+《Effective C++》：
+條款14：總是讓 base class 擁有 virtual destructor
+條款37：絕對不要重新定義一個繼承而來的非虛擬函式
+條款38：絕對不要重新定義一個繼承而來的預設參數值
+
+#0001 #include <iostream>
+#0002 #include <complex>
+#0003 using namespace std;
+#0004
+#0005 class Base
+#0006 {
+#0007 public:
+#0008   Base()                   { cout << "Base-ctor" << endl; }
+#0009   ~Base()                  { cout << "Base-dtor" << endl; }
+#0010   virtual void f(int)      { cout << "Base::f(int)" << endl;    }
+#0011   virtual void f(double)   { cout << "Base::f(double)" << endl; }
+#0012   virtual void g(int i=10) { cout << "Base::g() " << i << endl; }
+#0013 };
+#0014
+#0015 class Derived : public Base
+#0016 {
+#0017 public:
+#0018   Derived()               { cout << "Derived-ctor" << endl; }
+#0019   ~Derived()              { cout << "Derived-dtor" << endl; }
+#0020   void f(complex<double>) { cout << "Derived::f(complex)" << endl; }
+#0021   void g(int i=20)        { cout << "Derived::g() " << i << endl;  }
+#0022 };
+#0023
+#0024 int main()
+#0025 {
+#0026   cout << sizeof(Base) << endl;
+#0027   cout << sizeof(Derived) << endl;
+#0028
+#0029   Base b;
+#0030   Derived d;
+#0031   Base* pb = new Derived;
+#0032   b.f(1.0);
+#0033   d.f(1.0);
+#0034   pb->f(1.0);
+#0035   b.g();
+#0036   d.g();
+#0037   pb->g();
+#0038   delete pb;
+#0039 }
+
+
+
+題目二：根據以下程式，請寫出所有輸出。注意，有陷阱。
+
+請參閱
+《Effective C++》：
+條款13：initialization list 中的 members 初始化排列次序應該和其在 class 內的宣告次序相同。
+條款14：總是讓 base class 擁有 virtual destructor
+《More Effective C++》：
+條款3：絕對不要以 polymorphically（多型）方式來處理陣列。
+
+#0001 #include <iostream>
+#0002 using namespace std;
+#0003
+#0004 class Base
+#0005 {
+#0006 public:
+#0007   Base() : data(count)
+#0008            { cout << "Base-ctor" << endl; ++count; }
+#0009   ~Base()  { cout << "Base-dtor" << endl; --count; }
+#0010   static int count;
+#0011   int data;
+#0012 };
+#0013
+#0014 int Base::count;
+#0015
+#0016 class Derived : public Base
+#0017 {
+#0018 public:
+#0019   Derived() : data(count), data1(data)
+#0020              { cout << "Derived-ctor" << endl; ++count;}
+#0021   ~Derived() { cout << "Derived-dtor" << endl; --count;}
+#0022   static int count;
+#0023   int data1;
+#0024   int data;
+#0025 };
+#0026
+#0027 int Derived::count=10;
+#0028
+#0029 int main()
+#0030 {
+#0031   cout << sizeof(Base) << endl;
+#0032   cout << sizeof(Derived) << endl;
+#0033
+#0034   Base* pb = new Derived[3];
+#0035   cout << pb[2].data << endl;
+#0036   cout << ((static_cast<Derived*>(pb))+2)->data1 << endl;
+#0037   delete [] pb;
+#0038
+#0039   cout << Base::count << endl;
+#0040   cout << Derived::count << endl;
+#0041 }
+
+
+
+題目三：試回答以下問題。
+無制式答案，純粹看各人體會多少。
+每個題目均請從語法（syntax）、語意（semantic）、OO 意義來思考與回答：
+----------------------------------------------------------------------
+o. 為什麼應該儘量以 pass/return by reference 來取代 pass/return by value？
+o. 什麼情況下無法 return by reference？
+o. 什麼是 return value optimization（RVO）？
+o. 何謂 default ctor？何謂 single argument ctor？各有何特殊意義？
+o. 何謂 copy ctor？何謂 dtor？
+o. 何謂 assignment operator？何謂 copy assignment operator？
+o. 什麼情況下一定要自行設計 copy ctor 和 copy assignment operator？舉具體實例。
+o. inheritance 和/或 composition 的情況下，建構和解構的次序如何？
+o. 試分析 global/local_auto/local_static/heap 等各種 objects 的生命期。
+o. const 可運用於函式宣告的哪些地方？const member function 有何意義？
+o. function overloading 意義為何？用途為何？
+o. inline functions 意義為何？用途為何？
+o. 何謂 new operator？動作如何？何謂 operator new？動作如何？
+o. 何謂 delete operator？動作如何？何謂 operator delete？動作如何？
+o. cout << i++ << i--; 在不同的 platform 上有不同的執行結果。
+   這帶給你什麼警惕？
+o. 為 class 設計 operations 時，你有三種選擇：member-function、
+   nonmember-function、friend function。你該如何考量？
+o. implicit type conversion 是否受到你的歡迎？如果你不使用它，
+   你就可能需要寫許多 overloaded functions 來解決問題。思考
+   並演練一遍其間的利弊得失。
+----------------------------------------------------------------------
+o. 何謂 virtual functions？為什麼需要 virtual functions？
+o. 何謂 polymorphism？它通常和 pointers 或 references 搭配運用？為什麼？
+o. 何謂 up-cast？down-cast？何者安全？何者可能不安全？
+o. dynamic_cast 的使用時機？static_cast 的使用時機？
+o. pure virtual function 做什麼用？可以定義嗎？其定義又做什麼用？
+o. 何謂 implementation inheritance？何謂 interface inheritance？
+o. 何謂 Liskov substitution principle？
+o. 什麼時機使用 inheritance（OO programming），
+   什麼時機使用 template（generic programming）？
+o. 何謂 static type？何謂 dynamic type？
+----------------------------------------------------------------------
+o. 何謂 containers？試寫一個程式，運用 vector。
+o. 何謂 generic algorithms？試寫一個程式，運用 sort()。
+o. 何謂 function objects（或謂 functors）？試寫一個 function objects。
+o. 何謂 iterators？
+o. 何謂 adaptors？
+o. 何謂 allocators？
+o. 何謂 argument deduction（引數推導）？
+   class templates 有無引數推導？
+   function templates 有無引數推導？
+----------------------------------------------------------------------
+
+-- the end
+
+
+

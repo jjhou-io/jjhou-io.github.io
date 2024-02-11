@@ -1,0 +1,670 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>《網際網路四大服務》答客問</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="723">
+  <tr>
+    <td align="right" valign="top" width="65">&nbsp; <!--mstheme--></font></td>
+    <td width="21"><!--mstheme--></font></td>
+    <td valign="bottom" width="613"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="65" bgcolor="#C0C0C0"><font size="3" face="Arial"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td width="21"><!--mstheme--></font></td>
+    <td valign="top" width="613"><br>
+    <big><big>網際網路四大服務 答客問 (1)</big></big> - reference and delete<br>
+    2000.03.25 <br>
+    <br>
+    sammy wu wrote (2000/3/9) :<br>
+    <br>
+    <font color="#0000FF">&gt;候老師您好,<br>
+    &gt;<br>
+    &gt; 日前閱讀 &quot;網際網路親手打造四大服務&quot; 一書.<br>
+    &gt; 在第二章 p45 發現一問題..<br>
+    &gt; 在 BasicServiceThread 函式中,<br>
+    &gt;<br>
+    &gt; Line0085 Win32TCPEnv &amp;Env = pStub-&gt;m_Env;<br>
+    &gt; ....<br>
+    &gt; 但隨即 delete pStub;<br>
+    &gt;<br>
+    &gt; 學生想問的是, 前面是 just 宣告 reference,<br>
+    &gt; 如果作了 delete pStub, Env 還存在嗎??<br>
+    &gt;<br>
+    &gt; 還是我觀念出了問題 ?<br>
+    &gt;<br>
+    &gt; anyway,感謝老師百忙中檢視我的疑問.</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    1. 我姓「侯」，不姓「候」<br>
+    2. 為什麼你不問原作者 :(<br>
+    3. 好吧，我代打 :)<br>
+    <br>
+    首先我要說，家俊的這本書涵蓋了一個不小的 library。<br>
+    其間細節多如牛毛，我無法就 library 的細節部份回答你。<br>
+    這方面還是請你問作者王家俊先生（他的 email addr 在其序文最後）<br>
+    <br>
+    但我可就 local 的範圍來檢視你的觀念和你的問題。寫個測試程式，<br>
+    其中變數名稱皆模仿 p45：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;iostream&gt;<br>
+    using namespace std;<br>
+    <br>
+    class CWin32TCPEnv<br>
+    {<br>
+    public:<br>
+    &nbsp; // ctor<br>
+    &nbsp; CWin32TCPEnv(int i1, int i2)<br>
+    &nbsp;&nbsp;&nbsp; : m_i1(i1), m_i2(i2)<br>
+    &nbsp; { }<br>
+    <br>
+    &nbsp; // copy ctor<br>
+    &nbsp; CWin32TCPEnv(const CWin32TCPEnv&amp; Env)<br>
+    &nbsp;&nbsp;&nbsp; : m_i1(Env.m_i1), m_i2(Env.m_i2)<br>
+    &nbsp; {<br>
+    &nbsp;&nbsp;&nbsp; cout &lt;&lt; &quot;CWin32TCPEnv copy ctor \n&quot;;<br>
+    &nbsp; }<br>
+    <br>
+    &nbsp; void show() { cout &lt;&lt; m_i1 &lt;&lt; ' ' &lt;&lt; m_i2 &lt;&lt; endl; }<br>
+    <br>
+    private:<br>
+    &nbsp; int m_i1, m_i2;<br>
+    };<br>
+    <br>
+    class CClientStub<br>
+    {<br>
+    public:<br>
+    &nbsp; CClientStub(int i1, int i2)<br>
+    &nbsp;&nbsp;&nbsp; : m_Env(i1, i2)<br>
+    &nbsp; { }<br>
+    <br>
+    &nbsp; // public data member<br>
+    &nbsp; CWin32TCPEnv m_Env;<br>
+    };<br>
+    <br>
+    void BasicServiceThread(void* lpArg)<br>
+    {<br>
+    &nbsp; CClientStub *pStub = (CClientStub *)lpArg;<br>
+    &nbsp; CWin32TCPEnv &amp;Env = pStub-&gt;m_Env;<br>
+    &nbsp; Env.show(); // 9 28 (5)<br>
+    &nbsp; delete pStub;<br>
+    <br>
+    &nbsp; // </font>這裡測試 <font face="Courier New">Env </font>還在否<br>
+    <font face="Courier New">&nbsp; Env.show(); // 7802592 6618664 </font>亂碼，資料不在了！ 
+    <font face="Courier New">(6)<br>
+    }<br>
+    <br>
+    int main()<br>
+    {<br>
+    &nbsp; CClientStub *pStub = new CClientStub(9, 28);<br>
+    &nbsp; CWin32TCPEnv &amp;Env1 = pStub-&gt;m_Env; // (1)<br>
+    &nbsp; CWin32TCPEnv Env2 = pStub-&gt;m_Env; // CWin32TCPEnv copy ctor (2)<br>
+    &nbsp; Env1.show(); // 9 28 (3)<br>
+    &nbsp; Env2.show(); // 9 28 (4)<br>
+    <br>
+    &nbsp; BasicServiceThread(pStub);<br>
+    <br>
+    &nbsp; Env1.show(); // 7802592 6618664 </font>亂碼，資料不在了！ <font
+    face="Courier New">(7)<br>
+    &nbsp; Env2.show(); // 9 28 (8)<br>
+    }</font></small><br>
+    <br>
+    <br>
+    每行註解都代表其輸出。註解後的編號是為了解說方便。<br>
+    <br>
+    如你所見，(1) 是 reference，其 assignment 動作並沒有喚起 copy ctor。<br>
+    程式進行至 (5)，資料還在。delete 之後，(6) 顯示，資料已被破壞了。<br>
+    (7) 受到 pass by pointer 的影響，資料也遺失了。<br>
+    <br>
+    純粹從技術的角度來探討，我們有辦法讓資料不遺失。辦法是<br>
+    攔截 delete pStub; 使它落到我們的控制之中。也就是說<br>
+    在 class CClientStub 內將 operator delete 多載化，如下：<br>
+    <br>
+    <small><font face="Courier New">class CClientStub<br>
+    {<br>
+    public:<br>
+    &nbsp; ...<br>
+    &nbsp; static void operator delete(void *rawMem, size_t size) { }<br>
+    &nbsp; ...<br>
+    };</font></small><br>
+    <br>
+    正常情況下它應該做點額外處理，然後將記憶體釋放。但上述<br>
+    這個 operator delete 什麼都沒做，因此記憶體不會被釋還。<br>
+    增加這個 operator delete 之後，上述程式的 (6)(7) 輸出就<br>
+    不再是亂碼，而是 9 28（正確值），表示資料還在。<br>
+    <br>
+    operator delete 和 operator new，可在 &quot;Effective C++&quot; item5~10<br>
+    獲得豐富的說明和示範。<br>
+    <br>
+    但以上純粹只是技術探討，應該沒有人會多載化 operator delete 之後<br>
+    故意不釋放記憶體。我相信家俊也不會這麼做（此刻我沒有時間去 
+    trace<br>
+    他那麼大一個 library）。<br>
+    <br>
+    既然我認為不會那麼做，那麼，程式不就有問題了嗎？於是我再往前一步，<br>
+    看看 library 之中是誰在呼叫 BasicServiceThread()，我發現是 p47 的：<br>
+    <br>
+    <small><font face="Courier New">CClientStub *pStub = new CClientStub(...);<br>
+    ...<br>
+    HANDLE theClient = ::CreateThread(NULL, 0,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    ::BasicServiceThread, pStub,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    0, &amp;ClientThreadId);</font></small><br>
+    <br>
+    換句話說 BasicServiceThread 被用來做為 thread function，<br>
+    而非如一般函式被直接叫用。thread functions 和一般 functions 有什麼<br>
+    差異嗎？特別是在引數傳遞方面？我查了 Jeffrey Richter 的<br>
+    Advanced Windows 3/e, p.82，此處對 CreateThread 的每一個參數<br>
+    解釋非常詳細。我看不出來 therad function 在引數傳遞方面<br>
+    和一般函式有什麼差異之處。<br>
+    <br>
+    所以，看起來，家俊這個 library 在此有點問題。但這是一個<br>
+    得過大獎的程式，被 CMP Net 的 TechWeb News 選為全球六大<br>
+    source free 軟體之一（見該書 p303）。所以，是不是有什麼<br>
+    我沒有看到注意到的地方？<br>
+    <br>
+    anyway，這個問題頗有趣，我會把此 Q/A 轉給家俊。他目前正在<br>
+    服役，我不知道何時才會獲得他的回音。<br>
+    <br>
+    -- the end<br>
+    <br>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p>Re : 網際網路四大服務 答客問 (1) - reference and delete<br>
+    2000.03.26 <br>
+    <br>
+    <font color="#0000FF">網際網路四大服務 答客問 (1)</font> 
+    之中，我代作者王家俊先生回覆了<br>
+    sammy 讀者的一個問題。但我自己亦從中心生疑惑。所以我把<br>
+    答客問 (1) 轉給家俊。雖然家俊正在服兵役，卻很快做了回覆。<br>
+    以下是其來信。<br>
+    <br>
+    jcwang wrote (2000/03/26) :<br>
+    <br>
+    <font color="#0000FF">&gt; 侯大哥，您好：<br>
+    &gt;<br>
+    &gt; 感謝您替我對讀者 sammy 
+    做了這麼詳盡的回答。我想讀者會選擇直接<br>
+    &gt; 
+    問侯捷而不問作者，想必是因為「侯捷」這個招牌已經成了「有問<br>
+    &gt; 
+    必答」的代名詞，寫信問原作者還未必能得到如此詳盡的回覆呢！ :)<br>
+    &gt; 這是一件可喜可賀的事！<br>
+    &gt;<br>
+    &gt; 我把一個比較接近我原意的程式寫在下方：<br>
+    &gt;<br>
+    <small><font face="Courier New">&gt; // jcw 032600<br>
+    &gt;<br>
+    &gt; #include &lt;iostream.h&gt;<br>
+    &gt;<br>
+    &gt; class A // </font>類似原來的 <font face="Courier New">CWin32TCPEnv<br>
+    &gt; {<br>
+    &gt; public:<br>
+    &gt; int val ;<br>
+    &gt; } ;<br>
+    &gt;<br>
+    &gt; class B // </font>類似原來的 <font face="Courier New">ClientStub<br>
+    &gt; {<br>
+    &gt; public:<br>
+    &gt; B( A &amp;initval ) : val( initval ) {}<br>
+    &gt; A &amp;val ; // </font>請注意，這裡是 <font face="Courier New">by reference</font>，這是關鍵！<br>
+    <font face="Courier New">&gt; } ;<br>
+    &gt;<br>
+    &gt; int main( void )<br>
+    &gt; {<br>
+    &gt; A myA ;<br>
+    &gt; myA.val = 5 ;<br>
+    &gt;<br>
+    &gt; B *pB = new B( myA ) ; // B </font>將 <font face="Courier New">myA </font>關聯到它的 
+    <font face="Courier New">val </font>成員<br>
+    <font face="Courier New">&gt;<br>
+    &gt; A &amp;finalA = pB-&gt;val ; // </font>類似 <font face="Courier New">CWin32TCPEnv 
+    &amp;Env = pStub-&gt;m_Env ;<br>
+    &gt;<br>
+    &gt; cout &lt;&lt; finalA.val &lt;&lt; endl ; // </font>輸出 <font face="Courier New">5<br>
+    &gt;<br>
+    &gt; delete pB ;<br>
+    &gt;<br>
+    &gt; cout &lt;&lt; finalA.val &lt;&lt; endl ; // </font>仍舊輸出 <font
+    face="Courier New">5</font>。顯然 <font face="Courier New">delete pB<br>
+    &gt; // </font>並未自動解構參照成員<br>
+    <font face="Courier New">&gt;<br>
+    &gt; return 0 ;<br>
+    &gt; // </font>這個時候 <font face="Courier New">A </font>才被解構。替 <font
+    face="Courier New">A </font>寫一個 <font face="Courier New">destructor </font>便可知。<br>
+    <font face="Courier New">&gt; }<br>
+    &gt;</font></small><br>
+    &gt; 所以觀察到的是 desructor 並不會呼叫其「參照成員」的 destructor<br>
+    &gt; (但確定會解構其實體成員)。從我手中的資料無法判斷這是 VC++ 
+    的 bug<br>
+    &gt; 還是標準行為，不過 HelloTCPIP 
+    能正常工作完全依據的就是這一點。<br>
+    &gt;<br>
+    &gt; 請侯大哥指教。</font><br>
+    <br>
+    <br>
+    侯捷補充：<br>
+    <br>
+    <font color="#0000FF">&gt; 
+    我想讀者會選擇直接問侯捷而不問作者，想必是因為「侯捷」這個招牌<br>
+    &gt; 已經成了「有問必答」的代名詞。</font><br>
+    <br>
+    不不不。侯捷絕非「有問必答」。除了對侯捷所著所譯之書籍提出<br>
+    疑惑或指正，我會比較積極回答之外，其他則要看時間、看心情、<br>
+    看主題、看能力。這陣子我整理信件加以回覆，竟然有「上個世紀」<br>
+    寫來的讀者來函，說實在有點不好意思。對方可能早就犯嘀咕了吧。<br>
+    <br>
+    回到正題。上封信中，我沒有仔細看書中 ClientStub's data member Env<br>
+    的宣告方式，想當然爾地以 by value 方式來宣告它：<br>
+    <br>
+    <small><font face="Courier New">class CClientStub<br>
+    {<br>
+    &nbsp; ...<br>
+    &nbsp; CWin32TCPEnv m_Env;<br>
+    };</font></small><br>
+    <br>
+    書中其實是以 by reference 方式來宣告它：(p45, #0076)<br>
+    <br>
+    <small><font face="Courier New">class CClientStub<br>
+    {<br>
+    &nbsp; ...<br>
+    &nbsp; CWin32TCPEnv &amp;m_Env; // &lt;-- a reference member<br>
+    };</font></small><br>
+    <br>
+    換句話說 CClientStub 有一個 reference member。這便是關鍵所在。<br>
+    <br>
+    我把書中程式重新簡化如下：<br>
+    <br>
+    <small><font face="Courier New">#include &lt;iostream&gt;<br>
+    using namespace std;<br>
+    <br>
+    class CWin32TCPEnv<br>
+    {<br>
+    public:<br>
+    &nbsp; // default ctor<br>
+    &nbsp; CWin32TCPEnv()<br>
+    &nbsp;&nbsp;&nbsp; : m_i1(9), m_i2(28)<br>
+    &nbsp; {<br>
+    &nbsp;&nbsp;&nbsp; cout &lt;&lt; &quot;CWin32TCPEnv default ctor \n&quot;;<br>
+    &nbsp; }<br>
+    <br>
+    &nbsp; // copy ctor<br>
+    &nbsp; CWin32TCPEnv(const CWin32TCPEnv&amp; Env)<br>
+    &nbsp;&nbsp;&nbsp; : m_i1(Env.m_i1), m_i2(Env.m_i2)<br>
+    &nbsp; {<br>
+    &nbsp;&nbsp;&nbsp; cout &lt;&lt; &quot;CWin32TCPEnv copy ctor \n&quot;;<br>
+    &nbsp; }<br>
+    <br>
+    &nbsp; // dtor<br>
+    &nbsp; ~CWin32TCPEnv()<br>
+    &nbsp; {<br>
+    &nbsp;&nbsp;&nbsp; cout &lt;&lt; &quot;CWin32TCPEnv dtor \n&quot;;<br>
+    &nbsp; }<br>
+    <br>
+    &nbsp; void show() { cout &lt;&lt; m_i1 &lt;&lt; ' ' &lt;&lt; m_i2 &lt;&lt; endl; }<br>
+    <br>
+    private:<br>
+    &nbsp; int m_i1, m_i2;<br>
+    };<br>
+    <br>
+    class CClientStub<br>
+    {<br>
+    public:<br>
+    &nbsp; // ctor<br>
+    &nbsp; CClientStub(CWin32TCPEnv&amp; Env)<br>
+    &nbsp;&nbsp;&nbsp; : m_Env(Env) // (c)<br>
+    &nbsp; {<br>
+    &nbsp;&nbsp;&nbsp; cout &lt;&lt; &quot;CClientStub ctor \n&quot;;<br>
+    &nbsp; }<br>
+    <br>
+    &nbsp; // dtor<br>
+    &nbsp; ~CClientStub()<br>
+    &nbsp; {<br>
+    &nbsp;&nbsp;&nbsp; cout &lt;&lt; &quot;CClientStub dtor \n&quot;;<br>
+    &nbsp; }<br>
+    <br>
+    &nbsp; // public data member<br>
+    &nbsp; CWin32TCPEnv &amp;m_Env; // </font>注意，是個 <font face="Courier New">reference 
+    member.<br>
+    };<br>
+    <br>
+    void BasicServiceThread(void* lpArg)<br>
+    {<br>
+    &nbsp; CClientStub *pStub = (CClientStub *)lpArg;<br>
+    &nbsp; CWin32TCPEnv &amp;Env = pStub-&gt;m_Env;<br>
+    &nbsp; delete pStub; // CClientStub dtor (a)<br>
+    <br>
+    &nbsp; // </font>這裡測試 <font face="Courier New">Env </font>還在否<font
+    face="Courier New">?<br>
+    &nbsp; Env.show(); // 9 28</font>。資料仍在，顯示 <font face="Courier New">delete 
+    operator </font>並不會解構<br>
+    <font face="Courier New">&nbsp; // </font>「物件內之 <font face="Courier New">reference 
+    member</font>」所代表的物件。<br>
+    <br>
+    <font face="Courier New">&nbsp; // scope </font>結束前，並未喚起 <font
+    face="Courier New">Env </font>的 <font face="Courier New">CWin32TCPEnv dtor<br>
+    &nbsp; // </font>因為此處 <font face="Courier New">Env </font>是個 <font
+    face="Courier New">reference</font>。 <font face="Courier New">(b)<br>
+    }<br>
+    <br>
+    int main()<br>
+    {<br>
+    &nbsp; CWin32TCPEnv Env; // CWin32TCPEnv default ctor<br>
+    &nbsp; Env.show(); // 9 28<br>
+    <br>
+    &nbsp; CClientStub *pStub = new CClientStub(Env); // CClientStub ctor<br>
+    <br>
+    &nbsp; BasicServiceThread(pStub);<br>
+    <br>
+    &nbsp; // </font>這裡測試 <font face="Courier New">Env </font>還在否<font
+    face="Courier New">?<br>
+    &nbsp; Env.show(); // 9 28<br>
+    <br>
+    &nbsp; // scope </font>結束前，喚起 <font face="Courier New">Env </font>的 <font
+    face="Courier New">CWin32TCPEnv dtor<br>
+    }</font></small><br>
+    <br>
+    讓我們從 C++ 語言層面探討之。reference members 和 pointer members<br>
+    的表現有以下兩個相同點：<br>
+    <br>
+    (1) 當物件被解構，其 reference members 或 pointer members 所代表<br>
+    （所指向）的物件並不會被一併解構。見上例 (a)<br>
+    <br>
+    (2) pointer 或 reference 不會因為退出 scope 而使其<br>
+    「所代表之物件」被自動解構。見上例 (b)。<br>
+    （但可能因為其他原因而被解構）<br>
+    <br>
+    此外，reference member 一定得於 member initialization list 中<br>
+    初始化。見上例 (c)。參考《C++ Primer 中文版》p720.<br>
+    <br>
+    針對上述 (1)，Effective C++ 的 item6 給了一個忠告：<br>
+    item 6 : &quot;Use delete on pointer members in destructors.&quot;<br>
+    否則會出現 memory leak 問題。<br>
+    <br>
+    家俊說：<br>
+    <br>
+    <font color="#0000FF">&gt; 我手中的資料無法判斷這是 VC++ 的 bug 
+    還是標準行為，<br>
+    &gt; 不過 HelloTCPIP 能正常工作完全依據的就是這一點。</font><br>
+    <br>
+    這是 C++ 標準行為。不過一般而言，reference 主要用於<br>
+    函式的型式參數（formal parameters）；一般程式較少使用<br>
+    reference 獨立物件。<br>
+    <br>
+    -- the end<br>
+    <br>
+    &#26;</p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p>Re : 網際網路四大服務 答客問 (1) - reference and delete<br>
+    2000.03.27<br>
+    <br>
+    jcwang wrote (2000/03/27) :<br>
+    <br>
+    <font color="#408080">&gt;&gt; 針對上述 (1)，Effective C++ 的 item6 
+    給了一個忠告：<br>
+    &gt;&gt; item 6 : &quot;Use delete on pointer members in destructors.&quot;<br>
+    &gt;&gt; 否則會出現 memory leak 問題。<br>
+    &gt;&gt; [...]<br>
+    &gt;&gt; 這是 C++ 標準行為。不過一般而言，reference 主要用於<br>
+    &gt;&gt; 函式的型式參數（formal parameters）；一般程式較少使用<br>
+    &gt;&gt; reference 獨立物件。</font><br>
+    <font color="#0000FF">&gt;<br>
+    &gt; 侯大哥：<br>
+    &gt;<br>
+    &gt; 這是我程式中比較特別的地方。我想過，Stroustrup 為什麼要<br>
+    &gt; 允許將 reference 用在 class memeber 中，而不只是 formal<br>
+    &gt; parameters？我的結論是，當該物件需要「參照一個在其生命<br>
+    &gt; 過程中不會改變，而且一定要有效 (非 NULL) 的成員物件」<br>
+    &gt; 時，就適合使用 reference member variables。<br>
+    &gt;<br>
+    &gt; 在四個伺服器裡，我在主程式的迴圈中需要將資料送給每一個<br>
+    &gt; 服務執行緒。這要如何做到呢？為什麼選擇將物件以參照的方<br>
+    &gt; 式傳給被呼叫者，又立即將其 delete 掉？<br>
+    &gt;<br>
+    &gt; 一般管理參數有兩種方式，可用 caller remove 或是 callee<br>
+    &gt; remove，來決定由誰掌控釋放參數所使用的記體空間。在我們<br>
+    &gt; 的情況下， caller remove 意味著我們必須偵測執行緒的結<br>
+    &gt; 束，這不是一件單純的事。所以我採取 callee remove，讓<br>
+    &gt; 執行緒來釋放記憶體 (delete)，所以才會有使用到 reference<br>
+    &gt; member variables 的情況。我也可以選擇使用 pointer，<br>
+    &gt; 但如此一來就必須常常去 ASSERT() 該變數的值，確定其不為<br>
+    &gt; NULL。使用 reference 可省去檢查為 NULL 的工作。</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    我同意你的想法。<br>
+    <br>
+    -- the end.<br>
+    <br>
+    </p>
+<!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
+    <p><br>
+    <big><big>網際網路四大服務 答客問 (2)</big></big> - 利用 local object's dtor 
+    協助清除資源<br>
+    2000.09.15 第一次發表<br>
+    <br>
+    alvin wrote (2000/08/21) :<br>
+    <br>
+    <font color="#408080">&gt; 侯先生：您好<br>
+    &gt; 有一個問題想要請教您<br>
+    &gt; 不知道你還記不記得幾年前由您總監的一本書<br>
+    &gt; &quot;網際網路親手打造四大服務&quot;<br>
+    &gt; 我想信您一定還記得這一本書<br>
+    &gt; 我的問題便是由這裡而來的<br>
+    &gt; 不知道您還記不記得其中的一段程式碼<br>
+    &gt; 節錄如下<br>
+    &gt;<br>
+    <font face="Courier New"><small>&gt; class CWin32InScopeHandle<br>
+    &gt; {<br>
+    &gt; public:<br>
+    &gt;&nbsp;&nbsp; ~CWin32InScopeHandle( void )<br>
+    &gt;&nbsp;&nbsp; {<br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; ::CloseHandle( m_handle );<br>
+    &gt;&nbsp;&nbsp; }<br>
+    &gt;&nbsp;&nbsp; operator HANDLE &amp;()<br>
+    &gt;&nbsp;&nbsp; {<br>
+    &gt;&nbsp;&nbsp; return m_handle ;<br>
+    &gt;&nbsp;&nbsp; }<br>
+    &gt; protected:<br>
+    &gt;&nbsp;&nbsp; HANDLE m_handle ;<br>
+    &gt; };<br>
+    &gt;<br>
+    &gt;<br>
+    &gt; int CWin32TCPEnv_2::GetResourceLength(const char *szUri)<br>
+    &gt; // throws EHttpConfig<br>
+    &gt; {<br>
+    &gt;&nbsp;&nbsp; // Get resource info<br>
+    &gt;&nbsp;&nbsp; CWin32InScopeHandle Resource;<br>
+    &gt;&nbsp;&nbsp; int nResourceSize = -1 ;<br>
+    &gt;&nbsp;&nbsp; try<br>
+    &gt;&nbsp;&nbsp; {</small><br>
+    <small>&gt;&nbsp;&nbsp;&nbsp;&nbsp; Resource = OpenResource(szUri);<br>
+    &gt;&nbsp;&nbsp;&nbsp;&nbsp; // OpenResource </font>傳回 <font face="Courier New">Windows.h 
+    </font>中定義的 <font face="Courier New">Handle<br>
+    &gt;&nbsp;&nbsp; }<br>
+    &gt;&nbsp;&nbsp; catch(EHttpConfig)<br>
+    &gt;&nbsp;&nbsp; {<br>
+    &gt;&nbsp;&nbsp; throw ;<br>
+    &gt;&nbsp;&nbsp; ...<br>
+    &gt;&nbsp;&nbsp; }<br>
+    &gt; ...<br>
+    &gt; }</font></small><br>
+    &gt;<br>
+    &gt; 作者(王家俊先生)先定義了一個類別，作用就是利用解構函式的作用<br>
+    &gt; 這樣子就不會有沒有釋放掉的資源了。<br>
+    &gt; 我本來認為這是一個很好的方法。不過</font><font color="#0000FF">我的老闆看了之後說這個方法很爛，<br>
+    &gt; 叫我不用再看這本書了</font><font color="#408080">。理由應該是這種方法並不符合C++的精神吧<br>
+    &gt; (有潛在性的危險)。我並不是很同意他的看法，所以我想請教侯先生，<br>
+    &gt; 以您對 C++ 
+    的認識來說。這樣子的寫作方式到底可以算是一個絕妙的<br>
+    &gt; 點子呢H還是一個小小取巧的步數呢？還是其實真的很危險並不值得<br>
+    &gt; 鼓勵呢？您對這種寫法的看法如何呢？<br>
+    &gt; 很希望能夠稍微知道您對這個問題的看法。<br>
+    &gt; 很謝謝您花時間看完這封信</font><br>
+    <br>
+    <br>
+    侯捷回覆：<br>
+    <br>
+    文人相輕，自古皆然。programmer 相輕，於今尤烈。<br>
+    <br>
+    家俊的這種作法是很好的。其精神就像 C++ Standard Library 的<br>
+    auto_ptr 一樣。以下簡單列出 auto_ptr 的關鍵內容：<br>
+    <br>
+    <small><font face="Courier New">template&lt;typename T&gt;<br>
+    class auto_ptr {<br>
+    public:<br>
+    &nbsp; auto_ptr(T* p=0) : ptr(p) { }<br>
+    &nbsp; ~auto_ptr() { delete ptr; }<br>
+    private:<br>
+    &nbsp; T* ptr;<br>
+    };</font></small><br>
+    <br>
+    有興趣看 auto_ptr 完整內容的人，可以在你的編譯器的 INCLUDE path<br>
+    中尋找 memory.h。想知道 auto_ptr 怎麼用的人，可看《C++ Primer 中文版》<br>
+    8.4.2 節 p.409。<br>
+    <br>
+    家俊的作法和 auto_ptr 的精神如出一轍，都是利用「local object 離開<br>
+    其 scope 時，dtor 會被自動喚起」這一點，協助做資源的清理（cleanup）<br>
+    工作。這裡所說的資源，在 auto_ptr 為一塊記憶體，在家俊的<br>
+    CWin32InScopeHandle 為一個 HANDLE。<br>
+    <br>
+    家俊的《親手打造網際網路四大服務》，書內源碼曾獲得極高榮譽，被<br>
+    選為全球六大 open source freeware，並列的有 Linux, FreeBSD,<br>
+    GNU C, Apache...，見該書附錄六。我以為，任何人在他人尊崇的<br>
+    榮譽面前，至少也應該學習謙遜。說什麼『這個方法很爛，不用再看<br>
+    這本書了』，輕篾的言語講出來很爽，但究竟是傷害別人還是傷害了自己？<br>
+    慎之，慎之！<br>
+    <br>
+    <br>
+    by the way，你所列的摘要碼中，以下這行應該是過不了關的：<br>
+    <br>
+    &gt; Resource = OpenResource(szUri);<br>
+    <br>
+    因為 HANDLE 無法隱喻（implicitly）轉換為一個 CWin32InScopeHandle object，<br>
+    除非 CWin32InScopeHandle 定義有一個 single-argument constructor。<br>
+    至於 CWin32InScopeHandle::operator HANDLE&amp;()，其作用是把一個<br>
+    CWin32InScopeHandle object 隱喻轉換為一個 HANDLE&amp;，與上述討論無關。<br>
+    <br>
+    你沒有說出這份摘要出自哪頁，所以我無法做進一步證實。<br>
+    <br>
+    -- the end<br>
+    </p>
+    <p><br>
+    <big><big>網際網路四大服務 答客問 (2) part2</big></big> - <br>
+    利用 local object's dtor 協助清除資源<br>
+    <br>
+    <font color="#408080">alvin wrote(2000/09/15) :<br>
+    <br>
+    &gt; 侯先生：<br>
+    &gt; 非常謝謝您抽空回覆我的問題<br>
+    &gt; 我個人也認為這個作法的立意很好<br>
+    &gt; 不過，我所摘錄的程式碼確實可以通過VC6.0的編譯<br>
+    &gt; 而且不會有錯誤或是警告的訊息<br>
+    &gt; 如果您有這本書所附的光碟的話<br>
+    &gt; 您可以參考光碟中原始碼第三章3.2節中HttpdExt.cpp這個檔案<br>
+    &gt; 至於為什麼可以通過編譯，我到現在也還不是非常瞭解<br>
+    &gt;<br>
+    &gt; 如您所提到的 single-argument constructor<br>
+    &gt; 這個部份就比較直觀了<br>
+    &gt;<br>
+    &gt; 我知道您最近所翻譯的 More Effective C++ p.49 中<br>
+    &gt; Mr. Scott Meyers 也有提到這個做法<br>
+    &gt; More Effective C++ 中和家俊先生在 Win32InScopeHandle 這個 class<br>
+    &gt; 的作法稍有不同<br>
+    &gt; 順便一問，您覺得這兩個哪一個比較好呢？</font><br>
+    <br>
+    我很驚訝你說「我所摘錄的程式碼確實可以通過VC6.0的編譯」，<br>
+    於是做了以下測試：<br>
+    <br>
+    <small><font face="Courier New">typedef int HANDLE; // simulate windows.h<br>
+    <br>
+    void CloseHandle(HANDLE h) { }<br>
+    <br>
+    class CWin32InScopeHandle<br>
+    {<br>
+    public:<br>
+    &nbsp; ~CWin32InScopeHandle( void ) {<br>
+    &nbsp;&nbsp;&nbsp; ::CloseHandle( m_handle );<br>
+    &nbsp; }<br>
+    &nbsp; operator HANDLE&amp;() {<br>
+    &nbsp;&nbsp;&nbsp; return m_handle ;<br>
+    &nbsp; }<br>
+    <br>
+    public:<br>
+    &nbsp; HANDLE m_handle ;<br>
+    };<br>
+    <br>
+    HANDLE OpenResource(const char *szUri) {<br>
+    &nbsp; return (HANDLE)5;<br>
+    }<br>
+    <br>
+    void GetResourceLength(const char *szUri) {<br>
+    &nbsp; CWin32InScopeHandle Resource;<br>
+    <br>
+    &nbsp; <font color="#FF0000">Resource = OpenResource(szUri);</font> <font color="#FF0000">// 
+    </font></font>這一行會過嗎？<br>
+    <font face="Courier New">}<br>
+    <br>
+    int main()</font></small><br>
+    <font face="Courier New"><small>{<br>
+    &nbsp; GetResourceLength(&quot;hello&quot;);<br>
+    }</small></font><br>
+    <br>
+    <br>
+    結果，VC6 和 BCB4 都通過，令我大驚失色。幸好 GCC 幫我扳回一城 :)：<br>
+    <br>
+    <small><font face="Courier New" color="#FF0000">&gt; Resource = OpenResource(szUri); // </font><font
+    color="#FF0000">這一行會過嗎？</font></small><br>
+    <br>
+    GCC error: no match for `CWin32InScopeHandle &amp; = int'<br>
+    candidates are: CWin32InScopeHandle::operator=(const CWin32InScopeHandle &amp;)<br>
+    <br>
+    結論：VC6 和 BCB4 對於型別轉換也未免太隨性太霸道了些。<br>
+    本例因 sizeof(CWin32InScopeHandle) == sizeof(HANDLE)，<br>
+    所以也就沒出什麼大錯。如果想看它出糗，就把 CWin32InScopeHandle<br>
+    多加幾個 data members，看看強行 assign 之後，其他 data members<br>
+    的值是什麼！<br>
+    <br>
+    我會把這個情況通知家俊。會不會我自己遺忘了什麼細節 ?!<br>
+    <br>
+    by the way，型別轉換本就是個細節繁複的主題。<br>
+    《C++ Primer 中文版》4.14 節對此有 10 頁介紹，9.3 節對此又有 16 
+    頁介紹。<br>
+    <br>
+    <br>
+    <font color="#408080">&gt; 我知道您最近所翻譯的 More Effective C++ p.49 中<br>
+    &gt; Mr. Scott Meyers 也有提到這個做法<br>
+    &gt; More Effective C++ 中和家俊先生在 Win32InScopeHandle<br>
+    &gt; 這個 class 的作法稍有不同<br>
+    &gt; 順便一問，您覺得這兩個哪一個比較好呢？</font><br>
+    <br>
+    Scott Meyers 的作法比較週詳。他考慮到上述「不可強行 assign」的情況，<br>
+    所以採用 single argument ctor（而非 assignment operator）來<br>
+    接納 resource handle。由於他的 WindowHandle class 所面對的 resource 是<br>
+    window handle，為了杜絕複製出多份 WINDOW_HANDLE，乃將 operator= 和<br>
+    copy ctor 都阻殺於 private 之內。考慮非常週沿。<br>
+    <br>
+    -- the end<br>
+    &#26;<!--mstheme--></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

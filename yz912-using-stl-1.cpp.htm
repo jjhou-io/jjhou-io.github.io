@@ -1,0 +1,70 @@
+<html>// 第二週程式
+
+// headers 應採用新的規格
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+using namespace std;
+
+// 一個用以列印的 functor
+
+template<typename T>
+class printElem
+{
+public:
+   void operator()(const T& i)
+   {  cout << i << ' ';  }
+};
+
+
+
+int main()
+{
+  int ia[10] = {2,6,9,14,49,70,38,90,71,28};
+
+  {
+  // 使用 vector
+
+  vector<int>  vi(&ia[0], &ia[10]);
+  vi.push_back(38);
+
+  cout << vi.size() << endl;      // 11
+  cout << vi.capacity() << endl;  // 20（每次成長兩倍）
+  for(int i=0; i<vi.size(); ++i)
+      cout << vi[i] << ' ';
+
+  // 使用 iterators
+  vector<int>::iterator  ite1 = find(vi.begin(), vi.end(), 49);
+  vector<int>::iterator  ite2 = find(vi.begin(), vi.end(), 90);
+
+  cout << *ite1 << endl;  // 49
+  cout << *ite2 << endl;  // 90
+
+  // erasing...（待查）
+
+  cout << "jjhou" << int(5) << endl; // 暫時物件
+
+  sort(vi.begin(), vi.end());
+
+  for_each(vi.begin(), vi.end(), printElem<int>());
+  }
+
+  {
+  list<long> li(ia, ia+10);
+  list<long>::iterator ite3 = find(li.begin(), li.end(), 70);
+  cout << *ite3  << endl;      // 70
+  cout << *(++ite3) << endl;   // 38
+  }
+
+  // 使用各種 algorithms
+
+
+
+  // 使用 functors
+
+
+
+  // 使用 adapters
+
+}

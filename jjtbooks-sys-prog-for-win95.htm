@@ -1,0 +1,454 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>《Windows 95 系統程式設計 - 虛擬機器與 VxD 程式設計》</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center"><font color="#808080"><strong><small><small>六刷 4130本</small></small></strong></font></h2>
+
+<h2 align="center"><font color="#800000">《Windows 95 系統程式設計 <small>- 
+虛擬機器與 VxD 程式設計</small>》<br>
+<small>System Programming for Windows 95</small></font></h2>
+
+<h2 align="center"><font color="#800000"><small>侯捷 譯</small></font></h2>
+
+<p align="center"><img src="oney.jpg" tppabs="http://jjhou.boolan.com/oney.jpg" width="243" height="291"
+alt="oney.jpg (16686 bytes)"></p>
+
+<p align="center"><a href="errata-sys-prog-for-win95.htm" tppabs="http://jjhou.boolan.com/errata-sys-prog-for-win95.htm" target="main">繁體版 勘誤</a></p>
+
+<p align="center"><a HREF="free-oney.htm" tppabs="http://jjhou.boolan.com/free-oney.htm" TARGET="main">完整電子書開放</a></p>
+
+<hr>
+
+<blockquote>
+  <font FACE="華康粗黑體" SIZE="6"><p ALIGN="left"></font><a name="【基本資料】"><font
+  color="#FF0000">【基本資料】</font></a><br>
+  <br>
+  書名：<font color="#0000FF">Windows 95 系統程式設計 - 虛擬機器與 VxD 
+  程式設計</font><br>
+  出版：松崗 1999.01<br>
+  ISBN：957-22-3027-1<br>
+  頁數： 17 章 790 頁<br>
+  定價：NT$ 860.0<br>
+  <br>
+  原著：<a href="review3-7.htm#●System Programming for Windows 95" tppabs="http://jjhou.boolan.com/review3-7.htm#●System Programming for Windows 95"><font
+  color="#0000FF">System Programming for Windows 95</font></a><br>
+  原著作者：Walter Oney<br>
+  原著出版：Microsoft Press, 1996<br>
+  原著ISBN：1-55615-949-8<br>
+  原著定價：US$ 39.95<br>
+  <font SIZE="4"></p>
+  </font><p ALIGN="left"><a name="【譯序】"><font color="#FF0000">【譯序】</font><font
+  size="6"><br>
+  </font></a><font size="3"><br>
+  我於 1997 年初譯完 Matt Pietrek 的 <i><b>Windows 95 System Programming Secrets</b></i> 
+  （中譯為 <a href="jjtbooks-win95-sys-prog-secrets.htm" tppabs="http://jjhou.boolan.com/jjtbooks-win95-sys-prog-secrets.htm">Windows 95 
+  系統程式設計大奧秘</a>，旗標出版）之後，網路上的 CompBook（電腦書訊）版貼出了這樣一則 
+  post：</font></p>
+  <font size="3"><p ALIGN="JUSTIFY"><font color="#0000FF">作者 Imanaka (八方歸去) <br>
+  時間 Sat Mar 15 01:05:29 1997 </font></p>
+  <p ALIGN="JUSTIFY"><font color="#0000FF">Matt Pietrek 我最崇拜的作家<br>
+  <i><b>Windows 95 System Programming Secrets</b></i> 我最愛的書<br>
+  現在居然有中文本了...看來我又得去買一本中文本，中英對照看了 </font><i><b></p>
+  </b></i><p ALIGN="JUSTIFY"><font color="#0000FF">任何喜愛 Windows 
+  程式的人千萬不能錯過這本書... 不過得先懂點 SDK 就是了... 
+  看完這本書後，幾乎能解答所有關於 Windows 95 OS 方面的疑問... 
+  大家快去買吧！侯俊傑先生既然有勇氣翻譯這種高技術性的書籍，大家也應該多多支持和鼓勵，這樣才有更好的翻譯書...例如 
+  <i>Inside OLE</i> 或是 <i><b>System Programming for Windows 95</b> </i>等等。嘿嘿！會不會太狠了點？</font></p>
+  <p ALIGN="JUSTIFY">不，不會太狠！現在，這本 Windows 95 系統程式設計 - 
+  VMs &amp; VxDs 就是我對所有需要系統層面的進階好書的讀友的回應。</p>
+  <p ALIGN="JUSTIFY">這本書的原文出版日期是 1996 年第二季。我一向對 
+  Virtual Machine 和 Virtual Device Driver（VxD）的原理甚感興趣，因此很快就享用了原文本。一年半載過去，中譯本卻一直未見面世！國內電腦書商爭取譯權的動作向來十分迅速，這麼好而且重要的一本書遲遲沒有中譯本，我唯一能夠想到的原因是，和內容深度以及市場考量有關。</p>
+  <p ALIGN="JUSTIFY">事實上，市場的憂慮是多餘的，臺灣PC工業如此發達，對於這類書籍已經到了求書若渴的程度。臺灣電腦出版界對於高階技術領域的無能為力，才真令人憂慮；臺灣高階技術翻譯人才的凋零難覓，能者不為，為者不能，才真令人憂慮。</p>
+  <p ALIGN="JUSTIFY">1997 
+  年春夏兩季，我應新竹科學園區多家廠商之邀（包括睿昱半導體、華邦電子、力捷電腦...），開授總近 
+  100 小時的 Windows 作業系統課程。在系統軟體層面，我採用<i><b>Windows 
+  95 System Programming Secrets</b></i> 
+  做為教材（噢噢，當然是採用我的中譯本 J ）；在低階VxD的入門層面，則為學員大量補充這本 
+  <i><b>System Programming for Windows 95</b></i> 的內容。其後，1997 
+  年末松崗公司爭取了此書之中譯權，委由我負責翻譯。這對期待高階好書的讀者而言是一個美好的開始，對我而言則是一個艱鉅的任務。但我期許自己，藉由徹底熟讀此書的機會，提昇自己的技術水平，也藉此為國內需要瞭解系統低階技術以及撰寫 
+  VxD 
+  之眾多工程師盡一份心力。是的，工程師閱讀原文書不是問題，但一本好的譯本可以在閱讀效率和吸收效率上帶來極大的幫助。<i><b></p>
+  <p ALIGN="JUSTIFY">Windows 95 System Programming Secrets</b></i>（Matt Pietrek 
+  著）的讀者，大概會對這本名稱相似的<i><b>System Programming for Windows 95</b></i>（Walter 
+  Oney著）乍見之下感到疑惑。基本上 Matt Pietrek 
+  是在軟體層面討論作業系統，包括 processes、threads、modules、memory 
+  management、executable file format、windowing system、messaging system...。其中雖討論了 
+  VxD，卻是以使用者角度切入。Walter Oney 
+  這本書走的是更低層次，從虛擬機器（VM）來看 Windows 95 
+  作業系統，並以大量篇幅介紹VxD 程式設計的技術與實作細節（包括 
+  Plug &amp; Play device, Communication Driver, Serial Port, VCOMM, IOS, IFS...）。其內容之詳盡豐富，技術之深刻紮實，實在是這個領域的罕見好書，是一本由淺而深，涵蓋初中高階的詳實好書。</p>
+  <p ALIGN="JUSTIFY">對於任何需要撰寫 Windows 9x 
+  驅動程式的朋友，或是想瞭解 Windows 9x 
+  低階面貌（虛擬機器層面）的朋友，我鄭重向您推薦此書！</p>
+  <p ALIGN="JUSTIFY">翻譯此書的10 個月之中，Windows 98問世了。我想許多人都對Win98 
+  WDM和Win95 VxD 
+  之間的異同與定位，感到興趣。本書作者已在「前言」第一頁（頁碼<font
+  COLOR="#ff0000">17</font>）針對這一部份提出了他的看法，有興趣的讀者請特別注意。基本上，Win98 
+  的WDM 係以VxD 模擬出來。VxD仍然是Windows 9x的原生（native）技術。也因此，<b>本書所有技術均適用Win95和Win98</b>。</p>
+  <p ALIGN="JUSTIFY">我向來喜歡拿高階技術書籍挑戰自己的極限。這本書，實在說，後半部的 
+  driver程式實務已經超越了我的極限。本書原擬以合譯方式，由我負責前半，由業界朋友負責後半。後因朋友過於忙碌，遂幾乎全部由我完成。為了讓後半部也有良好的水準，特別商請華碩公司幾位好朋友幫助檢閱。他們提出了許多技術上的見解，也提供了許多註解。這本書能夠在此刻以目前的水準出現於各位眼前，他們功不可沒。當然，本書的一切責任，仍然是屬於我的。</p>
+  <p ALIGN="JUSTIFY">完成了這本書，如果還有人拿 <i>Inside OLE<b> </b></i>叫我譯，我真要「從命不如恭敬」了 
+  。</p>
+  <p>侯俊傑 1998.12.01 于新竹<br>
+  <ul>
+    <li>本書 11~12 
+      章之翻譯與技術推敲，得力於華邦公司陳欽燦先生甚多，謹致謝忱。<br>
+    </li>
+    <li>本書 11~16 章談到各種 drivers 
+      的實作細節。這一部份非我專精，特別商請華碩公司的朋友擔任這些章節的檢閱工作：</li>
+  </ul>
+  <blockquote>
+    <p ALIGN="JUSTIFY">高雲慶先生：第11, 12章及5, 6, 10, 17章的「中斷」部份<br>
+    張訓賓先生：第13章 <br>
+    吳俊良先生：第14章<br>
+    林居輝先生：第15章<br>
+    林偉博先生：第16章</p>
+  </blockquote>
+  <blockquote>
+    <p ALIGN="JUSTIFY">對於他們的協助，我在此致上深深謝意。如果有更多業界朋友願意抽出時間在教育事業上出力，我們的高階翻譯人才及高階實務書籍，當不至凋零至此。</font></p>
+  </blockquote>
+  <ul>
+    <li><font size="3">在我的教育理念中，原文技術名詞是不必也不該翻譯的。面對某些普及並得神韻的中文譯名，當然從眾為佳；但許多原文技術名詞，強譯為中文的結果是畫蛇添足。考慮到業界的習慣用語，以及此書的讀者層，我在書中保留了許多原文技術名詞（與動詞）。當然，我必需承認，用詞的選擇取捨，都是根源於我（譯者）個人的文字習慣與閱聽習慣，不見得為每一個人所接受與喜愛。<br>
+      </font></li>
+    <li><font size="3">一本技術書籍之索引（index），扮演十分重要的角色。由於我個人在排版軟體的操控上還沒有能力製作 
+      index，所以此書如同絕大部份的中文書籍一樣，沒有 index。謹向讀者致歉。精良的index 
+      是未來中文書籍應該追求的目標之一。</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY"></font><a name="【翻譯風格】"><font
+  color="#FF0000">【翻譯風格】</font></a><font size="3"></p>
+  <p ALIGN="JUSTIFY">以下是本書對於譯詞的處理原則，以 Q/A 
+  方式呈現，由此可略窺本書風格：</p>
+  <p ALIGN="JUSTIFY"><font color="#0000FF">Q: 原文名詞，時而譯之，時而未譯。</font></p>
+  <p ALIGN="JUSTIFY">A: 
+  由於電腦技術書籍（尤其如本書之類）有非常多的函式名稱、常數名稱、術語，在大量中英文夾雜的情況下，我個人並不絕對考量（實在也沒有能力做到）整體的譯詞統一和「該譯都譯」的層次。反倒是以「本書讀者之程度可接受，並可獲得原詞之隱含意義」為重要考量。舉個例子，page, 
+  paging, pageable, 如果我把 page 譯為分頁（名詞），paging 
+  譯為分頁（動詞），這基本上已經不太理想了。饒是如此，pageable 
+  或可譯為「可分頁的」，page fault 或可譯為「分頁失敗」，page swapping 
+  或可譯為「分頁置換」。但因我已保留了 page 一詞，只好對於 paging, 
+  pageable, page fault, page swapping 
+  統統保留。相信這是本書讀者樂見的。又例如，communication port error 
+  雖可譯為「通訊埠錯誤」，但先前我都保留 port 這個詞，所以...。此外，像 
+  request 一詞，是我們工程師常掛在嘴上的，所以也保留了。</p>
+  <p ALIGN="JUSTIFY">但是，留下這麼多原文名詞，再加上函式名稱、常數名稱、變數名稱、結構名稱...，整本書在某些地方變得蟹形字密度過高，這時候我可能又對於某些原已保留原文但若譯為中文亦還可接受的詞，改用中文（在不造成迷惑的情況下）。</p>
+  <p ALIGN="JUSTIFY">另一種情況是，我們或許可以把 entry 
+  譯為項目、條目、條孔、條格，但面對 IO service entry 我卻不好譯為「IO 
+  service 項目」或「IO service 
+  條目」。換句話說在一串完整的名詞裡，我比較不喜見到中英夾雜的現象。</p>
+  <p ALIGN="JUSTIFY">再一種情況是，例如，三種 drivers：&quot;Nonompliant&quot; 
+  drives，&quot;Port&quot; drives 和 &quot;Generic&quot; drivers。我們或許可將第三種譯為「通用型 
+  driver」，但為與前兩者位階相等，仍沿用原文。</p>
+  <p ALIGN="JUSTIFY">再拿 &quot;hook into&quot; 
+  為例，每一位有能力閱讀此書的讀者，都知道 hook 
+  的意思。如果我前面保留了 hook 一詞，我也只好保留 &quot;hook 
+  into&quot; 這個詞，才有精簡的表現與足夠的意義。</p>
+  <p ALIGN="JUSTIFY">cache 和 caching 也是一樣的情況。queue, queued, queueing 
+  也是一樣的情況。　</p>
+  <p ALIGN="JUSTIFY"><font color="#0000FF">Q: 未譯之英文名詞加上 s，或未譯之英文動詞加上 
+  ed，讀來非常不順。既然是中文書，理應依照中文單複數慣用法。</font></p>
+  <p ALIGN="JUSTIFY">A: 
+  中文很少有複數用法，只能加「們」，但「虛擬機器們」或「裝置們」是很滑稽的。在譯文中出現「名詞加 
+  s」或「動詞加 ed」的情況，某些時候可以讓讀者更清楚意義。不過，我也的確發現不少非必要的 
+  s 或 ed，這種情況下我便把它們拿掉了。</p>
+  <p ALIGN="JUSTIFY"><font color="#0000FF">Q: 
+  已經出現在章前註解或已中英文對照過的詞，不必每次都中英文同時出現。例如 
+  mount 或 reentrant 或 entry。</font></p>
+  <p ALIGN="JUSTIFY">A: 有些字我很想一直使用原文，例如 mount，例如 
+  reentrant，例如 entry。但出現過多次之後，又使我信心動搖，覺得怪怪。尤其對於動詞，例如 
+  mount，如果說：「我 mount 
+  了一個硬碟」，似乎怪怪的，說「我裝載了一個硬碟」，又似乎沒有讓讀者得到 
+  mount 
+  的那個意思。所以，既然不太費事，我也就常常不厭其煩地讓這一類詞的中英文一起出現。</p>
+  <p ALIGN="JUSTIFY">事實上大家都有經驗，讀一本書不見得從頭看起，也可能是日後需要抽出某個章節看三五頁。對於上述之類的動詞或名詞，如果突然看到，而沒有注意先前曾出現過的中英對照，就會覺得奇怪或不解。因此我常常不厭其煩地讓這一類詞中英文並現。</p>
+  <p ALIGN="JUSTIFY"><font color="#0000FF">Q: 有些詞似乎不必再原文對照。</font></p>
+  <p ALIGN="JUSTIFY">A: 這大約是指諸如 send 或 flush 之類的詞。send 
+  若譯為傳送或送出，讀者不知道它是 send 或是 post（這是兩種不同的訊息傳遞方式）。flush 
+  若譯為清除，讀者可能會以為是 clean up 或 reset。舉一句為例：</p>
+  <p ALIGN="JUSTIFY"><font color="#0000FF">你應該掃清（flush）任何 cache，並清除（clean 
+  up）你所握有且代表volume 的其他資源。</font></p>
+  <p ALIGN="JUSTIFY">諸如此類的問題，在一整本書籍裡，層出不窮，很難做到符合每個人的理想。</p>
+  <p ALIGN="JUSTIFY">換句話說，「統一譯詞」以及「中文形式之完整」這兩項，在此書已經難以企及了，所以我比較寧願「得義而忘言」。</p>
+  <p ALIGN="JUSTIFY">當然，很多詞句的順眼與否，都根源於閱讀者的個人習慣。儘量減少讀者的疑慮，是我最大的考量（然而我的作法，其實也根源於我個人的閱聽習慣）。</p>
+  <p ALIGN="JUSTIFY">本書 11~16 
+  章，有許多檢閱者的註解。每一個大型註解皆以檢閱者為名，例如 
+  11,12 章為高雲慶註，13 章為張訓賓註... 
+  依此類推。如果以「譯註」起頭，那就是譯者我（侯俊傑）所寫的註。</font></p>
+  <p ALIGN="JUSTIFY">　</p>
+  <font FACE="華康粗圓體" SIZE="6"><p></font><a name="【目 錄】"><font
+  color="#FF0000">【<font size="3">目 錄</font>】</font></a><font FACE="華康粗圓體"
+  SIZE="6"></p>
+  </font><font FACE="細明體" SIZE="1"><p ALIGN="JUSTIFY"></font><font size="3">譯 序 / 
+  001</p>
+  <p ALIGN="JUSTIFY">目 錄 / 011</p>
+  <p ALIGN="JUSTIFY">前 言 / 017</p>
+  <p ALIGN="JUSTIFY">第一篇 導入（Introduction） / 001</p>
+  <p ALIGN="JUSTIFY">第１章 概觀（Overview） / 003</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">誰應該閱讀本書 / 004</p>
+    <p ALIGN="JUSTIFY">本書組織 / 005</p>
+    <p ALIGN="JUSTIFY">本書程式實例 / 007</p>
+    <p ALIGN="JUSTIFY">關於所有的未公開技巧（Undocumented Hacks） / 008</p>
+    <p ALIGN="JUSTIFY">關於所有的公開技巧（Documented Hacks） / 008</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第２章 各式各樣的 Windows 和 Drivers / 011</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">Windows 系統分類 / 012</p>
+    <p ALIGN="JUSTIFY">Windows 驅動程式的主要沿革 / 018</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第３章 Windows 95 系統架構 / 023</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">虛擬機器（Virtual Machines） / 025</p>
+    <p ALIGN="JUSTIFY">Processes and Threads（行程和執行緒） / 031</p>
+    <p ALIGN="JUSTIFY">Windows 應用程式 / 033 </p>
+    <p ALIGN="JUSTIFY">MS-DOS 和 MS-DOS 應用程式 / 039</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第４章 系統程式設計之介面 / 045 </p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">虛擬裝置驅動程式（Virtual Device Drvers） / 047</p>
+    <p ALIGN="JUSTIFY">Win32 API / 057</p>
+    <p ALIGN="JUSTIFY">相容性介面（Compatibility Interfaces） / 062</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第５章　以 assembly 語言進行系統程式設計 
+  / 071</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">定址模式（Addressing Modes） / 072</p>
+    <p ALIGN="JUSTIFY">32 位元程式設計 / 085</p>
+    <p ALIGN="JUSTIFY">系統程式設計的特質 / 093</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第二篇 虛擬裝置驅動程式 基礎技術 / 105</p>
+  <p ALIGN="JUSTIFY">第６章 虛擬機器管理器（The Virtual Machine Manager） / 107</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">記憶體管理 / 108</p>
+    <p ALIGN="JUSTIFY">中斷（interrupts）的處理 / 112</p>
+    <p ALIGN="JUSTIFY">對執行緒（Threads）進行排程 / 123</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第７章　虛擬裝置驅動程式（VxD）之相關技術 
+  / 131</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">可執行檔格式（Executable File Format） / 132</p>
+    <p ALIGN="JUSTIFY">VxDs 的節區架構（Segmentation of VxDs） / 133</p>
+    <p ALIGN="JUSTIFY">VxDs 的聯結（Link Scripts for VxDs） / 136</p>
+    <p ALIGN="JUSTIFY">以 assembly 語言撰寫VxDs / 139</p>
+    <p ALIGN="JUSTIFY">以 C 或 C++ 撰寫VxDs / 151</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第８章 Virtual Device Drivers 的起始與終結 / 
+  183</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">靜態的（static）VxDs / 184</p>
+    <p ALIGN="JUSTIFY">一個靜態（static）VxD 的起始與終結 / 191</p>
+    <p ALIGN="JUSTIFY">動態的（dynamic）VxDs / 209</p>
+    <p ALIGN="JUSTIFY">一個動態（dynamic）VxD 的起始與終結 / 213</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第９章 VxD 程式設計基礎技術 / 217</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">VxD Service介面 / 217</p>
+    <p ALIGN="JUSTIFY">基礎資料結構 / 234</p>
+    <p ALIGN="JUSTIFY">配置記憶體 / 251</p>
+    <p ALIGN="JUSTIFY">處理Events / 259</p>
+    <p ALIGN="JUSTIFY">執行動作的同步控制（Synchronizing Execution） / 268</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第10章 協助 Windows 95 管理虛擬機器 / 287</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">虛擬機器的生命週期 / 288</p>
+    <p ALIGN="JUSTIFY">V86 Region / 292</p>
+    <p ALIGN="JUSTIFY">軟體中斷 / 303</p>
+    <p ALIGN="JUSTIFY">給應用程式呼叫的 APIs / 319</p>
+    <p ALIGN="JUSTIFY">呼叫 Windows 應用程式 / 327</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第三篇 I/O 程式設計（Input/Output Programming） 
+  / 343</p>
+  <p ALIGN="JUSTIFY">第11章 Plug and Play（即插即用） / 345</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">硬體如何運作 / 346</p>
+    <p ALIGN="JUSTIFY">Configuration Manager（組態管理器） / 354</p>
+    <p ALIGN="JUSTIFY">Device Information Files（裝置資訊檔） / 378</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第12章 對裝置做組態規劃（Configuring Devices） 
+  / 399</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">邏輯組態（Logical Configuration） / 400</p>
+    <p ALIGN="JUSTIFY">裝置驅動程式（Device Drivers） / 408</p>
+    <p ALIGN="JUSTIFY">資源仲裁器（Resource Arbitrators） / 417</p>
+    <p ALIGN="JUSTIFY">硬體設定檔（Hardware Profiles） / 430</p>
+    <p ALIGN="JUSTIFY">與使用者之間的介面 / 434</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第13章 Input/Output 程式設計 / 447</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">硬體基礎 / 448</p>
+    <p ALIGN="JUSTIFY">硬體資源虛擬化 / 462</p>
+    <p ALIGN="JUSTIFY">撰寫 Ring0 Drivers / 503</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第14章 通訊裝置驅動程式（Communications 
+  Driver） / 519</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">架構概觀 / 520</p>
+    <p ALIGN="JUSTIFY">Serial Port Drivers / 530</p>
+    <p ALIGN="JUSTIFY">VCOMM 中的其他 VxDs / 584</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第15章 Block Device Drivers / 593</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">IOS 的架構 / 594</p>
+    <p ALIGN="JUSTIFY">和 IOS共事的技術 / 605</p>
+    <p ALIGN="JUSTIFY">實際建立一個Driver / 658</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第四篇 擴充作業系統 / 675</p>
+  <p ALIGN="JUSTIFY">第16章 可安裝的檔案系統（Installable File Systems） / 677</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">使用 IFS Services / 678</p>
+    <p ALIGN="JUSTIFY">Local File System Driver / 701</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">第17章 DOS 保護模式介面（DPMI） / 747</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">切換到保護模式 / 748</p>
+    <p ALIGN="JUSTIFY">DPMI 函式 / 751</font></p>
+  </blockquote>
+  <font size="3"><p ALIGN="JUSTIFY">附 錄 Plug and Play Device Identifiers / 777</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">Windows Generic Device Identifiers / 777</p>
+    <p ALIGN="JUSTIFY">Device Type Code / 788</font></p>
+  </blockquote>
+  <p ALIGN="JUSTIFY"><a name="【讀者來函】"><font color="#FF0000">【讀者來函】</font></a><br>
+  </p>
+  <hr align="left">
+  <p ALIGN="JUSTIFY">作者 yammy.bbs@csie.nctu.edu.tw (傲笑紅塵是主角), 看板 
+  CompBook<br>
+  時間 交大資工鳳凰城資訊站 (Tue Jan 12 23:32:55 1999)<br>
+  ───────────────────────────────<br>
+  : &lt;System Programming for Windows 95&gt; 譯本早於 12 月中旬交稿。<br>
+  : 松崗已於 12 月下旬付印。雖然我還沒有收到書，算算日子不是今天<br>
+  : 也該是明天了吧。<br>
+  <br>
+  呵呵~~~~~我買到了, 860NT,在譯序的地方有 Imanaka的post<br>
+  是那時Windows 95 System Programming Secrets翻譯本大奧秘出版時<br>
+  所 post 的<br>
+  <br>
+  看很幾次原文老是陣亡,希望這次有了好的中譯本能讓我學的更多看的更深<br>
+  老師,謝謝您</p>
+  <hr align="left">
+  <p ALIGN="JUSTIFY">作者 roger214 (Dont' ask me why!) 看板 CompBook<br>
+  時間 Thu Jan 14 13:27:14 1999<br>
+  ───────────────────────────────<br>
+  嗯，我在高雄也買到了，不過我這邊買怎麼那麼便宜？731元而已耶！:p<br>
+  在建國二路上的儒林，只有這一本，今天剛到的。說不定是整個高雄唯一<br>
+  的一本說(因為其它家有賣電腦書的都被我找遍了:p)</p>
+  <hr align="left">
+  <p ALIGN="JUSTIFY">作者 WeiPo.bbs@csie.nctu.edu.tw (Weber), 看板 CompBook<br>
+  時間 交大資工鳳凰城資訊站 (Wed Jan 13 11:18:11 1999)<br>
+  ───────────────────────────────<br>
+  ==&gt; 在 dyliu@ms1.hinet.net (四眼的王蟲) 的文章中提到:<br>
+  : On 13 Jan 1999 01:58:01 GMT, WangWorm.bbs@bbs.ee.ncu.edu.tw (王蟲)<br>
+  : wrote:<br>
+  : &gt; 說到 &quot;System Programming for Windows 95&quot; 這本書<br>
+  : &gt; 以書名來看是指明 for win95<br>
+  : &gt; 不知道書中提到的技術和概念<br>
+  : &gt; 可否直接套用在 NT 上呢?<br>
+  : &gt; 我個人覺得可能有些差距(是嗎? )<br>
+  : &gt; 不知道實際上有多少相異處呢?<br>
+  : Windows 95 的 device driver 架構與 NT 的 device driver<br>
+  : 架構差異甚大.<br>
+  <br>
+  WDM 與 NT Kernel Mode Driver 也有所差異,<br>
+  由其 WDM 的重要特色: Stream Class Driver 的架構, 有用到<br>
+  大量的 COM Interface, 使 filters 之間能進行連接工作.<br>
+  <br>
+  回歸到 Title: COM 早已經滲透到 Window Kernel 了, 以後寫<br>
+  WDM Driver, 或多或少要知道一些 COM 的常識.<br>
+  <br>
+  以前老大常唸我花時間搞些有的沒的, 如 ActiveX, COM, OO 等,<br>
+  看樣子現在總算有派上用場了.</p>
+  <hr align="left">
+  <p ALIGN="JUSTIFY">作者 Imanaka (C++ Zealot) 看板 CompBook<br>
+  時間 Thu Jan 14 01:43:39 1999<br>
+  ────────────────────────────────<br>
+  ※ 引述《yammy.bbs@csie.nctu.edu.tw (傲笑紅塵是主角)》之銘言：<br>
+  &gt; 呵呵~~~~~我買到了, 860NT,在譯序的地方有 Imanaka的post<br>
+  &gt; 是那時Windows 95 System Programming Secrets翻譯本大奧秘出版時所<br>
+  &gt; post的 看很幾次原文老是陣亡,希望這次有了好的中譯本能讓我學<br>
+  &gt; 的更多看的更深&nbsp; 老師,謝謝您囉<br>
+  <br>
+  嗯 860元...<br>
+  看到這篇Post 一大早馬上跑去看<br>
+  My God! 我的id真的在第一頁....<br>
+  不買回來都不行...:P<br>
+  <br>
+  先看了前一百頁, p.76 的 Segment descriptor的圖<br>
+  漏掉了 Segment limit bits 19:16....<br>
+  快期末考了 只好先擺著....<br>
+  不過翻得真不錯 :)<br>
+  </p>
+  <hr align="left">
+  <p ALIGN="JUSTIFY">&gt; 送件者: Hsiao Tsu Tair &lt;tuetai@ms15.hinet.net&gt;<br>
+  &gt; 收件者: jjhou@ccca.nctu.edu.w<br>
+  &gt; 主旨: Windows 95 系統程式設計(虛擬機器與 VxD程式設計) 感想<br>
+  &gt; 日期: 1999年1月13日 AM 02:01<br>
+  &gt;<br>
+  &gt; 侯先生您好:<br>
+  &gt;<br>
+  &gt; 您剛上市的新書: Windows 95 系統程式設計(虛擬機器與 VxD程式設計)我今天<br>
+  &gt; 剛買回來.大略翻了一下,<font color="#0000FF">發現這本書除了翻譯成中文外,最有價值的部分應該是<br>
+  &gt; 從到11章到16章由華碩工程師所加的譯註,這些譯註可說是補足了原文說明的不<br>
+  &gt; 足與 Windows Driver 實作時發生的問題,相信必然能幫助許多像本人一樣欲跨入<br>
+  &gt; 或從事 Windows Driver 寫作的人.</font><br>
+  &gt;<br>
+  &gt; 目前我手邊除了有這本書的原文書(一個月前買的)外,另外還有兩本有關 
+  <br>
+  &gt; Windows NT4 Device Driver 的書如下:<br>
+  &gt;<br>
+  &gt; 1. The Windows NT Device Drive Book<br>
+  &gt; Art Baker<br>
+  &gt;<br>
+  &gt; 2. <a href="article99-3.htm" tppabs="http://jjhou.boolan.com/article99-3.htm">Windows NT Device Drive Development</a><br>
+  &gt; Peter G.Viscaroa &amp; W.Anthony Mason OSR Inc.<br>
+  &gt;<br>
+  &gt; 由於 Windows 98 與未來的 Windows 2000(Windows NT5) 都支援 WDM Driver,<br>
+  &gt; WDM Driver 必然是未來 Wndows Driver的標準,雖然目前市面上並沒有有關於<br>
+  &gt; WDM Driver 寫作書籍,但因為 WDM Drver 起緣於 KDM Driver (for Windows<br>
+  &gt; NT4)+ plug &amp; play.....等等,<br>
+  &gt; 因此本人想從 Windows NT Driver 入門(必要時配合閱讀 Inside Windows NT 
+  這<br>
+  &gt; 本書),若行有餘力再看您翻譯的這本書,希望您給我一些建議好嗎?<br>
+  &gt;<br>
+  &gt; 另外, Systems Programming for Windows 95 這本原文書有許多 errata, 這封<br>
+  &gt; E_mail 的 Attach 正是從 Walter Oney 的網站 Download 下來的堪誤表,希望您<br>
+  &gt; 這本中譯本在未來再版時能加以更正這些 errata, 謝謝!<br>
+  <br>
+  <br>
+  ●侯俊傑回覆<br>
+  <br>
+  蕭兄：<br>
+  <br>
+  謝謝您的熱心。&lt;Windows 95 系統程式設計 - 虛擬機器與 VxD 程式設計&gt;<br>
+  未將 Walter Oney 網站上的 errata 納入，是我的疏忽。我會：<br>
+  <br>
+  <a href="errata-sys-prog-for-win95.htm" tppabs="http://jjhou.boolan.com/errata-sys-prog-for-win95.htm">核對頁碼，在此 errara 
+  上添加中文版頁碼，然後刊載於我的網站上</a>。<br>
+  <br>
+  您提到華碩工程師為 chap11~chap16 
+  所加的譯註的貢獻，足以令我及華碩的朋友們開心，欣慰心血沒有白費。這些朋友平常工作緊得要命（股王可不是那麼好當的 
+  :)），他們願意撥出時間來做這種「幾乎沒有收益」的工作，我想是使命感與理想個性使然。而我自己，這麼做的原因，一方面固然因為那些章節是我的弱處，需要朋友幫忙，一方面是希望起個示範，告訴所有出版電腦翻譯書的朋友，什麼是做書的嚴謹態度。<br>
+  <br>
+  當然，您對此書的印象，都還只是乍見之下的印象。盼您以及所有讀者，都繼續給我指正。<br>
+  <br>
+  您提到希望侯捷給一些關於 Windows NT driver 
+  學習和閱讀上的建議。這一部份，我想以 WeiPo 
+  兄的實務經驗與熱心，是最合適人選了。WeiPo 正是 &lt;Windows 95 
+  系統程式設計 - 虛擬機器與 VxD 程式設計&gt; chap16 的檢閱者。<br>
+  <br>
+  WeiPo 兄，請發言… :)<br>
+  <br>
+  --- the end</p>
+</blockquote>
+
+<hr>
+
+<p>　</p>
+</body>
+</html>

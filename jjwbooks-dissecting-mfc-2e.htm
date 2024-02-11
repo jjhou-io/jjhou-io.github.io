@@ -1,0 +1,1173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>《深入淺出 MFC》2/e</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<p align="center">本書不論繁體版或<a href="jjwbooks-dissecting-mfc-2e-gb.htm" tppabs="http://jjhou.boolan.com/jjwbooks-dissecting-mfc-2e-gb.htm"
+target="main">簡體版</a>，都創下相當記錄。<br>
+然而自 2001 年起，由於松崗圖書公司的變化，不復再有新刷。<br>
+我已開放<a HREF="free-u002p.htm" tppabs="http://jjhou.boolan.com/free-u002p.htm" TARGET="main">繁體版 PDF電子書</a>。</p>
+
+<p align="center"><font color="#808080">繁體二版共11刷，9300+780 冊<br>
+繁體一版共02刷，2500+200 冊</font><font color="#0000FF"><br>
+</font></p>
+
+<h2 align="center"><font color="#800000">《深入淺出 MFC》2/e<br>
+&nbsp; 繁體中文版</font></h2>
+
+<p align="center"><font color="#800000">侯俊傑 著</font></p>
+
+<h2 align="center"><img src="u002p.jpg" tppabs="http://jjhou.boolan.com/u002p.jpg" width="235" height="288"
+alt="u002p.jpg (14505 bytes)"></h2>
+
+<p align="center"><a href="errata-dissecting-mfc-2e.htm" tppabs="http://jjhou.boolan.com/errata-dissecting-mfc-2e.htm" target="main">繁體版 勘誤</a></p>
+
+<p align="center"><a HREF="efile-frame.htm" tppabs="http://jjhou.boolan.com/efile-frame.htm" TARGET="main">frame1-frame8 程式源碼下載</a></p>
+
+<p align="center"><a HREF="qa-dissecting-mfc.htm" tppabs="http://jjhou.boolan.com/qa-dissecting-mfc.htm" TARGET="main">答客問</a></p>
+
+<p align="center"><a HREF="free-u002p.htm" tppabs="http://jjhou.boolan.com/free-u002p.htm" TARGET="main">完整電子書開放</a></p>
+
+<hr>
+
+<blockquote>
+  <font FACE="華康特粗黑體" SIZE="6"><p ALIGN="left"></font><a
+  name="【基本資料】"><font color="#FF0000">【基本資料】</font></a><br>
+  <br>
+  書名：<font color="#0000FF">深入淺出 MFC 第二版</font><br>
+  出版：松崗 1997.05<br>
+  ISBN：957-22-2518-9<br>
+  頁數： 16 章，942 頁<br>
+  定價：NT$ 860.0<br>
+  <font FACE="華康仿宋體" SIZE="1"></p>
+  <p ALIGN="left"></font><a name="【自序】"><font color="#FF0000">【自序】</font></a><font
+  FACE="華康仿宋體" SIZE="1"></p>
+  <p ALIGN="center"></font><font SIZE="6" face="華康粗明體">山高月小 水落石出</font><font
+  FACE="華康仿宋體" SIZE="1"></p>
+  <p ALIGN="CENTER"></font><font size="4" face="華康粗明體">二版序</font><font
+  FACE="華康仿宋體" SIZE="1"></p>
+  <p ALIGN="JUSTIFY"></font><font size="3">任何人看到本書的讀者來函，都會感動於一本電腦書籍的讀者與作者竟然能夠產生如此深厚的共鳴，以及似無若有的長期情感。</p>
+  <p ALIGN="JUSTIFY">何況，身為這本書的作者的我！</p>
+  <p ALIGN="JUSTIFY">我寫的是一本技術書籍，但是贏得未曾謀面的朋友們的信賴與感情。我知道，那是因為這本書裡面也有許多我自己的感情。每當收到讀友們針對這本書寄來的信件（紙張的或電子的），我總是懷著感恩的心情仔細閱讀。好幾位讀友，針對書中的可疑處或是可以更好的地方，不吝嗇地撥出時間，寫滿一大張一大張的信紙，一一向我指正。我們談的不只是技術，還包括用詞遣字的意境。新竹劉嘉均先生和加拿大陳宗泰先生給我非常寶貴的技術上的意見。陳先生甚至在一個月內來了五封航空信。</p>
+  <p ALIGN="JUSTIFY">這些，怎不教我心懷感謝，並且更加戒慎恐懼！</p>
+  <p ALIGN="JUSTIFY">感謝所有讀者促成這本書的更精緻化。Visual C++ 5.0 
+  面世了，MFC 則停留在4.2，程式設計的主軸沒有什麼大改變。對於新讀者，本書乃全新產品自不待言，您可以從目錄中細細琢磨所有的主題。對於老讀者，本書所帶給您的，是更精緻的製作，以及數章新增的內容（請看第０章「與前版本之差異」）。</p>
+  <p ALIGN="JUSTIFY">最後，我要說，我知道，這本書真的帶給許多人很紮實的東西。而我所以願意不計代價去做些不求近利的深耕工作，除了這是身為專業作家的責任，以及個人的興趣之外，是的，我自己是工程師，我最清楚工程師在學習 
+  MFC 時想知道什麼、在哪裡觸礁。</p>
+  <p ALIGN="JUSTIFY">所有出自我筆下的東西，我自己受益最豐。</p>
+  <p ALIGN="JUSTIFY">感謝你們。</p>
+  <p ALIGN="RIGHT">侯俊傑 臺灣.新竹 1997.04.15 </font><font SIZE="1"></p>
+  </font><p><font FACE="華康特粗黑體" SIZE="6">　</p>
+  <p ALIGN="CENTER"></font><font size="5" face="華康粗明體">第一版序</font><font
+  FACE="華康仿宋體" SIZE="1"></p>
+  <p ALIGN="JUSTIFY"></font><font size="3">有一種軟體名曰 version control，用來記錄程式開發過程中的各種版本，以應不時之需，可以隨時反省、檢查、回覆過去努力的軌跡。</p>
+  <p ALIGN="JUSTIFY">遺憾的是人的大腦沒有 version control 
+  的能力。學習過程的徬徨猶豫、挫折困頓、在日積月累的漸悟或剎那之間的頓悟之後，彷彿都成了遙遠模糊的回憶；而屢起屢仆、大惑不解的地方，學成之後看起來則是那麼「理所當然」。</p>
+  <p ALIGN="JUSTIFY">學習過往的艱辛，模糊而明亮，是學成冠冕上閃亮的寶石。過程愈艱辛，寶石愈璀璨。作為私人「想當年」的絕佳話題可矣，對於後學則無甚幫助。的確，誰會在一再跌倒的地方做上記號，永誌不忘？誰會把推敲再三的心得殷實詳盡地記錄下來，為後學鋪一條紅地毯？也許，沒有 
+  version control 
+  正是人類的本能，空出更多的腦力心力與精力，追求更新的事物。</p>
+  <p ALIGN="JUSTIFY">但是，作為資訊教育體系一員的我，不能不有 version 
+  control。事實上我亦從來沒有忘記初學 MFC 的痛苦：C++ 
+  語言本身的技術問題是其一，MFC 
+  龐大類別庫的命名規則是其二，熟知的 Windows 
+  程式基本動作統統不見了是其三，物件導向的觀念與 application 
+  framework 的包裝是其四。初學 MFC programming 
+  時，我的腦袋猶如網目過大的篩子，什麼東西都留不住；各個類別及其代表意義，過眼即忘。</p>
+  <p ALIGN="JUSTIFY">初初接觸 MFC 時，我對 Windows 作業系統以及 SDK 
+  程式設計技術的掌握，實已處在眾人金字塔的頂端，困頓猶復如斯。實在是因為，對傳統程式員而言，application 
+  framework 和 MFC 的運作機制太讓人陌生了。</p>
+  <p ALIGN="JUSTIFY">目前市面上有不少講解 MFC 
+  程式設計觀念的書籍，其中不乏很好的作品，包括 <font color="#0000FF"><i>Programming</i> 
+  <i>Windows 95 with MFC</i></font>（Jeff Prosise 著，Microsoft Press 
+  出版），以及我曾經翻譯過的 <font color="#0000FF"><i>Inside Visual C++ 4.0</i></font>（David 
+  J.Kruglinski 著，Microsoft Press 出版）。<font color="#0000FF"><b>深入淺出</b> <b>MFC</b></font>的宗旨與以上二書，以及全世界所有的 
+  MFC 或 Visual C++ 書籍，都不相同。全世界 
+  （呵，我的確敢這麼說）所有與 MFC 
+  相關的書籍的重點，都放在如何使用各式各樣的 MFC 
+  類別上，並供應各式各樣的應用實例，我卻意不在此。<font
+  color="#0000FF">我希望提供的是對 MFC 
+  應用程式基本架構的每一個技術環節的深入探討，其中牽扯到 MFC 
+  本身的設計原理、物件導向的觀念、以及 C++ 
+  語言的高級議題。有了基礎面的全盤掌握，各個 MFC 
+  類別之使用對我們而言只不過是手冊查閱的功夫罷了。</font></p>
+  <p ALIGN="JUSTIFY">本書書名已經自我說明了，這是一本既深又淺的書。深與淺是悖離的兩條射線，理不應同時存在。然而，沒有深入如何淺出？不入虎穴焉得虎子？</p>
+  <p ALIGN="JUSTIFY">唯有把 MFC 
+  骨幹程式的每一個基礎動作弄懂，甚至觀察其原始碼，才能實實在在掌握 
+  MFC 這一套 application framework 
+  的內涵，及其物件導向的精神。我向來服膺一句名言：原始碼說明一切，所以，我挖 
+  MFC 原始碼給你看。</p>
+  <p ALIGN="JUSTIFY">這是我所謂的深入。</p>
+  <p ALIGN="JUSTIFY">唯有掌握住 MFC 的內涵，對於各式各樣的 MFC 
+  應用才能夠如履平地，面對龐大的 application framework 
+  也才能夠胸中自有丘壑。</p>
+  <p ALIGN="JUSTIFY">這是我所謂的淺出。</p>
+  <p ALIGN="JUSTIFY">本書分為四大篇。第一篇提出學習 MFC 
+  程式設計之前的必要基礎，包括 Windows 程式的基本觀念以及 C++ 
+  的高階議題。「學前基礎」是相當主觀的認定，不過，基於我個人的學習經驗以及教學經驗，我的挑選應該頗具說服力。第二篇介紹 
+  Visual C++ 
+  整合環境開發工具。本篇只不過是提綱挈領而已，並不企圖取代 
+  Visual C++ 
+  使用手冊。然而對於軟體使用的老手，此篇或已足以讓您掌握Visual 
+  C++ 
+  整合環境。工具的使用雖然談不上學問，但在視覺化軟體開發過程中扮演極重角色，切莫小覷它。</p>
+  <p ALIGN="JUSTIFY">第三篇介紹 application framework 的觀念，以及 MFC 
+  骨幹程式。所謂骨幹程式，是指 Visual C++ 的工具 AppWizard 
+  所產生出來的程式碼。當然，AppWizard 
+  會根據你的選項做出不同的程式碼，我所據以解說的，是大眾化選項下的產品。</p>
+  <p ALIGN="JUSTIFY">第四篇以微軟公司附於 Visual C++ 
+  光碟片上的一個範例程式 Scribble 
+  為主軸，一步一步加上新的功能。並在其間深入介紹 Runtime Type 
+  Information（RTTI）、Dynamic Creation、Persistence（Serialization）、Message 
+  Mapping、Command Routing 
+  等核心技術。這些技術正是其他書籍最缺乏的部份。此篇之最後數章則脫離 
+  Scribble 程式，另成一格。</p>
+  <p ALIGN="JUSTIFY">本書前身，1994/08 出版的<a href="jjwbooks-f317.htm" tppabs="http://jjhou.boolan.com/jjwbooks-f317.htm"
+  target="main"> <font color="#0000FF"><b>Visual C++</b> <b>物件導向MFC程式設計 
+  基礎篇</b></font></a>以及 1995/04 年出版的<a href="jjwbooks-f318.htm" tppabs="http://jjhou.boolan.com/jjwbooks-f318.htm"
+  target="main"><font color="#0000FF"><b>應用篇</b></font></a>，序言之中我曾經這麼說，全世界沒有任何書籍文章，能夠把 
+  MFC 談得這麼深，又表現得這麼淺。這些話已有一半成為昨日黃花：Microsoft 
+  Systems Journal 1995/07的一篇由Paul Dilascia 所撰的文章<font color="#0000FF"><i>Meandering 
+  Through the Maze of MFC Message and Command Routing</i></font>，以及 Addison Wesley於1996/06出版的 
+  <font color="#0000FF"><i>MFC</i> <i>Internals</i></font> 
+  一書，也有了相當程度的核心涉獵，即連前面提及的<font color="#0000FF"><i>Programming 
+  Windows 95 with MFC</i> </font>以及<font color="#0000FF"><i>Inside Visual C++ 4.0</i></font> 
+  兩本書，也都多多少少開始涉及MFC核心。我有一種「德不孤 
+  必有鄰」的喜悅。</p>
+  <p ALIGN="JUSTIFY">為了維護本書更多的唯一性，也由於我自己又鑽研獲得了新的心得，本書增加了前版未有的Runtime 
+  Type Information、Dynamic Creation等主題，對於Message Mapping與Command Routing的討論也更詳細得多，填補了上一版的縫隙。更值得一提的是， 
+  我把這些在 MFC 
+  中極神秘而又極重要的機制，以簡化到不能再簡化的方式，在 DOS 
+  程式中模擬出來，並且補充一章專論 C++ 的高階技術。至此，整個 MFC 
+  的基礎架構已經完全曝露在你的掌握之中，再沒有任何神秘咒語了。</p>
+  <p ALIGN="JUSTIFY">本書從 MFC 的運用，鑽入 MFC 的內部運作，進而 
+  application framework 的原理，再至物件導向的精神，然後回到 MFC 
+  的運用。這會是一條迢迢遠路嗎？</p>
+  <p ALIGN="JUSTIFY">似遠實近！</p>
+  <p ALIGN="JUSTIFY">許多朋友曾經與我討論過，對於 MFC 這類 application 
+  framework，應該挖掘其內部機制到什麼程度？探究原始碼，豈不有違「黑盒子」初衷？但是，沒有辦法，他們也同意，不把那些奇奇怪怪的巨集和指令搞清楚，只能生產出玩具來。<font
+  color="#0000FF">對付 MFC 內部機制，態度不必像對付 MFC classes 
+  一樣；你只需好好走過那麼一回，有個印象，足矣</font>。至於龐大繁複的整個application 
+  framework 
+  技術的鋪陳串接，不必人人都痛苦一次，我做這麼一次也就夠了。</p>
+  <p ALIGN="JUSTIFY">林語堂先生在 <b>朱門 </b>一書中說過的一句話，適足作為我寫作本書的心境，同時也對我與朋友之間的討論做個總結：</p>
+  <blockquote>
+    <p ALIGN="JUSTIFY">「<font color="#0000FF">只用一樣東西，不明白它的道理，實在不高明</font>」。</p>
+  </blockquote>
+  <p ALIGN="JUSTIFY">祝各位 胸中丘壑自成！</p>
+  <p ALIGN="RIGHT">　　　　侯俊傑　　新竹 1996.08.15</font><font
+  FACE="華康仿宋體" SIZE="1"></p>
+  </font><font SIZE="1"><p ALIGN="JUSTIFY"></font><font size="3">P.S. 
+  愈來愈多的朋友在網路上與我打招呼，閒聊談心。有醫師、盲生、北京的作家、香港的讀者、從國中到研究所的各級學生。學生的科系範圍廣到令我驚訝，年齡的範圍也大到令我驚訝。對於深居簡出的作家而言，讀者群只是一個想像空間，哦，我真有這麼多讀者嗎?! 
+  呵呵，喜歡這種感覺。回信雖然是一種壓力，不過這是個甜蜜的負擔。</p>
+  <p ALIGN="JUSTIFY">你們常常感謝我帶給你們幫助。你們一定不知道，沒有你們細心研讀我的心血，並且熱心寫信給我，我無法忍受寫作的漫漫孤寂！我可以花三天的時間寫一篇序，也可以花一個上午設計一張圖。是的，我願意！我對擁有一群可愛可敬的讀者感到驕傲。</font><font
+  FACE="華康仿宋體" SIZE="1"></p>
+  <p ALIGN="JUSTIFY"></font>　</p>
+  <font FACE="華康特粗黑體" SIZE="6"><p ALIGN="CENTER"></font><font
+  face="華康特粗明體" size="5">深入淺出MFC</font><font FACE="Arial" SIZE="6"> </font><font
+  FACE="華康粗黑體" size="3">二版五刷感言</font><font FACE="華康仿宋體"
+  SIZE="1"></p>
+  <p ALIGN="JUSTIFY"></font><font size="3">我很開心地獲知，<b>深入淺出</b> <b>MFC</b> 
+  第二版即將進行第五刷。如果把第一版算進去，那就累積印製 9150 
+  本了（不含簡體版）。也就是說，這本書擁有幾近一萬人（次）的讀者群（不含簡體版讀者）。</p>
+  <p ALIGN="JUSTIFY">對一本如此高階又如此高價的技術書籍而言，誠不易也。我有許多感觸！</p>
+  <p ALIGN="JUSTIFY">先從技術面談起。我閱讀過的 VC++ 或 MFC 
+  書籍不算少，因此，我很有信心地說，這本書的內容有其獨步全球之處。本書企圖引領讀者進入 
+  MFC 這個十分龐大並在軟體工具市場上極端重要之 application framework 
+  的核心；我嘗試剖析其中美好的物件導向性質（<font color="#0000FF">註1</font>）的實作方式，亦嘗試剖析其中與Windows 
+  程式設計模型（<font color="#0000FF">註2</font>）息息相關之特殊性質（<font
+  color="#0000FF">註3</font>）的實作方式。</p>
+  <p ALIGN="JUSTIFY"></font><font size="2"><font color="#0000FF">註1</font>：此指 
+  runtime type information、dynamic creation、persistence、document/view…。</p>
+  <p ALIGN="JUSTIFY"><font color="#0000FF">註2</font>：此指 message based、event driven 
+  之 programming model。</p>
+  <p ALIGN="JUSTIFY"><font color="#0000FF">註3</font>：此指 message mapping、command 
+  routing …。</font><font size="3"></p>
+  <p ALIGN="JUSTIFY">在技術層次上，唯 <i><b>MFC Internals</b></i> 
+  堪與本書比擬（本書附錄Ａ附有 <i><b>MFC Internals</b></i> 簡介）。</p>
+  <p ALIGN="JUSTIFY">但是 <i><b>MFC Internals</b></i> 與 <i><b>Dissecting MFC</b></i>（本書之英文名稱）不僅在內容上各擅勝場，在訴求上亦截然不同。這本書並不是為精通 
+  MFC programming 
+  的老手而寫（雖然它通常亦帶給這樣的讀者不少幫助），而是為初窺 
+  MFC programming 的新手所寫。<i><b>MFC Internals</b></i> 
+  可以說是為技術而技術，探討深入，取材範圍極廣；<i><b>Dissecting MFC</b></i> 
+  卻是為生活而技術，探討深入，但謹守主軸份際。所有我所鋪陳的核心層面的知識，都是為了建立起一份紮紮實實的programming 
+  基礎，讓你徹底瞭解 MFC 
+  為你鋪陳的骨幹背後，隱藏了多少巧妙機關，做掉了多少煩瑣事務。</p>
+  <p ALIGN="JUSTIFY">有了這份基礎，你才有輕鬆駕馭 MFC 的本錢。</p>
+  <p ALIGN="JUSTIFY">唯有這份基礎，才能使你胸中自有丘壑。</p>
+  <p ALIGN="JUSTIFY">如果夠用心，你還可以附帶地從本書概略學習到一個 
+  application framework 的設計藍圖。雖然，99.99999% 的programmer 
+  終其一生不會設計一個 application framework，這樣的藍圖仍可以為你的物件導向觀念帶來許多面向的幫助。</p>
+  <p ALIGN="JUSTIFY">我一直希望，能夠為此書發行英文國際版。囿於個人的語文能力以及時間，終未能行。但是看到來自世界各地的華人讀者的信函（加拿大、紐西蘭、越南、印尼、香港、中國大陸、美國...），也是另一種安慰。在BBS 
+  及Internet News看到各界對此書的評介，以及對此書內容的探討，亦讓我感到十分欣喜。　</p>
+  <p ALIGN="JUSTIFY">這本書（第二版）所使用的開發環境是 <font
+  color="#0000FF">Visual C++ 5.0 &amp; MFC 4.21</font>。就在第五刷即將印行的今天，Visual 
+  C++ 6.0 也已問世；其中的 programming 關鍵，也就是 MFC，在主幹上沒有什麼變化，因此<font
+  color="#0000FF">我不打算為了 Visual C++ 6.0 而改版</font>。</p>
+  <p ALIGN="JUSTIFY">在此新刷中，我繼續修正了一些筆誤，並加上新的讀者來函。</p>
+  <p ALIGN="JUSTIFY">未來，本書第三版，你會看到很大的變化。<br>
+  <br>
+  侯俊傑 臺灣.新竹 1998.09.11 </font></p>
+  <p ALIGN="JUSTIFY">　</p>
+  <p ALIGN="JUSTIFY"><a name="【導讀】"><font color="#FF0000">【導讀】</font></a><br>
+  </p>
+  <font FACE="華康粗圓體" SIZE="6"><p ALIGN="CENTER">你一定要知道</font><font
+  FACE="華康粗圓體" SIZE="4">（導讀）</font><font FACE="細明體" SIZE="1"></p>
+  <p ALIGN="JUSTIFY">　</p>
+  </font><font FACE="華康粗圓體" SIZE="5"><p>這本書適合誰</font><b><font
+  FACE="華康中黑體" SIZE="1"></p>
+  <p ALIGN="JUSTIFY"></font><font FACE="華康中黑體" size="3">深入淺出</font><font
+  FACE="Arial" size="3">MFC</font></b><font FACE="細明體" size="3">是一本介紹</font><font
+  size="3"> MFC<font FACE="細明體">（</font>Microsoft Foundation Classes<font
+  FACE="細明體">）程式設計技術的書籍。對於</font> Windows <font
+  FACE="細明體">應用軟體的開發感到興趣，並欲使用</font> Visual C++ <font
+  FACE="細明體">整合環境的視覺開發工具，以</font> MFC <font FACE="細明體">為程式基礎的人，都可以從此書獲得最根本最重要的知識與實例。</p>
+  <p ALIGN="JUSTIFY">如果你是一位對</font> Application Framework <font
+  FACE="細明體">和物件導向（</font>Object Oriented<font FACE="細明體">）觀念感興趣的技術狂熱份子，想知道神秘的</font> 
+  Runtime Type Information<font FACE="細明體">、</font>Dynamic Creation<font
+  FACE="細明體">、</font>Persistence<font FACE="細明體">、</font>Message Mapping <font
+  FACE="細明體">以及</font> Command Routing <font FACE="細明體">如何實作，本書能夠充分滿足你。事實上，依我之見，這些核心技術與徹底學會操控</font> 
+  MFC <font FACE="細明體">乃同一件事情。</p>
+  <p ALIGN="JUSTIFY">全書分為四篇：</p>
+  <p ALIGN="JUSTIFY">第一篇【勿在浮砂築高台】提供進入</font>MFC<font
+  FACE="細明體">核心技術以及應用技術之前的所有技術基礎，包括：</font></font><font
+  FACE="細明體" SIZE="1"></p>
+  </font><ul>
+    <li><font size="3">Win32<font FACE="細明體">程式觀念：</font>message based, event 
+      driven, multitasking, multithreading, console programming<font FACE="細明體">。</font></font></li>
+    <li>C++ <font FACE="細明體">重要技術：類別與物件、</font>this <font
+      FACE="細明體">指標與繼承、靜態成員、虛擬函式與多型、模板（</font>template<font
+      FACE="細明體">）類別、異常處理（</font>exception handling<font
+      FACE="細明體">）。</font></li>
+    <li>MFC <font FACE="細明體">六大技術之簡化模擬（</font>Console <font
+      FACE="細明體">程式）</font></li>
+  </ul>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第二篇【欲善工事先利其器】提供給對</font><font
+  size="3"> Visual C++ <font FACE="細明體">整合環境全然陌生的朋友一個導引。這一篇當然不能取代</font> 
+  <i><b>Visual C++ User's Guide</b></i> <font FACE="細明體">的地位，但對整個軟體開發環境有全盤以及概觀性的介紹，可以讓初學者迅速了解手上掌握的工具，以及它們的主要功能。</p>
+  <p ALIGN="JUSTIFY">第三篇【淺出</font> MFC <font FACE="細明體">程式設計】介紹一個</font> 
+  MFC <font FACE="細明體">程式的生死因果。已經有</font> MFC <font
+  FACE="細明體">程式經驗的朋友，不見得不會對本篇感到驚豔。根據我的了解，太多人使用</font> 
+  MFC <font FACE="細明體">是「只知道這麼做，不知道為什麼」；本篇詳細解釋</font> 
+  MFC <font FACE="細明體">程式之來龍去脈，為初入</font> MFC <font
+  FACE="細明體">領域的讀者奠定紮實的基礎。說不定本篇會讓你有醍醐灌頂之感。</p>
+  <p ALIGN="JUSTIFY">第四篇【深入</font> MFC <font FACE="細明體">程式設計】介紹各式各樣</font> 
+  MFC <font FACE="細明體">技術。「只知其然</font> <font FACE="細明體">不知其所以然」的不良副作用，在程式設計的企圖進一步開展之後，愈來愈嚴重，最終會行不得也！那些最困擾我們的</font> 
+  MFC <font FACE="細明體">巨集、</font>MFC <font FACE="細明體">常數定義，不得一窺堂奧的</font> 
+  MFC <font FACE="細明體">黑箱作業，在本篇陸續曝光。本篇將使您高喊：</font>Eureka<font
+  FACE="細明體">！</p>
+  <p ALIGN="JUSTIFY">範例程式方面，第三章有數個</font> Console <font
+  FACE="細明體">程式（</font>DOS-like <font FACE="細明體">程式，在</font> 
+  Windows <font FACE="細明體">系統的</font>DOS Box <font FACE="細明體">中執行），模擬並簡化</font> 
+  Application Framework <font FACE="細明體">六大核心技術。另外，全書以一個循序漸進的</font> 
+  Scribble <font FACE="細明體">程式（</font>Visual C++ <font FACE="細明體">所附範例），從第七章開始，分章探討每一個</font> 
+  MFC <font FACE="細明體">應用技術主題。第</font>13<font FACE="細明體">章另有三個程式，示範</font> 
+  Multi-View <font FACE="細明體">和</font> Multi-Document <font FACE="細明體">的情況。</font>14<font
+  FACE="細明體">章</font>~16<font FACE="細明體">章是第二版新增內容，主題分別是</font> 
+  MFC <font FACE="細明體">多緒程式設計、</font>Custom AppWizard<font
+  FACE="細明體">、以及如何使用</font> Component Gallery<font FACE="細明體">提供的</font> 
+  ActiveX controls <font FACE="細明體">和</font> components<font FACE="細明體">。</font></font><font
+  FACE="華康粗圓體" size="7"></p>
+  <p></font><font FACE="華康粗圓體" SIZE="5">你需要什麼技術基礎</font><font
+  FACE="細明體" SIZE="1"></p>
+  <p ALIGN="JUSTIFY">從什麼技術層面切入</font><font FACE="細明體" size="3"> 
+  Windows 軟體開發領域？C/SDK？抑或 C++/MFC？這一直是個引起爭議的論題。就我個人觀點，C++/MFC程式設計必須跨越四大技術障礙：</font><font
+  FACE="細明體" SIZE="1"></p>
+  <ol>
+    <li></font><font FACE="細明體" size="3">物件導向觀念與 C++ 語言。</li>
+    <li>Windows 程式基本觀念（程式進入點、訊息流動、視窗函式、callback...）。</li>
+    <li>Microsoft Foundation Classes（MFC）本身。</li>
+    <li>Visual C++ 整合環境與各種開發工具（難度不高，但需熟練）。</font></li>
+  </ol>
+  <font size="3"><font FACE="細明體"><p ALIGN="JUSTIFY">換言之，如果你從未接觸</font> 
+  C++<font FACE="細明體">，千萬不要閱讀本書，那只會打擊你學習新技術的信心而已。如果已接觸過</font> 
+  C++ <font FACE="細明體">但不十分熟悉，你可以一邊複習</font> C++ <font
+  FACE="細明體">一邊學習</font> MFC<font FACE="細明體">，這也是我所鼓勵的方式（很多人是為了使用</font> 
+  MFC <font FACE="細明體">而去學習</font> C++ <font FACE="細明體">的）。</font>C++ 
+  <font FACE="細明體">語言的繼承（</font>inheritance<font FACE="細明體">）特性對於我們使用</font> 
+  MFC <font FACE="細明體">尤為重要，因為使用</font> MFC <font FACE="細明體">就是要繼承各個類別並為己用。所以，你應該對</font> 
+  C++ <font FACE="細明體">的繼承特質（以及虛擬函式，當然）多加體會。我在第２章安排了一些</font> 
+  C++ <font FACE="細明體">的必要基礎。我所挑選的題目都是本書會用到的技術，而其深度你不見得能夠在一般</font>C++ 
+  <font FACE="細明體">書籍中發現。</p>
+  <p ALIGN="JUSTIFY">如果你有</font> C++ <font FACE="細明體">語言基礎，但從未接觸過</font>Win16 
+  <font FACE="細明體">或</font>Win32<font FACE="細明體">程式設計，只在</font>DOS<font
+  FACE="細明體">環境下開發過軟體，我在第１章為你安排了一些</font> 
+  Win32 <font FACE="細明體">程式設計基礎。這個基礎至為重要，只會在各個</font> 
+  Wizards <font FACE="細明體">上按來按去，卻不懂所謂</font> message loop <font
+  FACE="細明體">與</font> window procedure <font FACE="細明體">的人，不可能搞定</font> 
+  Windows <font FACE="細明體">程式設計</font> -- <font FACE="細明體">不管你用的是</font> 
+  MFC <font FACE="細明體">或</font> OWL <font FACE="細明體">或</font>Open Class 
+  Library<font FACE="細明體">，不管你用的是</font> Visual C++ <font
+  FACE="細明體">或</font>Borland C++ <font FACE="細明體">或</font>VisualAge C++<font
+  FACE="細明體">。</font></font><font FACE="華康粗圓體" SIZE="5"></p>
+  <p>你需要什麼軟硬體環境</font><font FACE="細明體" SIZE="1"></p>
+  <p ALIGN="JUSTIFY"></font><font FACE="細明體" size="3">一套</font><font size="3">Windows 
+  95<font FACE="細明體">（或</font> Windows NT<font FACE="細明體">）作業系統當然是必須的，中英文皆可。此外，你需要一套</font> 
+  Visual C++ 32 <font FACE="細明體">位元版。目前的最新版本是</font> Visual 
+  C++ 5.0<font FACE="細明體">，也是我使用的版本。</p>
+  <p ALIGN="JUSTIFY">硬體方面，只要能跑上述兩種作業系統就算過關。記憶體（</font>RAM<font
+  FACE="細明體">）是影響運作速度的主因，多多益善。廠商宣稱</font> 
+  16MB RAM <font FACE="細明體">是一個能夠使你工作舒適的數字，但我因此懷疑「舒適」這個字眼的定義。寫作本書時我的軟硬體環境是：</p>
+  </font></font><ul>
+    <li><font size="3">Pentium 133</font></li>
+    <li><font size="3">96M RAM</font></li>
+    <li><font size="3">2GB <font FACE="細明體">硬碟</font></font></li>
+    <li>17<font FACE="細明體">吋顯示器。別以為顯示器和程式設計沒有關係。大尺寸螢幕使我們一次看多一點東西，不必在</font>Visual 
+      C++ <font FACE="細明體">整合環境所提供的密密麻麻的畫面上捲來捲去。</font></li>
+    <li>Windows 95<font FACE="細明體">（中文版）</font></li>
+    <li>Visual C++ 5.0</li>
+  </ul>
+  <font FACE="華康粗圓體" SIZE="5"><p>與前版本之差異</font><b><font
+  FACE="華康中黑體" SIZE="1"></p>
+  <p ALIGN="JUSTIFY"></font><font FACE="華康中黑體" size="3">深入淺出</font></b><font
+  FACE="Arial Black" size="3">MFC</font><font FACE="Arial" size="3"><b> </b></font><font
+  FACE="細明體" size="3">第二版與前一版本之重大差異在於：</p>
+  <ol>
+    <li>軟體工具由 Visual C++ 4.0 改為 Visual C++ 5.0，影響所及，第４章「Visual 
+      C++ - 整合性軟體開發環境」之內容改變極大。全書之中有關於MFC 
+      內部動作邏輯及其原始碼的變動不多，因為Visual C++ 5.0中的 MFC 
+      版本還維持在4.2。</li>
+    <li>第１章增加 Console 程式設計，以及Win32 多緒程式實例 Mltithrd。</li>
+    <li>第２章增加「四種不同的物件生存方式」一節。</li>
+    <li>第３章去除原有之Frame5 程式（該程式以 MFC 2.5 的技術模擬 Dynamic 
+      Creation）。</li>
+    <li>第４章全部改為 Visual C++ 5.0 使用畫面，並在最後增加一節「Console 
+      程式的專案管理」。</li>
+    <li>第６章增加「奇怪的視窗類別名稱 Afx:x:y:z:w」一節，以及增加 Hello 
+      程式對 idle time 的處理。</li>
+    <li>增加 14~16 三章。</li>
+    <li>附錄Ａ增加 &lt;無責任書評/侯捷先生&gt; 的「MFC 四大天王」一文。</li>
+    <li>附錄Ｄ由原先之「OWL 程式設計一覽」，改為「以 MFC 重建 DBWIN」。</font></li>
+  </ol>
+  <p ALIGN="JUSTIFY">　</p>
+  <p ALIGN="JUSTIFY"><a name="【目錄】"><font color="#FF0000">【目錄】</font></a></p>
+  <font FACE="華康粗圓體" SIZE="6"><p ALIGN="CENTER">目錄</font><font
+  FACE="細明體" SIZE="1"></p>
+  <p ALIGN="JUSTIFY"></font><font FACE="細明體" size="3">第０章</font><font size="3"> <font
+  FACE="細明體">你一定要知道（導讀） </font>/ 27<font FACE="細明體"> </font></p>
+  <font FACE="細明體"><p ALIGN="JUSTIFY">第１章</font> Win32 <font FACE="細明體">程式基本觀念 
+  </font>/ 003</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第２章</font><font size="3"> C++ <font
+  FACE="細明體">的重要性質 </font>/ 055</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第３章</font><font size="3"> MFC <font
+  FACE="細明體">六大關鍵技術之模擬 </font>/ 109</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第４章</font><font size="3"> Visual 
+  C++ - <font FACE="細明體">整合性軟體開發環境 </font>/ 219</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第５章</font><font size="3"> <font
+  FACE="細明體">總觀</font> Application Framework / 311</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第６章</font><font size="3"> MFC <font
+  FACE="細明體">程式設計導論</font> - MFC <font FACE="細明體">程式的生死因果 
+  </font>/ 343</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第７章</font><font size="3"> <font
+  FACE="細明體">簡單而完整：</font>MFC <font FACE="細明體">骨幹程式 </font>/ 
+  411</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第８章</font><font size="3"> 
+  Document-View <font FACE="細明體">深入探討 </font>/ 455</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第９章</font><font size="3"> <font
+  FACE="細明體">訊息映射與命令繞行 </font>/ 547</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第</font><font size="3">10<font
+  FACE="細明體">章</font> MFC<font FACE="細明體">與對話盒 </font>/ 601</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第</font><font size="3">11<font
+  FACE="細明體">章</font> View<font FACE="細明體">功能之加強與重繪效率之提昇 
+  </font>/ 627</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第</font><font size="3">12<font
+  FACE="細明體">章</font> <font FACE="細明體">印表與預覽 </font>/ 659</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">第</font><font size="3">13<font
+  FACE="細明體">章</font> <font FACE="細明體">多重文件與多重顯示 </font>/ 
+  701</font></p>
+  <font size="3"><b><p ALIGN="JUSTIFY"></b><font FACE="細明體">第</font>14<font
+  FACE="細明體">章</font> MFC <font FACE="細明體">多緒程式設計（</font>Multi-threaded 
+  Programming in MFC<font FACE="細明體">）</font><b>/ </b>745</font></p>
+  <font FACE="新細明體"><p>第</font>15<font FACE="新細明體">章</font> <font
+  FACE="新細明體">定製一個</font>AppWizard / 771</p>
+  <font size="3"><b><p ALIGN="JUSTIFY"></b><font FACE="細明體">第</font>16<font
+  FACE="細明體">章</font> <font FACE="細明體">站上眾人的肩膀</font> - <font
+  FACE="細明體">使用</font> Components <font FACE="細明體">和</font> ActiveX 
+  Controls / 791</font></p>
+  <font FACE="細明體" size="3"><p ALIGN="JUSTIFY">附錄</font><font size="3">A <font
+  FACE="細明體">無責任書評：從搖籃到墳墓</font> - Windows <font
+  FACE="細明體">的完全學習 <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 無責任書評：</font>MFC<font
+  FACE="細明體">四大天王 </font>/ 856</p>
+  <font FACE="細明體"><p ALIGN="JUSTIFY">附錄</font>B Scribble Step5 <font
+  FACE="細明體">程式原始碼列表 </font>/ 873<font FACE="細明體"></p>
+  <p ALIGN="JUSTIFY">附錄</font>C Visual C++ 5.0 MFC<font FACE="細明體">範例程式總覽 
+  </font>/ 915</p>
+  <p ALIGN="JUSTIFY"><font FACE="細明體">附錄</font>D<b> </b><font FACE="細明體">以</font> 
+  MFC <font FACE="細明體">重建</font> Debug Window<font FACE="細明體">（</font>DBWIN<font
+  FACE="細明體">） </font>/ 921</font></p>
+  <p ALIGN="JUSTIFY">　</p>
+  <p ALIGN="JUSTIFY"><a name="【讀者來函】"><font color="#FF0000">【讀者來函】</font></a></p>
+  <ul>
+    <li><font size="3">新竹市 . 高翠路 . 劉嘉均</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">1996年11月，我在書店看到了 <b>深入淺出</b>MFC 
+  這本書，讓我想起自己曾經暗暗告訴過自己：Application Framework 
+  真是一個好東西。我在書店駐足察看這本書五分鐘之後，我便知道這本書是一定要買下的。適巧我工作上的專案進度也到了一個即將完成的階度，所以我便一口氣將這本書給讀完了，而且是徹徹底底讀了兩遍。</p>
+  <p ALIGN="JUSTIFY">我個人特別喜歡第３章：MFC 
+  六大關鍵技術之模擬。這章內容的設計的確在 MFC 
+  叢林中，大刀闊斧地披露出最重要的筋絡，我相信這正是所有學習 
+  MFC 
+  的人所需要的一種表明方式。對我而言，以往遺留的許多疑惑，在此都一一得到了解答。最重要的是，您曾經說過，學習MFC的過程中最重要的莫過於自我審視MFC程式碼的能力。很高興地，在我看完本書之後，我確實比以前更有能力來看MFC原始碼了。總之，我為自己能夠更深入了解MFC 
+  而要向您說聲謝謝。謝謝您為我們寫了 <b>深入淺出</b>MFC 
+  這本書。我受益匪淺。</p>
+  <ul>
+    <li>加拿大 . 溫哥華 . 陳宗泰</li>
+  </ul>
+  <p ALIGN="JUSTIFY">閣下之書，尚有人性，因此我參而再參，雖不悟，也是 
+  enjoyable。看閣下之書的附帶效果是，重燃我追求知識的熱情。知也無涯，定慧談何容易。向閣下致敬：『Kruglinski 
+  的 <i><b>Inside Visual C++</b></i> 和 Hou 的 <i><b>Dissecting MFC</b></i> 是通往 MFC 
+  Programming 的皇家大道』。　</p>
+  </font><ul>
+    <li><font size="3">香港 . lnlo@hkstart.com</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">我是你的一位讀者，住在香港。我剛買了你翻譯的 
+  <i><b>Inside Visual C++ 4.0</b></i>（中文版）。在此之前我買了你的另一本書 
+  <b>深入淺出</b>MFC。在讀了 <b>深入淺出</b>MFC前面50~70 
+  頁之後，我想我錯買了一本很艱深的書籍。我需要的是一本教我如何利用MFC來產生一個程式的書，而不是一本教我如何設計一套MFC的書。但是在我又讀了30~40 
+  頁之後，我想這本書真是棒，它告訴了我許多過去我不甚清楚的事情，像是 
+  virtual function、template、exception...。</p>
+  </font><ul>
+    <li><font size="3">Lung Feng &lt;h6003@kl.ntou.edu.tw</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">我是您的忠實讀友，從您1992年出版的「Windows程式設計」到現在的 
+  <b>深入淺出</b>MFC，我已花不少銀子買下數本您的大作。雖然您的作品比其他國內出版的作品價格稍為高了一點，但我覺得很值得，因為我可以感受出您真的非常用心在撰寫，初閱讀您的作品時，有時不知其然，但只要用心品嚐，總是入味七分。有些書教人一邊看書一邊上機實作，會是一個比較好的學習曲線，但我是一個從基隆到台北通車的上班族，花很多時間在車上，在車上拜讀您的大作真是讓人愉快的事情（我回到家已晚，也只有在車上能有時間充實自己）。這段時間內，我無法上機，卻能從中受益。而且一次再一次閱讀，常會有新的收穫，真如古人所說溫故而知新。</p>
+  </font><ul>
+    <li><font size="3">Asing Chang &lt;asing@ms4.hinet.net&gt;</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">今天抱著「無論如何一定要」的心情, 把 <i><b>Dissecting 
+  MFC</b></i> 
+  拿出來開封。序還看沒完就被深深地感動。這是一本太好的書，我想，我們是一群幸運的讀者。雖然我們沒有Petzold 
+  或 Pietrek, 但是我們一樣能擁有最好的閱讀水準。</p>
+  </font><ul>
+    <li><font size="3">Jaguar &lt;simon830@ms7.hinet.net&gt;</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">有個問題想問您，為何在台灣要做基礎的事（R 
+  &amp; D）總是很難如願。為何只有做近利的事才能被認可為成功之道。希望您能多出版一些像 
+  <b>深入淺出</b>MFC的書，讓我們這些想要真正好書的人能大快朵頤一番。謝謝。</p>
+  </font><ul>
+    <li><font size="3">Shieh &lt;lmy64621@mail.seeder.net.tw&gt;</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">我是您忠實的讀者，您所寫的書一向是我在學習新的東西時很大的幫助。除此之外，我也十分喜歡看你為新書所寫的序，帶有哲學家的感覺！最近我想學 
+  MFC，在市面上找到你的大作 <b>深入淺出</b>MFC，拜讀後甚為興奮，也十分謝謝您寫書的用心。</p>
+  </font><ul>
+    <li><font size="3">台北縣 . 土城 . 邱子文（資策會技研處）</font></li>
+  </ul>
+  <font size="3"><b><p ALIGN="JUSTIFY">深入淺出</b>MFC是我所讀過之MFC書籍中最精采的一本。您大概不知道，我們人手一本 
+  <b>深入淺出 </b>MFC 吧。<b>深入</b>Visual C++ 4.0 的情況也差不了多少！</font></p>
+  <ul>
+    <li><font size="3">台北市 yrleu@netrd.iii.org.tw</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">買了您的譯作 <b>深入</b>Visual C++ 4.0後，才認識您這在 
+  Windows Programming 
+  著作方面的頭號人物。十分佩服您的文筆，譯得通順流暢，可謂信達雅。之後偶然翻閱您另外的作品Windows 
+  95 <b>系統程式設計大奧秘 </b>與 <b>深入淺出</b> MFC，更是對您五體投地，立刻將這兩本書買下來，準備好好享受一下。對於 
+  <b>深入淺出</b> MFC，我給予極高的評價，因為它完全滿足我的需要。我去年才從台大電機博士班計算機科學組畢業，目前在資策會資訊技術處服國防役。先前作的純是理論研究，現在才開始接觸 
+  Windows Programming。您的 <b>深入淺出</b> MFC 對我而言是聖經。</p>
+  <p ALIGN="JUSTIFY">真的很感謝您為知識傳授所作的努力！ </p>
+  </font><ul>
+    <li><font size="3">台中 Fox Wang</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">自從閱讀 <b>深入淺出</b>MFC 
+  之後，我便成了您的忠實讀者。我並不是一位專業程式設計師，而是一個對 
+  Windows Programming 
+  有濃厚興趣（和毅力）的大學生。在漫長而陡峭的學習曲線中，有幾本書對於我們而言就像茫茫大海中的一盞明燈，為我們指引明確的航道！我說的是 
+  Charles Petzold 的<i>Programming Windows 95</i>、David J.Kruglinski 的 <i>Inside Visual 
+  C++</i>，還有，當然，您的 <b>深入淺出</b> MFC！</font></p>
+  <ul>
+    <li><font size="3">印尼 . 雅加達 robin.hood@ibm.net</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">對您的書總是捧讀再三，即使翻爛了也值得。這本 
+  <b>深入淺出</b> MFC，不但具有學習價值，亦極具參考價值。</p>
+  <p ALIGN="JUSTIFY">我買您的第一本書，好像是「記憶體管理與多工」。還記得當時熱中突破 
+  640KB記憶體，發現該書如獲至寶。數月前購買了 <b>深入淺出</b> MFC，並利用閒暇時間翻閱學習（包括如廁時間...J 
+  ）。</p>
+  <p ALIGN="JUSTIFY">我的學習曲線比較不同，我比較傾向於瞭解事情的因，而不是該如何做事情。比方說，「應該使用 
+  MFC的哪個類別」或「要改寫哪個虛擬函式」，對我而言還不如「<i>CWinApp 
+  </i>何時何地呼叫了我的什麼函式」或「<i>CDocManager</i> 
+  到底做了什麼」來得有趣（嗯，雖說是一樣重要啦）。這些「事情的因」在您的書中有大量詳細的介紹。</p>
+  </font><ul>
+    <li><font size="3">新莊 . 輔大 skyman@tpts4.seed.net.tw</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">拜讀您的大作 <b>深入淺出 </b>MFC 
+  令我感到無比興奮，對於您對電腦技術的專研如此深入，感到真是中國人之光。系上同學對於您的書籍愛恨交加，愛是如此清晰明瞭，恨是恨自己不成材呀！許多學長、同學、學弟都很喜愛您的作品，有些同學還拜您為偶像。因此想請您來演說，讓我們更深入認識程式語言的奧秘。大四學長知道要邀請您來，都非常高興，相當期待您的到來。</p>
+  </font><ul>
+    <li><font size="3">Rusty（楓橋驛站 CompBook 版）</font></li>
+  </ul>
+  <font size="3"><b><p ALIGN="JUSTIFY">深入淺出</b> MFC 
+  我讀好幾遍了，講一句實在話，這本書給我的幫助真的很多！畢竟這樣深入挖 
+  MFC 運作原理的書難找！要學 MFC 又沒有 Windows SDK 經驗者，建議跟 <i><b>Programming 
+  Windows 95 with MFC</b></i> 一起看，學起 MFC 會比較紮實。</p>
+  <p ALIGN="JUSTIFY">若單純就「買了會不會後悔」來判斷一本書到底好不好，這本書我覺得物超所值！</p>
+  </font><ul>
+    <li><font size="3">內壢 . 元智 Richard </font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">剛才又把 <b>深入淺出</b>MFC step0~step1 
+  的程式看了一次，真的感觸良多。酒越陳越香，看老師您的書，真的是越看越「爽」，而且一定要晚上10:00以後看，哇，那種感覺真是過癮。</p>
+  </font><ul>
+    <li><font size="3">桃園 Shelly </font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">在書局看到您多本書籍，實在忍不住想告訴您我的想法！我是來謝謝您的。怎麼說呢？姑且不論英文能力，看原文書總是沒有看中文書來得直接啊！您也知曉的，許多翻譯書中的每個中文字都看得懂，但是整段落就是不知他到底在說啥！因此看到書的作者是您，感覺上就是一個品質上的保證，必定二話不說，抱回家囉！雖然眼前用不到，但是翻翻看，大致了解一下，待有空時或是工作上需要時再好好細讀。</p>
+  <p ALIGN="JUSTIFY">網路書局的盛行，讓我也開始上網買些書。但是我只敢買像您的書！有品質嘛！其他的可就不敢直接買囉，總是必須到書局翻翻看，確定一下內容，才可能考慮。</font></p>
+  <ul>
+    <li>台北市 Jedi </li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">Your books is already 100 times better than any 
+  translation on the market. I won't think of to get a Chinese computer book unless you 
+  wrote it or translated it.</p>
+  <ul>
+    <li>shiowli@ms13.hinet.net</li>
+  </ul>
+  <p ALIGN="JUSTIFY">1997/11月我看見了 <b>深入淺出</b> MFC。仔細研讀後我知道這是我在 
+  MFC 及 Windows 
+  程式設計領域中的大衛之星。您的書一直都是我的良師，不但奠定了我的根基，也使我對 
+  Windows 程式設計興趣大增。國內外介紹 MFC 
+  程式設計的書很多，但看過範例後仍有一種被當成 puppet 
+  的感覺。感謝侯先生毫不保留地攻堅 MFC，使我得到了豁然開朗的喜悅。</p>
+  <p ALIGN="JUSTIFY">侯先生的文筆及胸襟令我佩服。有著 Charles Petzold 
+  慈父般的講解，也有著 David J.Kruglinski 
+  特有的風趣。您自述中說「先生不知何許人也」，嗯，我願意，我願意做一個默默祝福的人，好叫我在往後歲月裡能有更多喝采和大叫 
+  eureka 的機會！</p>
+  </font><ul>
+    <li><font size="3">&quot;anchor&quot; &lt;hcy89@mozart.ee.ncku.edu.tw&gt;</font></li>
+  </ul>
+  <p>I am a student of NCKU EE Department, I am also a reader of you books. Your Book give 
+  me a lot of help on my research.<ul>
+    <li><font size="3">北投 z22356@ms13.hinet.net </font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">選到這本書之前，我還在書架前猶豫：「又是一本厚厚大大卻一堆廢話的爛書，到底有沒有比較能讓我了解的書呀？」但是讀了您的 
+  <b>深入淺出</b>MFC 之後，把我 80% 
+  的疑慮通通消除掉了。想永遠做您的讀者的讀者敬上。</p>
+  </font><ul>
+    <li><font size="3">David david@mail.u-p-c.com </font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">我是您的讀者，雖然我尚未看完這本書，只看到第三篇的第５章，但我忍不住要把心得告訴您。去年我因為想寫Windows程式而買您的書，說老實話，我實在看不懂您所寫的文字（我真的懂C++ 
+  語法，也用Visual Basic寫過Windows程式），故放棄改買其他書籍來學習。雖把那些書全部看完了，也利用MFC來寫簡單程式，但心裡仍搞不懂這些程式的 
+  How、What、Why。後來整理書架，發現這本書，就停下來拿來看，結果越看越搞懂這些Windows程式到底如何How、What、Why。正如您的序所說「只用一樣東西，不明白它的道理，實在不高明」，感謝您能不計代價去做些不求近利的深耕工作，讓我們一群讀者能少走冤枉路。謝謝您!! 
+  祝您身體健康 !!</p>
+  </font><ul>
+    <li><font size="3">Chengwei chengwei@accton.com.tw<b> </b></font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">最近正拜讀大作 <b>深入淺出</b>MFC，明顯感受到作者寫書之負責用心（不論內容、排版設計、 
+  甚至用字遣詞乃至眾多的圖示）。雖然剛開始會覺得有些艱澀，但在反覆閱讀之後便能深深感受其中奧秘。謝謝你的努力! 
+  請再接再厲讓我們有更多好書可看!</p>
+  </font><ul>
+    <li><font size="3">Fox Wang &lt;wych@ms10.hinet.net</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">身為您的忠實讀者，總是希望能讓您聽到我們的聲音：記得您總是常在作品中強調讀者們寄給你的信對你具有很大的意義，但我要說，您可能不知道您帶給了某些讀者多大的正面意義！就我自己而言，從幾乎放棄對資訊科學的興趣，到留下來繼續努力，從排拒原文書到閱讀原文書成為習慣，從害怕閱讀原文期刊到慢慢發現閱讀它們的樂趣，然後，我打算往資訊方面的研究所前進。我想，不管將來我是否能將工作和興趣互相結合，您都豐富了我追求資訊科學這個興趣時的生活，非常感謝您！</p>
+  <p ALIGN="JUSTIFY">當然，身為一位讀者，還是忍不住要自私地說，希望在很久很久以後，還可以看到您仍然在寫作！當然，身子也要好好照顧。</p>
+  <ul>
+    <li>上海 wuwei akira &lt;hakira@hotmail.com&gt;</li>
+  </ul>
+  <p ALIGN="JUSTIFY">I'm your reader in Shanghai JiaoTong University（按：上海交通大學）in 
+  mainland. Your &lt;Programming WINDOWS MFC&gt; （按：<b>深入淺出</b>MFC 
+  簡體版）is a very good book that I wanted to have for years. Thank you very much. So I 
+  want to know if there are another your book that I can buy in mainland? I hope to read 
+  your new books.</p>
+  </font><ul>
+    <li><font size="3">hon.bbs@bbs.ee.ncu.edu.tw </font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">我非常喜歡你的書，不管是著作或是翻譯，給人的感覺真的是 
+  &quot;深入淺出&quot;，我喜歡你用淺近的比喻說明，來解釋一些比較深入和抽象的東西，讀你的書，總讓我有突然 
+  &quot;頓悟&quot; 的感覺，欣喜自己能在迷時找到良師。</p>
+  <ul>
+    <li>武漢 &quot;wking&quot; &lt;wking@telekbird.com.cn&gt;</li>
+  </ul>
+  <p ALIGN="JUSTIFY">Microsoft Developer Studio 與 MFC（Microsoft Foundation Classes）相配合，構成了一個強大的利用 
+  C++ 進行 32 位元 Windows 程序開發的工具，但是由于 MFC 
+  系統相當龐大，內容繁雜，并且夾雜著大量令初學者莫明其妙的 
+  macros，更加大了學習上的難度。</p>
+  <p ALIGN="JUSTIFY">當今市面上有不少講解 C++ 和 VC++ 程序設計的書籍，但 
+  C++ 書籍單純只講 C++，從 C++ 過渡到 VC++ 
+  卻是初學者的一大難關；大多數講解 VC++ 的書都將重點放在如何使用 
+  Microsoft Developer Studio，很少有對 MFC 進行深入而有系統的講解。而將 
+  C++ 與 VC++ 相聯系，從 C++ 的角度來剖析MFC 
+  的運作，深入其設計原理與內部機制的書，更是鳳毛麟角。本人在市面上找了將近四個月，才發現這樣的一本，這就是由蜚聲海峽兩岸的著名電腦專家侯俊傑先生所著之 
+  《深入淺出 WINDOWS MFC 程序設計》 （按：<b>深入淺出</b>MFC 
+  簡體版）。</p>
+  <p ALIGN="JUSTIFY">本人在一月前購得此書，仔細研究月余，自我感覺比以前大有長進，其間由于印刷錯誤等原因，發現多處錯誤，于是向先生去信求教，得先生熱情支持和輔導。當先生得知本書（簡體本）未附光盤，且書中有多處誤印，深恐貽誤讀者，于是將原書光盤所附之源程序和執行文件 
+  email 一份給我，囑我廣為散發，以惠大眾。</p>
+  </font><ul>
+    <li><font size="3">EricYang &lt;robe@FreeBSD.csie.NCTU.edu.tw&gt;</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">這真是本值得好好閱讀，好好保存的好書</p>
+  </font><ul>
+    <li><font size="3">cview.bbs@cis.nctu.edu.tw News / BBS 論壇 programming</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">深入淺出MFC，侯 sir 自評為 MFC 
+  四大天王之一，的確是傑作...</p>
+  </font><ul>
+    <li><font size="3">&quot;lishyhan&quot; &lt;lishyhan@ms14.hinet.net&gt;</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">我聽別人介紹，買了 <b>深入淺出</b>MFC 
+  第二版，的確是很適合我，之前買的書都太籠統了。</p>
+  </font><ul>
+    <li><font size="3">美國 dengqi@glocom-us.com</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">侯俊傑先生：您好！從學校出來的七年間，我大多從事 
+  embedded system software 
+  的設計。在大陸，主要從事交換機系統軟件的設計，到了美國，主要從事衛星通信地面站系統軟件的設計。程序設計主要結合 
+  C 和 Assembly。在大陸，embedded system多採用 Intel 的processor，在美國，embedded 
+  system 多採用 Motorola 的 processor。所以，我對 Intel 8086, 8051 系列及 
+  Motorola 68000 系列的 assembly 語言比較熟悉，而對 framework 
+  這樣的軟件製造思想和手段一直並不熟悉。近來偶有機會加入一個 
+  project，要生成在 Win95 下運行的代碼，因此，想嘗試一下使用framework 
+  構造軟件。很幸運，我找到了您的書。講 VC++ MFC 
+  的書很多，但能像您這樣做到「深入淺出」的，實在很少。看您的書，是享受。我手裡這本是簡体版，華中理工大學出版社出版。</font></p>
+  <font size="3"><ul>
+    <li>武漢 bin_zhou</li>
+  </ul>
+  <p ALIGN="JUSTIFY">I am your reader of 《深入淺出 WINDOWS MFC 
+  程序設計》（編按：<b>深入淺出</b>MFC 簡體版）. I'm leaving in 
+  HUBEI__WUHAN（編按：湖北武漢）. Now, I have already get the book in 
+  HUA_ZHONG_LI_GONG_DA_XUE（編按：華中理工大學）. And I am interested in this 
+  book very much. </p>
+  </font><ul>
+    <li><font size="3">屏東 a8756001@mail.npust.edu.tw</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">侯先生,您好，我是屏科大的學生，想要用MFC寫一個可以新增、修改、刪除資料等動作的程式，日前老師借了我您的書 
+  <b>深入淺出</b>MFC 第二版，我讀了很快樂，對於Visual C++ 的IDE環境更為了解，對於MFC 
+  整個架構，有了比較明朗的感覺。</p>
+  </font><ul>
+    <li><font size="3">大陸 Mike Dong &lt;mikedong@online.sh.cn&gt;</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">尊敬的侯俊傑先生：我叫董旬。我對 C/C++ 
+  非常有興趣。暢讀了您寫的書《深入淺出 WINDOWS MFC 
+  程序設計》（編按：<b>深入淺出</b>MFC 
+  簡體版），對我有非常大的幫助。在此，先感謝您。現在我感到對 
+  C++ 語言本身和 MFC 
+  框架十分了解，但在編程過程中仍然感到生疏，主要是函數的運用和函數的參數十分複雜。我對WINDOWS 
+  SDK 編程較少，是否應該要熟悉 WINDOWS API 函數后，結合 MFC 
+  框架編程？</p>
+  <p ALIGN="JUSTIFY">侯俊傑回覆：的確如此。MFC 其實就是把 Windows API 
+  做了一層薄薄包裝，包裝於各個設計良好的 classes 
+  而已。所以，掌握了 MFC framework 架構組織之後，接下來在 programming 
+  實務方面，就是去瞭解並運用各個 classes，而各個 classes 的 member 
+  functions 有許多就是 Windows APIs 的一對一化身。</p>
+  </font><ul>
+    <li><font size="3">左營 luke@orchid.ee.ntu.edu.tw</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">侯先生你好：我現在是一名資訊預官，還在左營受訓。因為受訓的關係所以偶然間有機會讀到你寫的 
+  <b>深入淺出</b>MFC 第二版。本以為這麼大一本書，一定很難K，但從第一眼開始我就深深的被其中優雅且適當的文辭所吸引。尤其當閱讀第三章時，那些表格讓我回憶起以前修過advanced 
+  compiler 去trace java compiler的那段過程，不禁發出會心一笑。</p>
+  <p ALIGN="JUSTIFY">由於我本身學的是電機，所以不同於一般資訊人員所著重的應用層面。從大二時因為想充實自己的電腦實力，努力學寫程式開始，就在浩翰的書海中發現你獨特的風格。尤其現今電書籍多是翻譯居多其中品質良莠不齊，你的作品尤其難能可貴。現今我仍然有時會去閱讀專業期刊或者雜誌，但礙於畢竟不是資訊教育訓練出身，有時會抓不住重點，甚者不求甚解。這是我覺得遺憾之處。但讀你的作品讓我在質量之間都獲得了相當的進步，且讀來相當輕鬆自然。你的序言中提到歡迎讀者的反應，這也是這封mail的動機。我想好的作家需要我們的鼓勵，當然也希望能從你處獲得更多的新知。謝謝。</p>
+  </font><ul>
+    <li><font size="3">大陸 &quot;BaiLu&quot; &lt;jinyang@public1.wx.js.cn&gt;</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">侯先生：您好！以前我一直是用 DELPHI 和 PB 
+  主要做數據機的，近日在看您編寫的 《深入淺出 WINDOWS MFC 
+  程序設計》（編按：<b>深入淺出</b>MFC 
+  簡體版），收益非淺，很佩服您的寫作水平，講得非常好。在大陸還是很少有您這般水準寫 
+  C++ 的書。在此表示感謝。</p>
+  </font><ul>
+    <li><font size="3">北京 &quot;Zhang Yongzhong&quot; &lt;yongzhongz@263.net&gt;</font></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY">尊敬的侯俊傑先生：您好！我是北京的一名計算機工作者，也是您的忠實讀者。有幸讀到您的一本非常優秀的著作 
+  《深入淺出 WINDOWS MFC 程序設計》（編按：<b>深入淺出</b>MFC 
+  簡體版），非常興奮，自感受益匪淺，覺得是一本難得的好書。</font></p>
+  <ul>
+    <li>日本千葉縣&nbsp; &quot;tai&quot; &lt;tai@tyo.mind.co<a
+      href="mailto:tai@tyo.mind.co.jp">.jp&gt;</a></li>
+  </ul>
+  <font size="3"><p ALIGN="JUSTIFY"></font>Dear JJHou:<br>
+  <br>
+  I have heard a lot about your [<strong>Dissecting MFC</strong>] from internet. It is a 
+  very good book..Alough I have worked as a programmer for many years, I am new in MFC and 
+  MFC is difficul for me.I think [Dissecting MFC] will help me a lot and wish to buy it.<br>
+  <br>
+  The problem is that I am now live and work in Japan(I am from Beijng) ,so I would like to 
+  know how could I buy the book.(I wish to get the original book from Taiwan) I know that 
+  you are very busy and time for you is very precious, I feel very sorry,but I hope you 
+  could help me and give me some advice.(I can read BIG5)<br>
+  <br>
+  Thank you very much for your kindness.<br>
+  <br>
+  By Dai Hui</p>
+  <ul>
+    <li><p ALIGN="JUSTIFY">日本千葉縣 &quot;tai&quot; &lt;tai@tyo.mind.co.jp&gt;</p>
+    </li>
+  </ul>
+  <p ALIGN="JUSTIFY">我現在正在努力研讀先生送我的 &lt;深入淺出 MFC&gt;，經過一個月的時間已<br>
+  讀完前六章，感覺受益頗豐。我從事軟體開發與設計已有 6~7 
+  年，學過的用過的<br>
+  語言不在少數，大小項目也做過不少。自以為對語言已有相當的瞭解及悟性。<br>
+  半年前開始自學 MFC，雖然事前對困難有一定的心理準備，也已自學完 
+  C++，<br>
+  但遇到的困難卻超過預期。我如坐入雲霧之中，完全不知方向，無法前進。<br>
+  對於所閱書籍的範例，好像可以理解，但要想對它稍加變動，就不知如何下手，<br>
+  甚至不知如何去查相關文檔。我幾乎失去信心，要放棄學習的念頭。<br>
+  直到我得到先生的 &lt;深入淺出 MFC&gt;。經細心研讀月餘，似已能窺到 
+  MFC 的脈絡，<br>
+  信心倍增。在前六章中先生不僅精述了學習 MFC 
+  的必備基礎觀念，更以獨到而清晰的思路從龐大的 MFC 
+  中抽出精華，砍去末節，模擬了 MFC 的主要行為方式，<br>
+  實在精妙絕倫。有什麼能比一個讀書人讀到一本好書更幸福的呢！ 
+  1999/05/27</p>
+  <ul>
+    <li><p ALIGN="JUSTIFY">b6506017@csie.ntu.edu.tw</p>
+    </li>
+  </ul>
+  <p ALIGN="JUSTIFY">我最近正在研讀您的大作&lt;深入淺出 MFC&gt;2/e，真的深深覺得是一本好書，<br>
+  呵，最好的地方，是讓我覺得，真的是讀得非常的順暢<br>
+  ，尤其是我本身已有c++的基礎，真的是一下了就讓我對<br>
+  MFC 這東西有了入門到進階的認識……，真的，讀您的<br>
+  書，就是”順暢”這點讓我印象深刻（當然這要有很多<br>
+  因素來奠基的啦…）</p>
+  <ul>
+    <li><p ALIGN="JUSTIFY">&quot;cayuan&quot; &lt;cayuan@alumni.nctu.edu.tw&gt;</p>
+    </li>
+  </ul>
+  <p ALIGN="JUSTIFY">第三次「挑戰」您的MFC 2/e&nbsp; 這次是念一些C++ calss，and 
+  先念了一些Inside Visual C++ (byD.J.Kruglinski) 再回頭看您這一本....目前挑戰第三篇中....<br>
+  <br>
+  我個人是一邊念您的書，一邊K別的書，在各書的比較下，您的書並不是一個可以馬上K完，馬上就可以「用」的應該是要慢慢的念。您寫這本書的動機不是要寫一本「xx天速成手冊」 
+  &nbsp; 
+  所以，個人請您在前言中聲明一下您寫（或規劃）這本書的原始動機。<br>
+  <br>
+  我覺得，本立而道生，如果基礎不好，想要真的瞭解application framework是「不可<br>
+  能」的！！！而且，請不要把讀者預設有年紀的工程師，而請你把讀者擴大為大學學生（我雖然是沒有修過任何資訊科系的課，不過我所認識的同學中，只要是寫windows 
+  programing的幾乎人手一本！），據說是老師會要求學生看。所以，請您把這本書當成是「可能成為教科書」的可能性來編輯（與寫作）。<br>
+  <br>
+  and...第三次催：深入淺出MFC第三版應該快要出了吧....記得要 using 
+  vc++6.0 MFC6.0</p>
+  <ul>
+    <li><p ALIGN="JUSTIFY">&quot;zhangzh&quot; &lt;support@docupal.com&gt;</p>
+    </li>
+  </ul>
+  <p ALIGN="JUSTIFY">主旨: 保重身體﹐再創佳績 -- 一個大陸程序員的祝福<br>
+  <br>
+  侯先生﹐您好﹗<br>
+  您的個人網站在大陸有了簡體中文版鏡像後﹐我立馬拉了個拷貝下來。您的文章太好了﹗我也研讀了您的《深入淺出MFC》﹐其中的圖片解釋令我印象深刻﹐讓我對MFC有了更深的認識﹐謝謝您的工作﹗<br>
+  <br>
+  您介紹的都是好書﹐“侯哥介紹的書﹐准沒錯﹐實際上﹐我現在逛書店時﹐都是拿您開的單子去的。遺憾的是﹐大陸現在還比較落後﹐許多您介紹的好書都看不到﹐市場充斥膚淺誇張的垃圾﹐令人傷感。但我相信會逐漸好起來的。<br>
+  <br>
+  您是個認真踏實﹐工作起來拼命三郎式的人﹐我很佩服您。更重要的﹐我希望您能保重身體﹐不要累壞了﹐我們大陸的程序員也希望您是棵常青樹﹐源源不斷的介紹好書﹐翻譯好書﹐寫作好書﹗那我們也就有福了（讀您的書或您介紹的書是一種<font
+  color="#0000FF">艱苦的享受</font>）。順祝安康﹗<br>
+  <br>
+  張中華 99.9.20 廣東中山<br>
+  </p>
+  <ul>
+    <li><p ALIGN="JUSTIFY">cx &lt;<a href="mailto:cxsh@990.net">cxsh@990.net</a>&gt;</p>
+    </li>
+  </ul>
+  <p ALIGN="JUSTIFY">侯先生:您好<br>
+  &nbsp;&nbsp;&nbsp; 我是陳欣,曾在一個月前向您詢問有關購買《深入淺出 
+  MFC 第二版》<br>
+  和《Windows 95系統程式設計-虛擬機器與 VxD程式設計》的問題.收到<br>
+  您的回信後,我即前往松崗網站查詢.但會員注冊始終注冊不成功,導致<br>
+  不能線上訂書.我在不同時間嘗試了多次,並發mail詢問,都無音訊.<br>
+  &nbsp;&nbsp;&nbsp; 但幸運的是一日竟在一書店發現了《深入淺出 MFC 
+  第二版》,且僅有<br>
+  一本了,老板說很久前進的幾本,但因為臺灣書價高,賣得不好,現在也不進<br>
+  臺灣的書了,真是運氣啊!回家後即閱讀起來,我很久都沒有懷著這麼興奮<br>
+  的心情讀一本書了(也許此書的來之不易和高的價格也起到了一定作用吧).<br>
+  現在我已把此書讀完一遍,明白了許多以前困擾我的問題,我從未像現在<br>
+  這樣感覺到MFC離我是這麼近,真的.<br>
+  &nbsp;&nbsp;&nbsp; .<br>
+  陳欣 99.11.9</p>
+  <p ALIGN="JUSTIFY">　</p>
+  <hr align="left">
+  <font size="3"><p ALIGN="JUSTIFY"><font color="#FF0000"><strong>News / BBS 論壇（CompBook 
+  and/or programming）</strong></font></p>
+  <p><font color="#0000FF">請問，在 MFC 
+  書籍之中，哪一本比較容易懂，因為我是初學MFC，所以我需要的是比較基礎且容易瞭解的，想請大家推薦一下適合的書。</font><ul>
+    <li>ob9@bbs.ee.ntu.edu.tw：反正不管你是不是初學，只要你要繼續學，就應該看看 
+      <b>深入淺出</b><strong>MFC</strong> 啦！<br>
+    </li>
+    <li><a href="mailto:os2.bbs@titan.cc.ntu.edu.tw：侯俊傑的書就對了">os2.bbs@titan.cc.ntu.edu.tw：侯俊傑的書就對了</a>!!<br>
+    </li>
+    <li>openwin.bbs@cis.nctu.edu.tw：等你對 MFC 有一個程度的了解後再去看侯sir 
+      寫的 <b>深入淺出</b><strong>MFC</strong>... 保證讓你功力大增~~ <br>
+    </li>
+    <li>Rosario.bbs@bbs.ntu.edu.tw：<b>深入淺出</b><strong>MFC</strong> 這本比較好~~~不過之前最好買侯老師的 
+      <b>多型與虛擬</b>，把 C++ 弄清楚。最後看起 <b>深入Visual C++</b> 
+      就會吸收很快。</li>
+  </ul>
+  <p><font color="#0000FF">請問，想要從 DOS 跨足到 Windows 
+  程式設計有哪些書值得推薦呢?</font><ul>
+    <li>hschin.bbs@bbs.cs.nthu.edu.tw：建議你看侯俊傑的 <b>深入淺出</b><strong>MFC</strong>，裡面除了對視窗程式的架構作基礎性的說明，讓你了解一些基礎概論，也說了不少視窗程式設計的課題，是非常不錯的一本書。<br>
+    </li>
+  </ul>
+  <p><font color="#0000FF">請問 VISUAL C++ 初學者適合的好書 ?</font><ul>
+    <li>wayne.bbs@bbs.ee.ncu：侯俊傑的 <b>深入</b> <strong>Visual C++</strong>（<i>Inside 
+      visual C++</i> 中譯本）不錯，適合初學者對 MFC 做初步的認識與應用。<b>深入淺出</b><strong>MFC</strong> 
+      這一本原理講的較多。<br>
+    </li>
+    <li>Sagitta.bbs@firebird.cs.ccu.edu.tw：<strong><i>Inside Visual C++ 4.0</i> </strong>不是初學者用的書，因為它未從最基本觀念講起。<b>深入淺出</b><strong>MFC</strong> 
+      前半本都在描述(或說模擬) MFC 的內部技術，甚至挖出 MFC 
+      部份原始程式碼來說明，透過這本書來學 MFC 
+      會學得很紮實，不過自己要先對 Windows這個作業系統的運作方式有一程度的瞭解，不然會看不懂，以某方面來說，也不是初學者用的書。基本上侯俊傑寫的書不論文筆或是內容都相當的好，相當有購買的價值，不過你別期望會是「初學用書」。</li>
+  </ul>
+  <p><font color="#0000FF">剛學 MFC 
+  程式，是否可以推薦幾本你認為很好的工具書或者是參考書，原文的也沒關係，重要的是講的詳細。謝謝各位</font><ul>
+    <li>dickg.bbs@csie.nctu.edu.tw：我個人認為侯俊傑先生所著的 <b>深入淺出</b><strong>MFC</strong> 
+      第二版不錯。這是一本受大眾推崇的好書，值得一再閱讀。但它的內容在某方面有些難度，so...需有耐心地一再翻閱，再輔以 
+      on-line help 和其它 VC 書籍，如此定能收獲不少<br>
+    </li>
+    <li>Rusty (Rusty)：我推薦 <strong><i>Programming Windows 95 with MFC</i></strong>（Jeff 
+      Prosise / Microsoft Press）。<i>Inside Visual C++</i> 這本廣度夠，不過 MFC 
+      初學者可能會看不懂；讀完了上一本之後再讀這本，你會活得快樂些 
+      J 。中文書嘛，大同小異的一大堆，不過侯俊傑的 <b>深入淺出</b><strong>MFC</strong> 
+      非常獨特，值得一讀，很棒的一本書！<br>
+    </li>
+  </ul>
+  <p><font color="#0000FF">請推薦幾本 Visual C++ 的書</font></font><ul>
+    <li><font size="3">kuhoung.bbs@csie.nctu.edu.tw： (1) <i>Inside Visual C++ 5.0</i> (2) <i>MFC 
+      Professional 5.0</i> (3) Mr. 侯俊傑 Any Books<br>
+      </font></li>
+    <li><font size="3">&quot;howard&quot; &lt;lm3@ms22.hinet.net&gt;： 先讀一點 SDK著作，再讀 
+      <b>深入淺出</b><strong>MFC</strong>，就夠了。 剩下就多看 MSDN 吧。</font></li>
+  </ul>
+  <p><br>
+  <font color="#0000FF">我是一個剛學 VC 不久的人，想寫 Windows 
+  程式，卻發現一大堆看不懂的函式或類別。查 help，都是英文，難懂其中意思。請問一下有沒有關於這方面的函式用法及意義的書籍呢? 
+  有沒有這方面的初學書籍。我逛了幾間書店，是有買幾本 MFC 
+  書籍，不過還是看不懂。</font><br>
+  <ul>
+    <li>&quot;apexsoft&quot; &lt;lishyhan@ms14.hinet.net&gt;：如果要說書的話，侯俊傑先生翻譯的 
+      <b>深入</b> <strong>Visual C++</strong> 和他所寫的 <b>深入淺出</b><strong>MFC</strong> 
+      兩本應該是夠用了。不然就再加上一本 SDK 
+      書籍，這樣子應該是可以打個基礎了。<br>
+    </li>
+    <li>CCA.bbs@cis.nctu.edu.tw：函式名稱可以查 help，重要的是 C++ 
+      的觀念。另外就是要了解 MFC 裡的 Document/View/Frame，以及 Dynamic 
+      Creation, Message mapping 等等。<b>深入淺出</b><strong>MFC</strong> 
+      第二版對這些部份都有很深入的探討，把 MFC 裡的一些機制直接 trace 
+      code 加以說明。<br>
+    </li>
+  </ul>
+  <p><font color="#0000FF">我想請問以下巨集的意義及其使用時機和作用：DECLARE_DYNCREATE, 
+  DECLARE_DYNAMIC, IMPLEMENT_DYNAMIC,IMPLEMENT_DYNCREATE, DECLA RE_MESSAGE_MAP, 
+  BEGIN_MESSAGE_MAP, END_MESSAGE_MAP。感激不盡，因為我常攪不清楚。</font><ul>
+    <li><font size="3">titoni：可參考侯俊傑著的 <b>深入淺出</b><strong>MFC</strong> 
+      2/e 第三章，第八章及第九章，書上的講解可以讓你有很大的收穫。<br>
+      </font></li>
+  </ul>
+  <p><font color="#0000FF">好像世界末日：最近買了 <b>深入淺出</b><strong>MFC</strong>。我一頁一頁仔細地閱讀。第一章...第二章...勉強有點概念，但是到了第三章，感覺好像世界末日了。MFC 
+  六大技術的模擬...好像很難懂，讀起來非常吃力L 
+  是不是有其他書講得比較簡單的？我不是電腦科系學生，只是對電腦程式設計有興趣，一路由basic 
+  -&gt; FORTRAN -&gt; C -&gt; C++ 走來...</font><ul>
+    <li>szu.bbs@bbs.es.ncku.edu.tw：是的，第三章也許是世界末日，當初我看的時候也是跳過不看，不然就是看完 
+      frame1 
+      後就說再見了。但是你只要很努力地慢慢看，一步一步地看，你就會發現後面的章節是那麼清楚明瞭... 
+      慢慢來吧，這第三章我也是看了三遍才弄懂了一次。我也非電腦科系學生，與你相同的路子走來，有點 
+      SDK 概念和一點 Data structure 概念，對第三章會很容易懂的，加油。<br>
+    </li>
+    <li>軼名：我看第三章的時候也很辛苦，但懂了之後，後面的章節可是用飆的喔。</li>
+  </ul>
+  <hr align="left">
+  <p><a name="【BBS 上的指教】"><font color="#FF0000">【BBS 上的指教】</font></a><br>
+  </p>
+  <p><font color="#0000FF">作者 iostream 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  看板 CompBook<br>
+  標題 Re: 【深入淺出 MFC 2/e 五刷】感言<br>
+  時間 <br>
+  ───────────────────────────────────</font><br>
+  ==&gt; 在 horngsh.bbs@bbs.cs.nthu.edu.tw (阿瓜) 的文章中提到:<br>
+  : ※ 引述《EvilKing (殺蛋王)》之銘言：<br>
+  : &gt; 請問大師是否有勘誤表, 我買的是二版二刷. 看得提心吊膽的<br>
+  : &gt; 謝謝 ^_^<br>
+  : 問個笨問題，幾刷要看哪裡？<br>
+  <br>
+  奇怪! 這本書真有這麼好嗎?<br>
+  我必須提出這個問號???????<br>
+  <br>
+  以下我有幾個想法 :<br>
+  <br>
+  1. 這本書包裝太厚. 不該有的東東太多, 在第一版中, 你甚至可以看到OWL的程式<br>
+  照侯俊傑先生的說法, 他並不了解OWL. 且在範例中也証明他不明白OWL. 
+  幸好<br>
+  第二版中, 他刪去了這一段. 附錄A所列的無責任書評, 
+  在我想來也是多餘. 因<br>
+  為這篇書評在RUN!PC早有提及, 後來也出了無責任書評第三集, 
+  因此實在沒有這<br>
+  個必要. 想來是侯先生要增加書的厚度, 有以致也.<br>
+  <br>
+  2. 侯先生在第一章中提出的Win32基本觀念. 
+  本來作業系統就是侯先生的專長, 因<br>
+  此由他來提筆, 實在是最佳的範例. 可是這一章節只到達Jeffrey的水準, 
+  並沒<br>
+  有Matt的水準. 也許是侯先生認為是基本程式觀念的考量. 
+  可是我還是以為讀<br>
+  者該有知的權利. 如 : Page 30, 侯先生只簡略的提到PE可執行檔的格式, 
+  只教<br>
+  你用DUMPBIN倒出來看看....<br>
+  <br>
+  3. 第二章, 侯先生提到C++的重要性質. 和侯譯的C++物件模型比起來. 
+  這一章只算<br>
+  是C++的常識篇而已. 並沒有觸及太多的物件導向觀念. 如談encapsulation就沒<br>
+  有討論到friend和pointer對封包造成的傷害. 也沒有介紹C++的struct和class<br>
+  具有同價觀念. 更別說是interface和implementation的觀念了. 說到繼承也沒<br>
+  有區分什麼是class inheritance和implementation inheritance了.<br>
+  <br>
+  4. 第五章, 頁325提到C++是一個複雜的語言, AFX小組預期MFC的使用者不可能人人<br>
+  皆為C++專家, 所以也們並沒有採用所有的C++高階性質(例如多重繼承).....<br>
+  這句話有很大的問題. MFC之前沒有多重繼承的原因是因為之前MFC模仿的語言<br>
+  Smalltalk只用單一繼承的方式. 而Smalltalk在Framework方面算是先師.<br>
+  <br>
+  這本書雖然是一本相當用心的書, 但是倒不算是什麼很了不起的書. 
+  它沒有實作的<br>
+  用途, 因為它所舉的MFC Library實在太少; 它也不是Inside的書, 
+  因為它的主題<br>
+  太廣, 從C++, SDK, MFC....都沒有專精的素求. 最後, 
+  我認為這本書太不實際,<br>
+  它不涉及網路, 証明侯先生對網路明白太少, 第二它不涉及OLE, 
+  因為他在ATL上面<br>
+  實在著墨不多, 而ATL和MFC正是Visual C++的二大架構. 這本書實在太老套, 
+  早在<br>
+  這本書之前侯先生就寫過二本Visual C++物件導向的書, 
+  這一本只是再創造而己,<br>
+  沒有其他新意.<br>
+  <br>
+  於1999.2.26日夜<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <font color="#0000FF">作者 &quot;炒飯炒麵一碗湯&quot; 
+  &lt;capri@ms5.hinet.net&gt;, 看板 CompBook<br>
+  標題 Re: 【深入淺出 MFC 2/e 五刷】感言<br>
+  時間 DCI HiNet (Sat Feb 27 02:47:04 1999)<br>
+  ────────────────────────────────────</font><br>
+  終於有人跳出來說話了…<br>
+  侯先生的這本大作，好像一直沒人批評過，小弟也來參一腳：<br>
+  <br>
+  就如同明月先生所說的，書評不應該放在這本書裡吧!<br>
+  或許出版商或侯Sir有他們的考量，但是以讀者的立場而言<br>
+  因為這些東西而讓書太厚實在有點…<br>
+  <br>
+  這些灌水的東西共計有：<br>
+  <br>
+  (a)1-16頁的讀者來函：共16頁<br>
+  (b)超長的序，嗯，這應該沒有關係<br>
+  (c)843-872頁的無責任書評：共30頁(其實裡面有一些發人省思的東西，還好)<br>
+  (d)873-914頁的Scribble原始碼：共42頁(這最嚴重，幾乎沒必要的東西)<br>
+  (e)915-920頁的VC範例程式一覽：共6頁(很可惜，如果再多加發揮的話很有用，<br>
+  但是侯Sir只是列個標題，連說明都是英文，和看Help檔沒什麼差別)<br>
+  <br>
+  共計：94頁<br>
+  <br>
+  不是我無聊找碴，您可曾看到有哪本書有將近一百頁的贅肉?<br>
+  更別題書中動不動就列出四五頁的原始碼了。這些在光碟上都有，何必浪費紙張?<br>
+  也因此這本書成為我書架上土產胖子排行榜的第二名(第一名是C++的Language<br>
+  Reference、第三名正好也是侯Sir的譯作：Inside Visual C++)，售價也是佼佼者。(以上皆是講本土著作，原文書…$$$$)<br>
+  <br>
+  不過消掉這些贅肉，這本書還是有它的價值。中文的VC書籍中，很少講MFC理論的。不過以此觀點來看，第四章的IDE介紹就顯得有點不倫不類。<br>
+  而且在章末又放了Scribbled 的原始碼20頁(唉~這東西在第八章講的還比較多)<br>
+  <br>
+  至於書中缺少的部份，我認為要看您如何去定位這本書。<br>
+  除了網路、ATL，書中對於資料庫、DirectX也是付之闕如，ActiveX也著墨不多<br>
+  但總不能要求一本書把所有Program的東西講完吧!<br>
+  以探討MFC的內部而言，本書沒什麼好批評的了。<br>
+  <br>
+  總而言之，這本書該不該買，我想還是肯定的<br>
+  但是如果書能瘦點、售價能低點，那就更好了。<br>
+  至於初學者，千萬不要拿這本來入門，先找本簡單的看(我不是指 xxx 
+  24 hr之類的)<br>
+  只要書的說法自已覺得好吸收就行了，舊版4.X,5.x的也有很多好書!<br>
+  <br>
+  PS.侯Sir說不想為VC6.0改版，說6版只多了一點東西(呵!一堆CxxEx)… 
+  很可惜，<br>
+  中文的VC書籍夠少的了。<br>
+  嗯!如果有改版，也許胖子排行榜的榜主就要換人了。<br>
+  <br>
+  以上言論僅個人對此書之意見，對侯先生沒有任何不敬之意。<br>
+  對於Program書籍的本土優秀作者，我仍認為除侯Sir不作二人想。<br>
+  ㄜ!本人並無以此攻擊洪先生之意。<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <font color="#0000FF">作者 gis87506@cis.nctu.edu.tw (Jian-Liang Liu), 看板 CompBook<br>
+  標題 Re: 【深入淺出 MFC 2/e 五刷】感言<br>
+  時間 Dept. of Computer &amp; Information Science, NC (Sat Feb 27 14:10:17 1999)<br>
+  ────────────────────────────────────</font><br>
+  : 就如同明月先生所說的，書評不應該放在這本書裡吧!<br>
+  : 或許出版商或侯Sir有他們的考量，但是以讀者的立場而言<br>
+  : 因為這些東西而讓書太厚實在有點…<br>
+  <br>
+  書厚不厚沒什麼關係,內容是不是充實比較重要.<br>
+  Programming Windows 95 改版後,厚度不是也很夠?<br>
+  <br>
+  : 這些灌水的東西共計有：<br>
+  : (a)1-16頁的讀者來函：共16頁<br>
+  : (b)超長的序，嗯，這應該沒有關係<br>
+  : (c)843-872頁的無責任書評：共30頁(其實裡面有一些發人省思的東西，還好)<br>
+  <br>
+  書評需不需要也是見仁見智. 我想侯 sir 
+  會列出來也是想要推薦給讀者關於<br>
+  MFC ,windows 這方面領域值的一讀的書.<br>
+  <br>
+  : (d)873-914頁的Scribble原始碼：共42頁(這最嚴重，幾乎沒必要的東西)<br>
+  <br>
+  這部分倒是真的比較沒必要再列出來..<br>
+  <br>
+  : (e)915-920頁的VC範例程式一覽：共6頁(很可惜，如果再多加發揮的話很有用，但<br>
+  : 是侯Sir只是列個標題，<br>
+  : 連說明都是英文，和看Help檔沒什麼差別)<br>
+  : 共計：94頁<br>
+  : 不是我無聊找碴，您可曾看到有哪本書有將近一百頁的贅肉?<br>
+  : 
+  更別題書中動不動就列出四五頁的原始碼了。這些在光碟上都有，何必浪費紙張?<br>
+  : 也因此這本書成為我書架上土產胖子排行榜的第二名(第一名是C++的Language<br>
+  : Reference、<br>
+  : 第三名正好也是侯Sir的譯作：Inside Visual C++)，售價也是佼佼者。(以上皆是講<br>
+  : 本土著作，原文書…$$$$)<br>
+  <br>
+  Programming windows 95 , Programming windows 95 with MFC .這些重量級<br>
+  的書,安排的方式也都是把程式碼給列出來.不過因為這兩本書都沒用到 
+  winzard<br>
+  ,所以相對的程式碼列出來沒像 Inside Visual C++ 那麼的可觀.不過每個範例<br>
+  四五頁的程式碼也是很平常可見.換個角度來看,也許作者也可以只列出 
+  key point<br>
+  的地方,針對這些部分作說明即可,而把程式碼放到光碟片中,讓有需要的人自行去<br>
+  找出來看.這種方式可以大大的縮減書的厚度,可是對於對 MFC , windows<br>
+  programming 還不熟的人,這樣子的方式反而會照成不便.<br>
+  <br>
+  就我自己看 programming windows 95(舊版的) 的經驗來說,我自己都是用色筆把<br>
+  範例程式中之前沒提過的,或是自己不懂得地方給上色(類似深入淺出 
+  MFC 把重要<br>
+  的地方給反白),其餘的地方大致上不會再花時間去看.若是今天作者只是把他認為<br>
+  重要的地方列出來,其它的不列,反而會照成我閱讀上的不便.(讀書還是比看螢幕舒<br>
+  服)<br>
+  <br>
+  一本書的售價合不合理很難去評量.我買書會比較傾向於這本書對我是不是有用.有<br>
+  用的話,售價再貴也是值得.內容上寫的不好,或是對我沒用的書籍,再便宜我也不會<br>
+  想要花這筆錢.書算是最便宜的東西了,花個幾百塊或是上千塊就可以買到作者所學<br>
+  的精華,去那邊可以找到這麼便宜的事呢..<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <font color="#0000FF">作者 gaussk (Gauss) 看板 CompBook<br>
+  標題 Re: 【深入淺出 MFC 2/e 五刷】感言<br>
+  時間 Sat Feb 27 12:06:06 1999<br>
+  ────────────────────────────────────</font><br>
+  本來我是很不願意在網路上談書的, 不過看到這篇文章的評論, 
+  我有很多不<br>
+  同的意見, 所以我就提出些自己的看法. 從 1993 年微軟 VC1.0 
+  出來後我就<br>
+  開始用 MFC 了, 在此之前我是 base on Windows++ 書中的程式來架構自己的<br>
+  class library. 如果有人對當年的 MFC vs OWL 論戰還有印象的話, 應該知道<br>
+  在當時 BBS 擁護 MFC 的人很少, 我是少數的幾個. 至於 MFC &amp; OWL 
+  的優劣,<br>
+  我不想再談, 有興趣的可以到各 BBS 的精華區看看在 1994 
+  年左右我的文章.<br>
+  <br>
+  寫出以上的歷史主要是想說明我對 MFC 的認識足以讓我瞭解什麼才是 
+  MFC<br>
+  的精華, 何為 MFC 之本. 我用 MFC 寫過數十萬行的 code, 數個的商業軟體.<br>
+  ( 拿過雜誌 editor choice, 其中一個後續版本還拿到台灣精品獎).<br>
+  <br>
+  我看過的 MFC 書籍不知凡幾. 真正能掌握精髓的不多. 很不巧, 
+  侯俊傑的這<br>
+  本書就是我認為 MFC 書中的佼佼者. 早期 MFC 資源不豐富的年代,最好的書<br>
+  是 VC1.5 內附的 Developer Guide. 它整本書的內容就是以 Scribble 程式來<br>
+  示範說明 MFC 的使用. 對於 MFC 性能的解說就連當年的 Inside Visual C++<br>
+  都不及它.而侯俊傑書中以同一個程式來解說, 
+  它的深度及廣度更超過了前兩者.<br>
+  <br>
+  很多初學者在學習程式時, 都有 &lt;多就是好&gt; 的迷思, 
+  渾然忘了真正的核心.<br>
+  就像少林寺有七十二絕技, 但是沒有人可以精通所有東西, 
+  真正重要的東西<br>
+  是少林易經筋或九陽神功這類紮根基的內功. 有了好的內功基礎, 
+  打通了任<br>
+  督二脈, 要再學其他武功的運用法門, 實在是易如反掌, 
+  雖然不至於如張無<br>
+  忌般, 可以在看過一篇 &lt;少林龍爪手&gt; 
+  之後就可以依樣畫葫蘆使出來, 我想<br>
+  也相差無幾了.<br>
+  <br>
+  回過頭來看看 MFC, 我認為侯書已經將 MFC 的精華點出來了. 
+  如果能將侯書<br>
+  完全弄懂, 對於 MFC 精神的掌握雖不中亦不遠矣. 剩下的就是火候了. 
+  看懂<br>
+  了侯書之後, 就如同學習到了內功的呼吸吐納法門, 只要勤加練習, 
+  假以時<br>
+  日必成大器. 當然練內功是不夠的, 還得學習運勁方法, 像是 Inside VC++<br>
+  及 Jeff Prosise 都是不錯的選擇. 以上都是侯俊傑在無責任書評中 MFC 
+  四大<br>
+  天王之一.<br>
+  <br>
+  基本上初學者要學 MFC, 侯書+Inside VC++ 或 Jeff 書, 兩者相輔相成即<br>
+  可. 至於其他如 OLE, COM, 網路等領域, 都足以再寫一本同樣厚度的書, 
+  實<br>
+  在不適宜於在書中.<br>
+  <br>
+  &gt; 1. 這本書包裝太厚. 不該有的東東太多, 在第一版中, 
+  你甚至可以看到OWL的程式<br>
+  <br>
+  OWL 可以不要放. 
+  不過無責任書評及讀者來函都有點出正確學習方向的用<br>
+  處, 最好還是要有. 畢竟任何 MFC 書, 包含侯書, 都無法像大賣場般,<br>
+  &lt;一次購足&gt; 你所需的東西.<br>
+  <br>
+  &gt; 2. 侯先生在第一章中提出的Win32基本觀念. 
+  本來作業系統就是侯先生的專長, 因<br>
+  &gt; 此由他來提筆, 實在是最佳的範例. 可是這一章節只到達Jeffrey的水準, 
+  並沒<br>
+  &gt; 有Matt的水準. 也許是侯先生認為是基本程式觀念的考量. 
+  可是我還是以為讀<br>
+  <br>
+  以上的說法很怪. 大多數的人都知道 Jeffrey 的 Advanced Windows 仍是同領<br>
+  域書籍的上上之選. Matt 在 Kernel 很專精, 但在 Anvanced Windows 領域中,<br>
+  還是以 Jeffrey Richter 為大宗師. 以上說法似乎認為 Jeffrey 不及 Matt ,<br>
+  事實上他們各有專攻.<br>
+  <br>
+  &gt; 3. 第二章, 侯先生提到C++的重要性質. 和侯譯的C++物件模型比起來. 
+  這一章只算<br>
+  &gt; 是C++的常識篇而已. 並沒有觸及太多的物件導向觀念. 如談encapsulation就沒<br>
+  &gt; 有討論到friend和pointer對封包造成的傷害. 也沒有介紹C++的struct和class<br>
+  &gt; 具有同價觀念. 更別說是interface和implementation的觀念了. 
+  說到繼承也沒<br>
+  &gt; 有區分什麼是class inheritance和implementation inheritance了.<br>
+  <br>
+  MFC 書本來就不該寫太多純 C++ 的東西. 基本上如果不懂 C++ 應該看<br>
+  C++ Primer 或 C++ Programming Language.<br>
+  <br>
+  &gt; 這本書雖然是一本相當用心的書, 
+  但是倒不算是什麼很了不起的書. 它沒有實作的<br>
+  &gt; 用途, 因為它所舉的MFC Library實在太少; 它也不是Inside的書, 
+  因為它的主題<br>
+  <br>
+  掌握了MFC 精華, MFC Library 只要在 IDE 中用 Online Help 就可以看<br>
+  懂了, 何需寫在書中, 徒然浪費篇幅.<br>
+  <br>
+  &gt; 太廣, 從C++, SDK, MFC....都沒有專精的素求. 最後, 
+  我認為這本書太不實際,<br>
+  &gt; 它不涉及網路, 証明侯先生對網路明白太少, 第二它不涉及OLE, 
+  因為他在ATL上<br>
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^<br>
+  <br>
+  前面說過, 網路及 OLE 都可以再寫一本書了. 以上說法也很怪, 如果<br>
+  有人用 &quot;書中沒有談網路也沒有談多媒體設計&quot; 來評論 C++ 
+  Primer<br>
+  或是 Bjarne Stroustrup 的 C++ Programming Language 寫得不實際, 你<br>
+  也會很奇怪. 要學 TCP/IP 網路應看 TCP/IP 書, 要學 OLE , 就看<br>
+  Inside OLE. 不要想用 &lt;一次購足&gt; 的心態來學習.<br>
+  <br>
+  &gt; 這本書之前侯先生就寫過二本Visual C++物件導向的書, 
+  這一本只是再創造而己,<br>
+  &gt; 沒有其他新意.<br>
+  <br>
+  我的感想是很多人喜歡&lt;是己非人&gt;, 
+  藉著否定別人的成就來肯定自己!<br>
+  雖然我不知道原作者是不是如此, 不過我還是覺得適時的肯定別人的<br>
+  成就, 會對自己更有幫助.<br>
+  <br>
+  我不否認我和侯俊傑認識, 所以也許評論不夠中肯. 不過我已經儘量<br>
+  以技術層面來探討侯書的優劣, 不涉及私人感情. 我早年也曾經寫過<br>
+  書, 知道其中的難度. 對於侯書, 我一向是內舉不避親的.</p>
+  <hr align="center">
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<title>勘誤《內存受限系統 之軟件開發》簡體</title>
+</head>
+
+<body>
+
+<pre>本勘誤檔更新日期: 2003/07/01
+
+《內存受限系統 之軟件開發》（簡體）
+華中科技大學出版社, 2003/02 出版
+
+原著：Small Memory Software - Patterns for systems with limited memory
+      by James Noble, Charles Weir
+      Addison Wesley, 2001</pre>
+
+<pre>注意：以下按修正日期排序。</pre>
+
+<pre>======================================================</pre>
+
+<pre>書籍內容更正，有兩種作法，一是在網際網路上做個專屬勘誤
+網頁，讓大家上去看。這是比較即時的作法。而更理想更負責
+的作法是：不但有勘誤網頁，並且在新刷中予以更正 — 如果
+有新刷的話 :)</pre>
+
+<pre>不過，理想與現實之間需要一點協調。書籍的製作是這樣的，
+製版與印刷時，是以檯（8 或 16 頁）為單位。因此，每換一
+頁，同檯的各頁統統要換過。這便造成印製成本的大量增加。</pre>
+
+<pre>以前，我從不考慮成本，只要我認為書籍內容有修改必要，即
+使只是某個字詞用得不甚理想，我都會請出版社更新。出版社
+也都全力配合（這一點讓我非常感謝）。</pre>
+
+<pre>慢慢地，我的行事不再這麼霹靂，我覺得我多少也要站在出版
+社的立場想想。所以我打算，如果是關係到對錯正誤的根本性
+問題，我便一定在新刷修正。如果是易判別的錯別字或排版誤
+失或用詞不很恰當…等等，我便先在勘誤網頁上明載，但不求
+一定於新刷中更正。直到收集來的這類誤失較為密集了，才一
+併於下一刷修正。</pre>
+
+<pre>哪些是新刷已修正的，哪些是暫請讀者自行動手更改的，我會
+在勘誤網頁（網址見書封底）上清楚說明。</pre>
+
+<pre>這是個便宜法門，請讀者見諒。</pre>
+
+<pre>書籍應該在出版前就詳細檢查，以完美之姿出現。但是完美很
+難達到。對於下列大大小小輕重不等的誤失，我謹向讀者說抱
+歉。</pre>
+
+<pre>本檔歡迎廣為流傳，謝謝。</pre>
+
+<pre>以下為更新記錄。如果您購買的是第 n 刷，請將以下第 n+1
+刷之後的更新內容自行修正至書上。謝謝</pre>
+
+<pre>======================================================</pre>
+
+<pre>以下暫請讀者自行更正：
+（注意，Lm 表示第 m 行，L-n 表示倒數第 n 行）</pre>
+
+<pre>■p155, L-4（補譯）
+原文：我們可以將重複出現4~256次的數據項壓縮成escape code、數據全值、以及重複次數。
+      <font
+color="#FF0000">重複256次以上的數據項可以被存儲為…can be stored as repeated runs of 256 characters, 
+      plus one more run of the remainder（譯註：以上無技術把握，不敢造次，保留原文，請見諒）</font>
+討論：<font
+color="#408080">個人推敲此段文字許久,覺得作者的意思應該是說:
+      把重複256次以上的數據項拆成多個重複256次以下的數據項.因為 256 剛好塞滿一個 byte.
+      就像 520 = 256 + 256 + 8.</font>
+侯捷回覆：有道理，非常感謝。我的知識面不足，謝謝協助。      
+更正：我們可以將重複出現4~256次的數據項壓縮成escape code、數據全值、以及重複次數。
+      <font
+color="#0000FF">重複次數超過256次的數據項可以被存儲為多筆「重複256次」的數據再加上最後一筆
+      「剩餘重複次數」的數據（譯註：例如520=256+256+8）。</font> 
+感謝：kenycchen
+日期：2003/02/19</pre>
+
+<pre>■p32, L13（筆誤）
+原文：例如，Strap-It-On 的虛擬現實遊戲 Sta<font
+color="#FF0000">i</font>r War 內含數個組件
+更正：例如，Strap-It-On 的虛擬現實遊戲 Star War 內含數個組件
+感謝：zychang
+日期：2003/03/13
+
+■p239, L-4（補充）
+<font
+color="#408080">讀者來函：
+p239 最後,先生留有一段原文: this leaves the memory allocated to the old buffer 
+unused in the middle of the heap. 
+先生翻譯成: 這會使原本分配於舊緩衝區的內存成為新 heap 的中段且未被使用.
+如果單看這一段,還真難以理解. 不過在看了 &quot;3.2 暫態對象&quot; 的整段文字之後,才終於明瞭.
+我想作者意思是說: OS 為了效率問題, 經常從 heap 末端回收內存, 所以如果使用者
+呼叫 realloc() 重新分配較大內存塊, 勢必要釋放目前佔有的內存塊, 進一步
+尋找較大的連續內存空間. 若原本的內存塊位於 heap 中段, 而不是在 heap 末端, 
+OS 是不會回收該區段的 (即使已經釋放該內存塊). 如此, 就會造成內存碎裂.
+提供給侯先生做為參考.</font>
+
+侯捷回覆：感謝您的補充。
+感謝：kenycchen
+日期：2003/03/13
+
+■p8, L9（討論）
+<font
+color="#408080">讀者來函：
+  p8,L9 說
+  dynamic RAM : 速度快但需借助電力保持數據
+  static  RAM : 速度慢但只需要非常低的電力
+  我認為就速度而言 &quot;SRAM 比 DRAM 快&quot; 這答案應該是很明確的, 否則 SRAM 怎會被用來當 cache 呢?</font>
+侯捷回覆：
+  我請教了 DRAM 廠商專家，他們告訴我，DRAM 和 SRAM 都有可能做到訪問速度很快。
+  兩者的工作原理不同，因此製程不同，設計原理也不同。
+  DRAM：設計簡單，成本低，好製造。容量大（密度大）。但因電容存不住電，所以
+        需外加電路不時 refresh。此外它的速度和 CPU 有級次上的差距。
+  SRAM：複雜的電路，難製造、成本高。需直流電一直 keep，所以需一直供電。
+        分兩種，一種是 low power, high density, low speed, 此類為大宗，用於 non-cache 
+        如家電；一種是 high power, low density, high speed, 用於 cache. 
+感謝：s8321053@ncnu
+日期：2003/03/13
+
+■p278, L7（討論）
+<font
+color="#408080">讀者來函：
+  本節一開始講到 Garbage collection 的環境概述, 最後一點提到 
+    o. 共享對象(s)之間的結構並未構成環路（cycles）
+  雖說 &quot;不構成 cycle&quot; 必可使用 Garbage collection, 
+  但即使有 cycle, GC 仍是可以動作的, 那麼這一條應該是非必要。為什麼還被列在這邊?
+</font>
+侯捷回覆：
+  GC 的工作原理有很多種，我未曾樣樣深入。我想作者在本節談的是一種簡易型 GC.
+感謝：s8321053@ncnu
+日期：2003/03/13</pre>
+
+<pre>■p155, L-4（討論，續先前已有的討論）
+<font color="#408080">讀者來函：
+此處似乎應為一種 Run Length Encoding (RLE) 的敘述，不過未見全文，僅為臆測。
+以我曾經使用過的做法為 ESC code Data Repeats [Repeats] Remainder End-code
+例如 0xcc 重複出現 520 次，編碼成
+0x1b (ESC) RLE-code 0xcc(Data) 0x2 (Repeats [Repeats]) 0x8 (Remainder) 0x0 (END-of-RLE) 
+六個 bytes</font>
+感謝：ctang
+日期：2003/04/03
+
+■p8, L9（討論，續先前已有的討論）
+<font
+color="#408080">讀者來函：
+此處可能的問題是三個敘述均有部分正確但觀點不一致。
+DRAM 需要 refresh 此點我想無疑義，但 refresh 時數據 &quot;無法&quot; 讀取，
+所以隨機去讀取 &quot;已經存儲&quot; 的數據時，DRAM 絕對是比較慢的。
+而 SRAM 並無 refresh 之需要，當數據已經鎖住於迴路時，任何時間均可讀取，
+而此迴路為某種型態的 flip-flop 視製造需要而定。
+但是 flip-flop 要能將電位鎖住所需的時間(latency)通常會較電容為長，
+這裡的 latency 是就相同製程相同資料辨識電位之回路本身來相較，
+而耗電量一定是 flip-flop 較高。
+其次，有些語言上的敘述可能不太恰當，電容就是用來儲存電荷維持電位的，
+似乎無論如何也無法稱為 &quot;電容存不住電&quot;，較為恰當的講法是 &quot;維持電位的時間有限&quot; 
+必須重複 charge 故稱為 refresh。所謂 refresh rate 與 CPU 頻率的差異，
+倒不如稱之為與 BUS 上的差距較恰當。</font>
+
+侯捷回覆：感謝。BTW，所謂 &quot;電容存不住電&quot; 是一種形容，就像「此人藏不住話」一樣 :)
+感謝：ctang
+日期：2003/04/03</pre>
+
+<pre>■p173, L-1（筆誤）
+原文：S<font color="#FF0000">r</font>gewick 1999
+更正：S<font
+color="#0000FF">e</font>gewick 1999
+感謝：Hsu
+日期：2003/07/01
+
+-- the end</pre>
+</body>
+</html>

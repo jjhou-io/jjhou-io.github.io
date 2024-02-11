@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>《C++ Primer 題解》答客問</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font><div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="8" width="723">
+  <tr>
+    <td align="right" valign="top" width="25">&nbsp; <!--mstheme--></font></td>
+    <td valign="bottom" width="653"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="25" bgcolor="#C0C0C0"><font size="3" face="Arial"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td valign="top" width="653"><br>
+    <big><big>C++ Primer 題解 答客問 (1)</big></big> - <br>
+    2001.01.18 <br>
+    <br>
+    ikai (2001/01/12) :<br>
+    <br>
+    <font color="#0000FF">&gt; 在C++ Primer</font><big><big> </big></big><font
+    color="#0000FF">題解&nbsp; p.56 練習4.4中<br>
+    &gt; 下面那一個(如果有的話)可能是不正確的，或是無法移植的？為什麼？如何修正之？<br>
+    &gt; 請注意這些例子中都<br>
+    &gt; 沒有明確告訴你 object(s)的型別。<br>
+    &gt; <br>
+    &gt;&nbsp; (b) ival != jval &lt; kval<br>
+    <br>
+    &gt; 如果 jval 是 int ，而 kval 是unsigned int ，此算式可能不具移植性。<br>
+    &gt; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^<br>
+    &gt; <br>
+    &gt; 這句話的意思是什麼？移植性又代表什麼意思？</font><br>
+    <br>
+    <br>
+    黃向陽回覆：<p><font face="Fixedsys">簡單寫個小程式來測試。<br>
+    <br>
+    #include &lt;iostream&gt;<br>
+    using namespace std;<br>
+    <br>
+    int main()<br>
+    {<br>
+    &nbsp;&nbsp;&nbsp; int i = -5;<br>
+    &nbsp;&nbsp;&nbsp; unsigned int ui = 8;<br>
+    &nbsp;&nbsp;&nbsp; <br>
+    &nbsp;&nbsp;&nbsp; cout &lt;&lt; (i &lt; ui ? i : ui);<br>
+    }</font><br>
+    <br>
+    在 VC6 得到的輸出是 8，顯然不是我們預期的。<br>
+    在 BCB 會出現 waring: Comparing signed and unsigned values in function main()<br>
+    輸出一樣是 8。<br>
+    <br>
+    我手上沒有 C++ language 的規格書，無從得知關於 less-than 
+    運算子的實作方式。不過看來都是以 unsigned 來做比較。<br>
+    <br>
+    所以我想這裡的不具移植性(nonportable)，應該就是指上述與我們預期相違之行為。<br>
+    <br>
+    <br>
+    -- the end<br>
+    &#26;<!--mstheme--></font></td>
+  </tr>
+</table>
+</center></div>
+
+<p>　 </p>
+<!--mstheme--></font>
+</body>
+</html>

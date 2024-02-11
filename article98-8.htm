@@ -1,0 +1,439 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+<meta content="text/html; charset=big5" http-equiv="Content-Type">
+<meta content="Microsoft FrontPage 3.0" name="GENERATOR">
+<title>from COM to COM</title>
+</head>
+
+<body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
+
+<hr>
+
+<h2 align="center">From COM to COM</h2>
+
+<blockquote>
+  <p align="center">侯捷 1998.06.12</p>
+</blockquote>
+
+<hr>
+
+<blockquote>
+  <p><font color="#FF0000">摘要：</font><br>
+  <br>
+  本文簡介 C++ Object Model 和 Component Object Model 
+  的基本概念，並引介四本書籍：<br>
+  <br>
+  <font color="#000000">1. Inside The C++ Object Model <br>
+  <br>
+  2. Essential COM <br>
+  <br>
+  3. Inside COM <br>
+  <br>
+  4. Understanding ActiveX and OLE -- A Guide for Developers &amp; Managers </font><br>
+  </p>
+  <p>將近 8 年的時間，我把自己放逐在 Windows 
+  領域裡，縱情學習與研究。我應該算是幸運的一群人之一，在 PC 
+  軟體工業起飛的年代，一步步地抓住技術提昇上來。我的那一票工程師朋友們，因為在職的緣故，整天但求把專案完工了結尚不可得，實在難有好好沉澱心得、充電進修的時光。有一位朋友苦於整體技術的盤根錯節，就曾感慨地說，如果能夠循序漸進地學習，該有多好！還有一位讀者寫信來對我說：沉浸在書籍裡的學習滋味，真是曼妙。<br>
+  <br>
+  可惜，世界不等待我們。我們也只好採取「跳島策略」。<br>
+  <br>
+  在這麼多年的技術研究中，我感覺自己像在玩拼圖遊戲。以程式語言始，以作業系統終，其間包括 
+  C、C++、Java、SDK、MFC、VxD、Win32 OS、Multithreading、C++ STL、Internet 
+  Protocol...。我望著手上這塊拼圖，感覺外界的一切變化，差不多可以在我的手心裡頭掌握了。不管再有新發展出的什麼物件導向語言、什麼 
+  application framework、或是什麼新的driver model、新的 protocol，我都覺得因為掌握了基本知識，而得以觸類旁通，舉一隅以三隅反。就算是換一個作業系統，我都覺得由於我對 
+  processes、threads、modules、address space、executable file format 
+  的認識，使我可以輕而易舉地易地而行。是的，我感覺一種前所未有的安定。<br>
+  <br>
+  然後我審視我的技術藍圖，發現還有一塊空白沒有填上。那其實是多年來的夢魘叫做 
+  OLE 
+  的東西。那東西從面世到今天，不斷地成長，已經和大樹一樣了。它不但分割出 
+  COM 底層架構，又在 Internet 當道之際，加入更多特質，幻化為 ActiveX。<br>
+  <br>
+  過去我也曾經在 OLE 
+  身上下了很大的功夫，甚至也得到一些至今看來仍覺不錯的成果。我常常在檢閱以前讀過的 
+  OLE 書籍時，看到密密麻麻的心得眉批以及用 Word 和 Powerpoint 
+  做出來的精美心得，還有已經完成的部份書稿，驚訝地發現自己原來也已經鑽研到那樣的一個程度。然而也總是在片刻的陶醉之後，心裡深處浮現一個小小的聲音問自己：為什麼現在全都忘了？</p>
+  <p><br>
+  <font color="#000000">●Know How 與 Know Why</font><br>
+  <br>
+  就好像骨鈣的補充一樣，<font color="#0000FF">重要的不在吸收多少，而在留下多少</font>。 
+  我一再遺忘曾經掌握的 COM/OLE 
+  技術，原因恐怕是，我並沒有紮紮實實地把相關知識奠定好基礎。我也許學到了不少 
+  how，但我不知道 why。對於原理的不瞭解，使我沒有辦法留住我所吸收的養份。<br>
+  <br>
+  這與我向來的研究精神悖離。但尋尋覓覓好久，我並沒有找到理想的文獻，能夠把 
+  OLE（其實應該說是 COM）基本原理交待清楚。我甚至不知道是否真的有那樣的文章或書籍。其實我只需要最根源的那一部份。悟了最根源的部份，我就有能力度化自己了。<br>
+  <br>
+  在很偶然的情況下，我湊齊了兩本書，才終於整合出潛意識尋尋覓覓而不自知的東西。<br>
+  <br>
+  說是偶然，何嘗不是日積月累的週邊知識所導至的因緣俱足？</p>
+  <p><br>
+  <font color="#000000">●兩本好書</font><br>
+  <br>
+  我所說的這兩本書是 <a href="jjtbooks-inside-cpp-obj-model.htm" tppabs="http://jjhou.boolan.com/jjtbooks-inside-cpp-obj-model.htm" target="main"><font
+  color="#0000FF">Inside The C++ Object Model</font></a> 和<font color="#0000FF"> <a
+  href="jjtbooks-essential-com.htm" tppabs="http://jjhou.boolan.com/jjtbooks-essential-com.htm" target="main">Essential COM</a></font>。請注意，它們都在講 
+  object model，一本針對 C++，一本針對 components（軟體元件）。<br>
+  <br>
+  早些年我曾經對 C++ objects 
+  在記憶體中的佈局有很大的興趣，也整理出虛擬機制底層建設的一些心得（當時我並不知道這個知識領域被稱為 
+  C++ Object Model）。所以當我翻看 Inside The C++ Object Model 
+  三兩頁，直覺告訴我，這正是我一直希望擁有的一本書。事實上它已出版兩年了，我真是後知後覺！<br>
+  <br>
+  拿到上一本書的同一時間，我也拿到了最新出版的Essential COM。此書前兩章介紹 
+  COM 的 &quot;why&quot;，正是我所亟需。我感覺討論「為什麼需要 COM」這一主題所需要的技術背景之中，好多正是 
+  C++ Object Model 所涵蓋的範圍。而且，Essential COM 的作者 Don Box 
+  竟然也在書中第 16 頁大力向讀者推薦 Inside The C++ Object Model 
+  一書。這不是因緣俱足嗎？我自己的發掘與 Don Box 
+  的推薦，兩相映和，快樂難以形容。<br>
+  <br>
+  這一次，就讓我為大家鋪一條從 C++ Object Model 通往Component Object Model 
+  的大道。<br>
+  </p>
+  <p><br>
+  <font color="#000000">●倒敘<br>
+  </font><br>
+  恐怕我得用倒敘的方式，才能讓你明瞭（並且認同），為什麼學習標榜著「與程式語言無關」的 
+  COM，卻需要先有 C++ 
+  語言的某種非常深層結構的（屬於編譯器層次的）基礎。<br>
+  <br>
+  認真地想想這個問題：我的硬碟中同時存在有MFC20.DLL、MFC40.DLL、MFC41.DLL、MFC42.DLL、MFC50.DLL...，為什麼會這樣？因為版本更新時，我懶得去整理硬碟。現在我想到了，看到了，但是我敢動手砍掉它們，只保留最新版本嗎？我不敢，因為我不確定我的哪一個應用軟體使用哪一版 
+  DLLs。我寧願多花一點磁碟空間來放置所有歷史陳跡 -- 
+  反正硬碟也便宜！<br>
+  <br>
+  一個迴避的方法就是，乾脆軟體開發人員都不要使用DLLs，都用靜態聯結（static 
+  linking）算了！這是「因噎廢食」的最佳寫照。有這種念頭，我就走入歷史的反動了。要知道，DLLs 
+  是一種可重複使用的模組，不必因為 client（呼叫端）的改變而重新編譯聯結。反方向說，DLL 
+  若更新也不必與 client 重新聯結（如果介面未改的話）。不使用 DLLs，每一個應用軟體都會變成超級大胖子，這是問題之一。不使用 
+  DLLs，應用軟體的開發過程會遭受重大阻礙，執行時嚴重浪費資源（尤其是記憶體），這是問題之二。<br>
+  <br>
+  所以軟體工程師們決定繼續使用 DLLs。假設我出廠一批DLL 1.0，一年後決定修改其中的某個 
+  class，為它加上一筆 private data。當與 1.0 同檔名的 DLL 2.0 
+  被安裝到使用者硬碟中，舊版 DLL 被覆蓋掉。對於新的應用程式（DLL 
+  2.0 的呼叫者），這當然沒問題。但當那些原本呼叫 DLL 1.0 
+  的應用程式被執行起來，系統可能當掉！<br>
+  <br>
+  為什麼？C++ 不是支援資料封裝嗎？新加的 DLL 資料不是 private 嗎？client 
+  永遠不可能直接存取那筆資料呀！話雖不錯，但 C++ 向來只靠 private 
+  和 protected 兩個保留字提供語意上的封裝，並沒有提供二進位層次（binary 
+  level）的封裝。C++ 
+  編譯器必須對物件的實體佈局有完全的掌握（二進位上的掌握），才有辦法製造出一個物件實體；上述例子新加入的一筆 
+  private 資料改變了物件實體的記憶體佈局，舊的 client 呼叫新的 DLL，呵呵，不當掉是運氣！<br>
+  <br>
+  解決方法就是目前習用的「以不同的 DLL 檔名代表不同的版本」，像 
+  Microsoft 對其 Visual C++、Visual Basic 
+  的所做所為一樣。這是一種鋸箭法，迴避了問題，但沒有解決問題。<br>
+  </p>
+  <p><br>
+  <font color="#000000">●Binary Level<br>
+  </font><br>
+  真正要解決這個問題，必須讓 DLL 這一端的任何改變，都不必引起 
+  client 
+  端的任何變化。真正的封裝，必須把「物件看起來像什麼」和「物件實際上如何工作」徹底分隔開來。這樣的原則在一般的 
+  C++ object 二進位層級（bineary level）中無法施行（為什麼？說來話長，這屬於 
+  C++ Object Model 的範疇）。但如果我們把原本的 C++ class 改裝為一個 
+  interface class 和一個 implementation class 的組合，就可以辦到。Implementation 
+  class 以 DLL 的形式出現，而 interface class 成為 implementation class 
+  的一個基礎類別，其間沒有任何資料（data members），只有欲開放之 
+  implementation class methods 
+  的各個函式宣告。你猜對了，這些宣告統統被設計為純虛擬函式。純虛擬函式並不是唯一一種作法，卻是最佳作法。<br>
+  <br>
+  Interface class 負責和 client 聯結，形成 client 和object DLL（implementation 
+  class）之間的一道防火巷，完成所謂的二進位封裝！<br>
+  <br>
+  除了軟體版本衝突，另一個問題也有待解決。由於各家 C++ 廠商對於 
+  mangling（函式名稱改裝）的作法不一，沒有標準，在 C++ 
+  平台Ａ中所製作的 classes DLL，不保證能在 C++ 
+  平台Ｂ中被使用。上述把 interface 和implementation 
+  分開的作法，可以解決所謂編譯器不相容的問題。此外，對於 runtime 
+  polymorphism 也有幫助，對於 object extensibility 也有幫助。<br>
+  </p>
+  <p><br>
+  <font color="#000000">●所謂 Components</font><br>
+  <br>
+  受到二進位防火巷保護，並且免除 name mangling 困擾的objects，就是所謂的 
+  components。它不自限於使用哪一種C++ 
+  編譯器來開發，甚至不自限於使用哪一種程式語言。事實上，Component 
+  Object Model 是一個規格，只不過這個規格最貼近 C++ 
+  虛擬函式的實作方式罷了。同類型的規格還有 System Object Model（<font
+  color="#0000FF">SOM</font>）和 Common Object Request Broker Architecture（<font
+  color="#0000FF">CORBA</font>）。<br>
+  <br>
+  我想你已經看到了，要瞭解 COM，唯有先瞭解「為什麼需要 COM」。要瞭解「為什麼需要 
+  COM」，又必須先瞭解「C++（或目前的任何語言）為什麼做不到」。而要瞭解「C++ 
+  為什麼做不到」，就必須瞭解「C++ 物件模型」是怎麼一回事。</p>
+  <p>　</p>
+  <hr align="left">
+  <p><font color="#0000FF"><a name="■Inside the C++ Object Model">■Inside the C++ Object 
+  Model</a> <br>
+  <br>
+  作者：Stanley B. Lippman <br>
+  出版公司：Addison Wesley <br>
+  出版日期：1996 頁數：7 章，280 頁<br>
+  售價：書上沒有標示定價（本書無磁片）<br>
+  1. Object Lessons <br>
+  2. The Semantics of Constructors <br>
+  3. The Semantics of Data <br>
+  4. The Semantics of Function <br>
+  5. Semantics of Construction, Destruction, and Copy <br>
+  6. Runtime Semantics <br>
+  7. On the Cusp of the Object Model </font><br>
+  <br>
+  <img src="inside-cpp-object-model.jpg" tppabs="http://jjhou.boolan.com/inside-cpp-object-model.jpg" alt="inside-cpp-object-model.jpg (16988 bytes)"
+  width="183" height="264"><br>
+  <br>
+  在 C++ 
+  成山似海的書籍堆中，這一本並不是嬰幼兒奶粉，也不是較大嬰兒奶粉，它是成人專用的低脂高鈣特殊奶粉。<br>
+  <br>
+  我曾經在幾次 C++ 課程或 MFC 課程中，為學員補充一些有關於 C++ 
+  objects 
+  在記憶體中的長像與欄位佈局的資料、以及虛擬函式的實作技術、類別繼承後的物件內容、隱藏的 
+  this 指標...等等議題，受到很大的歡迎。這些反應，都不脫我的預料：工程師渴望知道底層的東西。<br>
+  <br>
+  很多人疑惑我為什麼知道這些底層知識（早些年還有人認為我大概擁有Microsoft 
+  或其他什麼公司的後門管道 -- 
+  這是我的朋友在某個技術研討會場上聽到講師當眾說的）。這些知識一部份是從各式各樣的技術文件或某一本書或某一篇文章斷簡殘篇地獲得，一部份是自己實際寫點小程式做實驗而得。<br>
+  <br>
+  我以雜學的方式對 C++ 
+  物件模型所整理出來的輪廓，說起來還粗淺得很。1997 
+  年底不經意地發現了這本Inside The C++ Object Model，這才把自己的缺憾完全彌補過來。<br>
+  <br>
+  這本外表毫不起眼的小書，又薄又窄，比一般原文書的大號尺碼小得多。乾乾瘦瘦，才 
+  280 
+  頁。「俗豔的」封面設計再加上微黃的紙張，原本引不起我多大的興趣。但是作者大名使我在上面多瞧了兩眼（Lippman 
+  著有 <font color="#0000FF">C++ Primer</font>，與Bjarne Stroustrup 的 <font
+  color="#0000FF">The C++ Programming Language</font> 
+  齊名，目前已是第三版）。這一瞧不得了，開始有點「漫捲詩書喜欲狂」的感覺。後來在 
+  Essential COM 身上看到 Don Box 推薦這本書：&quot;<font color="#0000FF">...Consult 
+  Stan Lippman's most excellent Inside the C++ Object Model for a great discussion of both 
+  techniqies</font>.&quot; 我同意 Don Box 所言，這本書的確 &quot;most 
+  excellect&quot;。<br>
+  <br>
+  本書返樸歸真，不僅外貌如此，內容也如此。所謂 C++ 
+  物件模型，聞之令人喪膽，彷彿和什麼 OOA/OOD 有關。Lippman 
+  在其前言中談到，C++ 物件模型有兩個切入點：<br>
+  <br>
+  1. 對於語言所提供之物件導向程式設計的直接支援 <br>
+  The direct support for object-oriented programming provided within the language<br>
+  <br>
+  2. 用以實作出上述支援的底層機制 <br>
+  The underlying mechanisms by which this support is implemented<br>
+  <br>
+  本書談的是第二個切入點。如果你對於物件和資料的組成有濃烈興趣，第一章的 
+  Object 和第三章的 Data 一定可以滿足你。不管類別繼承方式是 virtual、single 
+  或 multiple，資料屬性是 static、global 或 local，這兩章都有所討論，並在關鍵處以圖片表示。這部份如果沒有以圖片來表示，就不值得我的推薦了，畢竟要從文字敘述中構想出資料欄位的佈局，委實太過辛苦。本書示意圖雖然從美學的角度上可用「醜陋」來形容，不過尚足夠清楚表現出作者的意念，於功能上我想也夠了。<br>
+  <br>
+  如果你對幾個基本的成員函式如 default constructor、copy constructor、virtual 
+  destructor，以及對於各類型函式如 global、virtual、static 
+  的底層運作感興趣，第二章的 Constructor、第四章的 Function、以及第五章的「建構、解構和拷貝」絕對可以滿足你。第六章續談函式，並談到 
+  new 和 delete 兩個運算子。第七章談 C++ 的三大擴充：template、Exception、runtime 
+  type identification（RTTI）。<br>
+  <br>
+  針對各個主題，Lippman 
+  都涵蓋設計的由來、版本的演進、以及標準和實務兩種作法，並對某些主題提出不同平台（platform）的效率測試結果。這本書基本上是以較學術的方式來撰寫，所以在數據的處理以及參考資料的整理方面，都很仔細。<br>
+  <br>
+  說到學術，應該就是嚴謹的代名詞。但是這本書的筆誤大約有 100 
+  個。我不敢亂說，侯俊傑先生正在譯這本書，他列了一份原文勘誤表出來，密密麻麻。其中的 
+  C++ 
+  明顯語法錯誤，比較無傷大雅，殺傷力也有限，然而像程式碼符號名稱與內文敘述不一致，或是物件佈局的圖解與程式碼的宣告不一致，都會嚴重誤導讀者的心力。以此觀之，說實在，本書雖然到處都有牛肉，但某些部位的烹調水準，實在有損 
+  Lippman 的大師聲譽。<br>
+  <br>
+  280 
+  頁的厚度，以現今動輒千兒八百頁的滿漢大餐來說，宛如一盤小菜。但是嗆辣帶勁兒，不是練家子不易下嚥。這不是一本 
+  C++ 
+  初學者看的書，對於沒有專案壓力、沒有考試壓力、有治學精神的人，侯捷強力推薦。<br>
+  </p>
+  <p>　</p>
+  <hr align="left">
+  <p><font color="#0000FF"><a name="■Essential COM">■Essential COM</a> <br>
+  <br>
+  作者：Don Box<br>
+  出版公司：Addison Wesley<br>
+  出版日期：1998<br>
+  頁數：7 章，440 頁<br>
+  售價：US$ 34.95（無磁片）<br>
+  <br>
+  1. COM as a Better C++<br>
+  2. Interfaces<br>
+  3. Classes<br>
+  4. Objects<br>
+  5. Apartments<br>
+  6. Applications<br>
+  7. Miscellanea<br>
+  A. The Evolution of Objects<br>
+  B. Selected Code Fragements</font><br>
+  </p>
+  <p><img src="essentialcom.jpg" tppabs="http://jjhou.boolan.com/essentialcom.jpg" alt="essentialcom.jpg (14408 bytes)" width="214"
+  height="264"></p>
+  <p><br>
+  所有在 Microsoft 平台上討生活的軟體工程師，沒有人不知道 
+  COM/OLE/ActiveX 
+  的重要性，沒有人不想瞭解並進而熟練這項技術。坊間不是沒有好書，例如 
+  Inside OLE （Fraig Brockschmidt/Microsoft Press/1995）就幾乎是每一本相關著作都要列入 
+  Bibliography 或 Reference 
+  的經典。但是該書很像一本「有許多字的天書」，侯捷也在上面爬得很辛苦。<br>
+  <br>
+  究其因，早期大家對於 Object Model 的程度不夠，學習起 COM/OLE 
+  來很吃力。慢慢大家書看得多了，在實際開發工作上運用 C++/OO，也有一些經驗了，再來學習 
+  COM/OLE，比較能夠漸入佳境。<br>
+  <br>
+  另一個原因是，能夠把 COM 
+  來龍去脈說得一清二楚的好書，過去絕少。我不能夠說沒有這樣的書，也許是自己孤漏寡聞。眾裡尋它千百度，現在它來了，就是這本 
+  Essential COM。<br>
+  </p>
+  <p><br>
+  <font color="#000000">●關於 Don Box</font><br>
+  <br>
+  作者 Don Box 在 COM/OLE 這一領域可說是赫赫有名。他在 Microsoft Systems 
+  Journal（MSJ）主持一個 ActiveX/COM 
+  問答專欄，早就顯露了卓越的實力。讓我節錄本書兩篇序文對於 Don 
+  Box 
+  的讚譽給你瞧瞧。你說得對，序文哪有不吹捧作者的，歡樂一家親嘛，不過用詞遣字之間你還是可以感受胡亂吹捧和誠懇推薦之間的大不同：<br>
+  <br>
+  <font color="#000000">第一篇序文：Charlie Kindel COM guy, Microsoft Corporation</font><font
+  color="#0000FF"><br>
+  <br>
+  </font><font color="#408080">如果有一本英文書談的是 COM、DCOM、OLE 或 
+  ActiveX，而我也讀過它，你幾乎一定會發現我的名字被列在技術檢閱那一欄，做為信譽保證。我自己也寫了許多這方面的技術文章，我同時也是 
+  COM Specification 的主要編輯。我給過無數的 COM 
+  簡報，不管對象是技術人員或非技術人員。很明顯，我花了許多時間和精力，嘗試找出 
+  COM 的最佳說明方法。<br>
+  當我讀過這本書的最後草稿，我明白我所有的努力都白費了。關於 
+  COM，沒有任何人能闡釋得比 Don Box 更棒！</font><br>
+  <br>
+  <br>
+  <font color="#000000">第二篇序文：Grady Booch</font><font color="#0000FF"><br>
+  <br>
+  </font><font color="#408080">一本書的好東西如果太多，就值得說兩次。這是為什麼Don 
+  這本書有兩篇序的原因。<br>
+  <br>
+  如果你正在 Windows 95 或 NT 上建立系統，你不可能遠離 COM 
+  的範疇。如果你想要 (1) 瞭解檯面下發生什麼事 (2) 利用 COM 
+  的強大威力，Don 這本書很適合你。<br>
+  <br>
+  我特別喜歡這本書的一點是，Don 在說明 COM 
+  時的組織方式。如果閱讀本書時你對 COM 
+  一無所知，你會被一個清晰簡單的 COM 
+  觀念模式導引，使你瞭解問題之所在，以及 COM 
+  之所以獲得其結構和行為的原因。如果你是一位有經驗的 COM 
+  開發者，那麼你一定會特別賞識 Don 以 COM 
+  解決一些常見問題時，提出的各種角度的討論。</font><br>
+  <br>
+  注意，第二篇序的執筆人是 Grady Booch，享譽全球的物件導向大師人物。<br>
+  </p>
+  <p><br>
+  <font color="#000000">●為什麼需要 COM</font><br>
+  <br>
+  COM 的全名是 Component Object Model，是微軟為了解決軟體版本衝突、物件跨平台衝突...等等問題而設計並主推的一種物件模型。它是一份規格，而 
+  C++ 的抽象類別與虛擬函式的實作方式最貼近這份規格。<br>
+  <br>
+  我相信，在學習如何運用 COM/OLE 
+  技術之始，所有人的疑問都相同：為什麼要有 COM？是呀，說到物件導向技術，C++ 
+  不是提供了物件封裝、繼承、多型的特性了嗎？COM 所為何來？<br>
+  <br>
+  本書第一章可以讓你清楚 COM 的設計動機，包括interface、reference count、CreateObject...。只要通曉 
+  C++ 語言，在形式上，看這一章就沒什麼困難。如果你有 C++ Object Model 
+  的基礎，第一章更可以給你醍醐灌頂的感覺。<br>
+  <br>
+  第二章介紹 COM interfaces。作者在前一章步步經營演化而來的一個 
+  virtual base class 此時搖身一變成為功能對等的 COM IUnknown interface。這一章介紹了IDL（一種 
+  interface 描述語言）、MIDL（微軟的一套IDL 編譯器）、GUID（保證億萬年不重複的一個 
+  128-bit 數字）、HRESULT（任何平台通用的一種回返值型態）、IUnknown（所有 
+  COM interfaces 的基礎）。由於許多COM programmer 不能夠恰到好處地呼叫 
+  IUnknown 的AddRef 和 Release 兩函式，Don Box 
+  特別整理出好青年十大守則，並提供一個實例，告訴讀者什麼時候適用哪一條守則。很貼心！<br>
+  <br>
+  第三章開始，本書往深澀的方向走去。這時候我建議你先跳看另一本書：Inside 
+  COM，然後再回頭接續看後面的章節。<br>
+  <br>
+  本書用詞比較學術化（我的意思是艱澀）。這會使不習慣的讀者在攻擊發起時進度受阻。閱讀時請特別留心前兩章，它們是學習 
+  COM 
+  的關鍵。這兩章內文有系統地圍繞一個例子打轉，循序漸進。可惜本書並沒有分階段地附上各級程式碼（從抽象基礎類別的設計開始、然後是 
+  interface 與 implementation 的分離、DLL 的加入、reference counting 的設計、QueryInterface 
+  的設計...）。我強烈建議你要有實作的欲望和精神，依書中的指示一步一步實地靠近 
+  COM。這當中你可能會吃點苦頭，因為書中沒有給你所有的資訊（例如 
+  console DLL 的設計..，基本上那算是你的必要基礎）。也許你會卡在某一個小小關卡上進不得、退不甘。但無論如何，你必須嘗試實作，才會有最踏實的收穫。這是我的真人實證。<br>
+  <br>
+  本書相關程式碼可以從 Don Box 
+  的網站中取得，不過並不包含上面所說的 COM 
+  骨幹程式的各個發展階段實作碼。</p>
+  <hr align="left">
+  <p><font color="#0000FF"><a name="■Inside COM">■Inside COM</a> <br>
+  <br>
+  作者：Dale Rogerson<br>
+  出版公司：Microsoft Press<br>
+  出版日期：1996<br>
+  頁數：12 章，376 頁<br>
+  售價：US$ 34.99（含 CD 一片）<br>
+  <br>
+  1. Components<br>
+  2. The Interfaces<br>
+  3. QueryInterface<br>
+  4. Reference Counting<br>
+  5. Dynamic Linking<br>
+  6. HRESULTs, GUIDs, the Registry, and Other Details<br>
+  7. The Class Factory<br>
+  8. Component Reuse : Containment and Aggregation<br>
+  9. Making It Easier<br>
+  10. Servers in EXEs<br>
+  11. Dispatch Interfaces and Automation<br>
+  12. Multiple Threads<br>
+  13. Putting It All Together</font><br>
+  </p>
+  <p><img src="insidecom.jpg" tppabs="http://jjhou.boolan.com/insidecom.jpg" alt="insidecom.jpg (18200 bytes)" width="214" height="264"></p>
+  <p><br>
+  這本書文字淺顯，義理精確，前進速度適中，每一個階段附有一個完整的程式。只可惜起頭不夠好，沒有像Essential 
+  COM 一樣地從 COM 起源開始分析。萬一一開始的基礎沒有打好，對整個 
+  COM 
+  的基本精神尚自搖搖晃晃，後面的推進速度恐怕就無法打到五檔了。<br>
+  <br>
+  我的經驗是，當我看完 Essential COM 
+  前兩章，並在其第三章匍匐前進，磨得雙膝微顫，舌頭發苦時，回過頭來看這本 
+  Inside COM，一個晚上刷刷刷看掉了 130 
+  頁（前六章），而且掌握得相當不錯。<br>
+  <br>
+  本書每一章每一節的前後轉承文字說明接續得非常不錯，每一個句子的語意也很清晰（不會用一大串一長串的子句連接詞），讓我們一路讀來順暢快意，不需要多花心思在其文章架構，可以把全付精神用來對付 
+  COM 技術。<br>
+  <br>
+  拿 Inside COM 和 Essential COM 搭配著看，可得最大效益。</p>
+  <p>　</p>
+  <hr align="left">
+  <p><font color="#0000FF"><a
+  name="■Understanding ActiveX and OLE -- A Guide for Developers &amp; Managers">■Understanding 
+  ActiveX and OLE -- A Guide for Developers &amp; Managers</a><br>
+  <br>
+  作者：David Chappell<br>
+  出版公司：Microsoft Press<br>
+  出版日期：1996<br>
+  頁數：11 章，328 頁<br>
+  售價：US$ 22.95（無碟片）<br>
+  <br>
+  1. Introducting ActiveX and OLE<br>
+  2. The Component Object Model<br>
+  3. Marshaling and Type Information<br>
+  4. Automation<br>
+  5. Persistence<br>
+  6. Monikers<br>
+  7. Uniform Data Transfer and Connectable Objects<br>
+  8. OLE Compound Documents<br>
+  9. ActiveX Controls<br>
+  10. Distributed COM<br>
+  11. ActiveX, the Internet, and the World Wide Web</font><br>
+  </p>
+  <p><img src="activex-ole.jpg" tppabs="http://jjhou.boolan.com/activex-ole.jpg" alt="activex-ole.jpg (18330 bytes)" width="211" height="264"></p>
+  <p><br>
+  這本書的副標明白告訴了我們，它是一本可以給經理人看的書。既然是為經理人而寫，書中就不會有太多的 
+  code，反倒是抽象觀念的文字說明比較多。<br>
+  <br>
+  我從來不相信「抽象的文字說明」能夠讓不具「具象技術基礎」的人看得懂。我敢把話說死，是的，上面這句話對99.99999% 
+  的工業界人士適用。所以，這本書其實只適合給受過 COM/OLE/ActiveX 
+  訓練的工程師看。你已經會了，你才看得懂它。<br>
+  <br>
+  會的人才看得懂，不會的人都看不懂，那這本書不是一點用處也沒有了嗎？不，它的內容整理得不錯，並附予一些設計良好的圖，可以使我們的觀念更清晰，甚至修正我們可能存在的一些模糊的、似是而非的盲點。書側留白處很細心地標示出段落文字的重點，有點領袖嘉言錄的味道。雙色印刷，令人賞心悅目。<br>
+  <br>
+  --- the end ---</p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<meta name="GENERATOR" content="Microsoft FrontPage 3.0">
+<meta name="Microsoft Theme" content="construc 111, default">
+<meta name="Microsoft Border" content="tl, default">
+<title>侯捷觀點【Traits 編程技巧】</title>
+</head>
+
+<body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
+vlink="#996600" alink="#FF0066">
+<!--mstheme--></font>
+
+<table border="0" cellpadding="6" cellspacing="0" width="694">
+  <tr>
+    <td width="24"><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td width="587"><p align="center">侯捷觀點<br>
+    <br>
+    <big><big>【芝麻開門&nbsp; -- 從 Iterator 談起】<br>
+    </big></big><br>
+    台北《Run!PC》2001.03<br>
+    北京《程序員》2001.03, 04<!--mstheme--></font></td>
+    <td width="23"><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="24"><font size="3"><br>
+    <br>
+    </font><!--mstheme--></font></td>
+    <td width="2"><!--mstheme--></font></td>
+    <td valign="top" width="587"><br>
+    作者簡介：侯捷，臺灣電腦技術作家，著譯評兼擅。常著文章自娛，頗示己志。<br>
+    侯捷網站：www.jjhou.com<br>
+    北京鏡站：www.csdn.net/expert/jjhou<p><font color="#0000FF">本文讀者基礎</font>：熟悉 
+    C++ template. <br>
+    <font color="#0000FF">本文適用</font>：任何作業平台，任何 C++ 編譯器<font
+    FACE="新細明體">（注意，文中凡涉及</font>template partial specialization <font
+    FACE="新細明體">者，無法通過</font>VC6<font FACE="新細明體">，因</font> 
+    VC6 <font FACE="新細明體">未支援這項語言性質）</font></p>
+<!--mstheme-->    </font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="urbbul1a.gif" tppabs="http://jjhou.boolan.com/urbbul1a.gif" width="20" height="20"
+        hspace="11"></td>
+        <td valign="top" width="100%">漸次「泛型化」實例剖析<!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="urbbul1a.gif" tppabs="http://jjhou.boolan.com/urbbul1a.gif" width="20" height="20"
+        hspace="11"></td>
+        <td valign="top" width="100%">迭代器就是一種 smart pointer <!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="urbbul1a.gif" tppabs="http://jjhou.boolan.com/urbbul1a.gif" width="20" height="20"
+        hspace="11"></td>
+        <td valign="top" width="100%">迭代器相應型別（associated types）-- traits 
+        編程技法<!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="urbbul1a.gif" tppabs="http://jjhou.boolan.com/urbbul1a.gif" width="20" height="20"
+        hspace="11"></td>
+        <td valign="top" width="100%">std::iterator 的保證<!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="urbbul1a.gif" tppabs="http://jjhou.boolan.com/urbbul1a.gif" width="20" height="20"
+        hspace="11"></td>
+        <td valign="top" width="100%">利用 std::iterator 完成自定的迭代器<!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="urbbul1a.gif" tppabs="http://jjhou.boolan.com/urbbul1a.gif" width="20" height="20"
+        hspace="11"></td>
+        <td valign="top" width="100%">設計樣式 #16: Iterator<!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="urbbul1a.gif" tppabs="http://jjhou.boolan.com/urbbul1a.gif" width="20" height="20"
+        hspace="11"></td>
+        <td valign="top" width="100%">檢閱 SGI STL 的迭代器實作碼<!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="urbbul1a.gif" tppabs="http://jjhou.boolan.com/urbbul1a.gif" width="20" height="20"
+        hspace="11"></td>
+        <td valign="top" width="100%">設計樣式 #6: Adaptor<!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->    </table>
+<!--mstheme-->    </font><!--msthemelist--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="urbbul1a.gif" tppabs="http://jjhou.boolan.com/urbbul1a.gif" width="20" height="20"
+        hspace="11"></td>
+        <td valign="top" width="100%">檢閱 SGI STL 的 iterators adaptors 和 container adaptors<!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->      <tr>
+<!--msthemelist-->        <td valign="baseline" width="42"><img src="urbbul1a.gif" tppabs="http://jjhou.boolan.com/urbbul1a.gif" width="20" height="20"
+        hspace="11"></td>
+        <td valign="top" width="100%">相關書籍<!--mstheme--></font><!--msthemelist--></td>
+      </tr>
+<!--msthemelist-->    </table>
+    <p>&#26;</p>
+    <p>由於本文需要較多的版面處理，故以 PDF 完成。</p>
+    <p>芝麻開門&nbsp; -- 從 Iterator 談起 (<a href="programmer-3-traits.pdf" tppabs="http://jjhou.boolan.com/programmer-3-traits.pdf"
+    target="_blank">pdf</a>)<br>
+    文內程式源碼 (<a href="programmer-3-traits-source.zip" tppabs="http://jjhou.boolan.com/programmer-3-traits-source.zip">zip</a>)</p>
+    <p><br>
+    --- the end<br>
+<!--mstheme-->    </font></td>
+    <td width="23"><!--mstheme--></font></td>
+    <td valign="top" width="2"><p align="center"><br>
+<!--mstheme-->    </font></td>
+  </tr>
+</table>
+
+<p>　</p>
+<!--mstheme--></font>
+</body>
+</html>

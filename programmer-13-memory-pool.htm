@@ -1,0 +1,156 @@
+<html>
+
+<head>
+<title>池內春秋</title>
+</head>
+
+<body BGCOLOR="#ffffff" LINK="#0000ff" VLINK="#330066" ALINK="#ff0000" TEXT="#000000">
+<!--Copyright &#169; Dr. Dobb's Journal-->
+
+<hr>
+
+<h2 ALIGN="center"><small>池內春秋</small><br>
+<br>
+<font color="#800000">Memory Pool 的設計哲學與無痛運用</font></h2>
+
+<p ALIGN="center">　</p>
+
+<hr>
+
+<h3>文章：<a href="programmer-13-memory-pool.pdf" tppabs="http://jjhou.boolan.com/programmer-13-memory-pool.pdf" target="main">programmer-13-memory-pool.pdf</a></h3>
+
+<p><font color="#408080">寄件者: &quot;Peng Chunhua&quot; &lt;chpeng@psh.com.cn&gt;<br>
+傳送日期: 2002年9月12日 AM 11:00<br>
+主旨: 關於 [池內春秋] 文章的一個問題</font></p>
+
+<p><font color="#408080">To:侯先生<br>
+<br>
+您好﹐一直對先生的文章很感興趣﹐經常于談笑中分析問題﹐讓人茅塞頓開﹐獲益非淺。謝謝。<br>
+<br>
+先生在最近一期的《程序員》雜誌（2002年9期）上發表了一篇文章[池內春秋]介紹了Memory 
+Pool的技術。不過﹐不知道什麼原因﹐在《程序員》上一定要分上下篇發表。所以目前還不太清楚Memory 
+Pool的實質內容。不過﹐在上篇中關於[空間上的額外開銷]和[速度上的額外開銷]的說法﹐本人有點疑問﹐望先生指教。<br>
+<br>
+一﹐空間上的額外開銷<br>
+先生認為在C++平臺提供的內存配置工具中會帶來額外的配置﹐即Cookie。並進行了明證。<br>
+<br>
+其實我認為這個證明是有誤的﹐首先VC6和C++Builder在內存管理上就是不一樣的機製。通過分析﹐我發現new在底層肯定是調用malloc的（在C++平臺上）。所以﹐只要分析一下malloc的實現機製就可以了。在VC6.0上﹐如果用Debug版的話﹐就和先生說的一樣﹐有額外開銷﹐基本上是32個字節﹐用來記錄內存鏈表和分配內存的源文件名﹐行號﹐字節數﹐第幾次分配的一些信息。這也就是VC6可以在Debug版可以檢查內存泄漏的原因。具體參考一下malloc的Debug版實現的代碼就可以分析出來的。在VC6.0的Release版上﹐就沒有這些額外記錄了﹐malloc的實現是直接調用HeapAlloc的﹐釋放也是直接調用HeapFree的﹐VC本身並沒有對內存進行任何多餘的操作。所以在Release版中malloc的返回值等於HeapAlloc的值﹐而Debug中malloc的值就等於HeapAlloc() 
++ 0x20 的值。至於內存的大小﹐在Release版中也是直接通過HeapSize得到的。並且在VC中同一個模塊中所有的malloc, 
+new都是在一個Heap上操作的﹐在VC的運行代碼中是_crtheap。這也就是為什麼在申請10000000個C1的對象時VC比C++Builder中花費的時間比較長的一個原因。不過﹐在Release版中﹐申請內存的頭部確實有32個字節記錄了內存的一些信息﹐比如大小。但該Cookie和C++平臺無關﹐也就是說﹐所有用HeapAlloc分配的內存在頭部都有32個字節的額外開銷。（好像不止32個字節﹐並且在申請內存的末尾也有一些標記）<br>
+<br>
+在C++Builder中管理內存和VC中是不一樣的。C++Buider中不用Heap進行內存的分配﹐而是自身通過TMemoryManager進行內存管理。具體方式是通過VirtualAlloc一次分配16KByte字節﹐當程序通過malloc分配內存時﹐C++Builder就遍歷自身管理的內存﹐將空閑的內存進行分配﹐並在頭部記錄內存的大小。當內存不足時﹐再一次調用VirtualAlloc向系統申請內存﹐由C++Builder進行分配管理。所以﹐先生在空間之明證上說明C++Builder表現很好。<br>
+<br>
+二﹐速度之明證<br>
+前面比較了VC6.0和C++Builder的內存管理上的不同﹐那麼﹐對於在速度上VC和C++Builder的差異也就不難理解了。VC中的內存分配在一個模塊中都是在_crtheap上分配的﹐當再次申請內存時﹐VC中必須由系統Heap遍歷整個Heap區進行申請。而C++Builder只需首先遍歷自身管理的VirtualAlloc鏈表﹐發現VirtualAlloc中有空閑內存時再遍歷該VirtualAlloc的內存區域。這樣由於一個VirtualAlloc對應了很多malloc的內存﹐在遍歷整個內存的時間上就比VC快了。比如﹕一次VirtualAlloc的內存可以管理m個malloc﹐那麼對已經分配了n*m個內存而言﹐再分配一個內存的花費為﹕<br>
+VC = n*m<br>
+C++Builder=n+m<br>
+同樣可以推斷﹕如果C++Builder在管理內存上一次VirtualAlloc的大小不是16K(0x4000)而是更大﹐在這種分配1000000個內存時速度應該更快一點。(不過,效果估計不明顯)根據上面對C++Builder的內存管理分析﹐也就可以理解為什麼在C++Builder的程序中會出現經過一系列內存申請和釋放後﹐通過TaskManager觀察內存使用量並不一定回到執行這些操作之前了。因為VirtualAlloc中的某一塊內存被使用的話﹐即使其他內存都被釋放了﹐C++Builder也不能將該內存提交給系統釋放。<br>
+<br>
+對於GCC的編譯器我沒有研究過﹐在此不敢發表看法。</font></p>
+
+<p><font color="#408080">E-mail:chpeng@psh.com.cn </font></p>
+
+<p>●侯捷回覆</p>
+
+<p>感謝您的意見和補充。很有價值，請允許我日後將您的來信放在侯捷網站上做為 
+&quot;池內春秋&quot; 一文的補充。<br>
+<br>
+我尚未能夠仔細思考你所提的技術深處。不同的編譯器的確在表層之下又做了許多功夫，你對VC和BCB的理解非常到位。我認為，VC 
+底層呼叫 HeapAlloc()，而後者一樣需要額外開銷（否則根本無法管理blocks，除非HeapAlloc()已經使用了 
+memory pool）。Windows30/31/95 時代 
+我對其上的記憶體配置策略也多有研究，後來不再走 platform-specific 
+主題，就放下了。<br>
+<br>
+從您的信上看來，您深入追蹤了 VC malloc debug/release 
+版的實作碼，這使我很尊敬您的專業。我一直打算深刻追蹤 Doug Lea 
+的 malloc() 演算法，不過還沒能撥出時間。<br>
+<br>
+雜誌有雜誌的考量，因此常將我的長文章分為下上。我雖不喜歡看到這樣的結果（我想讀者也都不喜歡），但能夠體諒雜誌社的難處。隨信附上 
+&quot;池內春秋&quot; 全文。該文將於刊畢後開放於侯捷網站。</p>
+
+<p>　</p>
+
+<p><font color="#408080">傳送日期: 2002年9月16日 PM 02:08</font></p>
+
+<p><font color="#408080">謝謝先生的回信。看了Memory Pool的全文﹐對Memory 
+Pool有了一個新的了解。<br>
+<br>
+正如先生所講﹐在HeapAlloc的頭部確實有額外的開銷維護內存的大小﹐並且在末尾也有一點<br>
+標記。在未看到全文時對Memory Pool沒有深入了解﹐不是很明白Memory 
+Pool的功能﹐讓先生<br>
+見笑了。<br>
+<br>
+看過Memoey Pool全文後﹐有幾點認識﹕<br>
+</font><font color="#0000FF">1﹐Memory Pool從來都不向系統提交釋放內存的請求。所以內存只會增加不會減少。<br>
+2﹐Memory pool的內存大小為某一時刻通過Memory Pool提交內存的最大值。<br>
+3﹐Memory pool在頻繁使用new,delete時對內存的申請上不會有太大的問題﹐但當一開始集中使用new再後來集中使用delete進行釋放時將導致內存浪費（因為Memory 
+pool根本不向系統釋放內存﹐幸好這種用法不多）</font><font
+color="#408080"><br>
+4﹐如果VC6.0中使用Memory pool﹐進行Debug時﹐我認為VC6.0可能會通知有內存泄漏。<br>
+5﹐同樣﹐BoundsChecker也可能會通知有內存泄漏(Memory Leak)。作為編程人員﹐可能產生迷惑﹐不知先生對此有何看法。<br>
+<br>
+另外﹐在先生的效率加快證明上﹐有一個疑問點﹐即﹕VC6中allocator比new慢。經過份析﹐發現先生的一個小Bug﹐即申請內存的大小不同﹐所以就沒有可比性。見先生的註釋 
+9。<br>
+<br>
+MyAlloc.allocate(size, (int*)0);實際上申請的是size*sizeof(int*)=64字節。<br>
+而通過new C1的申請的內存大小是16字節。那麼﹐在大量申請內存時產生的臨時交換文件的時間可能就不可無視之了。不過CB5通過new分配內存只需要6S就有點不可理解了。在第一回測試中花費29S﹐後來只花費6S確實令人費解。不知先生的測試環境如何﹕CPU﹐OS﹐Memory等情況。<br>
+<br>
+真誠希望今後能得到先生的指導﹐聆聽先生的教誨。</font></p>
+
+<p>●侯捷回覆：</p>
+
+<p>　</p>
+
+<hr>
+<i>
+
+<p></i><font color="#408080">傳送日期: 2002年9月25日 PM 03:22</font></p>
+
+<p><font color="#408080">您好﹕我正在拜讀您的《STL源碼剖析》﹐近日遇到一個問題﹐希望能向您請教。<br>
+<br>
+關於__default_alloc_template﹐我寫了一些代碼測試﹐發現對於大於128bytes的內存分配沒有問題﹐但是當我分配一些小於128bytes的內存時﹕<br>
+<br>
+確實分配了內存池﹐並用free list把內存串起來﹐整個分配過程都很正常。<br>
+<br>
+但我認為釋放時存在問題﹐釋放內存時調用以下函數﹕<br>
+static void* allocate(size_t __n)<br>
+{<br>
+........<br>
+else {<br>
+&nbsp; _Obj* __STL_VOLATILE* __my_free_list<br>
+&nbsp;&nbsp;&nbsp; = _S_free_list + _S_freelist_index(__n);<br>
+........<br>
+&nbsp; _Obj* __RESTRICT __result = *__my_free_list;<br>
+&nbsp; if (__result == 0)<br>
+&nbsp;&nbsp;&nbsp; __ret = _S_refill(_S_round_up(__n));<br>
+&nbsp; else {<br>
+&nbsp;&nbsp;&nbsp; *__my_free_list = __result -&gt; _M_free_list_link;<br>
+&nbsp;&nbsp;&nbsp; __ret = __result;<br>
+&nbsp; }<br>
+}<br>
+}<br>
+<br>
+只是簡單的調整指針﹐並沒有真正的釋放內存﹐這也可以理解﹐因為只是釋放一個塊﹐不應該釋放整個內存池。那麼整個內存池在什麼地方釋放呢﹖<br>
+我發現__default_alloc_template類並沒有析構函數（deconstructor）﹐內存池沒有被釋放﹐我跟蹤了內存分配和釋放函數﹐確實發生了內存泄漏。<br>
+<br>
+我的分析對嗎﹖這是SGI的bug嗎﹖<br>
+謝謝指教﹗</font><br>
+</p>
+
+<p>●侯捷回覆：這不是 bug，這是設計理念。<br>
+<br>
+memory pool 一般並不釋放 blocks。因為它認為資源由它管理。這不算是 
+memory leak。<br>
+但這的確有缺點。應該適時釋放（一些）blocks。這是 SGI allocator 
+值得加強的部分，也是我在《池內春秋》一文中忘了強調的。該文發表於《程序員》九月、十月兩期。目前下期還未刊出，附上全文 
+PDF，博君一哂。</p>
+
+<p>至於程式結束前一刻沒有釋放整個 pool，那沒有關係，modern OS 
+自會收回這一部份，不影響其他 process。</p>
+
+<hr>
+
+<p><br>
+</p>
+</body>
+</html>
