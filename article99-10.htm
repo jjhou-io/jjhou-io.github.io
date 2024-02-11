@@ -4,230 +4,230 @@
 <head>
 <meta content="text/html; charset=big5" http-equiv="Content-Type">
 <meta content="Microsoft FrontPage 3.0" name="GENERATOR">
-<title>�b console mode ���ϥ� C/C++ �sĶ��</title>
+<title>在 console mode 中使用 C/C++ 編譯器</title>
 </head>
 
 <body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
 
 <hr>
 
-<h2 align="center">�b console mode ���ϥ� C/C++ �sĶ��</h2>
+<h2 align="center">在 console mode 中使用 C/C++ 編譯器</h2>
 
 <blockquote>
-  <p align="center">�J�� 1999.04.08</p>
+  <p align="center">侯捷 1999.04.08</p>
 </blockquote>
 
 <hr>
 
 <blockquote>
-  <p>���`�O���y C/C++ ���ǲߪ̡A�b�豵Ĳ�o�ӵ{���y�����ɭԡA���H 
-  console mode�]DOS-like�^�{�����ؼСC�������A���n�@�}�l�N�Q�g GUI 
-  �{���B�Q�}�����B�Q���t�ثG�R���e�� -- 
-  ���u�O���������A�]�]�U���}�F�C<br>
+  <p>我總是鼓勵 C/C++ 的學習者，在剛接觸這個程式語言的時候，先以 
+  console mode（DOS-like）程式為目標。換言之，不要一開始就想寫 GUI 
+  程式、想開視窗、想有眩目亮麗的畫面 -- 
+  那只是未走先飛，揠苗助長罷了。<br>
   <br>
-  �ҿ� console �{���A�N�O��r�Ҧ����{���A�ڭ̥i�H�b�䤤�n�n�� C/C++ 
-  ���y���ڰ�m�n�A�Ӥ��|���ߩ��L�ȵL���n�� GUI �K�`�W�C<br>
+  所謂 console 程式，就是文字模式的程式，我們可以在其中好好把 C/C++ 
+  的語言根基練好，而不會分心於其他暫無必要的 GUI 枝節上。<br>
   <br>
-  �ڤ@���H���A�o�O�z�ҷ��M���Ʊ��A�o�]�@���o�{�A�����֤j�M�|�ժ��j�@ 
+  我一直以為，這是理所當然的事情，卻也一直發現，有不少大專院校的大一 
   C/C++ 
-  �ҵ{�A�P�ǭ̥����g�Ӥp�@�a�B�p�e�a�B�p��L�K���������δ����@�~�C<br>
+  課程，同學們必須寫個小作家、小畫家、小算盤…做為期中或期末作業。<br>
   <br>
-  �G�M�@�ɤ���j�P�A�U�H�ݪk���� :)<br>
+  果然世界不能大同，各人看法殊異 :)<br>
   <br>
-  �ڤ����{�� C/C++ �{���}�o��H����n�H console mode ���D�A�ڤ]�{���AC/C++ 
-  ���{���}�o���ҡA����]�n�H console mode 
-  ���D�C�������A���n�@�}�l�N�i�J��X���ҡ]IDE�^�C��X���Ҥ�����h�����B����h�\��B����h�w�]�ȡA�|���{���s�Ⲵ�Ἲ�áA�L�k�x���{���sĶ�L�{���@�Ǧ����Ȫ����ѻP�g��C<br>
+  我不但認為 C/C++ 程式開發對象初期要以 console mode 為主，我也認為，C/C++ 
+  的程式開發環境，初期也要以 console mode 
+  為主。換言之，不要一開始就進入整合環境（IDE）。整合環境中那麼多視窗、那麼多功能、那麼多預設值，會讓程式新手眼花撩亂，無法掌握程式編譯過程中一些有價值的知識與經驗。<br>
   <br>
-  ���ڭ̹�sĶ�{�Ǧ��F�_�X���A�ѡA�A�Өϥξ�X���ҡA�ڻ{���o�~�̦n�C<br>
+  等我們對編譯程序有了起碼的瞭解，再來使用整合環境，我認為這才最好。<br>
   <br>
-  �ҥH���צb &lt;�`�J�L�X MFC&gt; �� &lt;�h���P����&gt; 
-  ���y���A�ڳ��|²�zconsole mode �U���@�~�覡�C&lt;�`�J�L�X MFC&gt; �b 
-  p.224 �C�X�A&lt;�h���P����&gt; �b p.233 �C�X�C<br>
+  所以不論在 &lt;深入淺出 MFC&gt; 或 &lt;多型與虛擬&gt; 
+  書籍中，我都會簡述console mode 下的作業方式。&lt;深入淺出 MFC&gt; 在 
+  p.224 列出，&lt;多型與虛擬&gt; 在 p.233 列出。<br>
   <br>
-  �����M���ӷ|������͡]���׬O�_�W�⥻�Ѫ�Ū�̡^���߰ݡA�߰�console 
-  mode ���sĶ�覡�A�θ߰ݥL�̩ҾD�J�����D�C<br>
+  但仍然偶而會收到網友（不論是否上兩本書的讀者）的詢問，詢問console 
+  mode 的編譯方式，或詢問他們所遭遇的問題。<br>
   <br>
-  �ڦA����z�o���D�ءC�A���������D�A�ڴN�i�H��g mail 
-  ���o�ݪ̤F�C<br>
+  我再次整理這個題目。再有類似問題，我就可以整篇 mail 
+  給發問者了。<br>
   <br>
-  ���� �`�N�G�H�U�A�X PC ���� ����<br>
-  <br>
-  <br>
-  <font color="#0000FF">��C/C++ �sĶ���ݭn�������ܼƳ]�w</font><br>
-  <br>
-  �j���H�ӡAPC �W�� C �sĶ���A�N�ݭn��������ܼơG<br>
-  <br>
-  LIB�G�o�������ܼƧi�D�sĶ�����A���n�� libraries 
-  �b���̡]���ӺϺХؿ��U�^<br>
-  INCLUDE�G�i�D�sĶ�����A���n�� header files �b���̡]���ӺϺХؿ��U�^<br>
-  <br>
-  �t�~�A���F���ڭ̯���b���� working directory 
-  ���s�o��sĶ���A���M�ڭ̥����]�w PATH�C<br>
-  <br>
-  �q�j���H�ӡA�@����{�b�AC/C++ �sĶ�����ݭn�o�T�������ܼơC<br>
+  ★★ 注意：以下適合 PC 環境 ★★<br>
   <br>
   <br>
-  <font color="#0000FF">���H Visual C++ ����</font><br>
+  <font color="#0000FF">●C/C++ 編譯器需要的環境變數設定</font><br>
   <br>
-  �H Visual C++ ���ҡA�p�G�w�˫᪺�ɮקG���p�U�G<br>
+  古早以來，PC 上的 C 編譯器，就需要兩個環境變數：<br>
   <br>
-  C:\MSDEV\VC98\BIN : �o�̩񦳽sĶ�� CL.EXE<br>
-  C:\MSDEV\VC98\INCLUDE : �o�̩� C/C++ header files<br>
-  C:\MSDEV\VC98\LIB : �o�̩� C/C++ standard libraries<br>
+  LIB：這個環境變數告訴編譯器說，必要的 libraries 
+  在哪裡（哪個磁碟目錄下）<br>
+  INCLUDE：告訴編譯器說，必要的 header files 在哪裡（哪個磁碟目錄下）<br>
   <br>
-  ����A�i�H�g�@�ӧ妸�ɦp�U�G<br>
+  另外，為了讓我們能夠在任何 working directory 
+  都叫得到編譯器，當然我們必須設定 PATH。<br>
+  <br>
+  從古早以來，一直到現在，C/C++ 編譯器都需要這三個環境變數。<br>
+  <br>
+  <br>
+  <font color="#0000FF">●以 Visual C++ 為例</font><br>
+  <br>
+  以 Visual C++ 為例，如果安裝後的檔案佈局如下：<br>
+  <br>
+  C:\MSDEV\VC98\BIN : 這裡放有編譯器 CL.EXE<br>
+  C:\MSDEV\VC98\INCLUDE : 這裡放有 C/C++ header files<br>
+  C:\MSDEV\VC98\LIB : 這裡放有 C/C++ standard libraries<br>
+  <br>
+  那麼你可以寫一個批次檔如下：<br>
   <br>
   <font face="Courier New" color="#0000FF"><small>set 
   PATH=C:\MSDEV\VC98\BIN;C:\MSDEV\COMMON\MSDEV98\BIN<br>
   set INCLUDE=C:\MSDEV\VC98\INCLUDE<br>
   set LIB=C:\MSDEV\VC98\LIB</small></font><br>
   <br>
-  ���ҥH�ݭn�t�~�]�w PATH=C:\MSDEV\COMMON\MSDEV98\BIN�A�O�]���sĶ�� CL.EXE 
-  ����ɻݭn MSPDB60.DLL�A�ӥ��Q�w�˩� C:\MSDEV\COMMON\MSDEV98\BIN �����C<br>
+  之所以需要另外設定 PATH=C:\MSDEV\COMMON\MSDEV98\BIN，是因為編譯器 CL.EXE 
+  執行時需要 MSPDB60.DLL，而它被安裝於 C:\MSDEV\COMMON\MSDEV98\BIN 之中。<br>
   <br>
-  �p�G�A�g���{�����u�O��ª� C/C++ �{���A�٥Ψ�F MFC�A�@�˥i�H�b 
-  console mode �U�sĶ�A�o�ɭԧA�������ܼ����Ӧp���]�w�G<br>
+  如果你寫的程式不只是單純的 C/C++ 程式，還用到了 MFC，一樣可以在 
+  console mode 下編譯，這時候你的環境變數應該如此設定：<br>
   <br>
   <font face="Courier New" color="#0000FF"><small>set 
   PATH=C:\MSDEV\VC98\BIN;C:\MSDEV\COMMON\MSDEV98\BIN<br>
   set INCLUDE=C:\MSDEV\VC98\INCLUDE;C:\MSDEV\VC98\MFC\INCLUDE<br>
   set LIB=C:\MSDEV\VC98\LIB;C:\MSDEV\VC98\MFC\LIB</small></font><br>
   <br>
-  �h���w�F MFC\INCLUDE �M MFC\LIB�A�N�i�H���sĶ���M�p������� MFC �� 
-  header files �M libraries�C�p�G�A�ٻݭn�Ψ� ATL�A�N�o�b INCLUDE 
-  �����ܼƤ��A�[�W C:\MSDEV\VC98\ATL\INCLUDE�C<br>
+  多指定了 MFC\INCLUDE 和 MFC\LIB，就可以讓編譯器和聯結器找到 MFC 的 
+  header files 和 libraries。如果你還需要用到 ATL，就得在 INCLUDE 
+  環境變數中再加上 C:\MSDEV\VC98\ATL\INCLUDE。<br>
   <br>
   <br>
-  <font color="#0000FF">���H Borland C++Builder ����</font><br>
+  <font color="#0000FF">●以 Borland C++Builder 為例</font><br>
   <br>
-  �H Borland C++Builder ���ҡA�p�G�w�˫᪺�ɮקG���p�U�G<br>
+  以 Borland C++Builder 為例，如果安裝後的檔案佈局如下：<br>
   <br>
-  C:\BORLAND\CBuilder3\BIN : �o�̩񦳽sĶ�� BCC32.EXE<br>
-  C:\BORLAND\CBuilder3\INCLUDE : �o�̩� C/C++ header files<br>
-  C:\BORLAND\CBuilder3\LIB : �o�̩� C/C++ standard libraries<br>
+  C:\BORLAND\CBuilder3\BIN : 這裡放有編譯器 BCC32.EXE<br>
+  C:\BORLAND\CBuilder3\INCLUDE : 這裡放有 C/C++ header files<br>
+  C:\BORLAND\CBuilder3\LIB : 這裡放有 C/C++ standard libraries<br>
   <br>
-  ����A�i�H�g�@�ӧ妸�ɦp�U�G<br>
+  那麼你可以寫一個批次檔如下：<br>
   <br>
   <font face="Courier New"><small>set PATH=C:\BORLAND\CBuilder3\BIN<br>
   set INCLUDE=C:\BORLAND\CBuilder3\INCLUDE<br>
   set LIB=C:\BORLAND\CBuilder3\LIB</small></font><br>
   <br>
   <br>
-  <font color="#0000FF">���p��b console ���sĶ C/C++ �{��</font><br>
+  <font color="#0000FF">●如何在 console 中編譯 C/C++ 程式</font><br>
   <br>
-  �����A�}�Ҥ@�� DOS Box�]DOS Prompt, DOS VM�^�A�M��b�� DOS box 
-  ������W�z�g�n���妸�ɡA���������ܼƪ��]�w�C�A�i�H�A�b DOS 
-  ���ܸ��U��J set �R�O�A�ݬ������ܼƪ��]�w���e���T�P�_�C<br>
+  首先，開啟一個 DOS Box（DOS Prompt, DOS VM），然後在該 DOS box 
+  中執行上述寫好的批次檔，完成環境變數的設定。你可以再在 DOS 
+  提示號下鍵入 set 命令，看看環境變數的設定內容正確與否。<br>
   <br>
-  �M��N�i�H�����b DOS 
-  ���ܸ��U��J�sĶ���W�١A�}�l�sĶ�F�C�p�G�A�ϥ� Visual C++�A�N�o�򰵡G<br>
+  然後就可以直接在 DOS 
+  提示號下鍵入編譯器名稱，開始編譯了。如果你使用 Visual C++，就這麼做：<br>
   <br>
   <font face="Courier New" color="#0000FF"><small>C:\&gt; CL test.cpp &lt;Enter&gt;</small></font><br>
   <br>
-  �p�G�A�ϥ� C++Builder�A�N�o�򰵡G<br>
+  如果你使用 C++Builder，就這麼做：<br>
   <br>
   <font face="Courier New" color="#0000FF"><small>C:\&gt; BCC32 test.cpp &lt;Enter&gt;</small></font><br>
   <br>
-  �ܩ�S�����p�U�ݭn����S���� options�A�N�����ۤv�d�@�U�աC�u�n���� 
-  CL /? �� BCC32�]��ᤣ�[����޼ơ^�A�K�i�ݨ�Ҧ��� compile options�C<br>
+  至於特殊情況下需要什麼特殊的 options，就必須自己查一下啦。只要執行 
+  CL /? 或 BCC32（其後不加任何引數），便可看到所有的 compile options。<br>
   <br>
   <br>
-  <font color="#0000FF">���sĶ���P�p���������Y</font><br>
+  <font color="#0000FF">●編譯器與聯結器的關係</font><br>
   <br>
-  �������sĶ�L�{�P�p���L�{�O���}���C���y�ܻ��ڭ̥�������Ӱʧ@�G<br>
+  早期的編譯過程與聯結過程是分開的。換句話說我們必須做兩個動作：<br>
   <br>
   <small><font face="Courier New" color="#0000FF">C:\&gt; Cl test.cpp<br>
-  C:\&gt; LINK test.obj xxx </font><font color="#0000FF">�]</font><font face="Courier New"
-  color="#0000FF">xxx </font><font color="#0000FF">�N���U�ӥ��n�� </font><font
-  face="Courier New" color="#0000FF">libraries</font><font color="#0000FF">�^</font></small><br>
+  C:\&gt; LINK test.obj xxx </font><font color="#0000FF">（</font><font face="Courier New"
+  color="#0000FF">xxx </font><font color="#0000FF">代表各個必要的 </font><font
+  face="Courier New" color="#0000FF">libraries</font><font color="#0000FF">）</font></small><br>
   <br>
-  �άO�G<br>
+  或是：<br>
   <br>
   <small><font face="Courier New" color="#0000FF">C:\&gt; BCC32 test.cpp<br>
-  C:\&gt; TLINK32 test.obj xxx </font><font color="#0000FF">�]</font><font
-  face="Courier New" color="#0000FF">xxx </font><font color="#0000FF">�N���U�ӥ��n�� </font><font
-  face="Courier New" color="#0000FF">libraries</font><font color="#0000FF">�^<br>
+  C:\&gt; TLINK32 test.obj xxx </font><font color="#0000FF">（</font><font
+  face="Courier New" color="#0000FF">xxx </font><font color="#0000FF">代表各個必要的 </font><font
+  face="Courier New" color="#0000FF">libraries</font><font color="#0000FF">）<br>
   </font></small><br>
   <br>
-  �p�����sĶ�L�{�P�p���L�{���M�٬O���}���A���O�ڭ̪��ʧ@�u�ݤ@�ӡG<br>
+  如今的編譯過程與聯結過程當然還是分開的，但是我們的動作只需一個：<br>
   <br>
   <font face="Courier New" color="#0000FF"><small>C:\&gt; CL test.cpp</small></font><br>
   <br>
-  �άO�G<br>
+  或是：<br>
   <br>
   <font face="Courier New" color="#0000FF"><small>C:\&gt; BCC32 test.cpp</small></font><br>
   <br>
-  �o�O�]���sĶ�����o���F�A���D�A���w /c option�]���ܥu�sĶ���p���^�A�_�h���K�۰ʬ��A�I�s�p�����i���p���ʧ@�C�L�h�H�ӻ�O 
-  programmer�дo���u�Өϥέ��� libraries�v�����D�A�sĶ���]���F�o�����ѨM��סG���N�{�����Ψ쪺 
-  library functions �O���_�ӡA�P�ɤ]���U���̩��ݪ�library 
-  �W�١A��O�p�����N�i�H�q�o�Ӫ��椤���D�n�p������ libraries �F�C<br>
+  這是因為編譯器變聰明了，除非你指定 /c option（表示只編譯不聯結），否則它便自動為你呼叫聯結器進行聯結動作。過去以來頗令 
+  programmer煩惱的「該使用哪些 libraries」的問題，編譯器也有了聰明的解決方案：它將程式中用到的 
+  library functions 記錄起來，同時也錄下它們所屬的library 
+  名稱，於是聯結器就可以從這個表格中知道要聯結哪些 libraries 了。<br>
   <br>
   <br>
-  <font color="#0000FF">�������ܼƻP DOS VM�]Virtual Machine�^�����Y</font><br>
+  <font color="#0000FF">●環境變數與 DOS VM（Virtual Machine）的關係</font><br>
   <br>
-  �A�i�H�P�ɶ}�_�h�� DOS Box�A���O�A������b�Y�� DOS Box 
-  ������W�z�妸�ɦӦb�t�@�� DOS VM ���ɨ������ҳ]�w�C<br>
+  你可以同時開起多個 DOS Box，但是你不能夠在某個 DOS Box 
+  中執行上述批次檔而在另一個 DOS VM 中享受其環境設定。<br>
   <br>
-  �o�O�]���C�� DOS Box ���O�@�� Virtual Machine�A�����֤]�ݤ���֡A�����ۤz�C<br>
+  這是因為每個 DOS Box 都是一個 Virtual Machine，彼此誰也看不到誰，互不相干。<br>
   <br>
-  ���D�A�b autoexec.bat 
-  ���N�]�w�n�W�z���������ܼơC�o��@�ӡA����@�ӷs�}�Ҫ� DOS VM 
-  �K�|�]���~�ӳ̭�l�� DOS VM ���ҡA���~�ӤF�����ܼƳ]�w�C<br>
+  除非你在 autoexec.bat 
+  中就設定好上述那些環境變數。這麼一來，任何一個新開啟的 DOS VM 
+  便會因為繼承最原始的 DOS VM 環境，而繼承了那些變數設定。<br>
   <br>
   <br>
-  <font color="#0000FF">�����ҪŶ��]environment space�^����</font><br>
+  <font color="#0000FF">●環境空間（environment space）不足</font><br>
   <br>
-  �̩��y���j�a�x�Z���A�N�O���ҪŶ��]environment space�^���������D�C<br>
+  最易造成大家困擾的，就是環境空間（environment space）不足的問題。<br>
   <br>
-  ���A�w�˦n Visual C++�A�|�b�� BIN �l�ؿ����o�{�@�ӦW�� VCVARS32.BAT 
-  ���ɮסC�o���ɮר��N�O���W�z�������ܼƳ]�w�ʧ@�]�o�b Visual 
+  當你安裝好 Visual C++，會在其 BIN 子目錄中發現一個名為 VCVARS32.BAT 
+  的檔案。這個檔案其實就是做上述的環境變數設定動作（這在 Visual 
   C++ 
-  �w�˹L�{���̫�@�ӨB�J�������C�u�A���h�֤H�w�˳n�餣�ݻ����I�^�C�ҥH�A�A�i�H�b���� 
-  DOS Box �����榹�ɡA���N�e�z�ڭ̦ۤv���妸�ɡC<br>
+  安裝過程的最後一個步驟有說明。哎，有多少人安裝軟體不看說明！）。所以，你可以在任何 
+  DOS Box 中執行此檔，取代前述我們自己的批次檔。<br>
   <br>
-  ���O�q�`�j�a�������Ѫ��g��A�o�� &quot;<strong>Out of environment space</strong>&quot; 
-  �����~�T���C�o�O�]�� VCVARS32.BAT �ϥΥH�U�y�k�G<br>
+  但是通常大家都有失敗的經驗，得到 &quot;<strong>Out of environment space</strong>&quot; 
+  的錯誤訊息。這是因為 VCVARS32.BAT 使用以下句法：<br>
   <br>
   <font face="Courier New" color="#0000FF"><small>set 
   INCLUDE=%MSVCDir%\ATL\INCLUDE;%MSVCDir%\INCLUDE;%MSVCDir%\MFC\INCLUDE;%INCLUDE%<br>
   set LIB=%MSVCDir%\LIB;%MSVCDir%\MFC\LIB;%LIB%</small></font><br>
   <br>
-  �N��O�� INCLUDE ����l�]�w�]%INCLUDE%�^�A���[��L�]�w�A�ç�LIB 
-  ����l�]�w�]%LIB%�^�A���[��L�]�w�C�p�G��l�]�w�w�g�ܪ��A�h�ӳo��X���A�K 
-  &quot;Out of environment space&quot; �աI<br>
+  意思是把 INCLUDE 的原始設定（%INCLUDE%）再附加其他設定，並把LIB 
+  的原始設定（%LIB%）再附加其他設定。如果原始設定已經很長，多來這麼幾次，便 
+  &quot;Out of environment space&quot; 啦！<br>
   <br>
-  ���k���@�O�հ����ҪŶ����j�p�C�Цb c:\config.sys �ɤ��[�W�o��G<br>
+  做法之一是調高環境空間的大小。請在 c:\config.sys 檔中加上這行：<br>
   <br>
   <font face="Courier New" color="#0000FF"><small>shell=C:\COMMAND.COM C:\ /E:1024 /P</small></font><br>
   <br>
-  �䤤 /E:1024 �K�O���ܱN���ҪŶ��լ� 1024 bytes�C�]�����H�A�ա^<br>
+  其中 /E:1024 便是表示將環境空間調為 1024 bytes。（不夠？再調）<br>
   <br>
-  ���k���G�O���n�ϥ� VCVARS32.BAT 
-  �����ءu���[�v�y���A��Ϋe�z�ڭ̦ۤv���妸�ɡC�n���D�A�ڭ̥i�঳�n�X�ӽsĶ�����ҡ]VC�BBCB�BG++ 
-  �K�^�A�ݭn���f���էڭ̪��{���F�p�G�ϥΡu���[�v�y���A�h�ӴX���A�A�j�����ҪŶ��]�|���i�p�ɡC<br>
+  做法之二是不要使用 VCVARS32.BAT 
+  的那種「附加」句型，改用前述我們自己的批次檔。要知道，我們可能有好幾個編譯器環境（VC、BCB、G++ 
+  …），需要輪番測試我們的程式；如果使用「附加」句型，多來幾次，再大的環境空間也會消磨殆盡。<br>
   <br>
-  ��k�@�M��k�G�n���޻��U��C<br>
-  <br>
-  <br>
-  <font color="#0000FF">��������W�ҤW������ܡH</font><br>
-  <br>
-  �ϥ� console �Ҧ��]�κ� command line 
-  �Ҧ��^�ӽsĶ�p���{���A�{�����j�p�i�_������W�ҤW������H���׬O�S���I<br>
-  <br>
-  �������I�O�S���u�����A�޲z�ɮסB�S���w�]�����A�֥��X�Ӧr�B�S�����R�u�����A��z 
-  objects�A���A�s�� objects�Bsymbols�K�C�ҥH�@���A�򥻥\�Ƿ|�F�A�n�}�l���j���{�����]�p�A���M�H��X���ҡ]IDE�^���ΡC<br>
+  方法一和方法二要雙管齊下唷。<br>
   <br>
   <br>
-  <font color="#0000FF">�����n�~�|</font><br>
+  <font color="#0000FF">●有任何規模上的限制嗎？</font><br>
   <br>
-  �ڳo���O�}�˨��A�n�j�a�^����򶼦媺�ɥN�A���^�Y�h���s���}�H�C�ӬO��ı�o�A���@�� 
-  C/C++ ��Ǫ̡A��X���ҡ]IDE�^���B�ή��ȱa�Ӥ@�Y�����A���p���b 
+  使用 console 模式（或稱 command line 
+  模式）來編譯聯結程式，程式的大小可否有任何規模上的限制？答案是沒有！<br>
+  <br>
+  它的缺點是沒有工具幫你管理檔案、沒有預設值讓你少打幾個字、沒有分析工具幫你整理 
+  objects，讓你瀏覽 objects、symbols…。所以一旦你基本功學會了，要開始中大型程式的設計，當然以整合環境（IDE）為佳。<br>
+  <br>
+  <br>
+  <font color="#0000FF">●不要誤會</font><br>
+  <br>
+  我這不是開倒車，要大家回到茹毛飲血的時代，都回頭去做山頂洞人。而是我覺得，對於一位 
+  C/C++ 初學者，整合環境（IDE）的運用恐怕帶來一頭霧水，不如先在 
   console mode 
-  �U�@�~�C�@�譱�h�{�Ѥ@�����ҳ]�w�譱���`�ѡA���n���A�@�譱�����K�n�ΡA�]�����g�� 
+  下作業。一方面多認識一些環境設定方面的常識，滿好的，一方面比較方便好用，也不必寫個 
   1000 
-  �檺�p�p�m���ٱo�Ұʤ\�����[�A���A�@�譱�D�����O�q�i�H������b�y�����m�ߤW�Y�C<br>
+  行的小小練習還得啟動么五五加農砲，一方面求知的力量可以全部放在語言的練習上頭。<br>
   <br>
-  �����F�@�w���{�סA�A�ϥξ�X���ҡA�N���|�p�Y�������F�C<br>
+  等有了一定的程度，再使用整合環境，就不會如墜五里霧了。<br>
   <br>
   -- the end</p>
 </blockquote>

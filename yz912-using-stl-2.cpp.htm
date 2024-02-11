@@ -1,4 +1,4 @@
-<html>// ²Ä¤T¶gµ{¦¡
+<html>// ç¬¬ä¸‰é€±ç¨‹å¼
 
 #include <iostream>
 #include <vector>
@@ -11,7 +11,7 @@
 using namespace std;
 
 
-// ¤@­Ó¥Î¥H¦C¦Lªº functor
+// ä¸€å€‹ç”¨ä»¥åˆ—å°çš„ functor
 template<typename T>
 class printElem
 {
@@ -22,7 +22,7 @@ public:
    }
 };
 
-// ¬°º¡¨¬¤W­z functor ©Ò±µ¨üªº T ¬O­Ó pair¡A§Ú­Ì¥²¶·¼g¥X¤U­±³o­Ó operator<<
+// ç‚ºæ»¿è¶³ä¸Šè¿° functor æ‰€æ¥å—çš„ T æ˜¯å€‹ pairï¼Œæˆ‘å€‘å¿…é ˆå¯«å‡ºä¸‹é¢é€™å€‹ operator<<
 template<typename T1, typename T2>
 ostream& operator<< (ostream& os, const pair<T1,T2>& p)
 {
@@ -35,17 +35,17 @@ int main()
   int ia[10] = {2,6,9,14,49,70,38,90,71,28};
 
   {
-  // ¨Ï¥Î vector
+  // ä½¿ç”¨ vector
 
   vector<int>  vi(&ia[0], &ia[10]);
   vi.push_back(38);
 
   cout << vi.size() << endl;      // 11
-  cout << vi.capacity() << endl;  // 20¡]¨C¦¸¦¨ªø¨â­¿¡^
+  cout << vi.capacity() << endl;  // 20ï¼ˆæ¯æ¬¡æˆé•·å…©å€ï¼‰
   for(int i=0; i<vi.size(); ++i)
       cout << vi[i] << ' ';
 
-  // ¨Ï¥Î iterators
+  // ä½¿ç”¨ iterators
   vector<int>::iterator  ite1 = find(vi.begin(), vi.end(), 49);
   vector<int>::iterator  ite2 = find(vi.begin(), vi.end(), 90);
 
@@ -58,9 +58,9 @@ int main()
   cout << *ite1 << endl;  // 49
   cout << *ite2 << endl;  // 90
 
-  // erasing...¡]«İ¬d¡^
+  // erasing...ï¼ˆå¾…æŸ¥ï¼‰
 
-  cout << "temp object:" << int(5) << endl; // ¼È®Éª«¥ó
+  cout << "temp object:" << int(5) << endl; // æš«æ™‚ç‰©ä»¶
 
   sort(vi.begin(), vi.end());
 
@@ -68,7 +68,7 @@ int main()
   }
 
   {
-  // ¨Ï¥Î list
+  // ä½¿ç”¨ list
   list<long> li(ia, ia+10);
   list<long>::iterator ite3 = find(li.begin(), li.end(), 70);
   cout << *ite3  << endl;      // 70
@@ -76,17 +76,17 @@ int main()
   }
 
   {
-  // ¨Ï¥Î map
+  // ä½¿ç”¨ map
   map<string, int>  msi;
-  msi[string("jjhou")] = 100; // ¯Á¤Ş¤£¦s¦b¡A¶i¦æ insertion
-  msi[string("jjhou")] = 101; // ¯Á¤Ş¦s¦b¡A¶i¦æ assignment
+  msi[string("jjhou")] = 100; // ç´¢å¼•ä¸å­˜åœ¨ï¼Œé€²è¡Œ insertion
+  msi[string("jjhou")] = 101; // ç´¢å¼•å­˜åœ¨ï¼Œé€²è¡Œ assignment
   msi[string("jason")] = 98;
   msi[string("jerry")] = 95;
   msi[string("jamie")] = 93;
 
   for_each(msi.begin(), msi.end(), printElem< pair<string,int> >());
 
-  // ¥t¤@ºØ¨µ³X¦C¦L¤è¦¡
+  // å¦ä¸€ç¨®å·¡è¨ªåˆ—å°æ–¹å¼
   map<string, int>::iterator ite1 = msi.begin();
   map<string, int>::iterator ite2 = msi.end();
   for(;ite1!=ite2; ++ite1)
@@ -94,7 +94,7 @@ int main()
   }
 
   {
-  // ¨Ï¥Î deque¡]©M vector ¬Û¤ñ¡A¯SÂI¦b©ó¥i¥H push_front¡^
+  // ä½¿ç”¨ dequeï¼ˆå’Œ vector ç›¸æ¯”ï¼Œç‰¹é»åœ¨æ–¼å¯ä»¥ push_frontï¼‰
   deque<int> di(&ia[0], &ia[10]);
   di.push_front(-5);
   di.push_front(-8);
@@ -103,22 +103,22 @@ int main()
   }
 
   {
-  // ¨Ï¥Î stack
+  // ä½¿ç”¨ stack
   // ref. TASS p169;
   }
 
   {
-  // ¨Ï¥Î queue
+  // ä½¿ç”¨ queue
   // ref. TASS p171;
   }
 
   {
-  // ¨Ï¥Î¦UºØ algorithms
+  // ä½¿ç”¨å„ç¨® algorithms
   // int ia[10] = {2,6,9,14,49,70,38,90,71,28};
   list<long> li(ia, ia+10);
   li.sort();  
-  // ¤d¸Uª`·N¡Gstd::sort ­n¨Dªº¬O random access iterator¡A
-  // ¦Ó list's iterator «o¬O bi-directional iterator 
+  // åƒè¬æ³¨æ„ï¼šstd::sort è¦æ±‚çš„æ˜¯ random access iteratorï¼Œ
+  // è€Œ list's iterator å»æ˜¯ bi-directional iterator 
   
   for_each(li.begin(), li.end(), printElem<long>());
   cout << endl;
@@ -127,7 +127,7 @@ int main()
   }
 
   {
-  // ¨Ï¥Î adapters
+  // ä½¿ç”¨ adapters
   // int ia[10] = {2,6,9,14,49,70,38,90,71,28};
   vector<int> vec( ia, ia+10 );
   cout << count_if(vec.begin(), vec.end(), 

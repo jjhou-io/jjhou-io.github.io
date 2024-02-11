@@ -5,7 +5,7 @@
 <meta name="GENERATOR" content="Microsoft FrontPage 3.0">
 <meta name="Microsoft Theme" content="construc 111, default">
 <meta name="Microsoft Border" content="tl, default">
-<title>�m�`�ױ���C++����ҫ��n���Ȱ�</title>
+<title>《深度探索C++物件模型》答客問</title>
 </head>
 
 <body background="urbtextb.gif" tppabs="http://jjhou.boolan.com/urbtextb.gif" bgcolor="#FF9900" text="#330033" link="#009900"
@@ -24,314 +24,314 @@ vlink="#996600" alink="#FF0066">
     </font><!--mstheme--></font></td>
     <td width="21"><!--mstheme--></font></td>
     <td valign="top" width="613"><br>
-    <big><big>Inside the C++ Object Model ���Ȱ� (1)</big></big><br>
+    <big><big>Inside the C++ Object Model 答客問 (1)</big></big><br>
     2000.03.25<br>
     <br>
     FeiYu wrote (1999/12/29) :<br>
     <br>
     <font color="#0000FF">&gt; Dear Sir:<br>
-    &gt; �ݤFInside C++ Object Model��A���X�I�Q�M�A�Q�סG<br>
+    &gt; 看了Inside C++ Object Model後，有幾點想和你討論：<br>
     &gt;<br>
-    &gt; 1. �夤�h���X�{�u���ơv�B�u�X�i�v�����]�ר�bconstrctor)<br>
-    &gt; ��Ķ�������^��Ӫ��å��[�H�е��A��ĳ�A��L�[�i�h�A<br>
-    &gt; �]���o�Ǧr����b�ܤ֦b��L�Ѥ��ݨ�C<br>
+    &gt; 1. 文中多次出現「內化」、「擴張」等詞（尤其在constrctor)<br>
+    &gt; 中譯本內中英對照表並未加以標註，建議你把他加進去，<br>
+    &gt; 因為這些字眼實在很少在其他書中看到。<br>
     &gt;<br>
-    &gt; 2. p.26�����{���G<br>
+    &gt; 2. p.26中的程式：<br>
     &gt; void rotate (X datum,const X* pointer,const X&amp; reference)<br>
     &gt; {<br>
     &gt; (*pointer).rotate ();<br>
     &gt; reference.rotate ();<br>
     &gt; datum.rotate ();<br>
     &gt; } // end function<br>
-    &gt; �bVC���sĶ�|�X�{�૬�W�����~�A���������ѼƦCconst�~�i�H����C<br>
+    &gt; 在VC中編譯會出現轉型上的錯誤，必須拿掉參數列const才可以執行。<br>
     &gt;<br>
-    &gt; 3. p52.�����G<br>
-    &gt; &quot;.....�o���p�U�ä��ݭn�X���X�@��default copy constructor,<br>
-    &gt; �]���W�z�ŧi�i�{�F&quot;default copy semantics&quot;.........&quot;<br>
-    &gt; �o�q�����p������O�H��ˤ~��Odefault copy semantics?<br>
+    &gt; 3. p52.中間：<br>
+    &gt; &quot;.....這情況下並不需要合成出一個default copy constructor,<br>
+    &gt; 因為上述宣告展現了&quot;default copy semantics&quot;.........&quot;<br>
+    &gt; 這段話應如何解釋呢？怎樣才算是default copy semantics?<br>
     &gt; &quot;bitwise copy semantics&quot;?<br>
     &gt;<br>
     &gt; 4. p.74<br>
-    &gt; �̭����� member initialization list �b�|�ر��ΤU�i�H<br>
+    &gt; 裡面提到 member initialization list 在四種情形下可以<br>
     &gt; 
-    �Q�ϥΡ]�Y�ϨS���ΡA�]�i�H���T�sĶ�A�u�O�|�y���Ĳv�����^�A<br>
-    &gt; ��LIPPMAN�S����������|�y���sĶ����H��ؤ��P�覡�]�w��ȡA<br>
+    被使用（即使沒有用，也可以正確編譯，只是會造成效率不彰），<br>
+    &gt; 但LIPPMAN沒有說明為何會造成編譯器對以兩種不同方式設定初值，<br>
     &gt; 
-    �|�X�i�������P���X�A�O�]���sĶ���]�p�W�Y�صL�k�קK���ݭn�H<br>
-    &gt; �٬O����L����]<br>
+    會擴展成為不同的碼，是因為編譯器設計上某種無法避免的需要？<br>
+    &gt; 還是有其他的原因<br>
     &gt;<br>
-    &gt; 5. LIPPMAN�Ѥ��`�`�|�C�X�u�g�L�X�i�B���ơv�άO�u�ഫ�v<br>
-    &gt; �L����l�X�A�ǥ��[��o�ǽX�A�i�H����o�{�sĶ���t���ʤF<br>
-    &gt; ���Ǥ�}�A���o���G�O���ѿW�����S��A�@��sĶ���h����<br>
-    &gt; �����X�������A�Ӥ��|�C�Xpusedo code�C����o�o�ӻ��k<br>
-    &gt; �藍��]�ڲ{�b�Ϊ��OVC6�^<br>
+    &gt; 5. LIPPMAN書中常常會列出「經過擴展、內化」或是「轉換」<br>
+    &gt; 過的原始碼，藉由觀察這些碼，可以明顯發現編譯器暗中動了<br>
+    &gt; 哪些手腳，但這似乎是本書獨有的特色，一般編譯器多提供<br>
+    &gt; 機器碼的對應，而不會列出pusedo code。不曉得這個說法<br>
+    &gt; 對不對（我現在用的是VC6）<br>
     &gt;<br>
-    &gt; ����<br>
+    &gt; 謝謝<br>
     </font><br>
     <br>
-    �J���^�СG<br>
+    侯捷回覆：<br>
     <br>
     <font color="#0000FF">&gt; 1. 
-    �夤�h���X�{�u���ơv�B�u�X�i�v�����]�ר�bconstrctor)<br>
-    &gt; ��Ķ�������^��Ӫ��å��[�H�е��A��ĳ�A��L�[�i�h�A<br>
-    &gt; �]���o�Ǧr����b�ܤ֦b��L�Ѥ��ݨ�C</font><br>
+    文中多次出現「內化」、「擴張」等詞（尤其在constrctor)<br>
+    &gt; 中譯本內中英對照表並未加以標註，建議你把他加進去，<br>
+    &gt; 因為這些字眼實在很少在其他書中看到。</font><br>
     <br>
-    ���§A����ĳ�C�H�U�|��ӨҤl�C<br>
+    謝謝你的建議。以下舉兩個例子。<br>
     <br>
-    ��� p11:<br>
+    原書 p11:<br>
     . the likely internal transformation of the function looks as follows :<br>
     <br>
-    ��Ķ�� p13:<br>
-    . �o�Ө禡���i��Q���Ƭ��G<br>
+    中譯本 p13:<br>
+    . 這個函式有可能被內化為：<br>
     <br>
-    �������ڦb�o�̩ҨϥΪ��u���ơv�@���A�õL�����������^��A<br>
-    �ӬO�̤W�U��½Ķ�C<br>
+    換言之我在這裡所使用的「內化」一詞，並無直接對應的英文，<br>
+    而是依上下文翻譯。<br>
     <br>
     <br>
-    ��� p38:<br>
+    原書 p38:<br>
     . the following two augmentations occur during compilation<br>
     <br>
-    ��Ķ�� p45:<br>
-    . �U������X�i��ʷ|�b�sĶ�����o�͡G<br>
+    中譯本 p45:<br>
+    . 下面兩個擴張行動會在編譯期間發生：<br>
     <br>
-    �������o�̧کҨϥΪ��u�X�i�v�@���A�N�O augmentations�C�O���A<br>
-    C++ �sĶ�����ڭ̥[�F�\�h�X�A�O�@�ءu�X�i�v�欰�C<br>
+    換言之這裡我所使用的「擴張」一詞，就是 augmentations。是的，<br>
+    C++ 編譯器為我們加了許多碼，是一種「擴張」行為。<br>
     <br>
     <br>
-    <font color="#0000FF">&gt; 2. p.26�����{���G<br>
+    <font color="#0000FF">&gt; 2. p.26中的程式：<br>
     &gt; ...<br>
-    &gt; �bVC���sĶ�|�X�{�૬�W�����~�A���������ѼƦCconst�~�i�H����C</font><br>
+    &gt; 在VC中編譯會出現轉型上的錯誤，必須拿掉參數列const才可以執行。</font><br>
     <br>
-    �n���A���¡C�U�a�sĶ���� const ���P��{�פ��@�A<br>
-    BCB4 �M G++ ��� p.26 ���{�����u���� warning�C<br>
+    好的，謝謝。各家編譯器對 const 的鬆緊程度不一，<br>
+    BCB4 和 G++ 對於 p.26 的程式都只給予 warning。<br>
     <br>
     <br>
-    <font color="#0000FF">&gt; 3. p52.�����G<br>
-    &gt; &quot;.....�o���p�U�ä��ݭn�X���X�@��default copy constructor,<br>
-    &gt; �]���W�z�ŧi�i�{�F&quot;default copy semantics&quot;.........&quot;<br>
-    &gt; �o�q�����p������O�H��ˤ~��Odefault copy semantics?<br>
+    <font color="#0000FF">&gt; 3. p52.中間：<br>
+    &gt; &quot;.....這情況下並不需要合成出一個default copy constructor,<br>
+    &gt; 因為上述宣告展現了&quot;default copy semantics&quot;.........&quot;<br>
+    &gt; 這段話應如何解釋呢？怎樣才算是default copy semantics?<br>
     &gt; &quot;bitwise copy semantics&quot;?</font><br>
     <br>
-    p53 �������U���o�ܲM���G<br>
+    p53 中間偏下說得很清楚：<br>
     <br>
-    . ����ɭԤ@�� class ���i�{�X &quot;bitwise copy semantics&quot; �O�H<br>
-    . ���|�ر��p�G<br>
+    . 什麼時候一個 class 不展現出 &quot;bitwise copy semantics&quot; 呢？<br>
+    . 有四種情況：<br>
     . 1. ...<br>
     . 2. ...<br>
     . 3. ...<br>
     . 4. ...<br>
     <br>
-    �o�|�I�H�~�����󱡪p�A�K�O�֦� &quot;bitwise copy semantics&quot;<br>
-    �]��Y &quot;default copy semantics&quot;�^�C<br>
+    這四點以外的任何情況，便是擁有 &quot;bitwise copy semantics&quot;<br>
+    （亦即 &quot;default copy semantics&quot;）。<br>
     <br>
     <br>
     <font color="#0000FF">&gt; 4. p.74<br>
-    &gt; �̭����� member initialization list �b�|�ر��ΤU�i�H<br>
+    &gt; 裡面提到 member initialization list 在四種情形下可以<br>
     &gt; 
-    �Q�ϥΡ]�Y�ϨS���ΡA�]�i�H���T�sĶ�A�u�O�|�y���Ĳv�����^�A<br>
-    &gt; ��LIPPMAN�S����������|�y���sĶ����H��ؤ��P�覡�]�w��ȡA<br>
+    被使用（即使沒有用，也可以正確編譯，只是會造成效率不彰），<br>
+    &gt; 但LIPPMAN沒有說明為何會造成編譯器對以兩種不同方式設定初值，<br>
     &gt; 
-    �|�X�i�������P���X�A�O�]���sĶ���]�p�W�Y�صL�k�קK���ݭn�H<br>
-    &gt; �٬O����L����]</font><br>
+    會擴展成為不同的碼，是因為編譯器設計上某種無法避免的需要？<br>
+    &gt; 還是有其他的原因</font><br>
     <br>
-    �O�]�� C++ �y���b�]�p�W���հϤ��F initialization �M assignment<br>
-    �����P�C<br>
+    是因為 C++ 語言在設計上明白區分了 initialization 和 assignment<br>
+    的不同。<br>
     <br>
-    �A�ҿסu�H��ؤ��P�覡�]�w��ȡv�A�N��O�G<br>
-    (1) �ϥ� member initialization list<br>
-    (2) ���ϥ� member initialization list�A�Ӧb ctor ���ϥ� assignments.<br>
+    你所謂「以兩種不同方式設定初值」，意思是：<br>
+    (1) 使用 member initialization list<br>
+    (2) 不使用 member initialization list，而在 ctor 中使用 assignments.<br>
     <br>
-    ������sĶ�����H��ؤ��P�覡�]�w��ȡA�|�X�i�������P���X�O�H<br>
-    �]���]�H�U�`���ۡmC++ Primer ���媩�np719�^�G<br>
+    為什麼編譯器對於以兩種不同方式設定初值，會擴展成為不同的碼呢？<br>
+    因為（以下節錄自《C++ Primer 中文版》p719）：<br>
     <br>
     <font color="#408080">--- quote ---<br>
-    ��ا@�k...�t�O�b��ߦ� member initialization list �~<br>
-    ���� class data members ����l�Ʀ欰�C<br>
-    �Ӧb constructor �禡���N�ƭȳ]�w�� data member�A��欰�O�@��<br>
-    �����]assignment�^�ʧ@�C��̮t���� data member �����O�өw�C<br>
+    兩種作法...差別在於唯有 member initialization list 才<br>
+    提供 class data members 的初始化行為。<br>
+    而在 constructor 函式內將數值設定給 data member，其行為是一種<br>
+    指派（assignment）動作。兩者差異視 data member 的型別而定。<br>
     <br>
-    ���@���[���ܭ��n�A���N�O�� constructor ������Q�����ⶥ�q�G<br>
-    (1) ������]implicit�^�Ω���]explicit�^����l�ƶ��q<br>
-    �]initialization phase�^�A(2) �@��ƪ��B�ⶥ�q�]computation phase�^�C<br>
-    �B�ⶥ�q�� constructor �禡�����Ҧ��z�y�զ��A�����q�������<br>
-    data members ���]�w�ʧ@���Q�����@�ӫ����ʧ@�]assignment�^�A<br>
-    �Ӥ��O�@�Ӫ�l�ưʧ@�]initialization�^�C�p�G������M���Ϥ��X<br>
-    �䶡���t���A�K���������{�����~�ήĲv�������ӷ��C<br>
+    有一個觀念很重要，那就是把 constructor 的執行想像為兩階段：<br>
+    (1) 或隱喻（implicit）或明顯（explicit）的初始化階段<br>
+    （initialization phase），(2) 一般化的運算階段（computation phase）。<br>
+    運算階段由 constructor 函式內的所有述句組成，此階段中對任何<br>
+    data members 的設定動作都被視為一個指派動作（assignment），<br>
+    而不是一個初始化動作（initialization）。如果不能夠清楚區分出<br>
+    其間的差異，便往往成為程式錯誤或效率不彰的來源。<br>
     <br>
-    ��l�ƶ��q�i�H�O���몺�]implicit�^�A�]�i�H�O���㪺�]explicit�^�A<br>
-    �� member initialization list �O�_�s�b�өw�C�@�����몺��l�ƶ��q<br>
-    �|��_�Ҧ� base class �� default constructors�]�ھ� base class ���ŧi<br>
-    ���ǡ^�A�M��A��_�Ҧ� member class object �� default constructors�C<br>
+    初始化階段可以是隱喻的（implicit），也可以是明顯的（explicit），<br>
+    視 member initialization list 是否存在而定。一個隱喻的初始化階段<br>
+    會喚起所有 base class 的 default constructors（根據 base class 的宣告<br>
+    次序），然後再喚起所有 member class object 的 default constructors。<br>
     --- unquote ---</font><br>
     <br>
     <br>
-    <font color="#0000FF">&gt; 5. LIPPMAN�Ѥ��`�`�|�C�X�u�g�L�X�i�B���ơv�άO�u�ഫ�v<br>
-    &gt; �L����l�X�A�ǥ��[��o�ǽX�A�i�H����o�{�sĶ���t���ʤF<br>
-    &gt; ���Ǥ�}�A���o���G�O���ѿW�����S��A�@��sĶ���h����<br>
-    &gt; �����X�������A�Ӥ��|�C�Xpseudo code�C����o�o�ӻ��k<br>
-    &gt; �藍��]�ڲ{�b�Ϊ��OVC6�^</font><br>
+    <font color="#0000FF">&gt; 5. LIPPMAN書中常常會列出「經過擴展、內化」或是「轉換」<br>
+    &gt; 過的原始碼，藉由觀察這些碼，可以明顯發現編譯器暗中動了<br>
+    &gt; 哪些手腳，但這似乎是本書獨有的特色，一般編譯器多提供<br>
+    &gt; 機器碼的對應，而不會列出pseudo code。不曉得這個說法<br>
+    &gt; 對不對（我現在用的是VC6）</font><br>
     <br>
-    ��C<br>
+    對。<br>
     <br>
-    �A���Ȼ~�|�F pseudo code ���N��Cpseudo code �O�N��O<br>
-    �H�Y�ث������y�����{�X�Y�ǹ�ڰʧ@�CLippman �b���Ѥ��H<br>
-    �j�a���x�� C++ �y���]�O���A����Ū�����ӳ��w���x�F C++ �y���^<br>
-    �Ӫ��{ pusedo code�C�ƹ�W C++ �sĶ�����M���|���ڭ̪��X<br>
-    �u�X�i�B���ơB���ഫ�v�X���˪����h�y���C<br>
+    你恐怕誤會了 pseudo code 的意思。pseudo code 是意思是<br>
+    以某種型式的語言表現出某些實際動作。Lippman 在本書中以<br>
+    大家熟悉的 C++ 語言（是的，本書讀者應該都已熟悉了 C++ 語言）<br>
+    來表現 pusedo code。事實上 C++ 編譯器當然不會為我們的碼<br>
+    「擴展、內化、或轉換」出那樣的高層語言。<br>
     <br>
     -- the end<br>
     <br>
     &#26;<!--msthemeseparator--><p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
-    <p><big><big>C++ Object Model ���Ȱ� (2)</big></big> - �ɻ~<br>
+    <p><big><big>C++ Object Model 答客問 (2)</big></big> - 勘誤<br>
     2000.03.25 <br>
     <br>
     Huang Angus wrote (2000/03/06) :<br>
     <br>
-    <font color="#0000FF">&gt; �J���ͱz�n:<br>
+    <font color="#0000FF">&gt; 侯先生您好:<br>
     &gt;<br>
-    &gt; �o����,�u�O���ڱo�쪾�ѤW������,�C�@�������ڨI�u�}�[..<br>
+    &gt; 這本書,真是讓我得到知識上的滿足,每一頁都讓我沉吟良久..<br>
     &gt;<br>
-    &gt; �o�঳�@�Ӱ��D�Q�б�..<br>
+    &gt; 這兒有一個問題想請教..<br>
     &gt;<br>
-    &gt; 1. p.66�W�q�� code : �ĤT�� bar( X &amp;__result ) �O�_�Ӭ�<br>
+    &gt; 1. p.66上段的 code : 第三行 bar( X &amp;__result ) 是否該為<br>
     &gt; <small><font face="Courier New">bar( const T &amp;y, const T &amp;z, X &amp;__result)</font></small> 
     &nbsp;&nbsp;&nbsp;&nbsp; or<br>
     &gt; <small><font face="Courier New">bar( X &amp;__result, const T &amp;y, const T &amp;z 
-    )</font></small>&nbsp;&nbsp; ?? �`ı�o�ǩǪ�.<br>
+    )</font></small>&nbsp;&nbsp; ?? 總覺得怪怪的.<br>
     &gt;<br>
     &gt; have a nice day<br>
     &gt; Angus</font><br>
     <br>
     <br>
-    �J���^�СG<br>
+    侯捷回覆：<br>
     <br>
-    �A�u�F�`�C<br>
+    你真厲害。<br>
     <br>
-    �ڪ��ݪk�M�A�ۦP�C�����ѬO����g���C�ڷQ�o�O���Ѫ�<br>
-    �@�ӵ��~�C�w�����u�@��Ū�̨ӫH���X���I�C�ڱN��o�I�C��<br>
-    �ɻ~�����C���¡C<br>
+    我的看法和你相同。但原文書是那麼寫的。我想這是原文書的<br>
+    一個筆誤。已有不只一位讀者來信指出此點。我將把這點列於<br>
+    勘誤之中。謝謝。<br>
     <br>
     -- the end<br>
     &#26;<br>
     </p>
 <!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
-    <p><big><big>C++ Object Model ���Ȱ� (3)</big></big> - NRV �̨Τ�<br>
+    <p><big><big>C++ Object Model 答客問 (3)</big></big> - NRV 最佳化<br>
     2000.03.25<br>
     <br>
     leetron wrote (2000/02/11) :<br>
     <br>
-    <font color="#0000FF">&gt; �z�n�A����`�ױ���C++����ҫ��@�ѡA2.3�`�{��<br>
-    &gt; ��ƻy�N�Ǫ������A���Ӱ��D<br>
-    &gt; �Q�ббz�C<br>
+    <font color="#0000FF">&gt; 您好，關於深度探索C++物件模型一書，2.3節程式<br>
+    &gt; 轉化語意學的部分，有個問題<br>
+    &gt; 想請教您。<br>
     &gt;<br>
-    &gt; ���D�G<br>
-    &gt; �b67���A�̤U�����G<br>
-    &gt; �o�ӵ{�����Ĥ@�Ӫ��������INRV�̨ΤơA�]��test class<br>
-    &gt; �ʤ֤@��copy constructor�C<br>
-    &gt; ���O�b66���u�b�sĶ���h�����̨Τơv���@�q���ҦC���X��ܡA<br>
-    &gt; ���sĶ����xx�H__result���N�A�ܦ�__result.X::X();<br>
-    &gt; �Ydefault constructor�Q��_�C��_default constructor<br>
-    &gt; �O�i�H�z�Ѫ��A�i�O�sĶ���ഫ�᪺�X�èS���ϥΨ�<br>
-    &gt; copy constructor�r�A������67���̫���o���ʤ֤@��<br>
-    &gt; copy constructor�A�N�����I�o�ӳ̨ΤƤF�O�H<br>
+    &gt; 問題：<br>
+    &gt; 在67頁，最下面兩行：<br>
+    &gt; 這個程式的第一個版本不能實施NRV最佳化，因為test class<br>
+    &gt; 缺少一個copy constructor。<br>
+    &gt; 但是在66頁「在編譯器層面做最佳化」那一段中所列的碼顯示，<br>
+    &gt; 當編譯器把xx以__result取代，變成__result.X::X();<br>
+    &gt; 即default constructor被喚起。喚起default constructor<br>
+    &gt; 是可以理解的，可是編譯器轉換後的碼並沒有使用到<br>
+    &gt; copy constructor呀，為什麼67頁最後兩行卻說缺少一個<br>
+    &gt; copy constructor，就不能實施這個最佳化了呢？<br>
     &gt;<br>
-    &gt; �ڹ�W���o�Ӱ��D���F�Ǹ����A�������ڪ��q�Q�O�_���T�C<br>
+    &gt; 我對上面這個問題做了些解釋，但不知我的猜想是否正確。<br>
     &gt;<br>
-    &gt; �ڪ������O�G<br>
-    &gt; �p�P63���P64���u�^��Ȫ���l�ơv�o�@�q�A�sĶ���i��N<br>
-    &gt; 63���U���� X bar()�禡�w�q�ഫ��64���������X�A�䤤��<br>
-    &gt; �@��__result.X::X(xx); �o�|�ϥΨ�copy constructor�C<br>
+    &gt; 我的解釋是：<br>
+    &gt; 如同63頁與64頁「回返值的初始化」這一段，編譯器可能將<br>
+    &gt; 63頁下面的 X bar()函式定義轉換成64頁的虛擬碼，其中有<br>
+    &gt; 一行__result.X::X(xx); 這會使用到copy constructor。<br>
     &gt;<br>
-    &gt; �ഫ��64�����X��A65���P66�����z�F��ث���i��X�{��<br>
-    &gt; �̨Τưʧ@�A�䤤�@�اY�O66�����sĶ���h�����̨ΤơC<br>
-    &gt; �p���A���M66���̨Τƫ᪺�X�ݰ_�Өä��ϥΨ�copy constructor�A<br>
-    &gt; ���O�o�ǽX�O�ھڹ�64�����ؼˤl���X(���@)�̨ΤƦӨӪ��A<br>
-    &gt; �ӭY�S��copy constructor�A�ڥ��L�k�ഫ��64�����ص����X�A<br>
-    &gt; �]���䤤���@�өI�scopy constructor���ʧ@�C�ҥH�A���M<br>
-    &gt; 66���g�L�sĶ���̨Τƪ����G�٥h�F__result.X::X(xx);<br>
-    &gt; �o��copy constructor���I��ʧ@�]�]���ڥ��S��xx�F�^�A<br>
-    &gt; ���Y�S�����մ��Ѥ@��copy constructor�A�o�L�k���sĶ��<br>
-    &gt; �i��o�˪��̨ΤơC<br>
+    &gt; 轉換成64頁的碼後，65頁與66頁分述了兩種後續可能出現的<br>
+    &gt; 最佳化動作，其中一種即是66頁的編譯器層面做最佳化。<br>
+    &gt; 如此，雖然66頁最佳化後的碼看起來並不使用到copy constructor，<br>
+    &gt; 但是這些碼是根據像64頁那種樣子的碼(註一)最佳化而來的，<br>
+    &gt; 而若沒有copy constructor，根本無法轉換成64頁那種虛擬碼，<br>
+    &gt; 因為其中有一個呼叫copy constructor的動作。所以，雖然<br>
+    &gt; 66頁經過編譯器最佳化的結果省去了__result.X::X(xx);<br>
+    &gt; 這個copy constructor的呼喚動作（因為根本沒有xx了），<br>
+    &gt; 但若沒有明白提供一個copy constructor，卻無法讓編譯器<br>
+    &gt; 進行這樣的最佳化。<br>
     &gt;<br>
-    &gt; �t�@�譱�A�ڰѦҲ�5���A205���̤U���@�q�ܡG<br>
-    &gt; �u�@��Ө��p�G�A���]�p�����A���\�h�禡���ݭn�H�ǭ�(by value)<br>
-    &gt; �Ǧ^�@��local class object....���򴣨Ѥ@��copy constructor<br>
-    &gt; �N����X�z--�ƦܧY��default memberwise�y�N�w�g�����C<br>
-    &gt; �����X�{�|Ĳ�oNRV�̨ΤơC�M�ӡA�N���ڦb�e�@�ӨҤl��<br>
-    &gt; �Үi�{�����ˡANRV�̨Τƫ�N���A�ݭn��_copy constructor�A<br>
-    &gt; �]���B�⵲�G�w�g�Q�����p���u�N�Q�Ǧ^��object�v�餺�F�C�v<br>
-    &gt; �ҥH�A�ڴ��X�p�W�ҭz���Ӹ����A�����T�w�O�_���T�A��<br>
-    &gt; �He-mail���z�H�T�{�@�U�C<br>
+    &gt; 另一方面，我參考第5章，205頁最下面一段話：<br>
+    &gt; 「一般而言如果你的設計之中，有許多函式都需要以傳值(by value)<br>
+    &gt; 傳回一個local class object....那麼提供一個copy constructor<br>
+    &gt; 就比較合理--甚至即使default memberwise語意已經足夠。<br>
+    &gt; 它的出現會觸發NRV最佳化。然而，就像我在前一個例子中<br>
+    &gt; 所展現的那樣，NRV最佳化後將不再需要喚起copy constructor，<br>
+    &gt; 因為運算結果已經被直接計算於「將被傳回的object」體內了。」<br>
+    &gt; 所以，我提出如上所述那個解釋，但不確定是否正確，所<br>
+    &gt; 以e-mail給您以確認一下。<br>
     &gt;<br>
-    &gt; ���@�G���M�A�sĶ���쩳����@�o���ഫ�ʧ@�A�z�פW<br>
-    &gt; �ڭ̬O�������A����@���ӽסC�ҥH�ڼg�u��64�����ؼˤl���X�v�C<br>
+    &gt; 註一：當然，編譯器到底怎麼實作這些轉換動作，理論上<br>
+    &gt; 我們是未知的，不能一概而論。所以我寫「像64頁那種樣子的碼」。<br>
     </font><br>
     <br>
-    �J���^�СG<br>
+    侯捷回覆：<br>
     <br>
-    �ڳ̮`�Ȫ��Ʊ��N�O�AŪ�̼g�H�ӰQ�סm�`�ױ��� C++ ����ҫ��n<br>
-    �@�Ѥ��e�C�]�����O�ǰ��ⴣ�X�ǲ`�����D�ءA�ӧڥ�����Ыʪ�<br>
-    �O�Ч�X�ӡK :)<br>
+    我最害怕的事情就是，讀者寫信來討論《深度探索 C++ 物件模型》<br>
+    一書內容。因為都是些高手提出些深奧的題目，而我必須把塵封的<br>
+    記憶找出來… :)<br>
     <br>
-    OK�A�@�̡]��Ķ�̡^�S����誺�v�Q :)�C�ڪ��^�Цp�U�C<br>
+    OK，作者（或譯者）沒有抱怨的權利 :)。我的回覆如下。<br>
     <br>
-    �����A�ڭn�� leetron ��L���N��y�z�o�D�`�M���C�b�ڦ���<br>
-    ��Ū�̨Ө礤�A��O�W�~ �X �ר�O�y�z�o�����������C<br>
+    首先，我要說 leetron 把他的意思描述得非常清楚。在我收到<br>
+    的讀者來函中，算是上品 — 尤其是描述這麼複雜的思路。<br>
     <br>
-    �䦸�A�ڦP�N leetron ���G<br>
+    其次，我同意 leetron 說：<br>
     <br>
-    <font color="#0000FF">&gt; �ഫ��64�����X��A65���P66�����z�F��ث���i��X�{��<br>
-    &gt; �̨Τưʧ@�A�䤤�@�اY�O66�����sĶ���h�����̨ΤơC</font><br>
+    <font color="#0000FF">&gt; 轉換成64頁的碼後，65頁與66頁分述了兩種後續可能出現的<br>
+    &gt; 最佳化動作，其中一種即是66頁的編譯器層面做最佳化。</font><br>
     <br>
-    ���O�ڤ��P�N leetron �o�˪��ݪk�G<br>
+    但是我不同意 leetron 這樣的看法：<br>
     <br>
-    <font color="#0000FF">&gt; �p���A���M66���̨Τƫ᪺�X�ݰ_�Өä��ϥΨ�copy 
-    constructor�A<br>
-    &gt; ���O�o�ǽX�O�ھڹ�64�����ؼˤl���X(���@)�̨ΤƦӨӪ��A</font><br>
+    <font color="#0000FF">&gt; 如此，雖然66頁最佳化後的碼看起來並不使用到copy 
+    constructor，<br>
+    &gt; 但是這些碼是根據像64頁那種樣子的碼(註一)最佳化而來的，</font><br>
     <br>
-    �ڻ{���ANRV �̨ΤƨëD�O�� p63 ����l�X�Ӧ� p64 �������X�A<br>
-    �A�� p66 ���̨ΤơC�ڻ{���O�q p63 ����l�X������ p66 ���̨ΤơC<br>
-    �ҥH�A���G�i�H���ݭn copy ctor�C<br>
+    我認為，NRV 最佳化並非是由 p63 的原始碼而至 p64 的虛擬碼，<br>
+    再至 p66 的最佳化。我認為是從 p63 的原始碼直接至 p66 的最佳化。<br>
+    所以，似乎可以不需要 copy ctor。<br>
     <br>
-    ���o��@�ӧڤ]�L�k���������� lippman �b p67 �̤U�j��<br>
-    �u�����n�� copy ctor �~���I NRV �̨Τơv�C<br>
+    但這麼一來我也無法解釋為什麼 lippman 在 p67 最下強調<br>
+    「必須要有 copy ctor 才能實施 NRV 最佳化」。<br>
     <br>
-    �H�U�O��LŪ�̪��Q�סA���z�ѦҡC<br>
+    以下是其他讀者的討論，給您參考。<br>
     <br>
-    <font color="#408080">-- quote -- �]�ަ� www.jjhou.com �G���y�ɻ~/�`�ױ��� C++ 
-    ����ҫ��^<br>
+    <font color="#408080">-- quote -- （引自 www.jjhou.com ：書籍勘誤/深度探索 C++ 
+    物件模型）<br>
     <br>
-    �����T�F���ͻ{���GLippman �b p67 
-    �̫�@��Ҩ��y�o�ӵ{�����Ĥ@�Ӫ���<br>
-    �����I NRV �̨ΤơA�]�� test class �ʤ֤@�� copy constructor�z�A<br>
-    ���y���~�C�����ͻ{���p�G�{���S�� explicit copy constructor�A�sĶ���|<br>
-    �۰ʬ��ڭ̰��X�ӡ]�p�� trivial�A�h���� bitwise copy�F�p�� nontrivial�A<br>
-    �h�ѽsĶ�����ڭ̦X���X�@�� copy constructor�^�C�]���A���S�� explicit<br>
-    copy constructor �ä��v�T NRV �̨Τƪ���I�C�L�{�� NRV �̨ΤƥD�n�O<br>
-    �ѽsĶ�� option �ӨM�w�n���n��I�C�L�åB���F�@�ǹ���A�P�_ VC �M 
+    ★黃俊達先生認為：Lippman 在 p67 
+    最後一行所言『這個程式的第一個版本<br>
+    不能實施 NRV 最佳化，因為 test class 缺少一個 copy constructor』，<br>
+    此語錯誤。黃先生認為如果程式沒有 explicit copy constructor，編譯器會<br>
+    自動為我們做出來（如為 trivial，則直接 bitwise copy；如為 nontrivial，<br>
+    則由編譯器為我們合成出一個 copy constructor）。因此，有沒有 explicit<br>
+    copy constructor 並不影響 NRV 最佳化的實施。他認為 NRV 最佳化主要是<br>
+    由編譯器 option 來決定要不要實施。他並且做了一些實驗，判斷 VC 和 
     gcc<br>
-    ���S������ NRV 
-    �̨ΤơA�Ө䤣�����z�Ѥ��O�]���޳N�W���x���A�O���F<br>
-    �קK�y���uuser defined copy constructor ���Ƨ@�Υ��ġv-- �ҿװƧ@��<br>
-    �O���A�Ҧp�u�b user defined copy constructor �����@�� cout ��X�v����<br>
-    �o�ءu�P memberwise copy �L���v���ʧ@�C<br>
+    都沒有做到 NRV 
+    最佳化，而其不做的理由不是因為技術上的困難，是為了<br>
+    避免造成「user defined copy constructor 之副作用失效」-- 所謂副作用<br>
+    是指，例如「在 user defined copy constructor 中做一個 cout 輸出」之類<br>
+    這種「與 memberwise copy 無關」的動作。<br>
     <br>
-    ���J�T�ǵ��СG�ᦳ�D�z�C���Ъ`�N�ALippman<br>
-    �b p.205 �U��, p.221 �W�赥�B�A���A�T�j�� copy constructor<br>
-    ��� NRV �̨Τƪ��ɤޤ��\�A�����O�_�䶡������O�ڭ̨S�Q�쪺�H<br>
+    ★侯俊傑答覆：頗有道理。但請注意，Lippman<br>
+    在 p.205 下方, p.221 上方等處，仍再三強調 copy constructor<br>
+    對於 NRV 最佳化的導引之功，不知是否其間有什麼是我們沒想到的？<br>
     <br>
-    ����ӫC���ͥ�ӫH��� NRV ���X�P���T�F���ͬۦP���ݪk�C�P�¡C<br>
+    ★唐志青先生亦來信對於 NRV 提出與黃俊達先生相同的看法。感謝。<br>
     -- unquote --</font><br>
     <br>
     -- the end<br>
     &#26;</p>
-    <p>�@</p>
-    <p>�@<!--mstheme--></font></td>
+    <p>　</p>
+    <p>　<!--mstheme--></font></td>
   </tr>
 </table>
 </center></div>
 
-<p>�@ </p>
+<p>　 </p>
 <!--mstheme--></font>
 </body>
 </html>

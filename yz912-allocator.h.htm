@@ -1,7 +1,7 @@
 <html>// yz912-allocator.h
 
-// ³]­p¤@­ÓÂ²¤Æªº allocator
-// °Ñ¦Ò¡G¡mSTL·½½X­åªR¡np43~p47
+// è¨­è¨ˆä¸€å€‹ç°¡åŒ–çš„ allocator
+// åƒè€ƒï¼šã€ŠSTLæºç¢¼å‰–æã€‹p43~p47
 
 #ifndef _YZ_ALLOCATOR_
 #define _YZ_ALLOCATOR_
@@ -19,7 +19,7 @@ namespace YZ
 template <class T>
 inline T* _allocate(ptrdiff_t size, T*) 
 {
-  // set_new_handler(0);  // CB5 §ä¤£¨ì¦¹¨ç¦¡
+  // set_new_handler(0);  // CB5 æ‰¾ä¸åˆ°æ­¤å‡½å¼
   T* tmp = (T*)(::operator new((size_t)(size * sizeof(T))));
   if (tmp == 0) {
       cerr << "out of memory" << endl;
@@ -58,16 +58,16 @@ public:
   typedef size_t 	size_type;
   typedef ptrdiff_t 	difference_type;
 
-  // n: ¤¸¯À­Ó¼Æ¡]¤£¬O bytes ­Ó¼Æ¡^
+  // n: å…ƒç´ å€‹æ•¸ï¼ˆä¸æ˜¯ bytes å€‹æ•¸ï¼‰
   static pointer allocate(size_type n, const void* hint=0) 
   {
     return _allocate((difference_type)n, (pointer)0);
   }
   
-  // n: ¤¸¯À­Ó¼Æ¡]¤£¬O bytes ­Ó¼Æ¡^
-  static void deallocate(pointer p, size_type n=1) // jjhou³]¹w³]­È¬°1
+  // n: å…ƒç´ å€‹æ•¸ï¼ˆä¸æ˜¯ bytes å€‹æ•¸ï¼‰
+  static void deallocate(pointer p, size_type n=1) // jjhouè¨­é è¨­å€¼ç‚º1
   { 
-    // ¦b¦¹Â²³æ¹ê§@§Ş³N¤¤¡A¨S¦³¥Î¨ì n¡C¡]¥Îªº¬O cookie¡^
+    // åœ¨æ­¤ç°¡å–®å¯¦ä½œæŠ€è¡“ä¸­ï¼Œæ²’æœ‰ç”¨åˆ° nã€‚ï¼ˆç”¨çš„æ˜¯ cookieï¼‰
     _deallocate(p); 
   }
 
@@ -89,25 +89,25 @@ public:
 
 static void * allocate(size_t n) // n:bytes
 {
-    void *result = malloc(n);	// ²Ä¤@¯Å°t¸m¾¹ª½±µ¨Ï¥Î malloc()
+    void *result = malloc(n);	// ç¬¬ä¸€ç´šé…ç½®å™¨ç›´æ¥ä½¿ç”¨ malloc()
     return result;
 }
 
 static void deallocate(void *p, size_t /* n */)
 {
-    free(p); 	// ²Ä¤@¯Å°t¸m¾¹ª½±µ¨Ï¥Î free()
+    free(p); 	// ç¬¬ä¸€ç´šé…ç½®å™¨ç›´æ¥ä½¿ç”¨ free()
 }
 
 static void * reallocate(void *p, size_t /* old_sz */, size_t new_sz)
 {
-    void * result = realloc(p, new_sz);	// ²Ä¤@¯Å°t¸m¾¹ª½±µ¨Ï¥Î realloc()
+    void * result = realloc(p, new_sz);	// ç¬¬ä¸€ç´šé…ç½®å™¨ç›´æ¥ä½¿ç”¨ realloc()
     return result;
 }
 };
 
 
-// SGI STL ¤¤ªº³o­Ó class ¬O¬°¤F±N client ªº¤¸¯À­Ó¼Æ»İ¨DÂà¬° bytes ­Ó¼Æ»İ¨D¡A
-// ¤~¯à¥æµ¹ SGI alloc ¥h°õ¦æ¡C
+// SGI STL ä¸­çš„é€™å€‹ class æ˜¯ç‚ºäº†å°‡ client çš„å…ƒç´ å€‹æ•¸éœ€æ±‚è½‰ç‚º bytes å€‹æ•¸éœ€æ±‚ï¼Œ
+// æ‰èƒ½äº¤çµ¦ SGI alloc å»åŸ·è¡Œã€‚
 template<class T, class Alloc>
 class simple_alloc {
 public:
@@ -122,15 +122,15 @@ public:
 };     
            
 /*
-¤£¯à¸Õ¹Ï¥H allocator<T> ·f°t simple_alloc¡]«D¦p¤W¡A»İ§ó§ï¡^¡C§_«h¡A
-¦b list<T, Alloc=allocator<T>> ¤¤ªº
+ä¸èƒ½è©¦åœ–ä»¥ allocator<T> æ­é… simple_allocï¼ˆéå¦‚ä¸Šï¼Œéœ€æ›´æ”¹ï¼‰ã€‚å¦å‰‡ï¼Œ
+åœ¨ list<T, Alloc=allocator<T>> ä¸­çš„
   typedef simple_alloc<list_node, Alloc> list_node_allocator;  
-±N¦¨¬°¡G
+å°‡æˆç‚ºï¼š
   typedef simple_alloc<list_node, allocator<T>> list_node_allocator;
-¾É­P¨ä get_node()  ©I¥s list_node_allocator()    
-¥H¤Î¨ä put_node(p) ©I¥s list_node_deallocator(p)
-µo¥Í¿ù¶Ã¡G©ú©ú¾Ş§@¹ï¶H¬O list_node<T>¡A«o¨Ï¥Î allocator<T>¡C    
-¿ù»~°T®§¦p¤U¡G  
+å°è‡´å…¶ get_node()  å‘¼å« list_node_allocator()    
+ä»¥åŠå…¶ put_node(p) å‘¼å« list_node_deallocator(p)
+ç™¼ç”ŸéŒ¯äº‚ï¼šæ˜æ˜æ“ä½œå°è±¡æ˜¯ list_node<T>ï¼Œå»ä½¿ç”¨ allocator<T>ã€‚    
+éŒ¯èª¤è¨Šæ¯å¦‚ä¸‹ï¼š  
   
 In function 
 `static void ::YZ::::YZ::simple_alloc<::YZ::::YZ::__list_node<int>,
@@ -157,7 +157,7 @@ candidates are:
 
  ::YZ::::YZ::allocator<int>::deallocate<int>(int *, unsigned int)
  
-Â²¤Æ¬°¡G 
+ç°¡åŒ–ç‚ºï¼š 
 
 In function 
 `static void simple_alloc<__list_node<int>,

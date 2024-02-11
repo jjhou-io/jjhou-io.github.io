@@ -1,31 +1,31 @@
 
-Essential C++ ���Ȱ� (1) - const member functions �P static data member
-2001.01.29 �Ĥ@���o��
+Essential C++ 答客問 (1) - const member functions 與 static data member
+2001.01.29 第一次發表
 
 minbobo wrote (2001.1.23) :
 
-> �J�Ѯv�z�n�A�o�X�Ѭ�Ū�z��Ķ�� Essential C++ �ɦ����ֺðݻP���~
-> �ЦѮv�ݬݡC�p�G�z�{���کҫ����L�~�A�i�_�нбz�^�Чi���ڡH : )
-> �����C�J�ڤ���T�w�������G
+> 侯老師您好，這幾天研讀您所譯的 Essential C++ 時有不少疑問與錯誤
+> 請老師看看。如果您認為我所指正無誤，可否煩請您回覆告知我？ : )
+> 首先列入我比較確定的部分：
 > ...
-> ���U�Ӫ��Q�P�Ѯv�Q�װQ��  :)
+> 接下來的想與老師討論討論  :)
 >
 > p.146
-> num_sequence class���w�q����
-> �ڹ�� elem(), print(), gen_elems(), check_integrity()�o��member function
-> �ŧi��const�����h��
-> �ר�Ogen_elems()��O�O�ڤ���
-> �o�ˤ@�ӡA�l�ͪ�Fibonacci class�̭����o��member function�]���Oconst
-> �Ӯھڨ�᪺�w�q�Agen_elems()�b���n�ɷ|���� _elems �o��data member�A
-> ���ˤ��N�X���F�ܡH�ӥBelem(), print(), check_integrity()�ھڤ��᪺�w�q�A
-> �b���n���ɭԤ]���i���_�|����data member _elems��gen_elems()�A
-> �����̫ŧi��const���N�X���F�H
-> �o�O��@��Lippman�����~�ܡH�٬O�ڪ��[�����~�O�H
+> num_sequence class的定義部分
+> 我對於 elem(), print(), gen_elems(), check_integrity()這些member function
+> 宣告成const有所懷疑
+> 尤其是gen_elems()更是令我不解
+> 這樣一來，衍生的Fibonacci class裡面的這些member function也都是const
+> 而根據其後的定義，gen_elems()在必要時會更改到 _elems 這個data member，
+> 那樣不就出錯了嗎？而且elem(), print(), check_integrity()根據之後的定義，
+> 在必要的時候也有可能喚起會更改到data member _elems的gen_elems()，
+> 那它們宣告成const不就出錯了？
+> 這是原作者Lippman的筆誤嗎？還是我的觀念錯誤呢？
 >
 >
 > p.151
-> ����gen_elems()���w�q (�ڷӵۮѤW���{���X���A�h�B���ץ��O�_���ŧi��const�C
->                        ���F�K��o�ݡA�ۦ�[�W���)
+> 關於gen_elems()的定義 (我照著書上的程式碼打，姑且不論它是否應宣告為const。
+>                        為了便於發問，自行加上行數)
 > 01    void Fibonacci::
 > 02    gen_elems( int pos ) const
 > 03    {
@@ -47,76 +47,76 @@ minbobo wrote (2001.1.23) :
 > 19       }
 > 20    }
 >
-> �䤤 07 �� _elems.size() <= pos �H�� 13 �� ix <= pos
-> ��ı�o���ӧ� <= �אּ <
-> �_�h�|�h���ͥX�@�Ӥ����X��
-> �o�˷|�Pp.154�����յ��G����
-> �ЦѮv�d��  : )
+> 其中 07 的 _elems.size() <= pos 以及 13 的 ix <= pos
+> 我覺得應該把 <= 改為 <
+> 否則會多產生出一個元素出來
+> 這樣會與p.154的測試結果不符
+> 請老師查證  : )
 
 
-���J���^��
+●侯捷回覆
 
-minbobo ��Ū�ѳt�ׯu�֡A�ѥX�ӨS�X�ѡA�A�w�gŪ�@�b�H�W�F�A�ӥBŪ�o�ܸԲӡC
+minbobo 的讀書速度真快，書出來沒幾天，你已經讀一半以上了，而且讀得很詳細。
 
-�D�`�P�§A���ɻ~�A�w������J�J���������ɻ~�����C
-
-
-�����^���A��� p151 ���ðݡC
-���� p151�A�^�媩�p�A�ҭz�C��Ķ���h�O�̷ӧ@�� Lippman �Ҵ��Ѥ��ɻ~�ק�ӨӡC
-�b�����T�|���u�h���ͤ@�Ӥ����X�ӡv�����p�o�͡C���٨S���Өs������
-�@�̭n�p���ק�C
-
-�t�Ъ`�N�A�@�̦b�o�@�������B�z���I�V�áA�L�Ҵ��Ѫ����X�]�i�ۨ����
-�ΫJ�������U���^�N beg position �M lenght �˱o�P�ѤW���������ǿ��áC
+非常感謝你的勘誤，已全部放入侯捷網站的勘誤表中。
 
 
+首先回答你對於 p151 的疑問。
+關於 p151，英文版如你所述。中譯本則是依照作者 Lippman 所提供之勘誤修改而來。
+在此的確會有「多產生一個元素出來」的狀況發生。我還沒有細究為什麼
+作者要如此修改。
 
-���� p146�A�A�����D�D�`���N��C�� gen_elems() �ŧi�� const�A
-�O���ǩ_�ǡA����M�]�q�Ѥ��{���X�i���^���i�H work�C�o��
-�ڭ̫�Ҥ@�Ӱ��D�G
+另請注意，作者在這一部份的處理有點混亂，他所提供的源碼（可自其網站
+或侯捷網站下載）將 beg position 和 lenght 弄得與書上的說明有些錯亂。
 
-C++ �y�k�i�D�ڭ̡Aconst member function ���i�H��� data members�A
-���Ҥ� Fibonacci::gen_elems() �X�i�F Fibonacci::elems �������Ӽơ]p151�^�A
-�ӽsĶ�������q�L�C�]���A�� data members �O�� STL container �ɡA�s��
-����ʧ@�~��O�復���F���ܩO�H���D�W�[ container �������A������O�@��
-���ܶܡH
 
-�o���G�O C++ �y�k/�y�N �P STL containers �������@�Ӥ���աC
 
-�O�o�˶ܡH
+關於 p146，你的問題非常有意思。把 gen_elems() 宣告為 const，
+是有些奇怪，但顯然（從書中程式碼可知）它可以 work。這使
+我們思考一個問題：
 
-���O�I
+C++ 語法告訴我們，const member function 不可以更改 data members，
+本例中 Fibonacci::gen_elems() 擴張了 Fibonacci::elems 的元素個數（p151），
+而編譯器讓它通過。因此，當 data members 是個 STL container 時，究竟
+什麼動作才算是對它做了改變呢？難道增加 container 的元素，竟不算是一種
+改變嗎？
 
-�A�����D��ڭ̱a���T�ӰQ�סG
-(1) non-const member function �i�H�I�s const member function �ܡH
-(2) const member function �i�H�I�s non-const member function �ܡH
-(3) const vector<T> �O����N�q�H
+這似乎是 C++ 語法/語意 與 STL containers 之間的一個不協調。
 
-(1) �����׷��M�O yes�A�]���޿�ä��Ĭ�C
-(2) �����׷��M�O no�A�]���޿�Ĭ�C�N�y�k�h���A�sĶ���|�����~�T���G
-    �u�L�k�N const 'this' �����ഫ�� non-const 'this' ���Сv�C
-    �����sĶ������e�P�A�u��ĵ�i�]�o�˨ä��n�^�C
+是這樣嗎？
 
-�^��A�����D�Celem(), print(), check_integrity() �o�� member functions ��
-���|���� data members�A�]�������ӫŧi�� const�C����󥻨ҳ]�p�W���ݭn�A
-���̳��b�Y�Ǫ��A�U�I�s gen_elems()�A�]���Agen_elems() �����O const�C
-�p�Y���M�A�N�o�O elem(), print(), check_integrity() �βγ��� non-const �~��A
-�Ө��O���n���]�p�C
+不是！
 
-(3) �����׬O�Gconst vector<T> �N���@�Ӥ��i���ܨ䤺�e�� vector<T> object�C
-�ҿפ��i���ܤ����O��������ܨ䤸���ȡA���M�]�]�A����W�[�䤸���ӼơC
-�]���A�o�˪��ʧ@�G
+你的問題把我們帶往三個討論：
+(1) non-const member function 可以呼叫 const member function 嗎？
+(2) const member function 可以呼叫 non-const member function 嗎？
+(3) const vector<T> 是什麼意義？
+
+(1) 的答案當然是 yes，因為邏輯並不衝突。
+(2) 的答案當然是 no，因為邏輯衝突。就語法層面，編譯器會給錯誤訊息：
+    「無法將 const 'this' 指標轉換為 non-const 'this' 指標」。
+    有的編譯器比較寬鬆，只給警告（這樣並不好）。
+
+回到你的問題。elem(), print(), check_integrity() 這些 member functions 都
+不會改變 data members，因此都應該宣告為 const。但基於本例設計上的需要，
+它們都在某些狀態下呼叫 gen_elems()，因此，gen_elems() 必須是 const。
+如若不然，就得令 elem(), print(), check_integrity() 統統都為 non-const 才行，
+而那是不好的設計。
+
+(3) 的答案是：const vector<T> 意指一個不可改變其內容的 vector<T> object。
+所謂不可改變不但是指不能改變其元素值，當然也包括不能增加其元素個數。
+因此，這樣的動作：
 
    int ia[5] = {0,1,2,3,4};
    const vector<int> cvi(ia, ia+5);
    cvi.push_back(9);   // BCB4 warning, G++ warning, vc6 error
 
-�|�޵o���~��ĵ�i�]�u��ĵ�i��D���H�����A�|�~�� �X �S�Q�� VC6 �]�����{
-��X���@�ѡ^�Cgen_elems() ���A�ѩ�䬰 const member function�A�ҥH
-�� 'this' object �w�Q�����]�૬���^const Fibonacci object�A���򬰤���
-�H�� const object �өI�s non-const push_back() �o�S������ĵ�i�ο��~�O�H
+會引發錯誤或警告（只給警告實乃婦人之仁，會誤事 — 沒想到 VC6 也有表現
+突出的一天）。gen_elems() 內，由於其為 const member function，所以
+其 'this' object 已被視為（轉型為）const Fibonacci object，那麼為什麼
+以該 const object 來呼叫 non-const push_back() 卻沒有任何警告或錯誤呢？
 
-���׬O�AFibonacci object �� _elems �O�@�� static data member�G
+答案是，Fibonacci object 的 _elems 是一個 static data member：
 
 // p.149
 class Fibonacci : public num_sequence {
@@ -126,10 +126,10 @@ protected:
    static vector< unsigned int > _elems;
 };
 
-�ڭ̪��D�Astatic member �����W�ߩ� class object ���~�A�]�N
-�������B�� const 'this' �� non-const 'this' ���v�T�C
+我們知道，static member 完全獨立於 class object 之外，也就
+不受此處的 const 'this' 或 non-const 'this' 的影響。
 
-��ӰQ�ת��p�������b��GFibonacci �� _elems �O�� static data member�I
+整個討論的癥結完全在於：Fibonacci 的 _elems 是個 static data member！
 
 --- the end
 

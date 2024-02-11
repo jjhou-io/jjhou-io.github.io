@@ -4,46 +4,46 @@
 <head>
 <meta content="text/html; charset=big5" http-equiv="Content-Type">
 <meta content="Microsoft FrontPage 3.0" name="GENERATOR">
-<title>�x���{���]�p �����j�� 90-2 �ҵ{�Ƨѿ�</title>
+<title>泛型程式設計 元智大學 90-2 課程備忘錄</title>
 </head>
 
 <body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
 
 <hr>
 
-<h2 align="center"><font color="#800000">�x���{���]�p�]Generic Programming�^<br>
+<h2 align="center"><font color="#800000">泛型程式設計（Generic Programming）<br>
 <br>
-�����j�� 90-2<br>
+元智大學 90-2<br>
 <br>
-�ҵ{�Ƨѿ� / �J��</font></h2>
+課程備忘錄 / 侯捷</font></h2>
 
-<p align="center">�C�P�T 18:30~21:20<br>
-�u�{�@�]1102</p>
+<p align="center">每周三 18:30~21:20<br>
+工程一館1102</p>
 
 <hr>
 
 <blockquote>
-  <p>�ҵ{�Ч��G<br>
-  1.�m<a href="jjtbooks-cpp-primer.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-primer.htm" target="main">C++ Primer 3e</a>�nchap6,10,12,15,16, 
+  <p>課程教材：<br>
+  1.《<a href="jjtbooks-cpp-primer.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-primer.htm" target="main">C++ Primer 3e</a>》chap6,10,12,15,16, 
   appnedix <br>
-  2. ���g�峹 by �J��&nbsp; ���������uSTL�t�C�峹�v 2000/02~2000/06. 
-  �ۦ�C�L<br>
-  3.�m<a href="jjtbooks-generic-programming-and-the-stl.htm" tppabs="http://jjhou.boolan.com/jjtbooks-generic-programming-and-the-stl.htm" target="main">�x���{���]�p�PSTL</a>�n<br>
-  4.�m<a href="jjtbooks-the-cpp-standard-library.htm" tppabs="http://jjhou.boolan.com/jjtbooks-the-cpp-standard-library.htm" target="main">C++ �зǵ{���w</a>�n<br>
-  5.�m<a target="main" href="jjwbooks-tass.htm" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm">STL���X��R</a>�n<br>
+  2. 五篇文章 by 侯捷&nbsp; 見左視窗「STL系列文章」 2000/02~2000/06. 
+  自行列印<br>
+  3.《<a href="jjtbooks-generic-programming-and-the-stl.htm" tppabs="http://jjhou.boolan.com/jjtbooks-generic-programming-and-the-stl.htm" target="main">泛型程式設計與STL</a>》<br>
+  4.《<a href="jjtbooks-the-cpp-standard-library.htm" tppabs="http://jjhou.boolan.com/jjtbooks-the-cpp-standard-library.htm" target="main">C++ 標準程式庫</a>》<br>
+  5.《<a target="main" href="jjwbooks-tass.htm" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm">STL源碼剖析</a>》<br>
   <br>
-  1,2 ���Ч��A3,4,5 ���ҥ~���U�ѦҮ��y<br>
+  1,2 為教材，3,4,5 為課外輔助參考書籍<br>
   <br>
-  ���G��¥H���ҵ{�D���Ө��A4 
-  ���̨αЧ��C�����p�\�h�P���ٻݸɱj C++ template �y�k��¦�A�G�H 1+2���Ч��C</p>
+  註：單純以本課程主旨而言，4 
+  為最佳教材。但估計許多同學還需補強 C++ template 語法基礎，故以 1+2為教材。</p>
   <p><br>
-  ����1�g�G02/27&nbsp;&nbsp; �ʮ�</p>
-  <pre>1 �ҵ{���СA�C���W�h�A���y�����A�����@�~�D��
+  ■第1週：02/27&nbsp;&nbsp; 缺書</p>
+  <pre>1 課程介紹，遊戲規則，書籍評介，期末作業題目
 2 GP (Generic Programming) and STL overview</pre>
-  <pre>���m��1�G�]�w�n�A���sĶ���ҡA��ĳ�ϥ� console mode.
-���m��2�G�ե� C runtime library �� qsort() �g�ӵ{��
-         �P���@�U function pointer.</pre>
-  <pre>���g�{���ҡGSTL ���B��</pre>
+  <pre>★練習1：設定好你的編譯環境，建議使用 console mode.
+★練習2：試用 C runtime library 的 qsort() 寫個程式
+         感受一下 function pointer.</pre>
+  <pre>本週程式例：STL 的運用</pre>
   <pre>#include &lt;vector&gt;
 #include &lt;algorithm&gt;
 #include &lt;iostream&gt;
@@ -79,22 +79,22 @@ int main()
    cout &lt;&lt; endl;
 }</pre>
   <pre>
-����2�g�G03/06&nbsp;���y�C��</pre>
-  <p><font color="#FF0000">�ЧU�ЩM�P�Ǵ���15������F�A������y�C�P�ǽЦ۳ƹs���A�קK���U�ФӦh�x�Z�C980 
+■第2週：03/06&nbsp;書籍七折</pre>
+  <p><font color="#FF0000">請助教和同學提早15分鐘到達，領取書籍。同學請自備零錢，避免給助教太多困擾。980 
   * 0.7 = 686 </font></p>
-  <p>Q : �P�Ǵ��X�@�Ӱ��D�A�L�N qsort()��b�Y��class���A�é�I�s�ɫ��w�Y��member 
-  function����qsort()���̫�޼ơA���G�sĶ�������A�n�D��member function�����]�w��static�C�P�Ǥ��ѡC</p>
-  <p>A : �o�O�]�� qsort() ���̫�ѼƬ��@�� function pointer�A�i�����@�� 
-  callback �禡�C�� class member function�|�h�X�@�� this 
-  ���а������ðѼơA�p���@�ӱN�P qsort()���n�D���šC�אּ static 
-  member function �K�i�h�����ê� this 
-  ���аѼơC�ڱN��Ҥ���Բӻ����C </p>
-  <p>Q: �i�_�H�u�f�馩�ʶR��L�ѦҮ��y�C</p>
-  <p>A: �i�H�C�W�Үɵn�O�A�ڧ�W���൹�X�����C�馩�� 7.5 
-  ��C�����X������J���ҵ{���S���A�ȡA��LŪ�̽ФŨӫH�n�D�N�ʡC</p>
-  <p>�@</p>
-  <p>GP vs. OO�A��<a href="letters-2002-02.htm#mark3" tppabs="http://jjhou.boolan.com/letters-2002-02.htm#mark3">Ū�̨Ө�P�^��</a></p>
-  <p>���g���ۭ��b�H��Ҥ覡�A���P�Ǥ@�� STL overview.</p>
+  <p>Q : 同學提出一個問題，他將 qsort()放在某個class中，並於呼叫時指定某個member 
+  function做為qsort()的最後引數，結果編譯器報錯，要求該member function必須設定為static。同學不解。</p>
+  <p>A : 這是因為 qsort() 的最後參數為一個 function pointer，可視為一個 
+  callback 函式。而 class member function會多出一個 this 
+  指標做為隱藏參數，如此一來將與 qsort()的要求不符。改為 static 
+  member function 便可去除隱藏的 this 
+  指標參數。我將於課中更詳細說明。 </p>
+  <p>Q: 可否以優惠折扣購買其他參考書籍。</p>
+  <p>A: 可以。上課時登記，我把名單轉給出版社。折扣為 7.5 
+  折。此為出版社對侯捷課程的特殊服務，其他讀者請勿來信要求代購。</p>
+  <p>　</p>
+  <p>GP vs. OO，見<a href="letters-2002-02.htm#mark3" tppabs="http://jjhou.boolan.com/letters-2002-02.htm#mark3">讀者來函與回應</a></p>
+  <p>本週仍著重在以實例方式，給同學一個 STL overview.</p>
   <pre>#include &lt;vector&gt;
 #include &lt;algorithm&gt;
 #include &lt;iostream&gt;
@@ -153,9 +153,9 @@ void print_elem(T i)
 }</pre>
   <p><br>
   </p>
-  <pre>����3�g�G03/13&nbsp; </pre>
+  <pre>■第3週：03/13&nbsp; </pre>
   <pre><font color="#0000FF">chap10 : function template</font></pre>
-  <p>�@</p>
+  <p>　</p>
   <pre>#include &lt;iostream&gt;
 using std::cout;
 using std::endl;</pre>
@@ -190,43 +190,43 @@ private:
   cout &lt;&lt; sizeof(d1) &lt;&lt; endl;   // 32
   func(d1, d1);                 // pass by reference
 }</pre>
-  <p>�@</p>
-  <pre><font color="#408080">�ǰe���: 2002�~3��14�� AM 11:43
-�D��: ����GP 3-13�W�Ұ��D</font></pre>
-  <p><font color="#408080">�Ѯv�z�n! �H�U�O�@�ǰ��D�n�·ЦѮv�F<br>
+  <p>　</p>
+  <pre><font color="#408080">傳送日期: 2002年3月14日 AM 11:43
+主旨: 元智GP 3-13上課問題</font></pre>
+  <p><font color="#408080">老師您好! 以下是一些問題要麻煩老師了<br>
   <br>
-  Q1: �q�`Object�b���}����Scope�ɫK�|�Qdestroy,���bJava�o��(oo)�y�����ä���<br>
-  point��new/delete, �n�p�󱱨�Object��life time?<br>
+  Q1: 通常Object在離開它的Scope時便會被destroy,那在Java這種(oo)語言中並不提<br>
+  point及new/delete, 要如何控制Object的life time?<br>
   <br>
-  A1: �ګ�Ӧۤv�䪺���פ����������T,�ЦѮv���I.. �p�GObject�b����Scope�����N<br>
-  Referance�ǻ��X�h�N���|�b���}����Scope�ɳQdestroy<br>
+  A1: 我後來自己找的答案不知正不正確,請老師指點.. 如果Object在它的Scope中有將<br>
+  Referance傳遞出去就不會在離開它的Scope時被destroy<br>
   <br>
-  Q2: �ҵ{�����Τ@��max��Specialization�g�k�p��<br>
+  Q2: 課程中提及一個max的Specialization寫法如後<br>
   typedef const char *PCC<br>
   template&lt;&gt; PCC max&lt;PCC&gt;(PCC s1, PCC s2)<br>
-  ���S���i��g��<br>
+  有沒有可能寫成<br>
   template&lt;&gt; PCC max&lt;PCC&gt;(PCC s1, PQ s2)?<br>
-  ��max�᪺���A�����n�gPCC��PQ?? (�]���@��algorithms���|���\�h���PType��<br>
+  那max後的角括號內要寫PCC或PQ?? (因為一般algorithms應會有許多不同Type的<br>
   Param)<br>
   <br>
   </font><font color="#000000">A2: 
-  ���Q�@�Ӥ�����骺��ҡA�A�o�ݡC�]�Цۤv�W���ոաC</font></p>
-  <p><font color="#408080">Q3: �HReferance�ǻ��Ѽƪ��n�B���]�t���|��_copy 
-  construct�ҥH��Pointer�󦳮Ĳv,�o�˪����k�����藍��?</font></p>
-  <p><font color="#000000">A3: �Hpointer �ǻ��޼ơA�]���|��_copy ctor�C<br>
+  先想一個比較具體的實例，再發問。也請自己上機試試。</font></p>
+  <p><font color="#408080">Q3: 以Referance傳遞參數的好處應包含不會喚起copy 
+  construct所以比Pointer更有效率,這樣的講法不知對不對?</font></p>
+  <p><font color="#000000">A3: 以pointer 傳遞引數，也不會喚起copy ctor。<br>
   </font><font color="#408080"><br>
-  Q4: �Ұ�W�Ҵ���Explicit Template Arguments���G�O�ΥH�ѨM���P���O�ѼƩҳy��<br>
-  ���޼Ʊ��ɥ��ѳo�Ӱ��D, 
-  ���Ѯv�Ҵ����禡��^�ȫ��O���b�޼ƫ��O���ɽd��o�Ӱ��D����Explicit 
-  Template Arguments�O</font><font color="#8080FF">�Φb����</font><font color="#408080">?<br>
-  �t�~�Y�M�禡��^�ȫ��O���b�޼ƫ��O���ɽd��i�HTrait�ѨM,�������ٻݭn<br>
+  Q4: 課堂上所提的Explicit Template Arguments似乎是用以解決不同型別參數所造成<br>
+  的引數推導失敗這個問題, 
+  對於老師所提的函式返回值型別不在引數型別推導範圍這個問題不知Explicit 
+  Template Arguments是</font><font color="#8080FF">用在那裏</font><font color="#408080">?<br>
+  另外即然函式返回值型別不在引數型別推導範圍可以Trait解決,那為何還需要<br>
   Explicit Template Arguments?</font></p>
-  <p><font color="#000000">A4: explicit template arguments �Ϊk���ѤW10.4�`�C�ܩ� 
-  traits�A�u�{����j�C<br>
+  <p><font color="#000000">A4: explicit template arguments 用法見書上10.4節。至於 
+  traits，工程比較大。<br>
   </font><font color="#408080"><br>
   </font><br>
   </p>
-  <pre>����4�g�G03/20&nbsp; </pre>
+  <pre>■第4週：03/20&nbsp; </pre>
   <pre><font color="#0000FF">chap15 : operator overloading</font></pre>
   <pre>#include &lt;iostream&gt;
 #include &lt;string&gt;
@@ -290,11 +290,11 @@ public:
 }
 
 </pre>
-  <pre><font color="#0000FF">// ���Ҽ��� STL �[�c
+  <pre><font color="#0000FF">// 本例模擬 STL 架構
 </font>#include &lt;iostream&gt;
 using namespace std;</pre>
   <pre>template&lt;typename T&gt;
-struct JNode    // C++ struct �i���N C++ class (�w�]�ݩʬ� public)
+struct JNode    // C++ struct 可取代 C++ class (預設屬性為 public)
 {
 <font
 color="#8080FF">  // something
@@ -351,11 +351,11 @@ color="#8080FF">  // something
   ++ite;
   *ite;
 }</pre>
-  <p>�@</p>
-  <pre>����5�g�G03/27 </pre>
-  <pre><font color="#0000FF">1. ����W�@��Ҫ��{���o�i
+  <p>　</p>
+  <pre>■第5週：03/27 </pre>
+  <pre><font color="#0000FF">1. 延續上一堂課的程式發展
 2. chap12 : generic algorithm</font></pre>
-  <pre><font color="#8080FF">// �H�U find1(), find2(), find3(), find() �ܽd�禡���x�ƹL�{
+  <pre><font color="#8080FF">// 以下 find1(), find2(), find3(), find() 示範函式的泛化過程
 </font>#include &lt;iostream&gt;
 using namespace std;</pre>
   <pre><font color="#8080FF">// step1:
@@ -383,8 +383,8 @@ T* find3(T* begin, T* end, const T&amp; value)
   <pre>   return begin;
 }</pre>
   <pre><font color="#8080FF">// final:
-// �[����}�G�N T* �����@�� type�A�]�N�O iterator
-// ��O�ڭ̥i�H�q�s�ۤv�� iterator (behavior like a pointer)
+// 觀念突破：將 T* 視為一種 type，也就是 iterator
+// 於是我們可以訂製自己的 iterator (behavior like a pointer)
 </font>template &lt;typename Iterator, typename T&gt;
 Iterator find(Iterator begin, Iterator end, const T&amp; value)
 {
@@ -393,16 +393,16 @@ Iterator find(Iterator begin, Iterator end, const T&amp; value)
   <pre>   return begin;
 }</pre>
   <pre><font color="#8080FF">//---------------------------------------------------
-// ���� STL �[�c (container, iterator)
+// 模擬 STL 架構 (container, iterator)
 // class JNode
 // class JList
 // class JList_Iterator
 //---------------------------------------------------
 </font>template&lt;typename T&gt;
-struct JNode    // C++ struct �i���N C++ class (�w�]�ݩʬ� public)
-                // JNode �ä��}�� client�A�ҥH�L�l encapsulation
+struct JNode    // C++ struct 可取代 C++ class (預設屬性為 public)
+                // JNode 並不開放給 client，所以無損 encapsulation
 {
-  void* next;  // ��i�]�� JNode&lt;T&gt;*
+  void* next;  // 亦可設為 JNode&lt;T&gt;*
   void* prev;
   T m_data;
 };
@@ -446,20 +446,20 @@ class JList
 {
 public:
   typedef JList_Iterator&lt;T&gt; iterator;  // nested define</pre>
-  <pre>  // �H�U�A�ѩ� node ���V���`�I���U�@��m�A�]�� node �ŦX STL �� end() ���w�q�C
+  <pre>  // 以下，由於 node 指向尾節點的下一位置，因此 node 符合 STL 對 end() 的定義。
   iterator end()   { return node; }                      <font
 color="#8080FF">// invoke conversion func.</font>
   iterator begin() { return (JNode&lt;T&gt;*)((*node).next); } <font
 color="#8080FF">// invoke conversion func.</font></pre>
-  <pre>  JList() { empty_initialize(); }  // ���ͤ@�� empty list�C</pre>
+  <pre>  JList() { empty_initialize(); }  // 產生一個 empty list。</pre>
   <pre>protected:
-<font color="#8080FF">  // �������V��C�A�u���@�@�Ӹ`�I���СA���V�̫�]���^�`�I���U�@��m�C
-</font>  JNode&lt;T&gt;* node; // �û����V�̫�`�I���U�@�`�I�C�Ӹ`�I�L�����ȡA�N���Ÿ`�I�C
-                  // �� next �`�I�û��O�Y�`�I�C</pre>
-  <pre>  //�H�U�Ω��l��
+<font color="#8080FF">  // 環狀雙向串列，只維護一個節點指標，指向最後（尾）節點的下一位置。
+</font>  JNode&lt;T&gt;* node; // 永遠指向最後節點的下一節點。該節點無元素值，代表空節點。
+                  // 其 next 節點永遠是頭節點。</pre>
+  <pre>  //以下用於初始化
   void empty_initialize() {
-    node = get_node();  // �t�m�@�Ӹ`�I�Ŷ��A�O data member node ���V���C
-    node-&gt;next = node;  // �O node �Y�������V�ۤv�A���]�����ȡC
+    node = get_node();  // 配置一個節點空間，令 data member node 指向它。
+    node-&gt;next = node;  // 令 node 頭尾都指向自己，不設元素值。
     node-&gt;prev = node;
   }</pre>
   <pre>  JNode&lt;T&gt;* get_node() { return new JNode&lt;T&gt;; }
@@ -508,16 +508,16 @@ int main()
    ++ite;
    *ite;</pre>
   <pre>   find(myList.begin(), myList.end(), 8);</pre>
-  <pre><font color="#8080FF">   // ���ҨS������Ʊ��A�]�� myList �O�� empty list.
-   // ���ҥu������ interface ���]�p�C
-   // �H�W�L�� find(), JNode, JList, JNode_Iterator�A
-   // �䤶���ҲŦX STL �W�d�A�P SGI STL �X�L�G�P
+  <pre><font color="#8080FF">   // 此例沒做任何事情，因為 myList 是個 empty list.
+   // 本例只為突顯 interface 的設計。
+   // 以上無論 find(), JNode, JList, JNode_Iterator，
+   // 其介面皆符合 STL 規範，與 SGI STL 幾無二致
 </font>}</pre>
   <p><br>
   </p>
-  <pre>����6�g�G04/03  <font color="#FF0000">�K��</font></pre>
-  <p>�@</p>
-  <pre>����7�g�G04/10 </pre>
+  <pre>■第6週：04/03  <font color="#FF0000">春假</font></pre>
+  <p>　</p>
+  <pre>■第7週：04/10 </pre>
   <ul>
     <li><pre><font color="#0000FF">chap16 : class template</font></pre>
     </li>
@@ -530,7 +530,7 @@ int main()
 </font>// VC6 [x], BCB4 [o], G++ [o]  (VC6 not support partial specialization)</pre>
   <pre>#include &lt;iostream&gt;
 #include &lt;cstddef&gt;  // for ptrdiff_t
-// �`�N�A����}�� namespace std; �_�h�|�M std �� iterator_trait �Ĭ�</pre>
+// 注意，不能開放 namespace std; 否則會和 std 的 iterator_trait 衝突</pre>
   <pre>struct input_iterator_tag { };
 struct output_iterator_tag { };
 struct forward_iterator_tag : public input_iterator_tag { };
@@ -658,9 +658,9 @@ color="#0000FF">public iterator</font>&lt;Category, Value, Distance, Pointer, Re
 }</pre>
   <p><br>
   </p>
-  <pre>����8�g�G04/17  <font color="#FF0000">�����ҡC����</font></pre>
-  <p>�@</p>
-  <pre>����9�g�G04/24  </pre>
+  <pre>■第8週：04/17  <font color="#FF0000">期中考。停課</font></pre>
+  <p>　</p>
+  <pre>■第9週：04/24  </pre>
   <ul>
     <li><pre><font color="#0000FF">iterator traits</font></pre>
     </li>
@@ -669,342 +669,342 @@ color="#0000FF">public iterator</font>&lt;Category, Value, Distance, Pointer, Re
     <li><pre><font color="#0000FF">type traits</font></pre>
     </li>
   </ul>
-  <p>�q���g�}�l�A�C���W�ҽ���a�ɥR���q�]5�g�峹�^<br>
+  <p>從本週開始，每次上課請攜帶補充講義（5篇文章）<br>
   <br>
   </p>
-  <pre>����10�g�G05/01  </pre>
+  <pre>■第10週：05/01  </pre>
   <ul>
-    <li><pre>�Ʋ� iostream iterator and insert iterator �����X����
-�e������boperator++�A�������boperator=�C</pre>
+    <li><pre>複習 iostream iterator and insert iterator 的源碼關鍵
+前者關鍵在operator++，後者關鍵在operator=。</pre>
     </li>
-    <li><pre>���w�����@�~�]��<a href="course-generic-yzu-892.htm" tppabs="http://jjhou.boolan.com/course-generic-yzu-892.htm" target="main">89-2�ҵ{�Ƨѿ�</a>����10�g�C�䤤����95�����ӿաA�����^</pre>
+    <li><pre>指定期末作業（見<a href="course-generic-yzu-892.htm" tppabs="http://jjhou.boolan.com/course-generic-yzu-892.htm" target="main">89-2課程備忘錄</a>■第10週。其中關於95分的承諾，取消）</pre>
     </li>
-    <li><pre>���СmEffective STL�n�M�mModern C++ Design�n</pre>
+    <li><pre>介紹《Effective STL》和《Modern C++ Design》</pre>
     </li>
-    <li><pre>���g���I�Gadapters���޳N�t�ƻP��@�]��89-2�ҵ{�Ƨѿ�����11�g�^</pre>
+    <li><pre>本週重點：adapters之技術演化與實作（見89-2課程備忘錄■第11週）</pre>
     </li>
-    <li><pre>�����G���ҵ{�ܦ��A�@���|�ӷ��Ϊ��޳N�t�ƹ�һ����G
-(1) function template�]���Ƨѿ�����5�g�^
+    <li><pre>提醒：本課程至此，共有四個極佳的技術演化實例說明：
+(1) function template（本備忘錄■第5週）
 (2) <font
-color="#000000">���� STL �[�c (container)</font>�]���Ƨѿ�����4,5�g�^
-(3) iterator traits�]���Ƨѿ�����5�g�^
-(4)adapters�]���g�A89-2�ҵ{�Ƨѿ�����11�g�^</pre>
+color="#000000">模擬 STL 架構 (container)</font>（本備忘錄■第4,5週）
+(3) iterator traits（本備忘錄■第5週）
+(4)adapters（本週，89-2課程備忘錄■第11週）</pre>
     </li>
   </ul>
-  <p>�P�ǯ��D�W�ҥΨ쪺 PowerPoint ���ɡC�n���A<a
-  href="javascript:if(confirm(%27http://jjhou.boolan.com/course-generic-yzu-902.ppt  \n\nThis file was not retrieved by Teleport Ultra, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://jjhou.boolan.com/course-generic-yzu-902.ppt%27" tppabs="http://jjhou.boolan.com/course-generic-yzu-902.ppt" target="main">�N�b�o��</a>�C</p>
-  <p>�@</p>
-  <p><font color="#0000FF">�ثe���զW��G<br>
-  </font><font color="#FF0000">�`�N�A�����\�|�H�H�U�C�C�զܤ֥|�H�C���ųW�w�̽Э��s���աC</font></p>
-  <p>�էO (1)<br>
-  895645 ���s�a<br>
-  895624 �d���<br>
-  895626 �B�t��<br>
-  895627 ���A��<br>
-  895644 �����B<br>
-  895660 ���ӫ�</p>
-  <p>�էO (2)<br>
-  895606 �L�@��<br>
-  895609 ���ئ�<br>
-  895615 ������<br>
-  895636 ���D��<br>
-  895658 �L�ΰ�</p>
-  <p align="left">�էO (3)<br>
-  892245 �L�Ӱ�<br>
-  892216 ������<br>
-  892205 �L���y<br>
-  892217 �L���s</p>
-  <p align="left">�էO (4)<br>
-  <font color="#000000">895608 ���Ӱ�<br>
-  895628 ������<br>
-  895649 �ª���<br>
-  882301 �L�μz<br>
-  882305 ���ػ�<br>
-  882339 �i��F</font></p>
-  <p align="left">�էO (5)<br>
-  882209 ��T��<br>
-  882210 ���v��<br>
-  882232 ���L��<br>
-  882238 ��x (���) ���o�O�@�Ӧr<br>
-  882245 �L���j<br>
-  854136 ���s��</p>
-  <p align="left">�էO (6)<br>
-  882221���L��<br>
-  882248�i����<br>
-  882307 ��Z�� <br>
-  882309 ������<br>
-  882310 �����l<br>
-  882316 �����G</p>
-  <p align="left">�էO (7)<br>
-  882342 ù���� <br>
-  <font color="#000000">882315 ���B� <br>
-  </font>882351 �¼i�� <br>
-  882359 �B�P�� </p>
-  <p align="left">�էO (8)<br>
-  882303 ���a��<br>
-  882320 �©��v<br>
-  882322 ���f��<br>
-  882335 ���F��<br>
-  882338 ���´�</p>
-  <p align="left">�էO (9)<br>
-  882205 �ªQ��<br>
-  882206 ���t�{<br>
-  882208 ������<br>
-  882246 ���M��<br>
-  882308 �ղE��<br>
-  882321 ���ئw</p>
-  <p align="left">�էO (10)<br>
-  ��u3A 882240 ���~�`<br>
-  ��u3A 882251 �^�v��<br>
-  ��u3B 882340 �B����<br>
-  ��u3B 882353 ���f޳<br>
-  <font size="3">��u3A&nbsp; 882261&nbsp; ���T��</font></p>
-  <p align="left">�էO (11)<br>
-  892251 �\�ʼe<br>
-  892261 ������<br>
-  892266 ���`��<br>
-  892255 ����v</p>
-  <p>�էO (12)<br>
-  875123&nbsp; ������<br>
-  882358&nbsp; �L���d<br>
-  875033&nbsp; �i����<br>
-  881962&nbsp; �����T<br>
-  874014&nbsp; �d����</p>
+  <p>同學索求上課用到的 PowerPoint 圖檔。好的，<a
+  href="javascript:if(confirm(%27http://jjhou.boolan.com/course-generic-yzu-902.ppt  \n\nThis file was not retrieved by Teleport Ultra, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://jjhou.boolan.com/course-generic-yzu-902.ppt%27" tppabs="http://jjhou.boolan.com/course-generic-yzu-902.ppt" target="main">就在這裡</a>。</p>
+  <p>　</p>
+  <p><font color="#0000FF">目前分組名單：<br>
+  </font><font color="#FF0000">注意，不允許四人以下。每組至少四人。未符規定者請重新分組。</font></p>
+  <p>組別 (1)<br>
+  895645 黃新泳<br>
+  895624 吳文彰<br>
+  895626 劉宇智<br>
+  895627 蔡錦明<br>
+  895644 陳維錡<br>
+  895660 黃勝建</p>
+  <p>組別 (2)<br>
+  895606 林駿豪<br>
+  895609 邱華成<br>
+  895615 李健志<br>
+  895636 闕乃賢<br>
+  895658 林裕偉</p>
+  <p align="left">組別 (3)<br>
+  892245 林志偉<br>
+  892216 陳炫廷<br>
+  892205 林岱慶<br>
+  892217 林金龍</p>
+  <p align="left">組別 (4)<br>
+  <font color="#000000">895608 蕭志堅<br>
+  895628 郭先正<br>
+  895649 謝長成<br>
+  882301 林佳慧<br>
+  882305 黃建銘<br>
+  882339 張堯淙</font></p>
+  <p align="left">組別 (5)<br>
+  882209 賴俊升<br>
+  882210 楊宗羲<br>
+  882232 王昭雄<br>
+  882238 何誌 (木堅) ←這是一個字<br>
+  882245 林正甫<br>
+  854136 江龍飛</p>
+  <p align="left">組別 (6)<br>
+  882221高林傳<br>
+  882248張明偉<br>
+  882307 何汶偉 <br>
+  882309 廖元宏<br>
+  882310 郭炯彬<br>
+  882316 李岳寅</p>
+  <p align="left">組別 (7)<br>
+  882342 羅彥麟 <br>
+  <font color="#000000">882315 廖伯璇 <br>
+  </font>882351 謝履成 <br>
+  882359 劉致宣 </p>
+  <p align="left">組別 (8)<br>
+  882303 陳家隆<br>
+  882320 謝明治<br>
+  882322 池柏諺<br>
+  882335 蔡東泰<br>
+  882338 楊朝景</p>
+  <p align="left">組別 (9)<br>
+  882205 謝松翰<br>
+  882206 蔣宇程<br>
+  882208 高裕麟<br>
+  882246 邱清華<br>
+  882308 白淳元<br>
+  882321 陳建安</p>
+  <p align="left">組別 (10)<br>
+  資工3A 882240 陳薪圳<br>
+  資工3A 882251 彭治弘<br>
+  資工3B 882340 劉成韋<br>
+  資工3B 882353 陳柏瑋<br>
+  <font size="3">資工3A&nbsp; 882261&nbsp; 邱俊輝</font></p>
+  <p align="left">組別 (11)<br>
+  892251 許百寬<br>
+  892261 蔡延忠<br>
+  892266 謝曜任<br>
+  892255 邱國鈞</p>
+  <p>組別 (12)<br>
+  875123&nbsp; 黃雅楠<br>
+  882358&nbsp; 林岳黌<br>
+  875033&nbsp; 張元睿<br>
+  881962&nbsp; 李璦蓉<br>
+  874014&nbsp; 吳錫欽</p>
   <p><br>
-  �էO (13)<br>
-  <font size="3">882343��V��</font><big> <br>
-  </big><font size="3">882344�H���p</font><big> <br>
-  </big><font size="3">882345�©Ӯ�</font><big> <br>
-  </big><font size="3">882346�e��Y</font><big> <br>
-  </big><font size="3">882354��T�j</font><big> </big></p>
-  <p>�էO (14)<br>
-  882360 ������<br>
-  882336 �L�v�y<br>
-  882350 �����w<br>
-  874007 ���˭Z</p>
-  <p>�էO (15)<br>
-  892226 ���߮p<br>
-  892316 �έ��y<br>
-  892320 �L�K�a<br>
-  892324 ��q��<br>
-  892339 �i�ӻ�<br>
-  892345 ���a�v</p>
-  <p>�էO (16)<br>
-  874054 �f�ͤ�<br>
-  882226 �ªÿ�<br>
-  882231 �E���<br>
-  882253 ���a��<br>
-  882254 �\�a��<br>
-  882223 ���l�l <br>
+  組別 (13)<br>
+  <font size="3">882343游訓傑</font><big> <br>
+  </big><font size="3">882344沈明峰</font><big> <br>
+  </big><font size="3">882345謝承恩</font><big> <br>
+  </big><font size="3">882346龐文欣</font><big> <br>
+  </big><font size="3">882354詹俊強</font><big> </big></p>
+  <p>組別 (14)<br>
+  882360 廖惟中<br>
+  882336 林洋慶<br>
+  882350 葉正德<br>
+  874007 李森茂</p>
+  <p>組別 (15)<br>
+  892226 陳習峰<br>
+  892316 翁哲斌<br>
+  892320 林仕軒<br>
+  892324 梁皓雲<br>
+  892339 張志賓<br>
+  892345 蔡淮洋</p>
+  <p>組別 (16)<br>
+  874054 呂友仁<br>
+  882226 謝秉翰<br>
+  882231 余鍵亨<br>
+  882253 陳冠銘<br>
+  882254 許家豪<br>
+  882223 楊泓彬 <br>
   </p>
-  <p>�էO (17)<br>
-  874015 �{����<br>
-  874041 ���¥�<br>
-  874042 ���Y�Q<br>
-  874084 ���դ�</p>
-  <p>�@</p>
-  <pre>����11�g�G05/08</pre>
-  <pre>allocator�C�Ч��G<a href="jjwbooks-tass.htm#free-download" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm#free-download" target="main">�mSTL���X��R�n��2��</a> </pre>
-  <p>�@</p>
-  <pre>����12�g�G05/15</pre>
-  <pre>STL vector,list,deque������Ƶ��c�P��@��k
-�Ч��G<a
-href="jjwbooks-tass.htm#free-download" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm#free-download" target="main">�mSTL���X��R�n��4��</a></pre>
-  <pre>STL ����L�p���N�� (about adapters)</pre>
+  <p>組別 (17)<br>
+  874015 程偉倫<br>
+  874041 陳威任<br>
+  874042 楊琳貴<br>
+  874084 黃盈文</p>
+  <p>　</p>
+  <pre>■第11週：05/08</pre>
+  <pre>allocator。教材：<a href="jjwbooks-tass.htm#free-download" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm#free-download" target="main">《STL源碼剖析》第2章</a> </pre>
+  <p>　</p>
+  <pre>■第12週：05/15</pre>
+  <pre>STL vector,list,deque內部資料結構與實作手法
+教材：<a
+href="jjwbooks-tass.htm#free-download" tppabs="http://jjhou.boolan.com/jjwbooks-tass.htm#free-download" target="main">《STL源碼剖析》第4章</a></pre>
+  <pre>STL 的其他小玩意兒 (about adapters)</pre>
   <pre>design patterns : 
-(1) iterator�C�H STL iterator���ҡC
-(2) container adapter�C�H STL stack, queue���ҡC 
-(3) template method�C�o�O application framework �̰�¦�̮ڥ�
-     ���@�اުk�C</pre>
-  <p>�@</p>
-  <pre>����13�g�G05/22</pre>
-  <p>1. ���� template method...</p>
+(1) iterator。以 STL iterator為例。
+(2) container adapter。以 STL stack, queue為例。 
+(3) template method。這是 application framework 最基礎最根本
+     的一種技法。</pre>
+  <p>　</p>
+  <pre>■第13週：05/22</pre>
+  <p>1. 續講 template method...</p>
   <p>2. red-black tree, set, map, multiset, multimap, hash table (part1)</p>
-  <p><font color="#408080">from �^�v�� s882251<br>
-  �Ѯv�z�n<br>
-  ����W�@���x���W�Ҫ��ɭԴ��g���P�ǦV�Ѯv������<br>
-  findfirstfile/findnextfile�ϥΪ��ɭԷ|�o�Ϳ��~<br>
-  �ǥͤ��ߪ�@�I�ɶ����յo�{<br>
-  �Y�O�u�n��ª��p��Y�@�ӥؿ��U���X���ɮ׵�<br>
-  ���O�Ѯv�W�@��demo���ڭ̬ݪ��ɭԨ���<br>
-  ����ϥθӨ禡�bvc bcb�������|�����D<br>
-  �u�O�b98 2000�W�]�X�Ӫ����G�|���@��<br>
-  �]�N�O��98�]�X�Ӫ��F��|��vc��compile�X�Ӫ��F��@��<br>
-  ���Y�O�ϥ�BCB�sĶ����<br>
-  �]�X�Ӫ��F��|���@�I�I���~ ���O�u�n�y�y�[�@���ˬd<br>
-  �b��Ӫ������sĶ�����sĶ�]�X�Ӫ����G���Ӥ��|��<br>
-  ���ߤ@���ҥ~�O<br>
-  �p�G�n�F���Y�ǯS�����\��� �ϥ�BCB�ҽsĶ�X�Ӫ��{���A�����<br>
-  �|��@�~�t��independent �]�N�O�ڭ̨ϥΥ���ذ_���I���e��<br>
-  �]�X�Ӫ��ɮפj�p�H�μƶq�|��{���]�X�Ӫ��F�褣�@��<br>
-  ���L���n�ݵ{���g����@�Ӷ��q<br>
-  �p�G�Ψ�F�Y�ǧޥ� �ӤS�Ʊ�వ�X��t�Τ@�˪��欰�� �@�w�n��vc<br>
-  ��bcb�@�w�X��<br>
-  �H�W�O�ǥͦb�ۤv���q���W���թҵo�{���欰<br>
-  �sĶ���� 98 vc bcb, 2000 vc</font></p>
-  <p>����<font color="#000000">�^�v���P�ǩM�j�a���ɤ߱o</font></p>
-  <p>�@</p>
-  <p><font color="#408080">�ǰe���: 2002�~5��9�� PM 01:57<br>
-  �D��: �W�Ҫ����D<br>
+  <p><font color="#408080">from 彭治弘 s882251<br>
+  老師您好<br>
+  關於上一次泛型上課的時候曾經有同學向老師反應說<br>
+  findfirstfile/findnextfile使用的時候會發生錯誤<br>
+  學生今晚花一點時間測試發現<br>
+  若是只要單純的計算某一個目錄下有幾個檔案等<br>
+  像是老師上一次demo給我們看的時候那樣<br>
+  那麼使用該函式在vc bcb等都不會有問題<br>
+  只是在98 2000上跑出來的結果會不一樣<br>
+  也就是說98跑出來的東西會跟vc所compile出來的東西一樣<br>
+  但若是使用BCB編譯的話<br>
+  跑出來的東西會有一點點錯誤 但是只要稍稍加一些檢查<br>
+  在兩個版本的編譯器中編譯跑出來的結果應該不會錯<br>
+  但唯一的例外是<br>
+  如果要達成某些特殊的功能時 使用BCB所編譯出來的程式再執行時<br>
+  會跟作業系統independent 也就是我們使用左鍵框起來點內容時<br>
+  跑出來的檔案大小以及數量會跟程式跑出來的東西不一樣<br>
+  不過那要看程式寫到哪一個階段<br>
+  如果用到了某些技巧 而又希望能做出跟系統一樣的行為時 一定要用vc<br>
+  用bcb一定出錯<br>
+  以上是學生在自己的電腦上測試所發現的行為<br>
+  編譯環境 98 vc bcb, 2000 vc</font></p>
+  <p>謝謝<font color="#000000">彭治弘同學和大家分享心得</font></p>
+  <p>　</p>
+  <p><font color="#408080">傳送日期: 2002年5月9日 PM 01:57<br>
+  主旨: 上課的問題<br>
   <br>
-  �Ѯv�z�n , �ڬO������ , �P�¦Ѯv�o�Ǥ�l�Ӫ�����<br>
+  老師您好 , 我是□□□ , 感謝老師這些日子來的指導<br>
   <br>
-  �Q�ѤU�ҫe�бЦѮv�����D�y�z�p�U:<br>
-  �H���X��R��69����2-7���� ,�Y�V�t�έn32bytes���Ŷ� , ��32bytes�w�d��20�Ӥv�Χ� 
-  , �Bmemory pool�S�v�κ� , ���ɶե��ݦA�t�mheap�Ŷ� , �p���g�Ӵ_�l��malloc�ʧ@�� 
-  , �C���O�������U�ۦ��ۤv��cookie�H�K�������񤧥� , 
-  �b�ĤG�Űt�m�����Hfree-list�N�e�z�U���O�����b�@�_ , 
-  ������Ӫ�����ʧ@�O�p��i�檺�O?<br>
+  昨天下課前請教老師的問題描述如下:<br>
+  以源碼剖析第69頁圖2-7為例 ,若向系統要32bytes的空間 , 而32bytes預留的20個己用完 
+  , 且memory pool又己用盡 , 此時勢必需再配置heap空間 , 如此週而復始的malloc動作中 
+  , 每塊記憶體應各自有自己的cookie以便未來釋放之用 , 
+  在第二級配置器中以free-list將前述各塊記憶體串在一起 , 
+  不知後來的釋放動作是如何進行的呢?<br>
   <br>
-  �ǥͦ^�h�Ѧ�SGI source �٬O�S���Y�� , �b�ĤG�Űt�m�������G�S�ݨ�free( 
-  )���ܼv , �ѤW����deallocate �Y�j��__MAX_BYTES �h�I�smalloc_alloc::deallocate 
-  ���� , �Ϥ��ȱN�䦬�^free-list�� , �����O�b������� ....</font></p>
+  學生回去參考SGI source 還是沒有頭緒 , 在第二級配置器中似乎沒看到free( 
+  )的蹤影 , 書上提到deallocate 若大於__MAX_BYTES 則呼叫malloc_alloc::deallocate 
+  釋放 , 反之僅將其收回free-list中 , 不知是在何時釋放 ....</font></p>
   <p><font color="#408080"><br>
-  �ǰe���: 2002�~5��12�� AM 11:03<br>
-  �D��: �ڪ��D���פF<br>
+  傳送日期: 2002年5月12日 AM 11:03<br>
+  主旨: 我知道答案了<br>
   <br>
-  �Ѯv�z�n , �ڬO������<br>
+  老師您好 , 我是□□□<br>
   <br>
-  ��e�ббz�����D ~�bSGI allocator �ĤG�Űt�m���� , 
-  �O��������O�p��i�檺?<br>
+  日前請教您的問題 ~在SGI allocator 第二級配置器中 , 
+  記憶體釋放是如何進行的?<br>
   <br>
-  ���״N�O�bEffective C++������10�� (p44 �˼Ʋ�3��_)<br>
+  答案就是在Effective C++的條款10中 (p44 倒數第3行起)<br>
   <br>
-  �̪�~�}�l�ݦѮv�Ҥ��Ъ��T��C++�p�� , �L�{��b�O�ӴΤF , 
-  �n���O�o��������ť�Ѯv��GP , 
-  �b�ݳo�X���ѥi�ण�|������`�誺���� .<br>
-  �z�LC++ Primer��STL�ҵ{ , �Pı��OO�PGP���믫�U�ӷU��x�� , 
-  �o�}�l�b�u�@�Τ@�Ǯ��y���\Ū���]���������� , �A�����¦Ѯv , 
-  �p�G��b�{���]�p�o�����W���Ҧ��N , �ݿ�Ѯv���ναл� .<br>
+  最近才開始看老師所介紹的三本C++小書 , 過程實在是太棒了 , 
+  要不是這次有幸旁聽老師的GP , 
+  在看這幾本書可能不會有那麼深刻的體驗 .<br>
+  透過C++ Primer及STL課程 , 感覺對OO與GP的精神愈來愈能掌握 , 
+  這陣子在工作及一些書籍的閱讀中也都有所驗證 , 再次謝謝老師 , 
+  如果能在程式設計這條路上有所成就 , 端賴老師的諄諄教誨 .<br>
   <br>
-  Ps : Effective C++����7 (p31 �˼Ʋ�8��)�Ҵ����V�X���� , 
-  �o�ӨҤl��b�O�ӴΤF , �n���O�o���W�ҤF�Ѩ�template , 
-  �@�w�|�ݤ��� .</font></p>
-  <p>�@</p>
-  <p>�@</p>
-  <font FACE="�s�ө���"><p></font><font color="#408080" FACE="�s�ө���">�ǰe���</font><font
-  color="#408080">: 2002<font FACE="�s�ө���">�~</font>5<font FACE="�s�ө���">��</font>27<font
-  FACE="�s�ө���">��</font> PM 05:37<br>
-  <font FACE="�s�ө���">�D��</font>: <font FACE="�s�ө���">�J�Ѯv�z�n</font></font></p>
-  <font FACE="�s�ө���"><p></font><font color="#408080" FACE="�s�ө���">�ڬO���~�N���~��</font><font
-  color="#408080"> <font FACE="�s�ө���">�j��</font> ( :P ) <font FACE="�s�ө���">�ǥ�</font> 
-  <font FACE="�s�ө���">�]�����Q���L</font> </font><font color="#408080"
-  FACE="�s�ө���">����ܤW�Z<br>
-  �ѩ��}�Ǯɼ}�W�]�h�[�J�F�Ѯv����<br>
-  ���������᤽�q�o������ҥH�]�֥h�F<br>
-  �䤤��]�S�ťh�h�� �S�S���{�Ѫ��P�Ǧb�Z�W<br>
-  �ҥH��i�p���ƤF��<br>
-  �Q�аݤ@�U�Ѯv�������@�~�w�F�v??</font><font FACE="�s�ө���"></p>
-  <p></font><font color="#408080" FACE="�s�ө���">���~�ͦ�ɤ��e�nú��O</font><font
+  Ps : Effective C++條款7 (p31 倒數第8行)所提的混合風格 , 
+  這個例子實在是太棒了 , 要不是這次上課了解到template , 
+  一定會看不懂 .</font></p>
+  <p>　</p>
+  <p>　</p>
+  <font FACE="新細明體"><p></font><font color="#408080" FACE="新細明體">傳送日期</font><font
+  color="#408080">: 2002<font FACE="新細明體">年</font>5<font FACE="新細明體">月</font>27<font
+  FACE="新細明體">日</font> PM 05:37<br>
+  <font FACE="新細明體">主旨</font>: <font FACE="新細明體">侯老師您好</font></font></p>
+  <font FACE="新細明體"><p></font><font color="#408080" FACE="新細明體">我是今年將畢業的</font><font
+  color="#408080"> <font FACE="新細明體">大六</font> ( :P ) <font FACE="新細明體">學生</font> 
+  <font FACE="新細明體">因為不想當兵</font> </font><font color="#408080"
+  FACE="新細明體">先選擇上班<br>
+  由於剛開學時慕名跑去加入了老師的課<br>
+  但期中完後公司這邊較忙所以也少去了<br>
+  其中後也沒空去退選 又沒有認識的同學在班上<br>
+  所以對進況不甚了解<br>
+  想請問一下老師期末的作業定了ㄇ??</font><font FACE="新細明體"></p>
+  <p></font><font color="#408080" FACE="新細明體">畢業生何時之前要繳交呢</font><font
   color="#408080">?<br>
-  p.s)<font FACE="�s�ө���">�u�O�Ȧ��Z������ݪ��ǥͯd</font> &amp;&amp; <font
-  FACE="�s�ө���">��_�H</font>email<font FACE="�s�ө���">�覡ú��O</font> 
+  p.s)<font FACE="新細明體">只是怕成績單太難看的學生留</font> &amp;&amp; <font
+  FACE="新細明體">能否以</font>email<font FACE="新細明體">方式繳交呢</font> 
   thx</font></p>
-  <font FACE="�s�ө���"><p></font><font color="#408080" FACE="�s�ө���">�P��</font><font
+  <font FACE="新細明體"><p></font><font color="#408080" FACE="新細明體">感恩</font><font
   color="#408080"> :P</font></p>
-  <p>���J���^�СG ref <a href="javascript:if(confirm(%27http://www.jjhou.com/course-generic-yzu-902.htm  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.jjhou.com/course-generic-yzu-902.htm%27" tppabs="http://www.jjhou.com/course-generic-yzu-902.htm">http://www.jjhou.com/course-generic-yzu-902.htm</a><br>
-  <font FACE="�s�ө���">�p�G�A�S����@�~�A�S���W�x���i�A�A�@�w�|�Q���A�ӥB�̦h</font> 
-  20 <font FACE="�s�ө���">���C</font><br>
-  20 <font FACE="�s�ө���">���O���ɦ��Z�C�q�o�ʫH�ݡA��M�A���ɨS�ӤW�ҡA�p�G�A���ڪ��D�A�O�֡A����A�����ɦ��Z�u��o</font> 
-  10 <font FACE="�s�ө���">���C<br>
-  �o�i��N�O�A�������`���Z�C</font></p>
-  <p>�ڴ��g���L<font FACE="�s�ө���">�����`���Z17���C�ҥH��10�����|���ڤ�n�C�A�|�o���˪����Z�A�N�ݦۤv�����{�C�p�G�@�~��o�X�ӡA�W�x���F�]�����]�ҩ��A���O�ۨӪ��^�A���W�ҷ��M�L�ҿסA�٬O�i�H�o�줣�������Z�]�]���A�w�F��o���Ҫ��V�m�ؼС^�C</font></p>
-  <p>�@</p>
-  <p>�@</p>
-  <font FACE="�s�ө���"><p><font color="#408080">�ǰe���: 2002�~5��27�� PM 08:22<br>
-  �D��: �W�Q���ҡA���«J�Ѯv!! </font></font></p>
-  <p><font color="#408080" FACE="�s�ө���">�J�Ѯv�A�n�G</font></p>
-  <font FACE="�s�ө���"><p></font><font color="#408080" FACE="�s�ө���">�ڥh�~���u�Ҳ��~</font><font
-  color="#408080">(<font FACE="�s�ө���">��O�b���X�a�A�j�ǾǪ��O�q���C</font>)</font><font
-  color="#408080" FACE="�s�ө���">�ثe����u�@(Embedded System �n��]�p)�A�b��s�ҮɴN�[���A���j�W�A�Y��u�@�ɬ�M�Q��z���O�b�����ЮѡA�W�v���Ҥ��ण�W�A�S�O�K�O���A�ҥH�|�������J�W�ҡA�������|�Ѯv�@�n�A�Q����p�C</font><font
-  FACE="�s�ө���"></p>
-  <p></font><font color="#408080" FACE="�s�ө���">��ثe���u�W�F�j���b�Ǵ�����</font><font
-  color="#408080">(<font FACE="�s�ө���">�ڱq�ĤE�g�~�h�W��</font>)</font><font
-  color="#408080" FACE="�s�ө���">�A���ڦ��򤣤֡C�W�A���Ҥ��e�����ݤF�@�I 
-  STL ���ѡA���O�ۤvŪ�O�Q���W���A�S���e���z�ѡA�]�S��|��h�� 
-  STL ���믫�A���W�F�Ѯv�A���ҤT�B�|�g����A�ׯ���|�� STL 
-  ���u���_�v�C���M�ڦ��� C++�A���٤����D����o�˥� C++�ASTL 
-  �٬����_�]�����L�a!!���e�u�@�W�u�O�ϥ� STL�A�q���|�Q�� STL source 
-  code�A�]���復�`�O�b�M�����A���{�b�q�Ѯv�����o(���I���N�Ǳo)STL�����ѫ�A�Y�����D�]�u���v�� 
-  STL �� SOURCE CODE �A�ۤv��X���D�A�[���W�M�X�F�\�h�C</font><font
-  FACE="�s�ө���"></p>
-  <p></font><font color="#408080" FACE="�s�ө���">�o�G�g�Ѯv������</font><font
-  color="#408080"> Design Patters </font><font color="#408080" FACE="�s�ө���">���ѡA�ӧڤ]���bŪ���ѡA���L�M 
-  C++ Primer ��_�ӡADesign Patters 
-  �N���H�U�`�A�]�\�O�ڵ{�פ����C���L�ڵo�{�Ѫ�½Ķ����]���t�O�A�]���o�G�g�Ѯv���� 
-  iterator�Aadaptor�Atemplate method�A�N��r�W��½Ķ�ӻ��A�Ѯv�A½Ķ�ФH�@�ݫK���աC�t�~�ADesign 
+  <p>●侯捷回覆： ref <a href="javascript:if(confirm(%27http://www.jjhou.com/course-generic-yzu-902.htm  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.jjhou.com/course-generic-yzu-902.htm%27" tppabs="http://www.jjhou.com/course-generic-yzu-902.htm">http://www.jjhou.com/course-generic-yzu-902.htm</a><br>
+  <font FACE="新細明體">如果你沒有交作業，沒有上台報告，你一定會被當，而且最多</font> 
+  20 <font FACE="新細明體">分。</font><br>
+  20 <font FACE="新細明體">分是平時成績。從這封信看，顯然你平時沒來上課，如果你讓我知道你是誰，那麼你的平時成績只能得</font> 
+  10 <font FACE="新細明體">分。<br>
+  這可能就是你的期末總成績。</font></p>
+  <p>我曾經給過<font FACE="新細明體">期末總成績17分。所以給10分不會讓我手軟。你會得到怎樣的成績，就看自己的表現。如果作業交得出來，上台表達也不錯（證明你不是抄來的），不上課當然無所謂，還是可以得到不錯的成績（因為你已達到這門課的訓練目標）。</font></p>
+  <p>　</p>
+  <p>　</p>
+  <font FACE="新細明體"><p><font color="#408080">傳送日期: 2002年5月27日 PM 08:22<br>
+  主旨: 上霸王課，謝謝侯老師!! </font></font></p>
+  <p><font color="#408080" FACE="新細明體">侯老師你好：</font></p>
+  <font FACE="新細明體"><p></font><font color="#408080" FACE="新細明體">我去年於資工所畢業</font><font
+  color="#408080">(<font FACE="新細明體">算是半路出家，大學學的是電機。</font>)</font><font
+  color="#408080" FACE="新細明體">目前於桃園工作(Embedded System 軟體設計)，在研究所時就久仰你的大名，某日工作時突然想到您不是在元智教書，名師的課不能不上，又是免費的，所以魯莽的闖入上課，未曾知會老師一聲，十分抱歉。</font><font
+  FACE="新細明體"></p>
+  <p></font><font color="#408080" FACE="新細明體">到目前為只上了大約半學期的課</font><font
+  color="#408080">(<font FACE="新細明體">我從第九週才去上課</font>)</font><font
+  color="#408080" FACE="新細明體">，讓我收獲不少。上你的課之前有先看了一點 
+  STL 的書，但是自己讀是十分苦的，又不容易理解，也沒體會到多少 
+  STL 的精神，但上了老師你的課三、四週之後，終能體會到 STL 
+  的「神奇」。雖然我有學 C++，但還不知道能夠這樣用 C++，STL 
+  稱為神奇也不為過吧!!之前工作上只是使用 STL，從不會想看 STL source 
+  code，因此對它總是半清不楚，但現在從老師那偷得(未付錢就學得)STL的知識後，若有問題也「敢」看 
+  STL 的 SOURCE CODE ，自己找出問題，觀念上清淅了許多。</font><font
+  FACE="新細明體"></p>
+  <p></font><font color="#408080" FACE="新細明體">這二週老師有提到</font><font
+  color="#408080"> Design Patters </font><font color="#408080" FACE="新細明體">的書，而我也正在讀此書，不過和 
+  C++ Primer 比起來，Design Patters 
+  就難以下嚥，也許是我程度不夠。不過我發現書的翻譯風格也有差別，因為這二週老師說到 
+  iterator，adaptor，template method，就文字上的翻譯來說，老師你翻譯教人一看便明白。另外，Design 
   Patters 
-  ���d�Ҥ�����A���H���ޤ��s�\���P�A�����Ѯv���S������g�@�� 
-  Design Patters ���ѡA�H���� C++ 
-  ���d�ҳe����ѡA���ڭ̳o�s�H��������C</font><font FACE="�s�ө���"></p>
-  <p></font><font color="#408080" FACE="�s�ө���">�Ѯv�z�O�Q���ũM���H�A�Ѩ�O�ѮvĶ</font><font
-  color="#408080">/</font><font color="#408080" FACE="�s�ө���">�ۧ@�D�`�h�A���q���H�D���`��q�n�D�ǥͶR�A���ѡA�ϦӱN�ǥͥi��|�ѦҨ쪺��Ʃ�b�����W�A�Ѿǥͦۦ�U���C�������z�o�˪��Ѯv�A�u�O�ǥͤ��֡C</font><font
-  FACE="�s�ө���"></p>
-  <p><font color="#408080">�ǥͤW�Q���ҵL�H�^���A�K�H���ʫH���P�¤��N�A��Ѯv�z�O���ǡC�� 
-  ���鰷�d�B�U�Ʀp�N</font></p>
-  </font><p>���J���^�СG�ڭ��̷|���ǡA�ګܶ}�ߡC�w��j�a��ť�ҡA�ҥH�ڤ~�|��N��Ҷ}�b�ߤW�C</p>
-  <p>�֦��ܦh�s�{��ȸg��A�~������mDesign Patterns�n�@�ѡC�p�G���@�ӡ]�Τ@�ǡ^�n�Ҥl�A���T�i�H�`�٤j�a���֮ɶ��C�A�i�H�W���j�M�mDesign 
-  Patterns�n��Ū�ѷ|�A�W�����Ӧ��\�h��ҡC�w�g���֤H��ĳ�ڼg���mDesign 
-  Patterns by Example�n�������ѡA���O�ڪ��ɶ��K�c�Kwell�KI dont know�K�C�mDesign 
-  Patterns�n��Ķ���]���í�Ķ, 
-  ���͡^���Ķ�o�۷������A��Ū�O�]�����������h�����C�A�b�Ұ�W�@ť�N���լO�]�� 
-  (1) �ڿ�F��²�檺patterns�����A���ӤJ�� (2) �Ұ�W��3D���ѡA���M�n�L 
-  2D�ȭ� :)</p>
-  <p>�b�ڪ��s�@�m�h���P���� 2e�n�ĤC�����A�HMFC(Lite)���ҡA���F�Q�ӭ�Design 
-  Patterns�A�e�{���̦b MFC(Lite)������{���ΡC���ѩ|���X���A�B�ĤC�����b�K�O���}���C�CMFCLite�O�ڼ������@�� 
-  mini application framework�]�HMFC���ҥ��H�^�A�i�b�J�������W�U���]�u���@���֡v��^�C�ӳ��F240���A���z�諸��HMFCLite�h�F4000~5000�椧�h�A�ӥB�Q�������]�����O 
-  application framework�^�A�ҥH�\Ū�����M�ݭn�۷��������e�C���L�AŪ�����i�H���H�bOO���۷��h�������� 
-  �X �o�O����������ڪ������P���]���O�����v�k��MFC���h�n�A�ӬO�]���o��@�Ӭ��ͥͪ��Ҥl�A�S�u�u���v�|���d��^�C 
+  的範例不完整，讓人有管中窺豹之感，不知老師有沒有興趣寫一本 
+  Design Patters 的書，以完整 C++ 
+  的範例貫穿全書，讓我們這群人能夠滿足。</font><font FACE="新細明體"></p>
+  <p></font><font color="#408080" FACE="新細明體">老師您是十分溫和的人，由其是老師譯</font><font
+  color="#408080">/</font><font color="#408080" FACE="新細明體">著作非常多，但從不以非正常手段要求學生買你的書，反而將學生可能會參考到的資料放在網站上，供學生自行下載。元智有您這樣的老師，真是學生之福。</font><font
+  FACE="新細明體"></p>
+  <p><font color="#408080">學生上霸王課無以回報，便以此封信表感謝之意，望老師您別見怪。祝 
+  身體健康、萬事如意</font></p>
+  </font><p>●侯捷回覆：我哪裡會見怪，我很開心。歡迎大家來聽課，所以我才會刻意把課開在晚上。</p>
+  <p>擁有很多編程實務經驗，才能看懂《Design Patterns》一書。如果有一個（或一些）好例子，的確可以節省大家不少時間。你可以上網搜尋《Design 
+  Patterns》的讀書會，上面應該有許多實例。已經不少人建議我寫本《Design 
+  Patterns by Example》之類的書，但是我的時間…呃…well…I dont know…。《Design 
+  Patterns》中譯本（葉秉哲譯, 
+  培生）其實譯得相當不錯，難讀是因為它本身的層次高。你在課堂上一聽就明白是因為 
+  (1) 我選了最簡單的patterns來講，做個入門 (2) 課堂上有3D講解，當然好過 
+  2D紙頁 :)</p>
+  <p>在我的新作《多型與虛擬 2e》第七章中，以MFC(Lite)為例，講了十來個Design 
+  Patterns，呈現它們在 MFC(Lite)中的實現情形。此書尚未出版，且第七章不在免費公開之列。MFCLite是我模擬的一個 
+  mini application framework（以MFC為模仿對象），可在侯捷網站上下載（「先睹為快」欄）。該章達240頁，講述對的對象MFCLite則達4000~5000行之多，而且十分複雜（畢竟是 
+  application framework），所以閱讀它仍然需要相當高的門檻。不過，讀懂它可以讓人在OO有相當層次的徹悟 
+  — 這是完成它之後我的切身感受（不是說它師法的MFC有多好，而是因為這麼一個活生生的例子，又「只有」四五千行）。 
   <br>
   </p>
-  <p><font FACE="�s�ө���"><font color="#408080">�ǰe���: 2002�~5��28�� PM 06:19<br>
-  �D��: �Ѯv�z�n ����x��</font></p>
-  <p><font color="#408080">�Ѯv�z�n<br>
-  ���󤧫e�ڦ��H�@�ʫH���Ѯv�z<br>
-  �i�D�z��BCB�bcompile�t��findfirstfile findnextfile���禡���ɭԷ|�����D<br>
-  ���ɾǥ͸�z���i��M�@�~�t�Φ��Iindependent</font></p>
-  <p><font color="#408080">�{�b�ڱN�ڭ̳o�մ��ժ����i�H�εo�{���߱o���g�p�U<br>
-  �æb���󤤱N�ڭ̳o�ժ��{���X���W</font><br>
-  <font color="#408080" FACE="�s�ө���">�H�K�Ѯv�z�i�H�H��</font><font
+  <p><font FACE="新細明體"><font color="#408080">傳送日期: 2002年5月28日 PM 06:19<br>
+  主旨: 老師您好 關於泛型</font></p>
+  <p><font color="#408080">老師您好<br>
+  關於之前我有寄一封信給老師您<br>
+  告訴您說BCB在compile含有findfirstfile findnextfile等函式的時候會有問題<br>
+  當時學生跟您說可能和作業系統有點independent</font></p>
+  <p><font color="#408080">現在我將我們這組測試的報告以及發現的心得撰寫如下<br>
+  並在附件中將我們這組的程式碼附上</font><br>
+  <font color="#408080" FACE="新細明體">以便老師您可以隨時</font><font
   color="#408080">debug</font></p>
   <p><font color="#408080"><br>
-  (1)��Ӫ����b���ɮת����{�����O�S��������~�� vc and bcb�O�ۦP��<br>
-  (2)���ڭ̷Q�n�g�@��Ū���l�ؿ����ɮץH�θ�Ƨ����\����j��������<br>
-  �o�{vc�ҽsĶ�X�Ӫ������ɶ]�X�Ӫ����G�M�ڭ̫��k��ݨ쪺���e�O�@�˪�<br>
-  �b98 and 2000���U���S�����~<br>
-  (3)���Obcb�Ҳ��ͪ��ɮץؿ����������ɷ|�]�X�O�ڭ̷N�~�����G<br>
-  (4)�P�ժ��P�Ǧb���ժ��ɭ�,���x�O2000 and XP,�sĶ���ҳ��bvc,�o�{���L���~<br>
-  (5)�ҥH�ڭ��k�ǥX���ӬObcb�M�t�Ϊ����@�������ۮe(������Ƨ��������N�O�ؿ�)<br>
-  (6)�άO�������ڭ̳]�p�����Ӻt��k�Mvc���c��ۦP,���i��bcb��support</font></p>
-  <p><font color="#408080">�Ѯv�z�i�H�����b���[�ɮפ��sĶ����ìݬݵ��G<br>
-  �]���C�ӤH���q�����Ҥ��@��<br>
-  ���Ȧb�Ѯv�z���q���W�i��|�]�X���~������<br>
-  ���L�ڭ̳o�դw�g���չL�T��|�x���q���F �o�{�S���D<br>
-  �߮��b�U�P����demo�X�l<br>
-  �ҥH�ڭ��ٷ|�~�����,���Lbcb�@�w�|�����N�O�F,<br>
-  ���M�L�ҦC���ɮ׼ƶq�H�θ�Ƨ��ƶq�O���T��</font></p>
-  <p><font color="#408080">�٦��N�O�Ѯv�z�@����ڭ̻��ɶq�b�R�O�C�Ҧ��U�sĶ<br>
-  ���O�o���ǥͱH���Ѯv�z���o�O��X���Ҫ�<br>
-  �ǥͦb�����Ѯv���n��p<br>
-  �]���ڭ��٬O�Z���wclick��<br>
-  �ҥH�ЦѮv��̧ڭ̧a</font></p>
-  </font><p>���J���^�СG�R�O�C�u�O�@�ӫ�ĳ�C�ڵ��ǥͫܤj���u�ʪŶ� 
-  :) �ڻ��L�U��Ʀܥi�H�ۤv�Q�D�� :)</p>
-  <p>�@</p>
-  <pre>����14�g�G05/29</pre>
+  (1)兩個版本在純檔案版的程式中是沒有任何錯誤的 vc and bcb是相同的<br>
+  (2)當我們想要寫一個讀取子目錄的檔案以及資料夾的功能較強的版本時<br>
+  發現vc所編譯出來的執行檔跑出來的結果和我們按右鍵看到的內容是一樣的<br>
+  在98 and 2000底下都沒有錯誤<br>
+  (3)但是bcb所產生的檔案目錄版的執行檔會跑出令我們意外的結果<br>
+  (4)同組的同學在測試的時候,平台是2000 and XP,編譯環境都在vc,發現都無錯誤<br>
+  (5)所以我們歸納出應該是bcb和系統的哪一部份不相容(有關資料夾的部分就是目錄)<br>
+  (6)或是直接說我們設計的那個演算法和vc的構思相同,但可能bcb不support</font></p>
+  <p><font color="#408080">老師您可以直接在附加檔案中編譯執行並看看結果<br>
+  因為每個人的電腦環境不一樣<br>
+  恐怕在老師您的電腦上可能會跑出錯誤的答案<br>
+  不過我們這組已經測試過三到四台的電腦了 發現沒問題<br>
+  唯恐在下星期的demo出槌<br>
+  所以我們還會繼續測試,不過bcb一定會有錯就是了,<br>
+  雖然他所列的檔案數量以及資料夾數量是正確的</font></p>
+  <p><font color="#408080">還有就是老師您一直跟我們說盡量在命令列模式下編譯<br>
+  但是這次學生寄給老師您的卻是整合環境的<br>
+  學生在此項老師說聲抱歉<br>
+  因為我們還是蠻喜歡click的<br>
+  所以請老師原諒我們吧</font></p>
+  </font><p>●侯捷回覆：命令列只是一個建議。我給學生很大的彈性空間 
+  :) 我說過各位甚至可以自己想題目 :)</p>
+  <p>　</p>
+  <pre>■第14週：05/29</pre>
   <pre>1.hash table(part2)</pre>
   <pre>2.heap, heap algorithms. QuickSort, priority-queue. </pre>
   <p>3. function adapter</p>
-  <p><font color="#0000FF">�H�U�K���� SGI STL header &quot;stl_functiona.h&quot; 
+  <p><font color="#0000FF">以下摘錄自 SGI STL header &quot;stl_functiona.h&quot; 
   (included by header &quot;functional&quot;)</font></p>
-  <pre>// C++ Standard �W�w�A�C�@�� Adaptable Unary Function �������~�Ӧ����O
+  <pre>// C++ Standard 規定，每一個 Adaptable Unary Function 都必須繼承此類別
 template &lt;class Arg, class Result&gt;
 struct <font
 color="#0000FF">unary_function</font> {
     typedef Arg argument_type;
     typedef Result result_type;
 };</pre>
-  <pre>// C++ Standard �W�w�A�C�@�� Adaptable Binary Function �������~�Ӧ����O
+  <pre>// C++ Standard 規定，每一個 Adaptable Binary Function 都必須繼承此類別
 template &lt;class Arg1, class Arg2, class Result&gt;
 struct <font
 color="#0000FF">binary_function</font> {
@@ -1012,8 +1012,8 @@ color="#0000FF">binary_function</font> {
     typedef Arg2 second_argument_type;
     typedef Result result_type;
 };      </pre>
-  <pre><font color="#0000FF">// �w����� Adaptable Unary Functions f,g�A�H�U�t�����ΨӲ��ͤ@�� h�A
-// �� h(x) = f(g(x))
+  <pre><font color="#0000FF">// 已知兩個 Adaptable Unary Functions f,g，以下配接器用來產生一個 h，
+// 使 h(x) = f(g(x))
 </font>template &lt;class Operation1, class Operation2&gt;
 class <font
 color="#0000FF">unary_compose</font>
@@ -1029,15 +1029,15 @@ public:
     return op1(op2(x));
   }
 };</pre>
-  <pre><font color="#0000FF">// ���U�禡�A���ڭ̱o�H��K�ϥ� unary_compose&lt;Op1,Op2&gt;
+  <pre><font color="#0000FF">// 輔助函式，讓我們得以方便使用 unary_compose&lt;Op1,Op2&gt;
 </font>template &lt;class Operation1, class Operation2&gt;
 inline <font
 color="#0000FF">unary_compose</font>&lt;Operation1, Operation2&gt; 
 compose1(const Operation1&amp; op1, const Operation2&amp; op2) {
   return unary_compose&lt;Operation1, Operation2&gt;(op1, op2);
 }</pre>
-  <pre><font color="#0000FF">// �w���@�� Adaptable Binary Function f �M���Adaptable Unary Functions g1,g2�A
-// �H�U�t�����ΨӲ��ͤ@�� h�A�� h(x) = f(g1(x),g2(x))
+  <pre><font color="#0000FF">// 已知一個 Adaptable Binary Function f 和兩個Adaptable Unary Functions g1,g2，
+// 以下配接器用來產生一個 h，使 h(x) = f(g1(x),g2(x))
 </font>template &lt;class Operation1, class Operation2, class Operation3&gt;
 class <font
 color="#0000FF">binary_compose</font>
@@ -1055,29 +1055,29 @@ public:
     return op1(op2(x), op3(x));
   }
 };</pre>
-  <pre><font color="#0000FF">// ���U�禡�A���ڭ̱o�H��K�ϥ� binary_compose&lt;Op1,Op2,Op3&gt;
+  <pre><font color="#0000FF">// 輔助函式，讓我們得以方便使用 binary_compose&lt;Op1,Op2,Op3&gt;
 </font>template &lt;class Operation1, class Operation2, class Operation3&gt;
 inline <font
 color="#0000FF">binary_compose</font>&lt;Operation1, Operation2, Operation3&gt; 
 compose2(const Operation1&amp; op1, const Operation2&amp; op2, const Operation3&amp; op3) {
   return binary_compose&lt;Operation1, Operation2, Operation3&gt;(op1, op2, op3);
 }</pre>
-  <p>�@</p>
-  <p>����15�g�G 06/05 <font color="#FF0000">���ҵ{�����@�~ ���ճ��i�C</font></p>
-  <p>�`�N�ƶ��G(1) 
-  ú��ѭ����i�@���A�{���]�t���X�Υi�����ɡ^�Ϥ��@���C<br>
+  <p>　</p>
+  <p>■第15週： 06/05 <font color="#FF0000">本課程期末作業 分組報告。</font></p>
+  <p>注意事項：(1) 
+  繳交書面報告一份，程式（含源碼及可執行檔）磁片一份。<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-  (2) �ۦ�����D���P�ǤW�x���i�C�����@��A�i���u�C<br>
+  (2) 自行推派主講同學上台報告。不限一位，可分工。<br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-  (3) �t�m����A���{���C</p>
-  <p>���g�� 9~17�զP��ú��@�~�äW�x���i�C</p>
-  <p>�@</p>
-  <p>����16�g�G06/12&nbsp; <font color="#FF0000">���ҵ{�����@�~ 
-  ���ճ��i�]��W�g�^�C</font></p>
-  <p>���g�� 1~8�զP��ú��@�~�äW�x���i�C</p>
-  <p>�@</p>
-  <p>����17�g�G<font color="#FF0000">06/19 
-  �����Ҷg�C���ҡC���Ǵ��ҵ{�����C</font></p>
+  (3) 演練執行你的程式。</p>
+  <p>本週由 9~17組同學繳交作業並上台報告。</p>
+  <p>　</p>
+  <p>■第16週：06/12&nbsp; <font color="#FF0000">本課程期末作業 
+  分組報告（續上週）。</font></p>
+  <p>本週由 1~8組同學繳交作業並上台報告。</p>
+  <p>　</p>
+  <p>■第17週：<font color="#FF0000">06/19 
+  期末考週。停課。本學期課程結束。</font></p>
 </blockquote>
 </body>
 </html>

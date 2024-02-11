@@ -1,90 +1,90 @@
 
-C++ Primer µª«È°İ (27) ¡i¼Ğ·Ç»P¹ê§@¤§¶¡¡j
+C++ Primer ç­”å®¢å• (27) ã€æ¨™æº–èˆ‡å¯¦ä½œä¹‹é–“ã€‘
 
-PC Àô¹Ò¤W¤TºØ½sÄ¶¾¹¹ï C++ Standard ªº¤ä´©
+PC ç’°å¢ƒä¸Šä¸‰ç¨®ç·¨è­¯å™¨å° C++ Standard çš„æ”¯æ´
 
-«J±¶  jjhou@ccca.nctu.edu.tw
-1999.12.29 ²Ä¤@¦¸µoªí©ó
-²M¤j.·¬¾ôÅæ¯¸¡]140.114.87.5¡^.¹q¸£®Ñ°Tª©¡]Computer/CompBook¡^
+ä¾¯æ·  jjhou@ccca.nctu.edu.tw
+1999.12.29 ç¬¬ä¸€æ¬¡ç™¼è¡¨æ–¼
+æ¸…å¤§.æ¥“æ©‹é©›ç«™ï¼ˆ140.114.87.5ï¼‰.é›»è…¦æ›¸è¨Šç‰ˆï¼ˆComputer/CompBookï¼‰
 
-¥»¤å±N©ó¤é«á¾ã²z©ó «J±¶ºô¯¸/µª«È°İ /C++ Primer ¤¤¤åª©
-«J±¶ºô¯¸¡Gwww.jjhou.com
+æœ¬æ–‡å°‡æ–¼æ—¥å¾Œæ•´ç†æ–¼ ä¾¯æ·ç¶²ç«™/ç­”å®¢å• /C++ Primer ä¸­æ–‡ç‰ˆ
+ä¾¯æ·ç¶²ç«™ï¼šwww.jjhou.com
 ----------------------------------------------------------------
 
-¡´C++ Standard ¬Û®e½sÄ¶¾¹
+â—C++ Standard ç›¸å®¹ç·¨è­¯å™¨
 
-§Ú·Q«Ü¦h¤HÃö¤ß¡A¥Ø«e¥«­±¤W­ş¨Ç¼tµPªº C++ ½sÄ¶¾¹¡A§¹¥ş
-¤ä´© C++ Standard¡CC/C++ User Journal, Nov. 1999 ªº
-¡iC/C++ Stanadrd FAQ¡j±MÄæ¤¤¡AP.J. Plauger ¹ï¦¹°İÃD
-ªº¦^µª¬O¡G¥Ø«eÁÙ¨S¦³§¹¥ş¤ä´© C++ Standard ªº½sÄ¶¾¹²£«~¡C
-P.J. Plauger ¾\¾ú¼sªx¡A¥Lªº¤å³¹´£¨ì¤£¦P¥­¥x¤Wªº¦hºØ
-C++ ½sÄ¶¾¹¡]¦ı¨Ã¨S¦³²`¤J½Í½×¡A³£¥u²L²L±a¹L¡^¡C
+æˆ‘æƒ³å¾ˆå¤šäººé—œå¿ƒï¼Œç›®å‰å¸‚é¢ä¸Šå“ªäº›å» ç‰Œçš„ C++ ç·¨è­¯å™¨ï¼Œå®Œå…¨
+æ”¯æ´ C++ Standardã€‚C/C++ User Journal, Nov. 1999 çš„
+ã€C/C++ Stanadrd FAQã€‘å°ˆæ¬„ä¸­ï¼ŒP.J. Plauger å°æ­¤å•é¡Œ
+çš„å›ç­”æ˜¯ï¼šç›®å‰é‚„æ²’æœ‰å®Œå…¨æ”¯æ´ C++ Standard çš„ç·¨è­¯å™¨ç”¢å“ã€‚
+P.J. Plauger é–±æ­·å»£æ³›ï¼Œä»–çš„æ–‡ç« æåˆ°ä¸åŒå¹³å°ä¸Šçš„å¤šç¨®
+C++ ç·¨è­¯å™¨ï¼ˆä½†ä¸¦æ²’æœ‰æ·±å…¥è«‡è«–ï¼Œéƒ½åªæ·ºæ·ºå¸¶éï¼‰ã€‚
 
-¦^¾Ğ¾ú¥v¡AC Standard ©w®×«á¡A¥«­±¤W¥ß¨è¥X²{¤@¤j°ï«ÅºÙ»P¼Ğ·Ç³W®æ
-§¹¥ş¬Û®e ªº C ½sÄ¶¾¹¡C¬°¤°»ò²Å¦X C++ ¼Ğ·Ç³W®æªº½sÄ¶¾¹«o¬O¦p¦¹
-Ãø²£©O¡H§Ú·Q¦]¯À¤§¤@¬O¡AC++ »·¤ñ C ½ÆÂø±o¦h¡A«á´Á¾É¤Jªº¤@¨Ç
-©Ê½è¡]¦p member templates, template partial specialization...¡^
-¦b½sÄ¶¾¹§Ş³N¼h­±¤W§ó¬O°ªÃø«×¡C¦]¯À¤§¤G¬O¡AC++ Standard library
-¬O­Ó¯E¤jªº¤uµ{¡A¦Ó½sÄ¶¾¹³q±`¬O¥H bundle ªº¤è¦¡·f°t¨ä¥L¤½¥q
-ªº C++ Standard Library¡A©Ò¥H©¼¦¹ªº¶i«×¡B§Ş³N¡B¬Û®e©Ê³£»İ­n§ó¦h
-®É¶¡¨Ó¨ó½Õ°t¦X¡C¦]¯À¤§¤T¬O¡AC++ ½sÄ¶¾¹ªº»ù­È¤ñ¸û¡A¤w¸g¤£¦A¥u¬O
-³æ¯Â¦a¤ñ½Ö¹ï C++ Standard ªº¤ä´©µ{«×°ª¡]©Î¬Æ¦Ü¤]¤£¬O¤ñ¸û½Öªº
-½sÄ¶³t«×§Ö¡^¡A¦Ó¬O¤ñ¸û¦b¯S©w¥­¥x¤W¹ï«È¤á¬O§_¦³§ó¦hªº¥ø·~ªA°È¡C
-®³ Windows Àô¹Ò¤Wªº C++ ½sÄ¶¾¹¨Ó»¡¡A¡u½Ö´£¨Ñ§ó¦nªº Windows À³¥Î
-³nÅé¶}µo¤u¨ã»P¶}µo¸ê·½¡v¥i¯à¤ñ¡u½Ö§ó¶Kªñ C++ Standard¡v¡A¹ï«È¤á
-¦Ó¨¥§ó¬°­«­n¡C
+å›æ†¶æ­·å²ï¼ŒC Standard å®šæ¡ˆå¾Œï¼Œå¸‚é¢ä¸Šç«‹åˆ»å‡ºç¾ä¸€å¤§å †å®£ç¨±èˆ‡æ¨™æº–è¦æ ¼
+å®Œå…¨ç›¸å®¹ çš„ C ç·¨è­¯å™¨ã€‚ç‚ºä»€éº¼ç¬¦åˆ C++ æ¨™æº–è¦æ ¼çš„ç·¨è­¯å™¨å»æ˜¯å¦‚æ­¤
+é›£ç”¢å‘¢ï¼Ÿæˆ‘æƒ³å› ç´ ä¹‹ä¸€æ˜¯ï¼ŒC++ é æ¯” C è¤‡é›œå¾—å¤šï¼Œå¾ŒæœŸå°å…¥çš„ä¸€äº›
+æ€§è³ªï¼ˆå¦‚ member templates, template partial specialization...ï¼‰
+åœ¨ç·¨è­¯å™¨æŠ€è¡“å±¤é¢ä¸Šæ›´æ˜¯é«˜é›£åº¦ã€‚å› ç´ ä¹‹äºŒæ˜¯ï¼ŒC++ Standard library
+æ˜¯å€‹æµ©å¤§çš„å·¥ç¨‹ï¼Œè€Œç·¨è­¯å™¨é€šå¸¸æ˜¯ä»¥ bundle çš„æ–¹å¼æ­é…å…¶ä»–å…¬å¸
+çš„ C++ Standard Libraryï¼Œæ‰€ä»¥å½¼æ­¤çš„é€²åº¦ã€æŠ€è¡“ã€ç›¸å®¹æ€§éƒ½éœ€è¦æ›´å¤š
+æ™‚é–“ä¾†å”èª¿é…åˆã€‚å› ç´ ä¹‹ä¸‰æ˜¯ï¼ŒC++ ç·¨è­¯å™¨çš„åƒ¹å€¼æ¯”è¼ƒï¼Œå·²ç¶“ä¸å†åªæ˜¯
+å–®ç´”åœ°æ¯”èª°å° C++ Standard çš„æ”¯æ´ç¨‹åº¦é«˜ï¼ˆæˆ–ç”šè‡³ä¹Ÿä¸æ˜¯æ¯”è¼ƒèª°çš„
+ç·¨è­¯é€Ÿåº¦å¿«ï¼‰ï¼Œè€Œæ˜¯æ¯”è¼ƒåœ¨ç‰¹å®šå¹³å°ä¸Šå°å®¢æˆ¶æ˜¯å¦æœ‰æ›´å¤šçš„ä¼æ¥­æœå‹™ã€‚
+æ‹¿ Windows ç’°å¢ƒä¸Šçš„ C++ ç·¨è­¯å™¨ä¾†èªªï¼Œã€Œèª°æä¾›æ›´å¥½çš„ Windows æ‡‰ç”¨
+è»Ÿé«”é–‹ç™¼å·¥å…·èˆ‡é–‹ç™¼è³‡æºã€å¯èƒ½æ¯”ã€Œèª°æ›´è²¼è¿‘ C++ Standardã€ï¼Œå°å®¢æˆ¶
+è€Œè¨€æ›´ç‚ºé‡è¦ã€‚
 
-¦ı¬O¤j®aÁÙ¬O·|«ÜÃö¤ß­ş®a½sÄ¶¾¹³Ì¶Kªñ C++ Standard -- §Y¨Ï³o
-¤£¼vÅT§A¹ï C++ ½sÄ¶¾¹ªº¿ï¾Ü¡C
+ä½†æ˜¯å¤§å®¶é‚„æ˜¯æœƒå¾ˆé—œå¿ƒå“ªå®¶ç·¨è­¯å™¨æœ€è²¼è¿‘ C++ Standard -- å³ä½¿é€™
+ä¸å½±éŸ¿ä½ å° C++ ç·¨è­¯å™¨çš„é¸æ“‡ã€‚
 
-¡´­Ó¤H¸gÅç
+â—å€‹äººç¶“é©—
 
-¦Û±q§Ú±N L&L¡]Lippman & Lajoie¡^ªº¡mC++ Primer¡nÄ¶¥X«á¡A
-­±¹ï C++ Standard ©Ò³W½dªº³\¦h¹ñ·s©Ê½è¡A´N¦³¤@ªÑÅDÅD±ı¸Õ
-ªº½Ä°Ê¡C¨ä«á¥Ñ©ó­Ó¤H¿³½ì¡A¤]¦]¬°½Òµ{»İ­n¡A§â¡mC++ Primer ¤¤¤åª©¡n
-¾ã­Ó­«·sÀË¾\¤@¹M¡A¨Ã°Ê¤â¦b¤TºØ¤£¦Pªº½sÄ¶¾¹¤W¶i¦æ´ú¸Õ
-¡]³£¬O PC/Windows ¥­¥x¡^¡C¥H¤U¾ã²z§Úªº­Ó¤H¸gÅç¡A¨Ñ¦U¦ì°Ñ¦Ò¡C
+è‡ªå¾æˆ‘å°‡ L&Lï¼ˆLippman & Lajoieï¼‰çš„ã€ŠC++ Primerã€‹è­¯å‡ºå¾Œï¼Œ
+é¢å° C++ Standard æ‰€è¦ç¯„çš„è¨±å¤šå¶„æ–°æ€§è³ªï¼Œå°±æœ‰ä¸€è‚¡èºèºæ¬²è©¦
+çš„è¡å‹•ã€‚å…¶å¾Œç”±æ–¼å€‹äººèˆˆè¶£ï¼Œä¹Ÿå› ç‚ºèª²ç¨‹éœ€è¦ï¼ŒæŠŠã€ŠC++ Primer ä¸­æ–‡ç‰ˆã€‹
+æ•´å€‹é‡æ–°æª¢é–±ä¸€éï¼Œä¸¦å‹•æ‰‹åœ¨ä¸‰ç¨®ä¸åŒçš„ç·¨è­¯å™¨ä¸Šé€²è¡Œæ¸¬è©¦
+ï¼ˆéƒ½æ˜¯ PC/Windows å¹³å°ï¼‰ã€‚ä»¥ä¸‹æ•´ç†æˆ‘çš„å€‹äººç¶“é©—ï¼Œä¾›å„ä½åƒè€ƒã€‚
 
-§Ú¾¨¶q¬°¨C¤@­Ó¥DÃD¦C¥X¤@¥÷Â²µu¦Ó§¹¾ãªº´ú¸Õ½X¡C³o¨Ç©Î³\¤£¬O
-¤ÓÄYÂÔªº´ú¸Õ¡A¦ı¬O¦pªG³o¨Ç²Å¦X C++ Standard ªºµ{¦¡½XµLªk³q¹L½sÄ¶¡A
-§Ú­Ì»¡³o­Ó½sÄ¶¾¹¥¼¯à©^¦æ C++ Standard¡A¨Ã¤£¹L¥÷¡C¦ı¤Ï¹L¨Ó»¡¡A
-³q¹L§Ú©Ò¦C¤§Â²©ö´ú¸ÕªÌ¡A©Î³\¤´¦³¥i¯à¦b§ó½ÆÂøªº±¡ªp¤¤¥X¿ù¡]¤×¨ä¬O
-template ¬ÛÃö¥DÃD¡^¡C¦pªG±z¦³¬ÛÃö¸gÅç¡AÅwªï´£¨Ñ¥X¨Ó³yºÖ¤j®a¡C
+æˆ‘å„˜é‡ç‚ºæ¯ä¸€å€‹ä¸»é¡Œåˆ—å‡ºä¸€ä»½ç°¡çŸ­è€Œå®Œæ•´çš„æ¸¬è©¦ç¢¼ã€‚é€™äº›æˆ–è¨±ä¸æ˜¯
+å¤ªåš´è¬¹çš„æ¸¬è©¦ï¼Œä½†æ˜¯å¦‚æœé€™äº›ç¬¦åˆ C++ Standard çš„ç¨‹å¼ç¢¼ç„¡æ³•é€šéç·¨è­¯ï¼Œ
+æˆ‘å€‘èªªé€™å€‹ç·¨è­¯å™¨æœªèƒ½å¥‰è¡Œ C++ Standardï¼Œä¸¦ä¸éä»½ã€‚ä½†åéä¾†èªªï¼Œ
+é€šéæˆ‘æ‰€åˆ—ä¹‹ç°¡æ˜“æ¸¬è©¦è€…ï¼Œæˆ–è¨±ä»æœ‰å¯èƒ½åœ¨æ›´è¤‡é›œçš„æƒ…æ³ä¸­å‡ºéŒ¯ï¼ˆå°¤å…¶æ˜¯
+template ç›¸é—œä¸»é¡Œï¼‰ã€‚å¦‚æœæ‚¨æœ‰ç›¸é—œç¶“é©—ï¼Œæ­¡è¿æä¾›å‡ºä¾†é€ ç¦å¤§å®¶ã€‚
 
-¨S¦³¤°»ò¦nÂI¤l¡A¥i¥H¹ï¥H¤U¦U­Ó¥DÃD½s¸¹±Æ§Ç¡C©Ò¥H§Ú
-¥H¥¦­Ì¥X²{¦b¡mC++ Primer ¤¤¤åª©¡n¤Wªº­¶¦¸¬°§Ç¡C
-¾Ö¦³­^¤åª©ªºÅªªÌ½Ğª`·N¡A¤¤¤åª©©M­^¤åª©­¶¦¸§¹¥ş¬Û¦P¡C
+æ²’æœ‰ä»€éº¼å¥½é»å­ï¼Œå¯ä»¥å°ä»¥ä¸‹å„å€‹ä¸»é¡Œç·¨è™Ÿæ’åºã€‚æ‰€ä»¥æˆ‘
+ä»¥å®ƒå€‘å‡ºç¾åœ¨ã€ŠC++ Primer ä¸­æ–‡ç‰ˆã€‹ä¸Šçš„é æ¬¡ç‚ºåºã€‚
+æ“æœ‰è‹±æ–‡ç‰ˆçš„è®€è€…è«‹æ³¨æ„ï¼Œä¸­æ–‡ç‰ˆå’Œè‹±æ–‡ç‰ˆé æ¬¡å®Œå…¨ç›¸åŒã€‚
 
 
-¡´´ú¸ÕÀô¹Ò
+â—æ¸¬è©¦ç’°å¢ƒ
 
-§Úªº´ú¸ÕÀô¹Ò¬O¡GIntel Pentium¡AWindows 98¡A¤T®M C++ ½sÄ¶¾¹¡G
-(1) Microsoft Visual C++ 6.0¡]¥H¤U¥H VC6 ¥Nªí¡^
-(2) Inprise Borland C++Builder 4.0  ¡]¥H¤U¥H BCB4 ¥Nªí¡^
-(3) GNU C++ egcs-2.91.57¡]¥H¤U¥H G++ ¥Nªí¡^
+æˆ‘çš„æ¸¬è©¦ç’°å¢ƒæ˜¯ï¼šIntel Pentiumï¼ŒWindows 98ï¼Œä¸‰å¥— C++ ç·¨è­¯å™¨ï¼š
+(1) Microsoft Visual C++ 6.0ï¼ˆä»¥ä¸‹ä»¥ VC6 ä»£è¡¨ï¼‰
+(2) Inprise Borland C++Builder 4.0  ï¼ˆä»¥ä¸‹ä»¥ BCB4 ä»£è¡¨ï¼‰
+(3) GNU C++ egcs-2.91.57ï¼ˆä»¥ä¸‹ä»¥ G++ ä»£è¡¨ï¼‰
 
-½Ğª`·N¡AGNU C++ ¦³µÛ¦UºØ§@·~¥­¥x¤Wªº¦UºØª©¥»¡C§Ú¥u¥Î¤â¤Wªº
-egcs-2.91.57(for win32) ¨Ó´ú¸Õ¡C
+è«‹æ³¨æ„ï¼ŒGNU C++ æœ‰è‘—å„ç¨®ä½œæ¥­å¹³å°ä¸Šçš„å„ç¨®ç‰ˆæœ¬ã€‚æˆ‘åªç”¨æ‰‹ä¸Šçš„
+egcs-2.91.57(for win32) ä¾†æ¸¬è©¦ã€‚
 
-§Ú¦b Windows 98 ¤å¦r¼Ò¦¡¡]console mode¡^©³¤U¶i¦æ½sÄ¶¡C¥H¤U¬O
-¤TºØ½sÄ¶¾¹ªºÀô¹Ò³]©w¡]¨ä¤¤¸ô®|¥i¯à»P§A¤£¦P¡C¦p±ı´`¦¹¤è¦¡³]©w¡A
-½Ğ¦Û¦æ­×§ï¡^¡G
+æˆ‘åœ¨ Windows 98 æ–‡å­—æ¨¡å¼ï¼ˆconsole modeï¼‰åº•ä¸‹é€²è¡Œç·¨è­¯ã€‚ä»¥ä¸‹æ˜¯
+ä¸‰ç¨®ç·¨è­¯å™¨çš„ç’°å¢ƒè¨­å®šï¼ˆå…¶ä¸­è·¯å¾‘å¯èƒ½èˆ‡ä½ ä¸åŒã€‚å¦‚æ¬²å¾ªæ­¤æ–¹å¼è¨­å®šï¼Œ
+è«‹è‡ªè¡Œä¿®æ”¹ï¼‰ï¼š
 
-¡¹VC6 Àô¹Ò³]©w
+â˜…VC6 ç’°å¢ƒè¨­å®š
 @echo off
 rem
 set PATH=C:\MSDEV\VC98\BIN;C:\MSDEV\COMMON\MSDEV98\BIN
 set INCLUDE=C:\MSDEV\VC98\INCLUDE
 set LIB=C:\MSDEV\VC98\LIB
 
-¡¹BCB4 Àô¹Ò³]©w
+â˜…BCB4 ç’°å¢ƒè¨­å®š
 @echo off
 rem
 set PATH=C:\inprise\CBuilder4\BIN
 set INCLUDE=C:\inprise\CBuilder4\INCLUDE
 set LIB=C:\inprise\CBuilder4\LIB
 
-¡¹G++ egcs-2.91.57 Àô¹Ò³]©w
+â˜…G++ egcs-2.91.57 ç’°å¢ƒè¨­å®š
 @echo off
 rem
 set PATH=c:\CYGNUS\CYGWIN~1\H-I586~1\BIN
@@ -92,35 +92,35 @@ set INCLUDE=
 set LIB=
 cls
 
-§Úªº½sÄ¶¿ï¶µ¡]compile options¡^·¥¨äÂ²³æ¡A
+æˆ‘çš„ç·¨è­¯é¸é …ï¼ˆcompile optionsï¼‰æ¥µå…¶ç°¡å–®ï¼Œ
 
-¡¹VC6  : cl -GX test.cpp
-¡¹BCB4 : bcc32 test.cpp
-¡¹G++  : g++ -o test.exe test.cpp
-
-
-¡´µoªí
-
-§Ú§â³o¥÷¤º®e©ñ¦b BBS/News ¤W¡AÅwªï¶Ç§G¡AµL»İ¯S§Oª¾·|¡C
-
-Åwªï¥H¤Uªº°Q½×»P«ü¥¿¡G
-
-1. ¦pªG¥[¤W¥ô¦ó½sÄ¶¿ï¶µ¡]compile options¡^§Y¥i¸Ñ¨M¡]Á×§K¡^
-   ©Ò¦C¤§¥ô¦ó¤@­Ó¿ù»~ªº¸Ü¡AÅwªï¡]·q½Ğ¡^§iª¾¡C
-2. ¦pªG§Úªº¤å¦r©Îµ{¦¡½X¦³¥ô¦ó°İÃD¡AÅwªï¡]·q½Ğ¡^§iª¾¡C
-3. ¦pªG±z¦³¨ä¥L¡]¥¼¦C©ó¥»¤å¡^ªº½sÄ¶¾¹°İÃD¡AÅwªï¡]·q½Ğ¡^§iª¾¡C
-
-Åwªï©ó BBS/News ¤W°Q½×¡C¦p¯à¦P®ÉÂà±H¤@¥÷µ¹§Ú¡A¥H§K°£§Ú
-¿òº|Æ[¬İªº¥i¯à¡A³Ì¬O·PÁÂ¡C¦p¤£±ı¤½¶}°Q½×¡A¥çÅwªï±N·N¨£
-ª½±µ email µ¹§Ú¡C¦p±ı°Q½×¡A½Ğ¼g¹ê¨Ò¡A¤£­n¥u¬OÁr´ú¡C
-
-§Ú·|µù©ú¹ï¥»¤å¦³§U¤§ªB¤Íªº¤j¦W¤Î¨ä·N¨£¡A¥H¥Ü·PÁÂ¡C
+â˜…VC6  : cl -GX test.cpp
+â˜…BCB4 : bcc32 test.cpp
+â˜…G++  : g++ -o test.exe test.cpp
 
 
-¡½C++ Primer p213 ¤U, p.393 ¤U
-¥DÃD¡Gfor loop ªº init-statement °Ï°ì¤º¡A©Ò¦³ objects ¬Ò¬° local¡C
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[o]  G++[o]
-¹ê¨Ò¡G
+â—ç™¼è¡¨
+
+æˆ‘æŠŠé€™ä»½å…§å®¹æ”¾åœ¨ BBS/News ä¸Šï¼Œæ­¡è¿å‚³ä½ˆï¼Œç„¡éœ€ç‰¹åˆ¥çŸ¥æœƒã€‚
+
+æ­¡è¿ä»¥ä¸‹çš„è¨è«–èˆ‡æŒ‡æ­£ï¼š
+
+1. å¦‚æœåŠ ä¸Šä»»ä½•ç·¨è­¯é¸é …ï¼ˆcompile optionsï¼‰å³å¯è§£æ±ºï¼ˆé¿å…ï¼‰
+   æ‰€åˆ—ä¹‹ä»»ä½•ä¸€å€‹éŒ¯èª¤çš„è©±ï¼Œæ­¡è¿ï¼ˆæ•¬è«‹ï¼‰å‘ŠçŸ¥ã€‚
+2. å¦‚æœæˆ‘çš„æ–‡å­—æˆ–ç¨‹å¼ç¢¼æœ‰ä»»ä½•å•é¡Œï¼Œæ­¡è¿ï¼ˆæ•¬è«‹ï¼‰å‘ŠçŸ¥ã€‚
+3. å¦‚æœæ‚¨æœ‰å…¶ä»–ï¼ˆæœªåˆ—æ–¼æœ¬æ–‡ï¼‰çš„ç·¨è­¯å™¨å•é¡Œï¼Œæ­¡è¿ï¼ˆæ•¬è«‹ï¼‰å‘ŠçŸ¥ã€‚
+
+æ­¡è¿æ–¼ BBS/News ä¸Šè¨è«–ã€‚å¦‚èƒ½åŒæ™‚è½‰å¯„ä¸€ä»½çµ¦æˆ‘ï¼Œä»¥å…é™¤æˆ‘
+éºæ¼è§€çœ‹çš„å¯èƒ½ï¼Œæœ€æ˜¯æ„Ÿè¬ã€‚å¦‚ä¸æ¬²å…¬é–‹è¨è«–ï¼Œäº¦æ­¡è¿å°‡æ„è¦‹
+ç›´æ¥ email çµ¦æˆ‘ã€‚å¦‚æ¬²è¨è«–ï¼Œè«‹å¯«å¯¦ä¾‹ï¼Œä¸è¦åªæ˜¯è‡†æ¸¬ã€‚
+
+æˆ‘æœƒè¨»æ˜å°æœ¬æ–‡æœ‰åŠ©ä¹‹æœ‹å‹çš„å¤§ååŠå…¶æ„è¦‹ï¼Œä»¥ç¤ºæ„Ÿè¬ã€‚
+
+
+â– C++ Primer p213 ä¸‹, p.393 ä¸‹
+ä¸»é¡Œï¼šfor loop çš„ init-statement å€åŸŸå…§ï¼Œæ‰€æœ‰ objects çš†ç‚º localã€‚
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[o]  G++[o]
+å¯¦ä¾‹ï¼š
 
 #001 void main()
 #002 {
@@ -128,19 +128,19 @@ cls
 #004 for (int ival=0; ival< 10; ++ival);
 #005 }
 
-ª`·N¡GC/C++ User Journal, Oct.1999, p.94 ´¿´£¹L¦b VC ¤Wªº¤@­ÓÂ²©ö
-°{Á×¿ìªk¡A³o¨Ã¥B¤]¬O©ú¸ü©ó MSDN News¡]Vol7, Num6, Dr. GUI column¡^
-¤Wªº§@ªk¡C³]­p¤@­Ó¥¨¶°¦p¤U§Y¥i¸Ñ¨M¡G
+æ³¨æ„ï¼šC/C++ User Journal, Oct.1999, p.94 æ›¾æéåœ¨ VC ä¸Šçš„ä¸€å€‹ç°¡æ˜“
+é–ƒé¿è¾¦æ³•ï¼Œé€™ä¸¦ä¸”ä¹Ÿæ˜¯æ˜è¼‰æ–¼ MSDN Newsï¼ˆVol7, Num6, Dr. GUI columnï¼‰
+ä¸Šçš„ä½œæ³•ã€‚è¨­è¨ˆä¸€å€‹å·¨é›†å¦‚ä¸‹å³å¯è§£æ±ºï¼š
 
 #define for   if(0); else for
 
-¸Ó¤å¨Ã»¡¡A¦bÂ²³æ±¡ªp¤U¥i¥H¦³®Ä¹B§@¡A¦ı¨Ã¥¼´ú¸Õ¤Ó¹L½ÆÂøªº±¡ªp¡C
+è©²æ–‡ä¸¦èªªï¼Œåœ¨ç°¡å–®æƒ…æ³ä¸‹å¯ä»¥æœ‰æ•ˆé‹ä½œï¼Œä½†ä¸¦æœªæ¸¬è©¦å¤ªéè¤‡é›œçš„æƒ…æ³ã€‚
 
 
-¡½C++ Primer p262 ¤¤
-¥DÃD¡GSTL list «Øºc®É¡Aª½±µµ¹ list ªº¤j¤p¤Îªì­È¡]°µ¬°©Ò¦³¤¸¯Àªº¬Û¦Pªì­È¡^
-´ú¸Õµ²ªG¡GVC6[o]  BCB4[x]  G++[o]
-¹ê¨Ò¡G
+â– C++ Primer p262 ä¸­
+ä¸»é¡Œï¼šSTL list å»ºæ§‹æ™‚ï¼Œç›´æ¥çµ¦ list çš„å¤§å°åŠåˆå€¼ï¼ˆåšç‚ºæ‰€æœ‰å…ƒç´ çš„ç›¸åŒåˆå€¼ï¼‰
+æ¸¬è©¦çµæœï¼šVC6[o]  BCB4[x]  G++[o]
+å¯¦ä¾‹ï¼š
 
 #001 #include <list>
 #002 ...
@@ -152,20 +152,20 @@ cls
 #008 list<int> ilist5(list_size, 1);   // BCB4 error   VC6 ok. G++ ok
 #009 list<int> ilist6(list_size, -6);  // BCB4 ok.     VC6 ok. G++ ok
 
-Âk¯Ç¡G¬İ¨Ó¦ü¥G BCB4 ¤£¤¹³\Åı list<int> ¥uÀò±o¤@­Ó¤Ş¼Æ¡A¤]¤£¤¹³\
-list<int> Àò±o¥¿­Èªì­È¡C«Ü©_©Çªº¦æ¬°¡C§Ú²¨©¿¤F¤°»ò¶Ü¡H
+æ­¸ç´ï¼šçœ‹ä¾†ä¼¼ä¹ BCB4 ä¸å…è¨±è®“ list<int> åªç²å¾—ä¸€å€‹å¼•æ•¸ï¼Œä¹Ÿä¸å…è¨±
+list<int> ç²å¾—æ­£å€¼åˆå€¼ã€‚å¾ˆå¥‡æ€ªçš„è¡Œç‚ºã€‚æˆ‘ç–å¿½äº†ä»€éº¼å—ï¼Ÿ
 
-2001/08/22 ¸É¥R¡G
-BCB5[o]. ÁÂÁÂ Lianchao Xu
-
-
+2001/08/22 è£œå……ï¼š
+BCB5[o]. è¬è¬ Lianchao Xu
 
 
-¡½C++ Primer p383 ¤W
-¥DÃD¡G³z¹L«ü¦V¡u¨ç¦¡«ü¼Ğ°}¦C¡vªº«ü¼Ğ¡A³ê°_¸Ó°}¦C¤¤ªº¨ç¦¡«ü¼Ğ¡A
-      ¨ä«¬¦¡¦³Â²²¤¦¡©M©úÅã¦¡¨âºØ¡C
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[x]  G++[x]  ¡]³£¤£¤ä´©Â²²¤«¬¦¡¡^
-¹ê¨Ò¡G
+
+
+â– C++ Primer p383 ä¸Š
+ä¸»é¡Œï¼šé€éæŒ‡å‘ã€Œå‡½å¼æŒ‡æ¨™é™£åˆ—ã€çš„æŒ‡æ¨™ï¼Œå–šèµ·è©²é™£åˆ—ä¸­çš„å‡½å¼æŒ‡æ¨™ï¼Œ
+      å…¶å‹å¼æœ‰ç°¡ç•¥å¼å’Œæ˜é¡¯å¼å…©ç¨®ã€‚
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[x]  G++[x]  ï¼ˆéƒ½ä¸æ”¯æ´ç°¡ç•¥å‹å¼ï¼‰
+å¯¦ä¾‹ï¼š
 
 #001 #include <iostream.h>
 #002
@@ -181,33 +181,33 @@ BCB5[o]. ÁÂÁÂ Lianchao Xu
 #012   cout << fFuncs[0]() << endl;  // 1
 #013   cout << fFuncs[1]() << endl;  // 2
 #014
-#015   cout << pfFuncs[0]() << endl;  // Â²²¤¦¡¡AVC6[x]  BCB4[x]  G++[x]
-#016   cout << ((*pfFuncs)[1])() << endl;  // 2 ¡]©úÅã¦¡¡^
+#015   cout << pfFuncs[0]() << endl;  // ç°¡ç•¥å¼ï¼ŒVC6[x]  BCB4[x]  G++[x]
+#016   cout << ((*pfFuncs)[1])() << endl;  // 2 ï¼ˆæ˜é¡¯å¼ï¼‰
 #017 }
 
-2001/08/22 ¸É¥R¡G
-Lianchao Xu «ØÄ³§Ú§â¡G
+2001/08/22 è£œå……ï¼š
+Lianchao Xu å»ºè­°æˆ‘æŠŠï¼š
 #008 PFV (*pfFuncs)[2] = &fFuncs;
-§ï¬°¡G
+æ”¹ç‚ºï¼š
 #008 PFV *pfFuncs = fFuncs;
 
-¦A§â¡G
-#015   cout << pfFuncs[0]() << endl;  // Â²²¤¦¡¡AVC6[x]  BCB4[x]  G++[x]
-#016   cout << ((*pfFuncs)[1])() << endl;  // 2 ¡]©úÅã¦¡¡^
-§ï¬°¡G
+å†æŠŠï¼š
+#015   cout << pfFuncs[0]() << endl;  // ç°¡ç•¥å¼ï¼ŒVC6[x]  BCB4[x]  G++[x]
+#016   cout << ((*pfFuncs)[1])() << endl;  // 2 ï¼ˆæ˜é¡¯å¼ï¼‰
+æ”¹ç‚ºï¼š
 #015   cout << (*pfFuncs[0])() << endl;  // 1
 #016   cout << (*pfFuncs[1])() << endl;  // 2
 
-´ú¸Õµ²ªG¡GVC6[o]  BCB4[o]  G++[o]
-ÁÂÁÂ¡C¤£¹L³o¨Ã¤£¬O§Úªº´ú¸Õªì°J¡C
+æ¸¬è©¦çµæœï¼šVC6[o]  BCB4[o]  G++[o]
+è¬è¬ã€‚ä¸éé€™ä¸¦ä¸æ˜¯æˆ‘çš„æ¸¬è©¦åˆè¡·ã€‚
 
 
 
 
-¡½C++ Primer p410 ¤W
-¥DÃD¡G¦U½sÄ¶¾¹¹ï auto_ptr ªº¤ä´©
-´ú¸Õµ²ªG¡GVC6[o]  BCB4[o]  G++[x]
-¹ê¨Ò¡G
+â– C++ Primer p410 ä¸Š
+ä¸»é¡Œï¼šå„ç·¨è­¯å™¨å° auto_ptr çš„æ”¯æ´
+æ¸¬è©¦çµæœï¼šVC6[o]  BCB4[o]  G++[x]
+å¯¦ä¾‹ï¼š
 
 #001 #include <memory>  // for auto_ptr
 #002 using namespace std;
@@ -216,14 +216,14 @@ Lianchao Xu «ØÄ³§Ú§â¡G
 #005    auto_ptr<int> pi(new int(1024));  // G++ error: auto_ptr undeclared.
 #006 }
 
-ÅªªÌ¨Ó¨ç¡G§Ú´ú¸Õµo²{ vc6 ªº¡u»y·N¡v¬O¿ùªº¡A¥¦«ü¬£µ¹¥t¤@­Ó¡A·|³y¦¨
-          ¨â­Ó auto_ptr ³£«ü¦V¦P¤@­Óª«¥ó¡CBCB5 ªºµ²ªG´N¥¿½T¡C
+è®€è€…ä¾†å‡½ï¼šæˆ‘æ¸¬è©¦ç™¼ç¾ vc6 çš„ã€Œèªæ„ã€æ˜¯éŒ¯çš„ï¼Œå®ƒæŒ‡æ´¾çµ¦å¦ä¸€å€‹ï¼Œæœƒé€ æˆ
+          å…©å€‹ auto_ptr éƒ½æŒ‡å‘åŒä¸€å€‹ç‰©ä»¶ã€‚BCB5 çš„çµæœå°±æ­£ç¢ºã€‚
 
 
-¡½C++ Primer p411
-¥DÃD¡Gstring* ªº«Øºc¡]ª½±µ«ü©w¥H¥t¤@­Ó string*¡^
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[o]  G++[o]
-¹ê¨Ò¡G
+â– C++ Primer p411
+ä¸»é¡Œï¼šstring* çš„å»ºæ§‹ï¼ˆç›´æ¥æŒ‡å®šä»¥å¦ä¸€å€‹ string*ï¼‰
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[o]  G++[o]
+å¯¦ä¾‹ï¼š
 
 #001 #include <string>
 #002 using namespace std;
@@ -236,28 +236,28 @@ Lianchao Xu «ØÄ³§Ú§â¡G
 #009 }
 
 
-¡½p.412 ¤¤¤U
-¥DÃD¡Gauto_ptr ªº reset() °Ê§@
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[o]  G++[x]
-¹ê¨Ò¡G
+â– p.412 ä¸­ä¸‹
+ä¸»é¡Œï¼šauto_ptr çš„ reset() å‹•ä½œ
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[o]  G++[x]
+å¯¦ä¾‹ï¼š
 
 #001 #include <memory>  // for auto_ptr
 #002 using namespace std;
 #003 int main()
 #004 {
-#005   auto_ptr<int> p_auto_int;         // <== G++ error. ¨£«e­z p.410 ¨Ò
+#005   auto_ptr<int> p_auto_int;         // <== G++ error. è¦‹å‰è¿° p.410 ä¾‹
 #006   p_auto_int.reset(new int(1024));  // <== VC6 and G++ error
 #007 }
 
 
-¡½C++ Primer p461
-¥DÃD¡Glvalue-to-rvalue Âà´«¡Arvalue-to-lvalue Âà´«¡C
-°Q½×¡Glvalue-to-rvalue Äİ©ó§¹¥ş§k¦X¡]exact match¡^Âà´«ªº¤@ºØ¡C
-      ¦ı¬O rvalue-to-lvalue ©O¡H¨Ò¦p¥H¤@­Ó literal constant ©Î
-      temporary object «ü¬£µ¹¤@­Ó reference¡HÀ³¸Ó¤£¦æ¡A°£«D¬O
-      «ü¬£µ¹¤@­Ó const reference¡C
-´ú¸Õµ²ªG¡G§Úªº¸gÅç¬O¡A¦U½sÄ¶¾¹¹ï¦¹¤@¥DÃD¼eºò¤£¤@¡A¥BµL©wªk¡]¦Ü¤Ö§ÚÂk¯Ç¤£¥X¡^
-¨Ò¤@¡G
+â– C++ Primer p461
+ä¸»é¡Œï¼šlvalue-to-rvalue è½‰æ›ï¼Œrvalue-to-lvalue è½‰æ›ã€‚
+è¨è«–ï¼šlvalue-to-rvalue å±¬æ–¼å®Œå…¨å»åˆï¼ˆexact matchï¼‰è½‰æ›çš„ä¸€ç¨®ã€‚
+      ä½†æ˜¯ rvalue-to-lvalue å‘¢ï¼Ÿä¾‹å¦‚ä»¥ä¸€å€‹ literal constant æˆ–
+      temporary object æŒ‡æ´¾çµ¦ä¸€å€‹ referenceï¼Ÿæ‡‰è©²ä¸è¡Œï¼Œé™¤éæ˜¯
+      æŒ‡æ´¾çµ¦ä¸€å€‹ const referenceã€‚
+æ¸¬è©¦çµæœï¼šæˆ‘çš„ç¶“é©—æ˜¯ï¼Œå„ç·¨è­¯å™¨å°æ­¤ä¸€ä¸»é¡Œå¯¬ç·Šä¸ä¸€ï¼Œä¸”ç„¡å®šæ³•ï¼ˆè‡³å°‘æˆ‘æ­¸ç´ä¸å‡ºï¼‰
+ä¾‹ä¸€ï¼š
 
 #001 int main()
 #002 {
@@ -273,8 +273,8 @@ Lianchao Xu «ØÄ³§Ú§â¡G
 #012
 #013 // G++ : (1),(3) warning: initialization of non-const reference `int &'
 #014 //                        from rvalue `int'
-#015 // jjhou ¨Ï¥Î G++ 2.91.57¡C
-#016 // ¾Ú jyhuang »¡¡AG++ 2.92.2 ¨Ã¤£¤¹³\³q¹L (1),(3)¡C
+#015 // jjhou ä½¿ç”¨ G++ 2.91.57ã€‚
+#016 // æ“š jyhuang èªªï¼ŒG++ 2.92.2 ä¸¦ä¸å…è¨±é€šé (1),(3)ã€‚
 #017 //
 #018 // VC6 : (1),(3) error: 'initializing' : cannot convert from 'const int'
 #019 //                      to 'int &'. A reference that is not to 'const'
@@ -283,7 +283,7 @@ Lianchao Xu «ØÄ³§Ú§â¡G
 #022 // BCB4: (1),(2),(3),(4) warning: Temporary used to initialize 'i'
 #023 //                                in function main ()
 
-¨Ò¤G¡G
+ä¾‹äºŒï¼š
 
 #001 void func1(int  i) { };           // pass by value
 #002 void func2(int& i) { };           // pass by reference
@@ -332,15 +332,15 @@ Lianchao Xu «ØÄ³§Ú§â¡G
 #045 (3) : warning: in passing argument 1 of `func2(int &)'
 #046 */
 
-¨Ò¤T¡G¸Ô¨£¡uC++ Primer µª«È°İ (19) part-3¡v
+ä¾‹ä¸‰ï¼šè©³è¦‹ã€ŒC++ Primer ç­”å®¢å• (19) part-3ã€
 
 
-¡½p.492, p.499, p.500
-¥DÃD¡G¥H template nontype parameter °µ¬°°}¦C¤Ø«×¡]dimension¡^
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[o]  G++[o]
-ª`·N¡GG++ ¹ï©ó«¬§Oªº const-ness ÀËÅç·¥ÄY®æ¡C¥H¤U (1) ¥²¶·§ï¬°
-      const int ia[5] =...; ¤~¯à³q¹L G++¡C
-¹ê¨Ò¡G
+â– p.492, p.499, p.500
+ä¸»é¡Œï¼šä»¥ template nontype parameter åšç‚ºé™£åˆ—å°ºåº¦ï¼ˆdimensionï¼‰
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[o]  G++[o]
+æ³¨æ„ï¼šG++ å°æ–¼å‹åˆ¥çš„ const-ness æª¢é©—æ¥µåš´æ ¼ã€‚ä»¥ä¸‹ (1) å¿…é ˆæ”¹ç‚º
+      const int ia[5] =...; æ‰èƒ½é€šé G++ã€‚
+å¯¦ä¾‹ï¼š
 
 #001 template <class Type, int size>
 #002 Type min( const Type (&r_array)[size] ) // VC6 error C2057:
@@ -348,53 +348,53 @@ Lianchao Xu «ØÄ³§Ú§â¡G
 #004
 #005 void main()
 #006 {
-#007   int ia[5]={40,20,49,17,28}; // (1) ª`·N¡AG++ ­n¨D»İ¬° const int ia[5]¡C
+#007   int ia[5]={40,20,49,17,28}; // (1) æ³¨æ„ï¼ŒG++ è¦æ±‚éœ€ç‚º const int ia[5]ã€‚
 #008   min(ia);
 #009 }
 
 
-¡½C++ Primer p500 ¤¤¤W
-¥DÃD¡G§Q¥ÎÂà«¬¹Bºâ¤l¡A±N template function ¦b¼Ò¸W¨â¥i¡]ambiguous¡^ªºÀô¹Ò¤U
-      ¥H¬Y¯S©w«¬§O¨ã²{¤Æ¡]instantiated¡^¡C
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[x]  G++[x]
-¹ê¨Ò¡G
+â– C++ Primer p500 ä¸­ä¸Š
+ä¸»é¡Œï¼šåˆ©ç”¨è½‰å‹é‹ç®—å­ï¼Œå°‡ template function åœ¨æ¨¡ç¨œå…©å¯ï¼ˆambiguousï¼‰çš„ç’°å¢ƒä¸‹
+      ä»¥æŸç‰¹å®šå‹åˆ¥å…·ç¾åŒ–ï¼ˆinstantiatedï¼‰ã€‚
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[x]  G++[x]
+å¯¦ä¾‹ï¼š
 
 #001 template <typename Type, int size>
 #002 Type min( Type (&r_array)[size] ) { /*... */ }  // VC6 error C2057
 #003
-#004 typedef int (&rai)[10];    // rai¡G"10 ­Ó ints ²Õ¦¨¤§°}¦C" ªº reference.
-#005 typedef double (&rad)[20]; // rad¡G"20 ­Ó doubles ²Õ¦¨¤§°}¦C" ªº reference
+#004 typedef int (&rai)[10];    // raiï¼š"10 å€‹ ints çµ„æˆä¹‹é™£åˆ—" çš„ reference.
+#005 typedef double (&rad)[20]; // radï¼š"20 å€‹ doubles çµ„æˆä¹‹é™£åˆ—" çš„ reference
 #006
 #007 // overloaded functions
-#008 void func( int (*)(rai) ) { };    // int(*)(rai) ¬O¨ç¦¡«ü¼Ğ«¬§O¡A
-#009                                   // ¸Ó¨ç¦¡ªº°Ñ¼Æ«¬§O¬O rai¡C
-#010 void func( double (*)(rad) ) { }; // double(*)(rad) ¬O¨ç¦¡«ü¼Ğ«¬§O¡A
-#011                                   // ¸Ó¨ç¦¡ªº°Ñ¼Æ«¬§O¬O rad¡C
+#008 void func( int (*)(rai) ) { };    // int(*)(rai) æ˜¯å‡½å¼æŒ‡æ¨™å‹åˆ¥ï¼Œ
+#009                                   // è©²å‡½å¼çš„åƒæ•¸å‹åˆ¥æ˜¯ raiã€‚
+#010 void func( double (*)(rad) ) { }; // double(*)(rad) æ˜¯å‡½å¼æŒ‡æ¨™å‹åˆ¥ï¼Œ
+#011                                   // è©²å‡½å¼çš„åƒæ•¸å‹åˆ¥æ˜¯ radã€‚
 #012
 #013 void main()
 #014 {
-#015    func(static_cast<double(*)(rad)>(&min));  // (1) ¦¹¦æµLªk½sÄ¶
+#015    func(static_cast<double(*)(rad)>(&min));  // (1) æ­¤è¡Œç„¡æ³•ç·¨è­¯
 #016    // BCB4 E2335: Overloaded 'min' ambiguous in this context
 #017    // G++: undefined reference to `func(double (*)(double (&)[19]))'
 #018 }
 
-¸Ñ¨M¤§¹D¡GÂ¶­Ó¹D¡A´N¥i¥H¡C±N¤W­z (1)¡G
+è§£æ±ºä¹‹é“ï¼šç¹å€‹é“ï¼Œå°±å¯ä»¥ã€‚å°‡ä¸Šè¿° (1)ï¼š
 
 func(static_cast<double(*)(rad)>(&min));
 
-§ï¬°¥H¤U§Y¥i¡G
+æ”¹ç‚ºä»¥ä¸‹å³å¯ï¼š
 
 double(*fp)(rad) = &min; // instantiate 'min', using specified type.
 func(fp);
 
 
-¡½C++ Primer p503
-¥DÃD¡G¦pªG template function ªº¨ç¦¡°Ñ¼Æ«¬§O¬O¤@­Ó class template¡A
-      ¦Ó¹ê»Ú¤Ş¼Æ¬O¤@­Ó class¡A¦¹ class ¦³­Ó base class¡A«Y±q¡u³Q«ü©w
-      °µ¬°¨ç¦¡°Ñ¼Æ¡v¤§ class template ¨­¤W¨ã²{¥X¨Ó¡A¨º»ò template ªº
-      ¤Ş¼Æ±À¾É¥i¥H¶¶§Q¶i¦æ¡C
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[x]  G++[x]
-¹ê¨Ò¡G
+â– C++ Primer p503
+ä¸»é¡Œï¼šå¦‚æœ template function çš„å‡½å¼åƒæ•¸å‹åˆ¥æ˜¯ä¸€å€‹ class templateï¼Œ
+      è€Œå¯¦éš›å¼•æ•¸æ˜¯ä¸€å€‹ classï¼Œæ­¤ class æœ‰å€‹ base classï¼Œä¿‚å¾ã€Œè¢«æŒ‡å®š
+      åšç‚ºå‡½å¼åƒæ•¸ã€ä¹‹ class template èº«ä¸Šå…·ç¾å‡ºä¾†ï¼Œé‚£éº¼ template çš„
+      å¼•æ•¸æ¨å°å¯ä»¥é †åˆ©é€²è¡Œã€‚
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[x]  G++[x]
+å¯¦ä¾‹ï¼š
 
 #001 template <class T>
 #002 class Array {  };
@@ -409,19 +409,19 @@ func(fp);
 #011 {
 #012   ArrayRC<int> ia_rc();
 #013
-#014   // min4() ªº¨ç¦¡¤Ş¼Æ«¬§O¬O ArraryRC<int>¡A¨ä base class ¬° Array<int>¡A
-#015   // ¥¿¬O function template min4() ªº¨ç¦¡°Ñ¼Æ«¬§O Array<T> ªº
-#016   // ¤@­Ó¨ã²{Åé¡]instantiation¡^¡A©Ò¥H min4() À³¸Ó¥i¥H±µ¨ü¥¦¡]®Ñ¤W»¡¥i¥H¡^
+#014   // min4() çš„å‡½å¼å¼•æ•¸å‹åˆ¥æ˜¯ ArraryRC<int>ï¼Œå…¶ base class ç‚º Array<int>ï¼Œ
+#015   // æ­£æ˜¯ function template min4() çš„å‡½å¼åƒæ•¸å‹åˆ¥ Array<T> çš„
+#016   // ä¸€å€‹å…·ç¾é«”ï¼ˆinstantiationï¼‰ï¼Œæ‰€ä»¥ min4() æ‡‰è©²å¯ä»¥æ¥å—å®ƒï¼ˆæ›¸ä¸Šèªªå¯ä»¥ï¼‰
 #017   min4(ia_rc);   // error in VC6, BCB4, G++2.51.97
 #018 }
 
-µù¡G2003/01/04 ÅªªÌ¨Ó¨ç¡A«ü¥X±N #012 §ï¬° ArrayRC<int> ia_rc; §Y¥i¡C
-¸g´ú¸Õ¡A¥¿½T¡C·PÁÂ royal¡C
+è¨»ï¼š2003/01/04 è®€è€…ä¾†å‡½ï¼ŒæŒ‡å‡ºå°‡ #012 æ”¹ç‚º ArrayRC<int> ia_rc; å³å¯ã€‚
+ç¶“æ¸¬è©¦ï¼Œæ­£ç¢ºã€‚æ„Ÿè¬ royalã€‚
 
-¡½C++ Primer p507
-¥DÃD¡G©ú¥Õ«ü©w function template ªº³¡¥÷¤Ş¼Æªº«¬§O¡A¥t¤@³¡¥÷¥Ñ½sÄ¶¾¹±À¾É¦Ó±o¡C
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[x]  G++[o]
-¹ê¨Ò¡G
+â– C++ Primer p507
+ä¸»é¡Œï¼šæ˜ç™½æŒ‡å®š function template çš„éƒ¨ä»½å¼•æ•¸çš„å‹åˆ¥ï¼Œå¦ä¸€éƒ¨ä»½ç”±ç·¨è­¯å™¨æ¨å°è€Œå¾—ã€‚
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[x]  G++[o]
+å¯¦ä¾‹ï¼š
 
 #001 template <class T1, class T2, class T3>
 #002    T1 sum( T2 v2, T3 v3)
@@ -431,8 +431,8 @@ func(fp);
 #006
 #007 ui_type calc( char ch, ui_type ui )
 #008 {
-#009    // ¥H¤U©ú¥Õ«ü©w T1 ¬° ui_type¡A
-#010    // T2 ³Q½sÄ¶¾¹±À¾É¬° char¡AT3 ³Q±À¾É¬° ui_type¡C
+#009    // ä»¥ä¸‹æ˜ç™½æŒ‡å®š T1 ç‚º ui_typeï¼Œ
+#010    // T2 è¢«ç·¨è­¯å™¨æ¨å°ç‚º charï¼ŒT3 è¢«æ¨å°ç‚º ui_typeã€‚
 #011    ui_type (*pf)( char, ui_type ) = &sum< ui_type >;
 #012
 #013    ui_type loc = (*pf)(ch, ui);
@@ -445,10 +445,10 @@ func(fp);
 #020 }
 
 
-¡½C++ Primer p508
-¥DÃD¡G©ú¥Õ«ü©w function template ¤Ş¼Æ«¬§O
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[x]  G++[o]
-¹ê¨Ò¡G
+â– C++ Primer p508
+ä¸»é¡Œï¼šæ˜ç™½æŒ‡å®š function template å¼•æ•¸å‹åˆ¥
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[x]  G++[o]
+å¯¦ä¾‹ï¼š
 
 #001 template <class T1, class T2, class T3>
 #002    T1 sum( T2 op1, T3 op2 ) { /* ... */ return T1(10); }
@@ -462,31 +462,31 @@ func(fp);
 #010 }
 
 
-¡½C++ Primer p511
-¥DÃD¡Gseparate compilation model for function template
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[x]  G++[x]
-          VC6  ¤£¤ä´© export template
-          BCB4 ¤ä´©ÃöÁä¦r export¡A¦ı linking ®É§ä¤£¨ì
-                temlate instantiation ¦b­ş¸Ì¡]unresolved external...¡^
-          G++  ¤£¤ä´© export template
+â– C++ Primer p511
+ä¸»é¡Œï¼šseparate compilation model for function template
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[x]  G++[x]
+          VC6  ä¸æ”¯æ´ export template
+          BCB4 æ”¯æ´é—œéµå­— exportï¼Œä½† linking æ™‚æ‰¾ä¸åˆ°
+                temlate instantiation åœ¨å“ªè£¡ï¼ˆunresolved external...ï¼‰
+          G++  ä¸æ”¯æ´ export template
 
 
-¡½C++ Primer p514
-¥DÃD¡Gfuntion template explicit specialization
-ª`·N¡G®Ñ¤¤¥H max ¬°¦Û©w¤§ function template ªº¦WºÙ¡CµM¦Ó¦³¨Ç½sÄ¶¾¹¤w¤ºªş
-      max ¨ç¦¡¡]¦³ªº¬OÄİ©ó runtime function¡A¦³ªº¬OÄİ©ó generic algorithms¡^¡A
-      ¤Á²ö¥H¬°¨S¦³§t¤J¬ÛÀ³ªº header file¡A´N¤£·|³ê°_½sÄ¶¾¹¤ºªşªºªF¦è¡A
-      ¦]¬°¦³ªº header files ·|¦A§t¤J¨ä¥L header files¡A¨º¬Oªí­±¬İ¤£¥X¨Óªº¡C
-      ©Ò¥H¡A¦Û¤vªº½X¤d¸U¤£­n©R¦W¬° max/min¡A¤~¤£·|²V²c¦Û¤v¡C
-´ú¸Õµ²ªG¡GVC6, BCB4, G++ ³£¤ä´© funtion template explicit specialization¡C
-      µM¦Ó¦b char*, const char*, const char[], text literal ¤§¶¡¡A
-      ¬Û·í²V²c¦Ó¥O¤H°g¶Ã¡C
+â– C++ Primer p514
+ä¸»é¡Œï¼šfuntion template explicit specialization
+æ³¨æ„ï¼šæ›¸ä¸­ä»¥ max ç‚ºè‡ªå®šä¹‹ function template çš„åç¨±ã€‚ç„¶è€Œæœ‰äº›ç·¨è­¯å™¨å·²å…§é™„
+      max å‡½å¼ï¼ˆæœ‰çš„æ˜¯å±¬æ–¼ runtime functionï¼Œæœ‰çš„æ˜¯å±¬æ–¼ generic algorithmsï¼‰ï¼Œ
+      åˆ‡è«ä»¥ç‚ºæ²’æœ‰å«å…¥ç›¸æ‡‰çš„ header fileï¼Œå°±ä¸æœƒå–šèµ·ç·¨è­¯å™¨å…§é™„çš„æ±è¥¿ï¼Œ
+      å› ç‚ºæœ‰çš„ header files æœƒå†å«å…¥å…¶ä»– header filesï¼Œé‚£æ˜¯è¡¨é¢çœ‹ä¸å‡ºä¾†çš„ã€‚
+      æ‰€ä»¥ï¼Œè‡ªå·±çš„ç¢¼åƒè¬ä¸è¦å‘½åç‚º max/minï¼Œæ‰ä¸æœƒæ··æ·†è‡ªå·±ã€‚
+æ¸¬è©¦çµæœï¼šVC6, BCB4, G++ éƒ½æ”¯æ´ funtion template explicit specializationã€‚
+      ç„¶è€Œåœ¨ char*, const char*, const char[], text literal ä¹‹é–“ï¼Œ
+      ç›¸ç•¶æ··æ·†è€Œä»¤äººè¿·äº‚ã€‚
 
 
-¡½C++ Primer p516
-¥DÃD¡Gfuntion template explicit specialization + argument deduction
-´ú¸Õµ²ªG¡GVC6 ªí²{¤Ó¼eÃP¡A¤£ÄYÂÔ¡C
-¹ê¨Ò¡G
+â– C++ Primer p516
+ä¸»é¡Œï¼šfuntion template explicit specialization + argument deduction
+æ¸¬è©¦çµæœï¼šVC6 è¡¨ç¾å¤ªå¯¬é¬†ï¼Œä¸åš´è¬¹ã€‚
+å¯¦ä¾‹ï¼š
 
 #001 #include <iostream>
 #002 using namespace std;
@@ -499,20 +499,20 @@ func(fp);
 #009 }
 #010
 #011 template<> double sum(float, float);
-#012 //¤W¤@¦æ¦b VC6 ³ºµM¥i¥H³q¹L¡A®t«l¡C
-#013 //¤W¤@¦æ¦b bcb4 ¥X²{ e2423: explicit specialization or instantiation
+#012 //ä¸Šä¸€è¡Œåœ¨ VC6 ç«Ÿç„¶å¯ä»¥é€šéï¼Œå·®å‹ã€‚
+#013 //ä¸Šä¸€è¡Œåœ¨ bcb4 å‡ºç¾ e2423: explicit specialization or instantiation
 #014 //                          of non-existing template 'sum'
-#015 //¤W¤@¦æ¦b G++ ¥X²{ : template-id `sum<>' for `sum<>(float, float)'
+#015 //ä¸Šä¸€è¡Œåœ¨ G++ å‡ºç¾ : template-id `sum<>' for `sum<>(float, float)'
 #016 //                    does not match any template decaration
 #017
-#018 // T1 ©ú¥Õ«ü©w¬° double, T2 ±À¾É¬° float, T3 ±À¾É¬° float
+#018 // T1 æ˜ç™½æŒ‡å®šç‚º double, T2 æ¨å°ç‚º float, T3 æ¨å°ç‚º float
 #019 template<> double sum<double>(float op1, float op2)
 #020 {
 #021   cout << "specialization form1" << endl;
 #022   return static_cast<double>(op1+op2);
 #023 }
 #024
-#025 // T1, T2, T3 ©ú¥Õ«ü©w¬° int, char, char
+#025 // T1, T2, T3 æ˜ç™½æŒ‡å®šç‚º int, char, char
 #026 template<> int sum<int, char, char>(char op1, char op2)
 #027 {
 #028   cout << "specialization form2" << endl;
@@ -532,10 +532,10 @@ func(fp);
 #042 }
 
 
-¡½C++ Primer p554
-¥DÃD¡Gfunction try block
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[x]  G++[o]
-¹ê¨Ò¡G
+â– C++ Primer p554
+ä¸»é¡Œï¼šfunction try block
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[x]  G++[o]
+å¯¦ä¾‹ï¼š
 
 #001 #include <iostream>
 #002 using namespace std;
@@ -553,14 +553,14 @@ func(fp);
 #014     cout << "catch pushOnFull" << endl;
 #015 }
 #016 catch ( popOnEmpty ) {
-#017     cout << "catch popOnEmpty" << endl;   // <-- °õ¦æµ²ªG¡G¦¹¦æ¡C
+#017     cout << "catch popOnEmpty" << endl;   // <-- åŸ·è¡Œçµæœï¼šæ­¤è¡Œã€‚
 #018 }
 
 
-¡½C++ Primer  p564
-¥DÃD¡Gexception specification
-´ú¸Õµ²ªG¡GBCB4 ªí²{¨Î¡AG++ ©|¥i¡AVC6 ²ÊÁW
-¹ê¨Ò¡G
+â– C++ Primer  p564
+ä¸»é¡Œï¼šexception specification
+æ¸¬è©¦çµæœï¼šBCB4 è¡¨ç¾ä½³ï¼ŒG++ å°šå¯ï¼ŒVC6 ç²—ç³™
+å¯¦ä¾‹ï¼š
 
 #001 #include <iostream>
 #002 using namespace std;
@@ -597,18 +597,18 @@ func(fp);
 #033       cout << "catch popOnEmpty" << endl;
 #034   }
 #035 }
-#036 // °õ¦æµ²ªG¡G
+#036 // åŸ·è¡Œçµæœï¼š
 #037 // BCB4: Abnormal program termination
-#038 // G++ : none¡]§Ú·Q¬O³ê°_¤F C++ standard library function unexpected()¡A
-#039 //       «áªÌ³ê°_ terminate()¡A¨ä¤º³ê°_ abort()¡C
-#040 // VC6 : catch popOnEmpty¡]§Ú»{¬° VC6 ¹ï©ó exception spec. ªº³B²z¤Ó²ÊÁW¡^
+#038 // G++ : noneï¼ˆæˆ‘æƒ³æ˜¯å–šèµ·äº† C++ standard library function unexpected()ï¼Œ
+#039 //       å¾Œè€…å–šèµ· terminate()ï¼Œå…¶å…§å–šèµ· abort()ã€‚
+#040 // VC6 : catch popOnEmptyï¼ˆæˆ‘èªç‚º VC6 å°æ–¼ exception spec. çš„è™•ç†å¤ªç²—ç³™ï¼‰
 
 
-¡½C++ Primer  p643 ¤¤
-¥DÃD¡Gª½±µ¦b class ¤º°w¹ï static const integral data member µ¹¤©ªì­È
-      ¡]©Ò¿× in-class initialization¡^
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[o]  G++[o]
-¹ê¨Ò¡G
+â– C++ Primer  p643 ä¸­
+ä¸»é¡Œï¼šç›´æ¥åœ¨ class å…§é‡å° static const integral data member çµ¦äºˆåˆå€¼
+      ï¼ˆæ‰€è¬‚ in-class initializationï¼‰
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[o]  G++[o]
+å¯¦ä¾‹ï¼š
 
 #001 #include <iostream.h>
 #002
@@ -625,35 +625,35 @@ func(fp);
 #013 }
 
 
-¡½C++ Primer p834
-¥DÃD¡Gclass templates ¤ºªº friend function
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[x]  G++[o]
-°Ñ¦Ò¡G½Ğ¨£µy«á ¡½C++ Primer p1090 ¹ï©ó "VC6 ªº friend functions" ªº²`¤J»¡©ú¡C
-¹ê¨Ò¡G
+â– C++ Primer p834
+ä¸»é¡Œï¼šclass templates å…§çš„ friend function
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[x]  G++[o]
+åƒè€ƒï¼šè«‹è¦‹ç¨å¾Œ â– C++ Primer p1090 å°æ–¼ "VC6 çš„ friend functions" çš„æ·±å…¥èªªæ˜ã€‚
+å¯¦ä¾‹ï¼š
 
 #001 #include <iostream>
 #002 using namespace std;
 #003
-#004 // ¥H¤Uªº forward declaration «D±`­«­n¡A¨£ p834 L-8
+#004 // ä»¥ä¸‹çš„ forward declaration éå¸¸é‡è¦ï¼Œè¦‹ p834 L-8
 #005 template <typename T> class A;
 #006 template <typename T> ostream& operator<< (ostream& os, const A<T>& a);
 #007
 #008 template <typename T> class B;
 #009 template <typename T> ostream& operator<< (ostream& os, const B<T>& b);
 #010
-#011 // ¥H¤U¥H class A ©M class B ¼ÒÀÀ class Queue ©M class QueueItem ¤§¶¡ªºÃö«Y
+#011 // ä»¥ä¸‹ä»¥ class A å’Œ class B æ¨¡æ“¬ class Queue å’Œ class QueueItem ä¹‹é–“çš„é—œä¿‚
 #012
 #013 template <typename T>
 #014 class A
 #015 {
-#016   // ¥H¤Uªº <T> «D±`­«­n¡A¨£ p834 L-6
+#016   // ä»¥ä¸‹çš„ <T> éå¸¸é‡è¦ï¼Œè¦‹ p834 L-6
 #017   friend ostream& operator<< <T>(ostream& os, const A<T>& a);
 #018 public:
 #019   A (T i) : _i(i) {
 #020             front = new B<T>(i);
 #021             back  = new B<T>(i);
 #022   }
-#023   // ¬°¨D§¹¾ã¡AÀ³¦A³]­p dtor ¥HÁ×§K memory leak.
+#023   // ç‚ºæ±‚å®Œæ•´ï¼Œæ‡‰å†è¨­è¨ˆ dtor ä»¥é¿å… memory leak.
 #024
 #025 private:
 #026   T _i;
@@ -703,24 +703,24 @@ func(fp);
 #070 }
 
 
-¡½C++ Primer p842
-¥DÃD¡Gclass templates¡]¤º§t nest types¡^ªº friend functions¡C
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[x]  G++[o]
-¹ê¨Ò¡G
+â– C++ Primer p842
+ä¸»é¡Œï¼šclass templatesï¼ˆå…§å« nest typesï¼‰çš„ friend functionsã€‚
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[x]  G++[o]
+å¯¦ä¾‹ï¼š
 
 #001 #include <iostream>
 #002 using namespace std;
 #003
-#004 // ¥H¤Uªº forward declaration «D±`­«­n¡A¨£ p834 L-8
+#004 // ä»¥ä¸‹çš„ forward declaration éå¸¸é‡è¦ï¼Œè¦‹ p834 L-8
 #005 template <typename T> class A;
 #006 template <typename T> ostream& operator<< (ostream& os, const A<T>& a);
 #007
-#008 // ¥H¤U¥H class A ©M class B ¼ÒÀÀ class Queue ©M class QueueItem ¤§¶¡ªºÃö«Y
+#008 // ä»¥ä¸‹ä»¥ class A å’Œ class B æ¨¡æ“¬ class Queue å’Œ class QueueItem ä¹‹é–“çš„é—œä¿‚
 #009
 #010 template <typename T>
 #011 class A
 #012 {
-#013   // ¥H¤Uªº <T> «D±`­«­n¡A¨£ p834 L-6
+#013   // ä»¥ä¸‹çš„ <T> éå¸¸é‡è¦ï¼Œè¦‹ p834 L-6
 #014   friend ostream& operator<< <T>(ostream& os, const A<T>& a);
 #015
 #016 private:
@@ -736,7 +736,7 @@ func(fp);
 #026             front = new B<T>(i);
 #027             back  = new B<T>(i);
 #028   }
-#029   // ¬°¨D§¹¾ã¡AÀ³¦A³]­p dtor ¥HÁ×§K memory leak.
+#029   // ç‚ºæ±‚å®Œæ•´ï¼Œæ‡‰å†è¨­è¨ˆ dtor ä»¥é¿å… memory leak.
 #030
 #031 private:
 #032   T _i;
@@ -770,10 +770,10 @@ func(fp);
 #060 }
 
 
-¡½C++ Primer p844
-¥DÃD¡Gmember templates
-´ú¸Õµ²ªG¡GVC6[o]  BCB4[o]  G++[o]
-¹ê¨Ò¡G
+â– C++ Primer p844
+ä¸»é¡Œï¼šmember templates
+æ¸¬è©¦çµæœï¼šVC6[o]  BCB4[o]  G++[o]
+å¯¦ä¾‹ï¼š
 
 #001 #include <iostream>
 #002 #include <string>
@@ -819,22 +819,22 @@ func(fp);
 #042 }
 
 
-¡½C++ Primer p853
-¥DÃD¡Gseparate compilation model for class template
-±À½×¡G¬JµM BCB4 and G++ and VC6 ³£¥¼¯à¤ä´© separate compilation model for
-      function templates¡A§Ú·Q¥¦­Ì¤]¤@©w³£¨S¦³¤ä´© separate compilation model
-      for class templates¡C¦ı§Ú¥¼°µ´ú¸Õ¡]®¼·Ğ¤H :)¡^
+â– C++ Primer p853
+ä¸»é¡Œï¼šseparate compilation model for class template
+æ¨è«–ï¼šæ—¢ç„¶ BCB4 and G++ and VC6 éƒ½æœªèƒ½æ”¯æ´ separate compilation model for
+      function templatesï¼Œæˆ‘æƒ³å®ƒå€‘ä¹Ÿä¸€å®šéƒ½æ²’æœ‰æ”¯æ´ separate compilation model
+      for class templatesã€‚ä½†æˆ‘æœªåšæ¸¬è©¦ï¼ˆæŒºç…©äºº :)ï¼‰
 
 
-¡½C++ Primer p856
-¥DÃD¡Gclass template specializations
-´ú¸Õµ²ªG¡GVC6[o]  BCB4[o]  G++[o]
+â– C++ Primer p856
+ä¸»é¡Œï¼šclass template specializations
+æ¸¬è©¦çµæœï¼šVC6[o]  BCB4[o]  G++[o]
 
 
-¡½C++ Primer p861
-¥DÃD¡Gclass template partial specializations
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[o]  G++[o]
-¹ê¨Ò¡G
+â– C++ Primer p861
+ä¸»é¡Œï¼šclass template partial specializations
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[o]  G++[o]
+å¯¦ä¾‹ï¼š
 
 #001 #include <iostream>
 #002 using namespace std;
@@ -878,12 +878,12 @@ func(fp);
 #040 }
 
 
-¡½C++ Primer p904
-¥DÃD¡Gusing declaration ¥i±N base class ¤º¥ô¦ó¤@­Ó¨ã¦Wªº member
-      ¡]±ø¥ó¬O accessible¡^©ñ¶i derived class scope ¤º¡C
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[o]  G++[x]
-          ¦ı¦pªG±N¤U¨Òªº using declaration ²¾¨ì Shy::mumble() ¤§«e¡A«h VC6[o]
-¹ê¨Ò¡G
+â– C++ Primer p904
+ä¸»é¡Œï¼šusing declaration å¯å°‡ base class å…§ä»»ä½•ä¸€å€‹å…·åçš„ member
+      ï¼ˆæ¢ä»¶æ˜¯ accessibleï¼‰æ”¾é€² derived class scope å…§ã€‚
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[o]  G++[x]
+          ä½†å¦‚æœå°‡ä¸‹ä¾‹çš„ using declaration ç§»åˆ° Shy::mumble() ä¹‹å‰ï¼Œå‰‡ VC6[o]
+å¯¦ä¾‹ï¼š
 
 #001 #include <iostream>
 #002 #include <string>
@@ -914,14 +914,14 @@ func(fp);
 #027 }
 
 
-¡½C++ Primer p940
-¥DÃD¡G³]­p "virtual" new operator¡]¥ç§Y clone¡^®É©Ò»İ
-      ªº¤@­Ó§Ş³N¡G¦pªGµêÀÀ¨ç¦¡ªº base instance ¶Ç¦^
-      'A' class type¡]©Î¬°«ü¼Ğ¡A©Î¬° reference¡^¡A¨º»ò
-      µêÀÀ¨ç¦¡ªº base instance ¥i¥H¶Ç¦^ 'A' type ©Î 'A'
-      ªº publicly derived class¡]©Î¬°«ü¼Ğ¡A©Î¬° reference¡^
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[o]  G++[o]
-¹ê¨Ò¡G
+â– C++ Primer p940
+ä¸»é¡Œï¼šè¨­è¨ˆ "virtual" new operatorï¼ˆäº¦å³ cloneï¼‰æ™‚æ‰€éœ€
+      çš„ä¸€å€‹æŠ€è¡“ï¼šå¦‚æœè™›æ“¬å‡½å¼çš„ base instance å‚³å›
+      'A' class typeï¼ˆæˆ–ç‚ºæŒ‡æ¨™ï¼Œæˆ–ç‚º referenceï¼‰ï¼Œé‚£éº¼
+      è™›æ“¬å‡½å¼çš„ base instance å¯ä»¥å‚³å› 'A' type æˆ– 'A'
+      çš„ publicly derived classï¼ˆæˆ–ç‚ºæŒ‡æ¨™ï¼Œæˆ–ç‚º referenceï¼‰
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[o]  G++[o]
+å¯¦ä¾‹ï¼š
 
 #001 class Query {
 #002 public:
@@ -947,11 +947,11 @@ func(fp);
 
 
 
-¡½C++ Primer p998
-µù¡G2001.08.22 ·s¼W
-¥DÃD¡GµêÀÀÄ~©Ó¤¤ªº base class ctor invocation °İÃD¡C
-´ú¸Õµ²ªG¡G
-¹ê¨Ò¡Ggcc291[o], vc6[x], cb4[x], cb5[x]
+â– C++ Primer p998
+è¨»ï¼š2001.08.22 æ–°å¢
+ä¸»é¡Œï¼šè™›æ“¬ç¹¼æ‰¿ä¸­çš„ base class ctor invocation å•é¡Œã€‚
+æ¸¬è©¦çµæœï¼š
+å¯¦ä¾‹ï¼šgcc291[o], vc6[x], cb4[x], cb5[x]
 
 #0001 // gcc[o], vc6[x], cb4[x], cb5[x]
 #0002
@@ -1043,20 +1043,20 @@ func(fp);
 #0088   Panda yolo("yolo");
 #0089 }
 
-ª`·N¡G¦pªG±N #0076 ªº =true ¥h°£¡A«h gcc291[o], vc6[o], cb4[o], cb5[o]
+æ³¨æ„ï¼šå¦‚æœå°‡ #0076 çš„ =true å»é™¤ï¼Œå‰‡ gcc291[o], vc6[o], cb4[o], cb5[o]
 
 
 
 
-¡½C++ Primer p1090
-¥DÃD¡Gfriend operator<<
-´ú¸Õµ²ªG¡GVC6[x]  BCB4[o]  G++[o]
-ª`·N¡G¦pªG¨Ï¥Î <iostream.h> ¦Ó¤£¬O <iostream>¡A¦b VC6 ¤¤
-      ¹B¥Î friend ´N¤ñ¸û¨S¦³°İÃD¡C¦ı¦pªG³o»ò°µªº¸Ü¡A¥Ñ©ó¤U¨Ò
-      ¥Î¨ì <string>¡A¤@©w±o using namespace std; ¦Ó³o¦b VC6 ¤¤¦ü¥G
-      ¾É¦Ü·t¤¤§t¤J <iostream>¡A©ó¬O»P <iostream.h> °_½Ä¬ğ¡CÁ`¤§¡A
-      «õªF¸É¦è¡A«Ü·Ğ¡CVC6 ¦b³o¥DÃD¤Wªí²{¤£¨Î¡C
-¹ê¨Ò¡G
+â– C++ Primer p1090
+ä¸»é¡Œï¼šfriend operator<<
+æ¸¬è©¦çµæœï¼šVC6[x]  BCB4[o]  G++[o]
+æ³¨æ„ï¼šå¦‚æœä½¿ç”¨ <iostream.h> è€Œä¸æ˜¯ <iostream>ï¼Œåœ¨ VC6 ä¸­
+      é‹ç”¨ friend å°±æ¯”è¼ƒæ²’æœ‰å•é¡Œã€‚ä½†å¦‚æœé€™éº¼åšçš„è©±ï¼Œç”±æ–¼ä¸‹ä¾‹
+      ç”¨åˆ° <string>ï¼Œä¸€å®šå¾— using namespace std; è€Œé€™åœ¨ VC6 ä¸­ä¼¼ä¹
+      å°è‡³æš—ä¸­å«å…¥ <iostream>ï¼Œæ–¼æ˜¯èˆ‡ <iostream.h> èµ·è¡çªã€‚ç¸½ä¹‹ï¼Œ
+      æŒ–æ±è£œè¥¿ï¼Œå¾ˆç…©ã€‚VC6 åœ¨é€™ä¸»é¡Œä¸Šè¡¨ç¾ä¸ä½³ã€‚
+å¯¦ä¾‹ï¼š
 
 #001 #include <iostream>
 #002 #include <string>
@@ -1090,22 +1090,22 @@ func(fp);
 #030 }
 
 
-¡½C++ Primer p1126 ¤U
-¥DÃD¡Glist<T> ªº object initialization
-´ú¸Õµ²ªG¡GVC6[o]  BCB4[x](¦³·å²«) G++[o]
-¹ê¨Ò¡G
-    ¥H¤U³o¦æ¥i³q¹L VC6 ©M G++
+â– C++ Primer p1126 ä¸‹
+ä¸»é¡Œï¼šlist<T> çš„ object initialization
+æ¸¬è©¦çµæœï¼šVC6[o]  BCB4[x](æœ‰ç‘•ç–µ) G++[o]
+å¯¦ä¾‹ï¼š
+    ä»¥ä¸‹é€™è¡Œå¯é€šé VC6 å’Œ G++
     list<int> ilist_result(ilist.size());
 
-    ¬°¤F¦b BCB4 ¤¤³q¹L¡A»İ§ï¬°¡G
+    ç‚ºäº†åœ¨ BCB4 ä¸­é€šéï¼Œéœ€æ”¹ç‚ºï¼š
     int i = ilist.size();
     list<int> ilist_result(i, -1);
 
 
-¡½C++ Primer p1156~p1157
-¥DÃD¡Ggeneric algorithms max() ©M min()
-´ú¸Õµ²ªG¡GVC6 ©Òªşªº STL ³º¥¼¤ä´© max ©M min ³o¨â­Ó generic algorithms¡C
-Áp·Q¡G¸Õ¬İ³o­Óµ{¦¡¡G
+â– C++ Primer p1156~p1157
+ä¸»é¡Œï¼šgeneric algorithms max() å’Œ min()
+æ¸¬è©¦çµæœï¼šVC6 æ‰€é™„çš„ STL ç«Ÿæœªæ”¯æ´ max å’Œ min é€™å…©å€‹ generic algorithmsã€‚
+è¯æƒ³ï¼šè©¦çœ‹é€™å€‹ç¨‹å¼ï¼š
 
 (01) #include <iostream>
 (02) #include <string>
@@ -1145,53 +1145,53 @@ func(fp);
 (36)    cout << min(r1, r2) << endl;            // 3
 (37) }
 
-ÀË°Q¡G
-¤@ ¦¹µ{¦¡¦b VC6 ¤¤¥¢±Ñ¡A¦ı¦pªG§ï¬° #include<iostream.h>
-¨Ã²¾°£ using namespace std; «h¦¨¥\¡A³o¬O VC6 ªº bug¡I
-¡]¨£¥ı«e¹ï friend ªº°Q½×¡AC++ Primer p1090¡^
+æª¢è¨ï¼š
+ä¸€ æ­¤ç¨‹å¼åœ¨ VC6 ä¸­å¤±æ•—ï¼Œä½†å¦‚æœæ”¹ç‚º #include<iostream.h>
+ä¸¦ç§»é™¤ using namespace std; å‰‡æˆåŠŸï¼Œé€™æ˜¯ VC6 çš„ bugï¼
+ï¼ˆè¦‹å…ˆå‰å° friend çš„è¨è«–ï¼ŒC++ Primer p1090ï¼‰
 
-¤G ¦¹µ{¦¡¦b BCB4 ¤¤¥¢±Ñ¡A¿ù»~°T®§¦p¤U¡G
+äºŒ æ­¤ç¨‹å¼åœ¨ BCB4 ä¸­å¤±æ•—ï¼ŒéŒ¯èª¤è¨Šæ¯å¦‚ä¸‹ï¼š
 Error E2094 T1.CPP 36: 'operator<<' not implemented in type
 'ostream' for arguments of type 'Rect' in function main()
 
-³o¬O¦]¬°§Ú­Ìªº template function min() ©M BCB4 ´£¨Ñ¤§ STL ¤¤
-ªº gemeric algorithm min() ¦WºÙ¤@¼Ë¡Cµ{¦¡¤¤³ê°_ªº¨ä¹ê¬O STL ªº
-gemeric algorithm min()¡A¦Ó¨ä parameter list ¤º¹ï©ó parameters
-ªº constness ªº­n¨D¡A¾É¦Ü½sÄ¶¾¹¦b¶i¦æ template argument deduction ®É¡A
-¤£±µ¨ü§Ú©Ò´£¨Ñªº Rect¡C¥u­n±Nµ{¦¡¤¤ªº min() §ï¬° mymin()¡A¨Ã±N
-(12) ©M (21) ªº³Ì«á¤@­Ó°Ñ¼Æ«¬§O§ï¬° const Rect&¡A§Y¥i¡C
+é€™æ˜¯å› ç‚ºæˆ‘å€‘çš„ template function min() å’Œ BCB4 æä¾›ä¹‹ STL ä¸­
+çš„ gemeric algorithm min() åç¨±ä¸€æ¨£ã€‚ç¨‹å¼ä¸­å–šèµ·çš„å…¶å¯¦æ˜¯ STL çš„
+gemeric algorithm min()ï¼Œè€Œå…¶ parameter list å…§å°æ–¼ parameters
+çš„ constness çš„è¦æ±‚ï¼Œå°è‡³ç·¨è­¯å™¨åœ¨é€²è¡Œ template argument deduction æ™‚ï¼Œ
+ä¸æ¥å—æˆ‘æ‰€æä¾›çš„ Rectã€‚åªè¦å°‡ç¨‹å¼ä¸­çš„ min() æ”¹ç‚º mymin()ï¼Œä¸¦å°‡
+(12) å’Œ (21) çš„æœ€å¾Œä¸€å€‹åƒæ•¸å‹åˆ¥æ”¹ç‚º const Rect&ï¼Œå³å¯ã€‚
 
-ª`·N¡G¦³®É­ÔÁöµM§A¨Ã¥¼©ú¥Õ§t¤J¬Y¨Ç header files¡A©Î¬O§A¨Ã¥¼©ú¥Õ
-¨Ï¥Î using namespace std; ½sÄ¶¾¹«o·|·t¦Û¥[¤W¡C«eªÌ¬O¥Ñ©ó header files
-¤@­Ó§t¤J¤@­Ó¡K¾É¦Ü¡A«áªÌ½Ğ¬İ BCB4 ªº¨C¤@­Ó header files ªº³Ì«á­±¡A
-´X¥G³£¦³³o¤@¦æ¡G
+æ³¨æ„ï¼šæœ‰æ™‚å€™é›–ç„¶ä½ ä¸¦æœªæ˜ç™½å«å…¥æŸäº› header filesï¼Œæˆ–æ˜¯ä½ ä¸¦æœªæ˜ç™½
+ä½¿ç”¨ using namespace std; ç·¨è­¯å™¨å»æœƒæš—è‡ªåŠ ä¸Šã€‚å‰è€…æ˜¯ç”±æ–¼ header files
+ä¸€å€‹å«å…¥ä¸€å€‹â€¦å°è‡³ï¼Œå¾Œè€…è«‹çœ‹ BCB4 çš„æ¯ä¸€å€‹ header files çš„æœ€å¾Œé¢ï¼Œ
+å¹¾ä¹éƒ½æœ‰é€™ä¸€è¡Œï¼š
 
 #ifndef __USING_STD_NAMES__
   using namespace std;
 #endif
 
-¤T ¦¹µ{¦¡¦b G++ ¤¤Àò±oÄµ§i°T®§¦p¤U¡G
+ä¸‰ æ­¤ç¨‹å¼åœ¨ G++ ä¸­ç²å¾—è­¦å‘Šè¨Šæ¯å¦‚ä¸‹ï¼š
 t1.cpp:36: warning: initialization of non-const reference
 'class Rect &' from rvalue 'Rect'
 t1.cpp:22: warning: in passing argument 2 of
 'operator <<(ostream &, Rect &)'
 
-¨ä¹D²z»P­×§ï¤èªk¡A©M¤W­z¤G¬Û¦P¡G±N min() §ï¦W¬° mymin() §Y¥i¡C
+å…¶é“ç†èˆ‡ä¿®æ”¹æ–¹æ³•ï¼Œå’Œä¸Šè¿°äºŒç›¸åŒï¼šå°‡ min() æ”¹åç‚º mymin() å³å¯ã€‚
 
-¤ß±o¡Gµ{¦¡¤¤¤£­n¥X²{¥ô¦ó©R¦W»P C++ standard library ¤ºªº components ¦P¦W¡C
-
-
-¡½C++ Primer p1169
-¥DÃD¡Ggeneric algorithms random_shuffle()
-´ú¸Õµ²ªG¡GG++ ©Òªşªº STL ¹ï random_shuffle() ªº¤ä´©¦³°İÃD
+å¿ƒå¾—ï¼šç¨‹å¼ä¸­ä¸è¦å‡ºç¾ä»»ä½•å‘½åèˆ‡ C++ standard library å…§çš„ components åŒåã€‚
 
 
-¡½Effective C++ 2/e  p70
-¥DÃD¡G¦pªG base class ªº operator= «Y¥Ñ½sÄ¶¾¹²£¥Í¡A¥ç§Y©Ò¿×
-      default operator=¡A¬Y¨Ç½sÄ¶¾¹·|©Úµ´Åı§A©ú¥Õ³ê°_ base class operator=¡A
-      ³o¤£¬O¦n²{¶H¡C
-´ú¸Õµ²ªG¡GVC6[o]  BCB4[x]  G++[o] ¡]BCB4 ªí²{¤£¨Î¡A©Úµ´§Ú­Ì³ê°_¤W­z operator=¡^
-¹ê¨Ò¡G
+â– C++ Primer p1169
+ä¸»é¡Œï¼šgeneric algorithms random_shuffle()
+æ¸¬è©¦çµæœï¼šG++ æ‰€é™„çš„ STL å° random_shuffle() çš„æ”¯æ´æœ‰å•é¡Œ
+
+
+â– Effective C++ 2/e  p70
+ä¸»é¡Œï¼šå¦‚æœ base class çš„ operator= ä¿‚ç”±ç·¨è­¯å™¨ç”¢ç”Ÿï¼Œäº¦å³æ‰€è¬‚
+      default operator=ï¼ŒæŸäº›ç·¨è­¯å™¨æœƒæ‹’çµ•è®“ä½ æ˜ç™½å–šèµ· base class operator=ï¼Œ
+      é€™ä¸æ˜¯å¥½ç¾è±¡ã€‚
+æ¸¬è©¦çµæœï¼šVC6[o]  BCB4[x]  G++[o] ï¼ˆBCB4 è¡¨ç¾ä¸ä½³ï¼Œæ‹’çµ•æˆ‘å€‘å–šèµ·ä¸Šè¿° operator=ï¼‰
+å¯¦ä¾‹ï¼š
 
 #001 class Base {
 #002 ...
@@ -1207,18 +1207,18 @@ t1.cpp:22: warning: in passing argument 2 of
 #012 {
 #013   if (this == &rhs) return *this;
 #014
-#015   // explicitly invoke Base operator=¡CVC6[o]  BCB4[x]  G++[o]
+#015   // explicitly invoke Base operator=ã€‚VC6[o]  BCB4[x]  G++[o]
 #016   Base::operator=(rhs);
 #017   ...
 #018 }
 
 
 
-¥H¤U¬O 2001/03/03 ·s¼W¡G
+ä»¥ä¸‹æ˜¯ 2001/03/03 æ–°å¢ï¼š
 
-¡½C++ Primer p688
-¥DÃD¡Glocal class
-´ú¸Õµ²ªG¡GVC6 ¤£²Å C++ Standard
+â– C++ Primer p688
+ä¸»é¡Œï¼šlocal class
+æ¸¬è©¦çµæœï¼šVC6 ä¸ç¬¦ C++ Standard
 
 (01) // VC6[x]  CB4[x]  G++[x]
 (02)
@@ -1247,7 +1247,7 @@ t1.cpp:22: warning: in passing argument 2 of
 (25)   foo(5);
 (26) }
 
-½sÄ¶µ²ªG
+ç·¨è­¯çµæœ
 
 [VC6]:
 ..\688.cpp(16) : error C2065: 'si' : undeclared identifier
@@ -1256,17 +1256,17 @@ t1.cpp:22: warning: in passing argument 2 of
                                     'enum foo::Loc'
   Conversion to enumeration type requires an explicit cast (static_cast,
 C-style cast or function-style cast)
-µ²½×¡GVC6 ¤£²Å¦X C++ standard.
+çµè«–ï¼šVC6 ä¸ç¬¦åˆ C++ standard.
 
 [BCB4]:
 Error E2451 ..\688.CPP 14: Undefined symbol 'val' in function Bar::fooBar(Loc)
-µ²½×¡GBCB4 ²Å¦X C++ standard.
+çµè«–ï¼šBCB4 ç¬¦åˆ C++ standard.
 
 [GCC]:
 ..\\688.cpp: In method `void foo(int)::Bar::fooBar(enum foo(int)::Loc = a)':
 ..\\688.cpp:14: use of parameter from containing function
 ..\\688.cpp:6:   `int val' declared here
-µ²½×¡GGCC ²Å¦X C++ standard.
+çµè«–ï¼šGCC ç¬¦åˆ C++ standard.
 
 
 --- the end

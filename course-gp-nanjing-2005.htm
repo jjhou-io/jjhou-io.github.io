@@ -4,184 +4,184 @@
 <head>
 <meta content="text/html; charset=big5" http-equiv="Content-Type">
 <meta content="Microsoft FrontPage 3.0" name="GENERATOR">
-<title>�x���s�{ �n�ʤj�� 2005 �ҵ{�Ƨѿ�</title>
+<title>泛型編程 南京大學 2005 課程備忘錄</title>
 </head>
 
 <body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
 
 <hr>
 
-<h2 align="center"><font color="#800000">�x���s�{�]Generic Programming�^<br>
+<h2 align="center"><font color="#800000">泛型編程（Generic Programming）<br>
 <br>
-�n�ʤj�� 2005 �ҵ{�Ƨѿ� (27�Ǯ�)<br>
+南京大學 2005 課程備忘錄 (27學時)<br>
 <br>
-<small>�J��</small></font></h2>
+<small>侯捷</small></font></h2>
 
-<p align="center"><font color="#0000FF">�Ъ`�N�G�����Ƨѿ��A���O�e�{����Ч��ξǲ߰Q�ת��a��C</font></p>
+<p align="center"><font color="#0000FF">請注意：此為備忘錄，不是呈現完整教材或學習討論的地方。</font></p>
 
-<p align="center"><a href="#CanAudit" target="main"><font color="#000000">��_��ť�o����</font></a></p>
+<p align="center"><a href="#CanAudit" target="main"><font color="#000000">能否旁聽這門課</font></a></p>
 
 <p align="center">2005/07/04 - 2005/07/20<br>
-�C�P�@�G�T 09:00~11:50<br>
-���f�հϳn��ǰ|�@��</p>
+每周一二三 09:00~11:50<br>
+浦口校區軟件學院一樓</p>
 
 <p align="center"><img src="2005-07-calendar.jpg" tppabs="http://jjhou.boolan.com/2005-07-calendar.jpg" alt="2005-07-calendar.jpg (26512 bytes)"
 width="270" height="294"></p>
 
-<p align="center"><a href="article0507.htm" tppabs="http://jjhou.boolan.com/article0507.htm" target="main">�@�뤧��]��x�^</a></p>
+<p align="center"><a href="article0507.htm" tppabs="http://jjhou.boolan.com/article0507.htm" target="main">一月之跡（日誌）</a></p>
 
 <hr>
 
 <blockquote>
-  <p><font color="#0000FF">�D��</font>�GGeneric Programming (GP) �OObject Oriented 
-  Programming (OOP) ���~���t�@�ӥثe IT 
-  �~�ɤQ���ʭ����s�{�޳N�C���ҵ{�i���ǥͳ��wGP��¦�A�ña��ǥͲ`�׭�RGP�����\�d�ҡGC++ 
-  STL (Standard Template Library)�A�Ǧ���|GP���޳N�M�¤O�C</p>
-  <p><font color="#0000FF">����</font>�GGP�bC++�BJava�BC# 
-  ����o�F���P�{�ת�����A�䤤�HC++���o�i�̬����i�]�e�u�^�P���k�C���ҵ{�HC++ 
-  GP���D�n���e�A�æw�ƾA�q�Үɭݽ�Java�bGP�譱���o�i�C</p>
-  <p><font color="#0000FF">�Ч�</font>�]1,10 
-  ���Ч��A��L�����U��ƩΰѦ�Ū���^�G<br>
-  <font color="#FF0000">* 1.</font>�m<a target="main" href="jjwbooks-tass-gb.htm" tppabs="http://jjhou.boolan.com/jjwbooks-tass-gb.htm">STL���X��R</a>�nby 
-  �J��<br>
-  &nbsp;&nbsp; 2.�m<a href="jjtbooks-cpp-primer.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-primer.htm" target="main">C++ Primer 3e</a>�nby 
+  <p><font color="#0000FF">主旨</font>：Generic Programming (GP) 是Object Oriented 
+  Programming (OOP) 之外的另一個目前 IT 
+  業界十分倚重的編程技術。本課程可為學生奠定GP基礎，並帶領學生深度剖析GP的成功範例：C++ 
+  STL (Standard Template Library)，藉此體會GP的技術和威力。</p>
+  <p><font color="#0000FF">說明</font>：GP在C++、Java、C# 
+  都獲得了不同程度的支持，其中以C++的發展最為先進（前沿）與蓬勃。本課程以C++ 
+  GP為主要內容，並安排適量課時兼談Java在GP方面的發展。</p>
+  <p><font color="#0000FF">教材</font>（1,10 
+  為教材，其他為輔助資料或參考讀物）：<br>
+  <font color="#FF0000">* 1.</font>《<a target="main" href="jjwbooks-tass-gb.htm" tppabs="http://jjhou.boolan.com/jjwbooks-tass-gb.htm">STL源碼剖析</a>》by 
+  侯捷<br>
+  &nbsp;&nbsp; 2.《<a href="jjtbooks-cpp-primer.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-primer.htm" target="main">C++ Primer 3e</a>》by 
   Lippman &amp; Lajoie. <font color="#408080">chap6,10,12,15,16, appendix</font> <br>
   &nbsp;&nbsp; 3.&nbsp; &quot;<a href="main-l.htm#STL series articles" tppabs="http://jjhou.boolan.com/main-l.htm#STL series articles" target="contents"><font
-  color="#0000FF">STL�t�C�峹</font></a>&quot; by �J���APDFs�@���g�A���������ؿ��j���D�]�զ�^ 
+  color="#0000FF">STL系列文章</font></a>&quot; by 侯捷，PDFs共五篇，見左視窗目錄大標題（白色） 
   <br>
-  &nbsp;&nbsp; 4.�m<a href="jjtbooks-generic-programming-and-the-stl-gb.htm" tppabs="http://jjhou.boolan.com/jjtbooks-generic-programming-and-the-stl-gb.htm" target="main">�x���{�ǳ]�p�PSTL</a>�n, 
+  &nbsp;&nbsp; 4.《<a href="jjtbooks-generic-programming-and-the-stl-gb.htm" tppabs="http://jjhou.boolan.com/jjtbooks-generic-programming-and-the-stl-gb.htm" target="main">泛型程序設計與STL</a>》, 
   &quot;<font color="#0000FF">Generic Programming and the STL</font>&quot; by <small>Matthew 
   H. Austern</small>.<br>
-  &nbsp;&nbsp; 5.�m<a href="jjtbooks-the-cpp-standard-library-gb.htm" tppabs="http://jjhou.boolan.com/jjtbooks-the-cpp-standard-library-gb.htm" target="main">C++ 
-  �зǵ{�Ǯw</a>�n, &quot;<font color="#0000FF">The C++ Standard Library</font>&quot;, 
+  &nbsp;&nbsp; 5.《<a href="jjtbooks-the-cpp-standard-library-gb.htm" tppabs="http://jjhou.boolan.com/jjtbooks-the-cpp-standard-library-gb.htm" target="main">C++ 
+  標準程序庫</a>》, &quot;<font color="#0000FF">The C++ Standard Library</font>&quot;, 
   by Nicolai M. Josuttis.<br>
-  &nbsp;&nbsp; 6.�m<a href="jjtbooks-cpp-templates.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-templates.htm" target="main">C++ Templates ����</a>�n, 
+  &nbsp;&nbsp; 6.《<a href="jjtbooks-cpp-templates.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-templates.htm" target="main">C++ Templates 全覽</a>》, 
   &quot;<font color="#0000FF">C++ Tempaltes</font>&quot;, by Vandevoorde &amp; Josuttis.<br>
-  &nbsp;&nbsp; 7.�m<a href="jjtbooks-modern-cpp-design-gb.htm" tppabs="http://jjhou.boolan.com/jjtbooks-modern-cpp-design-gb.htm" target="main">C++ 
-  �]�p�s���</a>�n, &quot;<font color="#0000FF">Modern C++ Design</font>&quot; by 
+  &nbsp;&nbsp; 7.《<a href="jjtbooks-modern-cpp-design-gb.htm" tppabs="http://jjhou.boolan.com/jjtbooks-modern-cpp-design-gb.htm" target="main">C++ 
+  設計新思維</a>》, &quot;<font color="#0000FF">Modern C++ Design</font>&quot; by 
   Andrei Alexandrescu.<br>
-  &nbsp;&nbsp; 8.�m<a
+  &nbsp;&nbsp; 8.《<a
   href="javascript:if(confirm(%27http://www.amazon.com/exec/obidos/ASIN/0201749629/qid=1104904048/sr=2-1/ref=pd_ka_b_2_1/103-3801140-8395826  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.amazon.com/exec/obidos/ASIN/0201749629/qid=1104904048/sr=2-1/ref=pd_ka_b_2_1/103-3801140-8395826%27" tppabs="http://www.amazon.com/exec/obidos/ASIN/0201749629/qid=1104904048/sr=2-1/ref=pd_ka_b_2_1/103-3801140-8395826"
-  target="_blank"><font color="#0000FF">Effective STL</font></a>�nby Scott Meyers.<br>
-  &nbsp;&nbsp; 9.�m<a href="jjtbooks-cpp-metaprogramming.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-metaprogramming.htm" target="main">C++ Template 
-  MetaProgramming</a>�nby Scott Meyers.<br>
-  <font color="#FF0000">*10</font>. �W�ҧ�v��<font FACE="�s�ө���" size="3">�C�H�q�l���o���|��A�Ѿǥͦۦ�ƦL�C</font></p>
-  <p>�@</p>
+  target="_blank"><font color="#0000FF">Effective STL</font></a>》by Scott Meyers.<br>
+  &nbsp;&nbsp; 9.《<a href="jjtbooks-cpp-metaprogramming.htm" tppabs="http://jjhou.boolan.com/jjtbooks-cpp-metaprogramming.htm" target="main">C++ Template 
+  MetaProgramming</a>》by Scott Meyers.<br>
+  <font color="#FF0000">*10</font>. 上課投影片<font FACE="新細明體" size="3">。以電子文件發給院方，由學生自行複印。</font></p>
+  <p>　</p>
   <table BORDER="1" CELLSPACING="1" CELLPADDING="1" WIDTH="554">
     <tr>
-      <td WIDTH="19" VALIGN="top" bgcolor="#C0C0C0"><font FACE="�s�ө���" size="3">�P��</font></td>
-      <td WIDTH="65" VALIGN="top" bgcolor="#C0C0C0"><font FACE="�s�ө���" size="3">���</font></td>
-      <td WIDTH="22" VALIGN="top" bgcolor="#C0C0C0"><font FACE="�s�ө���" size="3">�ɼ�</font></td>
-      <td WIDTH="352" VALIGN="top" bgcolor="#C0C0C0"><font FACE="�s�ө���" size="3">���e</font></td>
-      <td WIDTH="66" VALIGN="top" bgcolor="#C0C0C0"><font FACE="�s�ө���" size="3">�Ƶ�</font></td>
+      <td WIDTH="19" VALIGN="top" bgcolor="#C0C0C0"><font FACE="新細明體" size="3">周次</font></td>
+      <td WIDTH="65" VALIGN="top" bgcolor="#C0C0C0"><font FACE="新細明體" size="3">日期</font></td>
+      <td WIDTH="22" VALIGN="top" bgcolor="#C0C0C0"><font FACE="新細明體" size="3">時數</font></td>
+      <td WIDTH="352" VALIGN="top" bgcolor="#C0C0C0"><font FACE="新細明體" size="3">內容</font></td>
+      <td WIDTH="66" VALIGN="top" bgcolor="#C0C0C0"><font FACE="新細明體" size="3">備註</font></td>
     </tr>
     <tr>
       <td WIDTH="19" VALIGN="TOP"><font size="3">1</font></td>
       <td WIDTH="65" VALIGN="TOP"><font size="3">07/04</font></td>
       <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
-      <td WIDTH="352" VALIGN="TOP"><font FACE="�s�ө���" size="3">�ҵ{²���A�W�ҳW�h�A���y�����A�����@�~�D��, 
-      �{�� SGI STL �M GCC. �ܽd</font><font size="3">�ƭ� STL applications.</font><p>�Ʋ�<font
+      <td WIDTH="352" VALIGN="TOP"><font FACE="新細明體" size="3">課程簡介，上課規則，書籍評介，期末作業題目, 
+      認識 SGI STL 和 GCC. 示範</font><font size="3">數個 STL applications.</font><p>複習<font
       size="3"> C++ Class Templates &amp; Function Templates</font></td>
-      <td WIDTH="66" VALIGN="TOP">�@<p>��¦�Ʋ�</td>
+      <td WIDTH="66" VALIGN="TOP">　<p>基礎複習</td>
     </tr>
     <tr>
       <td WIDTH="19" VALIGN="TOP"><font size="3">1</font></td>
       <td WIDTH="65" VALIGN="TOP"><font size="3">07/05</font></td>
       <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
-      <td WIDTH="352" VALIGN="TOP">�Ʋ�<font size="3"> C++ Operator Overloading<br>
+      <td WIDTH="352" VALIGN="TOP">複習<font size="3"> C++ Operator Overloading<br>
       <font face="Courier New">++,--,*,-&gt;,(),=,==,!=</font></font></td>
-      <td WIDTH="66" VALIGN="TOP">��¦�Ʋ�</td>
+      <td WIDTH="66" VALIGN="TOP">基礎複習</td>
     </tr>
     <tr>
       <td WIDTH="19" VALIGN="TOP"><font size="3">1</font></td>
       <td WIDTH="65" VALIGN="TOP"><font size="3">07/06</font></td>
       <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
-      <td WIDTH="352" VALIGN="TOP"><font size="3">����ӷL�� <a href="stllite.zip" tppabs="http://jjhou.boolan.com/stllite.zip"
+      <td WIDTH="352" VALIGN="TOP"><font size="3">具體而微的 <a href="stllite.zip" tppabs="http://jjhou.boolan.com/stllite.zip"
       target="main">STL-Lite</a> (1)</font><br>
-      STL-Lite�O�J����´���@�Ӥp�� library�A���U��P�ǹ��� STL 
-      �[�c���j���F�ѡC</td>
-      <td WIDTH="66" VALIGN="TOP">�@</td>
+      STL-Lite是侯捷組織的一個小型 library，有助於同學對整個 STL 
+      架構的大局了解。</td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
     </tr>
     <tr>
       <td WIDTH="19" VALIGN="TOP"><font size="3">2</font></td>
       <td WIDTH="65" VALIGN="TOP"><font size="3">07/11</font></td>
       <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
-      <td WIDTH="352" VALIGN="TOP"><font size="3">����ӷL�� STL-Lite (2)</font></td>
-      <td WIDTH="66" VALIGN="TOP">�@</td>
+      <td WIDTH="352" VALIGN="TOP"><font size="3">具體而微的 STL-Lite (2)</font></td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
     </tr>
     <tr>
       <td WIDTH="19" VALIGN="TOP"><font size="3">2</font></td>
       <td WIDTH="65" VALIGN="TOP"><font size="3">07/12</font></td>
       <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
       <td WIDTH="352" VALIGN="TOP"><font size="3">STL Allocators and memory-pool design.</font></td>
-      <td WIDTH="66" VALIGN="TOP">�@</td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
     </tr>
     <tr>
       <td WIDTH="19" VALIGN="TOP"><font size="3">2</font></td>
       <td WIDTH="65" VALIGN="TOP"><font size="3">07/13</font></td>
       <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
       <td WIDTH="352" VALIGN="TOP"><font size="3">STL Containers (vector, list, deque, map, set)</font></td>
-      <td WIDTH="66" VALIGN="TOP">�@</td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
     </tr>
     <tr>
       <td WIDTH="19" VALIGN="TOP"><font size="3">3</font></td>
       <td WIDTH="65" VALIGN="TOP"><font size="3">07/18</font></td>
       <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
-      <td WIDTH="352" VALIGN="TOP"><font size="3">STL Containers (�`�ײz�� hashtable)</font></td>
-      <td WIDTH="66" VALIGN="TOP">�@</td>
+      <td WIDTH="352" VALIGN="TOP"><font size="3">STL Containers (深度理解 hashtable)</font></td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
     </tr>
     <tr>
       <td WIDTH="19" VALIGN="TOP"><font size="3">3</font></td>
       <td WIDTH="65" VALIGN="TOP"><font size="3">07/19</font></td>
       <td WIDTH="22" VALIGN="TOP"><font size="3">3</font></td>
       <td WIDTH="352" VALIGN="TOP"><font size="3">STL Algorithms, Functors, Adapters(1)</font></td>
-      <td WIDTH="66" VALIGN="TOP">�@</td>
+      <td WIDTH="66" VALIGN="TOP">　</td>
     </tr>
     <tr>
       <td WIDTH="19" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">3</font></td>
       <td WIDTH="65" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">07/20</font></td>
       <td WIDTH="22" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">2</font></td>
       <td WIDTH="352" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">STL Adapters(2) </font></td>
-      <td WIDTH="66" VALIGN="TOP" BGCOLOR="#ffffff">�@</td>
+      <td WIDTH="66" VALIGN="TOP" BGCOLOR="#ffffff">　</td>
     </tr>
     <tr>
       <td WIDTH="19" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">3</font></td>
       <td WIDTH="65" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">07/20</font></td>
       <td WIDTH="22" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">1</font></td>
-      <td WIDTH="352" VALIGN="TOP" BGCOLOR="#ffffff"><font color="#000000">�Ҹա]�δ���@�~�ΰQ�ס^</font></td>
-      <td WIDTH="66" VALIGN="TOP" BGCOLOR="#ffffff">�@</td>
+      <td WIDTH="352" VALIGN="TOP" BGCOLOR="#ffffff"><font color="#000000">考試（或提交作業及討論）</font></td>
+      <td WIDTH="66" VALIGN="TOP" BGCOLOR="#ffffff">　</td>
     </tr>
     <tr>
-      <td WIDTH="19" VALIGN="TOP" BGCOLOR="#ffffff">�@</td>
-      <td WIDTH="65" VALIGN="TOP" BGCOLOR="#ffffff">�A��</td>
-      <td WIDTH="22" VALIGN="TOP" BGCOLOR="#ffffff">�@</td>
+      <td WIDTH="19" VALIGN="TOP" BGCOLOR="#ffffff">　</td>
+      <td WIDTH="65" VALIGN="TOP" BGCOLOR="#ffffff">適時</td>
+      <td WIDTH="22" VALIGN="TOP" BGCOLOR="#ffffff">　</td>
       <td WIDTH="352" VALIGN="TOP" BGCOLOR="#ffffff"><font size="3">(1) Generics in Java.<br>
       (2) Design Patterns in SGI STL<br>
       (iterator, adapter, reference counting in std::string, proxy in std::vector&lt;bool&gt;, 
       command)</font></td>
-      <td WIDTH="66" VALIGN="TOP" BGCOLOR="#ffffff">�A��<br>
-      �A��<br>
-      �ɥR</td>
+      <td WIDTH="66" VALIGN="TOP" BGCOLOR="#ffffff">適時<br>
+      適度<br>
+      補充</td>
     </tr>
   </table>
   <p><br>
-  <font color="#408080"><a name="CanAudit">��Sent: Monday, May 23, 2005 10:35 PM</a><br>
-  �J����: �z�n! �D�`�_�N�����z�g�o�ʫH,�Ʊ�²�^���夣�v�T�z���\Ū. 
-  �ڬO�@�W�j���j�Ǫ���s��, �N�n�q�Ƴn��譱���u�@.�ܰ�������ݨ�z½Ķ�����y,�~���̹ꤣ��! 
+  <font color="#408080"><a name="CanAudit">■Sent: Monday, May 23, 2005 10:35 PM</a><br>
+  侯先生: 您好! 非常冒昧的給您寫這封信,希望簡体中文不影響您的閱讀. 
+  我是一名大陸大學的研究生, 將要從事軟件方面的工作.很高興能夠看到您翻譯的書籍,品質确實不錯! 
   <br>
   <br>
-  ���ѳX�ݱz���D���o�{�z�N�_7����b�n�ʤj�ǧ@�x���s�{�����y,�ګD�`�������n�ʲ�v�z�����y.���L�D���W����o�����y�S����h���H��,�ڦb�X��(�Z�ën�ʤj��200����������),�]�L�k�o���h�����_�o�����y���H��,�]���ܫ_�N�����z�g�H,�Q���D�o�����y�O���V���\�H��,�ݭn���\����~�i�H�ѥ[. 
+  今天訪問您的主頁發現您將于7月份在南京大學作泛型編程的講座,我非常有興趣到南京聆听您的講座.不過主頁上面對這個講座沒有更多的信息,我在合肥(距离南京大約200公里的城市),也無法得到更多的關于這個講座的信息,因此很冒昧的給您寫信,想知道這個講座是面向什么人的,需要什么條件才可以參加. 
   <br>
   <br>
-  ���P <br>
-  ���u�@���Q,���^���d!<br>
+  此致 <br>
+  祝工作順利,身体健康!<br>
   </font></p>
-  <p>���J���^�СG</p>
-  <p>�ڦb�n�ʤj�Ƕ}�� GP 
-  �ҵ{�A�O�Ǯե����ҵ{�A���V�n�ʤj�Ǿǥ͡C�@���Ѯv���w���ť�A�������ݥH�׽ҦP�Ǫ��v�q�]�y��B�Ŷ�...�����^���u���C�]���A�����_��ť�����D�A��ĳ�߰ݫn�ʤj�ǳn��ǰ|�C�����Q�C<br>
+  <p>■侯捷回覆：</p>
+  <p>我在南京大學開的 GP 
+  課程，是學校正式課程，面向南京大學學生。作為老師我歡迎旁聽，但首先需以修課同學的權益（座位、空間...等等）為優先。因此，關於能否旁聽的問題，建議詢問南京大學軟件學院。祝順利。<br>
   <br>
   -- the end</p>
-  <p>�@</p>
+  <p>　</p>
 </blockquote>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <html>
 
 <head>
-<title>¬°´¼¯à«ü¼Ğ¹ê§@ operator-&gt;*</title>
+<title>ç‚ºæ™ºèƒ½æŒ‡æ¨™å¯¦ä½œ operator-&gt;*</title>
 </head>
 
 <body BGCOLOR="#ffffff" LINK="#0000ff" VLINK="#330066" ALINK="#ff0000" TEXT="#000000">
@@ -9,161 +9,161 @@
 
 <hr>
 
-<h2 ALIGN="center"><font color="#800000">¬°</font><font color="#0000FF">´¼¯à«ü¼Ğ</font><font
-color="#800000">¹ê§@ operator-&gt;*<br>
+<h2 ALIGN="center"><font color="#800000">ç‚º</font><font color="#0000FF">æ™ºèƒ½æŒ‡æ¨™</font><font
+color="#800000">å¯¦ä½œ operator-&gt;*<br>
 <br>
 <small><small>Implementing <i>operator-&gt;*</i> for </font><font color="#0000FF">Smart 
 Pointers</font></small></small><font color="#800000"><br>
 <small><small>(<i>Dr. Dobb's Journal</i> October 1999/10)</small></small></font></h2>
 
-<h3 ALIGN="center"><font color="#800000">§@ªÌ¡GScott Meyers<br>
-Ä¶ªÌ¡G³¯´Q</font></h3>
+<h3 ALIGN="center"><font color="#800000">ä½œè€…ï¼šScott Meyers<br>
+è­¯è€…ï¼šé™³å´´</font></h3>
 
 <blockquote>
-  <p align="center">«J±¶µù¡G¥»¤å«Y¥_¨Ê¡mµ{§Ç­û¡nÂø»x 2001/09 
-  ªº¤å³¹¡CÄ¶µ§¶¶ºZ¡A§Ş³N¹¡º¡¡C<br>
-  ©ÓÄ¶ªÌ<font color="#000000">³¯´Q¥ı¥Í»P</font>¡mµ{§Ç­û¡n<font color="#000000">Âø»x­t³d¤H½±ÀÜ¥ı¥Íµª¤¹¡A<br>
-  Âà¸ü©ó¦¹¡A¥HÅW»OÆWÅªªÌ¡A«D±`·PÁÂ¡C<br>
+  <p align="center">ä¾¯æ·è¨»ï¼šæœ¬æ–‡ä¿‚åŒ—äº¬ã€Šç¨‹åºå“¡ã€‹é›œèªŒ 2001/09 
+  çš„æ–‡ç« ã€‚è­¯ç­†é †æš¢ï¼ŒæŠ€è¡“é£½æ»¿ã€‚<br>
+  æ‰¿è­¯è€…<font color="#000000">é™³å´´å…ˆç”Ÿèˆ‡</font>ã€Šç¨‹åºå“¡ã€‹<font color="#000000">é›œèªŒè² è²¬äººè”£æ¿¤å…ˆç”Ÿç­”å…ï¼Œ<br>
+  è½‰è¼‰æ–¼æ­¤ï¼Œä»¥é¥—è‡ºç£è®€è€…ï¼Œéå¸¸æ„Ÿè¬ã€‚<br>
   <br>
-  ¥¼±o³¯´Q¥ı¥Í»P½±ÀÜ¥ı¥Í¤G¤H¤§¦P·N¡A¥ô¦ó¤H½Ğ¤Å±N¦¹¤å¦A°µÂà¸ü¡C</font></p>
+  æœªå¾—é™³å´´å…ˆç”Ÿèˆ‡è”£æ¿¤å…ˆç”ŸäºŒäººä¹‹åŒæ„ï¼Œä»»ä½•äººè«‹å‹¿å°‡æ­¤æ–‡å†åšè½‰è¼‰ã€‚</font></p>
 </blockquote>
 
 <hr>
 
-<p><font color="#FF0000">Ä¶µù¡G</font>¥H¤U¬O¥»¤å©Ò±Ä¥Îªº´X­Ó¯S§O½ĞÅªªÌª`·Nªº³N»y¡G<br>
+<p><font color="#FF0000">è­¯è¨»ï¼š</font>ä»¥ä¸‹æ˜¯æœ¬æ–‡æ‰€æ¡ç”¨çš„å¹¾å€‹ç‰¹åˆ¥è«‹è®€è€…æ³¨æ„çš„è¡“èªï¼š<br>
 <br>
-client ¡G«Èºİ¡C<br>
-type¡G«¬§O¡C¬°Á×§K©M¨ä¥Lªñ¦ü³N»y²V²c¡A¥»¤åÄ¶¬°¡u«¬§O¡v¦Ó«D¡uÃş«¬¡v¡C<br>
-instantiated¡G¨ã²{¤Æ¡C¡u°w¹ï¤@­Ó template¡A¨ãÅé¹ê²{¥X¤@¥÷¹êÅé¡vªº·N«ä¡C<br>
-instance¡G¹êÅé¡C¡u®×¨Ò¡v¬O¿ù»~ªºÄ¶ªk¡C<br>
-parameter¡G°Ñ¼Æ¡C©ÎºÙ«¬¦¡°Ñ¼Æ¡A§Î°Ñ¡C<br>
-argument¡G¤Ş¼Æ¡C©ÎºÙ¹ê½è°Ñ¼Æ¡A¹ê°Ñ¡C<br>
-user-defined¡G¨Ï¥ÎªÌ¦Û©w<br>
+client ï¼šå®¢ç«¯ã€‚<br>
+typeï¼šå‹åˆ¥ã€‚ç‚ºé¿å…å’Œå…¶ä»–è¿‘ä¼¼è¡“èªæ··æ·†ï¼Œæœ¬æ–‡è­¯ç‚ºã€Œå‹åˆ¥ã€è€Œéã€Œé¡å‹ã€ã€‚<br>
+instantiatedï¼šå…·ç¾åŒ–ã€‚ã€Œé‡å°ä¸€å€‹ templateï¼Œå…·é«”å¯¦ç¾å‡ºä¸€ä»½å¯¦é«”ã€çš„æ„æ€ã€‚<br>
+instanceï¼šå¯¦é«”ã€‚ã€Œæ¡ˆä¾‹ã€æ˜¯éŒ¯èª¤çš„è­¯æ³•ã€‚<br>
+parameterï¼šåƒæ•¸ã€‚æˆ–ç¨±å‹å¼åƒæ•¸ï¼Œå½¢åƒã€‚<br>
+argumentï¼šå¼•æ•¸ã€‚æˆ–ç¨±å¯¦è³ªåƒæ•¸ï¼Œå¯¦åƒã€‚<br>
+user-definedï¼šä½¿ç”¨è€…è‡ªå®š<br>
 <br>
-¦Ü©ó class, object, data member, member function, constructor, destructor, template 
-µ¥³N»y¡A¬Ò«O¯d¤£Ä¶¡C</p>
+è‡³æ–¼ class, object, data member, member function, constructor, destructor, template 
+ç­‰è¡“èªï¼Œçš†ä¿ç•™ä¸è­¯ã€‚</p>
 
 <hr>
 
-<p>·í§Ú¼¶¼g <i>More Effective C++: 35 Ways to Improve Your Programs and Designs</i> 
-(Addison-Wesley, 1995) ®É¡A§Ú¦b¨ä¤¤±´°Q¤F¤@­Ó¥DÃD¡G<font color="#0000FF">´¼¯à«ü¼Ğ¡]smart 
-pointers¡^</font>¡Cµ²ªG¡A§Ú¦¬¨ì³\¦h¸ß°İ¡A¨ä¤¤³Ì¦³½ìªº¤@­Ó°İÃD¨Ó¦Û 
-Andrei Alexandrescu¡A¥L°İ¨ì¡G¡y¤@­Ó¯u¥¿«Ü¦³´¼¯àªº´¼¯à«ü¼Ğ¡A¸Ó¤£¸Ó¹ï 
+<p>ç•¶æˆ‘æ’°å¯« <i>More Effective C++: 35 Ways to Improve Your Programs and Designs</i> 
+(Addison-Wesley, 1995) æ™‚ï¼Œæˆ‘åœ¨å…¶ä¸­æ¢è¨äº†ä¸€å€‹ä¸»é¡Œï¼š<font color="#0000FF">æ™ºèƒ½æŒ‡æ¨™ï¼ˆsmart 
+pointersï¼‰</font>ã€‚çµæœï¼Œæˆ‘æ”¶åˆ°è¨±å¤šè©¢å•ï¼Œå…¶ä¸­æœ€æœ‰è¶£çš„ä¸€å€‹å•é¡Œä¾†è‡ª 
+Andrei Alexandrescuï¼Œä»–å•åˆ°ï¼šã€ä¸€å€‹çœŸæ­£å¾ˆæœ‰æ™ºèƒ½çš„æ™ºèƒ½æŒ‡æ¨™ï¼Œè©²ä¸è©²å° 
 operator-&gt;* 
-¹ê¬I¦h¸ü¤Æ©O¡H§Ú±q¥¼¬İ¹L¦³¤H¨º»ò°µ¡z¡C¬O°Ú¡A§Ú¤]±q¥¼¬İ¹L¦³¤H¨º»ò°µ¡A©Ò¥H§Ú¨M©w¸Õ¸Õ¡C§Ú©ÒÀò±oªºµ²ªG²`¨ã±Òµo·N¸q¡A»·¤ñ¡u¹ê²{ 
-<i>operator-&gt;</i>*¡v§ó¦h¡A¨ä¤¤¯A¤Î·¥¦³½ì¤]·¥¦³¥Îªº templates 
-¹B¥Î¤è¦¡¡C</p>
+å¯¦æ–½å¤šè¼‰åŒ–å‘¢ï¼Ÿæˆ‘å¾æœªçœ‹éæœ‰äººé‚£éº¼åšã€ã€‚æ˜¯å•Šï¼Œæˆ‘ä¹Ÿå¾æœªçœ‹éæœ‰äººé‚£éº¼åšï¼Œæ‰€ä»¥æˆ‘æ±ºå®šè©¦è©¦ã€‚æˆ‘æ‰€ç²å¾—çš„çµæœæ·±å…·å•Ÿç™¼æ„ç¾©ï¼Œé æ¯”ã€Œå¯¦ç¾ 
+<i>operator-&gt;</i>*ã€æ›´å¤šï¼Œå…¶ä¸­æ¶‰åŠæ¥µæœ‰è¶£ä¹Ÿæ¥µæœ‰ç”¨çš„ templates 
+é‹ç”¨æ–¹å¼ã€‚</p>
 
-<h3><font color="#0000FF">ÀË¾\ <i>operator-&gt;*</i></font></h3>
+<h3><font color="#0000FF">æª¢é–± <i>operator-&gt;*</i></font></h3>
 
-<p>¦pªG§A©Mµ´¤j¦h¼Æµ{¦¡­û¤@¼Ë¡A§A¤j·§¤£´¿¥Î¹L <i>operator-&gt;</i>*¡C¦]¦¹¡A¦b§Ú¸ÑÄÀ¦p¦ó°w¹ï´¼¯à«ü¼Ğ¹ê§@³o­Ó 
-operator ¤§«e¡A§Ú±o¥ı±a§AÀË¾\¤@¤U¥¦ªº¤º«Ø¦æ¬°¡C </p>
+<p>å¦‚æœä½ å’Œçµ•å¤§å¤šæ•¸ç¨‹å¼å“¡ä¸€æ¨£ï¼Œä½ å¤§æ¦‚ä¸æ›¾ç”¨é <i>operator-&gt;</i>*ã€‚å› æ­¤ï¼Œåœ¨æˆ‘è§£é‡‹å¦‚ä½•é‡å°æ™ºèƒ½æŒ‡æ¨™å¯¦ä½œé€™å€‹ 
+operator ä¹‹å‰ï¼Œæˆ‘å¾—å…ˆå¸¶ä½ æª¢é–±ä¸€ä¸‹å®ƒçš„å…§å»ºè¡Œç‚ºã€‚ </p>
 <DDJADVERTISEMENT INLINE>
 
-<p>°²³]¦³¤@­Ó class C¡A¤@­Ó«ü¼Ğ <i>pmf</i> ¡A¥Î¥H«ü¦V C ªºµL°Ñ¼Æ member 
-function¡A¥H¤Î¤@­Ó«ü¼Ğ <i>pc</i>¡A¥Î¥H«ü¦V C object¡C¥H¤U¹Bºâ¦¡¡G</p>
+<p>å‡è¨­æœ‰ä¸€å€‹ class Cï¼Œä¸€å€‹æŒ‡æ¨™ <i>pmf</i> ï¼Œç”¨ä»¥æŒ‡å‘ C çš„ç„¡åƒæ•¸ member 
+functionï¼Œä»¥åŠä¸€å€‹æŒ‡æ¨™ <i>pc</i>ï¼Œç”¨ä»¥æŒ‡å‘ C objectã€‚ä»¥ä¸‹é‹ç®—å¼ï¼š</p>
 
 <blockquote>
-  <p>(pc-&gt;*pmf)();&nbsp;&nbsp; // ¦b *pc ¨­¤W³ê°_ member function *pmf¡C </p>
+  <p>(pc-&gt;*pmf)();&nbsp;&nbsp; // åœ¨ *pc èº«ä¸Šå–šèµ· member function *pmfã€‚ </p>
 </blockquote>
 
-<p>·|¦b¡u<i>pc</i> ©Ò«üªº¨º­Ó object¡v¨­¤W³ê°_ <i>pmf</i> ©Ò«üªº¨º­Ó 
-member function¡C¤@¦p<font color="#8080FF">µ{¦¡¦Cªí¤@</font>©Ò¥Ü¡A¤@­Ó«ü¦V 
+<p>æœƒåœ¨ã€Œ<i>pc</i> æ‰€æŒ‡çš„é‚£å€‹ objectã€èº«ä¸Šå–šèµ· <i>pmf</i> æ‰€æŒ‡çš„é‚£å€‹ 
+member functionã€‚ä¸€å¦‚<font color="#8080FF">ç¨‹å¼åˆ—è¡¨ä¸€</font>æ‰€ç¤ºï¼Œä¸€å€‹æŒ‡å‘ 
 member functions 
-ªº«ü¼Ğ¡A¨ä¦æ¬°Ãş¦ü«ü¦V¤@¯ë¨ç¦¡ªº«ü¼Ğ¡A¥u¬O»yªkµyµy½ÆÂø¨Ç¦Ó¤w¡C³z¹L³oºØ¤è¦¡¨Ó¼g½X¡AÀôÂ¶ 
+çš„æŒ‡æ¨™ï¼Œå…¶è¡Œç‚ºé¡ä¼¼æŒ‡å‘ä¸€èˆ¬å‡½å¼çš„æŒ‡æ¨™ï¼Œåªæ˜¯èªæ³•ç¨ç¨è¤‡é›œäº›è€Œå·²ã€‚é€éé€™ç¨®æ–¹å¼ä¾†å¯«ç¢¼ï¼Œç’°ç¹ 
 <i>pc-&gt;</i>*<i>pmf</i> &nbsp; 
-ªº¤p¬A¸¹¬O¥²­nªº¡A¦]¬°½sÄ¶¾¹·|§â¥H¤U¦¡¤l¡G</p>
+çš„å°æ‹¬è™Ÿæ˜¯å¿…è¦çš„ï¼Œå› ç‚ºç·¨è­¯å™¨æœƒæŠŠä»¥ä¸‹å¼å­ï¼š</p>
 
 <blockquote>
-  <p>pc-&gt;*pmf();&nbsp;&nbsp; ¡@// ¿ù»~¡I</p>
+  <p>pc-&gt;*pmf();&nbsp;&nbsp; ã€€// éŒ¯èª¤ï¼</p>
 </blockquote>
 
-<p>µø¬°¡G </p>
+<p>è¦–ç‚ºï¼š </p>
 
 <blockquote>
-  <p>pc-&gt;*(pmf()); ¡@// ¿ù»~¡I</p>
+  <p>pc-&gt;*(pmf()); ã€€// éŒ¯èª¤ï¼</p>
 </blockquote>
 
-<p><a NAME="l2">¡@</p>
+<p><a NAME="l2">ã€€</p>
 </a>
 
-<h4>µ{¦¡¦Cªí¤@</h4>
+<h4>ç¨‹å¼åˆ—è¡¨ä¸€</h4>
 <a NAME="l1">
 
-<pre>class Wombat {          // wombats ¬O¿D¬w¯S²£ªº¤@ºØ¦³³U°Êª«¡A
-public:                 // ¬İ°_¨Ó¦³ÂI¹³ª¯¡C
+<pre>class Wombat {          // wombats æ˜¯æ¾³æ´²ç‰¹ç”¢çš„ä¸€ç¨®æœ‰è¢‹å‹•ç‰©ï¼Œ
+public:                 // çœ‹èµ·ä¾†æœ‰é»åƒç‹—ã€‚
 
-    int dig();          // ¶Ç¦^ depth dug
-    int sleep();        // ¶Ç¦^ time slept
+    int dig();          // å‚³å› depth dug
+    int sleep();        // å‚³å› time slept
 };
 
 typedef int (<font
-color="#0000FF">Wombat::*</font>PWMF)(); // PWMF¡G¤@­Ó</a>«ü¦V<a NAME="l1"> Wombat member function ªº«ü¼Ğ¡C
+color="#0000FF">Wombat::*</font>PWMF)(); // PWMFï¼šä¸€å€‹</a>æŒ‡å‘<a NAME="l1"> Wombat member function çš„æŒ‡æ¨™ã€‚
 Wombat *pw = new Wombat;  
 
-PWMF pmf = &amp;Wombat::dig;   // ¥O pmf «ü¦V Wombat::dig
+PWMF pmf = &amp;Wombat::dig;   // ä»¤ pmf æŒ‡å‘ Wombat::dig
 (<font
-color="#0000FF">pw-&gt;*</font>pmf)();              // ³o©M pw-&gt;dig(); ¬Û¦P¡C
-pmf = &amp;Wombat::sleep;      // ¥O pmf «ü¦V Wombat::sleep
+color="#0000FF">pw-&gt;*</font>pmf)();              // é€™å’Œ pw-&gt;dig(); ç›¸åŒã€‚
+pmf = &amp;Wombat::sleep;      // ä»¤ pmf æŒ‡å‘ Wombat::sleep
 (<font
-color="#0000FF">pw-&gt;*</font>pmf)();              // ³o©M pw-&gt;sleep(); ¬Û¦P¡C
+color="#0000FF">pw-&gt;*</font>pmf)();              // é€™å’Œ pw-&gt;sleep(); ç›¸åŒã€‚
 </pre>
 </a>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<h3><font color="#0000FF">¬°¤ä´© <i>operator-&gt;* </i>¦Ó°µªº³]­p</font></h3>
+<h3><font color="#0000FF">ç‚ºæ”¯æ´ <i>operator-&gt;* </i>è€Œåšçš„è¨­è¨ˆ</font></h3>
 
-<p>´N¹³³\¦h¹Bºâ¤l¤@¼Ë¡A<i>operator-&gt;</i>* 
-¤]¬O¤G¤¸ªº¡G¥¦±µ¨ü¨â­Ó¤Ş¼Æ¡C·í§Ú­Ì°w¹ï´¼¯à«ü¼Ğ¹ê§@ <i>operator-&gt;</i>*®É¡A¨ä¥ª¤Ş¼Æ¬O­Ó´¼¯à«ü¼Ğ¡A«ü¦V¤@­Ó«¬§O¬° 
-T ªºª«¥ó¡C¨ä¥k¤Ş¼Æ¬O­Ó«ü¼Ğ¡A«ü¦V class T ªº¤@­Ó member function¡C<font
-color="#8080FF">©I¥s <i>operator-&gt;</i>*¤§«á¡A§Ú­Ì¹ï¨ä¦^¶Ç­È°ß¤@¯à°µªº¨Æ±¡´N¬Oµ¹¥¦¤@­Ó°Ñ¼Æ¦C¡A¨Ï¥¦¦¨¬°¤@­Ó¡u¨ç¦¡©I¥s¡v¡C©Ò¥H¡A<i>operator- 
-&gt;</i>* ªº¦^¶Ç«¬§O¥²¶·¬O¬YºØ¡u<i>operator()</i>¡]©Ò¿× function call 
-operator¡^±o¥H¬I¦æ©ó¤W¡vªºªF¦è¡C<i>operator-&gt;</i>* ªº¦^¶Ç­È¥Nªí¤@­Ó<font
-FACE="·s²Ó©úÅé">¼f²z¤¤ªº¡B¥¼§¹¦¨ªº</font>¨ç¦¡©I¥s¡A©Ò¥H§Ú§â<i> 
-operator-&gt;</i>* ¶Ç¦^ªºª«¥ó«¬§OºÙ¬°<i> PMFC</i>¡A·N«ä¬O¤@­Ó &quot;Pending 
+<p>å°±åƒè¨±å¤šé‹ç®—å­ä¸€æ¨£ï¼Œ<i>operator-&gt;</i>* 
+ä¹Ÿæ˜¯äºŒå…ƒçš„ï¼šå®ƒæ¥å—å…©å€‹å¼•æ•¸ã€‚ç•¶æˆ‘å€‘é‡å°æ™ºèƒ½æŒ‡æ¨™å¯¦ä½œ <i>operator-&gt;</i>*æ™‚ï¼Œå…¶å·¦å¼•æ•¸æ˜¯å€‹æ™ºèƒ½æŒ‡æ¨™ï¼ŒæŒ‡å‘ä¸€å€‹å‹åˆ¥ç‚º 
+T çš„ç‰©ä»¶ã€‚å…¶å³å¼•æ•¸æ˜¯å€‹æŒ‡æ¨™ï¼ŒæŒ‡å‘ class T çš„ä¸€å€‹ member functionã€‚<font
+color="#8080FF">å‘¼å« <i>operator-&gt;</i>*ä¹‹å¾Œï¼Œæˆ‘å€‘å°å…¶å›å‚³å€¼å”¯ä¸€èƒ½åšçš„äº‹æƒ…å°±æ˜¯çµ¦å®ƒä¸€å€‹åƒæ•¸åˆ—ï¼Œä½¿å®ƒæˆç‚ºä¸€å€‹ã€Œå‡½å¼å‘¼å«ã€ã€‚æ‰€ä»¥ï¼Œ<i>operator- 
+&gt;</i>* çš„å›å‚³å‹åˆ¥å¿…é ˆæ˜¯æŸç¨®ã€Œ<i>operator()</i>ï¼ˆæ‰€è¬‚ function call 
+operatorï¼‰å¾—ä»¥æ–½è¡Œæ–¼ä¸Šã€çš„æ±è¥¿ã€‚<i>operator-&gt;</i>* çš„å›å‚³å€¼ä»£è¡¨ä¸€å€‹<font
+FACE="æ–°ç´°æ˜é«”">å¯©ç†ä¸­çš„ã€æœªå®Œæˆçš„</font>å‡½å¼å‘¼å«ï¼Œæ‰€ä»¥æˆ‘æŠŠ<i> 
+operator-&gt;</i>* å‚³å›çš„ç‰©ä»¶å‹åˆ¥ç¨±ç‚º<i> PMFC</i>ï¼Œæ„æ€æ˜¯ä¸€å€‹ &quot;Pending 
 Member Function Call.&quot;</font></p>
 
-<p>§â³o¨Ç¾ã¦X¦b¤@°_¡A©ó¬O§Ú­ÌÀò±o<a NAME="rl2"></a><font color="#8080FF">µ{¦¡¦Cªí¤G</font>ªºµêÀÀ½X¡]pseudocode¡^¡G</p>
+<p>æŠŠé€™äº›æ•´åˆåœ¨ä¸€èµ·ï¼Œæ–¼æ˜¯æˆ‘å€‘ç²å¾—<a NAME="rl2"></a><font color="#8080FF">ç¨‹å¼åˆ—è¡¨äºŒ</font>çš„è™›æ“¬ç¢¼ï¼ˆpseudocodeï¼‰ï¼š</p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<h4>µ{¦¡¦Cªí¤G¡]pseudocode¡^<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨äºŒï¼ˆpseudocodeï¼‰<a NAME="l2"></h4>
 
 <pre>class <font color="#0000FF">PMFC</font> {               // &quot;Pending Member Function Call&quot;
 public:
     ...
     <font
 color="#0000FF"><b>return type</b></font> <font color="#FF0000">operator()</font>(<font
-color="#0000FF"> <b>parameters</b></font> ) const;	// Ä¶µù(1)
+color="#0000FF"> <b>parameters</b></font> ) const;	// è­¯è¨»(1)
     ...
 };
 
-template&lt;typename T&gt;        // template¡A¥Î©ó T ´¼¯à«ü¼Ğ¡A¥i¥H¤ä´© operator-&gt;*¡C
+template&lt;typename T&gt;        // templateï¼Œç”¨æ–¼ T æ™ºèƒ½æŒ‡æ¨™ï¼Œå¯ä»¥æ”¯æ´ operator-&gt;*ã€‚
 class SP {                  
 public:
     ...
     const <font
 color="#0000FF">PMFC</font> <font color="#FF0000">operator-&gt;*</font>( <font
 color="#0000FF"><b>return type</b> (T::*</font><font color="#000000">pmf</font><font
-color="#0000FF">)(<b> parameters</b> ) </font>) const;	// Ä¶µù(2)
+color="#0000FF">)(<b> parameters</b> ) </font>) const;	// è­¯è¨»(2)
     ...
 };
-// Ä¶µù¡G¤W­z(1)ªº return type ©M parameters ¥²¶·©M (2) ¤¤ªº¹ïÀ³ª«§¹¥ş¤@¼Ë¡C</pre>
+// è­¯è¨»ï¼šä¸Šè¿°(1)çš„ return type å’Œ parameters å¿…é ˆå’Œ (2) ä¸­çš„å°æ‡‰ç‰©å®Œå…¨ä¸€æ¨£ã€‚</pre>
 </a>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<p>¥Ñ©ó¨C¤@­Ó <i>PMFC</i> object ³£¥NªíµÛ¤@­Ó¥¼§¹¦¨ªº©I¥s¡G©I¥s <i>operator-&gt;</i>* 
-©Ò±µ¦¬¨ìªº member function¡A¦]¦¹ member function ©M <i>PMFC::operator()</i> 
-©Ò´Á«İªº°Ñ¼Æ¦C§¹¥ş¬Û¦P¡C¬°¤FÂ²¤Æ¨Æ±¡¡A§Ú°²³]<i> T</i> ªº member 
+<p>ç”±æ–¼æ¯ä¸€å€‹ <i>PMFC</i> object éƒ½ä»£è¡¨è‘—ä¸€å€‹æœªå®Œæˆçš„å‘¼å«ï¼šå‘¼å« <i>operator-&gt;</i>* 
+æ‰€æ¥æ”¶åˆ°çš„ member functionï¼Œå› æ­¤ member function å’Œ <i>PMFC::operator()</i> 
+æ‰€æœŸå¾…çš„åƒæ•¸åˆ—å®Œå…¨ç›¸åŒã€‚ç‚ºäº†ç°¡åŒ–äº‹æƒ…ï¼Œæˆ‘å‡è¨­<i> T</i> çš„ member 
 functions 
-¤£±µ¨ü¥ô¦ó¤Ş¼Æ¡]µy«á§Ú·|²¾°£³o¶µ­­¨î¡^¡A³o·N¨ı§A¥i¥H±Nµ{¦¡¦Cªí¤G­«·s©w¸q¬°<font
-color="#8080FF">µ{¦¡¦Cªí¤T</font>¡C </p>
+ä¸æ¥å—ä»»ä½•å¼•æ•¸ï¼ˆç¨å¾Œæˆ‘æœƒç§»é™¤é€™é …é™åˆ¶ï¼‰ï¼Œé€™æ„å‘³ä½ å¯ä»¥å°‡ç¨‹å¼åˆ—è¡¨äºŒé‡æ–°å®šç¾©ç‚º<font
+color="#8080FF">ç¨‹å¼åˆ—è¡¨ä¸‰</font>ã€‚ </p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<h4>µ{¦¡¦Cªí¤T<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨ä¸‰<a NAME="l2"></h4>
 </a><a NAME="l3">
 
 <pre>class PMFC {
@@ -186,25 +186,25 @@ color="#000000">pmf</font><font color="#0000FF">)()</font> ) const;
 </pre>
 </a>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<p>¤W­z¡u<i>pmf</i>&nbsp; ©Ò«ü¦V¤§ member function¡vªº¦^¶Ç«¬§O¨s³º·|¬O¤°»ò©O¡H¥i¯à¬O 
-<i>int</i>, <i>double</i>, ¤]¥i¯à¬O <i>const Wombat</i>&amp;¡C¬Oªº¡A¥¦¥i¯à¬O¥ô¦ó«¬§O¡C§AÀ³¸Ó±N³oºØµL½a¥i¯àªº²Õ¦X¥H 
-template ¨Óªí²{¡C©ó¬O¡A<i>operator-&gt;</i>* ²{¦bÅÜ¦¨¤F¤@­Ó member function 
-template¡C¦¹¥~¡A<i>PMFC</i> ¤]ÅÜ¦¨¤F¤@­Ó template¡A¦]¬°¤£¦Pªº¡u<i>operator-&gt;</i>* 
-¨ã²{Åé¡v·|¶Ç¦^¤£¦P«¬§Oªº <i>PMFC</i> objects¡C¨C­Ó <i>PMFC</i> object 
-¦b¨ä <i>operator()</i> &nbsp;³Q³ê°_®É¡A³£¥²¶·ª¾¹D¦^¶Ç«¬§O¬O¤°»ò¡C</p>
+<p>ä¸Šè¿°ã€Œ<i>pmf</i>&nbsp; æ‰€æŒ‡å‘ä¹‹ member functionã€çš„å›å‚³å‹åˆ¥ç©¶ç«Ÿæœƒæ˜¯ä»€éº¼å‘¢ï¼Ÿå¯èƒ½æ˜¯ 
+<i>int</i>, <i>double</i>, ä¹Ÿå¯èƒ½æ˜¯ <i>const Wombat</i>&amp;ã€‚æ˜¯çš„ï¼Œå®ƒå¯èƒ½æ˜¯ä»»ä½•å‹åˆ¥ã€‚ä½ æ‡‰è©²å°‡é€™ç¨®ç„¡çª®å¯èƒ½çš„çµ„åˆä»¥ 
+template ä¾†è¡¨ç¾ã€‚æ–¼æ˜¯ï¼Œ<i>operator-&gt;</i>* ç¾åœ¨è®Šæˆäº†ä¸€å€‹ member function 
+templateã€‚æ­¤å¤–ï¼Œ<i>PMFC</i> ä¹Ÿè®Šæˆäº†ä¸€å€‹ templateï¼Œå› ç‚ºä¸åŒçš„ã€Œ<i>operator-&gt;</i>* 
+å…·ç¾é«”ã€æœƒå‚³å›ä¸åŒå‹åˆ¥çš„ <i>PMFC</i> objectsã€‚æ¯å€‹ <i>PMFC</i> object 
+åœ¨å…¶ <i>operator()</i> &nbsp;è¢«å–šèµ·æ™‚ï¼Œéƒ½å¿…é ˆçŸ¥é“å›å‚³å‹åˆ¥æ˜¯ä»€éº¼ã€‚</p>
 
-<p>¤@¥¹±N¥¦¼ÒªO¤Æ¡]templatization¡^¤§«á¡A§A«K¥i¥H±Ë±óµêÀÀ½X¡]pseudocode¡^¡A¼g¥X¯u¥¿ªº 
-<i>PMFC</i> ©M <i>SP::operator-&gt;</i>*¡A¦p<a NAME="rl4"></a><font color="#8080FF">µ{¦¡¦Cªí¥|</font>¡C</p>
+<p>ä¸€æ—¦å°‡å®ƒæ¨¡æ¿åŒ–ï¼ˆtemplatizationï¼‰ä¹‹å¾Œï¼Œä½ ä¾¿å¯ä»¥æ¨æ£„è™›æ“¬ç¢¼ï¼ˆpseudocodeï¼‰ï¼Œå¯«å‡ºçœŸæ­£çš„ 
+<i>PMFC</i> å’Œ <i>SP::operator-&gt;</i>*ï¼Œå¦‚<a NAME="rl4"></a><font color="#8080FF">ç¨‹å¼åˆ—è¡¨å››</font>ã€‚</p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<h4>µ{¦¡¦Cªí¥|<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨å››<a NAME="l2"></h4>
 </a><a NAME="l4">
 
-<pre><font color="#0000FF">template&lt;typename ReturnType&gt;</font>   // template¡A¥Î©ó¤@­Ó¡u¦^¶Ç«¬§O¬° ReturnType¡vªº
-class PMFC {                    // ¥¼§¹¦¨ªº member function call¡C
+<pre><font color="#0000FF">template&lt;typename ReturnType&gt;</font>   // templateï¼Œç”¨æ–¼ä¸€å€‹ã€Œå›å‚³å‹åˆ¥ç‚º ReturnTypeã€çš„
+class PMFC {                    // æœªå®Œæˆçš„ member function callã€‚
 public:
     ...
     <font
@@ -228,27 +228,27 @@ color="#0000FF">)()</font> ) const;
 </pre>
 </a>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<h3><font color="#0000FF">µL¥ô¦ó°Ñ¼Æªº Member Functions</font></h3>
+<h3><font color="#0000FF">ç„¡ä»»ä½•åƒæ•¸çš„ Member Functions</font></h3>
 
-<p>¨­¬°¤@­Ó¥¼§¹¦¨ªº member function call¡A<i>PMFC</i> 
-»İ­nª¾¹D¨â¼ËªF¦è¡A¤~¯à¹ê§@¨ä <i>operator()</i>¡G(1) 
-¥¦¨s³º­n©I¥s­ş­Ó member function¡A(2) ¦b­ş­Ó object ¨­¤W³ê°_¸Ó member 
-function¡C<i>PMFC</i> constructor 
-À³¸Ó¬O¯Á¨ú³o¨Ç¤Ş¼Æªº¤@­Ó¦X¾A¦aÂI¡C¦¹¥~¡A±N¤W­z¨â¼ËªF¦è©ñ¦b¤@­Ó¼Ğ·Çªº 
-pair object ¤º¦ü¥G¤]¬O­Ó¦n¥D·N¡C©ó¬O§Ú­ÌÀò±o<font color="#8080FF">µ{¦¡¦Cªí¤­</font>¡C</p>
+<p>èº«ç‚ºä¸€å€‹æœªå®Œæˆçš„ member function callï¼Œ<i>PMFC</i> 
+éœ€è¦çŸ¥é“å…©æ¨£æ±è¥¿ï¼Œæ‰èƒ½å¯¦ä½œå…¶ <i>operator()</i>ï¼š(1) 
+å®ƒç©¶ç«Ÿè¦å‘¼å«å“ªå€‹ member functionï¼Œ(2) åœ¨å“ªå€‹ object èº«ä¸Šå–šèµ·è©² member 
+functionã€‚<i>PMFC</i> constructor 
+æ‡‰è©²æ˜¯ç´¢å–é€™äº›å¼•æ•¸çš„ä¸€å€‹åˆé©åœ°é»ã€‚æ­¤å¤–ï¼Œå°‡ä¸Šè¿°å…©æ¨£æ±è¥¿æ”¾åœ¨ä¸€å€‹æ¨™æº–çš„ 
+pair object å…§ä¼¼ä¹ä¹Ÿæ˜¯å€‹å¥½ä¸»æ„ã€‚æ–¼æ˜¯æˆ‘å€‘ç²å¾—<font color="#8080FF">ç¨‹å¼åˆ—è¡¨äº”</font>ã€‚</p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<h4>µ{¦¡¦Cªí¤­<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨äº”<a NAME="l2"></h4>
 </a><a NAME="l5">
 
-<pre>template&lt;typename <font color="#FF00FF">ObjectType</font>,        // ´£¨Ñ mem func ªº¨º­Ó class¡C
+<pre>template&lt;typename <font color="#FF00FF">ObjectType</font>,        // æä¾› mem func çš„é‚£å€‹ classã€‚
          typename <font
-color="#0000FF">ReturnType</font>,        // mem func ªº¦^¶Ç«¬§O¡C
+color="#0000FF">ReturnType</font>,        // mem func çš„å›å‚³å‹åˆ¥ã€‚
          typename <font
-color="#FF00FF">MemFuncPtrType</font>&gt;    // mem func ªº§¹¾ã¼Ğ°O¡C
+color="#FF00FF">MemFuncPtrType</font>&gt;    // mem func çš„å®Œæ•´æ¨™è¨˜ã€‚
 class PMFC { 
 public:
     typedef std::pair&lt;<font
@@ -266,43 +266,43 @@ private:
 </pre>
 </a>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<p>¥E¨£¤§¤UÁöµM¦ü¥G«Ü½ÆÂø¡A¨ä¹ê¬Û·íÂ²³æ¡C·í§A²£¥Í¤@­Ó <i>PMFC</i>¡A§A¥²¶·«ü¥X­n©I¥s­ş¤@ºØ 
-member function<font color="#FF0000">¡]Ä¶µù¡G³o´N¬O¤W­zMemFuncPtrTypeªº§@¥Î¡^</font>¡A¨Ã«ü¥X¦b­ş¤@ºØ 
-object ¨­¤W³ê°_¥¦<font color="#FF0000">¡]Ä¶µù¡G³o´N¬O¤W­z ObjectTypeªº§@¥Î¡^</font>¡Cµy«á·í§A³ê°_ 
-<i>PMFC</i> ªº <i>operator()</i> 
-¨ç¦¡¡A«áªÌ©Ò³ê°_ªº«K¬O³o­Ó¡u«¬§O¤w³Q§¹¾ãÀx¦s¡]°O¿ı¡^¤U¨Ó¡vªº 
-member function¡C </p>
+<p>ä¹è¦‹ä¹‹ä¸‹é›–ç„¶ä¼¼ä¹å¾ˆè¤‡é›œï¼Œå…¶å¯¦ç›¸ç•¶ç°¡å–®ã€‚ç•¶ä½ ç”¢ç”Ÿä¸€å€‹ <i>PMFC</i>ï¼Œä½ å¿…é ˆæŒ‡å‡ºè¦å‘¼å«å“ªä¸€ç¨® 
+member function<font color="#FF0000">ï¼ˆè­¯è¨»ï¼šé€™å°±æ˜¯ä¸Šè¿°MemFuncPtrTypeçš„ä½œç”¨ï¼‰</font>ï¼Œä¸¦æŒ‡å‡ºåœ¨å“ªä¸€ç¨® 
+object èº«ä¸Šå–šèµ·å®ƒ<font color="#FF0000">ï¼ˆè­¯è¨»ï¼šé€™å°±æ˜¯ä¸Šè¿° ObjectTypeçš„ä½œç”¨ï¼‰</font>ã€‚ç¨å¾Œç•¶ä½ å–šèµ· 
+<i>PMFC</i> çš„ <i>operator()</i> 
+å‡½å¼ï¼Œå¾Œè€…æ‰€å–šèµ·çš„ä¾¿æ˜¯é€™å€‹ã€Œå‹åˆ¥å·²è¢«å®Œæ•´å„²å­˜ï¼ˆè¨˜éŒ„ï¼‰ä¸‹ä¾†ã€çš„ 
+member functionã€‚ </p>
 
-<p>½Ğª`·N¤W­zªº <i>operator()</i>&nbsp;«Y®Ú¾Ú»y¨¥¤º«Øªº <i>operator-&gt;</i>* 
-¹ê§@¥X¨Ó¡C­nª¾¹D¡A¥u¦³·í´¼¯à«ü¼Ğªº¡u¨Ï¥ÎªÌ¦Û©w¤§ <i>operator-&gt;*</i>¡v³Q©I¥s¡A¤~·|²£¥Í¥X¤@­Ó 
-<i>PMFC</i> objects¡A³o·t³ë¡u¨Ï¥ÎªÌ¦Û©w¤§ <i>operator-&gt;</i>*¡vÀ³¸Ó®Ú¾Ú¡u»y¨¥¤º«Øªº 
-<i>operator-&gt;</i>*¡v¹ê§@¥X¨Ó¡C³o©M§Ú­Ì©Ò¼ôª¾ªº¥H¤U¨Æ¹ê¬O¤@­Ó«Ü¦nªº¹ïºÙ¡G¡u¨Ï¥ÎªÌ¦Û©w¤§ 
-<i>operator-&gt;</i>¡vªº¦æ¬°¡A©M¡u»y¨¥¤º«Ø¤§<i> operator-&gt;</i>¡v©¼¦¹Ãö³s¡A¦]¬° 
-C++ ¹ï©ó¡u¨Ï¥ÎªÌ¦Û©w¤§ <i>operator-&gt;</i>¡vªº¨C¤@­Ó©I¥s¡A³Ì²×³£¬O¡]Áô³ë¦a¡^©I¥s¨ì¡u»y¨¥¤º«Øªº 
-<i>operator-&gt;</i>¡v¡C¦p¦¹ªº¹ïºÙ²{¶H¥O¤H¦w¤ß¡Aªí¥Ü¥Ø«eªº³]­p¨«¦b¥¿½Tªº¤è¦V¤W¡C</p>
+<p>è«‹æ³¨æ„ä¸Šè¿°çš„ <i>operator()</i>&nbsp;ä¿‚æ ¹æ“šèªè¨€å…§å»ºçš„ <i>operator-&gt;</i>* 
+å¯¦ä½œå‡ºä¾†ã€‚è¦çŸ¥é“ï¼Œåªæœ‰ç•¶æ™ºèƒ½æŒ‡æ¨™çš„ã€Œä½¿ç”¨è€…è‡ªå®šä¹‹ <i>operator-&gt;*</i>ã€è¢«å‘¼å«ï¼Œæ‰æœƒç”¢ç”Ÿå‡ºä¸€å€‹ 
+<i>PMFC</i> objectsï¼Œé€™æš—å–»ã€Œä½¿ç”¨è€…è‡ªå®šä¹‹ <i>operator-&gt;</i>*ã€æ‡‰è©²æ ¹æ“šã€Œèªè¨€å…§å»ºçš„ 
+<i>operator-&gt;</i>*ã€å¯¦ä½œå‡ºä¾†ã€‚é€™å’Œæˆ‘å€‘æ‰€ç†ŸçŸ¥çš„ä»¥ä¸‹äº‹å¯¦æ˜¯ä¸€å€‹å¾ˆå¥½çš„å°ç¨±ï¼šã€Œä½¿ç”¨è€…è‡ªå®šä¹‹ 
+<i>operator-&gt;</i>ã€çš„è¡Œç‚ºï¼Œå’Œã€Œèªè¨€å…§å»ºä¹‹<i> operator-&gt;</i>ã€å½¼æ­¤é—œé€£ï¼Œå› ç‚º 
+C++ å°æ–¼ã€Œä½¿ç”¨è€…è‡ªå®šä¹‹ <i>operator-&gt;</i>ã€çš„æ¯ä¸€å€‹å‘¼å«ï¼Œæœ€çµ‚éƒ½æ˜¯ï¼ˆéš±å–»åœ°ï¼‰å‘¼å«åˆ°ã€Œèªè¨€å…§å»ºçš„ 
+<i>operator-&gt;</i>ã€ã€‚å¦‚æ­¤çš„å°ç¨±ç¾è±¡ä»¤äººå®‰å¿ƒï¼Œè¡¨ç¤ºç›®å‰çš„è¨­è¨ˆèµ°åœ¨æ­£ç¢ºçš„æ–¹å‘ä¸Šã€‚</p>
 
-<p>§A¥i¯à¤w¸gª`·N¨ì¤F¡A<i>ObjectType</i>, <i>ReturnType</i>, ©M <i>MemFuncPtrType</i> 
-&nbsp; ¤T­Ó template parameters ¦ü¥G¦³ÂIÂØ¾l¡C¦]¬°¦pªG§Ú­Ì¾Ö¦³ <i>MemFuncPtrType</i>¡A§Ú­Ì´N¯à°÷±Àºt¥X 
-<i>ObjectType</i> ©M <i>ReturnType</i>¡C²¦³º¤£½× <i>ObjectType</i> ©Î <i>ReturnType</i>¡A³£¬O 
-<i>MemFuncPtrType</i> ªº¤@³¡¥÷¡Cªº½T¡A§Ú­Ì¯à°÷¨Ï¥Î<font color="#0000FF">¡u¼ÒªO°¾¯S¤Æ¡v¡]partial 
-template specialization¡^</font>§Ş³N¡A±q <i>MemFuncPtrType</i> ±À¾É¥X <i>ObjectType</i> 
-©M <i>ReturnType</i>¡A¦ı¥Ñ©ó¤ä´©¡u°¾¯S¤Æ¡v§Ş³N¤§°Ó¥Î½sÄ¶¾¹ÁÙ¤£¤Q¤À´¶¤Î<font
-color="#FF0000">¡]Ä¶µù¡G¨Ò¦p Visual C++ 6 ´N¨S¦³¤ä´©¡^</font>¡A©Ò¥H§Ú¨S¦³¿ï¾Ü³oºØ§@ªk¡C¦pªG·Q°ò©ó¡u°¾¯S¤Æ§Ş³N¡v¨Ó¶i¦æ³]­p¡A¬ÛÃö²Ó¸`½Ğ¬İµy«áªº¡uPartial 
-Template Specialization »P <i>operator-&gt;</i>*¡v¤è¶ô¤å¦r¡C</p>
+<p>ä½ å¯èƒ½å·²ç¶“æ³¨æ„åˆ°äº†ï¼Œ<i>ObjectType</i>, <i>ReturnType</i>, å’Œ <i>MemFuncPtrType</i> 
+&nbsp; ä¸‰å€‹ template parameters ä¼¼ä¹æœ‰é»è´…é¤˜ã€‚å› ç‚ºå¦‚æœæˆ‘å€‘æ“æœ‰ <i>MemFuncPtrType</i>ï¼Œæˆ‘å€‘å°±èƒ½å¤ æ¨æ¼”å‡º 
+<i>ObjectType</i> å’Œ <i>ReturnType</i>ã€‚ç•¢ç«Ÿä¸è«– <i>ObjectType</i> æˆ– <i>ReturnType</i>ï¼Œéƒ½æ˜¯ 
+<i>MemFuncPtrType</i> çš„ä¸€éƒ¨ä»½ã€‚çš„ç¢ºï¼Œæˆ‘å€‘èƒ½å¤ ä½¿ç”¨<font color="#0000FF">ã€Œæ¨¡æ¿åç‰¹åŒ–ã€ï¼ˆpartial 
+template specializationï¼‰</font>æŠ€è¡“ï¼Œå¾ <i>MemFuncPtrType</i> æ¨å°å‡º <i>ObjectType</i> 
+å’Œ <i>ReturnType</i>ï¼Œä½†ç”±æ–¼æ”¯æ´ã€Œåç‰¹åŒ–ã€æŠ€è¡“ä¹‹å•†ç”¨ç·¨è­¯å™¨é‚„ä¸ååˆ†æ™®åŠ<font
+color="#FF0000">ï¼ˆè­¯è¨»ï¼šä¾‹å¦‚ Visual C++ 6 å°±æ²’æœ‰æ”¯æ´ï¼‰</font>ï¼Œæ‰€ä»¥æˆ‘æ²’æœ‰é¸æ“‡é€™ç¨®ä½œæ³•ã€‚å¦‚æœæƒ³åŸºæ–¼ã€Œåç‰¹åŒ–æŠ€è¡“ã€ä¾†é€²è¡Œè¨­è¨ˆï¼Œç›¸é—œç´°ç¯€è«‹çœ‹ç¨å¾Œçš„ã€ŒPartial 
+Template Specialization èˆ‡ <i>operator-&gt;</i>*ã€æ–¹å¡Šæ–‡å­—ã€‚</p>
 
-<p>¦³¤F<font color="#8080FF">µ{¦¡¦Cªí¤­</font>¤¤ªº <i>PMFC</i> ¹ê§@¤º®e¡A<i>SP&lt;T&gt;</i> 
-ªº<i> operator-&gt;</i>* ´X¥G¤w¸g§¹¦¨¡C¥¦©Ò¶Ç¦^ªº <i>PMFC</i> object 
-»İ­n¤@­Ó object pointer ©M¤@­Ó member function pointer °µ¬°ªì­È¡C¤@¦p<font
-color="#8080FF">µ{¦¡¦Cªí¤»</font>©Ò¥Ü¡A´¼¯à«ü¼Ğ²ßºD¤W·|¦³¤@­Ó data 
-member ¥Î¨Ó¦s©ñ object pointer¡F¦Ü©ó member function pointer¡A¨ä¹ê´N¬O <i>operator-&gt;</i>* 
-©Ò±µÀòªº¤Ş¼Æ¡C¦]¦¹¡A<a NAME="rl7"></a><font color="#8080FF">µ{¦¡¦Cªí¤C</font>ªº¥N½XÀ³¸Ó¥i¥H¦³®Ä¹B§@¡C¥H§Ú©Ò´ú¸Õªº¨â­Ó½sÄ¶¾¹¡]Visual 
-C++ 6 ©M egcs 1.1.2¡^¦Ó¨¥¡Aªº½T¦p¦¹¡C</p>
+<p>æœ‰äº†<font color="#8080FF">ç¨‹å¼åˆ—è¡¨äº”</font>ä¸­çš„ <i>PMFC</i> å¯¦ä½œå…§å®¹ï¼Œ<i>SP&lt;T&gt;</i> 
+çš„<i> operator-&gt;</i>* å¹¾ä¹å·²ç¶“å®Œæˆã€‚å®ƒæ‰€å‚³å›çš„ <i>PMFC</i> object 
+éœ€è¦ä¸€å€‹ object pointer å’Œä¸€å€‹ member function pointer åšç‚ºåˆå€¼ã€‚ä¸€å¦‚<font
+color="#8080FF">ç¨‹å¼åˆ—è¡¨å…­</font>æ‰€ç¤ºï¼Œæ™ºèƒ½æŒ‡æ¨™ç¿’æ…£ä¸Šæœƒæœ‰ä¸€å€‹ data 
+member ç”¨ä¾†å­˜æ”¾ object pointerï¼›è‡³æ–¼ member function pointerï¼Œå…¶å¯¦å°±æ˜¯ <i>operator-&gt;</i>* 
+æ‰€æ¥ç²çš„å¼•æ•¸ã€‚å› æ­¤ï¼Œ<a NAME="rl7"></a><font color="#8080FF">ç¨‹å¼åˆ—è¡¨ä¸ƒ</font>çš„ä»£ç¢¼æ‡‰è©²å¯ä»¥æœ‰æ•ˆé‹ä½œã€‚ä»¥æˆ‘æ‰€æ¸¬è©¦çš„å…©å€‹ç·¨è­¯å™¨ï¼ˆVisual 
+C++ 6 å’Œ egcs 1.1.2ï¼‰è€Œè¨€ï¼Œçš„ç¢ºå¦‚æ­¤ã€‚</p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<h4>µ{¦¡¦Cªí¤»<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨å…­<a NAME="l2"></h4>
 </a><a NAME="l6">
 
 <pre>template &lt;typename T&gt;
@@ -324,7 +324,7 @@ private:
 </pre>
 </a>
 
-<h4>µ{¦¡¦Cªí¤C<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨ä¸ƒ<a NAME="l2"></h4>
 </a><a NAME="l7">
 
 <pre>#include &lt;iostream&gt;
@@ -332,9 +332,9 @@ private:
 using namespace std;  
 
 template&lt;typename ObjectType, typename ReturnType, typename MemFuncPtrType&gt;
-class PMFC { ... };              // ¤@¦p¥H©¹
+class PMFC { ... };              // ä¸€å¦‚ä»¥å¾€
 
-template &lt;typename T&gt;            // ¤@¦p¥H©¹
+template &lt;typename T&gt;            // ä¸€å¦‚ä»¥å¾€
 class SP { ... }; 
 
 class Wombat { 
@@ -352,113 +352,113 @@ public:
 };
 
 int main()
-{                                     // ¤@¦p¥H©¹¡APWMF ¬O­Ó«ü¼Ğ¡A 
+{                                     // ä¸€å¦‚ä»¥å¾€ï¼ŒPWMF æ˜¯å€‹æŒ‡æ¨™ï¼Œ 
     typedef int (Wombat::*<font
-color="#0000FF">PWMF</font>)();    // «ü¦V¤@­Ó Wombat member function
+color="#0000FF">PWMF</font>)();    // æŒ‡å‘ä¸€å€‹ Wombat member function
 
     SP&lt;Wombat&gt; pw = new Wombat;
 
     PWMF pmf = <font
-color="#0000FF">&amp;Wombat::dig</font>;   // ¥O pmf «ü¦V Wombat::dig 
+color="#0000FF">&amp;Wombat::dig</font>;   // ä»¤ pmf æŒ‡å‘ Wombat::dig 
     (pw<font
-color="#FF0000">-&gt;*</font>pmf)<font color="#FF0000">()</font>;              // ³ê°_§Ú­Ìªº operator-&gt;*;
-                               // ¦L¥X &quot;Digging...&quot; 
+color="#FF0000">-&gt;*</font>pmf)<font color="#FF0000">()</font>;              // å–šèµ·æˆ‘å€‘çš„ operator-&gt;*;
+                               // å°å‡º &quot;Digging...&quot; 
 
     pmf =<font
-color="#0000FF"> &amp;Wombat::sleep</font>;      // ¥O pmf «ü¦V Wombat::sleep 
+color="#0000FF"> &amp;Wombat::sleep</font>;      // ä»¤ pmf æŒ‡å‘ Wombat::sleep 
     (pw<font
-color="#FF0000">-&gt;*</font>pmf)<font color="#FF0000">()</font>;              // ³ê°_§Ú­Ìªº operator-&gt;*;
-}                              // ¦L¥X &quot;Sleeping...&quot;
+color="#FF0000">-&gt;*</font>pmf)<font color="#FF0000">()</font>;              // å–šèµ·æˆ‘å€‘çš„ operator-&gt;*;
+}                              // å°å‡º &quot;Sleeping...&quot;
 </pre>
 </a>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<p>¬Oªº¡A§Úµo²{¤F¡A³o¥÷µ{¦¡½X·|¥X²{¸ê·½º|¬}¡]resource leak¡^¡A¦]¬°³Q 
-<i>new</i> ¥X¨Óªº <i>Wombat</i>&nbsp; ±q¥¼³Q <i>delete</i>¡C¦¹¥~¡A³o¥÷µ{¦¡½X¨Ï¥Î¤F¤@­Ó 
-using directive¡]¤]´N¬O <i>using namespace std;</i>¡^¡A¦Ó¨ä¹ê¨Ï¥Î using 
-declarations ¤]´N°÷¤F¡C½Ğ¸ÕµÛ§âµJÂI©ñ¦b <i>SP::operator-&gt;</i>*<i> </i>©M <i>PMFC</i> 
-ªº¤¬°Ê¤W¡A¤£­n¤Ó©ëªd¦p¦¹¤p¸`¡C¦pªG§A¤F¸Ñ <i>(pw-&gt; </i>*<i>pmf)()</i> 
-ªº¦æ¬°¥Ñ¨Ó¡A²@µL°İÃD§Aªº¹ê¤O¥²¥i»´©ö­×¥¿¤W¨ÒÃö©ó½sµ{­·®æ¤Wªº¯Ê¥¢¡C</p>
+<p>æ˜¯çš„ï¼Œæˆ‘ç™¼ç¾äº†ï¼Œé€™ä»½ç¨‹å¼ç¢¼æœƒå‡ºç¾è³‡æºæ¼æ´ï¼ˆresource leakï¼‰ï¼Œå› ç‚ºè¢« 
+<i>new</i> å‡ºä¾†çš„ <i>Wombat</i>&nbsp; å¾æœªè¢« <i>delete</i>ã€‚æ­¤å¤–ï¼Œé€™ä»½ç¨‹å¼ç¢¼ä½¿ç”¨äº†ä¸€å€‹ 
+using directiveï¼ˆä¹Ÿå°±æ˜¯ <i>using namespace std;</i>ï¼‰ï¼Œè€Œå…¶å¯¦ä½¿ç”¨ using 
+declarations ä¹Ÿå°±å¤ äº†ã€‚è«‹è©¦è‘—æŠŠç„¦é»æ”¾åœ¨ <i>SP::operator-&gt;</i>*<i> </i>å’Œ <i>PMFC</i> 
+çš„äº’å‹•ä¸Šï¼Œä¸è¦å¤ªæ‹˜æ³¥å¦‚æ­¤å°ç¯€ã€‚å¦‚æœä½ äº†è§£ <i>(pw-&gt; </i>*<i>pmf)()</i> 
+çš„è¡Œç‚ºç”±ä¾†ï¼Œæ¯«ç„¡å•é¡Œä½ çš„å¯¦åŠ›å¿…å¯è¼•æ˜“ä¿®æ­£ä¸Šä¾‹é—œæ–¼ç·¨ç¨‹é¢¨æ ¼ä¸Šçš„ç¼ºå¤±ã€‚</p>
 
-<p>¶¶±a¤@´£¡A¥Ñ©ó <i>operator-</i>&gt;* member functions ©M©Ò¦³ªº <i>PMFC</i> 
-member functions ³£¬O inline 
-¨ç¦¡¡]ÁöµM¨ÃµL©úÅã«Å§i¡^¡A¦]¦¹¡A§A¥i¥H¹w´Á¡A°w¹ï¥H¤U­z¥y©Ò²£¥Í¥X¨Óªº½X¡G 
+<p>é †å¸¶ä¸€æï¼Œç”±æ–¼ <i>operator-</i>&gt;* member functions å’Œæ‰€æœ‰çš„ <i>PMFC</i> 
+member functions éƒ½æ˜¯ inline 
+å‡½å¼ï¼ˆé›–ç„¶ä¸¦ç„¡æ˜é¡¯å®£å‘Šï¼‰ï¼Œå› æ­¤ï¼Œä½ å¯ä»¥é æœŸï¼Œé‡å°ä»¥ä¸‹è¿°å¥æ‰€ç”¢ç”Ÿå‡ºä¾†çš„ç¢¼ï¼š 
 </p>
 
 <blockquote>
   <p>(pw-&gt;*pmf)();</p>
 </blockquote>
 
-<p>¨ä¤¤¹B¥Î <i>SP</i>&nbsp; ©M <i>PMFC</i> 
-ªº±¡ªp¡A±N©M¥H¤Uµ¥­È­z¥y©Ò²£¥Í¥X¨Óªº½X¨S¦³¨â¼Ë¡G</p>
+<p>å…¶ä¸­é‹ç”¨ <i>SP</i>&nbsp; å’Œ <i>PMFC</i> 
+çš„æƒ…æ³ï¼Œå°‡å’Œä»¥ä¸‹ç­‰å€¼è¿°å¥æ‰€ç”¢ç”Ÿå‡ºä¾†çš„ç¢¼æ²’æœ‰å…©æ¨£ï¼š</p>
 
 <blockquote>
   <p>(pw.ptr-&gt;*pmf)();</p>
 </blockquote>
 
-<p>¨ä¤¤¥u¨Ï¥Î¤º«Ø¹Bºâ°Ê§@¡C¦]¦¹¡A¨Ï¥Î <i>SP</i>'s ªº¦h¸ü¤Æ <i>operator-&gt;</i>* 
-©M <i>PMFC</i>'s ªº¦h¸ü¤Æ <i>operator()</i>¡A°õ¦æ´Á¦¨¥»¥i¥H¬°¹s¡Gµ{¦¡½XªºÃB¥~¦¨¥»¬° 
-¹s¡A¸ê®ÆªºÃB¥~¦¨¥»¤]¬°¹s¡C·íµM¡A¹ê»Ú¦¨¥»µø§Aªº½sÄ¶¾¹ªº³Ì¨Î¤Æ¯à¤O¡B§Aªº¼Ğ·Çµ{¦¡®w¹ï©ó 
-<i>pair</i> ©M <i>make_ pair</i> 
-ªº¹ê§@¦Ó©w¡C¥H§Ú©Ò´ú¸Õªº¨â­Ó½sÄ¶¾¹¡]¤Î¨äªş±aªº¼Ğ·Çµ{¦¡®w¡^¦Ó¨¥¡A¥´¶}©Ò¦³³Ì¨Î¤Æ¿ï¶µ«á¡A¦³¤@­Ó½sÄ¶¾¹·|Àò±o°õ¦æ´Á¹s¦¨¥»ªº 
-<i>operator-&gt;</i>* ¹ê§@½X¡A¥t¤@­Ó¤£·|¡C </p>
+<p>å…¶ä¸­åªä½¿ç”¨å…§å»ºé‹ç®—å‹•ä½œã€‚å› æ­¤ï¼Œä½¿ç”¨ <i>SP</i>'s çš„å¤šè¼‰åŒ– <i>operator-&gt;</i>* 
+å’Œ <i>PMFC</i>'s çš„å¤šè¼‰åŒ– <i>operator()</i>ï¼ŒåŸ·è¡ŒæœŸæˆæœ¬å¯ä»¥ç‚ºé›¶ï¼šç¨‹å¼ç¢¼çš„é¡å¤–æˆæœ¬ç‚º 
+é›¶ï¼Œè³‡æ–™çš„é¡å¤–æˆæœ¬ä¹Ÿç‚ºé›¶ã€‚ç•¶ç„¶ï¼Œå¯¦éš›æˆæœ¬è¦–ä½ çš„ç·¨è­¯å™¨çš„æœ€ä½³åŒ–èƒ½åŠ›ã€ä½ çš„æ¨™æº–ç¨‹å¼åº«å°æ–¼ 
+<i>pair</i> å’Œ <i>make_ pair</i> 
+çš„å¯¦ä½œè€Œå®šã€‚ä»¥æˆ‘æ‰€æ¸¬è©¦çš„å…©å€‹ç·¨è­¯å™¨ï¼ˆåŠå…¶é™„å¸¶çš„æ¨™æº–ç¨‹å¼åº«ï¼‰è€Œè¨€ï¼Œæ‰“é–‹æ‰€æœ‰æœ€ä½³åŒ–é¸é …å¾Œï¼Œæœ‰ä¸€å€‹ç·¨è­¯å™¨æœƒç²å¾—åŸ·è¡ŒæœŸé›¶æˆæœ¬çš„ 
+<i>operator-&gt;</i>* å¯¦ä½œç¢¼ï¼Œå¦ä¸€å€‹ä¸æœƒã€‚ </p>
 
-<h3><font color="#0000FF">¥[¤W¹ï <i>const</i> Member Functions ªº¤ä´©</font></h3>
+<h3><font color="#0000FF">åŠ ä¸Šå° <i>const</i> Member Functions çš„æ”¯æ´</font></h3>
 
-<p>½Ğ¥J²Ó¬İ¬İ<i> SP&lt;T&gt;</i> ªº <i>operator-&gt;</i>* ¨ç¦¡ªº¥¿¦¡°Ñ¼Æ¡G<i>ReturnType 
-(T::</i>*<i>pmf)()</i>¡CÅı§Ú§ó©ú½T¦a´£¥Ü§A¡A¥¦¤£¬O <i>ReturnType (T::</i>*<i>pmf)() 
-<font color="#0000FF">const</font></i>¡C³o·N¨ı¡A¨S¦³¥ô¦ó¤@­Ó¡u«ü¦V <i>const</i> 
-member function¡vªº«ü¼Ğ¥i¥H³Q¶Ç»¼µ¹ <i>operator-&gt;</i>*¡A³o¤]´N·N¨ı <i>operator-&gt;</i>* 
-¤£¤ä´© <font color="#0000FF"><i>const</i></font> member functions¡C¦p¦¹ÅS°©ªº¤£¤½¥­«İ¹J¦b¤@­Ó¨ã¦³¨}¦n³]­pªº³nÅé¨t²Î¤¤¬O²@µL¦a¦ìªº¡C©¯¹Bªº¬O¡A§Ú­Ì«Ü®e©ö¯}°£³o¶µ­­¨î¡C¥u­n¬° 
-<i>SP</i> ¥[¤W²Ä¤G­Ó <i>operator-&gt;</i>* template¡A¾ã¥÷³]­p´N¥i¾A¥Î©ó¡u«ü¦V 
-<font color="#0000FF"><i>const</i></font> member functions¡vªº«ü¼Ğ¡F¨£<font
-color="#8080FF">µ{¦¡¦Cªí¤K</font>¡C¦³½ìªº¬O¡A<i>PMFC</i> 
-ªº¤º®e¤£»İ¦³¥ô¦ó§ïÅÜ¡A¦]¬°¨ä«¬§O°Ñ¼Æ <i>MemFuncPtrType </i>·|Ã´µ²¨ì¥ô¦ó¤@­Ó 
-member function pointer «¬§O¨­¤W¡A¤£½×¨º­Ó member function ¬O§_¬° <font
-color="#0000FF"><i>const</i></font>¡C</p>
+<p>è«‹ä»”ç´°çœ‹çœ‹<i> SP&lt;T&gt;</i> çš„ <i>operator-&gt;</i>* å‡½å¼çš„æ­£å¼åƒæ•¸ï¼š<i>ReturnType 
+(T::</i>*<i>pmf)()</i>ã€‚è®“æˆ‘æ›´æ˜ç¢ºåœ°æç¤ºä½ ï¼Œå®ƒä¸æ˜¯ <i>ReturnType (T::</i>*<i>pmf)() 
+<font color="#0000FF">const</font></i>ã€‚é€™æ„å‘³ï¼Œæ²’æœ‰ä»»ä½•ä¸€å€‹ã€ŒæŒ‡å‘ <i>const</i> 
+member functionã€çš„æŒ‡æ¨™å¯ä»¥è¢«å‚³éçµ¦ <i>operator-&gt;</i>*ï¼Œé€™ä¹Ÿå°±æ„å‘³ <i>operator-&gt;</i>* 
+ä¸æ”¯æ´ <font color="#0000FF"><i>const</i></font> member functionsã€‚å¦‚æ­¤éœ²éª¨çš„ä¸å…¬å¹³å¾…é‡åœ¨ä¸€å€‹å…·æœ‰è‰¯å¥½è¨­è¨ˆçš„è»Ÿé«”ç³»çµ±ä¸­æ˜¯æ¯«ç„¡åœ°ä½çš„ã€‚å¹¸é‹çš„æ˜¯ï¼Œæˆ‘å€‘å¾ˆå®¹æ˜“ç ´é™¤é€™é …é™åˆ¶ã€‚åªè¦ç‚º 
+<i>SP</i> åŠ ä¸Šç¬¬äºŒå€‹ <i>operator-&gt;</i>* templateï¼Œæ•´ä»½è¨­è¨ˆå°±å¯é©ç”¨æ–¼ã€ŒæŒ‡å‘ 
+<font color="#0000FF"><i>const</i></font> member functionsã€çš„æŒ‡æ¨™ï¼›è¦‹<font
+color="#8080FF">ç¨‹å¼åˆ—è¡¨å…«</font>ã€‚æœ‰è¶£çš„æ˜¯ï¼Œ<i>PMFC</i> 
+çš„å…§å®¹ä¸éœ€æœ‰ä»»ä½•æ”¹è®Šï¼Œå› ç‚ºå…¶å‹åˆ¥åƒæ•¸ <i>MemFuncPtrType </i>æœƒç¹«çµåˆ°ä»»ä½•ä¸€å€‹ 
+member function pointer å‹åˆ¥èº«ä¸Šï¼Œä¸è«–é‚£å€‹ member function æ˜¯å¦ç‚º <font
+color="#0000FF"><i>const</i></font>ã€‚</p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<h4>µ{¦¡¦Cªí¤K<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨å…«<a NAME="l2"></h4>
 </a><a NAME="l8">
 
 <pre>template &lt;typename T&gt;
 class SP {
 public:
-    ...                     // ¦p«e
+    ...                     // å¦‚å‰
 
     template &lt;typename ReturnType&gt;
         const PMFC&lt;T, ReturnType, <font
-color="#0000FF">ReturnType (T::*)() const</font>&gt;  // ¥[¤W const
+color="#0000FF">ReturnType (T::*)() const</font>&gt;  // åŠ ä¸Š const
             operator-&gt;*(<font
 color="#0000FF">ReturnType (T::*</font><font color="#000000">pmf</font><font
-color="#0000FF">)() const</font>) const   // ¥[¤W const
+color="#0000FF">)() const</font>) const   // åŠ ä¸Š const
                 { return std::make_pair(ptr, pmf); }
 
-    ...                     // ¦p«e
+    ...                     // å¦‚å‰
 };
 </pre>
 </a>
 
-<h3><font color="#0000FF">¤ä´©¡u¾Ö¦³°Ñ¼Æªº Member Functions¡v</font></h3>
+<h3><font color="#0000FF">æ”¯æ´ã€Œæ“æœ‰åƒæ•¸çš„ Member Functionsã€</font></h3>
 
-<p>¦³¤F¹s°Ñ¼Æªº¸gÅç¦b¤â¡A§Ú­Ì±µ¤U¨Ó³]ªk¤ä´©¡u¤@­Ó«ü¼Ğ¡A«ü¦V 
-member function¡A¸Ó member function 
-¾Ö¦³¤@­Ó°Ñ¼Æ¡v¡C¾ã­Ó¹Lµ{¥X¥G·N®Æ¦aÂ²³æ¡A¦]¬°§A°ß¤@»İ­n°µªº´N¬O­×§ï 
-<i>operator-&gt;</i>* ©Ò±µ¨üªº°Ñ¼Æ«¬§O¡AµM«á³z¹L <i>PMFC</i> 
-¶Ç¼½³o¶µ§ïÅÜ¡C¨Æ¹ê¤W¡A§A°ß¤@»İ­n°µªº´N¬O¬°<i>operator-&gt;</i>* 
-¼W¥[¤@­Ó·sªº template °Ñ¼Æ¡A¨ä«¬§OÀ³¸Ó¬O³Q«ü¦Vªº member function 
-©Ò¯à¡]©ÒÄ@¡^±µ¨üªº°Ñ¼Æ«¬§O¡CµM«á­×§ï¨ä¥L¨C¤@¼Ë»İ­n»P¦¹«O«ù¤@­P©ÊªºªF¦è¡C¦¹¥~¡A¥Ñ©ó 
-<i>SP&lt;T&gt;</i> ¤]À³¸Ó¦P®É¤ä´©¡u±µ¨ü¹s­Ó°Ñ¼Æ¡vªº member functions 
-©M¡u±µ¨ü¤@­Ó°Ñ¼Æ¡vªºmember functions¡A©Ò¥H§AÀ³¸Ó¬°¥¦²K¥[¤@­Ó·sªº <i>operator-&gt;</i>* 
-template¡C¦b<a NAME="rl9"></a><font color="#8080FF">µ{¦¡¦Cªí¤E</font>¤¤¡A§Ú¥u®i¥Ü¹ï©ó 
-non<i>const</i> member functions ªº¤ä´©¡A¨Æ¹ê¤W¹ï <i>const</i> member functions 
-ªº¤ä´©¤]À³¸Ó¦P®É§¹¦¨¡C</p>
+<p>æœ‰äº†é›¶åƒæ•¸çš„ç¶“é©—åœ¨æ‰‹ï¼Œæˆ‘å€‘æ¥ä¸‹ä¾†è¨­æ³•æ”¯æ´ã€Œä¸€å€‹æŒ‡æ¨™ï¼ŒæŒ‡å‘ 
+member functionï¼Œè©² member function 
+æ“æœ‰ä¸€å€‹åƒæ•¸ã€ã€‚æ•´å€‹éç¨‹å‡ºä¹æ„æ–™åœ°ç°¡å–®ï¼Œå› ç‚ºä½ å”¯ä¸€éœ€è¦åšçš„å°±æ˜¯ä¿®æ”¹ 
+<i>operator-&gt;</i>* æ‰€æ¥å—çš„åƒæ•¸å‹åˆ¥ï¼Œç„¶å¾Œé€é <i>PMFC</i> 
+å‚³æ’­é€™é …æ”¹è®Šã€‚äº‹å¯¦ä¸Šï¼Œä½ å”¯ä¸€éœ€è¦åšçš„å°±æ˜¯ç‚º<i>operator-&gt;</i>* 
+å¢åŠ ä¸€å€‹æ–°çš„ template åƒæ•¸ï¼Œå…¶å‹åˆ¥æ‡‰è©²æ˜¯è¢«æŒ‡å‘çš„ member function 
+æ‰€èƒ½ï¼ˆæ‰€é¡˜ï¼‰æ¥å—çš„åƒæ•¸å‹åˆ¥ã€‚ç„¶å¾Œä¿®æ”¹å…¶ä»–æ¯ä¸€æ¨£éœ€è¦èˆ‡æ­¤ä¿æŒä¸€è‡´æ€§çš„æ±è¥¿ã€‚æ­¤å¤–ï¼Œç”±æ–¼ 
+<i>SP&lt;T&gt;</i> ä¹Ÿæ‡‰è©²åŒæ™‚æ”¯æ´ã€Œæ¥å—é›¶å€‹åƒæ•¸ã€çš„ member functions 
+å’Œã€Œæ¥å—ä¸€å€‹åƒæ•¸ã€çš„member functionsï¼Œæ‰€ä»¥ä½ æ‡‰è©²ç‚ºå®ƒæ·»åŠ ä¸€å€‹æ–°çš„ <i>operator-&gt;</i>* 
+templateã€‚åœ¨<a NAME="rl9"></a><font color="#8080FF">ç¨‹å¼åˆ—è¡¨ä¹</font>ä¸­ï¼Œæˆ‘åªå±•ç¤ºå°æ–¼ 
+non<i>const</i> member functions çš„æ”¯æ´ï¼Œäº‹å¯¦ä¸Šå° <i>const</i> member functions 
+çš„æ”¯æ´ä¹Ÿæ‡‰è©²åŒæ™‚å®Œæˆã€‚</p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<h4>µ{¦¡¦Cªí¤E<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨ä¹<a NAME="l2"></h4>
 </a><a NAME="l9">
 
 <pre>template &lt;typename ObjectType, typename ReturnType, typename MemFuncPtrType&gt;
@@ -469,11 +469,11 @@ public:
     PMFC(const CallInfo&amp; info)
    : callInfo(info) {}
 
-    // ¤ä´© 0 ­Ó°Ñ¼Æ
+    // æ”¯æ´ 0 å€‹åƒæ•¸
     ReturnType <font
 color="#FF0000">operator()</font>() const 
         { return (callInfo.first-&gt;*callInfo.second)(); }
-    // ¤ä´© 1 ­Ó°Ñ¼Æ
+    // æ”¯æ´ 1 å€‹åƒæ•¸
     template&lt;typename <font
 color="#0000FF">Param1Type</font>&gt;
     ReturnType <font color="#FF0000">operator()</font>(<font
@@ -489,14 +489,14 @@ class SP {
 public:
     SP(T *p): ptr(p) {} 
 
-    // ¤ä´© 0 ­Ó°Ñ¼Æ
+    // æ”¯æ´ 0 å€‹åƒæ•¸
     template &lt;typename ReturnType&gt;
         const PMFC&lt;T, ReturnType, ReturnType (T::*)()&gt; 
             <font
 color="#FF0000">operator-&gt;*</font>(ReturnType (T::*pmf)()) const
                 { return std::make_pair(ptr, pmf); }
 
-    // ¤ä´© 1 ­Ó°Ñ¼Æ
+    // æ”¯æ´ 1 å€‹åƒæ•¸
     template &lt;typename ReturnType, <font
 color="#0000FF">typename Param1Type</font>&gt;
         const PMFC&lt;T, ReturnType, ReturnType (T::*)(<font
@@ -511,43 +511,43 @@ private:
 </pre>
 </a>
 
-<p>¤@¥¹§A¯à°÷³B²z¹s­Ó°Ñ¼Æ©M¤@­Ó°Ñ¼Æ¡A´N«Ü®e©ö³B²z¥ô·N­Ó¼Æªº°Ñ¼Æ¡CÅı§Ú°µ­Ó¾ã²z¡A¬°¤F¤ä´©¡u¨ã¦³ 
-n ­Ó°Ñ¼Æ¡vªº&nbsp; member functions¡A½Ğ¦b <i>SP</i>&nbsp; ¤¤«Å§i¨â­Ó member 
-template <i>operator-&gt;</i>*¡A¤@­Ó¥Î¨Ó¤ä´© <font color="#0000FF">non<i>const</i></font> 
-member functions¡A¤@­Ó¥Î¨Ó¤ä´© <font color="#0000FF"><i>const</i></font> 
-ª©¥»¡C¨C¤@­Ó <i>operator-&gt;</i>* template ³£À³¸ÓÀò±o <i>n</i>+1 
-­Ó«¬§O°Ñ¼Æ¡A¨ä¤¤ <i>n</i> 
-­Ó°µ¬°¨ç¦¡°Ñ¼Æ¨Ï¥Î¡A³Ñ¾l¨º­Ó¥Î¨Ó«ü©w¨ç¦¡¦^¶Ç«¬§O¡C±µ¤U¨Ó¡A¦b 
-<i>PMFC </i>¤¤¥[¤W¹ïÀ³ªº<i> operator()</i> template¡A´N¤j¥\§i¦¨¤F¡C</p>
+<p>ä¸€æ—¦ä½ èƒ½å¤ è™•ç†é›¶å€‹åƒæ•¸å’Œä¸€å€‹åƒæ•¸ï¼Œå°±å¾ˆå®¹æ˜“è™•ç†ä»»æ„å€‹æ•¸çš„åƒæ•¸ã€‚è®“æˆ‘åšå€‹æ•´ç†ï¼Œç‚ºäº†æ”¯æ´ã€Œå…·æœ‰ 
+n å€‹åƒæ•¸ã€çš„&nbsp; member functionsï¼Œè«‹åœ¨ <i>SP</i>&nbsp; ä¸­å®£å‘Šå…©å€‹ member 
+template <i>operator-&gt;</i>*ï¼Œä¸€å€‹ç”¨ä¾†æ”¯æ´ <font color="#0000FF">non<i>const</i></font> 
+member functionsï¼Œä¸€å€‹ç”¨ä¾†æ”¯æ´ <font color="#0000FF"><i>const</i></font> 
+ç‰ˆæœ¬ã€‚æ¯ä¸€å€‹ <i>operator-&gt;</i>* template éƒ½æ‡‰è©²ç²å¾— <i>n</i>+1 
+å€‹å‹åˆ¥åƒæ•¸ï¼Œå…¶ä¸­ <i>n</i> 
+å€‹åšç‚ºå‡½å¼åƒæ•¸ä½¿ç”¨ï¼Œå‰©é¤˜é‚£å€‹ç”¨ä¾†æŒ‡å®šå‡½å¼å›å‚³å‹åˆ¥ã€‚æ¥ä¸‹ä¾†ï¼Œåœ¨ 
+<i>PMFC </i>ä¸­åŠ ä¸Šå°æ‡‰çš„<i> operator()</i> templateï¼Œå°±å¤§åŠŸå‘Šæˆäº†ã€‚</p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<h3><font color="#0000FF">±N©Ò¦³¹ï<i> operator-&gt;</i><b>*</b> 
-ªº¤ä´©¤u§@¥]¸Ë°_¨Ó </font></h3>
+<h3><font color="#0000FF">å°‡æ‰€æœ‰å°<i> operator-&gt;</i><b>*</b> 
+çš„æ”¯æ´å·¥ä½œåŒ…è£èµ·ä¾† </font></h3>
 
-<p>³\¦hÀ³¥Î³nÅé¹ï´¼¯à«ü¼Ğ¦³¦hºØ¤£¦PªºÅÜ¤Æ¹B¥Î¡A¦pªG¥L­Ì¥²¶·°w¹ï¨C¤@ºØÀ³¥Î¡A­«½Æ¤W­z¤u§@¡A¥L­Ì¤@©w¤£·|°ª¿³¡C¦pªG§A·Q¬İ¬İ´¼¯à«ü¼ĞªºÅÜ¤ÆÀ³¥Î¡A¥]¬A¹³±ş¤â¤@¯ë»Åªº 
-C++ µ{¦¡¡A½Ğ¬İ Kevin S. Van Horn ªººô¯¸ http:// www.xmission.com/ 
-~ksvsoft/code/smart_ ptrs.html¡C©¯¹Bªº¬O¡A¹ï <i>operator-&gt;</i>* 
-ªº©Ò¦³¤ä´©¤u§@¡A¥i¥H³Q¥]¸Ë¬°¤@­Ó base class «¬¦¡¡A¦p<a NAME="rl10"></a><font
-color="#8080FF">µ{¦¡¦Cªí¤Q¡C</font></p>
+<p>è¨±å¤šæ‡‰ç”¨è»Ÿé«”å°æ™ºèƒ½æŒ‡æ¨™æœ‰å¤šç¨®ä¸åŒçš„è®ŠåŒ–é‹ç”¨ï¼Œå¦‚æœä»–å€‘å¿…é ˆé‡å°æ¯ä¸€ç¨®æ‡‰ç”¨ï¼Œé‡è¤‡ä¸Šè¿°å·¥ä½œï¼Œä»–å€‘ä¸€å®šä¸æœƒé«˜èˆˆã€‚å¦‚æœä½ æƒ³çœ‹çœ‹æ™ºèƒ½æŒ‡æ¨™çš„è®ŠåŒ–æ‡‰ç”¨ï¼ŒåŒ…æ‹¬åƒæ®ºæ‰‹ä¸€èˆ¬é…·çš„ 
+C++ ç¨‹å¼ï¼Œè«‹çœ‹ Kevin S. Van Horn çš„ç¶²ç«™ http:// www.xmission.com/ 
+~ksvsoft/code/smart_ ptrs.htmlã€‚å¹¸é‹çš„æ˜¯ï¼Œå° <i>operator-&gt;</i>* 
+çš„æ‰€æœ‰æ”¯æ´å·¥ä½œï¼Œå¯ä»¥è¢«åŒ…è£ç‚ºä¸€å€‹ base class å‹å¼ï¼Œå¦‚<a NAME="rl10"></a><font
+color="#8080FF">ç¨‹å¼åˆ—è¡¨åã€‚</font></p>
 
-<h4>µ{¦¡¦Cªí¤Q<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨å<a NAME="l2"></h4>
 </a><a NAME="l10">
 
-<pre>template &lt;typename T&gt;   // ³o¬O¤@­Ó base class¡A¥Î¨Ó¥]¸Ë</a>´¼¯à«ü¼Ğ<a
+<pre>template &lt;typename T&gt;   // é€™æ˜¯ä¸€å€‹ base classï¼Œç”¨ä¾†åŒ…è£</a>æ™ºèƒ½æŒ‡æ¨™<a
 NAME="l10">
-class SmartPtrBase {    // ¹ï operator-&gt;* ªº¤ä´©¡C
+class SmartPtrBase {    // å° operator-&gt;* çš„æ”¯æ´ã€‚
 public:
     SmartPtrBase(T *initVal): <strong>ptr</strong>(initVal) {}
 
-    // ¤ä´© 0 ­Ó°Ñ¼Æ¡C
+    // æ”¯æ´ 0 å€‹åƒæ•¸ã€‚
     template &lt;typename ReturnType&gt;
         const PMFC&lt;T, ReturnType, ReturnType (T::*)()&gt; 
             <font
 color="#FF0000">operator-&gt;*</font>(ReturnType (T::*<strong>pmf</strong>)()) const
                 { return std::make_pair(<strong>ptr</strong>, <strong>pmf</strong>); }
 
-    // ¤ä´© 1 ­Ó°Ñ¼Æ¡C
+    // æ”¯æ´ 1 å€‹åƒæ•¸ã€‚
     template &lt;   typename ReturnType, typename <font
 color="#0000FF">Param1Type</font>&gt;
         const PMFC&lt;T, ReturnType, ReturnType (T::*)(<font
@@ -561,20 +561,20 @@ protected:
 </pre>
 </a>
 
-<p>¤Z¬O§Æ±æ´£¨Ñ <i>operator-&gt;</i>*¤ä´©¯à¤Oªº´¼¯à«ü¼Ğ¡A¥u»İÄ~©Ó <i>SmartPtrBase</i> 
-§Y¥i¡C¦ı¬O¡A¥u¦³·í¡u´¼¯à«ü¼Ğ¤º§t¤@­Ó¤@¯ë«ü¼Ğ¡A¥Î¥H§¹¦¨¯u¥¿ªº«ü¦V°Ê§@¡v®É¡A¤W­z³]­p¤~¾A¥Î¡C¡u¤º§t¤@¯ë«ü¼Ğ¡v¬O³Ì±`¨£ªº¤@ºØ´¼¯à«ü¼Ğ³]­p¤è¦¡¡A¦ıÁÙ¦³¨ä¥L¤£¦Pªº³]­p¡A³oÃş¤£¦Pªº³]­p¥i¯à»İ­n¥H¤£¦P©ó¦¹³B©Ò´y­zªº¤è¦¡¡A±N 
-<i>operator-&gt;</i>* ¾÷¯à¥]¸Ë°_¨Ó¡C¨ä¤¤³Ì¦nªº¤è¦¡©Î³\¬O§Q¥Î <font
-color="#0000FF">private Ä~©Ó¾÷¨î</font>¡A¦]¬°¦pªG¨Ï¥Î public 
-Ä~©Ó¾÷¨î¡A«K¦³¥²­n¬° <i>SmartPtrBase</i> ¥[¤W¤@­Ó virtual destructor¡A¦]¦Ó¼W¥[¨ä¤j¤p¡]¥H¤Î¨ä©Ò¦³ 
-derived classes ªº¤j¤p¡^¡CPrivate 
-Ä~©Ó¾÷¨î¥i¥HÁ×§K¥I¥X³o¼Ëªº¥N»ù¡AÁöµM¡A¥¦»İ­n¤@­Ó using declaration¡]¨£<a
-NAME="rl11"></a><font color="#8080FF">µ{¦¡¦Cªí¤Q¤@</font>¡^¥H«KÅı¡u¥H private 
-¤è¦¡Ä~©Ó¦Ó¨Óªº <i>operator-&gt;</i>* templates¡v¦¨¬° public¡C¦pªG­n§â¥¦­Ì¥]¸Ë±o§ó¦n¡A¥i¥H±N 
-<i>SmartPtrBase</i> ©M <i>PMFC</i> template ³£©ñ¶i¤@­Ó©R¦WªÅ¶¡¡]namespace¡^¤¤¡C</p>
+<p>å‡¡æ˜¯å¸Œæœ›æä¾› <i>operator-&gt;</i>*æ”¯æ´èƒ½åŠ›çš„æ™ºèƒ½æŒ‡æ¨™ï¼Œåªéœ€ç¹¼æ‰¿ <i>SmartPtrBase</i> 
+å³å¯ã€‚ä½†æ˜¯ï¼Œåªæœ‰ç•¶ã€Œæ™ºèƒ½æŒ‡æ¨™å…§å«ä¸€å€‹ä¸€èˆ¬æŒ‡æ¨™ï¼Œç”¨ä»¥å®ŒæˆçœŸæ­£çš„æŒ‡å‘å‹•ä½œã€æ™‚ï¼Œä¸Šè¿°è¨­è¨ˆæ‰é©ç”¨ã€‚ã€Œå…§å«ä¸€èˆ¬æŒ‡æ¨™ã€æ˜¯æœ€å¸¸è¦‹çš„ä¸€ç¨®æ™ºèƒ½æŒ‡æ¨™è¨­è¨ˆæ–¹å¼ï¼Œä½†é‚„æœ‰å…¶ä»–ä¸åŒçš„è¨­è¨ˆï¼Œé€™é¡ä¸åŒçš„è¨­è¨ˆå¯èƒ½éœ€è¦ä»¥ä¸åŒæ–¼æ­¤è™•æ‰€æè¿°çš„æ–¹å¼ï¼Œå°‡ 
+<i>operator-&gt;</i>* æ©Ÿèƒ½åŒ…è£èµ·ä¾†ã€‚å…¶ä¸­æœ€å¥½çš„æ–¹å¼æˆ–è¨±æ˜¯åˆ©ç”¨ <font
+color="#0000FF">private ç¹¼æ‰¿æ©Ÿåˆ¶</font>ï¼Œå› ç‚ºå¦‚æœä½¿ç”¨ public 
+ç¹¼æ‰¿æ©Ÿåˆ¶ï¼Œä¾¿æœ‰å¿…è¦ç‚º <i>SmartPtrBase</i> åŠ ä¸Šä¸€å€‹ virtual destructorï¼Œå› è€Œå¢åŠ å…¶å¤§å°ï¼ˆä»¥åŠå…¶æ‰€æœ‰ 
+derived classes çš„å¤§å°ï¼‰ã€‚Private 
+ç¹¼æ‰¿æ©Ÿåˆ¶å¯ä»¥é¿å…ä»˜å‡ºé€™æ¨£çš„ä»£åƒ¹ï¼Œé›–ç„¶ï¼Œå®ƒéœ€è¦ä¸€å€‹ using declarationï¼ˆè¦‹<a
+NAME="rl11"></a><font color="#8080FF">ç¨‹å¼åˆ—è¡¨åä¸€</font>ï¼‰ä»¥ä¾¿è®“ã€Œä»¥ private 
+æ–¹å¼ç¹¼æ‰¿è€Œä¾†çš„ <i>operator-&gt;</i>* templatesã€æˆç‚º publicã€‚å¦‚æœè¦æŠŠå®ƒå€‘åŒ…è£å¾—æ›´å¥½ï¼Œå¯ä»¥å°‡ 
+<i>SmartPtrBase</i> å’Œ <i>PMFC</i> template éƒ½æ”¾é€²ä¸€å€‹å‘½åç©ºé–“ï¼ˆnamespaceï¼‰ä¸­ã€‚</p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<h4>µ{¦¡¦Cªí¤Q¤@<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨åä¸€<a NAME="l2"></h4>
 </a><a NAME="l11">
 
 <pre>template &lt;typename T&gt;
@@ -583,94 +583,94 @@ public:
     SP(T *p ): SmartPtrBase&lt;T&gt;(p) {}
 
     <font
-color="#0000FF">using</font> SmartPtrBase&lt;T&gt;::<font color="#FF0000">operator-&gt;*</font>;    // Åı¡uprivate Ä~©Ó¦Ó¨Óªº
-                                           // operator-&gt;* templates¡v¦¨¬° public¡C
+color="#0000FF">using</font> SmartPtrBase&lt;T&gt;::<font color="#FF0000">operator-&gt;*</font>;    // è®“ã€Œprivate ç¹¼æ‰¿è€Œä¾†çš„
+                                           // operator-&gt;* templatesã€æˆç‚º publicã€‚
 
-    // </a>´¼¯à«ü¼Ğªº<a
-NAME="l11">¤@¯ë</a>¨ç¦¡©ñ¦b³o¨à¡C<a NAME="l11">operator-&gt;* ¾÷¯à«h¬OÂÇ¥ÑÄ~©Ó¾÷¨îÀò±o¡C
+    // </a>æ™ºèƒ½æŒ‡æ¨™çš„<a
+NAME="l11">ä¸€èˆ¬</a>å‡½å¼æ”¾åœ¨é€™å…’ã€‚<a NAME="l11">operator-&gt;* æ©Ÿèƒ½å‰‡æ˜¯è—‰ç”±ç¹¼æ‰¿æ©Ÿåˆ¶ç²å¾—ã€‚
 };
 </pre>
 </a>
 
-<h3><font color="#0000FF">ÃP´²ªºµ²§À</font></h3>
+<h3><font color="#0000FF">é¬†æ•£çš„çµå°¾</font></h3>
 
-<p>¦b§Ú§¹¦¨°w¹ï´¼¯à«ü¼Ğ¦Ó°µªº <i>operator-&gt;</i>* 
-¤ä´©¤u§@«á¡A§Ú§â§Úªº¸Ñªk¤½§G©ó Usenet ªº®ø®§¸s²Õ 
-comp.lang.c++.moderated¡A¬İ¬İ§Ú¬O§_¿òº|¤F¤°»ò¡C«Ü§Ö¦a Esa Pulkkinen 
-°µ¥X¤F¥H¤U¨¥½×¡G</p>
+<p>åœ¨æˆ‘å®Œæˆé‡å°æ™ºèƒ½æŒ‡æ¨™è€Œåšçš„ <i>operator-&gt;</i>* 
+æ”¯æ´å·¥ä½œå¾Œï¼Œæˆ‘æŠŠæˆ‘çš„è§£æ³•å…¬ä½ˆæ–¼ Usenet çš„æ¶ˆæ¯ç¾¤çµ„ 
+comp.lang.c++.moderatedï¼Œçœ‹çœ‹æˆ‘æ˜¯å¦éºæ¼äº†ä»€éº¼ã€‚å¾ˆå¿«åœ° Esa Pulkkinen 
+åšå‡ºäº†ä»¥ä¸‹è¨€è«–ï¼š</p>
 
-<p><font color="#8080FF">§Aªº¤èªk¦Ü¤Ö¦³¨â­Ó°İÃD¡G</font></p>
+<p><font color="#8080FF">ä½ çš„æ–¹æ³•è‡³å°‘æœ‰å…©å€‹å•é¡Œï¼š</font></p>
 
-<p><font color="#8080FF">1. §AµLªk¨Ï¥Î &nbsp;pointers to data members¡]ÁöµM³o«Ü®e©ö¸Ñ¨M¡^¡C</font></p>
+<p><font color="#8080FF">1. ä½ ç„¡æ³•ä½¿ç”¨ &nbsp;pointers to data membersï¼ˆé›–ç„¶é€™å¾ˆå®¹æ˜“è§£æ±ºï¼‰ã€‚</font></p>
 
-<p><font color="#8080FF">2. §AµLªk¨Ï¥Î¡u¨Ï¥ÎªÌ¦Û©w¡]user-defined¡^¡vªº 
-pointers-to-members¡C¦pªG¦³¤H¦h¸ü¤Æ¤F <i>operator-&gt;*</i>¡A¥O¥¦±µ¨ü¡u¦æ¬°Ãş¦ü 
-member pointers¡vªº¬Y¨Ç objects¡A§A¥i¯à·|·Q­n¦b§Aªº smart pointer class 
-¤¤¤ä´©¦p¦¹ªº &quot;smart pointers to members&quot; ¡C¤£©¯ªº¬O¡A§A»İ­n 
-traits classes ¤~¯àÀò±o³oºØ¦h¸ü¤Æ«áªº<i>operator-&gt;*</i> ªº¦^¶Ç«¬§O¡C</font></p>
+<p><font color="#8080FF">2. ä½ ç„¡æ³•ä½¿ç”¨ã€Œä½¿ç”¨è€…è‡ªå®šï¼ˆuser-definedï¼‰ã€çš„ 
+pointers-to-membersã€‚å¦‚æœæœ‰äººå¤šè¼‰åŒ–äº† <i>operator-&gt;*</i>ï¼Œä»¤å®ƒæ¥å—ã€Œè¡Œç‚ºé¡ä¼¼ 
+member pointersã€çš„æŸäº› objectsï¼Œä½ å¯èƒ½æœƒæƒ³è¦åœ¨ä½ çš„ smart pointer class 
+ä¸­æ”¯æ´å¦‚æ­¤çš„ &quot;smart pointers to members&quot; ã€‚ä¸å¹¸çš„æ˜¯ï¼Œä½ éœ€è¦ 
+traits classes æ‰èƒ½ç²å¾—é€™ç¨®å¤šè¼‰åŒ–å¾Œçš„<i>operator-&gt;*</i> çš„å›å‚³å‹åˆ¥ã€‚</font></p>
 
-<p>Smart pointers to members! ³á¼Ú¡AEsa 
-¬O¹ïªº¡C¡]¨Æ¹ê¤W¤ñ§Ú³Ìªì©Ò¤F¸ÑªºÁÙ­n¥¿½T¡C´N¦b¼¶¼g¥»¤å¯ó½Z¤§«áªº«Üµu®É¶¡¤º¡A§Úªº¤@­Ó«È¤á¹ï§Ú®i²{¤F¤@­Ó°İÃD¡A¸Ó°İÃD¥i¥H¨Ï¥Î 
+<p>Smart pointers to members! å–”æ­ï¼ŒEsa 
+æ˜¯å°çš„ã€‚ï¼ˆäº‹å¯¦ä¸Šæ¯”æˆ‘æœ€åˆæ‰€äº†è§£çš„é‚„è¦æ­£ç¢ºã€‚å°±åœ¨æ’°å¯«æœ¬æ–‡è‰ç¨¿ä¹‹å¾Œçš„å¾ˆçŸ­æ™‚é–“å…§ï¼Œæˆ‘çš„ä¸€å€‹å®¢æˆ¶å°æˆ‘å±•ç¾äº†ä¸€å€‹å•é¡Œï¼Œè©²å•é¡Œå¯ä»¥ä½¿ç”¨ 
 smart pointers to members 
-¦ÛµM¦a¸Ñ¨M±¼¡C§Ú¤]«ÜÅå³Y¡C¡^©¯¹Bªº¬O¡A¥»¤å¤w¸g°÷ªø¤F¡A§Ú¥i¥H¦b³o¸Ì°±¤U¨Ó¡A§â¸Ñ¨M 
-Esa ªºµû½×ªº¤u§@¯dµ¹ÅªªÌ¡C§Ú¨M©w³o»ò°µ¡C</p>
+è‡ªç„¶åœ°è§£æ±ºæ‰ã€‚æˆ‘ä¹Ÿå¾ˆé©šè¨ã€‚ï¼‰å¹¸é‹çš„æ˜¯ï¼Œæœ¬æ–‡å·²ç¶“å¤ é•·äº†ï¼Œæˆ‘å¯ä»¥åœ¨é€™è£¡åœä¸‹ä¾†ï¼ŒæŠŠè§£æ±º 
+Esa çš„è©•è«–çš„å·¥ä½œç•™çµ¦è®€è€…ã€‚æˆ‘æ±ºå®šé€™éº¼åšã€‚</p>
 
-<h3><font color="#0000FF">ºK­n</font></h3>
+<h3><font color="#0000FF">æ‘˜è¦</font></h3>
 
-<p>¦pªG§Aªº¥Ø¼Ğ¬O­nÅı§Aªº´¼¯à«ü¼Ğ¡]smart pointers¡^ªº¦æ¬°¾¨¥i¯à¬Û®e©ó¤º«Ø¡]­ì¥Í¡^«ü¼Ğ¡A§AÀ³¸Ó¤ä´© 
-<i>operator-&gt;</i>*¡A´N¹³¤º«Ø«ü¼Ğªº§@¬°¤@¼Ë¡C¹B¥Î class templates ©M 
-member templates¡A§Ú­Ì±o¥H¤ñ¸û»´ÃP¦a¹ê§@¥X¦p¦¹ªº¤ä´©¯à¤O¡C§â³o¨Ç¹ê§@½X¥]¸Ë¬°¤@­Ó 
-base class¡A¥i¥H¼W¥[¨ä´_¥Î©Ê¡A¤è«K¨ä¥L´¼¯à«ü¼Ğªº³]­pªÌ¡C </p>
+<p>å¦‚æœä½ çš„ç›®æ¨™æ˜¯è¦è®“ä½ çš„æ™ºèƒ½æŒ‡æ¨™ï¼ˆsmart pointersï¼‰çš„è¡Œç‚ºå„˜å¯èƒ½ç›¸å®¹æ–¼å…§å»ºï¼ˆåŸç”Ÿï¼‰æŒ‡æ¨™ï¼Œä½ æ‡‰è©²æ”¯æ´ 
+<i>operator-&gt;</i>*ï¼Œå°±åƒå…§å»ºæŒ‡æ¨™çš„ä½œç‚ºä¸€æ¨£ã€‚é‹ç”¨ class templates å’Œ 
+member templatesï¼Œæˆ‘å€‘å¾—ä»¥æ¯”è¼ƒè¼•é¬†åœ°å¯¦ä½œå‡ºå¦‚æ­¤çš„æ”¯æ´èƒ½åŠ›ã€‚æŠŠé€™äº›å¯¦ä½œç¢¼åŒ…è£ç‚ºä¸€å€‹ 
+base classï¼Œå¯ä»¥å¢åŠ å…¶å¾©ç”¨æ€§ï¼Œæ–¹ä¾¿å…¶ä»–æ™ºèƒ½æŒ‡æ¨™çš„è¨­è¨ˆè€…ã€‚ </p>
 
-<h3><font color="#0000FF">­PÁÂ</font></h3>
+<h3><font color="#0000FF">è‡´è¬</font></h3>
 
-<p>Andrei Alexandrescu °£¤F¤Ş°_§Ú¹ï <i>operator-&gt;</i>* 
-ªº³Ìªì¿³½ì¡A¤]À°§ÚÂ²¤Æ¤F§Ú¹ï <i>PMFC</i> ªº¹ê§@¡CAndrei 
-ÁÙ°w¹ï¥»¤å¦­´Á¯ó½Z´£¨Ñ¤F·¥´I²`¨è·N¸qªº¨£¸Ñ¡A¨Ãªş±a­ì©l½X¡CEsa 
-Pulkkinen ©M Mark Rodgers 
-¤]°µ¤F¬Û¦Pªº°^Äm¡C¥L­Ì¹ï¥»¤å´£¨Ñªº¨ó§U¡A¨Ï§Ú¨ü´f¨}¦h¡C</p>
+<p>Andrei Alexandrescu é™¤äº†å¼•èµ·æˆ‘å° <i>operator-&gt;</i>* 
+çš„æœ€åˆèˆˆè¶£ï¼Œä¹Ÿå¹«æˆ‘ç°¡åŒ–äº†æˆ‘å° <i>PMFC</i> çš„å¯¦ä½œã€‚Andrei 
+é‚„é‡å°æœ¬æ–‡æ—©æœŸè‰ç¨¿æä¾›äº†æ¥µå¯Œæ·±åˆ»æ„ç¾©çš„è¦‹è§£ï¼Œä¸¦é™„å¸¶åŸå§‹ç¢¼ã€‚Esa 
+Pulkkinen å’Œ Mark Rodgers 
+ä¹Ÿåšäº†ç›¸åŒçš„è²¢ç»ã€‚ä»–å€‘å°æœ¬æ–‡æä¾›çš„å”åŠ©ï¼Œä½¿æˆ‘å—æƒ è‰¯å¤šã€‚</p>
 
-<h3><font color="#0000FF">§@ªÌ</font></h3>
+<h3><font color="#0000FF">ä½œè€…</font></h3>
 
-<p>Scott ¬O¤@¦ì C++ ÅU°İ¡A¤]¬O Effective C++ CD-ROM, Effective C++, ©M More 
-Effective C++ ªº§@ªÌ¡C§A¥i¥H³z¹L <a href="javascript:if(confirm(%27http://www.aristeia.com/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.aristeia.com/%27" tppabs="http://www.aristeia.com/">http://www.aristeia.com/</a> 
-©M¥LÁpµ¸¡C </p>
+<p>Scott æ˜¯ä¸€ä½ C++ é¡§å•ï¼Œä¹Ÿæ˜¯ Effective C++ CD-ROM, Effective C++, å’Œ More 
+Effective C++ çš„ä½œè€…ã€‚ä½ å¯ä»¥é€é <a href="javascript:if(confirm(%27http://www.aristeia.com/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.aristeia.com/%27" tppabs="http://www.aristeia.com/">http://www.aristeia.com/</a> 
+å’Œä»–è¯çµ¡ã€‚ </p>
 
-<h3><font color="#0000FF">Ä¶ªÌ</font></h3>
+<h3><font color="#0000FF">è­¯è€…</font></h3>
 
-<p><font color="#000000">³¯´Q¡A¦Û¥Ñ¼¶½Z¤H¡A±Mªø C++/Java/OOP/GP/DP¡C</font></p>
+<p><font color="#000000">é™³å´´ï¼Œè‡ªç”±æ’°ç¨¿äººï¼Œå°ˆé•· C++/Java/OOP/GP/DPã€‚</font></p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
 <hr>
 
 <h2 align="center"><font color="#FF8000">sidebar : </font><font color="#800000">Partial 
-Template Specialization »P <i>operator-&gt;*</i></font></h2>
+Template Specialization èˆ‡ <i>operator-&gt;*</i></font></h2>
 
 <hr>
 
-<p>¦b§Ú¼¶¼g¥»¤å´Á¶¡¡AEsa Pulkkinen ©M Mark Rodgers §i¶D§Ú¡A<font
-color="#0000FF">¼ÒªO°¾¯S¤Æ§Ş³N¡]partial template specialization¡^</font>¥i¥Î¨Ó±q¤@­Ó¡u 
-pointer to member function¡v«¬§O¤¤µÑ¨ú¥X¸Ó member function ©ÒÄİªº class 
-«¬§O¡A¥H¤Î¨ç¦¡¦^¶Ç«¬§O¡C°ß¤@»İ­nªº¬O¬I¦æ traits 
-§Ş³N¡A¨º¬O¤@ºØ³Q¼sªx¹B¥Î©ó C++ ¼Ğ·Çµ{¦¡®wªº§Ş³N¡CÃö©ó traits 
-§Ş³N¡A½Ğ°Ñ¦Ò Nathan Myers ªº¤å³¹¡G&quot;Traits: A New and Useful Template 
-Technique,&quot; <i>C++ Report</i>, June 1995¡A¦¹¤å¤]¥X²{©ó http://www.cantrip 
-.org/traits.html¡C </p>
+<p>åœ¨æˆ‘æ’°å¯«æœ¬æ–‡æœŸé–“ï¼ŒEsa Pulkkinen å’Œ Mark Rodgers å‘Šè¨´æˆ‘ï¼Œ<font
+color="#0000FF">æ¨¡æ¿åç‰¹åŒ–æŠ€è¡“ï¼ˆpartial template specializationï¼‰</font>å¯ç”¨ä¾†å¾ä¸€å€‹ã€Œ 
+pointer to member functionã€å‹åˆ¥ä¸­èƒå–å‡ºè©² member function æ‰€å±¬çš„ class 
+å‹åˆ¥ï¼Œä»¥åŠå‡½å¼å›å‚³å‹åˆ¥ã€‚å”¯ä¸€éœ€è¦çš„æ˜¯æ–½è¡Œ traits 
+æŠ€è¡“ï¼Œé‚£æ˜¯ä¸€ç¨®è¢«å»£æ³›é‹ç”¨æ–¼ C++ æ¨™æº–ç¨‹å¼åº«çš„æŠ€è¡“ã€‚é—œæ–¼ traits 
+æŠ€è¡“ï¼Œè«‹åƒè€ƒ Nathan Myers çš„æ–‡ç« ï¼š&quot;Traits: A New and Useful Template 
+Technique,&quot; <i>C++ Report</i>, June 1995ï¼Œæ­¤æ–‡ä¹Ÿå‡ºç¾æ–¼ http://www.cantrip 
+.org/traits.htmlã€‚ </p>
 
-<p>Mark Rodgers «ØÄ³<a name="rl12"></a><font color="#8080FF">µ{¦¡¦Cªí¤Q¤G</font>©Ò¦Cªº¨º¨Ç 
-templates¡A¥¦­Ì¥Î¨Ó±µ¨ü¹s­Ó°Ñ¼Æ©Î¤@­Ó°Ñ¼Æªº member functions¡C­n±N¥¦­ÌÂX¥R¬°±µ¨ü§ó¦h°Ñ¼Æ¡A·íµM²@µL°İÃD¦Ó¥B§@ªk¤Q¤Àª½±µ¤F·í¡C¦³¤F³o¨Ç 
-templates¡A<i>PMFC</i> ´N¥i¥HÂ²¤Æ¬°¡u¥u»İ¤@­Ó«¬§O°Ñ¼Æ¡A¥ç§Y <i>MemFuncPtrType</i>¡v¡C¨º¬O¦]¬°¡A¥t¨â­Ó«¬§O°Ñ¼Æ<i>ObjectType</i> 
-©M <i>ReturnType</i>can ¥i®Ú¾Ú <i>MemFuncPtrType</i> ±À¾É¥X¨Ó¡G<DDJADVERTISEMENT INLINE> 
+<p>Mark Rodgers å»ºè­°<a name="rl12"></a><font color="#8080FF">ç¨‹å¼åˆ—è¡¨åäºŒ</font>æ‰€åˆ—çš„é‚£äº› 
+templatesï¼Œå®ƒå€‘ç”¨ä¾†æ¥å—é›¶å€‹åƒæ•¸æˆ–ä¸€å€‹åƒæ•¸çš„ member functionsã€‚è¦å°‡å®ƒå€‘æ“´å……ç‚ºæ¥å—æ›´å¤šåƒæ•¸ï¼Œç•¶ç„¶æ¯«ç„¡å•é¡Œè€Œä¸”ä½œæ³•ååˆ†ç›´æ¥äº†ç•¶ã€‚æœ‰äº†é€™äº› 
+templatesï¼Œ<i>PMFC</i> å°±å¯ä»¥ç°¡åŒ–ç‚ºã€Œåªéœ€ä¸€å€‹å‹åˆ¥åƒæ•¸ï¼Œäº¦å³ <i>MemFuncPtrType</i>ã€ã€‚é‚£æ˜¯å› ç‚ºï¼Œå¦å…©å€‹å‹åˆ¥åƒæ•¸<i>ObjectType</i> 
+å’Œ <i>ReturnType</i>can å¯æ ¹æ“š <i>MemFuncPtrType</i> æ¨å°å‡ºä¾†ï¼š<DDJADVERTISEMENT INLINE> 
 
 <ul>
-  <li><i>ObjectType</i> ¬O <i>MemFuncTraits&lt;Mem FuncPtrType&gt;::ObjectType.</i> </li>
-  <li><i>ReturnType</i> ¬O <i>MemFuncTraits&lt;Mem FuncPtrType&gt;::ReturnType.</i> </li>
+  <li><i>ObjectType</i> æ˜¯ <i>MemFuncTraits&lt;Mem FuncPtrType&gt;::ObjectType.</i> </li>
+  <li><i>ReturnType</i> æ˜¯ <i>MemFuncTraits&lt;Mem FuncPtrType&gt;::ReturnType.</i> </li>
 </ul>
 
-<h4>µ{¦¡¦Cªí¤Q¤G</h4>
+<h4>ç¨‹å¼åˆ—è¡¨åäºŒ</h4>
 <a NAME="l12">
 
 <pre>template &lt;typename T&gt;                       // traits class
@@ -709,23 +709,23 @@ color="#0000FF">P1</font>) <font color="#0000FF">const</font>&gt; {     // for o
 </pre>
 </a>
 
-<p>¹B¥Î³o¨Ç templates¡A§Ú­Ì«K¥iÀò±o<font color="#8080FF">µ{¦¡¦Cªí¤Q¤T</font>¤¤·sªºPMFC¡C§Ú¤£¥´ºâ¦b³o¸Ì§i¶D§A 
-traits ªº§Ş³N²Ó¸`¡A¤]¤£¥´ºâ¸ÑÄÀ¬°¤°»ò <i>typename </i>¥²¶·¥X²{¦b 
-template ¤ºªº«¬§O¦WºÙ¤§«e¡C¤W­z³o¨Ç templates ¥i¥H¤j¶q­°§C smart 
-pointer classes¡u±ı¤ä´© <i>operator-&gt;*</i>¡v®Éªº¤u§@¶q¡C¨Æ¹ê¤W¡AMark 
-Rodgers ´£¿ô¤F§Ú­Ì¡A³æ³æ¤@­Ó<i> operator-&gt;*</i> <i>template </i>´N¥i¥H¤ä´©©Ò¦³¥i¯àªº 
-member function pointers¡A¤£½×«áªÌ©Ò«ü¦Vªº member functions 
-±µ¨ü¦h¤Ö­Ó°Ñ¼Æ¡A¤]¤£½×¨º¨Ç member functions ¬O§_¬° <i>const</i>¡C¬Oªº¡A¥u­n±N 
-<i>SP</i>¡]©Î <i>SmartPtrBase</i>¡^¤¤©Ò¦³ªº <i>operator-&gt;*</i> templates ¥ş³¡<font
-color="#000000">¨ú¥N</font>¬°<font color="#8080FF">µ{¦¡¦Cªí¤Q¥|</font><font
-color="#000000">ªº½X§Y¥i¡C</font>«¬§O°Ñ¼Æ <i>MemFuncPtrType</i> 
-±N³QÃ´µ²©ó¥ô¦ó¤@ºØ pointer to member function «¬§O¨­¤W¡A¤£½×¸Ó member 
-function&nbsp; ªº°Ñ¼Æ­Ó¼Æ¡B¦^¶Ç«¬§O¡B±`¼Æ©Ê¡]<i>const</i>ness¡^¡C¾ã­Ó 
-pointer to member function «¬§O·|³Q¶Ç»¼µ¹ <i>PMFC</i>¡A¦b¨º¸Ì¡A<font
-color="#000000">°¾¯S¤Æ¾÷¨î¡]partial specialization¡^</font>·|°_¦Ó¦æ¡A±N§Ú­Ì©Ò¦b¥Gªº¦U­Ó«¬§O§ì¥X¨Ó¡C 
+<p>é‹ç”¨é€™äº› templatesï¼Œæˆ‘å€‘ä¾¿å¯ç²å¾—<font color="#8080FF">ç¨‹å¼åˆ—è¡¨åä¸‰</font>ä¸­æ–°çš„PMFCã€‚æˆ‘ä¸æ‰“ç®—åœ¨é€™è£¡å‘Šè¨´ä½  
+traits çš„æŠ€è¡“ç´°ç¯€ï¼Œä¹Ÿä¸æ‰“ç®—è§£é‡‹ç‚ºä»€éº¼ <i>typename </i>å¿…é ˆå‡ºç¾åœ¨ 
+template å…§çš„å‹åˆ¥åç¨±ä¹‹å‰ã€‚ä¸Šè¿°é€™äº› templates å¯ä»¥å¤§é‡é™ä½ smart 
+pointer classesã€Œæ¬²æ”¯æ´ <i>operator-&gt;*</i>ã€æ™‚çš„å·¥ä½œé‡ã€‚äº‹å¯¦ä¸Šï¼ŒMark 
+Rodgers æé†’äº†æˆ‘å€‘ï¼Œå–®å–®ä¸€å€‹<i> operator-&gt;*</i> <i>template </i>å°±å¯ä»¥æ”¯æ´æ‰€æœ‰å¯èƒ½çš„ 
+member function pointersï¼Œä¸è«–å¾Œè€…æ‰€æŒ‡å‘çš„ member functions 
+æ¥å—å¤šå°‘å€‹åƒæ•¸ï¼Œä¹Ÿä¸è«–é‚£äº› member functions æ˜¯å¦ç‚º <i>const</i>ã€‚æ˜¯çš„ï¼Œåªè¦å°‡ 
+<i>SP</i>ï¼ˆæˆ– <i>SmartPtrBase</i>ï¼‰ä¸­æ‰€æœ‰çš„ <i>operator-&gt;*</i> templates å…¨éƒ¨<font
+color="#000000">å–ä»£</font>ç‚º<font color="#8080FF">ç¨‹å¼åˆ—è¡¨åå››</font><font
+color="#000000">çš„ç¢¼å³å¯ã€‚</font>å‹åˆ¥åƒæ•¸ <i>MemFuncPtrType</i> 
+å°‡è¢«ç¹«çµæ–¼ä»»ä½•ä¸€ç¨® pointer to member function å‹åˆ¥èº«ä¸Šï¼Œä¸è«–è©² member 
+function&nbsp; çš„åƒæ•¸å€‹æ•¸ã€å›å‚³å‹åˆ¥ã€å¸¸æ•¸æ€§ï¼ˆ<i>const</i>nessï¼‰ã€‚æ•´å€‹ 
+pointer to member function å‹åˆ¥æœƒè¢«å‚³éçµ¦ <i>PMFC</i>ï¼Œåœ¨é‚£è£¡ï¼Œ<font
+color="#000000">åç‰¹åŒ–æ©Ÿåˆ¶ï¼ˆpartial specializationï¼‰</font>æœƒèµ·è€Œè¡Œï¼Œå°‡æˆ‘å€‘æ‰€åœ¨ä¹çš„å„å€‹å‹åˆ¥æŠ“å‡ºä¾†ã€‚ 
 </p>
 
-<h4>µ{¦¡¦Cªí¤Q¤T<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨åä¸‰<a NAME="l2"></h4>
 </a><a NAME="l13">
 
 <pre>template &lt;typename MemFuncPtrType&gt;
@@ -736,12 +736,12 @@ color="#FF0000">typename</font><font color="#0000FF"> MemFuncTraits&lt;MemFuncPt
     typedef <font
 color="#FF0000">typename</font><font color="#0000FF"> MemFuncTraits&lt;MemFuncPtrType&gt;::ReturnType</font> ReturnType;
 
-    ...                 // ¤@¦p¥H©¹
+    ...                 // ä¸€å¦‚ä»¥å¾€
 };
 </pre>
 </a>
 
-<h4>µ{¦¡¦Cªí¤Q¥|<a NAME="l2"></h4>
+<h4>ç¨‹å¼åˆ—è¡¨åå››<a NAME="l2"></h4>
 </a><a NAME="l14">
 
 <pre>template &lt;typename <font color="#0000FF">MemFuncPtrType</font>&gt;
@@ -752,13 +752,13 @@ color="#0000FF">MemFuncPtrType</font> <strong><font color="#000000">pmf</font></
 { return std::make_pair(<strong>ptr</strong>, <strong>pmf</strong>); }</pre>
 </a>
 
-<p>¡@</p>
+<p>ã€€</p>
 
-<p>¡@</p>
+<p>ã€€</p>
 
 <hr>
 
-<pre><font color="#FF0000">³¯´Qµù1¡G</font><font color="#408080">§¹¾ãµ{¦¡½X¦p¤U¡A¨Ãªş­Ó¤H´ú¸Õ¤ß±o¡G
+<pre><font color="#FF0000">é™³å´´è¨»1ï¼š</font><font color="#408080">å®Œæ•´ç¨‹å¼ç¢¼å¦‚ä¸‹ï¼Œä¸¦é™„å€‹äººæ¸¬è©¦å¿ƒå¾—ï¼š
 
 // vc6[x]  cb4[x]  gcc2.91.57_on_win32[o]</font></pre>
 
@@ -766,7 +766,7 @@ color="#0000FF">MemFuncPtrType</font> <strong><font color="#000000">pmf</font></
 #include &lt;utility&gt;   // for pair and make_pair()
 using namespace std;</font></pre>
 
-<pre><font color="#408080">// partial specialization §Ş³N¥u¦³ GCC ©M BCB ¤ä´©¡CVC6 ¥¢±Ñ¡C</font></pre>
+<pre><font color="#408080">// partial specialization æŠ€è¡“åªæœ‰ GCC å’Œ BCB æ”¯æ´ã€‚VC6 å¤±æ•—ã€‚</font></pre>
 
 <pre><font color="#408080">template &lt;typename T&gt;
 struct </font><font color="#800080">MemFuncTraits</font><font
@@ -844,30 +844,30 @@ color="#FF0000">operator-&gt;*</font><font color="#408080">(MemFuncPtrType pmf) 
 
 <pre><font color="#408080">template &lt;typename T&gt;
 class <strong>SP</strong> : public SmartPtrBase&lt;T&gt; {   </font><font
-color="#0000FF">// (1) ­ì¤å±Ä¥Î private Ä~©Ó¡AGCC ¥¢±Ñ¡Cµù</font><font
+color="#0000FF">// (1) åŸæ–‡æ¡ç”¨ private ç¹¼æ‰¿ï¼ŒGCC å¤±æ•—ã€‚è¨»</font><font
 color="#408080">
 public:
   SP(T *p) : SmartPtrBase&lt;T&gt;(p) { }</font></pre>
 
 <pre><font color="#408080">  using SmartPtrBase&lt;T&gt;::operator-&gt;*;  </font><font
-color="#0000FF">// (2) ¦b G++ ¤¤¥i½sÄ¶¦ıµL§@¥Î</font><font color="#408080">
+color="#0000FF">// (2) åœ¨ G++ ä¸­å¯ç·¨è­¯ä½†ç„¡ä½œç”¨</font><font color="#408080">
   // normal smart pointer functions would go here.
 };</font></pre>
 
 <pre><font color="#0000FF">/*
-µù¡G
-­ì¤å (1) ±Ä¥Î private Ä~©Ó¡A¦ı¬O GCC ¤£¤ä´©¡u¥H using declaration ¬ğ¯} 
-private inheritanceªº­­¨î¡v¡]¥i«o¤S¤¹³\ (2) ³q¹L½sÄ¶¡A©Ç¡I¡^¡A³y¦¨ main() 
-¤§¤¤¤Z¨Ï¥Î pw-&gt;* §Y¥X²{½sÄ¶¿ù»~¡C
-¥u¦n¦b¦¹§ï¬° public¡C¬JµM±Ä¥Î public inheritance¡A(2) ªº¦³µL¤]´NµLÃö§»¦®¤F¡C</font></pre>
+è¨»ï¼š
+åŸæ–‡ (1) æ¡ç”¨ private ç¹¼æ‰¿ï¼Œä½†æ˜¯ GCC ä¸æ”¯æ´ã€Œä»¥ using declaration çªç ´ 
+private inheritanceçš„é™åˆ¶ã€ï¼ˆå¯å»åˆå…è¨± (2) é€šéç·¨è­¯ï¼Œæ€ªï¼ï¼‰ï¼Œé€ æˆ main() 
+ä¹‹ä¸­å‡¡ä½¿ç”¨ pw-&gt;* å³å‡ºç¾ç·¨è­¯éŒ¯èª¤ã€‚
+åªå¥½åœ¨æ­¤æ”¹ç‚º publicã€‚æ—¢ç„¶æ¡ç”¨ public inheritanceï¼Œ(2) çš„æœ‰ç„¡ä¹Ÿå°±ç„¡é—œå®æ—¨äº†ã€‚</font></pre>
 
-<pre><font color="#0000FF">¦ı¬O¡A¡mC++ Primer ¤¤¤åª©¡np.981 Á¿¡u¥H using declaration ¬ğ¯} 
-private inheritance ªº­­¨î¡v¡A
-§Ú¥H 981.cpp ¸Õ¤§¡AG++ «o¤Sªí²{¨}¦n¡C¬°¤°»ò¡H
-½Ğ°Ñ¦Ò¡G</font><font
+<pre><font color="#0000FF">ä½†æ˜¯ï¼Œã€ŠC++ Primer ä¸­æ–‡ç‰ˆã€‹p.981 è¬›ã€Œä»¥ using declaration çªç ´ 
+private inheritance çš„é™åˆ¶ã€ï¼Œ
+æˆ‘ä»¥ 981.cpp è©¦ä¹‹ï¼ŒG++ å»åˆè¡¨ç¾è‰¯å¥½ã€‚ç‚ºä»€éº¼ï¼Ÿ
+è«‹åƒè€ƒï¼š</font><font
 color="#FF0000">well-known bug in G++: &quot;Using declarations in classes do not work!&quot;</font><font
 color="#0000FF">
-¨£ Frequently Reported Bugs in GCC 2.95 (http://gcc.gnu.org/bugs.html)
+è¦‹ Frequently Reported Bugs in GCC 2.95 (http://gcc.gnu.org/bugs.html)
 */</font></pre>
 
 <pre><font color="#408080">class <strong>Wombat</strong> {
@@ -900,21 +900,21 @@ typedef int(Wombat::*PWMF1)(int);</font></pre>
 
 <hr>
 
-<p><font color="#FF0000">³¯´Qµù2¡G</font><font color="#000000">§@ªÌ¦b¤å¤¤´£¨ì 
-wombat ¬O¤@ºØ</font><a NAME="l1">¿D¬w¯S²£ªº¤@ºØ¦³³U°Êª«¡A¬İ°_¨Ó¦³ÂI¹³ª¯¡C</a>¦ı±q¹³¤ù¨Ó¬İ¨Ã«D¦p¦¹¡C<font
-face="Arial" size="3">wombat</font><font face="·s²Ó©úÅé" size="3">¬O©]¦æ©Ê°Êª«¡A³ßÅw±¸¤g¡A¨Ã¤£¤¿²r</font>¡C¤U­±¬O 
-wombat ªº¥É®e¡G</p>
+<p><font color="#FF0000">é™³å´´è¨»2ï¼š</font><font color="#000000">ä½œè€…åœ¨æ–‡ä¸­æåˆ° 
+wombat æ˜¯ä¸€ç¨®</font><a NAME="l1">æ¾³æ´²ç‰¹ç”¢çš„ä¸€ç¨®æœ‰è¢‹å‹•ç‰©ï¼Œçœ‹èµ·ä¾†æœ‰é»åƒç‹—ã€‚</a>ä½†å¾åƒç‰‡ä¾†çœ‹ä¸¦éå¦‚æ­¤ã€‚<font
+face="Arial" size="3">wombat</font><font face="æ–°ç´°æ˜é«”" size="3">æ˜¯å¤œè¡Œæ€§å‹•ç‰©ï¼Œå–œæ­¡æ˜åœŸï¼Œä¸¦ä¸å‡¶çŒ›</font>ã€‚ä¸‹é¢æ˜¯ 
+wombat çš„ç‰å®¹ï¼š</p>
 
 <p><img src="wombat.jpg" tppabs="http://jjhou.boolan.com/wombat.jpg" width="342" height="257" alt="wombat.jpg (32093 bytes)"></p>
 <font face="Arial" size="2">
 
-<p></font>§@ªÌ¤]³\·Q¦¨¥t¤@ºØ<a NAME="l1">¿D¬w¯S²£</a><font face="Arial"
-size="3">dingo</font><font face="·s²Ó©úÅé" size="3">¡A¨º¬O³¥¥Í¦Ó·¥¦üª¯ªº¤¿²r°Ê§@¡A¦³§ğÀ»©Ê¡A´¿¦³¤p«Ä³Q³oºØ°Êª««r¦º¡C</font><big> 
+<p></font>ä½œè€…ä¹Ÿè¨±æƒ³æˆå¦ä¸€ç¨®<a NAME="l1">æ¾³æ´²ç‰¹ç”¢</a><font face="Arial"
+size="3">dingo</font><font face="æ–°ç´°æ˜é«”" size="3">ï¼Œé‚£æ˜¯é‡ç”Ÿè€Œæ¥µä¼¼ç‹—çš„å‡¶çŒ›å‹•ä½œï¼Œæœ‰æ”»æ“Šæ€§ï¼Œæ›¾æœ‰å°å­©è¢«é€™ç¨®å‹•ç‰©å’¬æ­»ã€‚</font><big> 
 </big></p>
 
 <p><img src="dingo.jpg" tppabs="http://jjhou.boolan.com/dingo.jpg" width="222" height="158" alt="dingo.jpg (12311 bytes)"></p>
 
-<p>¡]·PÁÂµØ¨¹¤½¥q CTWu ´£¨Ñ¹³¤ù»P¸ê®Æ¡^</p>
+<p>ï¼ˆæ„Ÿè¬è¯é‚¦å…¬å¸ CTWu æä¾›åƒç‰‡èˆ‡è³‡æ–™ï¼‰</p>
 
 <hr>
 </body>

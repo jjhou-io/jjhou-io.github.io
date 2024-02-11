@@ -4,32 +4,32 @@
 <head>
 <meta content="text/html; charset=big5" http-equiv="Content-Type">
 <meta content="Microsoft FrontPage 3.0" name="GENERATOR">
-<title>Ū�̨Ө��z 2001/10</title>
+<title>讀者來函整理 2001/10</title>
 </head>
 
 <body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
 
-<p>�@</p>
+<p>　</p>
 
 <hr>
 
 <blockquote>
-  <pre>��z��� 2001/10/31</pre>
-  <pre>�ڹ�Ū�̨ӫH���^���P��z�A�@�譱�O�ۤv�d�ӰO���A�@�譱
-�ѦۥH�����LŪ�̮e�Φ��I�Ѧһ��ȡC�ҥH�̧Ǿ�z�U�ӡC
-���O��Ū�����p�A�Ҧ��ӫH�@������W�A����}�C���g�S�O
-��J�ڤ��n���}��, ���M�]�������}.</pre>
+  <pre>整理日期 2001/10/31</pre>
+  <pre>我對讀者來信的回應與整理，一方面是自己留個記錄，一方面
+竊自以為對其他讀者容或有點參考價值。所以依序整理下來。
+為保障讀者隱私，所有來信一律隱其名，隱其址。曾經特別
+囑咐我不要公開者, 當然也不予公開.</pre>
 </blockquote>
 
 <hr>
 
-<p><font color="#408080">�ǰe���: 2001�~10��2�� PM 06:42<br>
-�J���͡R<br>
-�A�n�S�����A�̪�u�@���ܡS����n�ܡS<br>
-�ڤ_���~�R�F�A���@���m�`�J�L�XMFC 2/E�n�M��ӤS�q���W�U���F�A���q�l�����m�`�J??FC 
-2/E�n�c�骩�M��ı�o�A���ѫD�`�n�M���M�ڭ�豵Ĳ�M���n�P�a���٬O����몺�C<br>
-�~���٥��R�s��٤ӭ쥫<br>
-�Ʊ�A��X��h�n�ѡT<br>
+<p><font color="#408080">傳送日期: 2001年10月2日 PM 06:42<br>
+侯先生﹕<br>
+你好﹖不知你最近工作忙嗎﹖身體好嗎﹖<br>
+我于今年買了你的一本《深入淺出MFC 2/E》﹐後來又從網上下載了你的電子版的《深入??FC 
+2/E》繁體版﹐我覺得你的書非常好﹐雖然我剛剛接觸﹐但好與壞我還是能分辨的。<br>
+居住省份﹕山西省太原市<br>
+希望你能出更多好書﹗<br>
 <br>
 </font></p>
 
@@ -37,12 +37,12 @@
 <br>
 </font></p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��2�� PM 06:41<br>
+<p><font color="#408080">傳送日期: 2001年10月2日 PM 06:41<br>
 jjhou: <br>
-�ڦb��Ū�A��&lt;&lt;�`�ױ���c++��H�ҫ�&gt;&gt;�����@�I�ðݡM�bP112-P115����multiple 
+我在拜讀你的&lt;&lt;深度探索c++對象模型&gt;&gt;中有一點疑問﹐在P112-P115中的multiple 
 <br>
-inheritance���a�} <br>
-�ഫ���ôb�M�K�s�F�@�q�{�ǡR <br>
+inheritance的地址 <br>
+轉換有疑惑﹐便編了一段程序﹕ <br>
 #include&lt;iostream.h&gt; <br>
 class base1 <br>
 { <br>
@@ -77,7 +77,7 @@ cout&lt;&lt;&quot;ptrb:&quot;&lt;&lt;ptrb&lt;&lt;endl&lt;&lt;&quot;ptrc:&quot;&l
 <br>
 } <br>
 <br>
-��X���G���R <br>
+輸出結果為﹕ <br>
 <br>
 base1:0x0012FF7C <br>
 base2:0x0012FF78 <br>
@@ -87,23 +87,23 @@ derived2:0x0012FF6C <br>
 ptrb:0x00000000 <br>
 ptrc:0x0012FF5C <br>
 <br>
-��surderived1����derived2�bderived1���e�ɡM�H�W�{�ǯॿ�`�B��T <br>
-���plippman�b&lt;&lt;�`�ױ���c++��H�ҫ�&gt;&gt;�ptrc��&amp;a�Q���@�H�U�����R 
+當surderived1中的derived2在derived1之前時﹐以上程序能正常運行﹗ <br>
+正如lippman在&lt;&lt;深度探索c++對象模型&gt;&gt;對“ptrc＝&amp;a﹔”作以下解釋﹕ 
 <br>
 <br>
 ptrc=(derived2 *)(((char *)&amp;a+sizeof(derived2))); //P114; <br>
 <br>
-�ڤS�N&quot;ptrc=&amp;a&quot;�אּ�R&quot;ptrb=&amp;a&quot;,�ڱ��⪺�sĶ���������N�X���R 
+我又將&quot;ptrc=&amp;a&quot;改為﹕&quot;ptrb=&amp;a&quot;,我推算的編譯器的內部代碼為﹕ 
 <br>
 <br>
 ptrb=(derived1 *)(((char *)&amp;a+sizeof(derived1))); <br>
 <br>
-���O�o�sĶ�q���L�C�p�G�D�n�令��ptrb=&amp;a&quot;�M�hsurderived1���n���N�o�אּ�R 
+但是卻編譯通不過。如果非要改成“ptrb=&amp;a&quot;﹐則surderived1的聲明就得改為﹕ 
 <br>
 <br>
 surderived1:public derived1,derived2 <br>
 <br>
-��X���G���R <br>
+輸出結果為﹕ <br>
 <br>
 base1:0x0012FF7C <br>
 base2:0x0012FF78 <br>
@@ -113,38 +113,38 @@ derived2:0x0012FF6C <br>
 ptrb:0x0012FF5C <br>
 ptrc:0x00000000 <br>
 <br>
-�a�}�S�o���ܤơM���o�q�L�F�T�ڥΪ��Ovc6.0�Q <br>
-�o�O������S <br>
-�h�¡T�T�T <br>
+地址沒發生變化﹐但卻通過了﹗我用的是vc6.0﹔ <br>
+這是為什麼﹖ <br>
+多謝﹗﹗﹗ <br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��2�� AM 11:00<br>
-�Ա����͡M�z�n�T <br>
+<p><font color="#408080">傳送日期: 2001年10月2日 AM 11:00<br>
+候捷先生﹐您好﹗ <br>
 <br>
-�ڦb�\Ū�z½Ķ���mInside The C++ Object Model�n�@��²�餤�媩�ɡM���@�ǺðݡM<br>
-�ܫ_�N�a�g�H���z�M�Ʊ�o��z���ѵ��C<br>
+我在閱讀您翻譯的《Inside The C++ Object Model》一書簡體中文版時﹐有一些疑問﹐<br>
+很冒昧地寫信給您﹐希望得到您的解答。<br>
 <br>
-�b�Ѥ�P66���쪺���sĶ���h�����u�ơ����M��NRV�u�ƪ��A�νd��ڦ��Ǥ��z�ѡC��Lippman�һ��M�������@��inline 
-copy constructor�M�sĶ���~�|�E��NRV�u�ơM�o�O������O�S�]���H�ڪ��z�ѡMNRV�u�ƪ��ت��N�O���h�b�Q�եΨ�Ƥ���������H�c�y�P�ƻs��Ӿާ@�M������o�̭n�j�զ���H�����������c�y��ơS�Ӷi��NRV�u�ƪ����G�O�M�u���@����H�c�y�ާ@�M�M�᪽���惡��H�i��B�z�N��^�M���s�b�����c�y�ާ@�����n�ڡS<br>
+在書中P66提到的“編譯器層面做優化”中﹐對NRV優化的適用範圍我有些不理解。按Lippman所說﹐必須有一個inline 
+copy constructor﹐編譯器才會激活NRV優化﹐這是為什麼呢﹖因為以我的理解﹐NRV優化的目的就是消去在被調用函數中的局部對象構造與複製兩個操作﹐為什麼這裡要強調此對象必須有拷貝構造函數﹖而進行NRV優化的結果是﹐只有一次對象構造操作﹐然後直接對此對象進行處理﹑返回﹐不存在拷貝構造操作的必要啊﹖<br>
 <br>
-�t�~�z�b�Ѥ�Ķ�`�̴���bVC5�̡M�[�Winline copy constructor��]���|��INRV�u�ơM<br>
-�ڦbVC6�̴��դF�@�U�M�o�{�ʬ��u�Ƥ覡���T���|�i��NRV�u�ơC�����NProject 
-Setting��ܮؤ�C/C++����Optimizations�����̪�Inline function expansion�אּAny 
-Suitable�]����VC5�̬O�_�������ﶵ�^�MVC�~�|��o�ر��p�i��NRV�u�ơ]�ڥH�J�s�覡���ܶi��ơM�o�{���T�S���i��h�l���c�y�M�����c�y�ާ@�M�]�N�O�����T�i��FNRV�u�ơ^�M����ɶ���֤F�@�b�H�W�]������յ��G�Ш�����^�C<br>
+另外您在書中譯注裡提到在VC5裡﹐加上inline copy constructor後也不會實施NRV優化﹐<br>
+我在VC6裡測試了一下﹐發現缺省優化方式的確不會進行NRV優化。必須將Project 
+Setting對話框中C/C++頁的Optimizations類型裡的Inline function expansion選為Any 
+Suitable（不知VC5裡是否有對應選項）﹐VC才會對這種情況進行NRV優化（我以彙編方式跟蹤進函數﹐發現的確沒有進行多餘的構造和拷貝構造操作﹐也就是說的確進行了NRV優化）﹐執行時間減少了一半以上（具體測試結果請見附件）。<br>
 <br>
-���o�S�X�{�F�@�Ӱ��D�M�N�OVC6�u��S�������c�y��ƪ����p�i��NRV�u�ơM�PLippman�����k��n�ۤϳo�Ӵ��յ��G�ϧڧ�[�g�b�C�����OLippman���k�������ʡM�٬OVC�ۤv��{��ܤF���P������S���ݱz�����СC<br>
+但這又出現了一個問題﹐就是VC6只對沒有拷貝構造函數的情況進行NRV優化﹐與Lippman的說法恰好相反這個測試結果使我更加迷惑。不知是Lippman說法有局限性﹐還是VC自己實現選擇了不同的思路﹖期待您的指教。<br>
 <br>
-������θ`�ּ֡T<br>
+祝中秋佳節快樂﹗<br>
 <br>
-btw:����̬OExcel�榡�����յ��G�M�M�ڴ��եΪ��u�{���<br>
+btw:附件裡是Excel格式的測試結果﹐和我測試用的工程文件<br>
 <br>
-NRV �u�ƮĪG���� <br>
+NRV 優化效果測試 <br>
 <br>
-�������c�y��� �L�����c�y��� <br>
-���խ� ������ ���խ� ������<br>
+有拷貝構造函數 無拷貝構造函數 <br>
+測試值 平均值 測試值 平均值<br>
 Only __inline Default 7161 7180 7170 7170 8172 8181 8172 8175<br>
 Max Speed 6299 6309 6309 6305 6259 6279 6289 6275<br>
 Min Size 6840 6860 6850 6850 6699 6720 6750 6723<br>
@@ -152,66 +152,66 @@ All Suitable Default 7170 7151 7201 7174 8162 8122 8172 8152<br>
 Max Speed 50 50 50 50 50 50 50 50<br>
 Min Size 7161 7030 6970 7053 3024 2994 3004 3007<br>
 <br>
-�������ҡRK7-850�M����Win2K+sp2�MVC6+sp5 ���R�@�� <br>
+測試環境﹕K7-850﹐中文Win2K+sp2﹐VC6+sp5 單位﹕毫秒 <br>
 <br>
-�`�RAll Suitable + Max Speed�覡���u�ƤU�M���foo��Ƴ��Q�O�Jfor�`���M�B�䶡�����c�y�ާ@���Q�u�Ʊ��M�u�O�i��F�B�I�ƹB��Ӥw�M�]���u��50�@���CVC���u�Ƥ����٬O�ܤ������C<br>
+注﹕All Suitable + Max Speed方式的優化下﹐整個foo函數都被嵌入for循環﹐且其間的類構造操作都被優化掉﹐只是進行了浮點數運算而已﹐因此只有50毫秒。VC的優化水平還是很不錯的。<br>
 </font></p>
 <b>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��2�� PM 01:22<br>
-�~���٥��R��w<br>
-��J������ĳ�R<br>
-�ڬOVc��Ǫ̡M�u�O�����֤�C�ڳ̪�~�ݨ���ͪ��q�l���ϮѡMı�o�g�o�ܬO�z���M�P�j�����Ǥj�P�p�����N²�檺�۴X�ӵ{�ǵM��u�O�q�����W�[�H�y�z�M�ӥ������@���`�J�֤ߪ��g�k�����������P�M�P�±z���ڭ�Vc�ǲߪ̼g�X�o��n�ѦҮѡC</font></p>
+<p></b><font color="#408080">傳送日期: 2001年10月2日 PM 01:22<br>
+居住省份﹕西安<br>
+對侯捷的建議﹕<br>
+我是Vc初學者﹐只是略懂皮毛。我最近才看到先生的電子版圖書﹐覺得寫得很是透徹﹐與大陸那些大同小異的﹑簡單的抄幾個程序然後只是從表面上加以描述﹐而未有絲毫的深入核心的寫法有徹底的不同﹐感謝您為我們Vc學習者寫出這麼好參考書。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��2�� PM 01:18<br>
-�J�Ѯv:<br>
-C++ Primer 3/e �q�h�~���ܤ�,�q�x���رm���j�ѧ�,�@���춳�L�����a�Ϯѧ�,�@���L�k��즹��,�Ӳ{�b�X���D�ѥO�H����,�S���Ѹѵ����?<br>
-�p�B�o�Ǵ��t�W���w�������Ь��,�Ʊ�J�Ѯv��������ϬM�����D,���±z</font><br>
+<p><font color="#408080">傳送日期: 2001年10月2日 PM 01:18<br>
+侯老師:<br>
+C++ Primer 3/e 從去年中至今,從台中華彩等大書局,一直到雲林偏遠地區書局,一直無法找到此書,而現在出版題解令人不解,沒有書解答何用?<br>
+況且這學期系上指定此本為教科書,希望侯老師能夠幫忙反映此問題,謝謝您</font><br>
 <br>
-���J���^�СG<font color="#408080">�u�q�h�~���ܤ��v</font>�A��A��M 
-GOTOP�֮p���Q�ѡA�٭n�A�[��l�� :)<br>
-�ڤw�N�z�o�ʫH�൹ GOTOP�A���±z�C<br>
+●侯捷回覆：<font color="#408080">「從去年中至今」</font>，喔，顯然 
+GOTOP碁峰的鋪書，還要再加把勁兒 :)<br>
+我已將您這封信轉給 GOTOP，謝謝您。<br>
 <br>
-�mC++ Primer 3e�n���T�Ӥ���Y���ʮѡA�]���ڭ̥��b�s�@ 2001 
-�׭q���A�N�L�h�o�{���ɻ~�����ץ��CGOTOP ���w�s���N�O 0 
-�F�C�ڷQ���ӧ֭n�����ѮѤF�CŪ�̶]�M�h�B�R����ѡA���T�|���\�h���A�ڤF�ѡA�ڤF�ѡC</p>
+《C++ Primer 3e》近兩三個月來嚴重缺書，因為我們正在製作 2001 
+修訂版，將過去發現的勘誤全部修正。GOTOP 的庫存早就是 0 
+了。我想應該快要全面供書了。讀者跑遍多處買不到書，的確會有許多怨氣，我了解，我了解。</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><br>
-<font color="#408080">�ǰe���: 2001�~10��2�� PM 04:10<br>
-�J�T�N���͡R<br>
-�A�n�T<br>
-�ڦb�Q�ѭ��R�F�A���mESSENTIAL C++�n�M�u�O�@���bIT�Ϯѥ������o�@�����n�ѡT<br>
+<font color="#408080">傳送日期: 2001年10月2日 PM 04:10<br>
+侯俊杰先生﹕<br>
+你好﹗<br>
+我在昨天剛剛買了你的《ESSENTIAL C++》﹐真是一本在IT圖書市場難得一見的好書﹗<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��3�� AM 02:14<br>
-�D��: Re: Class Template Partial Specialization�O�_�i�H�u�w��Y�@Class Member�H<br>
+<p><font color="#408080">傳送日期: 2001年10月3日 AM 02:14<br>
+主旨: Re: Class Template Partial Specialization是否可以只針對某一Class Member？<br>
 <br>
-�J���ͱz�n�G<br>
+侯先生您好：<br>
 <br>
-���W���ڷ|�ݳo�Ӱ��D�O�]���z��Ķ�@C++ Primer���媩�Ҵ��쪺partial 
+其實上次我會問這個問題是因為您的譯作C++ Primer中文版所提到的partial 
 specialization<br>
-�u��class template�A�Өϥ�BCB5���յ��G�O�sĶ���~�C���O�ڤ���T�w�O�y�k�g���٬O�sĶ�����䴩�A�άOC++���ڴN�S�o�ػy�k�A�ҥH�~�Q�T�{�@�U�C�e�g��ݤ������B�A�|�Ш��̡C�H�z���^�H�ӬݡA�J�MPrimer�S�������ӴN�O�S���F�C<br>
+只於class template，而使用BCB5測試結果是編譯錯誤。但是我不能確定是語法寫錯還是編譯器不支援，或是C++壓根就沒這種語法，所以才想確認一下。前篇交待不全之處，尚請見諒。以您的回信來看，既然Primer沒提到應該就是沒有了。<br>
 <br>
-�o���ڦ���function template�����D�Q�n�ббz�C�p���U�C�@class template�Ψ�h���� 
-function template�G<br>
+這次我有個function template的問題想要請教您。如有下列一class template及兩多載化 
+function template：<br>
 <br>
 template &lt;int N, typename T&gt;<br>
 class C<br>
@@ -224,284 +224,284 @@ void foo(C&lt;N, T&gt; , C&lt;N+1, T&gt;) {}<br>
 template &lt;typename T&gt;<br>
 void foo(C&lt;1, T&gt; , C&lt;2, T&gt;) {}<br>
 <br>
-���H�U�⦸�I�s<br>
+對於以下兩次呼叫<br>
 <br>
 foo(C&lt;2, int&gt;(), C&lt;3, int&gt;()); // ok<br>
 foo(C&lt;1, int&gt;(), C&lt;2, int&gt;()); // ambiguous!! <br>
 <br>
-��̽sĶ���|�o�Xambiguous�����~�T��<br>
+後者編譯器會發出ambiguous的錯誤訊息<br>
 <br>
-�аݭY�HStandard C++�y�k�Ө��A�o�өI�s����ambiguous�ܡH�٬O�sĶ�����ʥ��O�H 
+請問若以Standard C++語法而言，這個呼叫應為ambiguous嗎？還是編譯器的缺失呢？ 
 <br>
 <br>
-P.S. �ګܳ��w��{�Ƴo��Ķ�W�Ať�_�Ӷì��@�⪺�C<br>
+P.S. 我很喜歡具現化這個譯名，聽起來亂炫一把的。<br>
 </font><font color="#000000"><br>
-���J���^�СG�p�G�A�O�sĶ���A�A���S����k�d��</font><font
-color="#408080"> foo(C&lt;1, int&gt;(), C&lt;2, int&gt;()) </font><font color="#000000">�s���O�I�s�G</font><font
+●侯捷回覆：如果你是編譯器，你有沒有辦法查知</font><font
+color="#408080"> foo(C&lt;1, int&gt;(), C&lt;2, int&gt;()) </font><font color="#000000">究竟是呼叫：</font><font
 color="#408080"><br>
 template &lt;int N, typename T&gt;<br>
 void foo(C&lt;N, T&gt; , C&lt;N+1, T&gt;) {}<br>
-</font><font color="#000000">�άO�I�s�G</font><font color="#408080"><br>
+</font><font color="#000000">或是呼叫：</font><font color="#408080"><br>
 template &lt;typename T&gt;<br>
 void foo(C&lt;1, T&gt; , C&lt;2, T&gt;) {}<br>
-</font><font color="#000000">�O�H�A�|�o�{�]�{���^��ӭԿ�̤@�˦n�A�]���A���M�|���Xambiguous���P�_�C�o�OC++Standard���W�d�A����sĶ�����O�o�ت��{�C<br>
+</font><font color="#000000">呢？你會發現（認為）兩個候選者一樣好，因此你必然會做出ambiguous的判斷。這是C++Standard的規範，任何編譯器都是這種表現。<br>
 <br>
-�ڧƱ�A�ݰ��D�ɡA����ۤv���Q�@�Q�A�ç�A���Q�k�i�D�ڡA�o�˹�A���n�B�A�]�|�l�ާڦ^���A�����D�C���n�`�Ȧۤv���Q�k�i���ο��~ 
-�X 
-�֪��D�A�O�֩O�H�N��A�i�D�F�ڧA���W�r�A�ڤ]�����D�A�O�֡C�ӥB�ڪ����}�^�е����|�z�SŪ�̨����A�A��� 
+我希望，問問題時，能夠自己先想一想，並把你的想法告訴我，這樣對你有好處，也會吸引我回答你的問題。不要害怕自己的想法可笑或錯誤 
+— 
+誰知道你是誰呢？就算你告訴了我你的名字，我也不知道你是誰。而且我的公開回覆絕不會透露讀者身份，你放心 
 :)</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��3�� PM 03:44<br>
-�T�N����:<br>
-�z�n.<br>
-���ͧK�O�}�񪺹q�l���y&lt;Windows 95 �t�ε{���]�p�j����&gt;&amp;&lt;Windows 
-95 �t�ε{���]�p �V ���������P VxD �{���]�p&gt;�N&lt;�`�J�L�X MFC&gt;�N&lt;�`�ױ��� 
-C++��H�ҫ�&gt;�]�����^�ڦ��U���M�ʶR����⥻�Ѫ�²�餤�媩�C�B���L�F�e�⥻�ѡM</font><font
-color="#8080FF">�����Ӧp��I�O�S</font><font color="#408080"><br>
+<p></b><font color="#408080">傳送日期: 2001年10月3日 PM 03:44<br>
+俊杰先生:<br>
+您好.<br>
+先生免費開放的電子書籍&lt;Windows 95 系統程式設計大奧秘&gt;&amp;&lt;Windows 
+95 系統程式設計 – 虛擬機器與 VxD 程式設計&gt;﹑&lt;深入淺出 MFC&gt;﹑&lt;深度探索 
+C++對象模型&gt;（部份）我有下載﹐購買有後兩本書的簡體中文版。且打印了前兩本書﹐</font><font
+color="#8080FF">不知該如何付費﹖</font><font color="#408080"><br>
 <br>
-����Ū�̤��Ȫ���M�M�ӥB����ҥH�M�����y�M�`���H���s�n�C�ڨS���W�L�j�ǡM�`����Ǫ��H�N�H���W�C���ͪ��ѥ��O���ާڽ������O�C���ּ֡T<br>
-�~���٥��R���y��<br>
-��J������ĳ�R�p�l�L���M�@�ե��ͤ@���աR1�N�ѥH������</font><font
-color="#8080FF">Ķ�@</font><font color="#408080">�i�[�J�z��h���ݪk�M�{�ѡC�y�z��m�Ӹ`�ɧ�i�Ѱ���šM�p�R�����M�u�աM��޳N���e�ɡM����o�i�C�Ψ�޳N�������ʡM�p�R�ƦX���ɩM�ƾڮw�C2�N�Ʊ���ͯ�g�@�� 
-</font><font color="#8080FF">C �y�����o�i�v</font><font color="#408080">�C </font></p>
+能讓讀者不僅知其然﹐而且知其所以然的書籍﹐總讓人拍手叫好。我沒有上過大學﹐深知初學盲人摸象之苦。先生的書正是指引我輩的明燈。祝快樂﹗<br>
+居住省份﹕重慶市<br>
+對侯捷的建議﹕小子無知﹐願博先生一笑耳﹕1﹑竊以為先生</font><font
+color="#8080FF">譯作</font><font color="#408080">可加入您更多的看法和認識。描述精彩細節時更可天馬行空﹐如﹕不足和優勢﹐其技術的前導﹐後續發展。及其技術的相關性﹐如﹕複合文檔和數據庫。2﹑希望先生能寫一本 
+</font><font color="#8080FF">C 語言的發展史</font><font color="#408080">。 </font></p>
 
-<p><font color="#000000">���J���^�СG�J�M�K�O�}��A�N�O�L�ݥI�O�A�A�ܥi�R�C</font></p>
+<p><font color="#000000">●侯捷回覆：既然免費開放，就是無需付費，你很可愛。</font></p>
 
-<p><font color="#000000">�A��</font><font color="#0000FF">Ķ�@</font><font
-color="#000000">����ĳ�ܦn�A���ڷ|�b�ڪ�</font><font color="#0000FF">�ۧ@</font><font
-color="#000000">�����o�ǨƱ��C</font></p>
+<p><font color="#000000">你對</font><font color="#0000FF">譯作</font><font
+color="#000000">的建議很好，但我會在我的</font><font color="#0000FF">著作</font><font
+color="#000000">中做這些事情。</font></p>
 
-<p><font color="#000000">C�y���o�i�v�H�ڨS�����즨�������@�̡A���ګܦ����즨������Ū�̡C</font></p>
+<p><font color="#000000">C語言發展史？我沒有興趣成為它的作者，但我很有興趣成為它的讀者。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��3�� PM 06:51<br>
+<p><font color="#408080">傳送日期: 2001年10月3日 PM 06:51<br>
 Dear Sir:<br>
-�@�ǥͬ��������`�ơM���Ӱ_�ӭˤ]�ܦ��N��M�W�Ӥ몺�@�ѡM�����F�u�@�M�ڥ��F�ӻ��M����U�Z�ɶ��Q�N�Ȧ^�a�M�{���ɡM�P�ƹ�ڻ��R�١M�p�����I�M�O�M��b���W�U���j�B�C�]���M���楼��Q�����M�B�H�����k�����u���U�ӤF�M�S��k�M�u�n���i�ѩ��פ@�סM�ڬO�`�h�ѩ����M�C�묰�Ƥ��h���@�I�Ȥl�`�n��b�R�ѤW���֡M�A�]���D�{�b�����p������ѳ����K�y�M�ڦb�ﺡ�ѦpC++���K�N21�ѾǷ|VC�������Ѭ[�W½��F�@����MFC���ѡ]�]�N�O�`�J�L�XMFC 
-SE�^�M</font><font color="#8080FF">�̪�ڬݨ쪺�O����Ū�̪��ӫH�M�߷Q�o��AUTHOR�]�ӫ��F�a</font><font
-color="#408080">�M²��ݤF�ݤ��e��M�ڨM�w�]���ڬO�r�F�r���^�⥦�R�^�a�M�]���o���Ѧ^���F�ڦn���ɶ��ӷQ���D�Ӧ��S��k�d�����\�h����WINDOWS�s�{����z�]</font><font
-color="#8080FF">�ڬO�@�ӷQ���D��z��Q���D���Χ�h�o�h���H�M�����Q���a</font><font
-color="#408080">�^�M��������ߪ����ġM�ڳs�]�ݤF�b���M�G�M�Pı�u�O�[�H�F�M�ڦ��z���h�F�M�H�a���X�~�e�N�X���F�M�۳{��߭��T<br>
+一些生活中的平常事﹐說來起來倒也很有意思﹐上個月的一天﹐完成了工作﹐我打了個誑﹐未到下班時間想就溜回家﹐臨走時﹐同事對我說﹕嗨﹐小心¨點﹐別騎到半路上下場大雨。也巧﹐嘗行未到十分鐘﹐雨象變戲法似的真掉下來了﹐沒辦法﹐只好躲進書店避一避﹐我是常去書店的﹐每月為數不多的一點銀子總要花在買書上不少﹐你也知道現在有關計算機的書都不便宜﹐我在堆滿諸如C++探密﹑21天學會VC之類的書架上翻到了一本講MFC的書（也就是深入淺出MFC 
+SE）﹐</font><font color="#8080FF">最初我看到的是關於讀者的來信﹐心想這個AUTHOR也太拽了吧</font><font
+color="#408080">﹐簡單看了看內容後﹐我決定（其實我是咬了咬牙）把它買回家﹐因為這本書回答了我好長時間來想知道而有沒辦法搞懂的許多關於WINDOWS編程的原理（</font><font
+color="#8080FF">我是一個想知道原理比想知道應用更多得多的人﹐哈哈討厭吧</font><font
+color="#408080">）﹐抑制不住內心的興奮﹐我連夜看了半本﹐果然感覺真是久違了﹐我早干嘛去了﹐人家早幾年前就出版了﹐相逢恨晚哪﹗<br>
 <br>
-�ݳo���ѹ�ڨӻ��O�X�_�����Q�]�ڭ쥻ı�o�̧ڪ������n�ݧ��i�ण�O����²��^�M�o�o�q�P�Ѥ����Ť��������ѡM���n�B�C<br>
+看這本書對我來說是出奇的順利（我原本覺得憑我的水平要看完可能不是那麼簡單）﹐這得益與書中不溫不火的講解﹐恰到好處。<br>
 <br>
-</font><font color="#8080FF">���A�X�ڳo�ح쥻�@���b�Ѫ��H��</font><font
-color="#408080">�M�ڲq�Ĥ@�g�ĤT��MFC��u�]�\�O�z���оǺ�اa�M�ڤ]���չL�άƦܬO�̭�l��C�y���h�ҥ�C++��WINDOWS�s�{���s�]���λ��ڨ�{�b�s�@�y�]�S��g�X�ӡM�]���ڤ����M</font><font
-color="#8080FF">�S�p�M�l�b�@���ܤj�B�N�����𪺩Фl��</font><font
-color="#408080">�M�i���ڥb�~�e�٦bVC6���j�Τl�̺��@�ɧ�WinMain��ƪ��U��, 
-���u���M�ڥi��O����Ū�̸s�̵̳檺�����^�M�o�ϧڷQ�_�F�H�eť�L���@�ӨƨҡM�p��з|�p�ǥͰ����ƾǩO�M�ڷQMFC��u�K�^���F�o�Ӱ��D(�o�رоǤ�k�u����ұн��D���۵L��`�J���F�Ѫ��H�~��F�o�_��)�C�]�\�ǲ�����WINDOWS�s�{�o�˪����e�M�ݭn�Χ�n����k�M���o���ѬJ���˪L�S�����M�J�ΦӤW�S�ΦӤU�����k�|�O�H��e���q����W�N��¦�W�����o�ǽ������񪺤��e�C<br>
+</font><font color="#8080FF">它適合我這種原本一知半解的人看</font><font
+color="#408080">﹐我猜第一篇第三章MFC仿真也許是您的教學精華吧﹐我也嘗試過用甚至是最原始的C語言去模仿C++的WINDOWS編程機製（不用說我到現在連一句也沒能寫出來﹐因為我不懂﹐</font><font
+color="#8080FF">猶如瞎子在一間很大且摸不著牆的房子裡</font><font
+color="#408080">﹐可憐我半年前還在VC6的大屋子裡滿世界找WinMain函數的下落, 
+說真的﹐我可能是先生讀者群裡最菜的哪撥）﹐這使我想起了以前聽過的一個事例﹐如何教會小學生高等數學呢﹐我想MFC仿真便回答了這個問題(這種教學方法只有對所教課題有著無比深入的了解的人才能幹得起來)。也許學習類似WINDOWS編程這樣的內容﹐需要用更好的方法﹐對於這本書既見森林又見樹木﹐既形而上又形而下的講法會令人更容易從整體上﹑基礎上接受這些複雜難纏的內容。<br>
 <br>
-�ڷQ�M�ڨS���ݨ����@���ѵؤH�g���޳N���y��V�o���Ѥ@�˨㦳��Ʈ��]�ګ����O��Ǥ譱�^�M�ڱ`�Į�������L������H�W�r���p������y�`�O�g���S�~��H�n�M�o�U�M�ڱo���ܬݪk�F�M�A���P�¥��ͤβ`�J�L�XMFC�M�ڤw���ұo�M�Ʊ��`�`�o����ͪ����I�M���ڨӻ��o�N�O�}�W�ǲߤ��̭ȱo���ݪ��F�C�p�G���ͤ��\���ܡM�Ʊ�U�����ͯ�^���ڤ@�ǭp����譱����L���D�C<br>
+我想﹐我沒有看到任何一本由華人寫的技術書籍能向這本書一樣具有文化氣質（我指的是文學方面）﹐我常嘆息為什麼印有中國人名字的計算機書籍總是寫的沒外國人好﹐這下﹐我得改變看法了﹐再次感謝先生及深入淺出MFC﹐我已有所得﹐希望能常常得到先生的指點﹐對於我來說這將是艱苦學習中最值得期待的了。如果先生允許的話﹐希望下次先生能回答我一些計算機方面的其他問題。<br>
 <br>
-���R���鰷�d�M�u�@���Q<br>
+祝﹕身體健康﹐工作順利<br>
 </font><font color="#000000"><br>
-���J���^�СG�ڤ]�O�@��</font><font color="#8080FF">�Q���D��z��Q���D���Χ�h�o�h���H</font><font
-color="#000000">�A�ڱq�ӨS���]���Q�H�Q���L :)�C�m�`�J�L�XMFC�n���T�D�`�A�X</font><font
-color="#8080FF">�쥻�@���b�Ѫ��H�ݡA</font><font color="#000000">�|���̤j����ڮĪG�C</font></p>
+●侯捷回覆：我也是一個</font><font color="#8080FF">想知道原理比想知道應用更多得多的人</font><font
+color="#000000">，我從來沒有因此被人討厭過 :)。《深入淺出MFC》的確非常適合</font><font
+color="#8080FF">原本一知半解的人看，</font><font color="#000000">會有最大的邊際效果。</font></p>
 
-<p><font color="#000000">������j�a�ݨ���y��Ū�̨Ө�A�N�|</font><font
-color="#8080FF">�u�߷Q�o��AUTHOR�]�ӫ��F�a�v</font><font color="#000000">�O�H�ڤ��{�������@�ӧ@�̡A�N�����C�T�U�|�A�ۧ����u���v�CŪ�̨Ө��@�����y���g���A�O�@�̪��aģ�C�]�O��o���Ѫ��֩w�A�ګַܼN�j�n���X�ӡA�õ�����ѭ���Ū�̤@�ӾɤޡC�ڽT��{���AŪ�̹�m�`�J�L�XMFC�n�����R�A�ڷ����L�\�A�]���ڬO�p���Τߦa�g�o���ѡA�ӥ��bMFC�޳N��R�W�S�O���p���W�S���a��C�ڥΤ߼g�@�A�N�O�n��o�L�q�A��o�֩w�C</font></p>
+<p><font color="#000000">為什麼大家看到書籍的讀者來函，就會</font><font
+color="#8080FF">「心想這個AUTHOR也太拽了吧」</font><font color="#000000">呢？我不認為身為一個作者，就必須低三下四，自抑謙「卑」。讀者來函對一本書籍的讚美，是作者的榮耀。也是對這本書的肯定，我很樂意大聲說出來，並給予初謀面的讀者一個導引。我確實認為，讀者對《深入淺出MFC》的熱愛，我當之無愧，因為我是如此用心地寫這本書，而它在MFC技術剖析上又是有如此獨特的地位。我用心寫作，就是要獲得尊敬，獲得肯定。</font></p>
 
-<p><font color="#000000">�Z�ۧi�D�U��A�ڪ��C�@���ѡA�b�ڪ��w��d�򤺩M�ڪ��׭z�覡�W�A�ڥû��{�����O���@�ɲĤ@�y�� 
-�X 
-�ڦ󥲼g�@���G�y���y�C�@�ӧ@�a�p�G�S���o�خ�աA�p�G�b�O�H�ШD���ˮ��y�ɥL���M�������˦ۤv�����y�A�ڥH���A�L�S�������n�@�a������C</font></p>
+<p><font color="#000000">坦誠告訴各位，我的每一本書，在我的定位範圍內和我的論述方式上，我永遠認為它是全世界第一流的 
+— 
+我何必寫一本二流書籍。一個作家如果沒有這種氣勢，如果在別人請求推薦書籍時他竟然不敢推薦自己的書籍，我以為，他沒有成為好作家的條件。</font></p>
 
-<p><font color="#000000">���H�n����A���ƭn����աC</font></p>
+<p><font color="#000000">做人要謙虛，做事要有氣勢。</font></p>
 
-<p><font color="#000000">����H�O�Q�b�J�����W�ݨ�ƺC�𮧡A�i�]�O�Q�b�J���@�~�W�ݨ�L�ݪ��ۧ��P���u���v:)</font></p>
+<p><font color="#000000">任何人別想在侯捷身上看到傲慢氣息，可也別想在侯捷作品上看到無端的自抑與謙「卑」:)</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��3�� PM 10:08<br>
-�J�Ѯv�R<br>
-�_�N���Z�M�ܩ��B��b���W���z�������M���M�]�ܿ�ѨS���󦭱o���z�������C<br>
+<p></b><font color="#408080">傳送日期: 2001年10月3日 PM 10:08<br>
+侯老師﹕<br>
+冒昧打擾﹐很幸運能在網上找到您的網站﹐但﹐也很遺憾沒有更早得找到您的網站。<br>
 <br>
-�ܷq�رz���ѲW�աM�p����`���M�~���Ѥw�����o�M�ӱz�����ѭ��S�p�����s�աC�]���O�ڤ��Ρ��դj��`���M�u�O�z������ 
-�R�^�^�����o���O�z���H�ͭ׾i�M�ɮɫO������������C�z�b�ǲߧ޳N�ɤ��ѭר��i�ʡ]��������g�ѵ��N�O�ҩ��^�M�ӧڭ̥u�U�S�Y�S���o��ۼ�y�ǲ߷s�޳N�M�z�i�����ҡC���ר��M�i�ʡM�檫�M�P�����ڤ@���{���i�ʬO�ܭ��n���M�i�O��馣���L�L�R���U�ߡM�j�Ǯն�S�p���Bļ�M����M�������b�������L�M���L�J�M�ڪ��D�M�ڴN�|�Q��k�վ�ڦۤv�M�����ڲ{�b�u�O�j�T�M�ڷQ�گ���R�U�ߡM�{�{�u�u�o�ǨǪ��ѡC<br>
+很敬佩您學識淵博﹐如此精深的專業知識已很難得﹐而您的知識面又如此的廣博。（不是我不用“博大精深”﹐只是您不接受 
+﹕））更難得的是您的人生修養和時時保持的那份謙虛。您在學習技術時不忘修身養性（能夠堅持寫書評就是證明）﹐而我們只顧沒頭沒腦得跟著潮流學習新技術﹐您可為楷模。“修身﹐養性﹐格物﹐致知“我一直認為養性是很重要的﹐可是整日忙忙碌碌靜不下心﹐大學校園又如此浮躁﹐興趣和熱情正在漸消漸無﹐不過既然我知道﹐我就會想辦法調整我自己﹐畢竟我現在只是大三﹐我想我能夠靜下心﹐認認真真得學些知識。<br>
 <br>
-���M�j���R����z���˪��U�h�n�ѡM�������z���л��w���q���L�C<br>
-��Ѫ��O�M�ڤ��O�p����t���ǥ͡M�ڥ��b�Ʀҭp����t����M�u�O�ܦ��C<br>
-�u�O�ܷP�±z���л��M���ȶȬO�ǲߤ�k�M�󭫭n���O�ǲߪ��ߺA�M�H�ͪ��A�סC<br>
-�����c��²�M�绷�Ū�(�᭱�����O�o�F�^�M�u�O�ܷP�±z�C</font></p>
+雖然大陸買不到您推薦的愈多好書﹐但能受到您的教誨已收益不淺。<br>
+遺憾的是﹐我不是計算機系的學生﹐我正在備考計算機系的研﹐真是很忙。<br>
+真是很感謝您的教誨﹐不僅僅是學習方法﹐更重要的是學習的心態和人生的態度。<br>
+“寧繁勿簡﹐寧遠勿近”(後面的不記得了）﹐真是很感謝您。</font></p>
 
-<p><font color="#000000">���J���^�СG<br>
-�y���c�Ų��A�绷�Ū�A��U�Ű��A���ť��z�X ���Q</font></p>
+<p><font color="#000000">●侯捷回覆：<br>
+『寧繁勿略，寧遠勿近，寧下勿高，寧拙勿巧』— 朱熹</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��4�� AM 12:00<br>
-�J�Ѯv�M�z�n�T<br>
-���§A���ڭ̴��ѤF �m�`�J�L�X MFC�n 2/e ���q�l�����K�O<br>
-�U���T�H�U�O�ڪ��򥻸�ơR<br>
-�~���٥��R��_<br>
-��J������ĳ�R�O�_�൹�ڭ̴M���½Ķ�ǤU�@�NInternet���޳N��V----����]Grid�^�޳N�����y�M��ơT�ڭӤH�{���o�ӥH��|�O�����u�������n��V�T<br>
-�@�@<br>
+<p><font color="#408080">傳送日期: 2001年10月4日 AM 12:00<br>
+侯老師﹐您好﹗<br>
+謝謝你為我們提供了 《深入淺出 MFC》 2/e 的電子版的免費<br>
+下載﹗以下是我的基本資料﹕<br>
+居住省份﹕湖北<br>
+對侯捷的建議﹕是否能給我們尋找並翻譯些下一代Internet的技術方向----網格（Grid）技術的書籍和資料﹗我個人認為這個以後會是網絡真正的重要方向﹗<br>
+　　<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��4�� PM 06:14<br>
-�D��: Typo report<br>
-�J Sir �z�n: <br>
+<p><font color="#408080">傳送日期: 2001年10月4日 PM 06:14<br>
+主旨: Typo report<br>
+侯 Sir 您好: <br>
 <br>
-�b</font><font color="#FF0000"> thinking-in-java-20010919.pdf</font><font color="#408080"> 
-�ɮפ��� 213 ��, </font></p>
+在</font><font color="#FF0000"> thinking-in-java-20010919.pdf</font><font color="#408080"> 
+檔案中第 213 頁, </font></p>
 <div align="left">
 
 <table border="1">
   <tr>
-    <td><font color="#408080">Math.random() ����X�]�A0.0�A�H�ƾǳN�y�ӻ��A��� 
+    <td><font color="#408080">Math.random() 的輸出包括0.0，以數學術語來說，其輸 
     <br>
-    �X�d��O[0,1]�C</font></td>
+    出範圍是[0,1]。</font></td>
   </tr>
 </table>
 </div>
 
-<p><font color="#408080">�䤤��X�d�����O [0,1) �~��. <br>
+<p><font color="#408080">其中輸出範圍應是 [0,1) 才對. <br>
 <br>
-�t�~, �b�ɮײ� 104 ��: </font></p>
+另外, 在檔案第 104 頁: </font></p>
 <div align="left">
 
 <table border="1">
   <tr>
-    <td><font color="#408080">�W���i�H���p�ܰѻP�̡Buse case 
-    �����ߵ��]�Ҧp�j�U�^�B�άO�b��use case 
-    ���Q�ާ@���H�u�s�~�C�ʵ��h�i���p�줶��ѻP�̻Puse case 
-    �������������Y�A�ë��Xuse case�����Ѧh�B�J�C</font></td>
+    <td><font color="#408080">名詞可以關聯至參與者、use case 
+    中的脈絡（例如大廳）、或是在此use case 
+    中被操作的人工製品。動詞則可關聯到介於參與者與use case 
+    之間的互動關係，並指出use case中的諸多步驟。</font></td>
   </tr>
 </table>
 </div>
 
-<p><font color="#408080">�䤤 &quot;���p&quot; �@���b��Ѥ��� suggest. 
-�b��Ķ�� &quot;���p&quot;, <br>
-�S�ݹL�^�媩��Ū�̥i��L�k���W�F�ѳo�y���N�� <br>
-(���ڴN�O�@�����Z�aŪ��o���M�d��, ��X�^�媩��� <br>
-��Ӥ��U�~�F�ѧ@�̪��N��). �t�~, ���B context Ķ�� &quot;�ߵ�&quot; <br>
-���G�]��������, �����z�O�_�]�o��ı�o? <br>
+<p><font color="#408080">其中 &quot;關聯&quot; 一詞在原書中為 suggest. 
+在此譯為 &quot;關聯&quot;, <br>
+沒看過英文版的讀者可能無法馬上了解這句的意思 <br>
+(像我就是一路順暢地讀到這忽然卡住, 找出英文版兩相 <br>
+比照之下才了解作者的意思). 另外, 此處 context 譯為 &quot;脈絡&quot; <br>
+似乎也略嫌不妥, 不知您是否也這樣覺得? <br>
 <br>
-���L�`��ӻ�, �o����½�o�ܦn, �嵧�y�Z, ���گ�ܧ֦a�l��, <br>
-�P�±z�A��������Ū��Ķ�X�@���n��! <br>
+不過總體來說, 這本書翻得很好, 文筆流暢, 讓我能很快地吸收, <br>
+感謝您再次為中文讀者譯出一本好書! <br>
 </font><font color="#000000"><br>
-���J���^�СG�P�³o��Ū�̡C�ڹ�o�˪��}�ʤ��ʡA�D�`�}�ߡC<br>
-(1) ���T���� [0,1)�A�U�@�Ӫ����󥿡C<br>
-(2) ���p�U�A�w��A���N���A���¡C</font></p>
+●侯捷回覆：感謝這位讀者。我對這樣的良性互動，非常開心。<br>
+(1) 的確應為 [0,1)，下一個版本更正。<br>
+(2) 更改如下，歡迎再提意見，謝謝。</font></p>
 <div align="left">
 
 <table border="1">
   <tr>
-    <td><font color="#000000">�W���i�ΥH���ܰѻP�̡Buse case �������ҡ]context�A�p�W�Ҥ��j�U�^�B 
-    �άO�b�� use case 
-    ���Q�ާ@���H�u�s�~�C�ʵ��h�i�ΥH���ܤ���ѻP�̻Puse case 
-    �������������Y�A�ë��Xuse case �����Ѧh�B�J�C</font></td>
+    <td><font color="#000000">名詞可用以提示參與者、use case 中的環境（context，如上例之大廳）、 
+    或是在此 use case 
+    中被操作的人工製品。動詞則可用以提示介於參與者與use case 
+    之間的互動關係，並指出use case 中的諸多步驟。</font></td>
   </tr>
 </table>
 </div>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��4�� PM 06:50<br>
-�J�Ѯv�R�z�n�T<br>
+<p><font color="#408080">傳送日期: 2001年10月4日 PM 06:50<br>
+侯老師﹕您好﹗<br>
 <br>
-��x�z�N�b10�뤤���ӥ_�ʴX�ѡM�ڭ̼��զa�Ʊ�z��ӥ_�ʮv�d�j�ǰ��@���t���C�ڭ�<br>
-���D�o�˪��ШD��b���ǫ_�N�M���ڭ̪��߬O�u�۪��C�P�ǭ̤]�߱�z����ӡC<br>
+獲悉您將在10月中旬來北京幾天﹐我們熱忱地希望您能來北京師範大學做一次演講。我們<br>
+知道這樣的請求實在有些冒昧﹐但我們的心是真誠的。同學們也盼望您的到來。<br>
 <br>
-�ڭ̬O�_�ʮv�d�j��PC�Ǫ��M�ڭ̾Ǯիܦh�P�ǡ]�q�l�H���t/�p����t/���z�t/�ƾǨt<br>
-�����^���ܥ��}�z���j�W�C�z���ۧ@�PĶ�@�b�Ǯծ��䪺�q�l��ޮѩ������P���`�O�̦n���M�m�`�J�L�XMFC 
-2/e�n�N�mEssential C++ 
-²�餤�媩�n�@�W�[�N�P��@�š]��̴X�G���F�ǲ�C++���P�Ǫ����ƱЬ�ѡM�H��@�U�^�M�m�`�ױ���C++��H�ҫ��n���P���]�����M�۫H�mEffective 
-C++ 2e²�餤�媩�n���P���|��n�C�p�G�z�@�N�ӧڭ̾ǮաM�t�����D�ءN�ɶ��Mť�ҤH�ƥѱz����M�ڭ̭t�d�z����q�P�\���]�z���έt�����O�Ρ^�C<br>
+我們是北京師範大學PC學社﹐我們學校很多同學（電子信息系/計算機系/物理系/數學系<br>
+等等）都很仰慕您的大名。您的著作與譯作在學校旁邊的電子科技書店中的銷路總是最好的﹐《深入淺出MFC 
+2/e》﹑《Essential C++ 
+簡體中文版》一上架就銷售一空（後者幾乎成了學習C++的同學的必備教科書﹐人手一冊）﹐《深度探索C++對象模型》的銷路也不錯﹐相信《Effective 
+C++ 2e簡體中文版》的銷路會更好。如果您願意來我們學校﹐演講的題目﹑時間和聽課人數由您控制﹐我們負責您的交通與餐飲（您不用負擔任何費用）。<br>
 <br>
-�p�G�z�ӥ_�v�j�t���M�۫H�g�򪺤j�ǡ]�p�_�ʶl�q�j�ǡN�_�ʲz�u�j�ǡN�_�ʯ�ů��<br>
-�j�ǵ����ա^���P�ǳ��|���W�ӨӪ��C<br>
+如果您來北師大演講﹐相信週圍的大學（如北京郵電大學﹑北京理工大學﹑北京航空航天<br>
+大學等高校）的同學都會幕名而來的。<br>
 <br>
-�ڭ̦V�z�o�X�ۼ����ܽСM�����رz�����_�C���P<br>
+我們向您發出誠摯的邀請﹐期待¨您的答復。此致<br>
 <br>
-�q§�T<br>
+敬禮﹗<br>
 <br>
-�_�ʮv�d�j�� PC�Ǫ�<br>
-����,&nbsp;&nbsp; ���� �q�W<br>
-2001�~10��4��<br>
+北京師範大學 PC學社<br>
+□□,&nbsp;&nbsp; □□ 敬上<br>
+2001年10月4日<br>
 <br>
-</font><font color="#000000">���J���^�СG<br>
+</font><font color="#000000">●侯捷回覆：<br>
 <br>
-�ګܶ}�߱����쪺�ܽСC���]�w���P�ǥ��b�w���M�ؤj�Ǫ��t���A�ثe���p�|�����T�]�]<br>
-�A����^�A�ҥH�ڵL�k������쪺�ܽСC�ëD�ڭӤH�p�������A�ӬO�]���ڦb�_�ʪ��ɶ���<br>
-���A�����S�d�F�Ӷg���g��A�X�G�w�g�S���ɶ��q�ƥt�@���t���F�C�ҥH�Юe�ڸ����a�V��<br>
-�컡�u��p�v�C<br>
+我很開心接到兩位的邀請。但因已有同學正在籌劃清華大學的演講，目前情況尚未明確（包<br>
+括日期），所以我無法答應兩位的邀請。並非我個人厚此薄彼，而是因為我在北京的時間不<br>
+長，中間又卡了個週末週日，幾乎已經沒有時間從事另一場演講了。所以請容我誠懇地向兩<br>
+位說「抱歉」。<br>
 <br>
-�p�G�M�ؤj�Ǫ��t���p���|��A�w��ӲM�ؤj�Ǩ����C���w���|���ڡA�ڰO�U�F��쪺<br>
-�j�W :)</font><br>
+如果清華大學的演講如期舉辦，歡迎來清華大學見面。並歡迎於會後找我，我記下了兩位的<br>
+大名 :)</font><br>
 <font color="#408080"><br>
-�J�Ѯv�R�A�n�T<br>
-�����P�±z�b�ʦ��������ڭ̦^�H�C�z����ӧڭ̾Ǯպt���M�ڭ�ı�o�ܿ�ѡM�����o�˪�<br>
-���|�O�����J�W���C�Ʊ�U���ڭ̦������ܽШ�z�C<br>
-�ڭ̳��߱�ۯ�b�z�M�غt�����Ѩ��z�@���C��z���_�ʤ��涶�Q�M�@�������C<br>
-���¡T����&nbsp; �q�W<br>
+侯老師﹕你好﹗<br>
+首先感謝您在百忙之中給我們回信。您不能來我們學校演講﹐我們覺得很遺憾﹐畢竟這樣的<br>
+機會是很難遇上的。希望下次我們有幸能邀請到您。<br>
+我們都盼望著能在您清華演講那天見您一面。望您的北京之行順利﹐一路順風。<br>
+謝謝﹗□□&nbsp; 敬上<br>
 <br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��5�� PM 02:49<br>
-�H�U�O�ڪ��ӤH��ơR<br>
-�ǮաR�n�ʲz�u�j�ǭp����t<br>
-�~���a�R��Ĭ.�n��<br>
-��ĳ�R�Ʊ�J���ͯভ�X�s�ѡM�ӥB�M���I���ѹq�l���M�����M�������H�O�a�ǥͩO�S<br>
+<p><font color="#408080">傳送日期: 2001年10月5日 PM 02:49<br>
+以下是我的個人資料﹕<br>
+學校﹕南京理工大學計算機系<br>
+居住地﹕江蘇.南京<br>
+建議﹕希望侯先生能早出新書﹐而且﹐早點提供電子版﹐呵呵﹐誰讓本人是窮學生呢﹖<br>
 <br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��5�� PM 09:44<br>
-�J�Ѯv�R�z�n�T<br>
-�ڬO�ӭp����M�~���j���ǥ͡M�b�o��i�H�g�`�ݨ�z���ѧ@�M�ڪ��D�n½Ķ�n�@���Ѥ��ȭn���ܦn���޳N�\���M�ӥB�n���ܦn����ǯ��i�M�z�b�o�譱���o�ܦn�F�C�]��O��z�������a�T�T�^ 
+<p><font color="#408080">傳送日期: 2001年10月5日 PM 09:44<br>
+侯老師﹕您好﹗<br>
+我是個計算機專業的大陸學生﹐在這邊可以經常看到您的書作﹐我知道要翻譯好一本書不僅要有很好的技術功底﹐而且要有很好的文學素養﹐您在這方面做得很好了。（算是對您的恭維吧﹗﹗） 
 <br>
-�b�{�ǳ]�p�譱�ڤ��������k����s�W�M�ګܦ��Nť�������ѥs�mthe 
-art of computer programing&gt;&gt; �ODonald Ervin Knuth �g���M</font><font
-color="#8080FF">�]��O�g��F�a</font><font color="#408080">�M�i�O�W�_�j���S���o���Ѫ�²�骩�R�M�����D�b�x�W���䦳�S���o���Ѫ�½Ķ�M�p�G���ڥi�H�R��ܡS���p�S�����ܡM�z���S������½Ķ���O�S<br>
+在程序設計方面我比較偏重算法的研究上﹐我很早就聽說有本書叫《the 
+art of computer programing&gt;&gt; 是Donald Ervin Knuth 寫的﹐</font><font
+color="#8080FF">也算是經典了吧</font><font color="#408080">﹐可是苦于大陸沒有這本書的簡體版買﹐不知道在台灣那邊有沒有這本書的翻譯﹐如果有我可以買到嗎﹖假如沒有的話﹐您有沒有打算翻譯它呢﹖<br>
 <br>
-</font><font color="#000000">���J���^�СG</font><font color="#8080FF">�u�]��O�g��F�a�v</font><font
-color="#000000">�A��A�����Ѧp�G����g��A�N�S�������ѯ໡�O�g��:)<br>
-�O�W�S��Ķ���C�ڨS������]�S����������O½Ķ�o���� :)<br>
+</font><font color="#000000">●侯捷回覆：</font><font color="#8080FF">「也算是經典了吧」</font><font
+color="#000000">，喔，那本書如果不算經典，就沒有哪本書能說是經典:)<br>
+臺灣沒有譯本。我沒有興趣也沒有足夠的能力翻譯這本書 :)<br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 <br>
-�ǰe���: 2001�~10��5�� PM 11:46<br>
-�D��: �@������static �����D<br>
-&gt; �J�Ѯv�z�n�G<br>
+傳送日期: 2001年10月5日 PM 11:46<br>
+主旨: 一些關於static 的問題<br>
+&gt; 侯老師您好：<br>
 &gt; <br>
-&gt; �ڳ̪�b�ݧA���`�J�L�XMFC 2nd <br>
-&gt; ���@�ǰ��D�Q�n�бФ@�U<br>
+&gt; 我最近在看你的深入淺出MFC 2nd <br>
+&gt; 有一些問題想要請教一下<br>
 &gt; <br>
-&gt; �bp136 mfc.cpp ��<br>
+&gt; 在p136 mfc.cpp 中<br>
 &gt; <br>
 &gt; 0001 #include &quot;my.h&quot; // it should be mfc.h, but for CMyWinApp 
 definition,so...<br>
@@ -522,444 +522,444 @@ definition,so...<br>
 &gt; 0016 }<br>
 &gt; 0017<br>
 &gt; <br>
-&gt; ��8�� �� static AFX_CLASSINIT _init_CObject(&amp;CObject::classCObject);<br>
-&gt; ����ɷ|�I�s AFX_CLASSINIT::AFX_CLASSINIT(CRuntimeClass* pNewClass)�o<br>
-&gt; �Ө禡<br>
+&gt; 第8行 的 static AFX_CLASSINIT _init_CObject(&amp;CObject::classCObject);<br>
+&gt; 執行時會呼叫 AFX_CLASSINIT::AFX_CLASSINIT(CRuntimeClass* pNewClass)這<br>
+&gt; 個函式<br>
 &gt; <br>
-&gt; �ӳo�Ө禡�̭��|�ϥ� CRuntimeClass* CRuntimeClass::pFirstClass �o���R�A<br>
-&gt; �����A���O�b��8��� CRuntimeClass* CRuntimeClass::pFirstClass ��l��<br>
-&gt; ���󤣷|�ɭP���~�H<br>
+&gt; 而這個函式裡面會使用 CRuntimeClass* CRuntimeClass::pFirstClass 這個靜態<br>
+&gt; 成員，但是在第8行時 CRuntimeClass* CRuntimeClass::pFirstClass 初始化<br>
+&gt; 為何不會導致錯誤？<br>
 &gt; <br>
-&gt; �ӧڥ�VC++6 �b�[��ɡA�ڧ⤤�_�I�]�b��8�� �A<br>
-&gt; �{��������8��ɡA CRuntimeClass* CRuntimeClass::pFirstClass���M�w�g��<br>
-&gt; �l�Ƨ����A�o�O������H<br>
+&gt; 而我用VC++6 在觀察時，我把中斷點設在第8行 ，<br>
+&gt; 程式執行到第8行時， CRuntimeClass* CRuntimeClass::pFirstClass竟然已經初<br>
+&gt; 始化完成，這是為什麼？<br>
 &gt; <br>
-&gt; �٦��b��6�� �n��l��struct CRuntimeClass CObject::classCObject�o�ӮɡA<br>
-&gt; CRuntimeClass���������O��6�ӶܡH����b��7��u��5�ӰѼơH<br>
+&gt; 還有在第6行 要初始化struct CRuntimeClass CObject::classCObject這個時，<br>
+&gt; CRuntimeClass的成員不是有6個嗎？為何在第7行只有5個參數？<br>
 <br>
-</font><font color="#000000">���J���^�СG</font></p>
+</font><font color="#000000">●侯捷回覆：</font></p>
 
-<p><font color="#000000">Q: </font><font color="#408080">��8��� CRuntimeClass* 
-CRuntimeClass::pFirstClass ��l�Ƭ��󤣷|�ɭP���~�H</font><br>
-<font color="#000000">A: �S������z�ѥ��|���~�C</font></p>
+<p><font color="#000000">Q: </font><font color="#408080">第8行時 CRuntimeClass* 
+CRuntimeClass::pFirstClass 初始化為何不會導致錯誤？</font><br>
+<font color="#000000">A: 沒有任何理由它會錯誤。</font></p>
 
-<p><font color="#000000">Q: </font><font color="#408080">�{��������8��ɡA 
-CRuntimeClass* CRuntimeClass::pFirstClass���M�w�g��l�Ƨ����A�o�O������H</font><br>
-A: ��10��g�b��8�椧��A�ä��N���������榸�ǴN�b��8�椧�� :)<br>
-�i�Ѧҡm�`�ױ���C++����ҫ��n��6���C<br>
+<p><font color="#000000">Q: </font><font color="#408080">程式執行到第8行時， 
+CRuntimeClass* CRuntimeClass::pFirstClass竟然已經初始化完成，這是為什麼？</font><br>
+A: 第10行寫在第8行之後，並不代表它的執行次序就在第8行之後 :)<br>
+可參考《深度探索C++物件模型》第6章。<br>
 <font color="#000000"><br>
-</font>Q: <font color="#408080">��6�� �n��l��struct CRuntimeClass 
-CObject::classCObject�o�ӮɡACRuntimeClass���������O��6�ӶܡH����b��7��u��5�ӰѼơH</font><br>
-<font color="#000000">A: �o�O�@�ӵ��~�C�Ԩ�<a href="errata-dissecting-mfc-2e.htm" tppabs="http://jjhou.boolan.com/errata-dissecting-mfc-2e.htm"
-target="main">�m�`�J�L�XMFC�n�ɻ~</a> 2001/07/14�C</font></p>
+</font>Q: <font color="#408080">第6行 要初始化struct CRuntimeClass 
+CObject::classCObject這個時，CRuntimeClass的成員不是有6個嗎？為何在第7行只有5個參數？</font><br>
+<font color="#000000">A: 這是一個筆誤。詳見<a href="errata-dissecting-mfc-2e.htm" tppabs="http://jjhou.boolan.com/errata-dissecting-mfc-2e.htm"
+target="main">《深入淺出MFC》勘誤</a> 2001/07/14。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��6�� AM 01:03<br>
-�D��: ����The C++ Standard Library���媩<br>
+<p><font color="#408080">傳送日期: 2001年10月6日 AM 01:03<br>
+主旨: 關於The C++ Standard Library中文版<br>
 <br>
-�J�Ѯv�A�n�G<br>
-�o�X�Ѭݨ�����W���s�ѥi�H�վ\�A����ı�o�ܿ��ġA</font><font
-color="#8080FF">�w�g�ܤ[�S���ݨ�J�Ѯv���@�~�F</font><font color="#408080"><br>
+侯老師你好：<br>
+這幾天看到網站上有新書可以試閱，讓我覺得很興奮，</font><font
+color="#8080FF">已經很久沒有看到侯老師的作品了</font><font color="#408080"><br>
 <br>
-����The C++ Standard Library���媩�ڦ��@�Ӻð�<br>
-4.2.3 �̫�@�Ӭq���A��46����������&nbsp; ���G</font></p>
+關於The C++ Standard Library中文版我有一個疑問<br>
+4.2.3 最後一個段落，第46頁中間部分&nbsp; 原文：</font></p>
 <div align="left">
 
 <table border="1">
   <tr>
-    <td><font color="#408080">�w�]���p�U�A�o�ⶵ�ާ@���|���Ҧ��v......</font></td>
+    <td><font color="#408080">預設情況下，這兩項操作都會轉交所有權......</font></td>
   </tr>
 </table>
 </div>
 
-<p><font color="#408080">�ڪ��ðݡG�w�]���A�U��copy construct��assignment 
-operator���Obit copy�ܡH<br>
-�����ӬO���auto_ptr�@�P�֦��P�@���O����A���|�y���֦��v���ಾ�H<br>
+<p><font color="#408080">我的疑問：預設狀態下的copy construct及assignment 
+operator不是bit copy嗎？<br>
+那應該是兩個auto_ptr共同擁有同一塊記憶體，怎麼會造成擁有權的轉移？<br>
 <br>
-�۱qDesign Patterns���奻�H��A�w�g�n�[�S���ݨ�n�ѥX�{�b�ѧ��A�Ʊ�J�Ѯv��[�o</font></p>
+自從Design Patterns中文本以後，已經好久沒有看到好書出現在書局，希望侯老師能加油</font></p>
 
-<p><font color="#000000">���J���^�СG<br>
+<p><font color="#000000">●侯捷回覆：<br>
 <br>
-Q: </font><font color="#408080">�w�]���A�U��copy construct��assignment operator���Obit 
-copy�ܡH<br>
-</font><font color="#000000">A: �D�]�C�b�~�өνƦX�]composition�^���p�U���|��������C�Ѩ��mEffective 
-C++ 2e�n����45�C</font></p>
+Q: </font><font color="#408080">預設狀態下的copy construct及assignment operator不是bit 
+copy嗎？<br>
+</font><font color="#000000">A: 非也。在繼承或複合（composition）情況下都會比較複雜。參見《Effective 
+C++ 2e》條款45。</font></p>
 
-<p><font color="#000000">���Ҥ��AclassB ���t�]�ƦX�^�F��� 
-auto_ptr&lt;classA&gt; objects�A�]���A�p�G�A�S���� classB ���g operator=�A���o��assignment 
-�ʧ@�ɡA�w�]���p�U�|��_ auto_ptr&lt;&gt; �� operator=�A�ӫ�̷|�ಾ�֦��v�C�P�˹D�z�o�ͦb 
-copy ctor ���W�C</font></p>
+<p><font color="#000000">本例中，classB 內含（複合）了兩個 
+auto_ptr&lt;classA&gt; objects，因此，如果你沒有為 classB 撰寫 operator=，當發生assignment 
+動作時，預設情況下會喚起 auto_ptr&lt;&gt; 的 operator=，而後者會轉移擁有權。同樣道理發生在 
+copy ctor 身上。</font></p>
 
-<p><font color="#000000">Q: </font><font color="#8080FF">�w�g�ܤ[�S���ݨ�J�Ѯv���@�~�F<br>
+<p><font color="#000000">Q: </font><font color="#8080FF">已經很久沒有看到侯老師的作品了<br>
 </font><font color="#000000">A: 
-���~���ܩ��~��A�|�@�f����X�m�h���P�����n2e�B�m�x���޳N�n�B�mSTL���X��R�n�B�mThinking 
-in Java 2e�n�B�mThe C++ Standard Library�n�A�@�w���A�ݨ칡 :)</font></p>
+今年底至明年初，會一口氣推出《多型與虛擬》2e、《泛型技術》、《STL源碼剖析》、《Thinking 
+in Java 2e》、《The C++ Standard Library》，一定讓你看到飽 :)</font></p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 <br>
-�ǰe���: 2001�~10��6�� AM 09:25<br>
-�D��: ���§A��eBooK<br>
+傳送日期: 2001年10月6日 AM 09:25<br>
+主旨: 謝謝你的eBooK<br>
 <br>
-�j�v~<br>
-���§A���ѤU�����`�J�L�X MFC �Ģ���<br>
-�~���٥��]�O�WŪ�̽мg�����^�GC.T<br>
-��J������ĳ�G<br>
+大師~<br>
+謝謝你提供下載的深入淺出 MFC 第２版<br>
+居住省份（臺灣讀者請寫縣市）：C.T<br>
+對侯捷的建議：<br>
 <br>
-��ĳ�O�S���աA�ͥu�O�@�Ӫ�Ǫ̡A���M�� K �W�n�X���F<br>
-�i�O�����m�N�O�����m�A�]�@���S�����n���зN<br>
-�i�O��CS��{�����n�S����A�u�n���RK�o<br>
+建議是沒有啦，俺只是一個初學者，雖然書 K 上好幾次了<br>
+可是不熟練就是不熟練，也一直沒有粉好的創意<br>
+可是唸CS對程式不好又不行，只好拼命K囉<br>
 <br>
-�u�O�Q�бФj�v�A���{���o�ضV��᭱�N�V���O�@�����N�Ч@<br>
-�S�ѥ����H�i�H���o�����ܡH<br>
-�ڤ��Q�u�O���{���]�p�v�A�����L���ةR����<br>
-�ڪ�����@���O�b�����w���譱�A���e�]���L����<br>
-�]���N�O�Ǿ������~�X�Ӱ��<br>
-�i�O�᪺���Y�O�A�A�o����@���@�~���X�G�n�g�{��<br>
-�ڤS�O�X���~�}�l�g�{���A�ӵۮѤW���m�ߤ@�Ӥ@��key in<br>
-�u�O�i�B�u������<br>
-�p�G�Q�º����w����V�o�i�A�����j�v�����_�Q����ĳ�z<br>
+只是想請教大師，像程式這種越到後面就越像是一種藝術創作<br>
+沒天份的人可以走這條路嗎？<br>
+我不想只是做程式設計師，應為他的壽命有限<br>
+我的興趣一直是在網路安全方面，之前也做過網管<br>
+因為就是學歷不夠才出來唸書<br>
+可是唸的粉吃力，再這任何一項作業都幾乎要寫程式<br>
+我又是出國後才開始寫程式，照著書上的練習一個一個key in<br>
+只是進步真的有限<br>
+如果想朝網路安全方向發展，不知大師有何寶貴的建議ㄋ<br>
 <br>
-ť�H�a���h�ݧO�H���{���X�A�]���W�[�\�O<br>
-�u�O��������~���n��code�z�A�ݰꤺ���X�G���j�P�p��<br>
-�����e�Q��hamming code�N�䤣�ۡA<br>
-��Фj�v���I�@�U��Ѧ�code�����x�ܡH<br>
-<br>
-</font></p>
-
-<p>�@</p>
-
-<p>�@</p>
-
-<p><font color="#408080">�ǰe���: 2001�~10��3�� PM 12:30<br>
-�~���٥��]�O�WŪ�̽мg�����^�G�x�n��<br>
-��J������ĳ�G<br>
-�A���I�X�A�O�ڭ̳o�Ǫ�Ǫ̪��@�j�֭��A<br>
-���M��ǵ{���A�o�Ǹ귽��ڭ̫o�O�L�a�����U�A�]�ܷP�¡C<br>
-<br>
-<br>
+聽人家說多看別人的程式碼，也成增加功力<br>
+只是不知那兒才有好的codeㄋ，看國內的幾乎都大同小異<br>
+像之前想找hamming code就找不著，<br>
+能請大師指點一下能參考code的站台嗎？<br>
 <br>
 </font></p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��6�� PM 03:12<br>
-&gt; �A�n�ڬO�@�W�q���۾Ǫ̡A�ǲߵ{�ǳ]�p�w����~�A��Ĳc++�b�~�F�P�즳<br>
-&gt; �\�h�x�b�@���b�ߤ�����z�ѡA�G���Q�V�z�Q�СC<br>
-&gt; �{�b�j�������ݨ����_</font><font color="#8080FF">c++�Э㪺��</font><font
-color="#408080">�A�Q���z����L���n�ѡC�ڥ��b�ݱz��<br>
-&gt; �m�`�J�L�Xmfc2/e�n���L�ڷQ�P�O�_�P���x�L�����譱�C</font></p>
+<p>　</p>
 
-<p><font color="#000000">���J���^�СG <a href="programmer-1-cpp&oop.htm" tppabs="http://jjhou.boolan.com/programmer-1-cpp&oop.htm"
-target="main">C++/OOP�j�t</a>�m�{�ǭ� 2001/01�n</font></p>
+<p>　</p>
 
-<p>�@</p>
-
-<p>�@</p>
-
-<p><font color="#408080">�ǰe���: 2001�~10��6�� PM 05:39<br>
-�J�����͡R�z�n�T<br>
-�ڬO�Ѭz���@�W�p����s�{�R�n�̡M�q�ǭp������Ży���s�{�w���T�~�ɶ��F�M�ڬO�a�@<br>
-���m���Q��H���z�שMC++���n�]�_��.�M�ؤj�ǥX���^��i���Q��H�Ƶ{�ǳ]�p������<br>
-�C�ѩ�ڨS����Ĳ�L���L�{�Ƶ{�ǳ]�p�����z�שM�j���M�ҥH�ګܧִN��x�������Q��<br>
-�H���������z�סC�M��q�ǲ�C�y����C++�M�A�NC++�M���Q��H���z�׵��X�C<br>
+<p><font color="#408080">傳送日期: 2001年10月3日 PM 12:30<br>
+居住省份（臺灣讀者請寫縣市）：台南縣<br>
+對侯捷的建議：<br>
+你的付出，是我們這些初學者的一大福音，<br>
+雖然剛學程式，這些資源對我們卻是無窮的幫助，也很感謝。<br>
 <br>
-�ڻ{���H�W�O�q�Ƶ{�ǳ]�p���ڥ���¦�C�ǲ߰�¦C++�y�k�u�O���F��n���b�ӷ~�sĶ��<br>
-�W�n��i��s�X�C�ثe�ꤺ�ǲ�Visual C++���H�D�`�h�M���O���\�H�h�֤��S�֡M������<br>
-�S�q�̬���¦�N�̬��зǪ�C++��V��ϥ�Microsoft��s��Visual C++�Τ_�}�o���n���<br>
-�Ȫ��{�ǡC�b���L�礧���n�����ۤ��i�O�V����ê�C</font><font
-color="#8080FF">�O���O�ڭ̦b��V�����M�٦�����<br>
-�n���ӤS�Q�ڭ̩����F����¦���ѡS</font><font color="#408080">�]�O�ƾڵ��c�M�sĶ��z�N��C++�y����{���Q��H<br>
-���a�h���s�����K�K.�^<br>
-�J���ͬO�p����y���оǤר�OC++�y������x�ŤH���M�]������Ū�L�z���X�g�j�@�M<br>
-�ڪ����D�]�\�N���F�@��������q�ƭp����y���s�{�]C++�^�ӤS�Q���צb�e�i���W���H<br>
-�����D�C�ٱ�J���ͯ���I�g�z�C<br>
-�̫� �Ʊ�J���ͯ�h�h�X���@�Ǹg����y�C<br>
+<br>
+<br>
+</font></p>
+
+<p><font color="#408080">傳送日期: 2001年10月6日 PM 03:12<br>
+&gt; 你好我是一名電腦自學者，學習程序設計已有兩年，接觸c++半年了感到有<br>
+&gt; 許多困惑一直在心中不能理解，故此想向您討教。<br>
+&gt; 現在大陸很難看到關于</font><font color="#8080FF">c++標准的書</font><font
+color="#408080">，想讓您推荐几本好書。我正在看您的<br>
+&gt; 《深入淺出mfc2/e》不過我想致力于與平台無關的方面。</font></p>
+
+<p><font color="#000000">●侯捷回覆： <a href="programmer-1-cpp&oop.htm" tppabs="http://jjhou.boolan.com/programmer-1-cpp&oop.htm"
+target="main">C++/OOP大系</a>《程序員 2001/01》</font></p>
+
+<p>　</p>
+
+<p>　</p>
+
+<p><font color="#408080">傳送日期: 2001年10月6日 PM 05:39<br>
+侯捷先生﹕您好﹗<br>
+我是天津的一名計算機編程愛好者﹐從學計算機高級語言編程已有三年時間了﹐我是靠一<br>
+本《面嚮對象的理論和C++實踐》（北京.清華大學出版）領進面嚮對象化程序設計之中的<br>
+。由於我沒有接觸過‘過程化程序設計’的理論和大實踐﹐所以我很快就能掌握‘面嚮對<br>
+象’的相關理論。然後從學習C語言到C++﹐再將C++和面嚮對象的理論結合。<br>
+<br>
+我認為以上是從事程序設計的根本基礎。學習基礎C++語法只是為了更好的在商業編譯器<br>
+上軟件進行編碼。目前國內學習Visual C++的人非常多﹐但是成功人士少之又少﹐為什麼<br>
+﹖從最為基礎﹑最為標準的C++跨越到使用Microsoft研製的Visual C++用于開發有軟件價<br>
+值的程序。在此過渡之間好像有著不可逾越的障礙。</font><font
+color="#8080FF">是不是我們在跨越之間﹐還有什麼必<br>
+要的而又被我們忽略了的基礎知識﹖</font><font color="#408080">（是數據結構﹐編譯原理﹑用C++語言實現面嚮對象<br>
+的地層機製等等…….）<br>
+侯先生是計算機語言教學尤其是C++語言的領軍級人物﹐也有幸拜讀過您的幾篇大作﹐<br>
+我的問題也許代表了一部份渴望從事計算機語言編程（C++）而又被阻擋在前進路上的人<br>
+的問題。還望侯先生能指點迷津。<br>
+最後 希望侯先生能多多出版一些經典書籍。<br>
 </font><font color="#000000"><br>
-���J���^�СG�O���A���@�D���j���E���b C++ �M VC++ �����A���N�OMFC�CMFC�O�@�Mapplication 
-framework�A�o�O</font><font color="#0000FF">�@�ط����o������library�A�X�G�i���OOO��{�����P</font><font
-color="#000000">�C�ϥΪ̩����@�Y��Japplication framework���c�ƹB�Τ����A�����Y�A�������A�����ѡA�����a�A�u�O�J�ý�ۧO�H���}�B�A�ӵ۸�Ī�e�]�C</font></p>
+●侯捷回覆：是的，有一道極大的鴻溝在 C++ 和 VC++ 之間，那就是MFC。MFC是一套application 
+framework，這是</font><font color="#0000FF">一種極其精緻複雜的library，幾乎可說是OO實現的極致</font><font
+color="#000000">。使用者往往一頭栽入application framework的繁複運用之中，不知頭，不知尾，不知天，不知地，只是胡亂踩著別人的腳步，照著葫蘆畫瓢。</font></p>
 
-<p><font color="#000000">�@��</font><font color="#0000FF">���ͫ��A���u��</font><font
-color="#000000">�X�{�b�A�����e�A���A�����D���t�Ωʦa�ϥΥ��ɡA�N�������i�J��ٲz�����F�ѥ��C�ܦh�H���o�˪��g��Glibrary�N�O�Ψ����U�ڪ��A�N�O�Ʊ�گ�������F�ѥ��ӯ���ϥΥ��A��������ٻݭn�h�F�ѽc�l�̪������O�H�p�G�A������ҥH�M�N����B�Φۦp�A���M�ܦn�A���D�O�Ӧh�H�S����k�p���Capplication 
+<p><font color="#000000">一種</font><font color="#0000FF">陌生型態的工具</font><font
+color="#000000">出現在你的眼前，當你不知道怎麼系統性地使用它時，就必須先進入其肌理之中了解它。很多人有這樣的迷思：library就是用來幫助我的，就是希望我能夠不必了解它而能夠使用它，為什麼我還需要去了解箱子裡的奧秘呢？如果你不知其所以然就能夠運用自如，當然很好，問題是太多人沒有辦法如此。application 
 framework 
-�٨S���o�i�칳�q���ΨT�����ˡA���ӫ��s�N�ʡA��Ӫo���N���C</font></p>
+還沒有發展到像電視或汽車那樣，按個按鈕就動，踩個油門就走。</font></p>
 
 <p><font color="#000000">(1) 
-�`�J�ٲz�X�T�~�n�H�N���ΦӨ��A�`�J��A���g�A�����ε{���ɨS���Ӧh�ôb�N�n�C�p�G�O�ǳN��s�A�h���M�J��T���̦n�C<br>
-(2) �C���ϥΤu�㳣�o���F�Ѩ�ٲz�A���O�ֶܲܡH���A</font><font
-color="#0000FF">�P����</font><font color="#000000">���u��A�i�HĲ���ǳq�C�p�G�ڹ�MFC���ٲz�F�Ѩ�@�Ӻ������h���A�ڨϥΨ�Lapplication 
-framework�A�ڥ��N�����A���s��ٲz�C<br>
+深入肌理幾吋才好？就應用而言，深入到你撰寫你的應用程式時沒有太多疑惑就好。如果是學術研究，則當然入木三分最好。<br>
+(2) 每次使用工具都得先了解其肌理，不是很累嗎？不，</font><font
+color="#0000FF">同類型</font><font color="#000000">的工具，可以觸類旁通。如果我對MFC的肌理了解到一個滿足的層次，我使用其他application 
+framework，根本就不必再探究其肌理。<br>
 (3) 
-���s�ٲz�A��󥻽�ǯ઺�i�������j���U�C�o�O���Τ��~���t�@�ئ�ì�C</font></p>
+探究肌理，對於本質學能的養成有莫大幫助。這是應用之外的另一種收穫。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 <br>
 <br>
 <br>
 <br>
-�ǰe���: 2001�~10��6�� PM 07:15�J�Ѯv�M�z�n�T<br>
-�ڬO�����j�Ǫ��ǥ͡M�D�`���w�z���@�~�C<br>
-���Ѧb�\Ū�A��</font><font color="#FF0000">think in java</font><font
-color="#408080">��Ķ�Z(pdf)�ɵo�{�@�I�ð�,�p�U�R<br>
+傳送日期: 2001年10月6日 PM 07:15侯老師﹐您好﹗<br>
+我是浙江大學的學生﹐非常喜歡您的作品。<br>
+今天在閱讀你的</font><font color="#FF0000">think in java</font><font
+color="#408080">的譯稿(pdf)時發現一點疑問,如下﹕<br>
 chapter1,p35(</font><font color="#FF0000">200010919.pdf</font><font color="#408080">)</font></p>
 <div align="left">
 
 <table border="1">
   <tr>
-    <td><font color="#408080">���L�M��@���á]implementation hiding 
-    �^���[���]�����ӳQ�L�ױj��</font></td>
+    <td><font color="#408080">不過﹐實作隱藏（implementation hiding 
+    ）的觀念也不應該被過度強調</font></td>
   </tr>
 </table>
 </div>
 
-<p><font color="#408080">��塧The concept of implementation hiding cannot be 
-overemphasized.��<br>
+<p><font color="#408080">原文“The concept of implementation hiding cannot be 
+overemphasized.”<br>
 <br>
-�ڪ��^�y�]�N�ꬡ�M�����D�o�y�쩳�O½�������ӳQ�L���j�ա��٬O�����j�ճ����L����<br>
-�q�W�U��ݡM���G�᭱���O�C�|�F�@�ǡ�implementation hiding�����z�ѡC<br>
+我的英語也就湊活﹐不知道這句到底是翻為“不該被過份強調”還是“怎麼強調都不過份”<br>
+從上下文看﹐似乎後面都是列舉了一些“implementation hiding”的理由。<br>
 <br>
-�t�~�M���K�Q�бЫJ�Ѯv�Mc++�{�ǭ��p��බ�Q����Jjava���s�{��������S<br>
-�����D�����Ǧn�ѡ]</font><font color="#8080FF">�z���G��java���˫ܤ֡^�Sť���z�S����think 
-in java��²�骩�v</font><font color="#408080">�M<br>
-�ڹ�b�P���ѡM�ߤ@</font><font color="#8080FF">�Ʊ�A�ର�j��Ū�̦h�}��X��</font><font
-color="#408080">�T�T�T<br>
-���Z�z�F<br>
+另外﹐順便想請教侯老師﹐c++程序員如何能順利的轉入java的編程思維之中﹖<br>
+不知道有哪些好書（</font><font color="#8080FF">您似乎對java推薦很少）﹖聽說您沒拿到think 
+in java的簡體版權</font><font color="#408080">﹐<br>
+我實在感到遺憾﹐唯一</font><font color="#8080FF">希望你能為大陸讀者多開放幾章</font><font
+color="#408080">﹗﹗﹗<br>
+打擾您了<br>
 </font><font color="#000000"><br>
-���J���^�СG���T�A���p�z���Ҩ��A���ӧאּ�G</font></p>
+●侯捷回覆：的確，正如您之所言，應該改為：</font></p>
 <div align="left">
 
 <table border="1">
   <tr>
-    <td><font color="#000000">��@���á]implementation hiding 
-    �^���[���A���j�դ]���L���C</font></td>
+    <td><font color="#000000">實作隱藏（implementation hiding 
+    ）的觀念再怎麼強調也不過份。</font></td>
   </tr>
 </table>
 </div>
 
-<p><font color="#000000">�]�P�� william ��U�^�C</font></p>
+<p><font color="#000000">（感謝 william 協助）。</font></p>
 
-<p><font color="#408080">Q: c++�{�ǭ��p��බ�Q����Jjava���s�{�������<br>
-</font><font color="#000000">A: ���ݭn�u�p��v�A���۵M�N�o�ͤF�C</font></p>
+<p><font color="#408080">Q: c++程序員如何能順利的轉入java的編程思維之中<br>
+</font><font color="#000000">A: 不需要「如何」，它自然就發生了。</font></p>
 
-<p><font color="#408080">Q: ť���z�S����think in java��²�骩�v�M<br>
-</font><font color="#000000">A:</font><font color="#408080"> </font><font color="#000000">��Ķ�v�O�X�������ơA�q�Ӥ��O�ڪ��ơC�p�G����Ķ�v���X�����pô�ڡA�@�N�P�ڦX�@�A�U��N�i�H�ݨ�J��Ķ���A�_�h�U��N�|�ݨ��L�H��Ķ���C<br>
+<p><font color="#408080">Q: 聽說您沒拿到think in java的簡體版權﹐<br>
+</font><font color="#000000">A:</font><font color="#408080"> </font><font color="#000000">拿譯權是出版社的事，從來不是我的事。如果拿到譯權的出版社聯繫我，願意與我合作，各位就可以看到侯捷譯本，否則各位就會看到其他人的譯本。<br>
 </font><font color="#408080"><br>
-Q: �ߤ@�Ʊ�A�ର�j��Ū�̦h�}��X���T�T�T<br>
-</font><font color="#000000">A:</font><font color="#408080"> </font><font color="#000000">�n�C�쥻�w�w�}��ܲ�7���C��ӨM�w�}��ܲ�10���C�]�A�o�y�ܡA�}��ܲ�12���C�A�i�u���j��Ū�̰��F��n�� 
+Q: 唯一希望你能為大陸讀者多開放幾章﹗﹗﹗<br>
+</font><font color="#000000">A:</font><font color="#408080"> </font><font color="#000000">好。原本預定開放至第7章。後來決定開放至第10章。因你這句話，開放至第12章。你可真為大陸讀者做了件好事 
 :)</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��6�� PM 08:55<br>
-�J������:<br>
-�A�n,�ڬO�@��j����Ū��,�ڦ�����U���z���ۧ@,�ҥH���z���n�D���z�^�H.<br>
-�ڥs����,�O�@�Ӧ�Ĭ���ǥ�,���~16��,�W���@.�Ĥ@���ݨ��z���峹�O�b�{�ǭ����x�W,�ܳ��w�z������.���M�z���ѧڤ��@�w�������,���ڤ@�w�|�V�O�ǲߪ�,�ڳ��w�s�{.�Ʊ��ݨ�z��h���ۧ@.<br>
-���±z����.<br>
+<p><font color="#408080">傳送日期: 2001年10月6日 PM 08:55<br>
+侯捷先生:<br>
+你好,我是一位大陸的讀者,我有幸能下載您的著作,所以按您的要求給您回信.<br>
+我叫□□,是一個江蘇的學生,今年16歲,上高一.第一次看見您的文章是在程序員雜誌上,很喜歡您的風格.雖然您的書我不一定能全看懂,但我一定會努力學習的,我喜歡編程.希望能看到您更多的著作.<br>
+謝謝您的書.<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��6�� PM 09:17<br>
-�J���A�n!<br>
+<p></b><font color="#408080">傳送日期: 2001年10月6日 PM 09:17<br>
+侯捷你好!<br>
 <br>
-���M�L�n.net�Բ��j�����즳�޳N������s���i��,���ڷQ�޳N�t�i�p��,���Q�o����@�q��,�ڴ��ݱz��Ķ��</font><font
-color="#8080FF">�mWin32 �h�u�{ �{�ǳ]�p�n</font><font color="#408080">�ভ��b�j���X��!<br>
-���M�ڭ̲{�b�򥻱ĥΪ��Owin2000���t�Υ��O,��b�u�{�M�i�{�޲z�W�|���@�Ƿs�S��,�p��<br>
-�b���W�ήѤ���o�譱�޳N���o�i���Ҵ��ܫh��n.<br>
-�F�n�j�ǥͪ���Ǥu�{�t<br>
+雖然微軟.net戰略大有對其原有技術全面更新的可能,但我想技術演進如何,其思想卻有其共通性,我期待您的譯著</font><font
+color="#8080FF">《Win32 多線程 程序設計》</font><font color="#408080">能早日在大陸出版!<br>
+當然我們現在基本採用的是win2000的系統平臺,其在線程和進程管理上會有一些新特性,如能<br>
+在網上或書中對這方面技術的發展有所提示則更好.<br>
+東南大學生物醫學工程系<br>
 <br>
-</font><font color="#000000">���J���^�СGmultithreading���O�Ӧn�d���޳N�C�mWin32 
-�h�u�{ �{�ǳ]�p�n���w��O�H���P���쪺���D�A�a�ޤj�a�i�J 
-multi-threading �����C<br>
+</font><font color="#000000">●侯捷回覆：multithreading不是太好搞的技術。《Win32 
+多線程 程序設計》的定位是以輕鬆有趣的例題，帶引大家進入 
+multi-threading 的領域。<br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��6�� PM 11:42<br>
-jjhou�M�z�n�T<br>
+<p><font color="#408080">傳送日期: 2001年10月6日 PM 11:42<br>
+jjhou﹐您好﹗<br>
 <br>
-Inside The C++ Object Model�����@�Ӻ��I<br>
-²�餤�媩P147�����MLippman����</font></p>
+Inside The C++ Object Model中的一個疑點<br>
+簡體中文版P147頁中﹐Lippman提到</font></p>
 <div align="left">
 
 <table border="1">
   <tr>
-    <td><font color="#808080">�������D�z�M�p�Gmagnitude()�]�O�@��virtual function,���bnormalize()<br>
-    �������եξާ@�N�Q�ഫ�p�U�R<br>
+    <td><font color="#808080">類似的道理﹐如果magnitude()也是一個virtual function,它在normalize()<br>
+    之中的調用操作將被轉換如下﹕<br>
     <br>
     // register float mag = magnitude()<br>
     register float mag = (*this-&gt;vptr[2])(this);<br>
     <br>
-    ���ɡM�ѩ�Point3d::magnitude()�O�bPoint3d::normalize()���Q�եΡM<br>
-    �ӫ�̤w�g�g�ѵ������s�ӨMĳ(resolved)�����M�ҥH���T�a�եΡ�Point3d����&quot;<br>
-    �|������Ĳv�M�æ]������ѩ�������s�Ӳ��ͪ������n�����ƽեξާ@�R<br>
+    此時﹐由於Point3d::magnitude()是在Point3d::normalize()中被調用﹐<br>
+    而後者已經經由虛擬機製而決議(resolved)妥當﹐所以明確地調用”Point3d實體&quot;<br>
+    會比較有效率﹐並因此壓制由於虛擬機製而產生的不必要的重複調用操作﹕<br>
     <br>
-    // ���T�a�ե�(explicitly invocation)�|����������s<br>
+    // 明確地調用(explicitly invocation)會壓制虛擬機製<br>
     register float mag = Point3d::magnitude();</font></td>
   </tr>
 </table>
 </div>
 
-<p><font color="#408080">�ڭӤHı�o�W�������k���i�ä��B�M�]���Y�ϬO�bPoint3d::normalize()���ե�<br>
-�@��virtual���magnitude�M�]����N�o�˽T�w����ƴN�OPoint3d::magnitude() 
+<p><font color="#408080">我個人覺得上面的說法有可疑之處﹐因為即使是在Point3d::normalize()中調用<br>
+一個virtual函數magnitude﹐也不能就這樣確定此函數就是Point3d::magnitude() 
 <br>
-�]���ե�Point3d::normalize()��ƪ���H��ҡM�i�H�O����Point3d�������l���M<br>
-���l���]�i�H���N����virtual���Point3d::magnitude()�M�p�G�H�W�z�o�ذ��]<br>
-�i���u�ơM��ڤW�N���h�Fvirtual��ƪ��@�ΡC<br>
+因為調用Point3d::normalize()函數的對象實例﹐可以是任何Point3d類型的子類﹐<br>
+此子類也可以任意重載virtual函數Point3d::magnitude()﹐如果以上述這種假設<br>
+進行優化﹐實際上就失去了virtual函數的作用。<br>
 <br>
-�]���ڥH�����D��Point3d::normalize()��ƪ��եάO�㦡�a�HPoint3d�������<br>
-�]�ӫD�ޥΡN���w�^�i�檺�M�_�h�������i��ʺA�d��vtbl�C�]�N�O���M�u���b 
+因此我以為除非對Point3d::normalize()函數的調用是顯式地以Point3d類型實例<br>
+（而非引用﹑指針）進行的﹐否則都必須進行動態查找vtbl。也就是說﹐只有在 
 Point3d pt; <br>
-pt.normalize(); ���ɡM�~��Nnormalize��Ƥ���magnitude�ե��u�Ƭ�<br>
-Point3d::magnitude()�C�ӥB�����bnormalize�Oinline��ƪ��e������U�M�]�p�G���O<br>
-inline��ơM��ӵ{�Ǥ��u���ӫO�d�@���N�X�M�]������i���u�ơ^�_�h�����ӥH<br>
-(*this-&gt;vptr[2])(this)�覡�i��եΡC<br>
+pt.normalize(); 此時﹐才能將normalize函數內的magnitude調用優化為<br>
+Point3d::magnitude()。而且必須在normalize是inline函數的前提條件下﹐（如果不是<br>
+inline函數﹐整個程序中只應該保留一份代碼﹐因此不能進行優化）否則都應該以<br>
+(*this-&gt;vptr[2])(this)方式進行調用。<br>
 <br>
-��Lippman�b�o�q�ܤ��èS�����T����W�z�[�I�M�L�b���e���Ҥl���]�O�q�L<br>
-��ƹ�ҫ��w�覡�ե�normalize()���(ptr-&gt;normalize())�M�]���ڥH���L�����k�O���������C<br>
+而Lippman在這段話中並沒有明確提到上述觀點﹐他在之前的例子中也是通過<br>
+函數實例指針方式調用normalize()函數(ptr-&gt;normalize())﹐因此我以為他的說法是不全面的。<br>
 <br>
 </font></p>
 
 <p><br>
 </p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��7�� AM 10:17<br>
-�ڬO�@�W�j�ǥ͡M�Ǫ����O�p����M�~�C����W�j�ǮɡM�N��p������ͤF�@�p������M�a�ۤv���V�O�M�w�g�q�L�F����p������ŦҸդT�šC�{�b�ڦb���O�H�u�ҵ{�ǭ��M�ڤ����D�ڥH��|�F����M���{�Ǥw�g�����ڪ��ͩR���@�����M�ڷQ�бz���ڴ��Ǿǭp�������k�M�٦���ˤ~�|�����@�W�n���{�ǭ��C<br>
-���¡M���z�ּ֡T<br>
+<p><font color="#408080">傳送日期: 2001年10月7日 AM 10:17<br>
+我是一名大學生﹐學的不是計算機專業。但剛上大學時﹐就對計算機產生了濃厚的興趣﹐靠自己的努力﹐已經通過了全國計算機等級考試三級。現在我在全力以赴考程序員﹐我不知道我以後會幹什麼﹐但程序已經成為我的生命的一部份﹐我想請您給我提些學計算機的方法﹐還有怎樣才會成為一名好的程序員。<br>
+謝謝﹐祝您快樂﹗<br>
 </font><br>
-<font color="#000000">���J���^�СG�J�������W���\�h�n�ݪ��峹�C�ڹ����H���O�@�˪����k�C</font></p>
+<font color="#000000">●侯捷回覆：侯捷網站上有許多好看的文章。我對任何人都是一樣的說法。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��7�� PM 05:06</font><br>
-<font color="#408080">�J�б¡M�A�n�C<br>
-�ڬO�@�ӭ�}�l�}�o�n�󪺵{�ǭ�<br>
-�ګܷQ�\Ū�z½Ķ���mC++ Primer�n3E�M�i�O�j���S���R�M���ڥi�H�q�L�z�l�ʤ@���ܡS<br>
-�U���P�¡T�T<br>
-�p�p�p�p�{�ǭ� 10/07/2001<br>
+<p><font color="#408080">傳送日期: 2001年10月7日 PM 05:06</font><br>
+<font color="#408080">侯教授﹐你好。<br>
+我是一個剛開始開發軟件的程序員<br>
+我很想閱讀您翻譯的《C++ Primer》3E﹐可是大陸沒有買﹐那我可以通過您郵購一本嗎﹖<br>
+萬分感謝﹗﹗<br>
+小小小小程序員 10/07/2001<br>
 <br>
-</font><font color="#000000">���J���^�СG���A�ڨS�����ѳo�˪��A�ȡC</font></p>
+</font><font color="#000000">●侯捷回覆：不，我沒有提供這樣的服務。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 <br>
-�ǰe���: 2001�~10��7�� PM 06:02<br>
-�J���ͱz�n�T<br>
-���X�ݤF�Q�����M�]����ͷsĶ�@�~���X���p�����ҤF�ѡM�ڷQ���o�ǮѦb�j���X������M�ڤ@�w�|�R���C�ڬO�@�W�p����t�j�ǥ���͡M�\�_�ҾǵL���ڡT<br>
-�Q��������2001 �J�� �j���X���p�����˼ƲĤT�桧���ؤ� (3) Dissecting 
-MFC 2e�M���M��ı�o�����ؤ����������ҵۤ����C</font><br>
+傳送日期: 2001年10月7日 PM 06:02<br>
+侯先生您好﹗<br>
+近日訪問了貴網站﹐也對先生新譯作品的出版計劃有所了解﹐我想等這些書在大陸出版之後﹐我一定會買的。我是一名計算機系大學本科生﹐愧于所學無成啊﹗<br>
+貴網站的“2001 侯捷 大陸出版計劃”倒數第三行“所¨之 (3) Dissecting 
+MFC 2e﹐”﹐我覺得“所¨之”應為“所著之”。</font><br>
 <br>
-<font color="#000000">���J���^�СG�A�Ҭݨ쪺���r�A�O�c²��X�ҳy���C�A�������Ӧr�A�O�W�w�g�S���ϥΤF�A�b�O�W�A���Ӧr�M�u�ۡv�q�ΡC���G�O�A�u�ۧ@�v���u�ۡv�N�Q�ন�F���Ӧr�C</font></p>
+<font color="#000000">●侯捷回覆：你所看到的錯字，是繁簡轉碼所造成。你說的那個字，臺灣已經沒有使用了，在臺灣，那個字和「著」通用。結果呢，「著作」的「著」就被轉成了那個字。</font></p>
 
-<p><font color="#000000">�@�Y�����H�H�W�����Q�ରGB code����A�֩w�O�@�Y�����F 
+<p><font color="#000000">一頭霧水？以上說明被轉為GB code之後，肯定是一頭霧水了 
 :)</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��7�� PM 06:44<br>
-�J�����͡M�z�n�T<br>
+<p><font color="#408080">傳送日期: 2001年10月7日 PM 06:44<br>
+侯捷先生﹐您好﹗<br>
 <br>
-�ܰ����b�z�������W�ݨ��F�z�M�䥦�H½Ķ���mthinking in java2�n�M�ڷQ���D�@�U</font><font
-color="#8080FF">�o���Ѧb½Ķ������O�_�|�b�j���X���O</font><font
-color="#408080">�S���j�P���ɶ��|�O����ɭԩO�S<br>
+很高興在您的網站上看見了您和其它人翻譯的《thinking in java2》﹐我想知道一下</font><font
+color="#8080FF">這本書在翻譯完成後是否會在大陸出版呢</font><font
+color="#408080">﹖那大致的時間會是什麼時候呢﹖<br>
 <br>
-�t�~�M�ڦb�s�{�W�`�O���Ǥ����ժ����D�Q�ݱz�@�U�M�{�b�ڭ̬O�Hoop����k�ӽs�{�Ǫ��M�ڤ]�q�ѤW�ݤF�ܦh����oo����Q�M�i�O�C���b�s�{�Ǫ��ɭԡM�S�`�O�S��k�b�{�Ǥ��B��oo��Q�C���O���Q�ΡM�ӬO�����D���ΡM</font><font
-color="#8080FF">�z�שM��ڨS�k�pô�b�@�_�C�p�G�o�˨������ӫ���O</font><font
-color="#408080">�S���ӱq������U��ӸѨM�o�Ӱ��D�O�S<br>
+另外﹐我在編程上總是有些不明白的問題想問您一下﹐現在我們是以oop的方法來編程序的﹐我也從書上看了很多關於oo的思想﹐可是每當在編程序的時候﹐又總是沒辦法在程序中運用oo思想。不是不想用﹐而是不知道怎麼用﹐</font><font
+color="#8080FF">理論和實際沒法聯繫在一起。如果這樣那我應該怎麼辦呢</font><font
+color="#408080">﹖應該從什麼對方下手來解決這個問題呢﹖<br>
 <br>
-�٦��M�b�ѤW�ݨ�@�ǵ{�ǡM�s�ЫؤF��class�M�bclass���c�ؤF�Ǥ�k�M�i�O�b�եΥ���class���M�èS���ϥΥ�����k�M��������o�Ǥ�k�٭n�ЫةO�S���D�b�����٦��@�ǹB�@���s�ϧڥ����n�Ыسo�Ǥ�k��S��p�R��{Comparator���f��class�M�����n��{comparatorTo��k�M�i�O�o��comparatorTo�èS���o��եΡM���������٥����n�Ыإ��O�S�b�o�I�W�ڤ@�������աC�p�G�i�H���ܯ�_�Х������ڸ����@�U�T<br>
+還有﹐在書上看到一些程序﹐新創建了個class﹐在class中構建了些方法﹐可是在調用它的class中﹐並沒有使用它的方法﹐那為什麼這些方法還要創建呢﹖難道在內部還有一些運作機製使我必須要創建這些方法麼﹖比如﹕實現Comparator接口的class﹐必須要實現comparatorTo方法﹐可是這個comparatorTo並沒有得到調用﹐那為什麼還必須要創建它呢﹖在這點上我一直不明白。如果可以的話能否請先生幫我解釋一下﹗<br>
 <br>
-</font><font color="#000000">���J���^�СG<br>
-(1) �p�G����mthinking in java 2e�n²�骩Ķ�v���j���X�����P���pô�A�åB����X�@�N�@�}�n�A�J��Ķ���N�|�b�j���X���C<br>
+</font><font color="#000000">●侯捷回覆：<br>
+(1) 如果拿到《thinking in java 2e》簡體版譯權的大陸出版社與我聯繫，並且雙方合作意願良好，侯捷譯本就會在大陸出版。<br>
 (2) 
-�z�שM��ڨS�k�pô�b�@�_�A�O�]���z���٨S�����Ƭ��A����Q�A�]�O�]���A������٤����C�o�O�ܦh�H����f�]�i��]�O�@�ؾ��{�^�G���o�@�f�n�{�ǡC<br>
-(3) �A���Ҥl���������M�� �X ��ڦӨ� :)</font></p>
+理論和實際沒法聯繫在一起，是因為理論還沒有內化為你的思想，也是因為你的實踐還不夠。這是很多人的毛病（可能也是一種歷程）：說得一口好程序。<br>
+(3) 你的例子表明不夠清楚 — 對我而言 :)</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��8�� PM 02:00<br>
-&gt; �~���٥��]�O�WŪ�̽мg�����^�G�x�_��<br>
-&gt; ��J������ĳ�G<br>
-&gt; �ܷP�±z��z���ۧ@�ιq�l�Ѫ��覡 release �X��,<br>
-&gt; ��ڳo�Ӯa�x�g�٤��ܦn���ǥͨӻ�,�i�H�η��֪��g�٥N����o�p���״I���귽,<br>
-&gt; ��ı�o���U�ܤj.�P�±z.<br>
-&gt; �t�~, �z�ӹL�ڭ̾Ǯպt��, �ڦ��hť�� ^_^<br>
+<p><font color="#408080">傳送日期: 2001年10月8日 PM 02:00<br>
+&gt; 居住省份（臺灣讀者請寫縣市）：台北縣<br>
+&gt; 對侯捷的建議：<br>
+&gt; 很感謝您把您的著作用電子書的方式 release 出來,<br>
+&gt; 對我這個家庭經濟不很好的學生來說,可以用極少的經濟代價獲得如此豐富的資源,<br>
+&gt; 我覺得幫助很大.感謝您.<br>
+&gt; 另外, 您來過我們學校演講, 我有去聽喔 ^_^<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��8�� PM 07:59<br>
-�J�Ѯv�M�z�n�T<br>
+<p><font color="#408080">傳送日期: 2001年10月8日 PM 07:59<br>
+侯老師﹐您好﹗<br>
 <br>
-�ٰO�o�X�ѫe���z��</font><font color="#FF0000">thinking in java</font><font
-color="#408080">�D�몺���Ӯ��j�ǥͶܡS�u���ܰ�����o��֦b�z���ӤH�����W�ݨ�z���^�_�M�ڳּ̧֪��O�z��N�q�l���}���12�����\��O����Y�W�M�u�����N�P���T<br>
+還記得幾天前給您的</font><font color="#FF0000">thinking in java</font><font
+color="#408080">挑刺的那個浙大學生嗎﹖真的很高興能這麼快在您的個人網站上看到您的回復﹐我最快樂的是您能將電子版開放到12章的功能記到我頭上﹐真有成就感阿﹗<br>
 <br>
-�n�F�M�����o�ܤF�M���~��A�ݳo���ѡM����B���ݰӺe���a��R<br>
-1.chapter1 p59 �˼Ʋ�4��M���]�]��O�Y�اΦ����귽��w�^��<br>
-��塧(which is, after all, one kind of shared resource) ��<br>
-�ڬO�o�˻�|���������Mobject�]�O�@�ɸ귽���@�ء��M�]���b�z����夤���졧��L���A��<br>
-�귽..���]�˼Ʋ�3��^�C<br>
-2.chapter1 p67 ��5��M&quot;�t�@�ӭ��n�]���OWeb ���x���^���t�סC&quot;<br>
-���&quot;This could be important to the responsiveness of your Web site. &quot;<br>
-�Ӧr���z�ѡ��o��A���I���T����O�O�ܭ��n�����M�]���e�����@�@��������Ӧ]�����M�ӫ᭱�٦��@�ӡ�?���@?�]���C�C�����˴N���T�ӤF���Mhehe<br>
+好了﹐不說廢話了﹐我繼續再看這本書﹐有兩處有待商榷的地方﹕<br>
+1.chapter1 p59 倒數第4行﹐“（也算是某種形式的資源鎖定）”<br>
+原文“(which is, after all, one kind of shared resource) ”<br>
+我是這樣領會的“畢竟﹐object也是共享資源的一種”﹐因為在您的後文中提到“其他型態的<br>
+資源..”（倒數第3行）。<br>
+2.chapter1 p67 第5行﹐&quot;另一個重要因素是Web 站台的回應速度。&quot;<br>
+原文&quot;This could be important to the responsiveness of your Web site. &quot;<br>
+照字面理解“這對你站點的響應能力是很重要的”﹐因為前面說一共有“有兩個因素”﹐而後面還有一個“?有一?因素。。”那樣就有三個了阿﹐hehe<br>
 <br>
-��p�աM�ڬݮѫܺC�M�ѬO�b�o�ǪK�`���D�W�P�A���áR�^�C�Ʊ��ɭԥx�WŪ�̨�ɭԯள��@���������ѡM�ӧڭ̯���o��h���q�l���}��]�ڤ]���D�@�@15�����Ѷ}���12���w�g�ܤ��e���F�R�^�^�C<br>
+抱歉啦﹐我看書很慢﹐老是在這些枝節問題上與你打岔﹕）。希望到時候台灣讀者到時候能拿到一本完美的書﹐而我們能獲得更多的電子版開放（我也知道一共15章的書開放到12章已經很不容易了﹕））。<br>
 <br>
-</font><font color="#000000">���J���^�СG(1) �N�q�ۦP�C(2) 
-�w�ק�A���¡C</font><font color="#408080"><br>
+</font><font color="#000000">●侯捷回覆：(1) 意義相同。(2) 
+已修改，謝謝。</font><font color="#408080"><br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��8�� PM 11:34<br>
-�J�Ѯv�M�z�n�T<br>
-�ڬO�z�b�j�����@�W�ǥ͡C���M�ڭ̱q�������M���O�z���ۧ@�PĶ�@���b���ɵۧڡC�ڳ��w�z�����v�M�R�Q������ϧڤ��b�g���C���z���ڭ̰����@���M�ڪ��ܰJ�ߪ��P�¡T<br>
-�ڥ��bŪ�z½Ķ���mEssential c++�n�M�bŪ�Ѫ��L�{���ڲ`�`�P��z�bĶ�ǩһ������T�M�M�����u�p�����y�E�����U���Ҧ�Ū�̤߱����P�M���p�G�˱󪺤Ӧh���Ӳ`�J���a�褣�͡M�]���K�O�H���ڡM�i�h�����C���C�ڦ��o�ˤ@�ӷQ�k�M�ڷQ��mEssential 
-c++�n���j���M�A�ѡmc++primer�n�N��`�J�C�ڤ����D�o�Q�k�O���O���Ǥ߫�]�@�z������^�C�p�G�o��k�i��M�ڴN�D�`�ݭn�mc++primer�n�M�ڪ��D[Lippman98]�S��²�骩�C�z��i�D���c�骩�p��R��ܡS�n�F�M�ڤ��b�Ի~�z�_�Q���ɶ��F�C���z���鰷�d�T<br>
+<p><font color="#408080">傳送日期: 2001年10月8日 PM 11:34<br>
+侯老師﹐您好﹗<br>
+我是您在大陸的一名學生。雖然我們從未見面﹐但是您的著作與譯作正在指導著我。我喜歡您的直率﹐犀利的言辭使我不在迷茫。對於您為我們做的一切﹐我表示衷心的感謝﹗<br>
+我正在讀您翻譯的《Essential c++》﹐在讀書的過程中我深深感到您在譯序所說的“固然﹐輕薄短小的書籍乍見之下讓所有讀者心情輕鬆﹐但如果捨棄的太多應該深入的地方不談﹐也難免令人行止失據﹐進退兩難。”。我有這樣一個想法﹐我想把《Essential 
+c++》為大綱﹐再由《c++primer》將其深入。我不知道這想法是不是有些心急（願您能指正）。如果這方法可行﹐我就非常需要《c++primer》﹐我知道[Lippman98]沒有簡體版。您能告訴我繁體版如何買到嗎﹖好了﹐我不在耽誤您寶貴的時間了。祝您身體健康﹗<br>
 <br>
-</font><font color="#000000">���J���^�СG</font><font color="#0000FF">�H�mEssential 
-C++�n�J���A�H�mC++ Primer�n��`</font><font color="#000000">�A�O�ܦn���B�J�C�ڵL�k���A�ʶR�mC++ 
-Primer�n�c�骩�C�o�Ӱ��D�@�A�X�{�A���ܦ�FAQ�F�C���n�A�ݧڳo�Ӱ��D�F�r�C</font></p>
+</font><font color="#000000">●侯捷回覆：</font><font color="#0000FF">以《Essential 
+C++》入門，以《C++ Primer》精深</font><font color="#000000">，是很好的步驟。我無法幫你購買《C++ 
+Primer》繁體版。這個問題一再出現，快變成FAQ了。不要再問我這個問題了呀。</font></p>
 
-<p><font color="#000000">���g�bCSDN�׾¬ݨ�o�˪��׽աGprimer 
-�N�O�u�J���v�Athinking �N�O�u����v�A�����J�����šA�ҥH�mThinking 
-in C++�n�u��mC++ Primer�n�C�o�O��T�����H�ηQ���M�դ��U�����ը��סC�⥻�ѳ��ܤ����A���O�ת̮ڥ��S�ݹL����ѡ]�j�����h�֤H�ݹL 
-C++ Primer�H�^�A��O���`�J�F�Ѧӫ���R�A�u���ѦW�Ӱ��Q���M�ժ�����A�Q�����X�C�A���l�R�W���A�F�οA���A�L�N���j�H���F�ܡH�p�O�o��A�g���ѴN�ܻ��P�F�A���Ӧn�W�O�ҥ��B�C���C</font></p>
+<p><font color="#000000">曾經在CSDN論壇看到這樣的論調：primer 
+就是「入門」，thinking 就是「思維」，思維比入門高級，所以《Thinking 
+in C++》優於《C++ Primer》。這是資訊不足以及想當然耳之下的荒謬言論。兩本書都很不錯，但是論者根本沒看過兩方實書（大陸有多少人看過 
+C++ Primer？），更別提深入了解而後評析，只拿書名來做想當然耳的比較，十分幼稚。你把兒子命名為澤東或澤民，他就成大人物了嗎？如是這般，寫本書就很輕鬆了，取個好名保證平步青雲。</font></p>
 
-<p><font color="#000000">�٬ݨ�CSDN�׾¤W������A���mThe C++ Programming 
-Language�n�M�mThe Art of Computer Programming�n��A�M�mDesign Patterns�n��C��򤣮��i���M������H�����ʩM���D��H</font></p>
+<p><font color="#000000">還看到CSDN論壇上的帖文，拿《The C++ Programming 
+Language》和《The Art of Computer Programming》比，和《Design Patterns》比。怎麼不拿張飛和岳飛比？拿馮京和馬涼比？</font></p>
 
-<p><font color="#000000">���O��T�Y�������U�������C��T�Y�������A�O�j���Ҫ��d�s�A�ڱq���|���o�ӼJ���ڪ��P�M�A���O�ۤv���h�֤��A�ۤv�n�M���A���n�J���K�D�M���j��A���׮��y���H�ѦW�l�A�H�ѦW�סC</font></p>
+<p><font color="#000000">都是資訊嚴重不足下的產物。資訊嚴重不足，是大環境的悲哀，我從不會拿這個嘲笑我的同胞，但是自己有多少斤兩，自己要清楚，不要胡說八道貽笑大方，評論書籍竟以書名始，以書名終。</font></p>
 <div align="left">
 
 <table border="1">
   <tr>
-    <td bgcolor="#C0C0C0">���@�v�ڡA��Чn�[�C�ڪ��U�M���G�A�̤��n�n�A�n��<font
-    color="#000000">�i���M�����@�˦a�M���۳B�C</font>�ڤ��~���H�b�ǰ����i�D�ڪ��G��H�۹j�ʤd�~�C�ڪ���G�O���A�L�̨�Ӭ۹j���򻷡A�����<font
-    color="#000000">�M���۳B�A�A�̬����򤣯�H</font></td>
+    <td bgcolor="#C0C0C0">有一宗族，兩房吵架。族長勸和說：你們不要吵，要像<font
+    color="#000000">張飛和岳飛一樣地和睦相處。</font>族中年輕人在旁偷偷告訴族長：兩人相隔百千年。族長曰：是嘛，他們兩個相隔那麼遠，都能夠<font
+    color="#000000">和睦相處，你們為什麼不能？</font></td>
   </tr>
 </table>
 </div>
@@ -967,673 +967,673 @@ Language�n�M�mThe Art of Computer Programming�n��A�M�mDesign Patterns�n��C���
 <p><br>
 </p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��9�� PM 01:35<br>
-�D��: </font><font color="#FF0000">Thinking in Java </font><font color="#408080">���~�^��<br>
+<p><font color="#408080">傳送日期: 2001年10月9日 PM 01:35<br>
+主旨: </font><font color="#FF0000">Thinking in Java </font><font color="#408080">錯誤回報<br>
 <br>
-�J Sir �z�n: <br>
+侯 Sir 您好: <br>
 <br>
-�o�@���Ū�� Thinking in Java ��Ķ������, �S�o�{�ƭӤ��ɧ������B, <br>
-�C�X�b�U���ѱz�ѦҤ@�U: <br>
+這一兩天讀完 Thinking in Java 中譯本之後, 又發現數個不盡完美之處, <br>
+列出在下面供您參考一下: <br>
 <br>
 ============================================================= <br>
 page 244 of PDF file: <br>
 <br>
-&quot;...�϶��~�|�Q�K���] compact �^ �_�ӡF 
-�p�G�Y�Ӱ϶��|�Q�Y�B���A <br>
-�]referenced�^�A��@�N�p�Ʒ|�Q�_�M�C�o�ؤ覡�i�H�B�z�ƶq���j�ӥͩR 
+&quot;...區塊才會被密集（ compact ） 起來； 
+如果某個區塊尚被某處指涉 <br>
+（referenced），其世代計數會被否決。這種方式可以處理數量極大而生命 
 <br>
-�u�Ȫ��Ȯɪ���]temporary objects�^�C���㪺�M�z�ʧ@�|�w���X�{�Фj <br>
-��objects ���M���|�Q�ƻs�]�u�O��@�N�p�ƳQ�_�M�Ӥw�^�C���t�p�� <br>
-objects �����ǰ϶��h�Q�ƻs�ñK���CJVM �|�ʷ�GC �Ĳv�A�p�G�o�{GC <br>
-�]���u�Ҧ�objects �Ҫ����s���v���ܱo�Ĳv�����A���|�ഫ��mark and <br>
-sweep �Ҧ��C�P�˹D�z�AJVM�|�l��mark and sweep �Ҧ����Z�ġA�p�G <br>
-heap �_�����p���Y���A���|��^stop-and-copy �Ҧ��C���Y�u�۬٦� <br>
-�]adaptive�^�v���ѨӡC�ڭ̥i�H�@�y���n���ܧ@�`���G�۬ټҦ��l�ͥX 
+短暫的暫時物件（temporary objects）。完整的清理動作會定期出現－大 <br>
+型objects 仍然不會被複製（只是其世代計數被否決而已）。內含小型 <br>
+objects 的那些區塊則被複製並密集。JVM 會監督GC 效率，如果發現GC <br>
+因為「所有objects 皆長期存活」而變得效率不彰，它會轉換至mark and <br>
+sweep 模式。同樣道理，JVM會追蹤mark and sweep 模式的績效，如果 <br>
+heap 斷裂情況太嚴重，它會轉回stop-and-copy 模式。此即「自省式 <br>
+（adaptive）」的由來。我們可以一句重要的話作總結：自省模式衍生出 
 <br>
-stop-and-copy �Mmark and sweep�C&quot; <br>
+stop-and-copy 和mark and sweep。&quot; <br>
 <br>
-�o�@�q��Ķ�̤����ͦ��G�S�����۪��y�q�F�ѱo�ܲM���K�����w½, 
-�]����r <br>
-�ܥ͵w, �B�]�����ֿ��~�X�{. �䤤: <br>
+這一段話譯者王先生似乎沒有把原著的語義了解得很清楚便直接硬翻, 
+因此文字 <br>
+很生硬, 且也有不少錯誤出現. 其中: <br>
 <br>
-&quot;��@�N�p�Ʒ|�Q�_�M&quot; (all other blocks get their generation count 
+&quot;其世代計數會被否決&quot; (all other blocks get their generation count 
 bumped) <br>
-bump �o�Ӱʵ�½�� &quot;�_�M&quot; ���G�j�����D, 
-�|�y���e���y�N���q. <br>
+bump 這個動詞翻成 &quot;否決&quot; 似乎大有問題, 
+會造成前後文語意不通. <br>
 <br>
-�t�~, <br>
-&quot;�ڭ̥i�H�@�y���n���ܧ@�`���G�۬ټҦ��l�ͥXstop-and-copy �Mmark 
-and sweep�C&quot; <br>
-(so you end up with a mouthful: ��adaptive generational stop-and-copy <br>
-mark-and-sweep.��) <br>
-�o�@�y generational ½�� &quot;�l�ͥX&quot; �|��Ū�̧��������Ҥ�. <br>
+另外, <br>
+&quot;我們可以一句重要的話作總結：自省模式衍生出stop-and-copy 和mark 
+and sweep。&quot; <br>
+(so you end up with a mouthful: “adaptive generational stop-and-copy <br>
+mark-and-sweep.”) <br>
+這一句 generational 翻成 &quot;衍生出&quot; 會讓讀者完全不知所云. <br>
 <br>
 ============================================================= <br>
 page 323 of PDF file: <br>
 <br>
-&quot;���Lblank finals ���final 
-����r���ϥδ��ѤF��h�u�ʡA�]���o��@�ӡA <br>
-class ����final field �K�i�H���V���P��object�A�����«O����u�������ܡv���S�ʡC&quot; 
+&quot;不過blank finals 對於final 
+關鍵字的使用提供了更多彈性，因為這麼一來， <br>
+class 內的final field 便可以指向不同的object，但依舊保持其「恆長不變」的特性。&quot; 
 <br>
 (However, blank finals provide much more flexibility in the use of the <br>
 final keyword since, for example, a final field inside a class can now <br>
 be different for each object and yet it retains its immutable quality.) <br>
 <br>
-�䤤, ��媺 &quot;...for each object&quot; �o�X�Ӧr�S��½�X��. 
-�Y½�X�Ӫ��ܾ�y�ܷ|��M����. <br>
+其中, 原文的 &quot;...for each object&quot; 這幾個字沒有翻出來. 
+若翻出來的話整句話會更清楚些. <br>
 <br>
 ============================================================= <br>
 page 324 of PDF file: <br>
 <br>
-&quot;�N�קA�L�k�b��method �����Ӥ޼ơ]�@��reference�^�ҫ�����&quot; 
+&quot;意謂你無法在此method 中更改該引數（一個reference）所指之物&quot; 
 <br>
 (This means that inside the method you cannot change what the argument <br>
 reference points to.) <br>
 <br>
-���y�ѷӫe���, ½�� &quot;�N�קA�L�k�N���޼Ƨ���V�䥦����&quot; 
-�i��|��������H�g�b. <br>
+此句參照前後文, 翻成 &quot;意謂你無法將此引數改指向其它物件&quot; 
+可能會比較不讓人迷惑. <br>
 <br>
 ============================================================= <br>
 page 329 of PDF file: <br>
 <br>
-&quot;�o�ر��p�޾ɤH�̬۫H�u�q���̨Τưʧ@���ӵo�ͩ��B�����ǵ{�����A�û����O 
+&quot;這種情況引導人們相信「猜測最佳化動作應該發生於何處的那些程式員，永遠都是 
 <br>
-�t�l���{�����v�o�y�ܡC&quot; <br>
+差勁的程式員」這句話。&quot; <br>
 (This lends credence to the theory that programmers are consistently bad <br>
 at guessing where optimizations should occur.) <br>
 <br>
-�o��, bad ���ӬO���ӧήe programmers 
-�q���̨Τưʧ@���ӵo�ͩ��B����O, <br>
-�Ӥ��O�ήe programmers �����a!? <br>
+這裡, bad 應該是拿來形容 programmers 
+猜測最佳化動作應該發生於何處的能力, <br>
+而不是形容 programmers 本身吧!? <br>
 <br>
 ============================================================= <br>
 <br>
-���~, ���U���F &quot;C++ �зǵ{���w&quot; �� PDF ��, 
-�u�O�y�L�s���@�U, �Kı�o�䤺�e <br>
-�D�`�Ϲ�, �O���ܭȱo��Ū���n��! <br>
+此外, 剛剛下載了 &quot;C++ 標準程式庫&quot; 的 PDF 檔, 
+只是稍微瀏覽一下, 便覺得其內容 <br>
+非常紮實, 是本很值得精讀的好書! <br>
 <br>
-���L�E�ݤ��U�o�{�@�Ӥp���~: <br>
+不過乍看之下發現一個小筆誤: <br>
 <br>
 page 22 of PDF file: <br>
 <br>
-������� O(n^2) ������ O( n2 ) �F. </font></p>
+此頁兩個 O(n^2) 都打成 O( n2 ) 了. </font></p>
 
-<p><font color="#000000">���J���^�СG�P�¡A�Ҥw���s�˰Q�CBruce Eckel���嵧���nĶ�A�ؿ����F�ܤj�V�O�C</font><font
+<p><font color="#000000">●侯捷回覆：感謝，皆已重新檢討。Bruce Eckel的文筆不好譯，建興做了很大努力。</font><font
 color="#408080"><br>
 <br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��9�� PM 02:53<br>
-�A�n�M�ԥ��͡R<br>
-�ڤU���F�A��Dissecting MFC�@�ѡC�b�����e�M���ٶR�F�@���C�u�O�@���n�ѡC�ڬO�b������i�@�ӫܤp���ѩ��M���M���o�{�o���Ѫ��C�b�����e�M�ھ�MFC�w�g���@�~�h�F�M�`�Pı���I�اڭ̰��F�Ӧh���Ʊ��C�Ӧp���@�ӡM�ڹ復�N�ʥF�������H�ߡC�ڤ]�����D���쬰����|�R�o���ѡM�i��O�x�W�H�g���a�M�����ݬݡC���G�u���O�n�ѡM�ګܨتA�A�C�{�b�M�ڸg�`�V�ڪ��ǲ�Visual 
-C++���P�Ʊ��˧A���j�@�C���A�b�����W���n�D�M�ڶ�g�p�U���email���A�C<br>
-�~���٥��]�x�WŪ�̽мg�����^�R������<br>
-��J������ĳ�R<br>
-�Ʊ�h�g�n�ѡM���椣�n�ӶQ�C<br>
+<p><font color="#408080">傳送日期: 2001年10月9日 PM 02:53<br>
+你好﹐候先生﹕<br>
+我下載了你的Dissecting MFC一書。在此之前﹐我還買了一本。真是一本好書。我是在浙江寧波一個很小的書店﹐偶然間發現這本書的。在此之前﹐我學MFC已經有一年多了﹐總感覺它背¨我們做了太多的事情。而如此一來﹐我對它就缺乏足夠的信心。我也不知道當初為什麼會買這本書﹐可能是台灣人寫的吧﹐不妨看看。結果真正是好書﹐我很佩服你。現在﹐我經常向我的學習Visual 
+C++的同事推薦你的大作。應你在網站上的要求﹐我填寫如下資料email給你。<br>
+居住省份（台灣讀者請寫縣市）﹕浙江省<br>
+對侯捷的建議﹕<br>
+希望多寫好書﹐價格不要太貴。<br>
 <br>
 <br>
 <br>
 </font></p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��9�� PM 03:13<br>
-�J�Ѯv�M�z�n�R<br>
-�ڬO�@�ӱz������Ū�̡M�R�F�Ҧ��z�b�j���X�����Ѩå�����Ū�C�P�±z�`�J�L�X�a���ڭ̬ݨ�F���h�@�ɯŪ��W�ۡM�]�A�zĶ���M�g���C<br>
-�{�b�u�@�����@�ðݡM�����z��_�ʦ����@�@²�u�^���C<br>
-�Y�R�ϥ�Moniker�޳N�]CoGetObject�^�ӳЫ�COM��H�M�ϥ�ProgIDToClassID�NCoGetClassObject�ӹF�졧�Ыت����L���ʡ����󥻽誺���P�S<br>
-MSDN�W�g�DCoGetObject�ʸˤFCreateBindCtx, MkParseDisplayName�MIMoniker::BindToObject,�ڪ��DBindToObject�����եΤFCoGetClassObject�M���e������ݭn�@�j��եΡS<br>
-�p�X��СM���ӷP�¡C<br>
+<p></b><font color="#408080">傳送日期: 2001年10月9日 PM 03:13<br>
+侯老師﹐您好﹕<br>
+我是一個您的忠實讀者﹐買了所有您在大陸出版的書並本本精讀。感謝您深入淺出地讓我們看到了眾多世界級的名著﹐包括您譯的和寫的。<br>
+現在工作中有一疑問﹐不知您能否百忙中作一簡短回答。<br>
+即﹕使用Moniker技術（CoGetObject）來創建COM對象和使用ProgIDToClassID﹑CoGetClassObject來達到“創建的類無關性”有何本質的不同﹖<br>
+MSDN上寫道CoGetObject封裝了CreateBindCtx, MkParseDisplayName和IMoniker::BindToObject,我知道BindToObject之中調用了CoGetClassObject﹐但前面為何需要一大堆調用﹖<br>
+如蒙賜教﹐不勝感謝。<br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��12�� AM 01:47<br>
-�J�Ѯv�M�A�n�T<br>
-�ګܳ��w�A���ѩM�峹�]�����^�M�٦��峹�᭱��personality�C�N���h�����z�F�C�٬O���b�D�D�a�C�A��i�D�ڤ@�ǻP�A�����ʽ�t���h����~�����ܡS����!<br>
+<p><font color="#408080">傳送日期: 2001年10月12日 AM 01:47<br>
+侯老師﹐你好﹗<br>
+我很喜歡你的書和文章（網站）﹐還有文章後面的personality。就不多恭維您了。還是直奔主題吧。你能告訴我一些與你網站性質差不多的國外網站嗎﹖謝謝!<br>
 <br>
-</font><font color="#000000">���J���^�СG��A�ڤ����D�C�A�ߥؤ����J�������O����ʽ� 
+</font><font color="#000000">●侯捷回覆：喔，我不知道。你心目中的侯捷網站是什麼性質 
 :)</font><font color="#408080"><br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��10�� PM 07:24<br>
-&gt; �J�����ͱz�n�G<br>
-&gt; �ѩ�u�@�����Y(���M�]�O�ڭӤH������)�A�����⭫�B�b�ǮըS<br>
-&gt; �Ǧn��C++�A���ڦb��M�Ч��ɡA�P�ɤ]�o�{���ͱz�A�b����쪺�ǳN�a�줧<br>
-&gt; ���A�O�ڤ��Q���A�P�ɤ]���±z�A���[���ɱz���߱o�C<br>
+<p><font color="#408080">傳送日期: 2001年10月10日 PM 07:24<br>
+&gt; 侯捷先生您好：<br>
+&gt; 由於工作的關係(當然也是我個人的興趣)，必須把重拾在學校沒<br>
+&gt; 學好的C++，當我在找尋教材時，同時也發現先生您，在此領域的學術地位之<br>
+&gt; 高，令我心嚮往，同時也謝謝您，不吝分享您的心得。<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��12�� AM 01:51<br>
-�J�Ѯv:<br>
+<p><font color="#408080">傳送日期: 2001年10月12日 AM 01:51<br>
+侯老師:<br>
 <br>
-���_���ٱo�P�±z�C����O�z������F�@�ʶl��M�~�M�a�T���ͨ��o�F�pô�C�������\�M<br>
-���p���M�಴�w�w�g�X�Ӥ�L�h�F�C�䶡�M�a�T���ͦ��L���֪��l�󩹨ӡM�۽ͬ��w�C<br>
+說起來還得感謝您。當初是您幫我轉了一封郵件﹐才和家俊先生取得了聯繫。光陰荏苒﹐<br>
+日月如梭﹐轉眼已已經幾個月過去了。其間和家俊先生有過不少的郵件往來﹐相談甚歡。<br>
 <br>
-�̪�@�q�ɶ��M������G�M�ڵo���a�T���ͪ��l��M�`�Q�h�^�C�ݶl��A�Ⱦ������|�ܪ�<br>
-���p�i���M���G�O�a�T���ͩҥΪ��l��A�Ⱦ������譱�X�{���D�C�L�`�ڦ�����ث檺��<br>
-�D�ݭn�M�L�pô�M�u�u��٤H�]�C<br>
+最近一段時間﹐不知何故﹐我發給家俊先生的郵件﹐總被退回。看郵件服務器之間會話的<br>
+情況可知﹐似乎是家俊先生所用的郵件服務器相關方面出現問題。無奈我有比較¨急的問<br>
+題需要和他聯繫﹐真真急煞人也。<br>
 <br>
-���椧�U�M�S���T�Q��F�z�C�ڷQ�бz�N����i�@�U�M�нЮa�T���ͥi�_�i���䥦���l�c<br>
-�a�}�C�L�H�e���L�ڪ��T�Ӷl��a�}�ڷPı�����ؤ��Q���C<br>
+情急之下﹐又不禁想到了您。我想請您代為轉告一下﹐煩請家俊先生可否告知其它的郵箱<br>
+地址。他以前給過我的三個郵件地址我感覺都用¨不利索。<br>
 <br>
-�{��ڪ��h�H�H�ΥX���H���@�ֱH�o���z�C�H�����e�D�n�P�����ͪ��ۧ@�����C�]�N�O�z<br>
-���L�@�ǽs�ɪ��m�s�⥴�y�|�j�A�ȡn�C�䤤�ٴ���F�P�z���������D�O�C��K���ܡM�z<br>
-�����ݤ@�U�M�p�G��b�ʦ������M���w�@�I���ܡM����O�P�E���ɡC<br>
+現把我的去信以及出錯信息一併寄發給您。信中內容主要與王先生的著作有關。也就是您<br>
+為他作序編導的《新手打造四大服務》。其中還提到了與您有關的話題呢。方便的話﹐您<br>
+不妨看一下﹐如果能在百忙之中﹐給預一點指示﹐那更是感激不盡。<br>
 <br>
-�N�b�ڽs�o�o�ʫH���e�i�M���ٱM���\Ū�F�A�����W�������Ѫ��q�H�C�M�z�䥦�j�@��_<br>
-�ӡM���K�y���N�M�F�ǡC</font><font color="#8080FF">���ɪ`�F�j�q���z�M�ߦ媺�a�T���͡M�]�]�A�z�ҵ���������<br>
-�g��P���O���R�M�]�\�|���ǥ����C�ڳo�����M�S���O���N��M�u�O�P�ĳo�򦳲`�ת��@<br>
-���n�ѡMŪ�̦��G���ǹ��M�C</font><font color="#408080"><br>
+就在我編發這封信的前夕﹐我還專門閱讀了你網站上有關本書的通信。和您其它大作比起<br>
+來﹐未免稍嫌冷清了些。</font><font color="#8080FF">對於傾注了大量智慧和心血的家俊先生﹐也包括您所給予的高度<br>
+讚賞與極力推崇﹐也許會有些失落。我這麼講﹐沒有別的意思﹐只是感嘆這麼有深度的一<br>
+本好書﹐讀者似乎有些廖然。</font><font color="#408080"><br>
 <br>
-�M�A�̪��H�󩹨Ӥ��Q�ת����e���Ҥ��P�M�ڨèS���S�O�h���R���ǲӷL���N�X�ާ@��<br>
-���M�ӬO�����_���ҷN�b���\��譱�C</font><font color="#8080FF">�a�T���ͳ̰��������k���@�M�N�O�@�Ƿ������޳N<br>
-�Ӹ`�ʸ˨�h�h�ۮM���½c�̡M�ݭn���ɭԡM�i�H���b�@�ӾԲ����סM�i�槻�[���`���<br>
-���C���ҿס����Ū�����C���h�Ӹ`�M����j���M�M��b�ۤv�S�O�ݭn���a��i��͵o�M<br>
-�X�i�C�ҿׯ����M�Τ����O�]�C</font><font color="#408080"><br>
+和你們的信件往來中討論的內容有所不同﹐我並沒有特別去分析那些細微的代碼操作技<br>
+巧﹐而是偏重于它所意在的功能方面。</font><font color="#8080FF">家俊先生最高明的做法之一﹐就是一些煩雜的技術<br>
+細節封裝到層層相套的黑箱裡﹐需要的時候﹐可以站在一個戰略高度﹐進行宏觀的總體把<br>
+握。正所謂“把書讀薄”。略去細節﹐取其大略﹐然後在自己特別需要的地方進行生發和<br>
+擴展。所謂神似﹐形不似是也。</font><font color="#408080"><br>
 <br>
-�|�Ҩӻ��C���Winsock�ާ@��������ĳ���������e�M�H�Φh�u�{���޳N�Ӹ`�M�i�H�X�G��<br>
-���Ҽ{�M�ӧ��O��b�p�G��{���Ǫ��½�s���A�ȤW�M�å[�H�X�R�M�o�i�M�N�i�H�Φ�<br>
-�һݭn���~�C</font><font color="#8080FF">�N�o�@�I�Ө��M�ڻ{�����Ѵ��Ѫ����U�i�H���O�L�P�ۤ�</font><font
-color="#408080">�C<br>
+舉例來說。對於Winsock操作等網絡協議相關的內容﹐以及多線程等技術細節﹐可以幾乎不<br>
+予考慮﹐而把精力放在如果實現那些花樣翻新的服務上﹐並加以擴充和發展﹐就可以形成<br>
+所需要產品。</font><font color="#8080FF">就這一點而言﹐我認為此書提供的幫助可以說是無與倫比的</font><font
+color="#408080">。<br>
 <br>
-�n�F�M�N���h���o�ܯԻ~�z�_�Q�ɶ��F�C���U�z�]�k���ڻP�a�T���ͨ��o�pô�M���٬O��<br>
-�o�ǸܤΤ@�ǧ޳N�бЪ����e�����o���L�a�C<br>
+好了﹐就不多說廢話耽誤您寶貴時間了。拜託您設法幫我與家俊先生取得聯繫﹐我還是把<br>
+這些話及一些技術請教的內容直接發給他吧。<br>
 <br>
-�j�������¡M�{�H�ǭ^�W�C���J���ͤ~��u�F�N�s�@���X�C ���P!<br>
+大恩不言謝﹐逢人傳英名。祝侯先生才思泉涌﹑新作迭出。 此致!<br>
 <br>
-���R�q§! :-)<br>
+革命敬禮! :-)<br>
 <br>
-</font><font color="#000000">���J���^�СG�a�T���ѬO���n�ѡ]���M�A���X����Ӹ������֡^�C�ܥ��A�L�~��Q�Ѽg�H���ڡA�i�D�ڥL�@�N��m���ں����|�j�A�ȡn�o�����y�K�O�}��PDF���Ҧ��H�C�ڱN�b�PGOTOP���L�۩I��A���a�T�����o�Ӥ��@�C���� 
+</font><font color="#000000">●侯捷回覆：家俊的書是本好書（雖然，源碼精采而解釋偏少）。很巧，他才於昨天寫信給我，告訴我他願意把《網際網路四大服務》這本書籍免費開放PDF給所有人。我將在與GOTOP打過招呼後，幫家俊完成這個心願。等著 
 :)</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��12�� AM 01:53<br>
-�J�j�L�R<br>
-�z�n!<br>
-�ڭ̦b��PC104�O�J���p����{�ǡM�ĥ�MS DOS�M�ڭ̦����D�V�A�бСR<br>
-�D�n�O�{�ǥN�X�L�j�����D�Mexe���&gt;700K�M�ӥB�B�洣�ܡ��{�ǥN�X�L�j�M�L�k���p���s���M�Ρ��L�������s�[���X�ʵ{�ǡ��T<br>
-�ڭ̷Q�ĥΫO�@�Ҧ��s�{�M�o�˥i�H�S�����s����CBC++���@��DPMI�]DOS�O�@�Ҧ����fDos 
-Protected Mode Interface�^����Ʈw�M�ڨS�����M�ЧA���ڭ̧�@�U�M���ڵo�L�Ӧn�ܡS�]�i��O��Ӥ��Rdpmi.h 
-+ dpmi.cpp)! �D�`�P�±z���������U�T<br>
-�Թ|�ۦw�T<br>
-�W��<br>
+<p><font color="#408080">傳送日期: 2001年10月12日 AM 01:53<br>
+侯大俠﹕<br>
+您好!<br>
+我們在做PC104嵌入式計算機程序﹐採用MS DOS﹐我們有問題向你請教﹕<br>
+主要是程序代碼過大的問題﹐exe文件有&gt;700K﹐而且運行提示”程序代碼過大﹐無法載如內存”﹐或“無足夠內存加載驅動程序”﹗<br>
+我們想採用保護模式編程﹐這樣可以沒有內存限制。BC++有一個DPMI（DOS保護模式接口Dos 
+Protected Mode Interface）的函數庫﹐我沒有找到﹐請你幫我們找一下﹐給我發過來好嗎﹖（可能是兩個文件﹕dpmi.h 
++ dpmi.cpp)! 非常感謝您的熱心幫助﹗<br>
+謹頌著安﹗<br>
+上海<br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��12�� AM 09:33<br>
-�J���Ѯv�R<br>
-�z�n�T<br>
-�ڬO�@�W�{�ǭ��M�q��C++���ε{�Ǫ��}�o�u�@�C�ثe�ڥ��b��Ū�z��Ķ�ۡ��`�ױ���C++��H�ҫ����@�ѡM�wŪ��ĤT��Data�y�N�ǡC�����P�±z���ڭ̵{�ǭ�Ķ�X�o�ˤ@���g��n�ѡM�P�ɧڷQ�V�z�бХH�U�X�Ӱ��D�R<br>
+<p><font color="#408080">傳送日期: 2001年10月12日 AM 09:33<br>
+侯捷老師﹕<br>
+您好﹗<br>
+我是一名程序員﹐從事C++應用程序的開發工作。目前我正在拜讀您的譯著“深度探索C++對象模型”一書﹐已讀到第三章Data語意學。首先感謝您為我們程序員譯出這樣一本經典好書﹐同時我想向您請教以下幾個問題﹕<br>
 <br>
-1. P120��3��RPoint* p2d=pv3d?pv3d-&gt;__vbcPoint2d:0;<br>
+1. P120第3行﹕Point* p2d=pv3d?pv3d-&gt;__vbcPoint2d:0;<br>
 <br>
-�ھ�P121��3.5a�ҥܡM���VClass Verter3d �����wpv3d�ҫ��V����H�������__vbcPoint2d�M���O��Vertex 
-subobject �MPoint3d subobject �Ҧ��M�������b��Point* 
-p2d=pv3d?pv3d-&gt;__vbcPoint2d:0;������<br>
-__vbcPoint2d�O�H�W��Ӥ����@�ӶܡS������class Vertex3d�����S���@<br>
-���ݩ�ۤv��__vbcPoint2d�O�S<br>
+根據P121圖3.5a所示﹐指向Class Verter3d 的指針pv3d所指向的對象中有兩個__vbcPoint2d﹐分別為Vertex 
+subobject 和Point3d subobject 所有﹐但不知在“Point* 
+p2d=pv3d?pv3d-&gt;__vbcPoint2d:0;”中的<br>
+__vbcPoint2d是以上兩個中的一個嗎﹖為什麼class Vertex3d本身沒有一<br>
+個屬於自己的__vbcPoint2d呢﹖<br>
 <br>
-2. P122��7��R<br>
+2. P122第7行﹕<br>
 Point2d* p2d=pv3d?pv3d+pv3d-&gt;__vptr__Point3d[-1]:0;<br>
 <br>
-�ھ�P123��3.5b�ҥܡM���VClass Verter3d �����wpv3d�ҫ��V����H<br>
-�������__vptr�M���O�O__vptr__Vertex�M__vptr__Point3d,���O���V<br>
-Vertex subobject��Virtual Table �M Point3d subobject��Virtual Table�M�]����ı�o�N��Point2d* 
-p2d=pv3d;���ഫ������C++�X:<br>
+根據P123圖3.5b所示﹐指向Class Verter3d 的指針pv3d所指向的對象<br>
+中有兩個__vptr﹐分別是__vptr__Vertex和__vptr__Point3d,分別指向<br>
+Vertex subobject的Virtual Table 和 Point3d subobject的Virtual Table﹐因此我覺得將“Point2d* 
+p2d=pv3d;”轉換為虛擬C++碼:<br>
 <br>
-Point2d* p2d=pv3d?pv3d+pv3d-&gt;__vptr__Point3d[-1]:0; ------ơ<br>
+Point2d* p2d=pv3d?pv3d+pv3d-&gt;__vptr__Point3d[-1]:0; ------①<br>
 <br>
-���G�O���~���M�]���ھ�P123��3.5b�M__vptr__Point3d[-1]������12�Mpv3d�����Vclass 
-Vertex3d��H�����w�M�Y�Npv3d��Ƭ����VPoint2d��<br>
-���w�M���ӤW�z���ഫ����C++�X�M�֥[�FVertex subobject ��offset�C<br>
-�A���M�p�G�H�W�ڪ��z�ѬO���~���M����bơ����������n�ϥ�<br>
-pv3d-&gt;__vptr__Point3d�O�S�����򤣬O__vptr__Vertex�O�S<br>
+似乎是錯誤的﹐因為根據P123圖3.5b﹐__vptr__Point3d[-1]應等於12﹐pv3d為指向class 
+Vertex3d對象的指針﹐若將pv3d轉化為指向Point2d的<br>
+指針﹐按照上述的轉換虛擬C++碼﹐少加了Vertex subobject 的offset。<br>
+再有﹐如果以上我的理解是錯誤的﹐那麼在①式中為什麼要使用<br>
+pv3d-&gt;__vptr__Point3d呢﹖為什麼不是__vptr__Vertex呢﹖<br>
 <br>
-�J���Ѯv�M�ڬO�z������Ū�̡M�H�W��Ӱ��D�w�x�Z�ڳ\�[�M�פ���ѡM�ܨϵL�k�\Ū���ѥH�U���`�M�]���_�N���Z�z�M�b�����бz�����ѵ��M�U���P�¡T<br>
+侯捷老師﹐我是您的忠實讀者﹐以上兩個問題已困擾我許久﹐終不能解﹐至使無法閱讀本書以下章節﹐因此冒昧打擾您﹐在此懇請您給予解答﹐萬分感謝﹗<br>
 <br>
 <br>
-�J���Ѯv�R<br>
-�藍�_�M�S�Q�_�@�Ӱ��D�R<br>
-�ھ�P123��3.5b�M���p���p�U�N�X�R<br>
+侯捷老師﹕<br>
+對不起﹐又想起一個問題﹕<br>
+根據P123圖3.5b﹐假如有如下代碼﹕<br>
 <br>
 Vertex3d *pv3d;<br>
 ....<br>
-Vertex* pv=pv3d;//���]pv3d������NULL<br>
+Vertex* pv=pv3d;//假設pv3d不等於NULL<br>
 <br>
-�ھ�P123��3.5b�Mclass Vertex�����~�Ӧ�class Point2d,<br>
-�аݡR���ɡMpv�p����Vclass Vertex3d��H�S(Vertex subobject�PPoint2d 
-subobject������Point3d subobject �Mfloat mumble���j�M�p��Npv3d�ഫ�����Vclass 
-Vertex �����wpv�S)<br>
+根據P123圖3.5b﹐class Vertex虛擬繼承自class Point2d,<br>
+請問﹕此時﹐pv如何指向class Vertex3d對象﹖(Vertex subobject與Point2d 
+subobject之間有Point3d subobject 和float mumble間隔﹐如何將pv3d轉換為指向class 
+Vertex 的指針pv﹖)<br>
 <br>
-�A�����Z�M�`���p�N�C<br>
+再次打擾﹐深表歉意。<br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��12�� AM 10:43<br>
-&gt; �~���٥��]�O�WŪ�̽мg�����^�G�x�_��<br>
-&gt; ��J������ĳ�G����, �@�঳���|�H��L�޳N�^�X�z.<br>
+<p><font color="#408080">傳送日期: 2001年10月12日 AM 10:43<br>
+&gt; 居住省份（臺灣讀者請寫縣市）：台北市<br>
+&gt; 對侯捷的建議：謝謝, 願能有機會以其他技術回饋您.<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��12�� AM 11:25<br>
-�J�����͡M�z�n�T<br>
-�ګD�`���w�A�������M�S�O�O�޳N�M�D����r���ԭz����M��o�ܿˤ��H�M�M�@�I�����͵w�C<br>
-�A���ѧڤ]�R�F�⥻�M�i������٤��t�@�I�M�ݭn�J��Ū�M���L�ګ�ĳ�A���W�����ֶK�l�ܦ��O�s���ȡM�ȱo�ϴ_�ݡM���ɭn���L�U���S�n������K�]�ڤU���L�@���`�U�������M�i���k����a�^�M�B����K��a��O�B�\Ū�C</font><font
-color="#8080FF">�z�i�H�e�U�ؤ���ޤj�ǥX����</font><font color="#408080">�H�Y�z�@���Ѥ@�_����M�]�i���W���]�p�G�K�O�q�l���y�A�Ψ쪩�v�M���i���]�A����L���^�M�i��ܦh�H���|���w�C<br>
-�Ʊ��`�`�ݨ�z���ۧ@�C<br>
+<p><font color="#408080">傳送日期: 2001年10月12日 AM 11:25<br>
+侯捷先生﹐您好﹗<br>
+我非常喜歡你的網站﹐特別是技術專題的文字的敘述風格﹐顯得很親切隨和﹐一點都不生硬。<br>
+你的書我也買了兩本﹐可能水平還不差一截﹐需要仔細讀﹐不過我建議你網上的不少貼子很有保存價值﹐值得反復看﹐有時要全盤下載又好像不方便（我下載過一次總下載不完﹐可能方法不對吧）﹐且不方便攜帶到別處閱讀。</font><font
+color="#8080FF">您可以委託華中科技大學出版社</font><font color="#408080">隨某您一本書一起附後﹐也可能單獨售賣（如果免費電子書籍涉及到版權﹐儘可不包括到光盤中）﹐可能很多人都會喜歡。<br>
+希望能常常看到您的著作。<br>
 </font><br>
-<font color="#000000">���J���^�СG�ܦ����e�ڤw�PGOTOP���o�@�ѡA�n��J�����������@�����CD�A���a�@������p�U�A���ѵ�Ū�̡C</font><font
-color="#0000FF">�o��CD���|�K�O�A���|�C��</font><font color="#000000">�C�ڹ��K�O���F��A���׶R�ν�A���S���n�P�C�N���Ө��A��߻s�@���F�謰���򤣯�z���𧧪����o���^�X�HŪ�̪��I�p���ʶR�A�ڤ~���D�L�̯u���b�G���A�ӫD�������ءC�N�R��Ө��A�ڤ����w�K�O�~�A�ڭ̦p��V�K�O�����̭n�D�A�ȡH�p��V�L�̭n�D�~��HBruce 
+<font color="#000000">●侯捷回覆：很早之前我已與GOTOP取得共識，要把侯捷網站做成一片精美CD，附帶一本精美小冊，提供給讀者。</font><font
+color="#0000FF">這片CD不會免費，但會低價</font><font color="#000000">。我對於免費的東西，不論買或賣，都沒有好感。就賣方而言，精心製作的東西為什麼不能理直氣壯的取得實質回饋？讀者花點小錢購買，我才知道他們真正在乎它，而非視為雞肋。就買方而言，我不喜歡免費品，我們如何向免費供應者要求服務？如何向他們要求品質？Bruce 
 Eckel 
-���ѳ����K�O�q�l�����A�ӥB�Q����}�A�����O�ּƤ����ּơA�O�����A�ڤ�������ک���o���K�O�~�����n�~��A�ï����o�n�A�ȡC</font></p>
+的書都有免費電子版本，而且十分精良，但那是少數中的少數，是異類，我不敢期望我所獲得的免費品都有好品質，並能夠獲得好服務。</font></p>
 
-<p><font color="#000000">�A��V�K�O��email server�Bweb server�z���𧧪��n�D�~��ܡH�A��V�K�O�q�l�Ѫ��@�̭n�D�~��ܡH�o���ک��A���o�کR�I�@�A�ڤ��n�o��d���A�o��S���O�١C</font></p>
+<p><font color="#000000">你能向免費的email server、web server理直氣壯的要求品質嗎？你能向免費電子書的作者要求品質嗎？得之我幸，不得我命！哦，我不要這麼悲情，這麼沒有保障。</font></p>
 
-<p><font color="#000000">�n����˪����ȡA�N�n������˪�����C</font></p>
+<p><font color="#000000">要有怎樣的價值，就要接受怎樣的價格。</font></p>
 
-<p><font color="#000000">���P�ӵo�A�Z�g�Mť :)</font></p>
+<p><font color="#000000">有感而發，擾君清聽 :)</font></p>
 
-<p><font color="#000000">�p�G�ؤ��X�����]�@�N�s�@�o��J������CD�A�ڷ��M�w��C</font></p>
+<p><font color="#000000">如果華中出版社也願意製作發行侯捷網站CD，我當然歡迎。</font></p>
 
-<p><font color="#000000">�uCD�ܮe�������A�A������CD���_�H�v��A���ҵs�������A���W�V�ӴN�����㪺 
+<p><font color="#000000">「CD很容易拷貝，你的有價CD能賣否？」喔，不勞盜版拷貝，網上向來就有完整的 
 :)<br>
-�ڭn�κ�o��CD�]�ˡB��o���O�U�A��Ū���@�N���I�p���_���ä��ߡC</font></p>
+我要用精緻的CD包裝、精緻的別冊，讓讀者願意花點小錢起收藏之心。</font></p>
 
-<p><font color="#000000">�o��CD����ڡA�O�ӤH�����A�ګܭ����C��W�T���ѧ�����A2002�~��N�}�l�i��C���� 
+<p><font color="#000000">這片CD之於我，是個人紀念，我很重視。手上三本書完成後，2002年初就開始進行。等著 
 :)</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><br>
-<font color="#408080">�ǰe���:</font> <font color="#408080">Friday, October 12, 2001 
+<font color="#408080">傳送日期:</font> <font color="#408080">Friday, October 12, 2001 
 12:11 AM</font><br>
-<font color="#408080">�H�U�O�Ӧ۵��x�����ѩ�����H�G</font></p>
+<font color="#408080">以下是來自華儲網路書店的轉信：</font></p>
 
-<p><font color="#808080">�y�M�ӳo�ˤ@���Y�a���n��C++�@�ɦW�ۡM���ȿ�𥼯�X��²�餤�媩�M�ӥB�b�ꤺ���n�A���G�]�ä��㻮�C�i�H���b�@�~���e�M�Ʀܫܤ֦�C++���ǲߪ�ť���L�o���ѡM�o��b�O�@�ؿ�ѡC���ѡM�b�ܦh�H�����ԧV�O���U�M�o���Ѳש����i�{�b�ڭ̪����e�M���u����C++�{�ǭ��ӻ��M�o�T��O�@��ȱo</font><font
-color="#408080">�u�a�ۼy</font><font color="#808080">���ơC</font><font
-color="#408080">�z<br>
+<p><font color="#808080">『然而這樣一本擲地有聲的C++世界名著﹐不僅遲遲未能出版簡體中文版﹐而且在國內其聲譽似乎也並不顯赫。可以說在一年之前﹐甚至很少有C++的學習者聽說過這本書﹐這實在是一種遺憾。今天﹐在很多人的辛勤努力之下﹐這本書終於能夠展現在我們的面前﹐對於真正的C++程序員來說﹐這確實是一件值得</font><font
+color="#408080">彈冠相慶</font><font color="#808080">的事。</font><font
+color="#408080">』<br>
 <br>
-�z�n�M�W���o�q��r�O�A�̺�������effective c++��²�������@�q�M�����D�z�ݥX�F�S���M�u�a�ۼy�o�ӵ������ӳo�˥ΡM�o�ӵ��O�S�q���Ψӧήe�a�H�a�Ʊo��F�������B�@�M�H�̰������ˤl�C�Φb�o�̬O���O�����Y���ﰨ�L���Pı�G�^</font><br>
+您好﹐上面這段文字是你們網站關於effective c++的簡介中的一段﹐不知道您看出了沒有﹐彈冠相慶這個詞不應該這樣用﹐這個詞是貶義詞用來形容壞人壞事得到了應有的處罰﹐人們高興的樣子。用在這裡是不是有牛頭不對馬嘴的感覺：）</font><br>
 <br>
-���J���^�СG�o��Ū�̫D�`�ΤߡA�P�¡C<br>
+●侯捷回覆：這位讀者非常用心，感謝。<br>
 <br>
-�u�a�ۼy���ɵM�O�S���C��N�묰�u�Y�N�@�x�Ӥ��ۼy�P�v�C<font
-color="#0000FF">�~�Ѥ��N�ǡG�u�N�P�^�ꬰ�͡A�@�٤����b��A�^���u�a�A������˦P�]�C�v</font>�o�̨èS���S�q�C<font
-color="#0000FF">Ĭ���ޥ�סG�u�@��L��A�h�T�l�̥i�H�u�a�ۼy�o�C�v</font>�o�����i�ެ��@�I�t���N�q�A���u�a�ۼy�����O���ʪ��C<br>
+彈冠相慶不盡然是貶詞。其意喻為「即將作官而互相慶賀」。<font
+color="#0000FF">漢書王吉傳：「吉與貢禹為友，世稱王陽在位，貢公彈冠，言其取捨同也。」</font>這裡並沒有貶義。<font
+color="#0000FF">蘇洵管仲論：「一日無仲，則三子者可以彈冠相慶矣。」</font>這裡雖可引為一點負面意義，但彈冠相慶本身是中性的。<br>
 <br>
-�s���b�ޤ��夤�ΤF�o�ӵ��A���M�Ψ夣�O�����ǡA���w�y���B�������N���٬O���F��F�A�õL<font
-color="#000000">���Y���ﰨ�L</font>���� �X 
-�ܤ֤]���F����l�C�̧ڤ����A�Υi�����u���x�ۼy�v�C</p>
+孟岩在引介文中用了這個詞，雖然用典不是那麼精準，但歡慶的、正面的意思還是表達到了，並無<font
+color="#000000">牛頭不對馬嘴</font>之憾 — 
+至少也對到了牛鼻子。依我之見，或可換為「擊掌相慶」。</p>
 
-<p>�ګܰ����M�j�a�Q�װ�Ǫ��B��r�W�����D :)<br>
+<p>我很高興和大家討論國學的、文字上的問題 :)<br>
 <br>
 <br>
 <br>
 <br>
 <br>
 <br>
-<font color="#408080">�ǰe���: 2001�~10��12�� AM 09:19<br>
-�D��: �P��<br>
+<font color="#408080">傳送日期: 2001年10月12日 AM 09:19<br>
+主旨: 致謝<br>
 <br>
-�J���z�n�G<br>
-�N�b���½�\�FC++ Primer���媩�ɡAı�o��b�ӫp�B�Ӥ���K�F�C�o�@��~�H�ӡA�w�g�ߺD�p�����j���Y�ѡA�ɶq������q�l�ɥH�ѧڦbPDA�W½�\�C�߷Q�]�\�J���ͷ|���|�j�o���ߡA�N�q�l�ѩ�b�����W�A�H�ѧڭ̳o��Ū��download�C�����Ʊ�����A���٬O�W���d�d�a�I�֪��A���M�X�G�N�Ƥ��~���A�z�o�X�~���j�@�X�G����W�ӤF�A�P�ʤ��l�A�@�w�n�g�ʫH���±z���B�n�P���O�C<br>
+侯捷您好：<br>
+就在剛剛翻閱了C++ Primer中文版時，覺得實在太厚、太不方便了。這一兩年以來，已經習慣如此的大部頭書，盡量能夠有電子檔以供我在PDA上翻閱。心想也許侯先生會不會大發善心，將電子書放在網路上，以供我們這些讀者download。雖知希望渺茫，但還是上網查查吧！誰知，竟然出乎意料之外的，您這幾年的大作幾乎都放上來了，感動之餘，一定要寫封信謝謝您的慷慨與仁慈。<br>
 <br>
-�z���ѧڴX�G�����R�A���F���ǮѡA�}�F�X�a�ѧ��٬O�䤣���A�N�e�ѤѩR�F�C</font><font
-color="#8080FF">�o�X�~�ӡA�M���޳N�����y�A���G�U�[�o�S�O�֡C�i��]��x�W���u����Q�A������o�����|�f�g�����a�I</font><font
-color="#408080">�d�޳N���H�A���G�û��n�Ԩ����������������ݹJ�C�٦n�A�ӤH���^��\Ū��O�|�i�A�W���d�d�@�Ǹ�ơA�R�ǭ��ѡA�|�i��C���@�Ӧ��ǭ��Ѫ��@�̡A��y�r������b���X�G�޳N�H���W�d�]�ר�O���w�Τ@�ǥͬ����Ҥl���|�ҡB��ӡC���|���٦n�A�@���ޥΡA�����O���ݨS�����A�����٧�N������F�C���M�o�]����ڪ��^��{�פ��n�C�^�A�G�ӡA���ꪺ��r�A�٬O����ˤ��A�Y�ϼg�Ѫ���½Ķ���H�A��峹�˪��������q�A�ܤ֥��T�v�P�ݮѪ��t�פ]�@�w��ݤ@�ǭ��ѧ֡C�����[�ثe�x�W�����|�A���G�]�u���z�b�ѯгo�@����a�A����z���I�X�A�ӤH�ڤ]�u���V�P�۷\�F�C<br>
+您的書我幾乎都有買，除了有些書，逛了幾家書局還是找不到後，就委諸天命了。</font><font
+color="#8080FF">這幾年來，專講技術的書籍，似乎下架得特別快。可能也跟台灣的短視近利，不做研發的社會病症有關吧！</font><font
+color="#408080">搞技術的人，似乎永遠要忍受成為次等公民的待遇。還好，個人的英文閱讀能力尚可，上網查查一些資料，買些原文書，尚可止飢。但一來有些原文書的作者，其造字遣詞實在不合乎技術人之規範（尤其是喜歡用一些生活的例子來舉證、對照。不舉例還好，一旦引用，不但是有看沒有懂，有時還把意思弄擰了。當然這也源於我的英文程度不好。），二來，本國的文字，還是比較親切，即使寫書的或翻譯的人，把文章弄的狗屁不通，至少正確率與看書的速度也一定比看一些原文書快。但綜觀目前台灣的社會，似乎也只有您在耕耘這一塊荒地，面對您的付出，個人我也只有越感羞愧了。<br>
 <br>
-�ܤ֥�����A�Q�����ܫܦh�A������L�k�t�X�C���A�̷Q�����O�G���±z�I<br>
-�~���٥��]�O�WŪ�̽мg�����^�G�x�_��<br>
-��J������ĳ�G<br>
-1.�h�X�Ǧn��<br>
-2.�Y���H�Ѫ��W�q�l�ɡA�h�O�\�w�L�q�C<br>
+很少打中文，想說的話很多，但雙手無法配合。但，最想說的是：謝謝您！<br>
+居住省份（臺灣讀者請寫縣市）：台北縣<br>
+對侯捷的建議：<br>
+1.多出些好書<br>
+2.若能隨書附上電子檔，則是功德無量。<br>
 <br>
-</font>���J���^�СG<font color="#000000">�C�ӤH�����L�O�b�ۤv���^��W�V�O�C�Ш|�O�کҿ�ܪ��ӷ~�C�z�����޳N�`�ʡA�ⲣ�~���n�A�P�˹���|�O�j�^�m�C</font></p>
+</font>●侯捷回覆：<font color="#000000">每個人都不過是在自己的崗位上努力。教育是我所選擇的志業。您身為技術總監，把產品做好，同樣對社會是大貢獻。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 </font></p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��13�� AM 12:05<br>
-�ԦѮv�A�n�R<br>
-�ڦb�� Essential C++ ²�骩�ɵo�{�b p30�ML-4 �M p31�ML18 ���̬O���ǵ�ostream 
-��H<br>
-�ӫD </font><font color="#8080FF">&quot; ofstream outfile( &quot;seq_dat.txt&quot; ); 
-&quot; </font><font color="#408080">�o�y�һ���ofstream �M<br>
-�����O������O�S<br>
+<p><font color="#408080">傳送日期: 2001年10月13日 AM 12:05<br>
+候老師你好﹕<br>
+我在看 Essential C++ 簡體版時發現在 p30﹐L-4 和 p31﹐L18 那裡是說傳給ostream 
+對象<br>
+而非 </font><font color="#8080FF">&quot; ofstream outfile( &quot;seq_dat.txt&quot; ); 
+&quot; </font><font color="#408080">這句所說的ofstream ﹐<br>
+不知是為什麼呢﹖<br>
 <br>
-�٦��Mp33�ML2 �� L4 ���y�~�O���T���S�٬O��y���S���S<br>
-�Ʊ�S����ê�z�T<br>
+還有﹐p33﹐L2 跟 L4 那句才是正確的﹖還是兩句都沒錯﹖<br>
+希望沒有妨礙您﹗<br>
 <br>
-</font>���J���^�СG<font color="#000000">ofstream object <big><big><strong>is a </strong></big></big>ostream 
-object�A�ҥH lippman ���򻡤]�S�����C<br>
-p33 �����D�A�Ԩ��ɻ~���C<br>
+</font>●侯捷回覆：<font color="#000000">ofstream object <big><big><strong>is a </strong></big></big>ostream 
+object，所以 lippman 那麼說也沒有錯。<br>
+p33 的問題，詳見勘誤表。<br>
 <br>
 <br>
 </font></p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��13�� PM 12:15<br>
-�J�Ѯv.�z�n:<br>
-�ܦ����ݤF�A���`�J�L�XMFC�ݪ��ɭ��٤��ܦY�O;�����.<br>
-���O�ݨ�@�Ǧ�����COM�n�_C++ ���峹<br>
-�ڷQ�ݤ@�U�ǲ�VC++�٦��e�~��?<br>
-�O�����ǲ�COM�O�٬O���ǦnC++�O?<br>
+<p><font color="#408080">傳送日期: 2001年10月13日 PM 12:15<br>
+侯老師.您好:<br>
+很有興看了你的深入淺出MFC看的時候還不很吃力;能看懂.<br>
+但是看到一些有關於COM好于C++ 的文章<br>
+我想問一下學習VC++還有前途嗎?<br>
+是直接學習COM呢還是先學好C++呢?<br>
 <br>
-</font>���J���^�СG<font color="#408080">�uCOM�n�_C++</font><font color="#000000">�v�H��̮ڥ��O���P���F��C�A�j���O�q�mEssential 
-COM�n�o���Ѫ�������פ��ݨӪ��C�p�G�A�ݧڧڹ�o�y�ܪ��ݪk�A���A�ڹ�b���Q���׳o�صL�᪺�ܡC�p�G���H��</font><font
-color="#408080">�uC++�n�_COM</font><font color="#000000">�v�ڤ]�@��ı�o�L��C</font></p>
+</font>●侯捷回覆：<font color="#408080">「COM好于C++</font><font color="#000000">」？兩者根本是不同的東西。你大概是從《Essential 
+COM》這本書的相關文案中看來的。如果你問我我對這句話的看法，唔，我實在不想評論這種無聊的話。如果有人說</font><font
+color="#408080">「C++好于COM</font><font color="#000000">」我也一樣覺得無聊。</font></p>
 
-<p><font color="#000000">�A�ݡu�e�~�v�A���ݪ��O�u���~�v�A�O�a�H�Ӱݨ��Ǵx���~�ɰʦV���j���q�C�o���ڦb�j������t���A�\�h�P�ǰݤF�\�h�ܤj�����D�A�o�ǰ��D�A���ǭn�ݦѦ��A���ǭn�ݦѦ��A���ǭn�ݤ񺸻\���A�ڬO�S�����^���� 
+<p><font color="#000000">你問「前途」，其實問的是「錢途」，是吧？該問那些掌握業界動向的大公司。這次我在大陸兩場演講，許多同學問了許多很大的問題，這些問題，有些要問老朱，有些要問老江，有些要問比爾蓋茲，我是沒有資格回答的 
 :)</font></p>
 
 <p><font color="#000000"><br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��13�� PM 12:25<br>
-�J���ͱz�n<br>
-�ڬO�j�����@�Ӥj�T�p����M�~�ǥ�.<br>
-�ڬO�b&lt;�{�ǭ�&gt;�W�{�ѱz��.�z�������F��,<br>
-�b��ť��,���`���P�Ӥ���������,��b�O�O�ڨ��q�D�L.<br>
-�b��,�ڦ��X�Ӱ��D�Q�V�z�б�:<br>
-�ڪ��Ǯզb�j�@�j�G�}�����O��¦��,<br>
-�{�b�ڭ̥u�ǤF�@��c�Mfoxpro�ƾڮw�y��,<br>
-�p��,�ڥ����{�i���y�������.<br>
-�b�ڬݨ�,c++���ͩR�O�٫ܱj,���Oų�_������<br>
-���L��`��,�\�h�H�w��Jjava���h��;java�T�M�i�R,<br>
-���]���O����;�ӥB,�L�n�S�d�X�F�@�ӵ��X�Fc++�M<br>
-java�n�B��c#,�٦�vb�����F��,�ڤw�S���Y��,�ܷQ�V�e���̽б�.<br>
-�ڴ��۾ǤF�����Ȥ��(javascript)�ΪA�Ⱦ��ݽs�{<br>
-(asp),�{�b�ڥ��b�@�@�Ӥ��q�����d���t��,�n�D�O�n��{<br>
-�L�ե�W��,���ӧڤw��{�ӥ\��(�b���W��쪺�N�X),<br>
-����ӵo�{�A�Ⱦ������ҬOnt4+iis4.0,�ӧڥΪ��N�X<br>
-�h�n�D�����b2000+iis5.0�U�B��.�ҥH�٭n����.<br>
-���ڦb�j���������W�٨S���W�v���I.�{�D�U�_�z!<br>
+<p><font color="#408080">傳送日期: 2001年10月13日 PM 12:25<br>
+侯先生您好<br>
+我是大陸的一個大三計算機專業學生.<br>
+我是在&lt;程序員&gt;上認識您的.您所講的東西,<br>
+在我聽來,高深精闢而不晦澀難懂,實在是令我受益非淺.<br>
+在此,我有幾個問題想向您請教:<br>
+我的學校在大一大二開的都是基礎課,<br>
+現在我們只學了一們c和foxpro數據庫語言,<br>
+如今,我正面臨進階語言的選擇.<br>
+在我看來,c++的生命力還很強,但是鑒于它精髓<br>
+的過於深奧,許多人已投入java的懷抱;java固然可愛,<br>
+但也不是完美;而且,微軟又搞出了一個結合了c++和<br>
+java好處的c#,還有vb等等東西,我已沒有頭緒,很想向前輩們請教.<br>
+我曾自學了網絡客戶端(javascript)及服務器端編程<br>
+(asp),現在我正在作一個公司內部留言系統,要求是要實現<br>
+無組件上傳,本來我已實現該功能(在網上找到的代碼),<br>
+但後來發現服務器端環境是nt4+iis4.0,而我用的代碼<br>
+則要求必須在2000+iis5.0下運行.所以還要重做.<br>
+但我在大陸的網站上還沒找到名師指點.現求助于您!<br>
 <br>
-�p�X���,���ӷP�E!!<br>
+如蒙賜教,不勝感激!!<br>
 <br>
-</font>���J���^�СG<font color="#000000">�A�D�U��ڤ���H�D�U�n�����I�A�o�˪��H�S���H��^���A�CBTW�Aasp, 
+</font>●侯捷回覆：<font color="#000000">你求助於我什麼？求助要有重點，這樣的信沒有人能回答你。BTW，asp, 
 javascript, iis 
-���O�ڵL�k���U�A���C�گ����U��a�Ӫ����U�A���b�ڪ��峹�M�Ѹ̡C<br>
+都是我無法幫助你的。我能夠對各位帶來的幫助，都在我的文章和書裡。<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��13�� PM 08:28<br>
-�J���͡M�A�n�T<br>
+<p></b><font color="#408080">傳送日期: 2001年10月13日 PM 08:28<br>
+侯先生﹐你好﹗<br>
 <br>
-�ڬO�j�����@�W��s�͡M�{�b���b�ǲ�c++�y���M�Oborland c++3.1�����M�ڹJ��o��@�Ӱ��D�Mc++�����@�ӹϧΤu��n��]--�W��Borland 
-Graphics Interface,²��BGI,���O�ѩ�ڥΪ��OBorland c++5.0�sĶ���M�C���B��ϧΤ��ɡM�`�O�X���R����bwindows�U�B��BGI,�ڴN�Q�аݫJ���͡M�ګ�ˤ~��bBorland 
-c++5.0�sĶ���U�B��ӳn��]�C��J���ͯ�b�ʦ��������P�ѵ��M���¡T<br>
+我是大陸的一名研究生﹐現在正在學習c++語言﹐是borland c++3.1版本﹐我遇到這麼一個問題﹐c++中有一個圖形工具軟件包--名為Borland 
+Graphics Interface,簡稱BGI,但是由於我用的是Borland c++5.0編譯器﹐每當運行圖形文件時﹐總是出錯﹕不能在windows下運行BGI,我就想請問侯先生﹐我怎樣才能在Borland 
+c++5.0編譯器下運行該軟件包。望侯先生能在百忙之中給與解答﹐謝謝﹗<br>
 <br>
-���ƨƦp�N�T<br>
+祝事事如意﹗<br>
 <br>
-</font>���J���^�СG<font color="#000000">BGI �O�b DOS 
-���ҤU�N�ù�������ø�ϼҦ��C�A�p�G�bWindows��DOS BOX 
-�����楦�A�����ϥ� full screen (not window) �~��C�ӥBMS Windows�t�ƨ�{�b�A�O�_��full 
-screen DOS box �ٯ�䴩 real mode�A���L�ðݡC�ڷQ�A���ӦA�ϥ� borland 
-C++ 3.1�A�A�Ƿ|�FBGI�A�N�Ӧb�~�ɬ����W�γ��C</font><font color="#408080"><br>
+</font>●侯捷回覆：<font color="#000000">BGI 是在 DOS 
+環境下將螢幕切換到繪圖模式。你如果在Windows的DOS BOX 
+中執行它，必須使用 full screen (not window) 才行。而且MS Windows演化到現在，是否其full 
+screen DOS box 還能支援 real mode，不無疑問。我想你不該再使用 borland 
+C++ 3.1，你學會了BGI，將來在業界派不上用場。</font><font color="#408080"><br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��13�� PM 10:00<br>
-jjhou�M�z�n�T<br>
-�аݡmC�{�ǳ]�p�е{�n���@�~�ɻ~�b���̦��S<br>
-����<br>
-�P§�T<br>
+<p><font color="#408080">傳送日期: 2001年10月13日 PM 10:00<br>
+jjhou﹐您好﹗<br>
+請問《C程序設計教程》的作品勘誤在哪裡有﹖<br>
+謝謝<br>
+致禮﹗<br>
 <br>
-</font>���J���^�СG<font color="#000000">������ڦ��F�U�쪺�j�M�����H�ڦ^���o�Ӱ��D�A�ߤ@���N�ϴN�O�Ʊ椣�n�A���H�ݧڳo�����D�C</font></p>
+</font>●侯捷回覆：<font color="#000000">為什麼我成了各位的搜尋引擎？我回答這個問題，唯一的意圖就是希望不要再有人問我這類問題。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��14�� AM 12:00<br>
-�J�Ѯv�R<br>
-�z�n�C�ڲ{�b¾�C�ۤv�b���Ѧa�t�ǲ߼ƾڵ��c,�Pı�����M���L�ƹ�]�����C�e�X�ѶR�F�ݵؤ����messential 
-c++�n,Very Good!<br>
-�@�ɫ_�X�p�G�n�O�J�Ѯv����˩�½Ķ��~������n���m�ƾڵ��c�n�������ѡ]½Ķ��n�^�M���ڭ̳o�ǤH�i�N���γo�򨯭W�F�T<br>
-�@�ɤ��y�M��J�Ѯv�Ҽ{�C ���§AĶ���messential c++�n�M�mEffective c++�n�Ρm�`�J�L�X 
-MFC 2/e ²�骩�n�M�Ʊ��~��...<br>
-���±z�F��!<br>
+<p><font color="#408080">傳送日期: 2001年10月14日 AM 12:00<br>
+侯老師﹕<br>
+您好。我現在職。自己在昏天地暗學習數據結構,感覺很難﹐不過事實也很難。前幾天買了看華中的《essential 
+c++》,Very Good!<br>
+一時冒出如果要是侯老師能推薦或翻譯國外的比較好的《數據結構》之類的書（翻譯更好）﹐那我們這些人可就不用這麼辛苦了﹗<br>
+一時之語﹐望侯老師考慮。 謝謝你譯的《essential c++》和《Effective c++》及《深入淺出 
+MFC 2/e 簡體版》﹐希望繼續...<br>
+謝謝您了先!<br>
 <br>
-</font>���J���^�СG<font color="#000000">�ڭӤH�� data structure 
-�ܷP����A�����½Ķ�o�˪��Ѥ�����P����C</font><font
+</font>●侯捷回覆：<font color="#000000">我個人對 data structure 
+很感興趣，但對於翻譯這樣的書比較不感興趣。</font><font
 color="#408080"><br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��14�� AM 09:15<br>
-�q���JSir�R<br>
-�z�n�T�ڬO�j�����@�W���q�j�ǥ͡M�{�b�_�ʩ��ѡC�ܩ�p�b�z�ʦ������Z�z�C���M���N�Q���z�g�H�F�M���@�Q��z�C�Ѧ���Email���ƶq�M�N...�C�����M�Q���{�b�ݩM�^�_Ū�̨ӫH�w�g���F�z�@�Ӥ��p���t��F�M�N�p�z�ۤv�һ����M���e���t��C�ϧڨM�ߵ��z�g�H����]�O--�ڷQ�ĳX�z�T<br>
-��M�ڤ��O�������x���p�O�̡M�ڥu�O�Q�N���ڭ̾Ǯժ��Ҧ��s�{funs�V�z���X��²�檺���D�C�o��?�ڤ����M�ڪ��D�z�O�p���p�������M�ӱz�S�O�@���Q�����R�ξA�ͬ����H�]�q�z���峹���ݥX�Ӫ��^�M�i�O�M�p�G�z���ťb�p�ɨӸѵ��ڭ̪����D�M�a���ڭ̪��ּ֦ܤֱN����b�~�C�ҥH�M�Q���J���X��o�򰪧ڴN�_�N�F 
-�R�^ �C<br>
-�b�N���j�a�o���e�M�ڷQ���u�O�@?�ڭӤH���X�y�C�����M�ڭn�V�z���ܧڳ̤j���·N�C�ڱq�z���Ѹ̾Ǩ�F�ܦh�ܦh���ѡ]�u�n�@���Ѫ��@�̡NĶ�̩Ϊ�?��??���򪺦W��̦��z���j�W�M�o�w�g?���n�ڥߨ�Ǹy�]���R�n����F�^�M����ı�o�M�o�٬O���n���C�̥D�n���M�O�z�е��F�ڬ�����n�h�ǩM�p��h�ǡC�U�y���R�¤��P�����Y�¤��P���M�z�T�T���е��F�ڦp��h�������C���z���L�]�ΤޥΡ^���@�ǸܡM���F�ھǲߪ��y�k�ʡQ�z�����}�ߤ��G���W�ҡM�Ѳ椧�����W�����M�ҥH�ڦۤv�b�ն���̱��F?�ӤH�s�{�����M�}�l½Ķ�@�ǭ^��峹�M?�@�ǪF��@�ɵ��j�a�ݡM�bBBS�W�]�ɶq���U���Ǥ�ڧ󡧪�Ǫ̡�����Ǫ̡C�@�o�ǮɨS���@�I��L���Q�k�M���U�H���N�O�@��ܧּ֪��ƨ�M�䦸�M�ڷQ�ڰ��L���w�g���ڱa�Ӧn�B�M�N�p�P�z���L���R�Z���L���M���d�U����C�z�������O�ڱ`�h���a��M��ڤW�M��M�ڤw�g�⥦���@�@�ӥ𮧪��a��F�]�z���|���N�a�S�^?�ڬݮѬݱo�Ӳ֤F�Ϊ�?�N�X?���Y�k���ɭԳ��|�h�z����������M��?�O��S�@�����E�o�ڪ������C�����M����A���U�h�F�M�A���U�h�N�ܦ��ӤH�R���F�C�R�^<br>
-�n�F�M���٬O�^��ڪ����D�W�ӡM�U���O��?�����D�R<br>
+<p></b><font color="#408080">傳送日期: 2001年10月14日 AM 09:15<br>
+敬的侯Sir﹕<br>
+您好﹗我是大陸的一名普通大學生﹐現在北京念書。很抱歉在您百忙中打擾您。其實﹐早就想給您寫信了﹐但一想到您每天收到Email的數量﹐就...。呵呵﹐想必現在看和回復讀者來信已經成了您一個不小的負擔了﹐就如您自己所說的﹐甜蜜的負擔。使我決心給您寫信的原因是--我想採訪您﹗<br>
+喔﹐我不是什麼雜誌的小記者﹐我只是想代表我們學校的所有編程funs向您提幾個簡單的問題。這很?我內疚﹐我知道您是如此如此的忙﹐而您又是一個嚮往恬靜舒適生活的人（從您的文章中看出來的）﹐可是﹐如果您能抽空半小時來解答我們的問題﹐帶給我們的快樂至少將持續半年。所以﹐想到投入產出比這麼高我就冒昧了 
+﹕） 。<br>
+在代表大家發言前﹐我想先只是作?我個人說幾句。首先﹐我要向您表示我最大的謝意。我從您的書裡學到了很多很多知識（只要一本書的作者﹑譯者或者?任??什麼的名單裡有您的大名﹐這已經?成要我立刻掏腰包的充要條件了）﹐但我覺得﹐這還是次要的。最主要的﹐是您教給了我為什麼要去學和如何去學。俗語說﹕授之與魚不若授之與漁﹐您確確實實教給了我如何去“漁”。像您說過（或引用）的一些話﹐成了我學習的座右銘﹔您說“開心之果不獨證﹐解脫之味不獨飲”﹐所以我自己在校園網裡掛了?個人編程網站﹐開始翻譯一些英文文章和?一些東西共享給大家看﹐在BBS上也盡量幫助那些比我更“初學者”的初學者。作這些時沒有一點其他的想法﹐幫助人本就是一件很快樂的事兒﹐其次﹐我想我做過的已經給我帶來好處﹐就如同您說過的﹕凡走過的﹐必留下痕跡。您的網站是我常去的地方﹐實際上﹐嗯﹐我已經把它當作一個休息的地方了（您不會介意吧﹖）?我看書看得太累了或者?代碼?的頭疼的時候都會去您的網站轉轉﹐它?是能又一次的激發我的熱情。呵呵﹐不能再說下去了﹐再說下去就變成個人崇拜了。﹕）<br>
+好了﹐我還是回到我的問題上來﹐下面是我?的問題﹕<br>
 <br>
-1�M 
-����P�ϱz���W�F��T�o�����]�ڧکҪ��M�z�j�Ǫ��M�~�ëD�p����^�S</font></p>
+1﹐ 
+什麼促使您走上了資訊這條路（據我所知﹐您大學的專業並非計算機）﹖</font></p>
 
-<p>���J���^�СG<font color="#000000">����C<br>
+<p>●侯捷回覆：<font color="#000000">興趣。<br>
 </font><font color="#408080"><br>
-2�M 
-�zı�o�����@�W�u�q���{�ǭ��̭��n������O����S�n�q�{�ǭ��૬��t�Τ��R�S�n�D�������O�S<br>
+2﹐ 
+您覺得成為一名優秀的程序員最重要的素質是什麼﹖要從程序員轉型到系統分析又要求什麼素質呢﹖<br>
 <br>
-</font>���J���^�СG<font color="#000000">����C����a�Ӽ����A�����a�Ө��V�C</font><font
+</font>●侯捷回覆：<font color="#000000">興趣。興趣帶來熱情，熱情帶來卓越。</font><font
 color="#408080"><br>
 <br>
-3�M �z�����@���Ѧn�a�P�_���зǬO����S<br>
+3﹐ 您評價一本書好壞與否的標準是什麼﹖<br>
 <br>
-</font>���J���^�СG<font color="#000000">1. 
-�O�_�ŦX���ҩw�����D�]�ѦW�^2. �O�_�޳N���T&nbsp; 3. 
-�O�_���\Ū����]��´�P��r�^�C</font><font color="#408080"><br>
+</font>●侯捷回覆：<font color="#000000">1. 
+是否符合它所定的標題（書名）2. 是否技術正確&nbsp; 3. 
+是否有閱讀趣味（組織與文字）。</font><font color="#408080"><br>
 <br>
-4�M �zı�o������OC\C++�����F�u�~�зǦӤ��O��L�y���O�S��������a��O��L�y�����i�������S�z�w�����ٯ�O�������зǦa��h�[�S<br>
+4﹐ 您覺得為什麼是C\C++成為了工業標準而不是其他語言呢﹖它有什麼地方是其他語言不可比擬的﹖您預期它還能保持它的標準地位多久﹖<br>
 <br>
-</font>���J���^�СGC ���Ĳv�AC++ 
-���^���ۮe�B�Ĳv�B�e�j���ѨM���D���U�ؾ���C���DJava�MC#�b�Ĳv�W�K��C++�A�_�h���H�ٰ�C++�b�s�{�y���W���D�y�a��C�u�~�ɳ\�h�n��A���Ĳv���ͩR�A�������{�׫D�˨��g�����H�Q���C���M�A���P�S�⪺�y���A�b���P���W�U�֤@���ѡA�]�O���M���C</p>
+</font>●侯捷回覆：C 的效率，C++ 
+的回溯相容、效率、龐大的解決問題的各種機制。除非Java和C#在效率上貼近C++，否則難以撼動C++在編程語言上的主流地位。工業界許多軟件，視效率為生命，重視的程度非親身經歷難以想像。當然，不同特色的語言，在不同領域上各擁一片天，也是必然的。</p>
 
-<p><font color="#408080">5�M C++�b����@�F�ܦh�ʧ@�M�F�ѳo�ǰʧ@�O�����n��? 
-����@?���׫��ⴤ�~��?��?���ܩ�L���O�S<br>
+<p><font color="#408080">5﹐ C++在幕後作了很多動作﹐了解這些動作是有必要的? 
+□□@?限度怎麼把握才能?我?不至於過分呢﹖<br>
 <br>
-</font>���J���^�СG<font color="#0000FF">�F�� C++ 
-������ʧ@���䥲�n�C�F�Ѩ�u���A�HC++�ѨM���D�ɡA��y�������H�ΧA���ҧ@�Ҭ� 
-�ߵL��ê�v����</font><font color="#000000">�C�o�N�O�A�U�����֪����׼зǡA���Ω�C�ӤH���W�A�ұo���G�����ۦP�C�N�H�W�� 
-C++ ����������޳N�A���A�ΡC</font><font color="#408080"><br>
+</font>●侯捷回覆：<font color="#0000FF">了解 C++ 
+的幕後動作有其必要。了解到「當你以C++解決問題時，對語言本身以及你的所作所為 
+心無罣礙」為止</font><font color="#000000">。這就是你下探內核的限度標準，應用於每個人身上，所得結果都不相同。將以上的 
+C++ 替換為任何技術，都適用。</font><font color="#408080"><br>
 <br>
-6�M ���@�ӷQ�u��C-&gt;C++-&gt;API-&gt;MFC-&gt;OOP/GP-&gt;OOA-&gt;OOD�M(�٦�OLE�MCOM�M�Ӧb����ɭԶ}�l�ǩO�S�^�o�����ǲߪ��H,�z������n����ĳ�ܡS�]�бz�N�C�Ӷ��q�p��Ǵ��@�ǫ�ĳ�ñ��˴X���ѡ^<br>
+6﹐ 對於一個想沿著C-&gt;C++-&gt;API-&gt;MFC-&gt;OOP/GP-&gt;OOA-&gt;OOD﹐(還有OLE和COM﹐該在什麼時候開始學呢﹖）這條路學習的人,您有什麼好的建議嗎﹖（請您就每個階段如何學提一些建議並推薦幾本書）<br>
 <br>
-</font>���J���^�СG�A�ҦC���C�@�Ӷ��q�A���FOOA�A�ڳ�����ĳ�A�ڳ����ѳ�A���b�J�������W�C</p>
+</font>●侯捷回覆：你所列的每一個階段，除了OOA，我都有建議，我都有書單，都在侯捷網站上。</p>
 
-<p><font color="#408080">7�M �p����[���O���E���M�аݱz�O��򰵨쪺�S<br>
+<p><font color="#408080">7﹐ 如何長久的保持激情﹐請問您是怎麼做到的﹖<br>
 <br>
-</font>���J���^�СG���N�a���E���A�o�ۤ��ߡC�`�H���E���A�ݭn���R�C���ݩ�`�H�A�ҥH�ڧV�O���@�Ǧ��Z�A�o��Ū�̪��^���A�o�K�E�o�F�ڪ��i�@�B�����C�ڪ��N��O�A�����A�n���E���A���n������A�M��n�V�O���X�@�Ǧ��G�A�M��K��Φ��@�ӵ��ʴ`���C<font
+</font>●侯捷回覆：藝術家的激情，發自內心。常人的激情，需要鼓舞。我屬於常人，所以我努力做一些成績，得到讀者的回應，這便激發了我的進一步熱情。我的意思是，首先，要有激情，先要有興趣，然後要努力做出一些成果，然後便能形成一個善性循環。<font
 color="#408080"><br>
 <br>
-8�M �zı�oGP�MOO�����Y�p��SGP�O�ݩ�OOP���d��ܡS�άOGP�O�@�����s�{��Q�W�����R���S<br>
+8﹐ 您覺得GP和OO的關係如何﹖GP是屬於OOP的範圍嗎﹖或是GP是一次“編程思想上的革命”﹖<br>
 <br>
-</font>���J���^�СGGP �M OO �ۻ��ۦ��C���n�����r�١C�� GP �M OO 
-����ڧ޳N�����A��i���r�G�צ��N�q�o�h�C���̪���r�ԭz�A���ӥ浹���ڳo�صۮѥ߽׶i��޳N�Ш|���H�Ӱ��A�M�ӧڤ��i��b�Ť��i�D�A�o�ǪF��C�ʤ�<font
-color="#0000FF">���㪺</font>�׭z�A�ͳo�ظ��D�N�@�L�N�q�A�ӧڤ��i��b�o�̵��A<font
-color="#000000">���㪺</font>�׭z�C</p>
+</font>●侯捷回覆：GP 和 OO 相輔相成。不要陷於文字障。把 GP 和 OO 
+的實際技術弄懂，比進行文字辯論有意義得多。它們的文字敘述，應該交給像我這種著書立論進行技術教育的人來做，然而我不可能在空中告訴你這些東西。缺少<font
+color="#0000FF">完整的</font>論述，談這種話題將毫無意義，而我不可能在這裡給你<font
+color="#000000">完整的</font>論述。</p>
 
-<p><font color="#408080">9�M GP�o�i�XSTL�w�g�ܤF���_�F�M���L???�N�]?GUI�w�M�൹�ڭ�����GP���e���ܡS<br>
+<p><font color="#408080">9﹐ GP發展出STL已經很了不起了﹐不過???將設?GUI庫﹐能給我們講講GP的前景嗎﹖<br>
 <br>
-</font>���J���^�СG�ӫH���ýX�A�ڲq���X�A���N��CGP�e���ܦn�A�ڳo��{���C�p�G�A�����|�n�n�ϥ�STL�A�άƦܶi�Ӭݬ�STL���X�A�A�|��o���ثe������a���H����ߪ��޳N�o�X�g���CSTL�w�g�i�H�Φ��@���޳N�]�ӫD�u�O�@��library�^�AGP��s�x�C 
+</font>●侯捷回覆：來信有亂碼，我猜不出你的意思。GP前景很好，我這麼認為。如果你有機會好好使用STL，或甚至進而看看STL源碼，你會對這項目前仍持續帶給人們驚喜的技術發出讚美。STL已經可以形成一門技術（而非只是一個library），GP更廣泛。 
 <br>
 <font color="#408080"><br>
-10�M 
-�z�O�_�|�[�j�b�j���X�Ѫ��O�סM�H��z���Ѧ��S���i���c��²��@����X�S</font></p>
+10﹐ 
+您是否會加大在大陸出書的力度﹐以後您的書有沒有可能繁體簡體一塊兒出﹖</font></p>
 
-<p>���J���^�СG�ڧƱ�ڪ��Ҧ���Ķ�@�~���b�j���X���C���O����Ķ�@�]�]�N�O���Ѫ��J��Ķ���^�A�ڨS���D���v�C�ܩ�ڪ��ۧ@�A���᳣�|�c²��@�֥X���C�ѩ�@�~�y�{���G�A²�骩���c�骩�ߤ@��Ӥ륪�k�A�۫H�O�j�a����z�Ѫ��C<font
+<p>●侯捷回覆：我希望我的所有著譯作品都在大陸出版。但是關於譯作（也就是原文書的侯捷譯本），我沒有主動權。至於我的著作，今後都會繁簡體一併出版。由於作業流程之故，簡體版比繁體版晚一兩個月左右，相信是大家能夠理解的。<font
 color="#408080"><br>
 <br>
-���M�ڭ̦��@�{�l���D�M�@�{�l?�M���L</font><font color="#8080FF">�X��H�D�D�q��h</font><font
-color="#408080">�N���A��i�z�F�]�}�Ӫ����M�����^�C�̫�M���z���a�w�d�M���֬����T<br>
+其實﹐我們有一肚子問題和一肚子?﹐不過</font><font color="#8080FF">出於人道主義原則</font><font
+color="#408080">就不再折磨您了（開個玩笑﹐呵呵）。最後﹐祝您全家安康﹐幸福美滿﹗<br>
 <br>
-</font>���J���^�СG�X��H�D���Ҷq�A�ڦ^���F�A�Ҧ������D�C�o�]�ϱo�ڪ��̷s�@�~����@�Ӥp�ɧ��� 
+</font>●侯捷回覆：出於人道的考量，我回答了你所有的問題。這也使得我的最新作品延後一個小時完成 
 :) </p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~9��22�� AM 11:14<br>
-�ԦѮv�A�n:<br>
-���ڥ��b�\Ū�zĶ�۪�Essential C++���媩(²�骩),�i�O�b�Ѫ��}�Y�N�J��F�@�ǰ��D,�Ʊ�z����b�������������^���@�U,�ǥͱN���·P��.<br>
-�b�Ѥ����Ъ��Y�@�ӵ{�Ǥ��ϥΤF�H�U�@��y�y.<br>
+<p></b><font color="#408080">傳送日期: 2001年9月22日 AM 11:14<br>
+候老師你好:<br>
+近日我正在閱讀您譯著的Essential C++中文版(簡體版),可是在書的開頭就遇到了一些問題,希望您能夠在面忙之中幫忙回答一下,學生將不謝感謝.<br>
+在書中介紹的頭一個程序中使用了以下一行語句.<br>
 using namespace std;<br>
-�ڷPı�Ѥ����������O�ܩ���.�u�O���a�L.�ҥH�ڭӤH�惡���Ӳz��.�Ʊ�z����|�һ����@�U.<br>
-�t�~�ڧ�L�ѤW���Ҥl����VC6������O�{�ǤU�sĶ�]�q���L����,std���O�зǪ��Ϊ̬O���s�b���W�r�Ŷ�.�t�Ѥ��ҨϥΪ�string���]���s�b,�O���O�����]�t�����Y���Ϊ̬O��sĶ���i��Y�ǯS�����]�m���sĶ�q�L.<br>
-�ڥ����O�@��DELPHI�{�ǭ�,���M��C++�@���ܷP����,���O�]�ȬO�|�@�I�֤�Ӥw,�ҥH�ڤQ���Q���AĶ�۪��ѨӥR�R�q,�����D�z��Delphi�{�ǭ��ǲ�C++���S������@�ǫ�ĳ�M�N��,�p�G������,�ǥͬ~�Ӯ�ť.<br>
+我感覺書中解釋的不是很明白.只是草草帶過.所以我個人對此不太理解.希望您能夠舉例說明一下.<br>
+另外我把他書上的例子拿到VC6的控制臺程序下編譯也通不過提示,std不是標準的或者是不存在的名字空間.另書中所使用的string類也不存在,是不是必須包含什麼頭文件或者是對編譯器進行某些特殊的設置方能編譯通過.<br>
+我本身是一個DELPHI程序員,雖然對C++一直很感興趣,但是也僅是會一點皮毛而已,所以我十分想拿你譯著的書來充充電,不知道您對Delphi程序員學習C++有沒有什麼一些建議和意見,如果有的話,學生洗而恭聽.<br>
 <br>
-</font>���J���^�СG�Ѥ��{�����O���T���C�A��sĶ���M�sĶ�ﶵ�]compile 
-options�^�����x�A�Ш�׾¤W�o�ݡA�Ϊ̥t�~�h�ݴX���ѡC</p>
+</font>●侯捷回覆：書中程式都是正確的。你對編譯器和編譯選項（compile 
+options）不熟悉，請到論壇上發問，或者另外多看幾本書。</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��15�� AM 09:21<br>
-jjhou�Ѯv�M�z�n�T<br>
-�@�@�S�g�H�ӥ��Z�z�F�C<br>
-�ݨ�z������10��Ū�̨ӫH���������mC++ Primer�n�M�mThinking in C++�n��ĳ�סM��M�o�{���͹�mThinking 
-in C++�n�����׷��ַ��֡C�ڨS�ݹL�mC++ Primer�n�]�W����CSDN�H���h�R�z���o���ѡM�i���ܤ��]�S���^�� 
-:) �^�M�{�b�u�n����W���F�mThinking in C++ 2/e�n�ӬݡC���ڤ߸̦b�Q�M������J���ͤ���mThinking 
-in C++�n�]���פ@�f�O�S���D�o���Ѫ����q�������S<br>
+<p><font color="#408080">傳送日期: 2001年10月15日 AM 09:21<br>
+jjhou老師﹐您好﹗<br>
+　　又寫信來打擾您了。<br>
+看到您的網站10月讀者來信中有有關《C++ Primer》和《Thinking in C++》的議論﹐突然發現先生對《Thinking 
+in C++》的評論極少極少。我沒看過《C++ Primer》（上次給CSDN寄錢去買您的這本書﹐可惜至今也沒有回音 
+:) ）﹐現在只好到網上當了《Thinking in C++ 2/e》來看。但我心裡在想﹐為什麼侯先生不對《Thinking 
+in C++》也評論一番呢﹖難道這本書的份量不夠重﹖<br>
 <br>
-����Ӷ����\�F�M�����Q���ꨬ�y�i�F�@�ɬסM�����Q�{�b�ѩ��̬�M�X�{�F�o��hC++�g����y�M�󰪿��C�u�n�P�«J���ͩM�ؤ��X�������V�O�C<br>
+中國申奧成功了﹐高興﹔中國足球進了世界盃﹐高興﹔現在書店裡突然出現了這麼多C++經典書籍﹐更高興。真要感謝侯先生和華中出版社的努力。<br>
 <br>
-�t�~�M�Q�ݫJ���ͤ@�Ӥp���D�R�ڦb�mThinking in C++ 2/e�n���Ĥ@����Introduction 
-to Objects������Reusing the implementation���@�`���M���o��@�q�ܡ�Composition 
+另外﹐想問侯先生一個小問題﹕我在《Thinking in C++ 2/e》的第一章“Introduction 
+to Objects”的“Reusing the implementation”一節中﹐有這麼一段話“Composition 
 comes with a great deal of flexibility. The member objects of your new class are usually 
 private, making them inaccessible to the client programmers who are using the class. This 
-allows you to change those members without disturbing existing client code. �iYOU CAN 
-ALSO CHANGE THE MEMBER OBJECTS AT RUNTIME�j,to dynamically change the behavior of your 
+allows you to change those members without disturbing existing client code. 【YOU CAN 
+ALSO CHANGE THE MEMBER OBJECTS AT RUNTIME】,to dynamically change the behavior of your 
 program. Inheritance, which is described next, does not have this flexibility since the 
-compiler must place compile-time restrictions on classes created with inheritance.���o���b�B������ܦ�����H�����ާ@��򰵡S�ڷQ���X�ӡC�J���ͯ�_���I�@�G�S<br>
+compiler must place compile-time restrictions on classes created with inheritance.”這“在運行期改變成員對象”的操作怎麼做﹖我想不出來。侯先生能否指點一二﹖<br>
 <br>
-�A�T���ΫJ�����_�Q�ɶ��M�Q����p�T<br>
+再三佔用侯先生寶貴時間﹐十分抱歉﹗<br>
 <br>
-</font>���J���^�СG<font color="#408080">�mThinking in C++ 2/e�n</font>�O�n�ѡC�ڨS�����ץ��A���N�������q�����C�O�W�]�����F�mThe 
-C++ Programing Language�n�M�mC++ Primer�n��Ķ���A�ӥB���O�Ѥj�a�ҫH�઺Ķ�̩�Ķ�A�ҥH�O�W�o��֦��H�Q�סmThinking 
-in C++ 2e�n�C<font color="#408080"><br>
+</font>●侯捷回覆：<font color="#408080">《Thinking in C++ 2/e》</font>是好書。我沒有評論它，不代表它份量不夠。臺灣因為有了《The 
+C++ Programing Language》和《C++ Primer》中譯本，而且都是由大家所信賴的譯者所譯，所以臺灣這邊少有人討論《Thinking 
+in C++ 2e》。<font color="#408080"><br>
 <br>
 <br>
 <br>
 </font></p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��15�� PM 11:12<br>
-�z�n�R<br>
-�����M�ڬO�@���Ǫ̡C<br>
-�䦸�M��Ū�L�z���@���ѡM�m�`�J�L�XMFC 2e�n�M�D�`��m�T<br>
-�ڤ@�U�lı�o�ۤv���A�O��Ǫ̡M�ڤS�ǤF�X���ѡM�O����ɭ��]�p���M�����M��ı�o�ڦ��ܤj���i�B�R�^<br>
-���O�M�ڰ���e�F�M�]���ڲ{�b���Ǥ@�Ǩt�Ϊ��F��Q��ı�o��VC���ɭ����ӥi���F�M��VB�MDephi�M�o��h�n�u��ַ|�h��VC���ɭ��O�S��O�ڷQ��VC���n�B���ӬO��t�Ϊ��ʸ����Ӥ�O���y���n�n�a�]�����D�藍��^�C���ޫ��˧ڲ{�b�J��F�x���M�ڤ����D�ӫ��ǤU�h�M�m�`�J�L�XMFC 
-2e�n�W���쪺�ʺA�ЫءM�ʺA�n���M�ڤ]���F�ѡM���ڭn�Ǫ��F��]�\�ä��O���ǵ��c�����D�M�ӬO���ǫʸ˦n�������|�ϥΪ����D�MWIN32 
-API��Ƥ��|�Ϊ����D�M�bMSDN�̤]�\����@�ǨϥΤ�k�����ˤ����·ЦӥB�������M�ҥH�ڷQ�ббz�����D�O�R�z�श�е��ڴX���z������ϥγo������API��ƮѶܡS�]���z���ѧ�ı�o������H�M�ܤ֧�Ū�_�ӫܻ��P�R�^<br>
-�]�ڷQ�o�즳���������Ѫ��ѡ^<br>
+<p></b><font color="#408080">傳送日期: 2001年10月15日 PM 11:12<br>
+您好﹕<br>
+首先﹐我是一位初學者。<br>
+其次﹐我讀過您的一本書﹐《深入淺出MFC 2e》﹐非常精彩﹗<br>
+我一下子覺得自己不再是初學者﹐我又學了幾本書﹐是關於界面設計的﹐不錯﹐我覺得我有很大的進步﹕）<br>
+但是﹐我停止不前了﹐因為我現在正學一些系統的東西﹔我覺得用VC做界面那太可笑了﹐有VB﹐Dephi﹐這麼多好工具誰會去用VC做界面呢﹖於是我想用VC的好處應該是對系統的封裝應該比別的語言要好吧（不知道對不對）。不管怎麼樣我現在遇到了困難﹐我不知道該怎麼學下去﹐《深入淺出MFC 
+2e》上講到的動態創建﹐動態聲明﹐我也有了解﹐但我要學的東西也許並不是那些結構的問題﹐而是那些封裝好的類不會使用的問題﹐WIN32 
+API函數不會用的問題﹐在MSDN裡也許能找到一些使用方法但那樣不但麻煩而且不完善﹐所以我想請教您的問題是﹕您能介紹給我幾本您的關於使用這些類或API函數書嗎﹖因為您的書我覺得平易近人﹐至少我讀起來很輕鬆﹕）<br>
+（我想得到有關網絡知識的書）<br>
 <br>
-</font>���J���^�СGMFC classes �M Win32 APIs 
-�Ӧh�Ӧh�F�A�]���X�G�S���ȥ����y�復�̰��t�Ωʪ����СC���Ǧ~ 
-Waite Group �� Win32 APIs �@�M�ѡA�L�n�����]�X�F MFC classes 
-�ȥ���U�C�o�@���F��A�ݯȥ��Ѥ��p�� MSDN library (CD) �X 
-�D�n�O�d�\��K�C�A���H����MSDN library�A�D�n�O�]���A��MFC����Ӭ[�c�����x�A�ҥH�A�ݨ쪺���� 
-APIs �Υ��� classes�A�L�k�b�A�ߤ��_�@�ب���ĥΡA�]���A���ߤ��ʤ֤@�i�a�ϡC 
+</font>●侯捷回覆：MFC classes 和 Win32 APIs 
+太多太多了，因此幾乎沒有紙本書籍對它們做系統性的介紹。早些年 
+Waite Group 有 Win32 APIs 一套書，微軟本身也出了 MFC classes 
+紙本手冊。這一類東西，看紙本書不如看 MSDN library (CD) — 
+主要是查閱方便。你難以接受MSDN library，主要是因為你對MFC的整個架構不熟悉，所以你看到的任何 
+APIs 或任何 classes，無法在你心中起一種具體效用，因為你的心中缺少一張地圖。 
 </p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��16�� AM 12:23<br>
-�ԥ��͡R<br>
-�z�n�M�h�~�U�b�~�M���H�b�Ǯժ�BBS�W�K�F�X�g�A�g���峹�C�J�ӬݤF��M�ܦ���ì�C�p�W�z�������M�oı����u�O�ܩ_�ǡM�]��p�ڥγo�ӵ��M��b�O���ڪ��Ĥ@�L�H�^�����M�����Q�H�@�ӳo��h������ާ@�a�M�~�M��g�MĶ�L�o��h���ٺ�~���@�~�M��b�O��z����تA�C<br>
-��94�~�W�j�ǡM�}�l��Ĳ�p����M�ѩ�ҾǪ��M�~�]���q����^���t�G�M�ҥH��C���޳N����P����M�D�n�O��C�M�J�s���F��C98�~�W�Ӥh�e����Ӥ�ŻءM���H���@��windows�U���F��M�~�}�l��ĲC++�Mwindows�s�{�C�ʥF������I���ɭԡM��b�u��a���y�Ӷ�R�ۤv�M�R�F�ܦh�{�b���D���ﳣ�O�U�����ѡM��F�t���h�@�Ӥ�M�~��windows���ҷPı�M�ҩ��n�����F����²��M�Q�ڥ�C�y�k�g��C++�]���M������MFC�^���d�w�F:P�CŪ�Ӥh����~�b�M��Ѹ�󬰧C�Ū�������]8096�����^����D�M�����]��F�I�ɶ��Z�i�FMFC�Mwindows�s�{�M�L�F���VC��MFC�s�{�����e�C�{�b�NŪ�p������դh�M�D�n�HVC���}�o�u��M�}�l�ǲ�C++�MCOM�C�ܩ��B�b�z�����W���@�t�C�o�譱�ǲߪ��峹�M�ϧگ�`���j�q���ɶ��M�u���ܷP�±z�C<br>
-�z�b�j���X�����ѡM���F�m�`�J�L�XMFC�n�M��L�ڳ��R�F�Cı�o��b�����M�i��! 
-�o�ǮѪ��Ĥ@���L��W���~�٬O���֡C�p</font><font color="#8080FF">�mEssential 
-C�ϡϡn��template���@�`�M���X�Ӧa���template������tempalte�M�meffective 
-C++�n���ƪ��W�ѩ�������椣���M�ɭP�������������i�J�{�ǡM�̤��Ӫ��O�m�`�ױ���C++��H�ҫ��n�~�M�ʭ��M�ʩ��������C�s���b�ӥ�PP</font><font
-color="#408080">�M�K�K�C�Ʊ�H��X�ѳt�פW���n�֡M�i�չ諸�H��]�n�����M���ܩ�A�X�{�o�خt���C�������O�p�Ӹ`�M�L�ˤj���M�i�n����~�o�����M���N�o��C�@�ӲӸ`�����n�M��q�D��r�C<br>
-�m�`�J�L�XMFC�n�o���ѡM�ڱq�O�H���̫��L�q�l���Mı�o�ĤT���S�O���ΡM���M�ڤ]���g���R�L����macro�M���u�@��z�]���ҤF�ѡM�ܰ����ԥ��ͯ���R�M�`���o�o������C���ڹ��F�ѤS��i�F�@�B�M�ϱo�ڦb���Rwtl�������M�g���s�ɭԯ঳�ҭ�ų�M��b�O�D�`�}�ߡC���L�o�س�ڬ[�c���M��n�e�j��application 
-framework�C�N�ڦۤv�Pı�Ө��M���Ӥw�g���O�o�i��V�F�a�Satl�Mwtl�o�Ǽs�x�Q��template�MMI�H��GP�޳N���F���N���Ī����w�H�ά[�c�o�����w���޳N�M��ı�o�O�N�Ӫ����I�C�i��ڵw�󰵪��Ӧh�M�̬ݭ����F��O���Ĳv�M�F���ʡM�ӤH�D�`���w�o�ǧ޳N�C�]�Q�b�o�譱�~��`�J�U�h�C�����o���[�I�O�_���T�M���Х��ͫ����C! 
+<p></b><font color="#408080">傳送日期: 2001年10月16日 AM 12:23<br>
+候先生﹕<br>
+您好﹐去年下半年﹐有人在學校的BBS上貼了幾篇你寫的文章。仔細看了後﹐很有收穫。聯上您的網站﹐發覺風格真是很奇怪﹐（抱歉我用這個詞﹐實在是給我的第一印象）呵呵﹐很難想象一個這麼多產的科技作家﹐居然能寫﹐譯過這麼多堪稱精品的作品﹐實在是對您比較佩服。<br>
+我94年上大學﹐開始接觸計算機﹐由於所學的專業（機電控制）的緣故﹐所以對低階技術比較感興趣﹐主要是用C和彙編做東西。98年上碩士前的兩個月空隙﹐替人做一個windows下的東西﹐才開始接觸C++和windows編程。缺乏高手指點的時候﹐實在只能靠書籍來填充自己﹐買了很多現在知道絕對都是垃圾的書﹐花了差不多一個月﹐才對windows有所感覺﹐所幸要做的東西比較簡單﹐被我用C語法寫的C++（當然不敢用MFC）給搞定了:P。讀碩士的兩年半﹐整天跟更為低級的單片機（8096之類）打交道﹐期間也花了點時間琢磨了MFC和windows編程﹐過了能用VC＋MFC編程的門檻。現在就讀計算機的博士﹐主要以VC為開發工具﹐開始學習C++﹐COM。很幸運在您網站上找到一系列這方面學習的文章﹐使我能節約大量的時間﹐真的很感謝您。<br>
+您在大陸出版的書﹐除了《深入淺出MFC》﹐其他我都買了。覺得實在不錯﹐可惜! 
+這些書的第一版印刷上錯誤還是不少。如</font><font color="#8080FF">《Essential 
+C＋＋》中template那一節﹐有幾個地方把template給拼成tempalte﹐《effective 
+C++》中排版上由於註釋換行不當﹐導致註釋中的說明進入程序﹐最不該的是《深度探索C++對象模型》居然封面﹐封底都有錯。編輯實在該打PP</font><font
+color="#408080">﹐嘿嘿。希望以後出書速度上雖要快﹐可校對的人手也要足夠﹐不至於再出現這種差錯。雖說都是小細節﹐無傷大雅﹐可要走精品這條路﹐那就得把每一個細節都做好﹐精益求精呀。<br>
+《深入淺出MFC》這本書﹐我從別人那裡拷過電子版﹐覺得第三章特別有用﹐雖然我也曾經分析過那些macro﹐對其工作原理也有所了解﹐很高興候先生能分析﹐總結得這麼徹底。讓我對其了解又更進了一步﹐使得我在分析wtl的消息映射機製時候能有所借鑒﹐實在是非常開心。不過這種單根架構的﹐體積龐大的application 
+framework。就我自己感覺而言﹐應該已經不是發展方向了吧﹖atl﹐wtl這些廣泛利用template﹐MI以及GP技術的靈活﹑高效的類庫以及架構這些類庫的技術﹐我覺得是將來的熱點。可能我硬件做的太多﹐最看重的東西是高效率和靈活性﹐個人非常喜歡這些技術。也想在這方面繼續深入下去。不知這個觀點是否正確﹐懇請先生指正。! 
 <br>
-���ӥ��ͱz���n�D�C�ڧ�ӤH��ƦC�b�̫�C<br>
-�Ǿ��R�դh�bŪ�C<br>
-�y�e�R�����١C<br>
-�{�NŪ�����j�ǭp����t�C<br>
+按照先生您的要求。我把個人資料列在最後。<br>
+學歷﹕博士在讀。<br>
+籍貫﹕浙江省。<br>
+現就讀浙江大學計算機系。<br>
 <br>
-</font>���J���^�СG<br>
-<font color="#408080">�u�F���N���Ī����w�H�ά[�c�o�����w���޳N�M��ı�o�O�N�Ӫ����I�v</font><font
-color="#000000">�A�P�N�C</font><br>
-<font color="#408080">�u�i��ڵw�󰵪��Ӧh�M�̬ݭ����F��O���Ĳv�M�F���ʡv</font><font
-color="#000000">�A�c�A����H���ݭ����Ĳv�M�F���� :)</font><font
+</font>●侯捷回覆：<br>
+<font color="#408080">「靈活﹑高效的類庫以及架構這些類庫的技術﹐我覺得是將來的熱點」</font><font
+color="#000000">，同意。</font><br>
+<font color="#408080">「可能我硬件做的太多﹐最看重的東西是高效率和靈活性」</font><font
+color="#000000">，呃，任何人都看重高效率和靈活性 :)</font><font
 color="#408080"><br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��16�� AM 09:39<br>
-�J���͡M�P�s��M�A�̦n�T�ڬO�@�W�Z�~��Ū�̡M�ڦb�\Ū�messential 
-c++�n�ɡM�o�{�F�X�ӭȰӺe�����D�R<br>
+<p><font color="#408080">傳送日期: 2001年10月16日 AM 09:39<br>
+侯先生﹐周編輯﹐你們好﹗我是一名武漢的讀者﹐我在閱讀《essential 
+c++》時﹐發現了幾個值商榷的問題﹕<br>
 <br>
-1.�b�ĤT����3.1�`���M�U�Ӫ�����find����^�ȳ��n������ѰO�Fconst�M�ɭP�b�sĶ�ɵo�Ϳ��~�R<br>
+1.在第三章的3.1節中﹐各個版本的find的返回值都好像都遺忘記了const﹐導致在編譯時發生錯誤﹕<br>
 <br>
-�ҦpP68����<br>
+例如P68頁的<br>
 int* find(const vector&lt;int&gt;&amp; vec, int value)<br>
-���אּ�R<br>
+應改為﹕<br>
 const int* find(const vector&lt;int&gt;&amp; vec, int value)<br>
-���`���䥦find�����Ҧ������D�C<br>
+本節的其它find版本皆有此問題。<br>
 <br>
-�̫�P71��find�եΥܨҤ]���ק�p�U�R<br>
+最後P71的find調用示例也應修改如下﹕<br>
 const* pi = find(ia, ia + 8, ia[3]);<br>
 const* pd = find(da, da + 6, da[3]);<br>
 const* ps = find(sa, sa + 4, sa[3]);</font></p>
 
-<p><font color="#408080">2.�bP82������is_elem��ƵL�k�q�L�sĶ�R<br>
+<p><font color="#408080">2.在P82頁中的is_elem函數無法通過編譯﹕<br>
 bool is_elem(vector&lt;int&gt;&amp; vec, int elem)<br>
 {<br>
 int max_value = max_element(vec.begin(), vec.end());<br>
@@ -1644,7 +1644,7 @@ return true;<br>
 ...<br>
 }<br>
 <br>
-�O�_���אּ�p�U�R<br>
+是否應改為如下﹕<br>
 <br>
 bool is_elem(vector&lt;int&gt;&amp; vec, int elem)<br>
 {<br>
@@ -1656,145 +1656,145 @@ return true;<br>
 ...<br>
 }<br>
 <br>
-��o��Ӱ��D�M�����z�H���p��S�̫�Ʊ�A�̯�h�X�@�Ǹg��n�ѡC<br>
+對這兩個問題﹐不知您以為如何﹖最後希望你們能多出一些經典好書。<br>
 <br>
-</font><font color="#000000">���J���^�СG���T�C�o��Ӧa�賣�����~�A�A�O���T���C�ڱN�C��ɻ~���A�����ǳƭק�Z�l�A�]���ק復�̤����O�_�|�o�@�v�ʥ����C�o�ǭק�u�{����j�A�٬O�ѭ�@��Lippman���L�Ҷq�~�n�C</font><font
+</font><font color="#000000">●侯捷回覆：的確。這兩個地方都有錯誤，你是正確的。我將列於勘誤表，但不準備修改稿子，因為修改它們不知是否會牽一髮動全局。這些修改工程比較大，還是由原作者Lippman全盤考量才好。</font><font
 color="#408080"><br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��16�� PM 02:41<br>
-essential c++²�餤�媩<br>
-p23���˼ƲĤG��C<br>
-&quot;expression�|�b�`���C�����N��������Q�p��C&quot;<br>
-�ڦbvc6.0�U�ո�<br>
+<p><font color="#408080">傳送日期: 2001年10月16日 PM 02:41<br>
+essential c++簡體中文版<br>
+p23頁倒數第二行。<br>
+&quot;expression會在循環每次迭代結束之後被計算。&quot;<br>
+我在vc6.0下調試<br>
 int i = 0;<br>
 for(i = 0;i&lt;3;i++)<br>
 {<br>
 cout &lt;&lt;i;<br>
 }<br>
-�o�{i++�O�b�C������`����M�]�N�Ocout &lt;&lt; i;���e�N�w�g����L�F�C�O���O�]���sĶ������]�O�S<br>
-�٦��N�O�S����kfind() (vc6.0)�O�o�˩w�q���b���algorithm��<br>
+發現i++是在每次執行循環體﹐也就是cout &lt;&lt; i;之前就已經執行過了。是不是因為編譯器的原因呢﹖<br>
+還有就是范型算法find() (vc6.0)是這樣定義的在文件algorithm中<br>
 template&lt;class _II, class _Ty&gt; inline<br>
 _II find(_II _F, _II _L, const _Ty&amp; _V)<br>
 {for (; _F != _L; ++_F)<br>
 if (*_F == _V)<br>
 break;<br>
 return (_F); }<br>
-�p�G�䤣��M�����^�̫�@�ӭȡM�ӬO�@�ӥ������w�M�S������p75�����Ъ��n�M���~����]�n���]�O�W�����һ����C</font></p>
+如果找不到﹐不能返回最後一個值﹐而是一個未知指針﹐沒有本書p75頁介紹的好﹐錯誤的原因好像也是上面的所說的。</font></p>
 
-<p>���J���^�СG�A���W�b�q�u�o�{�v�O���~���C�A���U�b�q�����O�ڤ����Ҥ��C</p>
+<p>●侯捷回覆：你的上半段「發現」是錯誤的。你的下半段說明令我不知所云。</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��16�� PM 03:12<br>
-�D��: �p��ʨ����@��VB��������<br>
-�J���ͱz�n:<br>
-�ګ�Ū�z���j�@,&quot;�L�d���ѵ�3&quot;,�F�Ѩ�p��q�@�Ӫ춥�̶i�J�찪���̪�����,<br>
-��,�A�O�HC���Ҥl,�ӧڥ�¾�����q�HVB���}�o�u�㰵��Ʈw,�������@��VB��<br>
-�춥��,�ڭn�p��,�~��i�JVB����������?�аݭn��ƭ��ǧޯ�,�S������ѱz<br>
-�i�H���е���?<br>
-�P�±z�����U.<br>
-P.S:�ڥ����O��ިt���~.<br>
+<p><font color="#408080">傳送日期: 2001年10月16日 PM 03:12<br>
+主旨: 如何晉身為一個VB的高階者<br>
+侯先生您好:<br>
+我拜讀您的大作,&quot;無責任書評3&quot;,了解到如何從一個初階者進入到高階者的殿堂,<br>
+而,你是以C做例子,而我任職的公司以VB為開發工具做資料庫,那做為一個VB的<br>
+初階者,我要如何做,才能進入VB的高階殿堂?請問要具備哪些技能,又有什麼書您<br>
+可以介紹給我?<br>
+感謝您的幫助.<br>
+P.S:我本身是資管系畢業.<br>
 <br>
-</font>���J���^�СG�z�ݿ��H�F :)&nbsp; �ڤ��� VB �r�C</p>
+</font>●侯捷回覆：您問錯人了 :)&nbsp; 我不懂 VB 呀。</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ڤw�g�R�F�m�`�J�L�X MFC 2�n 
-������²�骩�M���SŪ�X���NŪ�����F�C<br>
-�ڪ��D�ۤv��C++��¦���O�ܦn�M�ҥH�M�w�R�z��C++ primer,�i�O�S���M�n���R�C<br>
-�U���q�l���O���F�i�H�b���q�u�@���E�ݤ@�ݡC<br>
-�b���M�ݭԫJ���ͦn�M���z���d�N�r�֡T<br>
+<p><font color="#408080">我已經買了《深入淺出 MFC 2》 
+的中文簡體版﹐但沒讀幾章就讀不懂了。<br>
+我知道自己的C++基礎不是很好﹐所以決定買您的C++ primer,可是沒找到﹐好難買。<br>
+下載電子版是為了可以在公司工作之余看一看。<br>
+在此﹐問候侯先生好﹐祝您健康﹑愉快﹗<br>
 <br>
-�{¾�R�n��}�o<br>
-�~���٥��R�s�F�`�`<br>
+現職﹕軟件開發<br>
+居住省份﹕廣東深圳<br>
 <br>
-��ĳ�z���ѳ�������֦b�j���X���M�o�̦���h�L�z���v���ǥ͡M��ƶq�@�w���֤_�x�W�C�z�V�����X�o�˪��M�w�M���q���H�N�|�V�h�M�ڭ̰�a��IT�o�i�N�|��֡M���ڴI�j�]�N��֡C�]�\�zı�o�o�ܦ��Ǥj�M���O�Q�@�Q�R�p�G���Ѥ��M���۷��h���p����ǥͨS���n���Юv�M���y�M�L�̦�����Ҽv�T���H���D�ּơC<br>
+建議您的書都能夠儘快在大陸出版﹐這裡有更多尊您為師的學生﹐其數量一定不少于台灣。您越早做出這樣的決定﹐受益的人就會越多﹐我們國家的IT發展就會更快﹐民族富強也就更快。也許您覺得這話有些大﹐但是想一想﹕如果今天仍然有相當多的計算機學生沒有好的教師和書籍﹐他們成長後所影響的人絕非少數。<br>
 <br>
-</font>���J���^�СG�ڦP�N�A��Ш|���ݪk�C�ڤ]�Ʊ�ڪ��Ҧ���Ķ�@�~������b�j���X���A���OĶ�@���D���v���b�� 
+</font>●侯捷回覆：我同意你對教育的看法。我也希望我的所有著譯作品都能夠在大陸出版，但是譯作的主動權不在我 
 :)</p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 </font></p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��17�� PM 02:11<br>
-&gt; �{¾�G����u�{�v<br>
-&gt; �~���٥��]�O�WŪ�̽мg�����^�G�s�˥�<br>
-&gt; ��J������ĳ�G�i�_�N�����Ѷ������U<br>
+<p><font color="#408080">傳送日期: 2001年10月17日 PM 02:11<br>
+&gt; 現職：韌體工程師<br>
+&gt; 居住省份（臺灣讀者請寫縣市）：新竹市<br>
+&gt; 對侯捷的建議：可否將絕版書集結成冊<br>
 <br>
-</font>���J���^�СG����}�񪺡A�ڳ��}��F�C�X�����Ʊ��ܽ����A�J�M�|�����A���ܥX���ӻ{���w�g�S���Q���A�������ٷ|���H�@�N<font
-color="#408080">�������U</font>�X���O :)</p>
+</font>●侯捷回覆：能夠開放的，我都開放了。出版的事情很複雜，既然會絕版，表示出版商認為已經沒有利潤，那麼怎麼還會有人願意<font
+color="#408080">集結成冊</font>出版呢 :)</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��17�� PM 04:58<br>
-�~���٥� �R��Ĭ<br>
-��J������ĳ�R<br>
-�L�q���J�����͡R<br>
-�z�n�T�ڬO�j��IT��~�����q���@�W�}�o�̡M�ѩ�貦�~���[�M�u�@���Ψ�vc++�M���O�ܼ��x�M�g�L�@�Ӧh�몺�WŪ�W�ǡM�{�b��vc��O���F�Ӥj�P���L�H�M��ı�o�n�Q�ƥb�\���a�Ǧn�o�R�Ĥ@�M�n��C�ϡϪ���¦�M�̰_�X�����ʪ��F��M�y�k�n���D�M�䥦�i��m��ǡQ�ĤG�MWindows���u�@�L�{�n���D�M��ı�oMessage���s�N�ܭ��n�M�������M�ܦh�F�賣���D�F�C�ĤT�M�R��h���ѡM�ݧ�h���ѡM�䤤�mVisual 
-c++ �޳N�����n�M�z���ۧ@�m�`�J�L�XMFC�n���i���R�C���M�m�`�J�L�XMFC�n���G���F�ڦ����N�o�R�^�ӤF�]���ҥH�R�o�򦭡M�O�]���ߤ@�ɴN�S�F�M�z���ۧ@�b�j���@���ɦ��ܰ����n�A�^�M���@���S���ɾ�Ū�M�p���Ө줽�q�i�H��Ѿ�Ū�M�@�q�ɶ��H�ӡM�ۧڷPı��q��L�C�ĥ|�M�j�����������y���O½Ķ�L�Ӫ��M�̦n�ݭ쪩���M�]���ܦh��½Ķ�o���n�M�p&quot;Think 
-as C++���Ӧn�F�M����F��C�ϡϪ��s�{��Q���N�����Ҩ��󪫡M�t�ӻ��F�MEnglish�ܭ��n�@�M�ѥ~�u�O�F�`�M�g���F��ܦn�C�o�ǥu�O�ڭӤH���@�ǲL���M�����D�����藍��M�J���͡M�Ʊ��o��z�����������C<br>
+<p></b><font color="#408080">傳送日期: 2001年10月17日 PM 04:58<br>
+居住省份 ﹕江蘇<br>
+對侯捷的建議﹕<br>
+尊敬的侯捷先生﹕<br>
+您好﹗我是大陸IT行業中普通的一名開發者﹐由於剛畢業不久﹐工作中用到vc++﹐不是很熟悉﹐經過一個多月的苦讀苦學﹐現在對vc算是有了個大致的印象﹐我覺得要想事半功倍地學好她﹕第一﹐要有C＋＋的基礎﹐最起碼概念性的東西和語法要知道﹐其它可邊練邊學﹔第二﹐Windows的工作過程要知道﹐我覺得Message機製就很重要﹐學懂它﹐很多東西都知道了。第三﹐買更多的書﹐看更多的書﹐其中《Visual 
+c++ 技術內幕》和您的著作《深入淺出MFC》不可不買。雖然《深入淺出MFC》有二版了我早早將她買回來了（之所以買這麼早﹐是因為晚一時就沒了﹐您的著作在大陸一直享有很高的聲譽）﹐但一直沒有時機讀﹐如今來到公司可以整天擁讀﹐一段時間以來﹐自我感覺獲益匪淺。第四﹐大部份有關書籍都是翻譯過來的﹐最好看原版的﹐因為很多書翻譯得不好﹐如&quot;Think 
+as C++”太好了﹐但到了“C＋＋的編程思想”就不知所言何物﹐差太遠了﹐English很重要哦﹐老外真是厲害﹐寫的東西很好。這些只是我個人的一些淺見﹐不知道說的對不對﹐侯先生﹐希望能得到您的評價指正。<br>
 <br>
-</font>���J���^�СG�@���n�ѡA�@�w�n���n��½Ķ�A�~��O�������ȡC���O�ڧڤF�ѡA�j���\�h�]�i�H�����j�����^�X�����٤���R����|�@��nĶ�̪����ȡA�o�ر��p�U�n�X�{�u�qĶ�̡]�D�ܩ��u�q�@�̡^�]�N�ܧx���F�C</p>
+</font>●侯捷回覆：一本好書，一定要有好的翻譯，才能保有其原價值。但是據我了解，大陸許多（可以說絕大部份）出版社還不能充份體會一位好譯者的價值，這種情況下要出現優秀譯者（乃至於優秀作者）也就很困難了。</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��17�� PM 10:17<br>
-jjhou�M�z�n�T<br>
-�J���ͧڱq����Ǫ�ftp�W�o��z���ѡM���A����ۥѴC�骺�Ǽ����ݪk�`���{�P�C�]�ܴL�q�z�ҧ@���@�C�ڬJ�M�O�K�O�o��o���Ѫ��M�h�L�k�q�g�٤W���P�z����^���M�����@�N�H�{�u���ǲߪ��ܹ�z���L�q�C���¡T<br>
-�_�ʲz�u�j�� �q�l�u�{�t<br>
-<br>
-<br>
+<p><font color="#408080">傳送日期: 2001年10月17日 PM 10:17<br>
+jjhou﹐您好﹗<br>
+侯先生我從實驗室的ftp上得到您的書﹐對於你關於自由媒體的傳播的看法深表認同。也很尊敬您所作的作。我既然是免費得到這本書的﹐則無法從經濟上給與您任何回報﹐但我願意以認真的學習表示對您的尊敬。謝謝﹗<br>
+北京理工大學 電子工程系<br>
 <br>
 <br>
 <br>
-</font></p>
-
-<p><font color="#408080"><b>�ǰe���:</b> 2001�~10��17�� PM 11:14<br>
-���§A���ѡM�ڥs�������M�O�@�ӫܷQ��c++���ǥ͡M�ڲ{�b�b��n�N���j��Ū�ѡM�Ǫ��O�p����޳N�P��ǱM�~�M�{�~21���M�k�C�ڤ����լ����򨺻�h�H��c++�M�ӤS������h���H�Q��c++�M�ӧکO�M�O��c++�ܦ�����M���Q���~�˪��H�T�T<br>
-<br>
-�ڧƱ�J���H���h���ڭ̤@�I�n�ѡM��ڨӻ��n�ѴN�O�ڪ��R�M�ڶR�F�ܦh��c++���ѡM�����_���F����@�ΡM�]�\�O�ӤH��]�M���~�ڪ��Pı�ӻ��M���ǮѽT�����t�T�T�ڪ�E-mail�Ooooooooooooooooooo�Ʊ�A�H��h�h���СT�T�T�M���U�T�T<br>
 <br>
 <br>
 </font></p>
 
-<p>�@</p>
-
-<p><font color="#408080">�ǰe���: 2001�~10��18�� PM 12:30<br>
-�q�R���J�����͡R<br>
-�z���mThink in Java2�n�O�_�n�b�j���o��²�骩�M�p�G�o��j���b���Ӯɶ��S�D�`�P�¡C�涶�Q�T<br>
+<p><font color="#408080"><b>傳送日期:</b> 2001年10月17日 PM 11:14<br>
+謝謝你的書﹐我叫□□□﹐是一個很想學c++的學生﹐我現在在湖南吉首大學讀書﹐學的是計算機技術與科學專業﹐現年21歲﹐男。我不明白為什麼那麼多人學c++﹐而又有那麼多的人討厭c++﹐而我呢﹐是對c++很有興趣﹐但被它嚇倒的人﹗﹗<br>
 <br>
-</font>���J���^�СG<font color="#408080">�mThink in Java 2e�n</font>���J��Ķ�����|�b�j���X���A���D�֦�²�骩Ķ�v���X�����@�N�ĥΧڪ�Ķ�Z�éM���p���C</p>
+我希望侯捷以後能多給我們一點好書﹐對我來說好書就是我的命﹐我買了很多本c++的書﹐但都起不了什麼作用﹐也許是個人原因﹐但瓶我的感覺來說﹐那些書確實比較差﹗﹗我的E-mail是oooooooooooooooooo希望你以後多多指教﹗﹗﹗﹐拜託﹗﹗<br>
+<br>
+<br>
+</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p><font color="#408080">傳送日期: 2001年10月18日 PM 12:30<br>
+敬愛的侯捷先生﹕<br>
+您的《Think in Java2》是否要在大陸發行簡體版﹐如果發行大約在哪個時間﹖非常感謝。望順利﹗<br>
+<br>
+</font>●侯捷回覆：<font color="#408080">《Think in Java 2e》</font>的侯捷譯本不會在大陸出版，除非擁有簡體版譯權的出版社願意採用我的譯稿並和我聯絡。</p>
 
-<p><font color="#408080">�ǰe���: 2000�~9��27�� PM 03:09<br>
-�JSIR �z�n:<br>
-���n�N��A�A�бФ@�U�A����C++ PRIMER 3/E 
-���ѡA�O�_���������V�֮p�q�ʩO?<br>
-�]���b�����W���R����A�i�O�֮p���������i���h�A�ӥB��104�~�M�d�����֮p��<br>
-�q�ܡA�ڸӫ��˥h�ʶR���ѩO? �нЦ^���A����<br>
-�A��Ū��.</font></p>
+<p>　</p>
 
-<p><font color="#000000">���J���^�СG�mC++ Primer�n2001�ץ����w�g�X���C�A�N���ѩ��ʶR�N��F�C</font><font
+<p>　</p>
+
+<p><font color="#408080">傳送日期: 2000年9月27日 PM 03:09<br>
+侯SIR 您好:<br>
+不好意思，再請教一下，有關C++ PRIMER 3/E 
+此書，是否必須直接向碁峰訂購呢?<br>
+因為在市面上都買不到，可是碁峰的網站都進不去，而且打104居然查不到碁峰的<br>
+電話，我該怎麼樣去購買此書呢? 煩請回答，謝謝<br>
+你的讀者.</font></p>
+
+<p><font color="#000000">●侯捷回覆：《C++ Primer》2001修正版已經出版。你就近找書店購買就行了。</font><font
 color="#408080"><br>
 <br>
 </font></p>
@@ -1802,29 +1802,29 @@ color="#408080"><br>
 <p><font color="#408080"><br>
 <br>
 <br>
-�ǰe���: 2001�~10��19�� AM 10:16<br>
-�D��: �b�U���@�Ӫ��[���x�Z <br>
-�J�Ѯv �b�U���@�Ӫ��[���x�Z �ڬ۫H�o���D���Ӻɦ��ѨM<br>
-�ڱq��C++��{�b���@���D �N�O�ݧA���Ѧ��ǽd�Ҫ�������l�X<br>
-���^��N�y ����½Ķ�����媺�W���Oԣ �άO��Ƥ����L�O<br>
-������Ϊ� �����A���o�Ǹ�ƥi�H���ڶ� �o�u���O��<br>
-�ܤj�����D �Ʊ�A�����ڸѨM <br>
-���� <br>
+傳送日期: 2001年10月19日 AM 10:16<br>
+主旨: 在下有一個長久的困擾 <br>
+侯老師 在下有一個長久的困擾 我相信這問題應該盡早解決<br>
+我從學C++到現在有一問題 就是看你的書有些範例的有的原始碼<br>
+的英文術語 不知翻譯成中文的名詞是啥 或是函數不知他是<br>
+做什麼用的 不知你有這些資料可以給我嗎 這真的是我<br>
+很大的問題 希望你能幫我解決 <br>
+謝謝 <br>
 <br>
-</font><font color="#000000">���J���^�СG�ڤ����D������U�A�C�J�������W���@���^���c²�s�{�N�y��Ӫ��A�O�ڭӤH����z�C</font></p>
+</font><font color="#000000">●侯捷回覆：我不知道怎麼幫助你。侯捷網站上有一份英中繁簡編程術語對照表，是我個人的整理。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��19�� PM 03:53<br>
-�z�n�T�m�`�J�L�X2E�n���o�ˤ@�Ӱg�b�R<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月19日 PM 03:53<br>
+您好﹗《深入淺出2E》有這樣一個迷惑﹕<br>
 BOOL CObject::IsKindOf(const CRuntimeClass* pClass)const<br>
 {<br>
 CRuntimeClass* pClassThis = GetRuntimeClass();<br>
-while�]pClassThis!=NULL�^<br>
+while（pClassThis!=NULL）<br>
 {<br>
-if(pClassThis==pClass) //�N�O�o�̡M���w�a�}�۵�<br>
+if(pClassThis==pClass) //就是這裡﹐指針地址相等<br>
 return TRUE;<br>
 ...<br>
 <br>
@@ -1832,78 +1832,78 @@ return TRUE;<br>
 }<br>
 <br>
 CMyDoc* pMyDoc = new CMyDoc;<br>
-pMyDoc-&gt;IsKindOf(RUNTIME_CLASS(CDocument)); //�OTRUE<br>
+pMyDoc-&gt;IsKindOf(RUNTIME_CLASS(CDocument)); //是TRUE<br>
 <br>
-�o�N�O���R<br>
-�~�����P���������B����������w�a�}�ۦP�M�̦������M�Ҧ������]MFC���^�����B����������w�a�}���ۦP�M�]�����O�qCObject�~�ӡM����٦�IsKindOf��FALSE���ɭԩO�S</font></p>
+這就是說﹕<br>
+繼承類與母類的“運行時類“指針地址相同﹐依次類推﹐所有的類（MFC類）的”運行時類“指針地址都相同﹐因為都是從CObject繼承﹐怎麼還有IsKindOf為FALSE的時候呢﹖</font></p>
 
-<p><font color="#000000">���J���^�СG�i��A�ݭn��M���{���~�ӡB�����禡�BCRuntimeClass�C</font></p>
+<p><font color="#000000">●侯捷回覆：可能你需要更清楚認識繼承、虛擬函式、CRuntimeClass。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��19�� PM 05:10<br>
-�ԦѮv�R<br>
-�{¾�R�n��u�{�v�M�ثe�q�ƺ����w���譱���u�@<br>
-���~�Ǯլ�t�R�_�ʤu�~�j�ǭp�����ǻP�޳N�t<br>
-�~���٥��]�x�WŪ�̽мg�����^�R�_��<br>
-��J������ĳ�R<br>
-�����ڱq�z�������W�U���F����U�����Ҧ����y�M�����ڹ�z���B�n���ܰJ�ߪ��P�¡C<br>
-�@���o�Ӧ�~�����@�W�u�@�̡M���w�n���_���ǲߡM��ڳo�˭�q�Ǯղ��~���H�ӻ��N��[���n�C�z�����y�O�ھǲߪ��̤j����C<br>
-�ثe�M�ڥ��b��Ū�m�`�J����c�ϡϼҫ��n�M�m�`�J��XMFC�n�⥻�ѡC�q�����q��L�C<br>
-���H�q�s�g�Ĥ@�ӵ{�Ǩ�{�b�]�����~�ɶ��M��{�b�}�l�o�{�M</font><font
-color="#8080FF">�@���@�ӵ{�ǭ��M�����ӶȶȺ����_�s�g�N�X�M���ӦV�]�p����V�o�i</font><font
-color="#408080">�C�ڷǳƦbŪ���o�⥻�ѫ�}�lŪ�@��UML�譱�����y�M���O�ڤS�Q�ǲߤ@��COM�譱���F��C�i�O�M�ɶ��`�O�������M�ڨ쩳���ӥ��ǭ��@�ӡS�Ʊ��o��z�����I�C<br>
-�o�O�ڵ��z�g���Ĥ@�ʫH�M�b�o���e�z�w�g�����ڪ��}�v,�Ʊ�H���M�z����h����y�M��[�Ʊ��M�z�����B�͡C<br>
-���z���d<br>
+<p></b><font color="#408080">傳送日期: 2001年10月19日 PM 05:10<br>
+候老師﹕<br>
+現職﹕軟件工程師﹐目前從事網絡安全方面的工作<br>
+畢業學校科系﹕北京工業大學計算機科學與技術系<br>
+居住省份（台灣讀者請寫縣市）﹕北京<br>
+對侯捷的建議﹕<br>
+此次我從您的網站上下載了能夠下載的所有書籍﹐首先我對您的慷慨表示衷心的感謝。<br>
+作為這個行業中的一名工作者﹐註定要不斷的學習﹐對我這樣剛從學校畢業的人來說就更加重要。您的書籍是我學習的最大幫手。<br>
+目前﹐我正在研讀《深入探索c＋＋模型》和《深入潛出MFC》兩本書。從中受益匪淺。<br>
+本人從編寫第一個程序到現在也有五年時間﹐到現在開始發現﹐</font><font
+color="#8080FF">作為一個程序員決不應該僅僅滿足于編寫代碼﹐應該向設計的方向發展</font><font
+color="#408080">。我準備在讀完這兩本書後開始讀一些UML方面的書籍﹐但是我又想學習一些COM方面的東西。可是﹐時間總是有限的﹐我到底應該先學哪一個﹖希望能得到您的指點。<br>
+這是我給您寫的第一封信﹐在這之前您已經成為我的良師,希望以後能和您有更多的交流﹐更加希望能和您成為朋友。<br>
+祝您健康<br>
 <br>
-</font><font color="#000000">���J���^�СG</font><font color="#408080">�u�@���@�ӵ{�ǭ��M�����ӶȶȺ����_�s�g�N�X�M���ӦV�]�p����V�o�i�C</font><font
-color="#000000">�v�ڤ��ӲM���j�����w�q�{�ǭ��]programmer�^�C�b�O�W�A�ڭ̳q�`�{���{�ǭ����M�]�A�]�p�C�����O�p�Ҳժ��]�p�A�M��Ѥp��j�A�̫�۵M�N�x����ӡ]�Τj�b�ӡ^ 
-project�C����¾�٤@��ڭ̤����{�ǭ��ε{�����A�ӻ��n��]�n��^�u�{�v�C<br>
+</font><font color="#000000">●侯捷回覆：</font><font color="#408080">「作為一個程序員決不應該僅僅滿足于編寫代碼﹐應該向設計的方向發展。</font><font
+color="#000000">」我不太清楚大陸怎麼定義程序員（programmer）。在臺灣，我們通常認為程序員當然包括設計。首先是小模組的設計，然後由小到大，最後自然就掌握整個（或大半個） 
+project。正式職稱一般我們不說程序員或程式員，而說軟體（軟件）工程師。<br>
 <br>
-UML�MCOM�S������ᦸ�����Y�A�A�R���ݭ��ӡA�N���ݭ��ӧa�C</font></p>
+UML和COM沒什麼先後次序關係，你愛先看哪個，就先看哪個吧。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��18�� PM 11:06<br>
-�ڬO�@�W�j��Ū�̡M�D�`�R�ݮѡM�]�R�F�ܦh�ѡC<br>
-�{�b�گS�O�Q���D�z�`�b�峹�̴�����BBScompbook�ݪO�������}�O����M�ڧ�F�n�[���S�����M�]���S�O�Q�M�x�W�P�M��y�M�ҥH�u�n�·бz�F�C<br>
-�z��b�z�������̪��������귽���̥[�W�ܡS</font></p>
+<p></b><font color="#408080">傳送日期: 2001年10月18日 PM 11:06<br>
+我是一名大陸讀者﹐非常愛看書﹐也買了很多書。<br>
+現在我特別想知道您常在文章裡提的“BBScompbook看板”的網址是什麼﹐我找了好久都沒有找到﹐因為特別想和台灣同胞交流﹐所以只好麻煩您了。<br>
+您能在您的網站裡的“網路資源”裡加上嗎﹖</font></p>
 
-<p><font color="#000000">���J���^�СG140.114.87.5 �O�s�˲M�ؤj�Ǹ�T�t��BBS�A�䤤��Computer/CompBook 
-���C�O�W�U�j�Ǫ�BBS�O�p�u�ʽ�A�ҥH�A�i�H�ݨ�U�j�ǦP�@�׾¤W���Ҧ�����C</font></p>
+<p><font color="#000000">●侯捷回覆：140.114.87.5 是新竹清華大學資訊系的BBS，其中有Computer/CompBook 
+版。臺灣各大學的BBS是聯線性質，所以你可以看到各大學同一論壇上的所有帖文。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��19�� PM 03:00<br>
-�J����:<br>
-�z�n!<br>
-�ܰ����b���y���ѩ��̶R��F�zĶ��&quot;Essential C++&quot;?�骩,�ѨS�ݧ�,�o�{�F�@�I�p���~,�n���O?�骩��Ķ�y�����a?<br>
+<p><font color="#408080">傳送日期: 2001年10月19日 PM 03:00<br>
+侯先生:<br>
+您好!<br>
+很高興在重慶的書店裡買到了您譯的&quot;Essential C++&quot;?體版,書沒看完,發現了一點小錯誤,好像是?體版轉譯造成的吧?<br>
 p9 L-8 p10 L5 p30 L-4<br>
-���:�r���`�q ���:ostream��H<br>
-��:�r�ű`�q ��:ofstream��H<br>
+原文:字面常量 原文:ostream對象<br>
+更正:字符常量 更正:ofstream對象<br>
 <br>
 p57 L-3<br>
-���: display-message('\t'); //�쩳�O���@�өO?<br>
-��: display-message('\n'); �`:�ʤ֦��y!<br>
-display-message('\t'); //�쩳�O���@�өO?<br>
+原文: display-message('\t'); //到底是哪一個呢?<br>
+更正: display-message('\n'); 注:缺少此句!<br>
+display-message('\t'); //到底是哪一個呢?<br>
 <br>
-BTW: �ڧ����Lippman���t�@��---C++ Primer 3/E,�Ʊ�CSDN����N�z�z��Ķ��!<br>
+BTW: 我更期待Lippman的另一本---C++ Primer 3/E,希望CSDN能夠代理您的譯本!<br>
 <br>
-</font>���J���^�СG�A��ڷd�o���Y��V�C�`���A�A�Ҭݨ쪺�A���O���T���]���O�ڭn���F���^�C</p>
+</font>●侯捷回覆：你把我搞得昏頭轉向。總之，你所看到的，都是正確的（都是我要表達的）。</p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 </font></p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��20�� PM 10:14<br>
-�D��: SingleDocumentQuestion<br>
+<p><font color="#408080">傳送日期: 2001年10月20日 PM 10:14<br>
+主旨: SingleDocumentQuestion<br>
 <br>
 Dear Prof.Hou:<br>
 I have meet a question after reading your dissection MFC. I found in the SingleDoc Typed 
@@ -1912,494 +1912,494 @@ program that is produced by AppWizard, there is no intialization such as &quot;m
 process that the m_pMainWnd is initialed.<br>
 One of your reader</font></p>
 
-<p>���J���^�СG�o�i�o��Ǯɶ���s��s�C</p>
+<p>●侯捷回覆：這可得花些時間研究研究。</p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 <br>
-�ǰe���: 2001�~10��21�� AM 12:38<br>
+傳送日期: 2001年10月21日 AM 12:38<br>
 <br>
-&gt; �J�Ѯv�A�n<br>
-&gt; ��ť�F�z�ӥ��q�ҤW���X��ҫ�, ��q��L, �Ȧb���P��.<br>
+&gt; 侯老師你好<br>
+&gt; 自聽了您來光電所上的幾堂課後, 獲益匪淺, 僅在此感謝.<br>
 &gt; <br>
-&gt; �����z�O�_�O�o CSplitterWnd ��, �h�� CView �~�Ӫ���P CDocument 
-���󪺬�<br>
-&gt; ���Q��, �Y, �{�����u�ŧi�F�@�� CSingleDocTemplate �өw�q�@�� CView 
-�~�Ӫ���<br>
-&gt; �P Document �����Y, �t�~�� View �p�����?<br>
-&gt; �ڷQ�������Ӧb CreateView ���� CCreateContext �Ѽ�, ����, 
-�p�G�{���ŧi<br>
-&gt; Multiple Document �O, �Ҧp, �ŧi��� Document, �ӱ��� 3 �ӦbCSplitterWnd 
-��<br>
-&gt; �� View �Ӫ��{, �p����w�ĤT�� View �ҹ����� Document �O?<br>
+&gt; 不知您是否記得 CSplitterWnd 中, 多個 CView 繼承物件與 CDocument 
+物件的相<br>
+&gt; 關討論, 即, 程式中只宣告了一個 CSingleDocTemplate 來定義一個 CView 
+繼承物件<br>
+&gt; 與 Document 的關係, 另外的 View 如何對應?<br>
+&gt; 我想關鍵應該在 CreateView 中的 CCreateContext 參數, 那麼, 
+如果程式宣告<br>
+&gt; Multiple Document 呢, 例如, 宣告兩種 Document, 而欲用 3 個在CSplitterWnd 
+中<br>
+&gt; 的 View 來表現, 如何指定第三個 View 所對應的 Document 呢?<br>
 &gt; <br>
-&gt; �t�~�b�Ҿl�ɴ��Q�� ON_REFLECT �� ON_CONTROL ���T���ǻ�, 
-�ڪ����ѬO MFC �|<br>
-&gt; �չϱN�ӰT���ǵ� Owner Window, �p�L Owner Window �h�ǵ� Parent Window, 
-����<br>
-&gt; �O�_���T<br>
+&gt; 另外在課餘時曾討論 ON_REFLECT 及 ON_CONTROL 的訊息傳遞, 
+我的見解是 MFC 會<br>
+&gt; 試圖將該訊息傳給 Owner Window, 如無 Owner Window 則傳給 Parent Window, 
+不知<br>
+&gt; 是否正確<br>
 <br>
-</font>���J���^�СG�Ĥ@�Ӱ��D�A���䪺�T�b�� CreateView()�C<br>
-�ĤG�Ӱ��D�A�ڱN��z��m�h���P�����n2e ��6���� MFCLite 3.0 
-���X�M�����C�Ф��n�~�|�ڦb�����l�A�ڹ�b�S���O��b�o�̦A�оǤ@���C���@���ڥ���}��U���C<br>
+</font>●侯捷回覆：第一個問題，關鍵的確在於 CreateView()。<br>
+第二個問題，我將整理於《多型與虛擬》2e 第6章的 MFCLite 3.0 
+源碼和說明。請不要誤會我在賣關子，我實在沒有力氣在這裡再教學一次。那一章我打算開放下載。<br>
 </p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��21�� AM 10:32<br>
-�J�T�N���͡R<br>
-�z�n�T�b�B�ͪ����ˤU�M�ڶ}�l�\Ū�z���m�`�J�L�XMFC�n�o���ѡC<br>
-�ڪ�C++��¦�ݩ󤤵������M�ҥH�{�b�@��ǲ�C++�@��ݱz���ѡM�Pı���q��L�C�䤤���ǭ��n���N���誺�F��O�ڦb�O���ѤW����|���쪺�M���ث�M�j�����Pı�M�]�Pı�M�z�o���Ѭۨ���ߡT<br>
-²�椶�Ф@�U�ڦۤv�C�ڥs�����M�k�M�{�b����j�����F�_�j�ǡ]�o�Ҥj�ǥ��O���[�e���u�@���i�Ǩ}�ѥ��Ϳˤ�п쪺�^Ū��s�͡M�t�Τu�{�M�~�C<br>
-�Ʊ��g�`�M�z�pô�M�ï�o��z�����U�C<br>
-�ߦ^���C<br>
+<p><font color="#408080">傳送日期: 2001年10月21日 AM 10:32<br>
+侯俊杰先生﹕<br>
+您好﹗在朋友的推薦下﹐我開始閱讀您的《深入淺出MFC》這本書。<br>
+我的C++基礎屬於中等水平﹐所以現在一邊學習C++一邊看您的書﹐感覺受益匪淺。其中有些重要的﹑精髓的東西是我在別的書上所體會不到的﹐有種恍然大悟的感覺﹐也感覺和您這本書相見恨晚﹗<br>
+簡單介紹一下我自己。我叫□□﹐女﹐現在中國大陸的東北大學（這所大學正是不久前剛剛逝世的張學良老先生親手創辦的）讀研究生﹐系統工程專業。<br>
+希望能經常和您聯繫﹐並能得到您的幫助。<br>
+盼回音。<br>
 <br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��21�� PM 11:01<br>
-�J�Ѯv�R�z�n�T<br>
-�����P�±z�������T���٬O�����ݰ��D�a�T<br>
-�@�� �_�l��ƥi�H�ΨӺʱ��@�� Windows ������ �M���� 
-�Τ����k�i�H�Ӻʱ��o�ǹ_�l��ơS<br>
-�P�¡T<br>
+<p><font color="#408080">傳送日期: 2001年10月21日 PM 11:01<br>
+侯老師﹕您好﹗<br>
+首先感謝您的幫忙﹗我還是直接問問題吧﹗<br>
+一個 鉤子函數可以用來監控一個 Windows 的消息 ﹐那麼 
+用什麼方法可以來監控這些鉤子函數﹖<br>
+感謝﹗<br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 <b>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��22�� PM 05:17<br>
-�ԥ��͡M�A�n�T<br>
+<p></b><font color="#408080">傳送日期: 2001年10月22日 PM 05:17<br>
+候先生﹐你好﹗<br>
 <br>
-�@�@Ū�F�A���j�@�m�`�J�L�XMFC�n�H��M�ڦۤv��VC�s�{�����s���F�@�Ӥ�H�e�M�����{�ѡM�����໡�O�ܲM���M�]���ڦۤv�O�Ǧ۰ʤƱM�~���M���ۤv��s�{���@�ز��W�䧮���ذg�M��ӴN���جݭp����譱�����y�M�䤤�������u���ۤv�����|�M�\�h�ɭ��`�O�P��ۤv���b�@����������a�̡M�񲴱�h�M������ڡM�t�ߵL���C���ؾǦ��Ҧ������D�O�ۤv�ҦV�檺�ҬɡM���ۤv���D�M�ثe�ۤv����|���T�T�T<br>
-�ڤS�b���W�ݤF���ͪ���L�ۡ]Ķ�^�@�M�ثe�u�O�zԬ�]�U�M�n���Ƨl���M�����D�n���ɡS<br>
-���ޫ��ˡM�٬O���¥��ͯ���b������y���ɥN�@�X���Q�j�a���Ʊ��ӡT�T�T<br>
+　　讀了你的大作《深入淺出MFC》以後﹐我自己對VC編程的機製有了一個比以前清楚的認識﹐但不能說是很清晰﹐因為我自己是學自動化專業的﹐但自己對編程有一種莫名其妙的¨迷﹐後來就學¨看計算機方面的書籍﹐其中的滋味只有自己能夠體會﹐許多時候總是感到自己站在一片茫茫的草地裡﹐放眼望去﹐不見邊際﹐孤立無援。那種學有所成的味道是自己所向望的境界﹐但自己知道﹐目前自己離其尚遠﹗﹗﹗<br>
+我又在網上看了先生的其他著（譯）作﹐目前只是囫圇吞下﹐要消化吸收﹐不知道要到何時﹖<br>
+不管怎麼樣﹐還是謝謝先生能夠在物欲橫流的時代作出有利大家的事情來﹗﹗﹗<br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 <br>
-�ǰe���: 2001�~10��22�� PM 07:15<br>
-�L�q���ԥ��ͧA�n<br>
-�ڦ�����Ū�A���j�@ �m�`�J�L�XMFC�n�ѤӦn�F �Ӧn�F 
-�ڵ��J�h�F�u��o��²�檺�ήe�M���Ȧb���ѤW�٦b�٦b ���ѤW 
-�׬��W�ɧU���ѩM�z�ǤF�ܦh��Ū���Ѧp�����C<br>
-�u�O�u��ݨ�o�@����b�O�Ѩ� �o���n�Ѥר乳�z���ѤӤ����F<br>
-�_�N�����Z�z���M�� 
-�бz���I�g�z�ڡ]�b�_�ʡ^��˦b���ꤰ��a��R���h���z�����y 
+傳送日期: 2001年10月22日 PM 07:15<br>
+尊敬的候先生你好<br>
+我有幸拜讀你的大作 《深入淺出MFC》書太好了 太好了 
+我詞彙貧乏只能這樣簡單的形容﹐不僅在知識上還在還在 見識上 
+修為上借助此書和您學了很多抱讀此書如飲佳釀<br>
+只是只能看到這一本實在是憾事 得本好書尤其像您的書太不易了<br>
+冒昧的打擾您的清修 
+請您指點迷津我（在北京）怎樣在中國什麼地方買到更多的您的書籍 
 <br>
-�n�o�ܤ��h���F ���ֱz�ѤѴr��</font></p>
+好廢話不多說了 祝福您天天愉快</font></p>
 
-<p>���J���^�СG�ثe�X�F�|���ѡA�j�������ӳ����C�����a�ϥi���պ��W�ʮѡC<font
+<p>●侯捷回覆：目前出了四本書，大城市應該都有。偏遠地區可嘗試網上購書。<font
 color="#408080"><br>
 </font></p>
 
 <p><font color="#408080"><br>
 <br>
 <br>
-�ǰe���: 2001�~10��22�� PM 10:43<br>
-�J���͡R�A�n�T<br>
-�ڬO�@�ӷs��C�D�`���w�z�g���m�`�J�L�XMFC�n�M�ڶR�L�Q�X������VC���ѡM�z�o���O�ڰߤ@��ݩ��ժ��ѡ]���M�������Ѧ�MSDN�~��^�M���z�Ѥ��d�Ҥ����쬰�קK�sĶ�ɪ�ĵ�i�ݼg�J��UNREFERENCED_PARAMETER�]�^���y�y�C�аݳo�y�y���@�άO����S�b���ر��p�U�ݭn�Ψ�S�]�bMSDN 
-�����������M�u���·бz�F�C<br>
-���z���鰷�d�T<br>
+傳送日期: 2001年10月22日 PM 10:43<br>
+侯先生﹕你好﹗<br>
+我是一個新手。非常喜歡您寫的《深入淺出MFC》﹐我買過十幾本關於VC的書﹐您這本是我唯一能看明白的書（當然需邊看邊參考MSDN才行）﹐但您書中範例中提到為避免編譯時的警告需寫入“UNREFERENCED_PARAMETER（）”語句。請問這語句的作用是什麼﹖在哪種情況下需要用到﹖因在MSDN 
+中未找到解釋﹐只有麻煩您了。<br>
+祝您身體健康﹗<br>
 <br>
-</font>���J���^�СG<font color="#408080">UNREFERENCED_PARAMETER( )</font> �w�q�� 
-winnt.h�G<br>
+</font>●侯捷回覆：<font color="#408080">UNREFERENCED_PARAMETER( )</font> 定義於 
+winnt.h：<br>
 <font color="#408080"><br>
 </font><font color="#000000" face="Fixedsys">#define UNREFERENCED_PARAMETER(P) \<br>
 { \<br>
 (P) = (P); \<br>
 } \</font><font color="#408080" face="Fixedsys"><br>
 </font><font color="#408080"><br>
-</font><font color="#000000">���ǽsĶ���|��ǤJ�禡�ӥ��Q�ϥΪ� 
-parameters�]���ӻ��Oarguments�^�o�Xĵ�i�A�p�G�A���Q�ݨ�o��ĵ�i�A�i�H�ϥΤW�z 
-macro�C</font></p>
+</font><font color="#000000">有些編譯器會對傳入函式而未被使用的 
+parameters（應該說是arguments）發出警告，如果你不想看到這種警告，可以使用上述 
+macro。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 <br>
 <br>
-�ǰe���: 2001�~10��23�� PM 02:11<br>
-�{¾�R�����w���u�{�v <br>
-���~�Ǯլ�t�R�_�ʤu�~�j�� <br>
-�~���٥��]�x�WŪ�̽мg�����^�R�_�� <br>
-��J������ĳ�R�ڪ��VC++�M�{�Ǥ��n�h�y�y���� �]�p��UNREFERENCED_PARAMETER���M���ͥu����o�O�Ψ��קK�sĶ���~���M�������b 
-���򱡪p�U�~�ݭn�ΡS�ڦbMSDN���]�S�d��^�M�Y����K���X�ԲӸ����M�g���X�B 
-�]�n�T--��ı�o�ǲ�VC++�̤j����ê���O�{�Ǧ��h�����M�ӬO���ѡM���������M�Ҥl�{�Ǥ��ܦh�y�y���]�d����M�v�T�F�z�ѡC 
+傳送日期: 2001年10月23日 PM 02:11<br>
+現職﹕網絡安全工程師 <br>
+畢業學校科系﹕北京工業大學 <br>
+居住省份（台灣讀者請寫縣市）﹕北京 <br>
+對侯捷的建議﹕我初學VC++﹐程序中好多語句不懂 （如“UNREFERENCED_PARAMETER”﹐先生只提到這是用來避免編譯錯誤的﹐但不知在 
+什麼情況下才需要用﹖我在MSDN中也沒查到）﹐若不方便給出詳細解釋﹐寫明出處 
+也好﹗--我覺得學習VC++最大的障礙不是程序有多複雜﹐而是知識﹐概念太雜﹐例子程序中很多語句哪也查不到﹐影響了理解。 
 <br>
 <br>
-</font>���J���^�СG<font color="#408080">UNREFERENCED_PARAMETER( )</font> 
-�����D�^����W�C<br>
-<font color="#408080">�u��ı�o�ǲ�VC++�̤j����ê���O�{�Ǧ��h�����M�ӬO���ѡM���������M�Ҥl�{�Ǥ��ܦh�y�y���]�d����M�v�T�F�z�ѡv</font><font
-color="#000000">�A�O���A�o�O���T���A�ҥH�������i�ۤv�䵪�ת���O�A�]�����i�঳�����ѯ���ѵ��A���Ҧ����D�A��pŪ�̤d�d�U�U�A�A�����D���@�w�O�L�����D�A�L�����D���@�w�O�A�����D�C�H�A�Ұݪ�</font><font
-color="#408080">UNREFERENCED_PARAMETER( )</font><font color="#000000">���ҡA���O�@��macro�A�ҥH���M�s�b�� 
-VC�]�ΧA�ҨϥΪ��sĶ���^�Ҫ��� header files 
-�����A�u�n�ϥΥ����r�j�M�u��]�ڥΪ��O grep utility�^�A�N�i������X�o�� 
-macro �w�q�Ҧb�C����MFC source���@�����ηN�]�b���A���j�a�إ߰_�u���D���̲׸ѨM���D�v�C</font></p>
+</font>●侯捷回覆：<font color="#408080">UNREFERENCED_PARAMETER( )</font> 
+的問題回答於上。<br>
+<font color="#408080">「我覺得學習VC++最大的障礙不是程序有多複雜﹐而是知識﹐概念太雜﹐例子程序中很多語句哪也查不到﹐影響了理解」</font><font
+color="#000000">，是的，這是正確的，所以必須培養自己找答案的能力，因為不可能有哪本書能夠解答你的所有問題，何況讀者千千萬萬，你的問題不一定是他的問題，他的問題不一定是你的問題。以你所問的</font><font
+color="#408080">UNREFERENCED_PARAMETER( )</font><font color="#000000">為例，它是一個macro，所以必然存在於 
+VC（或你所使用的編譯器）所附的 header files 
+之中，只要使用任何文字搜尋工具（我用的是 grep utility），就可輕易找出這個 
+macro 定義所在。挖掘MFC source的一部份用意也在此，幫大家建立起「問題的最終解決之道」。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ԦѤj�R�z�n!<br>
-���§A���n�Ѩæb���W�o�G�q�l���M���A�b�j���X����²�骩�m�`�J�L�XMFC�n���H�w�g�R�U�ӤF�M���]�U���F�����q�l���M�Pı�b�q���W�ݦ��ɤ�ѥ��ӱo���P�M�ܤ֥i�H�@��ոսm�ߤ@��⮩�C�Ʊ澨�֯�ݨ�A�p�������n�ѥX���T<br>
-�� ���a���֡T<br>
-�H�U����²�檺�ӤH��ơR<br>
-�{¾�R �n��}�o�P���� �]�W�� �^<br>
-���~�Ǯ�/��t�R �F�ؤj�ǡ]�줤�꯼´�j�ǡ^/ �q�H�u�{�t<br>
-���~�ɶ��R2000�N7<br>
-�X�ͦa�R ��n ���<br>
-��ĳ�R 
-�P�±z��j���n��~�����j�^�m�M�v�T�C�Ʊ�A��b����U�a�i������y�M���[�Ǳ½s�{�H�͸g��C<br>
+<p><font color="#408080">候老大﹕您好!<br>
+謝謝你的好書並在網上發佈電子版﹐其實你在大陸出版的簡體版《深入淺出MFC》本人已經買下來了﹐但也下載了部份電子版﹐感覺在電腦上看有時比書本來得輕鬆﹐至少可以一邊調試練習一邊領悟。希望儘快能看到你計劃中的好書出版﹗<br>
+祝 全家幸福﹗<br>
+以下附有簡單的個人資料﹕<br>
+現職﹕ 軟件開發與測試 （上海 ）<br>
+畢業學校/科系﹕ 東華大學（原中國紡織大學）/ 通信工程系<br>
+畢業時間﹕2000﹑7<br>
+出生地﹕ 湖南 湘西<br>
+建議﹕ 
+感謝您對大陸軟件業的巨大貢獻和影響。希望你能在全國各地進行些講座﹐不吝傳授編程人生經驗。<br>
 <br>
-</font>���J���^�СG�o���ڦb�Z�~�i��W���u�{�ǤH�͡v���t���A�����e���@��ť�����ݡA�L�����F���a���u�ڭ̤��O��ť�A���o�ǪF��A�ڭ̷Qť���O�޳N�v�C�ڤ����D������u�{�ǤH�͡v�o�|�Ӧr������L�p�Q��޳N�C�L�צp��ڳ����i��b�@��ť��500�H�A�ɶ�2�p�ɡA�K�O�i���B�U�Y�p�ʡB�ί��Χ������X���ͧ޳N�C</p>
+</font>●侯捷回覆：這次我在武漢進行名為「程序人生」的演講，結束前有一位聽眾提問，他直接了當地說「我們不是來聽你講這些東西，我們想聽的是技術」。我不知道為什麼「程序人生」這四個字能夠讓他聯想到技術。無論如何我都不可能在一個聽眾500人，時間2小時，免費進場、萬頭鑽動、或站或坐的場合中談技術。</p>
 
-<p>�A<font color="#000000">��</font><font color="#408080">�u�Ʊ�A��b����U�a�i������y</font>�v�A���ڹ�b���Ʊ�A��ť��W�z����ݧr 
+<p>你<font color="#000000">說</font><font color="#408080">「希望你能在全國各地進行些講座</font>」，但我實在不希望再次聽到上述的質問呀 
 :)</p>
 
-<p><font color="#000000">�A��</font><font color="#408080">�u�P�±z��j���n��~�����j�^�m�M�v�T�v</font><font
-color="#000000">�A�o���O�ƹ�A�ګ�򴱷��C</font></p>
+<p><font color="#000000">你說</font><font color="#408080">「感謝您對大陸軟件業的巨大貢獻和影響」</font><font
+color="#000000">，這不是事實，我怎麼敢當。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 </font></p>
 <b>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��23�� PM 04:13<br>
-�J����:<br>
-���ͪ��Ѧn,Ū�_�Ӳn,���Q��C++ PRIMER,�o�S���,�ण���q�l���@��...�ߦ^�_<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月23日 PM 04:13<br>
+侯先生:<br>
+先生的書好,讀起來爽,但想找C++ PRIMER,卻沒找到,能不能把電子版共享...盼回復<br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��23�� PM 04:47<br>
-�D��: �Ѯv�z�n...�ڬO�������ǥ�<br>
+<p><font color="#408080">傳送日期: 2001年10月23日 PM 04:47<br>
+主旨: 老師您好...我是元智的學生<br>
 <br>
-�Ѯv�藍�_���Z�F...<br>
-���x���U�ЦѮv����...<br>
+老師對不起打擾了...<br>
+斗膽拜託請老師幫忙...<br>
 <br>
-�ڷQ�бЪ��O�X�ʵ{��source�����D...<br>
-�ڪ����D�O����ramdisk for win2000<br>
-�ڤw�g�b�L�n�������W<br>
+我想請教的是驅動程式source的問題...<br>
+我的問題是有關ramdisk for win2000<br>
+我已經在微軟的網站上<br>
 http://support.microsoft.com/support/kb/articles/Q257/4/05.ASP<br>
-���@��ramdisk�X�ʵ{����sample...�ӥB����l�X(C�y��)(�ڱH���z�����[�ɮ�)<br>
-�o�Ӥ]�j���N�O�ڭn���F��.....<br>
-�g�Lwin2000 DDK�hcompile�N�o�쵲�G....<br>
-���D�N�O���u��̦h�b�O����̤�32MB��disk....<br>
-���ڭn���O�n��128MB....<br>
-��ı�o�u�n��source�̭����Ѽ����ӴN�i�H�F(�ڲq��)...<br>
-�ڤ]�յۥh��L...�i�O���G�٬O�@��...<br>
-�ڦb�Q..�O���O�墨��.C�ɨS��...�ӬO�n��MAKE�ɩάO�O����(�]�O�q��..^^)<br>
-�i�O�ڤS�����X�ʵ{��..�]�����q���_...<br>
+找到一個ramdisk驅動程式的sample...而且附原始碼(C語言)(我寄給您的附加檔案)<br>
+這個也大概就是我要的東西.....<br>
+經過win2000 DDK去compile就得到結果....<br>
+問題就是它只能最多在記憶體裡切32MB當disk....<br>
+但我要的是要能128MB....<br>
+我覺得只要改source裡面的參數應該就可以了(我猜的)...<br>
+我也試著去改過...可是結果還是一樣...<br>
+我在想..是不是改那個.C檔沒用...而是要改MAKE檔或是別的檔(也是猜的..^^)<br>
+可是我又不懂驅動程式..也不知從何改起...<br>
 <br>
-�ڰO�o�̭�����ramdisk.c�ɪ��Y�@��<br>
+我記得裡面有個ramdisk.c檔的某一行<br>
 DiskSize REG_DWORD 0x00100000 (1,048,576 1Mb)<br>
 ^^^^^^^^^^^^^<br>
-�ڧ令0x4000000(64MB)<br>
-���O���o�٬O�u��32MB....�ҥH�S�令�\<br>
-�t�~�ڦ��չL�p�G�ڵ��L40MB....���o�ܦ�8MB<br>
-�ڦb�Q�O���O����g�o�ӵ{�����H�⥦����b32MB<br>
-�p�G�W�L�Nmodule32MB�~�|�ܦ��o��...<br>
-���L�o�]���O�q...<br>
-�]���ڤ]�յۦb�{���X�̧�L�b���̦��hmod32...<br>
-�̵M�S���..<br>
-�ӥB�ڦbramdisk.h�̪�structure�������ܼƪ����Ѭݨ�<br>
-�Y�@�����ܼ�;// if &gt; 32MB<br>
-���O�ηj�M��Ӹ�Ƨ��o�䤣�쥦�Q�Ψ쪺�a��...<br>
-�]�N�O�����Q�ŧi��N�S�Ψ�F*.*|||<br>
+我改成0x4000000(64MB)<br>
+但是它卻還是只有32MB....所以沒改成功<br>
+另外我有試過如果我給他40MB....它卻變成8MB<br>
+我在想是不是當初寫這個程式的人把它限制在32MB<br>
+如果超過就module32MB才會變成這樣...<br>
+不過這也都是猜...<br>
+因為我也試著在程式碼裡找過在哪裡有去mod32...<br>
+依然沒找到..<br>
+而且我在ramdisk.h裡的structure的成員變數的註解看到<br>
+某一成員變數;// if &gt; 32MB<br>
+但是用搜尋整個資料夾卻找不到它被用到的地方...<br>
+也就是說它被宣告後就沒用到了*.*|||<br>
 <br>
-�t�~���ٰO�oRamDisk.c�������Ӹ�e�q�j�p�������ܼ�<br>
+另外我還記得RamDisk.c中有應該跟容量大小有關的變數<br>
 devExt-&gt;DiskGeometry.BytesPerSector = 512;<br>
 devExt-&gt;DiskGeometry.SectorsPerTrack = 32; // Using Ramdisk value<br>
 ^^^^^<br>
-�ڦ����չL�令64�bramdisk.c�̡A���O�٬O����.....<br>
-DDK��compile ramdisk.c�ɶ�?�٬O�o��.c�ɥu�O���ڭ̬ݪ�<br>
-�|���|���hcompile make�ɩΨ�L���ɡA�ҥH��.c�S����?<br>
+我有嘗試過改成64在ramdisk.c裡，但是還是不行.....<br>
+DDK有compile ramdisk.c檔嗎?還是這個.c檔只是給我們看的<br>
+會不會它去compile make檔或其他的檔，所以改.c沒有用?<br>
 devExt-&gt;DiskGeometry.TracksPerCylinder = 2; // Using Ramdisk value<br>
 <br>
-�ٽЦѮv���I�g�z...���U���U...<br>
+還請老師指點迷津...拜託拜託...<br>
 </font></p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��23�� PM 04:39<br>
-�ǲߧֻP�_,����O�_���@���n��,�@���p���ͼg���n��,�A���P�§A!!<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月23日 PM 04:39<br>
+學習快與否,關鍵是否有一本好書,一本如先生寫的好書,再次感謝你!!<br>
 </font></p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��24�� AM 12:41<br>
-�J���͡M�A�n<br>
-���}�l�ǲߪx���C���M�K���F�\Ū�A��STL�t�C�峹�C<br>
-�b�Ĥ@�g�M�]�Y�O�j���[�R�x���{�ǳ]�p�PSTL���M�ڵo�{�F�@�Ӥpbug.<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月24日 AM 12:41<br>
+侯先生﹐你好<br>
+近日開始學習泛型。當然免不了閱讀你的STL系列文章。<br>
+在第一篇﹐也即是大局觀﹕泛型程序設計與STL中﹐我發現了一個小bug.<br>
 <br>
 page7<br>
-STL�B�ι��<br>
+STL運用實例<br>
 ...<br>
-����C++���s�Ө��M1994�~�����K�c�]waterloo in Ontario, USA)�Хܪ��h�O���j�����\�C<br>
+但對C++社群而言﹐1994年的滑鐵盧（waterloo in Ontario, USA)標示的則是極大的成功。<br>
 <br>
-�W�媺���~�b��Rwaterloo�O�bOntario, ���OOntario���bUSA, �ӬO�bCANADA�C<br>
-�ڬ�����|���D�O? �]���ڴN�bOntario :) welcome to Ontario.<br>
-���§A���ڱH���ѡM���ɧ��٦b�`�`�O�C<br>
-������}����S�h�[�M�A���ѴN�}�l�j�q�b�j���ƨg�X���M�ڤS�R����F:((</font></p>
+上文的錯誤在於﹕waterloo是在Ontario, 但是Ontario不在USA, 而是在CANADA。<br>
+我為什麼會知道呢? 因為我就在Ontario :) welcome to Ontario.<br>
+謝謝你給我寄的書﹐那時我還在深圳呢。<br>
+剛剛離開中國沒多久﹐你的書就開始大量在大陸瘋狂出版﹐我又買不到了:((</font></p>
 
-<p>���J���^�СG���§A���ȥ��C�o�U�ڥi�ɤF�C�ڥH��Ontario�]�w�j���^���ӬO�b����A�٤W���j�M�L�O�C�A�T�w����S��Ontario�ܡH�ΧA�T�wwaterloo�N�O���[���j��Ontario�ܡH</p>
+<p>●侯捷回覆：謝謝你的糾正。這下我可糗了。我以為Ontario（安大略）應該是在美國，還上網搜尋過呢。你確定美國沒有Ontario嗎？或你確定waterloo就是位於加拿大的Ontario嗎？</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��24�� AM 08:42<br>
-�Ա��Ѯv�M�z�n�T<br>
+<p><font color="#408080">傳送日期: 2001年10月24日 AM 08:42<br>
+候捷老師﹐您好﹗<br>
 <br>
-�ڬO�����u�~�j�Ǿ��q�u�{�ǰ|�Юv�M�D�n�о�������¦�ҵ{�M�p�m�����z�n�N�m����]�p�n���M�]�Ф@�ǭp����{�ǳ]�p�ҵ{�M�p�mC�y���{�ǳ]�p�n���C��ť�B�ͤ��л��z���j�@�m�`�J�L�XMFC�n�OWindows�{�ǳ]�p���̸g�媺�е{���@�M�L�j�P���˧ڬݤ@�U�M�ڧ䤣��o���Ѫ�²�骩�M�ҥH�bhtpp:\\www.csdn.net�B�U���F�@�ӹq�l���C���L�M�ڲ{�b�٨S��Ū�M����Ū���o���ѦA�V�z���X�����ڪ��P���C<br>
+我是浙江工業大學機電工程學院教師﹐主要教機械類基礎課程﹐如《機械原理》﹑《機械設計》等﹐也教一些計算機程序設計課程﹐如《C語言程序設計》等。我聽朋友介紹說您的大作《深入淺出MFC》是Windows程序設計中最經典的教程之一﹐他強烈推薦我看一下﹐我找不到這本書的簡體版﹐所以在htpp:\\www.csdn.net處下載了一個電子版。不過﹐我現在還沒有讀﹐等我讀完這本書再向您反饋有關我的感受。<br>
 <br>
-�{¾�R�Юv<br>
-�~���٥��R�����٪C�{��<br>
+現職﹕教師<br>
+居住省份﹕浙江省杭州市<br>
 <br>
 <br>
 <br>
 </font></p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��24�� AM 09:34<br>
-�J�Ѯv:<br>
-�z�n�M�ڨӦۤj���M�{�b�饻���@�Ҥj�ǯd�ǡM�����b���W�ݨ�J�Ѯv���j�@�M�Ʊ��ݨ�J�Ѯv���ѡM�����l�ʪ��ܡM�p���z�C�Ʊ�l�ʪ��ѬO:<br>
-C++ Primer ���媩 <br>
-Effective C++ 2/e ���媩�]��ˡ^<br>
-More Effective C++ ���媩�]��ˡ^<br>
-�x���{���]�p�P STL�]��ˡ^<br>
-Essential C++ ���媩<br>
-C++ Primer (3/e) �D��<br>
-�`�J�L�X MFC �Ģ���<br>
-Win32 �h���{���]�p<br>
-COM�����<br>
-(�c�骩�]��)<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月24日 AM 09:34<br>
+侯老師:<br>
+您好﹐我來自大陸﹐現在日本的一所大學留學﹐有幸在網上看到侯老師的大作﹐希望能看到侯老師的書﹐不知郵購的話﹐如何辦理。希望郵購的書是:<br>
+C++ Primer 中文版 <br>
+Effective C++ 2/e 中文版（精裝）<br>
+More Effective C++ 中文版（精裝）<br>
+泛型程式設計與 STL（精裝）<br>
+Essential C++ 中文版<br>
+C++ Primer (3/e) 題解<br>
+深入淺出 MFC 第２版<br>
+Win32 多緒程式設計<br>
+COM本質論<br>
+(繁體版也行)<br>
 <br>
-</font>���J���^�СG�O�W�X�������G�S���}�q���~�l�ʡC�A�����ݰݳo�ǮѪ��X�����q�]�J�������W�i�d�U�ѥX�����q�^�C</p>
+</font>●侯捷回覆：臺灣出版社似乎沒有開通海外郵購。你不妨問問這些書的出版公司（侯捷網站上可查各書出版公司）。</p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 <br>
-�ǰe���: 2001�~10��24�� PM 02:47<br>
-�J�Ѯv�M�z�n�T<br>
-��Ӭݺ��W���z������,�����D�x�W�p��,���Ȥj�����\�hŪ�̳��N�z�ݧ@<br>
-&quot;�L���K����&quot;�F,����!���L�]����,�j������,�l�׳B��&quot;�ŤM+�߽k&quot;������,����<br>
-�ݨ즳�H��@�ߪ��I�U�h,�g�X�Ǧۤv�F��Ӫ��@��,�j���|�����R������:)<br>
-�~�ɩl�צ��@�دBļ���Pı,�����D�O�_�]���p����o�i�ӧ֪��t�G,�z����<br>
-�y&quot;�Ŧb�B�⵮���O&quot;�ڤw�g��ܦh�H���L�F,���L���^��,���ȧڤ]�O�o��,�S��<br>
-��k&quot;�I&quot;�U��,�����D�z�����򰪩۽��,�U���P��<br>
-�ٽбz���@�Ӧ�,��_���˴X�����zVXD�Ϊ�WDM�����y����,&lt;Writting <br>
-Windows VxD and Device Driver&gt;�ڳo�̧䤣��,�ӥB���y�w��WIN3.1�Pı<br>
-���G���¨�,�����D���S���s�Ǫ�(���M�s�O������,�޳N���ȥ����F),�A���P��<br>
+傳送日期: 2001年10月24日 PM 02:47<br>
+侯老師﹐您好﹗<br>
+近來看網上對於您的評價,不知道台灣如何,恐怕大陸的許多讀者都將您看作<br>
+&quot;無敵鐵金剛&quot;了,呵呵!不過也難怪,大陸眾書,始終處於&quot;剪刀+漿糊&quot;的水準,偶爾<br>
+看到有人能耐心的沉下去,寫出些自己東西來的作者,大都會拜為崇拜偶像:)<br>
+業界始終有一種浮躁的感覺,不知道是否因為計算機發展太快的緣故,您的那<br>
+句&quot;勿在浮砂筑高臺&quot;我已經對很多人說過了,不過說回來,恐怕我也是這樣,沒有<br>
+辦法&quot;沉&quot;下來,不知道您有什麼高招賜教,萬分感謝<br>
+還請您幫一個忙,能否推薦幾本講述VXD或者WDM的書籍給我,&lt;Writting <br>
+Windows VxD and Device Driver&gt;我這裡找不到,而且書籍針對WIN3.1感覺<br>
+似乎陳舊些,不知道有沒有新些的(雖然酒是陳的香,技術恐怕未必了),再次感謝<br>
 :-) <br>
 <br>
-</font>���J���^�СG�ڤ�\�h�H�Ií�A�i��O�]���کҿ�ܪ��u�@�A�����y�i�v�y�C�ҥH�A�B��]�Ǥ��o�j�a�C���L�A�J�M���D�޳N���i�������Ϲ�A���N�L�צp��n�Ií�U�ӡC</p>
+</font>●侯捷回覆：我比許多人沉穩，可能是因為我所選擇的工作，不必流波逐流。所以，浮燥也怪不得大家。不過，既然知道技術的養成必須紮實，那就無論如何要沉穩下來。</p>
 
-<p>���� VxD �M WDM���y�AWalter Oney �U�ۤF�@���g��A�W amazon 
-�K�i�d��ԲӸ�ơC</p>
+<p>關於 VxD 和 WDM書籍，Walter Oney 各著了一本經典，上 amazon 
+便可查到詳細資料。</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��24�� PM 07:42<br>
-�q�R���J����:<br>
-�ڳ̪��ʶR�F�A���j�@&lt;�`�J�L�XMFC(�ĤG��)&gt;�����媩,��Ū��,��q��L.�o�������ڧi�O�F�L�h������vc++�{�Ǯɥu���D�n�o�˰�,�����D������n�o�˰����~�p.<br>
-�i�O�ѩ�ڥΪ��Ovc++6.0��,�̭��P�A���������P,�ڬݨ�����console�{�Ǫ��ɭ�,�o�����D��˥h��make.dat���.�ڧ�F�ܦh�o�譱����ƥi�O�o�S���o�{,</font><font
-color="#8080FF">�q�`���O��makefile�w�g�O�@�سQ�^�O����X�Ҧ�</font><font
-color="#408080">.�p�G�O�o�˪���,�ڴN�������A���{�Ǽg��q���̭���|�o�ӹL�{,<br>
-����ͯ�b�ʦ�����,�ѵ��ڳo�ӹ�vc++�R���R�n����Ǫ̳o���o�Ӱ��D.<br>
-������:<br>
-���鰷�d!<br>
-�U�Ʀp�N!<br>
+<p><font color="#408080">傳送日期: 2001年10月24日 PM 07:42<br>
+敬愛的侯先生:<br>
+我最近購買了你的大作&lt;深入淺出MFC(第二版)&gt;的中文版,拜讀後,獲益匪淺.這本書讓我告別了過去看講解vc++程序時只知道要這樣做,不知道為什麼要這樣做的窘況.<br>
+可是由於我用的是vc++6.0版,裡面與你的略有不同,我看到講做console程序的時候,卻不知道怎樣去做make.dat文件.我找了很多這方面的資料可是卻沒有發現,</font><font
+color="#8080FF">通常都是說makefile已經是一種被淘汰的輸出模式</font><font
+color="#408080">.如果是這樣的話,我就不能夠把你的程序寫到電腦裡面體會這個過程,<br>
+望先生能在百忙之中,解答我這個對vc++充滿愛好的初學者這的這個問題.<br>
+祝先生:<br>
+身體健康!<br>
+萬事如意!<br>
 <br>
-</font>���J���^�СGmakefile ���O�@��<font color="#8080FF">�Q�^�O����X�Ҧ�</font><font
-color="#000000">�C�ڵL�k���Ť��оǡA�Ш�׾¤W�o�ݡC�ΰѦ�</font><a> 
-�J������ 1999</a> <a target="main" href="article99-10.htm" tppabs="http://jjhou.boolan.com/article99-10.htm">04/08 Console 
-�Ҧ����ϥ�C/C++ �sĶ��</a>�C</p>
+</font>●侯捷回覆：makefile 不是一種<font color="#8080FF">被淘汰的輸出模式</font><font
+color="#000000">。我無法做空中教學，請到論壇上發問。或參考</font><a> 
+侯捷散文 1999</a> <a target="main" href="article99-10.htm" tppabs="http://jjhou.boolan.com/article99-10.htm">04/08 Console 
+模式中使用C/C++ 編譯器</a>。</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��24�� PM 09:18<br>
-jjhou�M�z�n�T<br>
-�ߤW�h�ؤuť�F�z�����y�M�@�@�z�������M�Pı�z���ʮ�N���z���ۧ@�@�˥�����H�M<br>
-���M�S������޳N�W���ͬ��M���٬O�Ǩ�F�@�ǰ��H���D�z�M�D�`�P�¡T<br>
-�ڤ��ɴ����z�g�L��ʫH�M�б�����Inside C++ Object Model������NRV�u��<br>
-�M�@�ӵ��k�����D�M�]�b�z�����W�K�X��Ū�̨ӫH���ݨ�ڪ����D�M</font><font
-color="#8080FF">������������<br>
-���D���S�����_</font><font color="#408080">�S��@�Ӱ��D�ګ�ӫ�ҡM�i��O�ۤv�z�Ѫ����t�M���e�̥O�ڦܤ�<br>
-�ܰg�b�M�b����M��BBS�W�Q�פ]�S������ì�M�u�n�_�N�A���g�H�V�z�бСC<br>
-�ڲ{�b�Z�~Ū�ѡM�p�z���즹�H�ɩ|�b�Z�~�M�B��K���ܡC�ڷQ�M�{�h���X�z�M������_�S<br>
-�p�G�z��{�����N��F�C�A���P�¡T<br>
+<p><font color="#408080">傳送日期: 2001年10月24日 PM 09:18<br>
+jjhou﹐您好﹗<br>
+晚上去華工聽了您的講座﹐一睹您的風采﹐感覺您的性格就像您的著作一樣平易近人﹐<br>
+雖然沒有什麼技術上的生活﹐但還是學到了一些做人的道理﹐非常感謝﹗<br>
+我月初時曾給您寫過兩封信﹐請教關於Inside C++ Object Model中關於NRV優化<br>
+和一個虛方法的問題﹐也在您網站上貼出的讀者來信中看到我的問題﹐</font><font
+color="#8080FF">但不知為何兩個<br>
+問題都沒有答復</font><font color="#408080">﹖後一個問題我後來思考﹐可能是自己理解的偏差﹐但前者令我至今<br>
+很迷惑﹐在水木清華BBS上討論也沒有什麼收穫﹐只好冒昧再次寫信向您請教。<br>
+我現在武漢讀書﹐如您收到此信時尚在武漢﹐且方便的話。我想專程去拜訪您﹐不知行否﹖<br>
+如果您行程比較緊就算了。再次感謝﹗<br>
 </font><br>
-���J���^�СG�ڦ��w���L�A����ڪ�Ķ�@�A�p�G½Ķ���~�A����ڦ��q�Ȧ^���A�ܩ��L�Q�סA�лP��@���p���C�L�h�H�ӧڦ^���L����Ķ�@�W���޳N�ʸ߰ݡA���o��b�ӶW�L�����ӭt�᪺�d���F�C�C�ӤH�����C�ӤH���u�@�A�ڥ������ڪ��u�@�A�䤤���]�A���ӥѭ�@�̨Ӧ^�������D�C</p>
+●侯捷回覆：我早已說過，關於我的譯作，如果翻譯有誤，那麼我有義務回答，至於其他討論，請與原作者聯絡。過去以來我回答過不少譯作上的技術性詢問，但這實在太超過我應該負擔的責任了。每個人都有每個人的工作，我必須做我的工作，其中不包括應該由原作者來回答的問題。</p>
 
-<p>�p�G�ڪ��@�~���޳N�W�����~�A����ڦ��q�Ȧ^�СA�_�h�򥻤W�ڥu���w�^�Ф�V�ʪ��B�ǲߤW�����D�A�åB���ڭӤH���ɶ��P�����өw 
+<p>如果我的作品有技術上的錯誤，那麼我有義務回覆，否則基本上我只喜歡回覆方向性的、學習上的問題，並且視我個人的時間與情緒而定 
 :)</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��24�� PM 10:20<br>
-�ԦѮv�M�z�n�T<br>
-�ڬO�b���y��βĤ@���`�J�L�Xmfc�бzñ�W���ǥ�,<br>
-�ìO�@�ӭp�������M�~�j�|���ǥ�,<br>
+<p><font color="#408080">傳送日期: 2001年10月24日 PM 10:20<br>
+候老師﹐您好﹗<br>
+我是在講座後用第一版深入淺出mfc請您簽名的學生,<br>
+並是一個計算機本科專業大四的學生,<br>
 <br>
-ť�F�z�����y,�ܦh�ܳ��O����ڤ߸̥h�F,<br>
-�]���{�b�ڭ�n�B��g�������q,�ѩ�a�x�I��,�H�Φۤv���ʮ�,<br>
-�٦���L�]��,���F�Ҭ�,�߸̦��@�إ����P,ť�F���y��,<br>
-��ڦ��ܤj���ҵo.<br>
+聽了您的講座,很多話都是說到我心裡去了,<br>
+因為現在我剛好處於迷茫的階段,由於家庭背景,以及自己的性格,<br>
+還有其他因素,放棄了考研,心裡有一種失落感,聽了講座後,<br>
+對我有很大的啟發.<br>
 <br>
-�{�b��ӵؤu���ѯB�W������,���W�Үɦ��ӧO�P�Ǵ��e���},<br>
-�٦�ñ�W��,���ӦP�ǧ�ѻ��i�Ӯ�,�I��z������,�Ӥ���&quot;�藍�_&quot;,<br>
-�ڬ��o�ǦP�Ǫ��ܺF�\,�P��,�z���L����&quot;�H������&quot;,�Ʊ�z�H��A<br>
-�����|�ӪZ�~����,�A���ڭ̱·~�Ѵb.<br>
+現在整個華工有股浮糙的風氣,對於上課時有個別同學提前離開,<br>
+還有簽名時,有個同學把書遞進來時,碰到您的眼鏡,而不說&quot;對不起&quot;,<br>
+我為這些同學表示慚愧,同時,您說過不能&quot;以偏概全&quot;,希望您以後再<br>
+有機會來武漢的話,再給我們授業解惑.<br>
 <br>
-�z��C�~�ǥͪ����h,��ڱ�Ĳ���j�����Ѯv�ӧ󹳤@�Ө|�H��<br>
-�Ѯv,���O�������O,�ڥu��ť��z���@�����y,�Ӥ����[�F�ѧA,<br>
-�H�Ӵ����ۤv�����z����&quot;���&quot;.<br>
+您對青年學生的關懷,比我接觸的大部份老師而更像一個育人的<br>
+老師,但是不幸的是,我只能聽到您的一次講座,而不能更加了解你,<br>
+以來提高自己的像您說的&quot;格調&quot;.<br>
 <br>
-�̫�ڹ����y���X�ӫ�ĳ,<br>
+最後我對講座提幾個建議,<br>
 <br>
-�Ĥ@�I:���D�z�W�r���H,���A�b�Ѥ��һ�,Ū�z���ѭn���@�w��<br>
-���Ѽh���M�I��,�Ʊ�z���ޮɶ����h��,���q�A�αM�~����,<br>
-�ڧکҤF�Ѫ�,�ܤ֦�1/3���H,�گ���ݥX�ӬO��s��,��ڼƥإi��<br>
-�F��1/2�H�W,<br>
+第一點:知道您名字的人,像你在書中所說,讀您的書要有一定的<br>
+知識層面和背景,希望您不管時間的多少,儘量涉及專業知識,<br>
+據我所了解的,至少有1/3的人,我能夠看出來是研究生,實際數目可能<br>
+達到1/2以上,<br>
 <br>
-�ĤG�I:�̫᳡��,�j�a����,�ܦh���O�ӤH�����D,���ǬO�i�H�q�z<br>
-�����y�����쪺,���O�L�ۤv������,�o�����D�Ӧh,���O�F���֮ɶ�,<br>
-�o�O�P�ϧڨ��䪺������@���P�����}����],�٬O�Ʊ�z�����y��h<br>
-�A�Ψ�MFC,<br>
+第二點:最後部份,大家提問,很多都是個人的問題,有些是可以從您<br>
+的講座中提到的,但是他自己不明白,這類問題太多,浪費了不少時間,<br>
+這是致使我身邊的部份研一的同學離開的原因,還是希望您的講座能多<br>
+涉及到MFC,<br>
 <br>
-�ڦh��Ʊ�z����b�ڭ̭p���98�t�}�@�⦸�M�~�����y,���O<br>
-�ڪ��D�o�O���ӥi�઺,<br>
+我多麼希望您能夠在我們計算機98系開一兩次專業的講座,但是<br>
+我知道這是不太可能的,<br>
 <br>
-�H�U�O�ڭӤH�����D:<br>
-�ڭ̤j�|�~�} &quot;���Q��H���{�ǳ]�p&quot; java ����,�٤��O���ת�,<br>
-�Ӳ{�b�S�O�Ҭ㪺��n�ɴ�,�j�a���S���{�u��,<br>
-�ڤ��Ҭ�,�ҥH���b���ɶ��ǲ�C++ �Mjava ,���p�z��,��̤���<br>
-�ܦh�a�賣�۳q,<br>
+以下是我個人的問題:<br>
+我們大四才開 &quot;面嚮對象的程序設計&quot; java 等課,還不是必修的,<br>
+而現在又是考研的緊要時期,大家都沒怎麼認真學,<br>
+我不考研,所以正在抓緊時間學習C++ 和java ,正如您說,兩者之間<br>
+很多地方都相通,<br>
 <br>
-�ڲ{�b�򥻪����Q��H���P�������F,��p�ʸ�,�~��,�ͤ�,������,<br>
-���ǳƶ}�lŪ�z����,�����D�z�������ĳ?<br>
+我現在基本的面嚮對象的感念都懂了,比如封裝,繼承,友元,重載等,<br>
+正準備開始讀您的書,不知道您有什麼建議?<br>
 <br>
-�@�@�@�@�@�@�@�@�P<br>
-§�T<br>
-�ڼg�o�ʫH,�O���ܹ��z���R�q,�H�ι�z���ڭ̨����y���P�E,<br>
-�P�ɤ]�Ʊ�ݨ�z���ۧ@,���±z�ݧڪ��H!<br>
+　　　　　　　　致<br>
+禮﹗<br>
+我寫這封信,是表示對於您的崇敬,以及對您給我們來講座的感激,<br>
+同時也希望看到您的著作,謝謝您看我的信!<br>
 </font><br>
-���J���^�СG�L�צp��ڳ����i��b�@��ť��500�H�A�ɶ�2�p�ɡA�K�O�i���B�U�Y�p�ʡB�ί��Χ������X���ͧ޳N�C�ڧ󤣳��w�b�@�Ӳ���ʷ��������X�ͧ޳N�A���u�|�����p�����H�A�����j�����H�\���Ӥw�C�@�ӧ޳N�D�D�A�����F�@�p�����H�A�t�@�ӧ޳N�D�D�A�S�����F�t�@�p�����H�C</p>
+●侯捷回覆：無論如何我都不可能在一個聽眾500人，時間2小時，免費進場、萬頭鑽動、或站或坐的場合中談技術。我更不喜歡在一個異質性極高的場合談技術，那只會滿足小部份人，而讓大部份人枯坐而已。一個技術主題，滿足了一小部份人，另一個技術主題，又滿足了另一小部份人。</p>
 
-<p>�t���D�ئ��N�w�F�A�p�G�����D�شN���F�i�ӡA�Ϊ��D�D�ثo�����D�u�{�ǤH�͡v�|�Ӧr�O����N��A���i�褣�o�� 
+<p>演講題目早就定了，如果不知題目就走了進來，或知道題目卻不知道「程序人生」四個字是什麼意思，那可怨不得我 
 :)</p>
 
-<p>�޳N�ʽҵ{�]�Τ����y�B��Q�|�K���򪺡^�O���ڦ����b�F�n�]neusoft�^�Ҷi�檺���ʡC�u���b���س��X�A�ڪ��D�x�Uť�����I���A�ڪ��D�L�̥����ǳƦn�n��ť�޳N�ʪ��F��F�A�ڤ~�|�`�J�ͧ޳N�C<br>
+<p>技術性課程（或曰講座、研討會…什麼的）是像我此次在東軟（neusoft）所進行的活動。只有在那種場合，我知道台下聽眾的背景，我知道他們全都準備好要來聽技術性的東西了，我才會深入談技術。<br>
 <br>
-�A�ܥJ�ӡA�[���F�|�����غزӸ`�C���e���u���M����§���A���L�j�d�U��ť���Qť���F��A�]�D�ڤ����@�C�j�a�o����w�޳N�ʪ��F��A�U���ڷ|�b�i�滴�P���D15�����ɤ���A�Ȱ�2�����A�����Qť�U�h��ť�������|���u 
+你很仔細，觀察到了會場的種種細節。提前離席雖然不夠禮貌，不過強留下來聽不想聽的東西，也非我之所願。大家這麼喜歡技術性的東西，下次我會在進行輕鬆話題15分鐘時之後，暫停2分鐘，讓不想聽下去的聽眾有機會離席 
 :)&nbsp; </p>
 
-<p>�A���Ĥ@�����m�`�J�L�XMFC�n�Ч�ñ�W�A�����A�ڰO�o�A�C</p>
+<p>你拿第一版的《深入淺出MFC》請我簽名，呵呵，我記得你。</p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
-�@</font></p>
+　</font></p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��25�� AM 09:48<br>
-�ԥ��͡R<br>
-�A�n�T<br>
-�bVC�����r�ި}�[�M���o��Ū�A���j�@��q�D�L�CVC�u�O�@�Ӥu��M�Ƿ|�Τ@�Ӥu��T�M�n�M���O�����Ӯ��z�u��s�y���z�M�n���H�a���u�㤣�_��s�M�ڭ̰Z���O�Q�o�ػ�l���S<br>
-�ҥH��ı�o�Ƿ|�}�o�u���Τu���[���n�M�o�˥H��ڭ̤]�i�H�}�o�X�ܦh�ܦh���s�{�y���sĶ���ӡC���O�o�F��O���˶}�o�X�Ӫ��O�S���ѲL���M�[�䤣�o��ѡM�����I�@�G�C<br>
+<p><font color="#408080">傳送日期: 2001年10月25日 AM 09:48<br>
+候先生﹕<br>
+你好﹗<br>
+在VC之門徘徊良久﹐今得拜讀你的大作獲益非淺。VC只是一個工具﹐學會用一個工具固然好﹐但是更應該悟透工具製造之理﹐要不人家的工具不斷更新﹐我們豈不是被牽¨鼻子走﹖<br>
+所以我覺得學會開發工具比用工具更加重要﹐這樣以後我們也可以開發出很多很多的編程語言編譯器來。但是這東西是怎麼樣開發出來的呢﹖知識淺薄﹐久思不得其解﹐望能指點一二。<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��25�� PM 03:13<br>
-�J�Ѯv�M�z�n�T<br>
-�q������,�Q���gE-MAIL���z,����S�ӥo�Z:)<br>
-�Ҭ��̤G��<br>
-1.�Q��бz���˪�����VXD���ѧڤw�q�z�������W�U���FSYSTEM PROGRAMMING 
-FOR WINDOWS95,�u�O�n�Ѫ�,�P��,�P��,���L���Ʊ���������WDM����,��]�����h���F�a,�{�b�@�~�t�γ��ﴫWIN2000�F,�ëD�ڤ��R98,��O�]��VS.NET�ݭn2K��,�� 
-:~~~~~ (3 G���e�q�N�p���Q���ӤF)<br>
-2.Exceptional C++ ���媩����ɭԥi��b�j���o�G,�Ϊ̤w�g�o�G�ӧڤ���,�Чi��,����<br>
-<br>
-</font></p>
-
-<p>�@</p>
-
-<p><b>�@</p>
-
-<p><font color="#408080">�ǰe���:</b> 2001�~10��25�� PM 04:05<br>
-�A���H�����ګܨتA�M�q��<br>
-�{¾�Rwindows ce�X�ʵ{�Ǥu�{�v<br>
-���~�Ǯլ�t�R�W����q�j�Ǧ۰ʤƨt<br>
-<br>
-�~���٥��]�x�WŪ�̽мg�����^�R�{���b�W����<br>
-��J������ĳ�R<br>
-#include �P�H�ۼ����·N�M�q�N�@�@�@<br>
-<br>
-<br>
+<p><font color="#408080">傳送日期: 2001年10月25日 PM 03:13<br>
+侯老師﹐您好﹗<br>
+惶恐之至,昨日剛寫E-MAIL給您,今日又來叨擾:)<br>
+所為者二事<br>
+1.昨日請您推薦的關於VXD的書我已從您的網站上下載了SYSTEM PROGRAMMING 
+FOR WINDOWS95,真是好書阿,感動,感動,不過仍希望能推薦關於WDM的書,原因不必多言了吧,現在作業系統都改換WIN2000了,並非我不愛98,實是因為VS.NET需要2K阿,唉 
+:~~~~~ (3 G的容量就如此被消耗了)<br>
+2.Exceptional C++ 中文版什麼時候可能在大陸發佈,或者已經發佈而我不知,請告知,謝謝<br>
 <br>
 </font></p>
 
-<p><b>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 1999�~10��25�� AM 08:15<br>
-�ԥ��͡R�z�n�C<br>
-���N�D�o���ͦbC++���w�ܡ��D�ѡ����ҡC���߱o���͡m�`�J�L�XMFC�]�ĤG���^�nŪ�ӻ�P���ͪ��T���\�O�D�L���C<br>
-���������͹�C++�����h�޳N�M�Ѧp��H�Ыت����޿�Ŷ���&gt;���z�Ŷ��c���ͦ��������D�O�_����s�S</font><font
-color="#8080FF">�^���P���ͰQ�Ш�ۡM���ͬO�_������S</font><font
+<p><b>　</p>
+
+<p><font color="#408080">傳送日期:</b> 2001年10月25日 PM 04:05<br>
+你的人格讓我很佩服和敬仰<br>
+現職﹕windows ce驅動程序工程師<br>
+畢業學校科系﹕上海交通大學自動化系<br>
+<br>
+居住省份（台灣讀者請寫縣市）﹕現住在上海市<br>
+對侯捷的建議﹕<br>
+#include 致以誠摯的謝意和敬意　　　<br>
+<br>
+<br>
+<br>
+</font></p>
+
+<p><b>　</p>
+
+<p><font color="#408080">傳送日期:</b> 1999年10月25日 AM 08:15<br>
+候先生﹕您好。<br>
+早就聞得先生在C++領域已至“求敗”之境。近日喜得先生《深入淺出MFC（第二版）》讀來頗感先生的確“功力非淺”。<br>
+但不知先生對C++的底層技術﹐諸如對象創建的“邏輯空間－&gt;物理空間構型生成”等問題是否有研究﹖</font><font
+color="#8080FF">吾欲與先生討教兩招﹐先生是否有興趣﹖</font><font
 color="#408080"><br>
-�Y���ͤ��[��СM�H���ͦ^�_���ߡC<br>
+若先生不吝賜教﹐以先生回復為盼。<br>
 <br>
-���P �q§�T<br>
+此致 敬禮﹗<br>
 <br>
-</font>���J���^�СG�ڨS������ :)</p>
+</font>●侯捷回覆：我沒有興趣 :)</p>
 
-<p>�~�ɤu�{�v�����ء]project�^��@��O�֩w����ڱj �X 
-�ڤ@���H�ӳ�����o�غA�סA���̽ͱo�W�u�D�ѡv�HCSDN�W�����͵o�����u�J�����L����j���ءv�A�D�]���Q���C�����A�ڤ��b�s�{�Ĥ@�u�w�g10�~�A�ө�������N�q�H�O�W�����ء]project�^�j��ť�L�ܡH</p>
+<p>業界工程師的項目（project）實作能力肯定都比我強 — 
+我一直以來都抱持這種態度，哪裡談得上「求敗」？CSDN上有網友發帖說「侯捷做過什麼大項目」，挑釁味十足。呵呵，我不在編程第一線已經10年，該帖有什麼意義？臺灣的項目（project）大陸聽過嗎？</p>
 
-<p>�o�˦n�F�A�ڤ]�ݤ@�Ӱ��D�C�̿c�{�b�O�j���a���媺�H���A�аݡG�u�̿c��o�X���p�̪��M�v�H</p>
+<p>這樣好了，我也問一個問題。米盧現在是大陸家喻戶曉的人物，請問：「米盧踢得幾次雷米金杯」？</p>
 
-<p>�̿c�O�нm�r�A�S���O�y���C</p>
+<p>米盧是教練呀，又不是球員。</p>
 
-<p>�﷥�F�A�L�O�нm�A���O�y���C</p>
+<p>對極了，他是教練，不是球員。</p>
 
-<p>�ڳo�򻡡A�Ʊ��I���@�ǤH�A�O��ۤv���H�ͧ˱o�ӯU�i�F�C</p>
+<p>我這麼說，希望點醒一些人，別把自己的人生弄得太狹隘了。</p>
 
-<p>�H�W�O�^�H�ɪ��p�Q�A���O�w��ӫH�H :)</p>
+<p>以上是回信時的聯想，不是針對來信人 :)</p>
 
 <p><font color="#408080"><br>
 </font></p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��26�� AM 09:35<br>
-�J���͡M�A�n<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月26日 AM 09:35<br>
+侯先生﹐你好<br>
 <br>
-���}�l�ǲߪx���C���M�K���F�\Ū�A��STL�t�C�峹�C<br>
-�b�Ĥ@�g�M�]�Y�O�j���[�R�x���{�ǳ]�p�PSTL���M�ڤS�o�{�F�@�Ӥpbug.<br>
+近日開始學習泛型。當然免不了閱讀你的STL系列文章。<br>
+在第一篇﹐也即是大局觀﹕泛型程序設計與STL中﹐我又發現了一個小bug.<br>
 <br>
 page2<br>
 <br>
@@ -2415,342 +2415,342 @@ private:<br>
 int _w, _h,</font><font color="#8080FF"> _area</font><font color="#408080">;<br>
 };<br>
 <br>
-�]��_area�O��private member, �ҥHrhs._area�O���~���C<br>
-�夣����M����<br>
+因為_area是個private member, 所以rhs._area是錯誤的。<br>
+瑕不掩瑜﹐呵呵<br>
 <br>
-</font>���J���^�СG�A���F�A�����o�ӨҤl�O�i�H���檺�A���N�ҩ��ڨS���C<br>
-�䦸�A������S���O�A�]���b�@��class���Amember function ���M�i�H�B�zprivate 
-data members�C<br>
+</font>●侯捷回覆：你錯了，首先這個例子是可以執行的，那就證明我沒錯。<br>
+其次，為什麼沒錯呢，因為在一個class中，member function 當然可以處理private 
+data members。<br>
 <br>
-�ګܩ_�ǡA<font color="#0000FF">���O�H���~���e�A�ۤv�O�_���g���ҹL�ۤv�����T</font>�H�o�ǳ��O�p�B�A�o�����v�ǺA�׬O�_�Y�ԡC�@�ӥ��g�ۧ����Ҫ����l�A���O�F��5�����A10�ӳo�˪����l�A�N���O�F�ڤ@�p�ɡC�o�|�����ڦ^��Ū�̨ӫH�������C</p>
+我很奇怪，<font color="#0000FF">說別人錯誤之前，自己是否曾經驗證過自己的正確</font>？這些都是小處，卻反應治學態度是否嚴謹。一個未經自我驗證的帖子，浪費了我5分鐘，10個這樣的帖子，就浪費了我一小時。這會打擊我回答讀者來信的熱情。</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��26�� PM 02:28<br>
-�J��?,�z�n<br>
-�ڬO�@�W�j????�[�u�@��Programer,<br>
-�bcsdn??�F�z��?����?,?�����h��?�F,<br>
-�@�f?��z���W���Ҧ�??(�]�A?�l?)����DownLoad�U?,<br>
-�b���P?�z���B�n,<br>
-��?�F�z��&lt;&lt;�`�J?�XMFC&gt;&gt;�M&lt;&lt;Essential C++ ²�餤�媩&gt;&gt;,<br>
-�u�O�p?��?,??�٧�??������,�A?�z��&lt;&lt;�`�ױ��� C++ ��H�ҫ�&gt;&gt;��??��,<br>
-�z�b??�̱�?��?�y,�]�O��???����?,<br>
-�Ʊ�z�b�O����?����?�U,�h�X�X��?,????��?�����{��??��?��,<br>
-?���߱�z���Ҧ�?���঳??��.<br>
+<p><font color="#408080">傳送日期: 2001年10月26日 PM 02:28<br>
+侯老?,您好<br>
+我是一名大????加工作的Programer,<br>
+在csdn??了您的?像站?,?提有多高?了,<br>
+一口?把您站上的所有??(包括?子?)全部DownLoad下?,<br>
+在此感?您的慷慨,<br>
+我?了您的&lt;&lt;深入?出MFC&gt;&gt;和&lt;&lt;Essential C++ 簡體中文版&gt;&gt;,<br>
+真是如?至?,??啃完??本之後,再?您的&lt;&lt;深度探索 C++ 對象模型&gt;&gt;等??看,<br>
+您在??裡推?的?籍,也是我???的首?,<br>
+希望您在保重身?的情?下,多出幾本?,????我?探索程式??的?秘,<br>
+?切盼望您的所有?都能有??版.<br>
 <br>
-�� �߱��r��,<br>
-�@??�{?�n��<br>
+祝 心情愉快,<br>
+一??程?好者<br>
 2001/10/26<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��29�� PM 02:57<br>
-�J�Ѯv:<br>
-�A�n�T�T�ڬO�@�W�j�ǥ͡M�ګܷQ�ǽs�{�M�������p��J���M�o��h���y���M�ڤ����D�ǭ��@�ءM�Ʊ�Ѯv���I�C 
+<p><font color="#408080">傳送日期:</b> 2001年10月29日 PM 02:57<br>
+侯老師:<br>
+你好﹗﹗我是一名大學生﹐我很想學編程﹐但不知如何入門﹐這麼多的語言﹐我不知道學哪一種﹐希望老師指點。 
 <br>
-����j�� �W��<br>
+中國大陸 上海<br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��26�� PM 07:15<br>
-�q�R���J����,�ڶR�A���ѬݤF�@�Ӥ�,��ì���p,��{�b����,�ڤw�ݧ��F�e����,�j�������ݪ���,���٬O���ӧO����m���������a��,�p���j�޳N��u���t�Ϊ�l�Ƥ�,<br>
-���@�ym_currentwinapp=this;����THIS�O�N������N��A�i�_�i�D�ڤ��ƷP�E<br>
-�A��Ū��:ARNOLDMJW<br>
-���A�u�@���Q<br>
+<p><font color="#408080">傳送日期: 2001年10月26日 PM 07:15<br>
+敬愛的侯先生,我買你的書看了一個月,收穫不小,到現在為止,我已看完了前五章,大部份都看的懂,但還是有個別的位置有不懂的地方,如六大技術仿真之系統初始化中,<br>
+有一句m_currentwinapp=this;不知THIS是代表什麼意思你可否告訴我不甚感激<br>
+你的讀者:ARNOLDMJW<br>
+祝你工作順利<br>
 <br>
-</font>���J���^�СG<font face="Fixedsys">this</font> �N�O��_ member function 
-�����ӡu�l�@�M�̡v�C</p>
+</font>●侯捷回覆：<font face="Fixedsys">this</font> 就是喚起 member function 
+的那個「始作俑者」。</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��26�� PM 09:28<br>
-�D��: ��󼶼g Windows Driver ���o�i�u��n��i�_���ǷN��?<br>
+<p><font color="#408080">傳送日期: 2001年10月26日 PM 09:28<br>
+主旨: 對於撰寫 Windows Driver 的發展工具軟體可否給些意見?<br>
 <br>
-&gt; �J�Ѯv:<br>
+&gt; 侯老師:<br>
 &gt; <br>
-&gt; �ڥs������, �u�@��@�aISDN�q�ܾ������q��,<br>
-&gt; ����n��u�{�v(���M�ګܱj�էڬO&quot;����&quot;�u�{�v, ���L... 
-�S�X�ӤH��).<br>
-&gt; �ثe�ڤ��䪺�u�@�O�n�g�@�� Windows 98 USB to Serial port Driver.<br>
+&gt; 我叫□□□, 工作於一家ISDN電話機的公司裡,<br>
+&gt; 擔任軟體工程師(雖然我很強調我是&quot;韌體&quot;工程師, 不過... 
+沒幾個人懂).<br>
+&gt; 目前我手邊的工作是要寫一個 Windows 98 USB to Serial port Driver.<br>
 &gt; <br>
-&gt; ���O, 
-���q�����N�ܩ��T����ۤv��L�n������{���]�p�_�����Y,<br>
-&gt; ���ߧ�J�w�鴹���W���X��(����)�ζg��q��S�ʾ�X, �p8051...<br>
-&gt; ���L, �b�٨S�n�g�o�� Driver �e, �ڤ]�O���R�F�@���ѮvĶ��<br>
-&gt; &quot;Windows 95 �t�ε{���]�p ���������PVxD�{���]�p&quot;,<br>
-&gt; ���ɥu�O�� Windows Driver ���]�p���P����ҥH�R�F�o�@��,<br>
-&gt; ����b, �ڥu�ݤF�� 1/3 �ӥH, ���|�g�ٮt���ܩO!<br>
-&gt; �]��, �ڤ]�{�����ѬO�i�HĲ���ǳq��!<br>
+&gt; 但是, 
+打從高中就很明確的把自己跟微軟的任何程式設計斷絕關係,<br>
+&gt; 全心投入硬體晶片上的驅動(韌體)及週邊電氣特性整合, 如8051...<br>
+&gt; 不過, 在還沒要寫這個 Driver 前, 我也是有買了一本老師譯的<br>
+&gt; &quot;Windows 95 系統程式設計 虛擬機器與VxD程式設計&quot;,<br>
+&gt; 當時只是對 Windows Driver 的設計有感興趣所以買了這一本,<br>
+&gt; 說實在, 我只看了快 1/3 而以, 離會寫還差的很呢!<br>
+&gt; 因為, 我也認為知識是可以觸類旁通的!<br>
 &gt; <br>
-&gt; �ܻ��^��, �{�b���u�@�W, �ڻݭn�h�g�L�n���{��,<br>
-&gt; �ӥB�@�}�l��Ĳ�N�O Windows ���h�� Driver...<br>
+&gt; 話說回來, 現在的工作上, 我需要去寫微軟的程式,<br>
+&gt; 而且一開始接觸就是 Windows 底層的 Driver...<br>
 &gt; <br>
-&gt; ���M�@�B�@�B������¦, �|����n, �i�O,<br>
-&gt; �Ĥ@, �ڳs�p����J��, ���٨S���Y��!<br>
-&gt; �ĤG, �}�o���ɶ����ӨS�����쵥�ھǷ|�F, �A�g!<br>
+&gt; 雖然一步一步的打基礎, 會比較好, 可是,<br>
+&gt; 第一, 我連如何怎麼入門, 都還沒有頭緒!<br>
+&gt; 第二, 開發的時間應該沒有長到等我學會了, 再寫!<br>
 &gt; <br>
-&gt; �ҥH�Q�бЫJ�Ѯv:<br>
-&gt; 1. �O�_�����Ǯ��y����ԲӪ��ѻ� Windows �t�ε��c?<br>
-&gt; ������G���h, ���F�Ѯv������, �t�~���٦��@�� WDM 
-�X�ʵ{���]�p��U, ����FĶ<br>
-&gt; �ӥ������ѧڤ]��, �䥦�����Ѧ�<br>
+&gt; 所以想請教侯老師:<br>
+&gt; 1. 是否有哪些書籍比較詳細的解說 Windows 系統結構?<br>
+&gt; 中文似乎不多, 除了老師的那本, 另外我還有一本 WDM 
+驅動程式設計手冊, 葛湘達譯<br>
+&gt; 而它的原文書我也有, 其它的原文書有<br>
 &gt; Programing the Microsoft Windows Driver Model, Walter Oney<br>
-&gt; ��USB Complete 2e, Jan Axelson, �o�ǮѦӤw.<br>
-&gt; ����Ū�_�ӹ�b�ܦY�O, �l�����t�׫ܺC, 
-�ӥB���ܦh�������a��,<br>
-&gt; ���L, �`�O��_ DDK �� Help �����z���n�n�F�\�h.<br>
-&gt; �p�G�Ѯv���}��, �ЦѮv�i�D�ڱz�|�b���}��? �O�_�i��ť?<br>
+&gt; 及USB Complete 2e, Jan Axelson, 這些書而已.<br>
+&gt; 原文書讀起來實在很吃力, 吸收的速度很慢, 
+而且有很多不懂的地方,<br>
+&gt; 不過, 總是比起 DDK 的 Help 所講述的要好了許多.<br>
+&gt; 如果老師有開課, 請老師告訴我您會在哪開課? 是否可旁聽?<br>
 &gt; <br>
-&gt; 2. �O�_�ϥεo�i�u��n��, �|��֪����� Driver �����g,<br>
-&gt; �i�_��ĳ�@�M�u��n��. �n�餽�q�|���ѭ�l�X, �α����~�]�� 
-Case ��?<br>
+&gt; 2. 是否使用發展工具軟體, 會更快的完成 Driver 的撰寫,<br>
+&gt; 可否建議一套工具軟體. 軟體公司會提供原始碼, 或接受外包的 
+Case 嗎?<br>
 &gt; <br>
-&gt; 3. �Ѯv�O�_�i�H���дX��|�g Windows Driver ���H�h����,<br>
-&gt; �]���̫�g���X�ӴN�u��Υ~�]���覡, �ФH�g�@�� Driver �F.<br>
-&gt; (�o�O�̤��n�N��n�бz�����F, �]���ڻ{�Ѫ��H���S�H�|�g)<br>
+&gt; 3. 老師是否可以介紹幾位會寫 Windows Driver 的人士給我,<br>
+&gt; 因為最後寫不出來就只能用外包的方式, 請人寫一個 Driver 了.<br>
+&gt; (這是最不好意思要請您幫忙了, 因為我認識的人都沒人會寫)<br>
 &gt; <br>
-&gt; �t�~, �i�H�A�бЦѮv�@�Ӱ��D��?<br>
-&gt; ���N�O, �ꤺ�|�g Windows Driver ���H�j�����h��??(��v������)<br>
-&gt; �]�������`ı�o���O��²�檺, ���F�]�p�����H�~, ��Ƥ]���a...<br>
-&gt; �Ӧۤv�ǰ_�ӨS���@���Y��, �[�W�^���O����...<br>
-&gt; ��! �n�j�����O��!!!<br>
+&gt; 另外, 可以再請教老師一個問題嗎?<br>
+&gt; 那就是, 國內會寫 Windows Driver 的人大概有多少??(比率之類的)<br>
+&gt; 因為老闆總覺得那是很簡單的, 不乏設計它的人才, 資料也滿地...<br>
+&gt; 而自己學起來沒有一個頭緒, 加上英文能力不佳...<br>
+&gt; 唉! 好大的壓力喔!!!<br>
 &gt; <br>
-&gt; �̫�q���Ѯv ���鰷�d<br>
+&gt; 最後敬祝老師 身體健康<br>
 &gt; <br>
-&gt; �@�� Windows �{���]�p�n���s�ǲߪ�Ū�� �q�W<br>
+&gt; 一個 Windows 程式設計要重新學習的讀者 敬上<br>
 </font><br>
-���J���^�СGVxD �M WDM �����y�A�H Walter Oney 
-�ҵ۪��⥻�ѳ̬��g��C�Ա��d amazon�C<br>
-�|�g Windows driver ���H���h�A�L�̦��J���ܦn�C�A�WBBS�o�ө��l�A���ӥi�H���H�C</p>
+●侯捷回覆：VxD 和 WDM 的書籍，以 Walter Oney 
+所著的兩本書最為經典。詳情查 amazon。<br>
+會寫 Windows driver 的人不多，他們收入都很好。你上BBS發個帖子，應該可以找到人。</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��27�� AM 11:39<br>
-�J���Ѯv�R�z�n�T<br>
-�ڬO�ӺӤ@�ǥ͡M���}�l�ǲ�C++�M�q���W�{�ѤF�z�M�ʤF�z½Ķ���mEssential 
-C++���媩�n�M�mEffective C++���媩�n.�ݨ�Ӱ��D�R<br>
-1 �̷s����&lt;&lt;The c++ progamming language&gt;&gt;(²��^�M&lt;&lt;c++ 
-Primer&gt;&gt;(²��)�b���̥i�H�ʨ�?<br>
-2 �N�{���q(�@���J��)�ڤ���X�A�Τ��򪩥��sĶ��,�w��VC�PC++Builder?(�ڷQ�P�ɾǲߨ�ؽsĶ��)<br>
+<p><font color="#408080">傳送日期: 2001年10月27日 AM 11:39<br>
+侯捷老師﹕您好﹗<br>
+我是個碩一學生﹐剛剛開始學習C++﹐從網上認識了您﹐購了您翻譯的《Essential 
+C++中文版》和《Effective C++中文版》.問兩個問題﹕<br>
+1 最新版的&lt;&lt;The c++ progamming language&gt;&gt;(簡體）和&lt;&lt;c++ 
+Primer&gt;&gt;(簡體)在哪裡可以購到?<br>
+2 就現階段(作為入門)我比較合適用什麼版本編譯器,針對VC與C++Builder?(我想同時學習兩種編譯器)<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��27�� PM 03:58<br>
-�J�Ѯv�z�n�R<br>
-�e�Ǥ�l�R�F�@���zĶ���mEssential C++�n�M�]���O��ǡM�ҥH��{�b�٨S��Ū���M���L�b�ǲߪ��L�{���o�{�F��B�������a��M�]�\�O�ڤ~�ǽ��L�SŪ���M��J�Ѯv���СR<br>
-1�R��71�����ҪO��ơM��ƪ��ѼƬO���CONST���w�M�Ӫ�^�ȫo���O�M�o�˦� 
-�ܡS�b�ڪ�VC6.0�W���sĶ���L�h�S<br>
-2�R��92����9�檺word[tword]++�O���O���ӧאּword_exclusion[tword]++ �C<br>
-�p�G�O�ڪ����~�M�ٱ�J�Ѯv�����C���ӷP�E�T<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月27日 PM 03:58<br>
+侯老師您好﹕<br>
+前些日子買了一本您譯的《Essential C++》﹐因為是初學﹐所以到現在還沒有讀完﹐不過在學習的過程中發現了兩處不當的地方﹐也許是我才學膚淺沒讀懂﹐望侯老師指教﹕<br>
+1﹕第71頁的模板函數﹐函數的參數是兩個CONST指針﹐而返回值卻不是﹐這樣行 
+嗎﹖在我的VC6.0上怎麼編譯不過去﹖<br>
+2﹕第92頁第9行的word[tword]++是不是應該改為word_exclusion[tword]++ 。<br>
+如果是我的錯誤﹐還望侯老師指正。不勝感激﹗<br>
 <br>
-</font>���J���^�СG�Ĥ@�Ӱ��D���T�O�^�媩�����~�C�Ш��J�������W���ɻ~���C<br>
-�ĤG�Ӱ��D�O�A���~�ѡA�ѤW�õL���~�C</p>
+</font>●侯捷回覆：第一個問題的確是英文版的錯誤。請見侯捷網站上的勘誤表。<br>
+第二個問題是你的誤解，書上並無錯誤。</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��27�� PM 07:57<br>
-�J�Ѯv�R�A�n�T<br>
-�ڬO�@�ӭp����t���j�@���ǥ͡M�O���쪺�M�ڷQ�Ǥ@���y���M�A�{���Ǩ��@������n�M�o�i�e������n�C�ڥH�e��Ĳ�Lpascal�Mc�y���u���L���C�{�b�y���ܦh�M�ڳ��g���F�����D�Ǥ������n�M�·ЧA���ګ��I�@�U�n�ܡS�õ��ڤ��Ф@�Ч��M�ǲߪ���k�C����A���^���T<br>
-�w�w �@�ӽs�{�R�n��<br>
+<p><font color="#408080">傳送日期: 2001年10月27日 PM 07:57<br>
+侯老師﹕你好﹗<br>
+我是一個計算機系的大一的學生﹐是民辦的﹐我想學一門語言﹐你認為學那一門比較好和發展前景比較好。我以前接觸過pascal和c語言只膚淺的。現在語言很多﹐我都迷茫了不知道學什麼比較好﹐麻煩你給我指點一下好嗎﹖並給我介紹一教材和學習的方法。恭後你的回音﹗<br>
+── 一個編程愛好者<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 <br>
-�ǰe���: 2001�~10��28�� PM 04:16<br>
-�D��: �ݭ�<br>
+傳送日期: 2001年10月28日 PM 04:16<br>
+主旨: 問候<br>
 <br>
-&gt; �˷R�� �J�j�� �z�n:<br>
+&gt; 親愛的 侯大哥 您好:<br>
 &gt; <br>
-&gt; �����D�ӫ��˦V�z���Цۤv, ���ۤv�]���O���n����̥h, 
-���b�ݹL�z������<br>
-&gt; ���@�g&quot;�ڪ��q������&quot;���峹��, ���ڧ�[�Q�n�h�{�ѱz.<br>
+&gt; 不知道該怎麼樣向您介紹自己, 其實自己也不是重要到哪裡去, 
+但在看過您網站中<br>
+&gt; 有一篇&quot;我的電腦探索&quot;的文章後, 讓我更加想要多認識您.<br>
 &gt; <br>
-&gt; �̥ثe�L�u�@, �P�ˬO��g��X������, �]�ȬO�M��Ǿ�, 
-����q���W���ǲߤ@��<br>
-&gt; ���ܰ�������, 
-�ҥH���~���B���i�H�ҤW�����ިt�i�ױ��s���NŪ.<br>
+&gt; 弟目前無工作, 同樣是唸土木出身的我, 也僅是專科學歷, 
+但對電腦上的學習一直<br>
+&gt; 有很高的興趣, 
+所以今年幸運的可以考上景文資管系進修推廣部就讀.<br>
 &gt; <br>
-&gt; �ѩ�ثe�Ѯv���b�о�C++, �ӧڦۤv�]���h�{���Ш|�V�m���ߤWJava���ҵ{, 
-��<br>
-&gt; �H�̪��Ӥ��, �@���b��ĲOO���y��, �Ӧb�����e, 
-�b�@�a�t�ξ�X���q����t<br>
-&gt; �Τu�{�v¾��, �i�Ӿǲߨ�t�@��OO�y��-Python, 
-�ӤH��o�T���y���èS���ܲ`<br>
-&gt; ���F��, ��S���}�o����ȸg��, �@�����O�ݮѤW��source code�b�ǲ�, 
-�b���Q<br>
-&gt; �бЫJ�j��, �O�_����Ĳ�L Python? �Y��, �����|�� Python 
-�g�@������Ѷ�? <br>
-&gt; ��½Ķ�Ѥ]��...:)<br>
+&gt; 由於目前老師正在教導C++, 而我自己也有去坊間教育訓練中心上Java的課程, 
+所<br>
+&gt; 以最近兩個月來, 一直在接觸OO的語言, 而在此之前, 
+在一家系統整合公司擔任系<br>
+&gt; 統工程師職務, 進而學習到另一個OO語言-Python, 
+個人對這三的語言並沒有很深<br>
+&gt; 的了解, 更沒有開發的實務經驗, 一直都是看書上的source code在學習, 
+在此想<br>
+&gt; 請教侯大哥, 是否有接觸過 Python? 若有, 有機會為 Python 
+寫一本中文書嗎? <br>
+&gt; 或翻譯書也行...:)<br>
 &gt; <br>
-&gt; �̫�, ���֫J�j���ƨƶ���, �ݧ̧��u�@��, �|�N�z����C++½Ķ�ѿ�R��, 
-�n<br>
-&gt; �n��Ū�P�ǲ�.<br>
+&gt; 最後, 祝福侯大哥事事順心, 待弟找到工作後, 會將您有關C++翻譯書輯買齊, 
+好<br>
+&gt; 好研讀與學習.<br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��27�� AM 11:42<br>
-�J�Ѯv�A�n�R<br>
-�ڬO�@�ӭ��VC���[���H�M��c++�MVC���F�@�w���F�ѡM���FC++����¦�Q�b�`�J�a�ǲ�MFC�M�ڶR�F�m�`�J�L�XMFC�n���b�᭱�����`���M�z�Ѱ_�Ӧ��I�x���C�Ʊ�A����˴X����C++�NVC���ѡC�̦n�O���媺�C<br>
-����<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月27日 AM 11:42<br>
+侯老師你好﹕<br>
+我是一個剛學VC不久的人﹐對c++﹐VC有了一定的了解﹐有了C++的基礎想在深入地學習MFC﹐我買了《深入淺出MFC》但在後面的章節中﹐理解起來有點困難。希望你能推薦幾本的C++﹑VC的書。最好是中文的。<br>
+謝謝<br>
 <br>
 <br>
 <br>
 <br>
 <br>
-�ǰe���: 2001�~10��28�� AM 11:00<br>
-�JSir�M�z�n�T<br>
+傳送日期: 2001年10月28日 AM 11:00<br>
+侯Sir﹐您好﹗<br>
 <br>
-�@�����Q�a�S�i���ɶ��Ӻ�M�u���JSir���W�@���M�S��n�n���M�u�n��email�F�C<br>
+一路順利吧﹖可惜時間太緊﹐只能跟侯Sir見上一面﹐沒能好好聊聊﹐只好用email了。<br>
 <br>
-����Ӱ��D�Q�бФ@�U�C<br>
-TASS���e���RC++�зǮw���ݩ�STL��</font><font color="#8080FF">���ȨS��90%</font><font
-color="#408080">�a�S��The Standard C++ IOStream and Locales�Ǩ��̪����k�M</font><font
-color="#8080FF">�H���зǮѪ��g�T��</font><font color="#408080">�MSTL��1/3�MIOStream��1/3�C<br>
-C++�зǮw�R���P�¡���Herb Sutter�������M�O���O�������L���O�S<br>
+有兩個問題想請教一下。<br>
+TASS中前言﹕C++標準庫中屬於STL者</font><font color="#8080FF">恐怕沒有90%</font><font
+color="#408080">吧﹖按The Standard C++ IOStream and Locales序言裡的說法﹐</font><font
+color="#8080FF">以佔標準書的篇幅算</font><font color="#408080">﹐STL佔1/3﹐IOStream佔1/3。<br>
+C++標準庫﹕“致謝”中Herb Sutter“它”﹐是不是應為“他”呢﹖<br>
 <br>
-�Jsir�o���j���檺�P�Q�M�@�w�|�g�X�@�g�m��溩�O�n�a�S:-)�ڷQ�bC++ 
-View�W�Z�X�M�����D�i�H�ܡS<br>
+侯sir這次大陸行的感想﹐一定會寫出一篇《西行漫記》吧﹖:-)我想在C++ 
+View上刊出﹐不知道可以嗎﹖<br>
 <br>
-�t�~ť�������MTASS�w�g�t���h�d�w�M�֥X���F�M�u�Q�ݬݡC�ন²�骺�Ʊ��M�ڷPı�p�G�����ɶ��Ӻ򪺸ܡM���������O�̦n���]�K�K�M�ڤ]���K�i�H���@�@�F�^�C��ڦh�L�M�۫H�Jsir�߸̤w�g���A�X���H��F�a:-) 
-���K���@�U�ڹ�TASS���ݪk�M�ګܴ��ݡC���L�q�t�m���@���ӬݡM�����D�O���O���G�L��`���Ӹ`�F�M�Ϊ̬O�ڤ��i�ݤ��U�h�S:-)<br>
-�@�@<br>
-</font>���J���^�СG<font color="#000000">90%�u�O�@�ط����A�@�طPı�A�󥲷��u�H�A�]�i�H�����O80%��70%�A��83.141592653%�C�N��80-20�k�h�]���H��90-10�k�h�C���L�AIOStream�֩w����C++�зǵ{���w��1/3�C</font><font
-color="#0000FF">C++ �зǳW���</font><font color="#000000">�� 1/3�g�T�A���������� 
-</font><font color="#0000FF">C++ �зǵ{���w</font><font color="#000000">�� 1/3��n�A�o�Ӥp�p���D�z�A���i�ण���C</font></p>
+另外聽□□說﹐TASS已經差不多搞定﹐快出版了﹐真想看看。轉成簡體的事情﹐我感覺如果□□時間太緊的話﹐□□□做是最好的（嘿嘿﹐我也順便可以先瞧瞧了）。算我多嘴﹐相信侯sir心裡已經有適合的人選了吧:-) 
+順便說一下我對TASS的看法﹐我很期待。不過從配置器一章來看﹐不知道是不是似乎過於注重細節了﹐或者是我太懶看不下去﹖:-)<br>
+　　<br>
+</font>●侯捷回覆：<font color="#000000">90%只是一種概念，一種感覺，何必當真？你也可以說它是80%或70%，或83.141592653%。就像80-20法則也有人說90-10法則。不過，IOStream肯定不佔C++標準程式庫的1/3。</font><font
+color="#0000FF">C++ 標準規格書</font><font color="#000000">的 1/3篇幅，完全不表示 
+</font><font color="#0000FF">C++ 標準程式庫</font><font color="#000000">的 1/3體積，這個小小的道理你不可能不懂。</font></p>
 
-<p><font color="#000000">�Y�N���@�g�u2001�j����v�o����J������ �X 
-���N���ܥi�H�ۥ�����C</font></p>
+<p><font color="#000000">即將有一篇「2001大陸行」發表於侯捷網站 — 
+那就表示可以自由轉載。</font></p>
 
-<p><font color="#000000">TASS�]The Annotated STL Sources�^���������O�Ӹ`�A���M��໡�O�mSTL���X��R�n 
+<p><font color="#000000">TASS（The Annotated STL Sources）講的全都是細節，不然怎能說是《STL源碼剖析》 
 :)</font></p>
 
-<p><font color="#000000">���קڧ�TASS�浹����H��Ķ�A�A�����i��</font><font
-color="#408080">�u���K���@�@�F�v</font><font color="#000000">�C�ڵ����|����ȥ�I���u�|�p�۱N��Ƭy�X�v���H 
+<p><font color="#000000">不論我把TASS交給什麼人轉譯，你都不可能</font><font
+color="#408080">「順便先瞧瞧了」</font><font color="#000000">。我絕不會把任務交付給「會私自將資料流出」的人 
 :)<br>
 </font><font color="#408080"><br>
 </font></p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��28�� PM 04:18<br>
-�J���Ѯv�R<br>
-�z�n�T<br>
-10��27���Ĥ@�����z�g�H�Mı�����������M���M�S�g�F�ĤG�ʡM�����F�T<br>
-�ڬO�b�C�{�]��ı���u�����۵M���ҹ�g�{�Ǫ��H�ܭ��n�T�A���O�S�^�NŪ���@���J�Ǫ���s�͡M�q���첦�~�᪽���ҤW�M�M�~���O�p����M�b���쪺�ɭԤӰ����򥻲z�סM�[�W�Ҭ㪺���O�M�u���V�m�s�{���ɶ��ܤ֡M�]�N�ιLC�y���s�L�X�D�@�~�D�M�ξǹL���ܤ֪�VB���L���~�]�p���p�ҥ�C<br>
-�{�b���s�Ͷ��q�F�M�ڷQ�O�{�u���i�ۤv�s�{��O���ɭԤF�M�ڡ]�N�o�X�~)�Q�D��C++,�{�b�b�ݿ��઺&lt;&gt;,�٥�TC3.0�O!<br>
-�ڦۤv�ƾǸ��n,���ȦY�W,�~��,23��,�]���F�M�Ϊ��q��(�J�F�պ�),�i����@�j��p����s�{�譱��&quot;���&quot;�Y�h���w,���L�ܺa��(�����P�º���!),�u�����o�˪��@��&quot;�A&quot;�s�b!�ڤ��n�A���Ƥ��򤺮e�F,�K�����O�z���ɶ�!<br>
-�{�b���ݴX�ӳ̺򭢪����D:<br>
-1 �N�ثe�ڸӥΤ��򪩥����sĶ��,���O�OVC�PC++Builder,�@���ڪ���Ŷ��q�ǲ߻P�V�m?<br>
-2 �w��W�����sĶ��,�����Ǹ��n����,��p���Ч@�̤]��(�z�n���N��n�F) 
-,�Ϯ��]�̳o�˪��ѬO��,�i��~�ӤӤ�!<br>
-3 �N�ثe,���̥i�R��̷s����(²�骩)&lt;&gt;�P&lt;&gt;<br>
-�N�ǰݨ�o,����!�٦��������߱z��C�{������!<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月28日 PM 04:18<br>
+侯捷老師﹕<br>
+您好﹗<br>
+10月27號第一次給您寫信﹐覺的說的不夠清楚﹐又寫了第二封﹐見笑了﹗<br>
+我是在杭州（我覺的優美的自然環境對寫程序的人很重要﹗你說呢﹖）就讀的一位剛入學的研究生﹐從本科畢業後直接考上﹐專業都是計算機﹐在本科的時候太側重基本理論﹐加上考研的壓力﹐真正訓練編程的時間很少﹐也就用過C語言編過幾道作業題﹐用學過的很少的VB做過畢業設計的小課件。<br>
+現在到研究生階段了﹐我想是認真培養自己編程能力的時候了﹐我（就這幾年)想主攻C++,現在在看錢能的&lt;&gt;,還用TC3.0呢!<br>
+我自己數學較好,不怕吃苦,年輕,23歲,也有了專用的電腦(入了校網),可面對一大堆計算機編程方面的&quot;爛書&quot;頭痛不已,不過很榮幸(首先感謝網絡!),真的有這樣的一個&quot;你&quot;存在!我不好再重複什麼內容了,免的浪費您的時間!<br>
+現在先問幾個最緊迫的問題:<br>
+1 就目前我該用什麼版本的編譯器,分別是VC與C++Builder,作為我的初級階段學習與訓練?<br>
+2 針對上面的編譯器,有哪些較好的書,比如介紹作者也行(您要有就更好了) 
+,圖書館裡這樣的書是有,可精品太太少!<br>
+3 就目前,哪裡可買到最新版的(簡體版)&lt;&gt;與&lt;&gt;<br>
+就些問到這,呵呵!還有慇切期盼您到杭州來講學!<br>
 <br>
-���P! �q§!<br>
-�Ӧ۪C�{���ǥ�<br>
+此致! 敬禮!<br>
+來自杭州的學生<br>
 2001.10.27 <br>
 <br>
 <br>
 <br>
 </font></p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��28�� PM 11:38���͡R<br>
-�z�n�T�ڬO�@�W�j����Ū�̡C<br>
-���ڭ�}�l��ĲC++���ɭԡM�B�ͦV�ڱ��ˤF�z���m�`�J�L�XMFC�n�o���ѡC<br>
-�z������|�줰��O�������֮ѳ߱��g�����Pı�M�z�b�Ѥ����������O�کҷQ���D���M�Q�n���C<br>
-�ڰ����]�|�hAMAZON�s���@�U����C++�s�{�譱�����y�M���ѩ�ڪ��^����������M�~�[��}�l�ѥ[�u�@���J�����M���̪��ѹ�ڨ������I���צӤ���C���ѳX�ݤF�z�����I�M�S�U���F�X�g�峹�C<br>
-�u���D�`�P�±z�T�P�±z���\�h���ڳo�˪��~���H���ѤF�ǲߪ��_�Q���|�C<br>
-�A����z�o��</font><font color="#8080FF">�u�ۡN���j</font><font color="#408080">���H���ܷq�N�T�êu�رz���o���ڨB�e�i�C<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月28日 PM 11:38先生﹕<br>
+您好﹗我是一名大陸的讀者。<br>
+當我剛開始接觸C++的時候﹐朋友向我推薦了您的《深入淺出MFC》這本書。<br>
+您讓我體會到什麼是“滿卷詩書喜欲狂”的感覺﹐您在書中所講的正是我所想知道的﹐想要的。<br>
+我偶爾也會去AMAZON瀏覽一下關於C++編程方面的書籍﹐但由於我的英文水平不高﹐外加剛開始參加工作收入有限﹐那裡的書對我來講有點奢侈而不實。今天訪問了您的站點﹐又下載了幾篇文章。<br>
+真的非常感謝您﹗感謝您給許多像我這樣的年輕人提供了學習的寶貴機會。<br>
+再次對您這樣</font><font color="#8080FF">真誠﹑偉大</font><font color="#408080">的人表示敬意﹗並沿¨您的牽引邁步前進。<br>
 <br>
-</font>���J���^�СG<font color="#000000">���§A���g���C�ګܯu�ۡA���������j�C</font><font
-color="#408080">�����֮ѳ߱��g�A</font><font color="#000000">�A�Ϊ��g�����O�ڶ}�ߡC</font><font
+</font>●侯捷回覆：<font color="#000000">謝謝你的讚美。我很真誠，但絕不偉大。</font><font
+color="#408080">滿卷詩書喜欲狂，</font><font color="#000000">你用的讚美詞令我開心。</font><font
 color="#408080"><br>
 <br>
 </font></p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��29�� AM 08:40<br>
-�L�q���J�����͡M<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月29日 AM 08:40<br>
+尊敬的侯捷先生﹐<br>
 <br>
-�mEffective C++���媩�n²�骩 ��77�����R�˼ƲĤG�榳����H�H�ǭȡ]by 
-value�^�覡���Q�˼ƲĤ@�榳���w�q�ҿ׶ǭȡ]pass by value�^���N�q�C��<br>
+《Effective C++中文版》簡體版 第77頁中﹕倒數第二行有“對象以傳值（by 
+value）方式”﹔倒數第一行有“定義所謂傳值（pass by value）的意義。”<br>
 <br>
-�P�O���ǭȡ��M�@�ӬO by value�M�@�ӬO pass by value�C<br>
+同是“傳值”﹐一個是 by value﹐一個是 pass by value。<br>
 <br>
-�˼ƲĤG�檺����H�H�ǭȡ]by value�^�覡���O�_���ӧאּ����H�H�ǭȡ]pass 
-by value�^�覡��?<br>
+倒數第二行的“對象以傳值（by value）方式”是否應該改為“對象以傳值（pass 
+by value）方式”?<br>
 <br>
-�ڤ����D�o�O²�骩�����~�٬O����p������]�M�бz��������C<br>
+我不知道這是簡體版的錯誤還是有其如此的原因﹐請您批評指正。<br>
 <br>
-</font>���J���^�СG<font color="#000000">�ѩ�ǭȰʧ@��</font><font
-color="#0000FF"> pass </font><font color="#000000">by value �M </font><font
+</font>●侯捷回覆：<font color="#000000">由於傳值動作有</font><font
+color="#0000FF"> pass </font><font color="#000000">by value 和 </font><font
 color="#0000FF">return</font><font color="#000000"> by value 
-��ءA�ҥH�\�h�ɭԳ��u�� by value�Ө��N pass by value �M return by value�Cby 
-reference �]�O�P�˹D�z�C</font></p>
+兩種，所以許多時候都只說 by value來取代 pass by value 和 return by value。by 
+reference 也是同樣道理。</font></p>
 
-<p><font color="#000000">�ݮѤ��n�o�򭫵��o�زӸ`�r�A�o�S����ê�A���z�ѡC</font></p>
+<p><font color="#000000">看書不要這麼重視這種細節呀，這又不妨礙你的理解。</font></p>
 
 <p><font color="#000000"><br>
 </font></p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p><font color="#408080">�ǰe���:</b> 2001�~10��30�� PM 02:53<br>
-�J���͡R<br>
-�z�n�C�ڦbŪ�z½Ķ��²�餤�媩��Essential C++.�]�R�F�z�b���a�X�����X���ѡM���D�����M<br>
-�ڤ@�Vı�o�Ѽg������ӻ{�u�M�~�㦳�F�۷����iŪ�ʡM�ҥH�A���ѧڬݪ�������w�C<br>
-Ū�z��EssentialC++�o�{���@�Ӥp�p�����~�M�]���@�Ӱ��D�R<br>
-���~�O�Rp80���ML18�C[first , last )���ӬO[first , last]�a�C<br>
-���@�Ӱ��D�O�b3.1�`���X�{���X��find�Ҥl�{�ǡM�ڦbVC6.0�U�����sĶ���L���C���o��<br>
+<p><font color="#408080">傳送日期:</b> 2001年10月30日 PM 02:53<br>
+侯先生﹕<br>
+您好。我在讀您翻譯的簡體中文版的Essential C++.也買了您在內地出版的幾本書﹐味道不錯﹐<br>
+我一向覺得書寫的有趣而認真﹐才具有了相當的可讀性﹐所以你的書我看的比較喜歡。<br>
+讀您的EssentialC++發現有一個小小的錯誤﹐也有一個問題﹕<br>
+錯誤是﹕p80頁﹐L18。[first , last )應該是[first , last]吧。<br>
+有一個問題是在3.1節中出現的幾個find例子程序﹐我在VC6.0下面都編譯不過的。比方這個<br>
 int * find(const vector&lt;int&gt; &amp;vec ,int value )<br>
 {<br>
 for( int ix = 0 ; ix &lt; vec.size() ; ++ix ) <br>
 if( vec[ ix ] == value )<br>
-return &amp;vec{ix} ; /*��ı�o���ӧ令 return ( int * ) &amp;vec[ix]<br>
+return &amp;vec{ix} ; /*我覺得應該改成 return ( int * ) &amp;vec[ix]<br>
 return 0 ;<br>
 }<br>
 </font><br>
-���J���^�СG<font color="#408080">[first , last )</font><font color="#000000">�èS�����C<br>
-3.1�`���Ҥl���T�O�^�媩�����~�A�Ш��J�������W���ɻ~���C</font></p>
+●侯捷回覆：<font color="#408080">[first , last )</font><font color="#000000">並沒有錯。<br>
+3.1節的例子的確是英文版的錯誤，請見侯捷網站上的勘誤表。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��29�� PM 09:43<br>
-�D��: For help!<br>
+<p><font color="#408080">傳送日期: 2001年10月29日 PM 09:43<br>
+主旨: For help!<br>
 <br>
 &gt; Well-beloved Sir Hou:<br>
 &gt; Nice and excited to write to you!<br>
 &gt; I'm your faithful reader,I am interested in reading your books!<br>
 &gt; Of course only the simplified Chinese Editions,for they are available in Chinese 
-Mainland,��,What a pity! I have bought all your books published in simplified Chinese,and 
+Mainland,鉖,What a pity! I have bought all your books published in simplified Chinese,and 
 get a lot from them,so I can't help saying:&quot;thanks a lot.&quot;<br>
-&gt; By the way,I'm sorry to trouble for a tiny question.In the book ��Dissecting MFC��you 
+&gt; By the way,I'm sorry to trouble for a tiny question.In the book ▲Dissecting MFC◎you 
 present the use of &quot;</font><font color="#8080FF">Grid Control</font><font
 color="#408080">&quot;,but I can't find the control in Visual C++ 5,so it is in in Visual 
 C++ 6.Why? Can you tell me?!Thank you very much.<br>
@@ -2765,165 +2765,165 @@ Chinese?<br>
 </font><br>
 </p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��30�� PM 02:07<br>
-�J�Ѯv�R<br>
-�z�n�M���ڦb����ѫ��ݨ�F�����лy�ڴN�Pı��F�z���s�b�C�ڮa�b�Y�{�M�@�����_�ʳ̪񪺫����M�M�ӧڪ��p��������@��k��C�ڪ��D�z��qMFC�MWINDOWS 
-PROGRAMMING�C�ڷQ���D�p��~��i�J�{�ǬɡM�ڥu�O�o�{�ڪ�����Ҧb�M�S���Q�q�X�ϡC�ڮɨ����`�رz�b�_�ʪ��ʦV�M�]�ɨ����MSDN�M��F����o�Ӻ����C���`���@�ذ��s����M������Pı�C�ڪ��M�~�O�q�O�t�ΡM�i�ڤ@�����w�p����M�ڶg��S���P�ڳߦn�۪񪺦P�ǡC�ҥH���ާګܧV�O�M���S���h�j���i�C�ڧƱ�z�i�H�����I���U�C�z�{���Ǯժ���¦�Ш|�]�p������^�γB���h�j�C�ڦb���Ӯq�P�s�j�ǡM�ڭ̾Ǯդ��p�_�ʪ��Ǯձоǽ�q���C�ڷPı�z�ܲW�աM�i���i�H���ڰѦҤ@�U�z�C�Ѫ��p�����M�z���m�`�J�L�XMFC�n�ܦn�M�i�Ocsdn 
-�{�ǭ��j����2001�L�n�����@�g�峹MFC 
-���j��P�C�b�_�ʦ��\�h�ѬݡM�x�W�]�ܦh�a�C�h�N�Ʊ�ڭ̳��h�j�����C�ҥH���ꤺ�Ш|���ڦҬ�M�ڿ�ܥ_�ʲz�u�p�����ǻP�u�{�t�C�z�O�x�W�M�ؤj�ǲ��~���M�ꤺ�M�ؤ]�O�̴Ϊ��M�i�O��ڦӨ��ڪ֩w�Ҥ��W�M��F����,�x�W�~���H�b������M���ڷPı�ܦn�M��ı�o�x�W���\�h�u���ؤH�������~��M�h�Ʊ�ڭ̥i�H�h��y�@�U�M�ڻ{���޳N�L��?<br>
-�V�����ȡ����бq�P�󢵥��]���׬Y�l��H�s�ɻڿ��۶����R�x�e?���Ρ��L�š������S�G�Ѹࡽ�G���T�m�����ݳM�ȣ|�F���s��?�����c���}���[�m�����Ը��ڶY�ơ����~�ơ����w���졼�˧ơ��ة`�o�T���v�K�B�v�\�������١��׫n���I�����R�ǳ�®�w�|��J�S?APEC�}���F�C�x�W�S�ӱo�O�F���x���M����ӤF�z�C�o�h�N�n�C�گu�Ʊ�i�H����z�M�i�H�M�z�P���ӽ͡M�ͽs�{�M�ͭp����M�ͤH�͡M�͡C�C�C�ڤ����լ�����H�ͤU�ӴN���\�h���P�M�T���E���M���n�ǶԾĪ��M���ۥ̼Z�����M�����̥��e���M���y��U�e���M���M�h�פ骺�C���ݩ󨺺ةO�S���ݩ�����ۤv�O�����٤��@��󪺡C:)<br>
-��ı�o�z���峹���O����M�����O�ֺq�M�ܭȱo�~�C�i���i�H�i�D�ڱz�{����z�ץͦ����U���X���ѩM�����C�ڹ����Ʊ�z�����_�M���¡T�i�Ǩ}���ͥh�@�F�M�p�Ͳ`�P�d�h�C�ڥu�O�d�ˤ@�ӯu�����j�̦��h�F�M�����F�M�z���S���A�y�LDELPHI,JAVA,C#,.NET�٦��O���C�A�_��p��ǲ߽s�{���O�S�z�O��¾�~�u�@�̡M�٬O�ۥѤu�@�̡S�ڤ��Q�z�ӳҲ֡M�ҥH�z�i�H�����^���M�]���o�O�Ĥ@��E-MAIL�M�ڥ����ݱz�L�`���޳N���D�M�u�O�Q���D�ͬ��򥻱��p�M�i�H�ܡS�ڮa�ͬ������@��M���q�����C�������Ի~�F10�~�M�ҥH�ڧƱ�M�j�j�����u���N�q�W���ͬ��C<br>
-���z�R<br>
-���鰷�d �@�������T<br>
-�j�����p�B�͡R������<br>
+<p><font color="#408080">傳送日期: 2001年10月30日 PM 02:07<br>
+侯老師﹕<br>
+您好﹐當我在海淀書城看到了那條標語我就感覺到了您的存在。我家在廊坊﹐一個離北京最近的城市﹐然而我的計算機水平一塌糊塗。我知道您精通MFC﹐WINDOWS 
+PROGRAMMING。我想知道如何才能進入程序界﹐我只是發現我的興趣所在﹐沒有利益驅使。我時刻關注¨您在北京的動向﹐也時刻緊鎖MSDN﹐對了說到這個網站。我總有一種高山仰止﹐景行行止的感覺。我的專業是電力系統﹐可我一直喜歡計算機﹐我週圍沒有與我喜好相近的同學。所以儘管我很努力﹐仍沒有多大長進。我希望您可以給我點幫助。您認為學校的基礎教育（計算機類）用處有多大。我在秦皇島燕山大學﹐我們學校不如北京的學校教學質量高。我感覺您很淵博﹐可不可以讓我參考一下您每天的計劃表﹐您的《深入淺出MFC》很好﹐可是csdn 
+程序員大本營2001微軟版有一篇文章MFC 
+五大批判。在北京有許多書看﹐台灣也很多吧。多摸希望我們都去大城市。所以對於國內教育體制我考研﹐我選擇北京理工計算機科學與工程系。您是台灣清華大學畢業的﹐國內清華也是最棒的﹐可是對我而言我肯定考不上﹐對了不知,台灣年輕人在忙什麼﹐給我感覺很好﹐我覺得台灣有許多真正華人應有的品質﹐多希望我們可以多交流一下﹐我認為技術無國?<br>
+紓□還𧨎□□嗝從馗闆６伕夜■詰某絛蛟焙孟蠖際親畈黃降娜巳骸?■銜□淺齬■□昂沒故竊詮■詿蟪鞘瀉茫□旎蛉ヌㄍ澹□愀邸?抑□牢依宪■茉叮□喚齟蛹際跎希□檊𣾷希□□ㄈ宋木□襠希□裏奈惱鋁釵銥春蠛蓯娉□□比還■詰南□閹□降娜犯喜簧咸ㄍ逑衷淞?APEC開完了。台灣沒來得是政府官員﹐但迎來了您。這多摸好。我真希望可以見到您﹐可以和您促膝而談﹐談編程﹐談計算機﹐談人生﹐談。。。我不明白為什麼人生下來就有許多不同﹐三六九等﹐有好學勤奮的﹐有自甘墮落的﹐有不甘平庸的﹐有腰纏萬貫的﹐有清貧終日的。我屬於那種呢﹖我屬於明知自己是阿甘還不願放棄的。:)<br>
+我覺得您的文章像是散文﹐有像是詩歌﹐很值得品。可不可以告訴我您認為對您終生有幫助的幾本書和網站。我慇切希望您的答復﹐謝謝﹗張學良先生去世了﹐小生深感悲痛。我只是悲傷一個真正的強者死去了﹐說遠了﹐您有沒有涉獵過DELPHI,JAVA,C#,.NET還有別的。你起初如何學習編程的呢﹖您是個職業工作者﹐還是自由工作者﹖我不想您太勞累﹐所以您可以不全回答﹐因為這是第一封E-MAIL﹐我先不問您過深的技術問題﹐只是想知道生活基本情況﹐可以嗎﹖我家生活水平一般﹐普通市民。但爸爸耽誤了10年﹐所以我希望和姐姐都有真正意義上的生活。<br>
+祝您﹕<br>
+身體健康 一路順風﹗<br>
+大陸的小朋友﹕□□□<br>
 </font><br>
-���J���^�СG<font color="#000000">�ڷP����A�������A���L�k�@�@�^���A���߰ݡC�ЬݫJ�������W���Ѧh�峹�C</font></p>
+●侯捷回覆：<font color="#000000">我感受到你的熱切，但無法一一回答你的詢問。請看侯捷網站上的諸多文章。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><b>�@</p>
+<p><b>　</p>
 
-<p></b><font color="#408080">�ǰe���: 2001�~10��29�� PM 04:12<br>
-�ڬO�z��Ū�̡M�`�`�P�±z���\�K�O�U���m�`�J�L�XMFC�]e2�^�n�M�@�����f�̡M�S�V�z���ѧڪ��ӤH��ơR<br>
-�~���٥��R����]�Ȧ��^<br>
-��ĳ�R�Ʊ�z�b�z���ӤH�����W���l�j�a�i��</font><font color="#8080FF">�m�`�J�L�XMFC�n��²�骩½Ķ�u�@</font><font
-color="#408080">�C<br>
+<p></b><font color="#408080">傳送日期: 2001年10月29日 PM 04:12<br>
+我是您的讀者﹐深深感謝您允許免費下載《深入淺出MFC（e2）》﹐作為受惠者﹐特向您提供我的個人資料﹕<br>
+居住省份﹕陝西（暫住）<br>
+建議﹕希望您在您的個人網站上號召大家進行</font><font color="#8080FF">《深入淺出MFC》的簡體版翻譯工作</font><font
+color="#408080">。<br>
 <br>
-</font>���J���^�СG<font color="#000000">??????????</font><font color="#408080"><br>
+</font>●侯捷回覆：<font color="#000000">??????????</font><font color="#408080"><br>
 <br>
 </font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��28�� PM 03:51<br>
-�J�Ѯv�R�A�n�T<br>
-�ڥs�������M�{�b��¾�_�_�ʤ@�n�󤽥q�C�b���W�[�D�A���j�W�M�ڤ]�O�A�����ꪺŪ�̡C<br>
-�ڴX�G���ۤv�q�F�@�ӶR�Ѫ��зǢw�w�D�J�Ѯv�����n�T�ڱ`��A�A�������h�ݡM�Ʊ�A��<br>
-���ڭ̳o�ǹq���R�n��½Ķ�M�s�ۥX��h��n���ϮѡC�u�O�ھ�C++���[�M�{�b���b�V�O��<br>
-�ǲߡM�Ʊ�o��A��СC<br>
-�ʦ��������Z�z�M���J�Ѯv���鰷�d�M�U�Ʀp�N�T<br>
+<p><font color="#408080">傳送日期: 2001年10月28日 PM 03:51<br>
+侯老師﹕你好﹗<br>
+我叫□□□﹐現在供職于北京一軟件公司。在網上久聞你的大名﹐我也是你的忠實的讀者。<br>
+我幾乎給自己訂了一個買書的標準──非侯老師的不要﹗我常到你你的網站去看﹐希望你能<br>
+為我們這些電腦愛好者翻譯和編著出更多更好的圖書。只是我學C++不久﹐現在正在努力的<br>
+學習﹐希望得到你賜教。<br>
+百忙之中打擾您﹐祝侯老師身體健康﹐萬事如意﹗<br>
 <br>
 </font></p>
 
 <p><font color="#408080"><br>
 <br>
-�ǰe���: 2001�~10��27�� PM 08:45<br>
-�J���͡R<br>
-�z�n�M�ڱqhttp://www.csdn.net/expert/jjhou/�U���F�z�}�񪺹q�l�ѡC<br>
-���M�M�z�X���Ҧ�²�餤�媩���ѧڳ��R�F�M�����M�w���ٯu���C�M���L���F<br>
-�e�q�ɶ������`�J�L�X�~�L���q���ܦn</font><font color="#8080FF">�]���~4�먺�����`�J�L�X�M�ڭ�s�R��<br>
-���~9�몺�����L���q�ۥh�ƻ��^</font><font color="#408080">�M�Ʊ榭�騣��z��h���ۧ@�C<br>
-�H�U�O�ڭӤH��ơR<br>
-��s�͡M�M�ؤj�Ǥg��u�{�t�p�����s�ǡM22���M�k�M�s�{�H<br>
-��ĳ���M�����M�Ʊ榭���_�L�d���ѵ�����<br>
+傳送日期: 2001年10月27日 PM 08:45<br>
+侯先生﹕<br>
+您好﹐我從http://www.csdn.net/expert/jjhou/下載了您開放的電子書。<br>
+當然﹐您出的所有簡體中文版的書我都買了﹐呵呵﹐定價還真不低﹐不過除了<br>
+前段時間版的深入淺出外印刷質量都很好</font><font color="#8080FF">（今年4月那版的深入淺出和我剛新買的<br>
+今年9月的版本印刷質量相去甚遠）</font><font color="#408080">﹐希望早日見到您更多的著作。<br>
+以下是我個人資料﹕<br>
+研究生﹐清華大學土木工程系計算機研究室﹐22歲﹐男﹐廣州人<br>
+建議嘛﹐呵呵﹐希望早日恢復無責任書評～～～<br>
 <br>
 <br>
 <br>
 </font></p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��31�� AM 09:19<br>
-���~�Ǯլ�t�R����H���F�_�j�Ǭ�s�Ͱ|�p������αM�~<br>
-�~���٥��R������H��<br>
-��ĳ�R�ڭ�Ū�F�zĶ���mEssential C++�n�M�o�O�Ӻ�m�F�C���٭n�~��Ū�A���g���M½Ķ���ѡC<br>
+<p><font color="#408080">傳送日期: 2001年10月31日 AM 09:19<br>
+畢業學校科系﹕中國沈陽東北大學研究生院計算機應用專業<br>
+居住省份﹕中國遼寧沈陽<br>
+建議﹕我剛讀了您譯的《Essential C++》﹐這是太精彩了。我還要繼續讀你的寫的和翻譯的書。<br>
 <br>
 <br>
 <br>
 <br>
 <br>
-�ǰe���: 2001�~10��31�� AM 11:16<br>
-�ڬO��w�@�W??�u�@��Programer,<br>
-���R�F�z��&lt;&lt;Effective C++ 2/e ²�餤�媩&gt;&gt; �M &lt;&lt;�`�ױ���C++��H�ҫ�&gt;&gt;,<br>
-�⥻�ѥ�e���??,�P��?��@�ɯŤj�v�q���q������?C++�����۳q���F��<br>
-(�⥻�Ѥ��������e�ۦP,���ߨ��I���P),<br>
-�Pı���q�D�L,�A���P�¦Ѯv.<br>
+傳送日期: 2001年10月31日 AM 11:16<br>
+我是西安一名??工作的Programer,<br>
+近日買了您的&lt;&lt;Effective C++ 2/e 簡體中文版&gt;&gt; 和 &lt;&lt;深度探索C++對象模型&gt;&gt;,<br>
+兩本書交叉對照??,感受?位世界級大師從不通的角度?C++中的相通的東西<br>
+(兩本書中部份內容相同,但立足點不同),<br>
+感覺受益非淺,再次感謝老師.<br>
 <br>
-&lt;&lt;Effective C++ 2/e ²�餤�媩&gt;&gt;��,��151��,���@�y�ܦp�U :<br>
-&quot;�p�G�A�O</font><font color="#8080FF">������</font><font color="#408080">�Ǫ�(Cynics: 
+&lt;&lt;Effective C++ 2/e 簡體中文版&gt;&gt;中,第151頁,有一句話如下 :<br>
+&quot;如果你是</font><font color="#8080FF">犬儒派</font><font color="#408080">學者(Cynics: 
 ......&quot;<br>
-~~~~~~�����O�_��</font><font color="#8080FF">�L����~</font><font color="#408080">,�ЦѮv�ݬ�.<br>
+~~~~~~犬儒是否為</font><font color="#8080FF">印刷錯誤</font><font color="#408080">,請老師看看.<br>
 <br>
-</font>���J���^�СG<font color="#000000">�ëD�L����~�A�O�W��� Cynics 
-�Ǭ��N�O�o��½Ķ���C<br>
-BTW�A�ڱ`�bCSDN�W�ݨ�j�����ͻ��Y�Y�ѡu�L����~�v�A���A�L��O���|�������A���~���O��Z�C�i��O���~�Χ޳N���~���[�����~�A���L��O���|�������C</font></p>
+</font>●侯捷回覆：<font color="#000000">並非印刷錯誤，臺灣對於 Cynics 
+學派就是這麼翻譯的。<br>
+BTW，我常在CSDN上看到大陸網友說某某書「印刷錯誤」，不，印刷是不會有錯的，錯誤的是原稿。可能是筆誤或技術錯誤或觀念錯誤，但印刷是不會有錯的。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
 <p><font color="#408080"><br>
 </font></p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��31�� PM 01:45<br>
-�ԦѮv�R<br>
-�@�z�n�M�ڴN�O�W����z��EssentialC++��������W�Ѭz�ǥ͡M�ܰ����ব��z���^�H�M���ڦb�o���H��S�X�ѥh�z�������ݤF�ݡM�berrta���o�{�w�g���H���X�F�o�ӿ��~�C�]�O�ڨ��ѵo�{�o�Ӥp���~��Ӱ����F�]�D�n�O�]���`����൹�z�g�H���z�ѤF:-)�@�^�M�H��ڷ|�`�N���C<br>
-�@�t�~�M���٭n��z���@��ơM�N�O�b���z�g���H����M�ڦ^�Ǯտ�ơM�b���۫ݩҪ��ɭԡM�I���F�t�~�@�W�ǥ͡M���ڱo���L�O�ؤ���ޤj�Ǫ��ǥͪ��ɭԡM²���N�O�������F�C�]�����q�ɶ��ҸաM�]���S���h�M��ť�z���t���Mı�o�D�`�i���M�S���D�z�S�b�ؤ����t���M��O����i�D����ǥ͡M�D�`���M�L�]�O�Ǥg��u�{�]�P�z�H�e���M�~�@�ˡ^�M���ѱߤW�M�ڸ�L�������D�̭��X�G���O�����z�PC++���M�����L�b�^�Z�~�����ť�z���o���t���C�Q�ѡM����L���^�H�M�i���z���t���L�wť�L�Mı�o�D�`���ҵo�M�ר�O�z�j�ժ��@�I�O</font><font
-color="#8080FF">�C�ӤH�������֦a���ۤv������P�ѽ�Ҧb�M�V�O�¦ۤv���z�Q�M�ؼоİ�</font><font
-color="#408080">�C�ܿ�Ѫ��O�M�ѩ�ЫǸ̯����H�񧤪��H�٭n�h�M�̫�S������|��F�ڹ�z���ݭԡC<br>
-�@�ԦѮv�M�ڲ{�b�C�ѳ��n���X�@�p�ɪ��ɶ���Essential C++. C++��ڪ��l�ޤO�q�ӨS�����{�b����j�C<br>
+<p><font color="#408080">傳送日期: 2001年10月31日 PM 01:45<br>
+候老師﹕<br>
+　您好﹐我就是上次跟您的EssentialC++找錯的那名天津學生﹐很高興能收到您的回信﹐其實我在發完信後沒幾天去您的網站看了看﹐在errta中發現已經有人提出了這個錯誤。也是我那天發現這個小錯誤後太高興了（主要是因為總算找到能給您寫信的理由了:-)　）﹐以後我會注意的。<br>
+　另外﹐我還要跟您說一件事﹐就是在給您寫完信之後﹐我回學校辦事﹐在住招待所的時候﹐碰見了另外一名學生﹐當我得知他是華中科技大學的學生的時候﹐簡直就是高興極了。因為那段時間考試﹐因此沒有去清華聽您的演講﹐覺得非常可惜﹐又知道您又在華中做演講﹐於是趕緊告訴那位學生﹐非常巧﹐他也是學土木工程（與您以前的專業一樣）﹐那天晚上﹐我跟他說的話題裡面幾乎都是有關您與C++的﹐並讓他在回武漢後替我聽您的這場演講。昨天﹐收到他的回信﹐告之您的演講他已聽過﹐覺得非常受啟發﹐尤其是您強調的一點是</font><font
+color="#8080FF">每個人應當儘快地找到自己的興趣與天賦所在﹐努力朝自己的理想和目標奮鬥</font><font
+color="#408080">。很遺憾的是﹐由於教室裡站的人比坐的人還要多﹐最後沒能找到機會轉達我對您的問候。<br>
+　候老師﹐我現在每天都要拿出一小時的時間看Essential C++. C++對我的吸引力從來沒有像現在那麼大。<br>
 <br>
-�ԦѮv�M�Ʊ�z�H���`�Ӥj�������y�M�ڭ̳��b�o�̼��������ߡC<br>
-���P&nbsp; �q§<br>
+候老師﹐希望您以後能常來大陸辦講座﹐我們都在這裡熱切的期盼。<br>
+此致&nbsp; 敬禮<br>
 <br>
-</font>���J���^�СG<font color="#000000">�A�O�p����§�A�ڦ���o�ʫH�Q���}�ߡC�A��C++���F����A�ӿ���a�Ӽ����A�����a�Ө��V�C�u�n�����A�A�N�|���\�C</font></p>
+</font>●侯捷回覆：<font color="#000000">你是如此有禮，我收到這封信十分開心。你對C++有了興趣，而興趣帶來熱情，熱情帶來卓越。只要堅持，你就會成功。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��31�� PM 03:08<br>
-�D��: �ба��D<br>
+<p><font color="#408080">傳送日期: 2001年10月31日 PM 03:08<br>
+主旨: 請教問題<br>
 <br>
-�J�����ͱz�n�G<br>
-�ͩm�šA�X�Ӥ�e��Ū�z�H�e��½Ķ�@�~&quot;Win95 �t�ε{���]�p - VM 
-&amp;VxD&quot;�A���䤤�� Serial Port 
-�{���P�쿳��C��n���q�ثe���b�q�� USB To RS232 
-�K���P�Ӽ骺�|�ռ��g�X�ʵ{���C�o�X�Ӥ���ǥѦ�����q�}�h�A�X�ʵ{���]�j�P����(�ǻ�Keyboard�S�����D)�C�M�ӡA�b�̫�@���q�Q�� 
+侯捷先生您好：<br>
+敝姓藍，幾個月前拜讀您以前的翻譯作品&quot;Win95 系統程式設計 - VM 
+&amp;VxD&quot;，對於其中的 Serial Port 
+程式感到興趣。剛好公司目前正在從事 USB To RS232 
+便興致來潮的嚐試撰寫驅動程式。這幾個月來藉由此書獲益良多，驅動程式也大致完成(傳遞Keyboard沒有問題)。然而，在最後一階段利用 
 HyperTerminal 
-�ǻ��ɮ׮ɫo�o�ͥ��ѡC�ɮױ����ɨS�����D�A�ǻ��ɥu��ǻ� 1K 
+傳遞檔案時卻發生失敗。檔案接收時沒有問題，傳遞時只能傳遞 1K 
 (1024 bytes) 
-��K���ѤF�C��F�\�[�]�����ҥH�M�A��O�K�p���y�֪��g�H�V�z�бСC�����z���L�@�ǫ�ĳ�ΰѦҮѥi�H���СC<br>
-����!!!</font></p>
+後便失敗了。找了許久也不知所以然，於是便厚著臉皮的寫信向您請教。不知您有無一些建議或參考書可以介紹。<br>
+謝謝!!!</font></p>
 
-<p>���J���^�СG<font color="#000000">��p�A�������W���C</font></p>
+<p>●侯捷回覆：<font color="#000000">抱歉，我幫不上忙。</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��31�� PM 05:10<br>
-�D��: �а�gcc/g++<br>
+<p><font color="#408080">傳送日期: 2001年10月31日 PM 05:10<br>
+主旨: 請問gcc/g++<br>
 <br>
-�J�Ѯv�z�n:<br>
-�аݯ���bc/c++��source�̭�����call library��?<br>
-�p�P�bkylix�W���i�H�o�˨ϥ�library<br>
+侯老師您好:<br>
+請問能夠在c/c++的source裡面直接call library嗎?<br>
+如同在kylix上面可以這樣使用library<br>
 function test:integer;external '/path/libxxx.so';<br>
-�p���ڦ��@��binary file�H�p�U���覡compiler<br>
+如今我有一個binary file以如下的方式compiler<br>
 g++ -o x go.o liball.so libX11.so libXext.so libXv.so libpthread.so...etc.<br>
-�䤤liball.so�O�����ε{����source�̭����Ҧ�.o�ɥ]�n��.so<br>
-��L�����O�t�Υ�����library..�ݩ�/usr/X11R6/lib��/usr/lib<br>
-�ѩ�kylix�Ccall�@��library�@�w�n�t�@��function??(�y�k�n���ܩT�w?)<br>
-�ҥH�ڲ{�b���ӷQ�k...e.g: �bx.h�ɸ̭��hcall library..<br>
-�bx.c��#include &quot;x.h&quot;<br>
-�M���x.c�]���@��libx.so<br>
-�������k�O�_�i��?<br>
-�Y�i��....�аݤ@�U�bc source�̭��O�_������kylix���˪��y�k��call 
-library�O?<br>
-�P�±z����Ŧ^��</font></p>
+其中liball.so是此應用程式的source裡面的所有.o檔包好的.so<br>
+其他的都是系統本身的library..屬於/usr/X11R6/lib及/usr/lib<br>
+由於kylix每call一個library一定要配一個function??(語法好像很固定?)<br>
+所以我現在有個想法...e.g: 在x.h檔裡面去call library..<br>
+在x.c內#include &quot;x.h&quot;<br>
+然後把x.c包成一個libx.so<br>
+不知此法是否可行?<br>
+若可行....請問一下在c source裡面是否有類似kylix那樣的語法能call 
+library呢?<br>
+感謝您的抽空回答</font></p>
 
-<p>�@</p>
+<p>　</p>
 
-<p>�@</p>
+<p>　</p>
 
-<p><font color="#408080">�ǰe���: 2001�~10��31�� AM 09:17<br>
-�J�Ѯv�M�A�n�T<br>
-�ڱq��MFC�`�J�L�X���W���D�A���H�c���C�ڥ��b���@������windows�t�Ϊ������X�ʡM�ѩ�o�O�ڲĤ@���g�X�ʵ{�ǡM�ڹ�b�����D�ӱq����a��J��C�����A��_���ڤ@�Ǭ�������ĳ�Χ����Ӭݨ��譱���ѡM�d���Ǹ�ơS<br>
+<p><font color="#408080">傳送日期: 2001年10月31日 AM 09:17<br>
+侯老師﹐你好﹗<br>
+我從“MFC深入淺出”上知道你的信箱的。我正在做一個類似windows系統的鼠標驅動﹐由於這是我第一次寫驅動程序﹐我實在不知道該從什麼地方入手。不知你能否給我一些相關的建議或我應該看那方面的書﹐查那些資料﹖<br>
 <br>
-</font><font color="#000000">���J���^�СG�ڪ��ѦW�O�m�`�J�L�XMFC�n�A���O�mMFC�`�J�L�X�n�X 
-�u���o���ѡA�d�U�O�i�a�����C<br>
+</font><font color="#000000">●侯捷回覆：我的書名是《深入淺出MFC》，不是《MFC深入淺出》— 
+真有這本書，千萬別張冠李戴。<br>
 <br>
-�ڬ�s VxD ���g�@�A�����O���F system programming�F��� drivers�A�ڬO���ͪ��C���L�ڪ��D�AWaltor 
-Oney�ҵ�����VxD�MWDM���⥻�ѡA�O���ή��y�A�]�����ֽd�ҡCWindows DDK�]�������ֽd�ҡC���y�Ա��A�hamazon�@�d�K���C</font></p>
+我研究 VxD 的寫作，完全是為了 system programming；對於 drivers，我是陌生的。不過我知道，Waltor 
+Oney所著關於VxD和WDM的兩本書，是極佳書籍，也有不少範例。Windows DDK也附有不少範例。書籍詳情，去amazon一查便知。</font></p>
 </body>
 </html>

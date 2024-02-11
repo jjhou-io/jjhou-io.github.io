@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 <meta name="GENERATOR" content="Microsoft FrontPage 3.0">
-<title>�m�`�J�L�X MFC�n���Ȱ�</title>
+<title>《深入淺出 MFC》答客問</title>
 <meta name="Microsoft Theme" content="construc 111, default">
 <meta name="Microsoft Border" content="tl, default">
 </head>
@@ -22,192 +22,192 @@ vlink="#996600" alink="#FF0066">
     <td valign="top" width="57" bgcolor="#C0C0C0"><!--mstheme--></font></td>
     <td width="20"><!--mstheme--></font></td>
     <td valign="top" width="622"><font size="3"><br>
-    </font><big><big>�m�`�J�L�X MFC�n2/e ���Ȱ� (1)</big></big><br>
-    1999.10.11 <p><big><big> </big>��ƴ��H !</big></p>
-    <p><big>�@</big></p>
+    </font><big><big>《深入淺出 MFC》2/e 答客問 (1)</big></big><br>
+    1999.10.11 <p><big><big> </big>資料散佚 !</big></p>
+    <p><big>　</big></p>
 <!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
-    <p><big><big>�m�`�J�L�X MFC�n���Ȱ� (2)</big></big><br>
+    <p><big><big>《深入淺出 MFC》答客問 (2)</big></big><br>
     1999.10.29 <br>
     <br>
     shiowli wrote (1999/10/27)<br>
     <br>
-    <font color="#0000FF">&gt; �P�q�R���J�T�ǥ��͡G<br>
+    <font color="#0000FF">&gt; 致敬愛的侯俊傑先生：<br>
     &gt;<br>
-    &gt; �g�L�F�@�~�h���S�����ͼg�H�A<br>
-    &gt; �u�O���n�N��C�����Ѫ��O�o�Ǥ�l<br>
-    &gt; ���D���ͥX�ѰT �u�D Wndows2000 (TM) �n���<br>
-    &gt; ���ͤ���ɭԤ~�|�A�X�ѡA�H�WŪ�̩O�H<br>
+    &gt; 經過了一年多都沒給先生寫信，<br>
+    &gt; 真是不好意思。但更遺憾的是這些日子<br>
+    &gt; 不聞先生出書訊 只聞 Wndows2000 (TM) 聲啾啾<br>
+    &gt; 先生什麼時候才會再出書，以饗讀者呢？<br>
     &gt;<br>
-    &gt; �Q�бХ��ͤ@���[�����D�G<br>
+    &gt; 想請教先生一些觀念問題：<br>
     &gt;<br>
-    &gt; 1. �b�ݹL�@�Ǥu�{�v�Ҽg�� MFC source codes<br>
-    &gt; ��A�ڵoı RUNTIME_CLASS �� Dynamic Creation<br>
-    &gt; �ä��|�Q�j�����x�W���u�{�v�ҧQ�ΡC�Q�бХ���<br>
-    &gt; RUNTIME_CLASS �� Dynamic Creation �ϥΪ��ɾ�<br>
-    &gt; �Φp��ϥΡH�]�p�ŧi static CRunimeClass pointer�^<br>
+    &gt; 1. 在看過一些工程師所寫的 MFC source codes<br>
+    &gt; 後，我發覺 RUNTIME_CLASS 及 Dynamic Creation<br>
+    &gt; 並不會被大部分台灣的工程師所利用。想請教先生<br>
+    &gt; RUNTIME_CLASS 及 Dynamic Creation 使用的時機<br>
+    &gt; 及如何使用？（如宣告 static CRunimeClass pointer）<br>
     &gt;<br>
-    &gt; 2. �ϥ� AppWizard Project file ���Q�n�[�J .cpp file<br>
-    &gt; �b Compiling �L�{�|�Q�n�D�Х[�J &quot;stdafx.h&quot;<br>
-    &gt; �аݥi�H�קK�ܡH<br>
+    &gt; 2. 使用 AppWizard Project file 中想要加入 .cpp file<br>
+    &gt; 在 Compiling 過程會被要求請加入 &quot;stdafx.h&quot;<br>
+    &gt; 請問可以避免嗎？<br>
     &gt;<br>
-    &gt; �A������ �J����</font><br>
+    &gt; 再次謝謝 侯先生</font><br>
     <br>
     <br>
-    �J���^�СG<br>
+    侯捷回覆：<br>
     <br>
-    ���T�A�ڤ]�M���֤u�{�v�Q�׹L�A�L�̪� MFC �{��������S���B��<br>
-    RUNTIME_CLASS �M DECLARE_DYNCREATE/IMPLEMENT_DYNCREATE�K<br>
-    ���� macros�C��]���G�G<br>
+    的確，我也和不少工程師討論過，他們的 MFC 程式為什麼沒有運用<br>
+    RUNTIME_CLASS 和 DECLARE_DYNCREATE/IMPLEMENT_DYNCREATE…<br>
+    等等 macros。原因有二：<br>
     <br>
-    �]�t�@�էΦ������� macros �O MESSAGE MAP ������ macros�C���o�@��<br>
-    �S�H���R�A�B��\�������A��{�i���A�ҥH����S������D�^<br>
+    （另一組形式類似的 macros 是 MESSAGE MAP 的相關 macros。但這一組<br>
+    沒人敢刪，且其功能較具體，近程可見，所以比較沒什麼問題）<br>
     <br>
-    1. ���A�ѳo�� macros 
-    ���N�q�A�ҥH�����D���ΡC�@�}�l�|�̼˵e��Ī�A<br>
-    ����ӵe�o���Ӧn�A�]��������ܤơ]�]����Ī���T�ء^�C���M���p�U<br>
-    �⸬Ī�����A�o�{�n�����ɭԤ]�� work�C���O���ݭn�p dynamic creation<br>
-    �� serialization ���\��ɡA�S�o�{�V�|�]�������D�V�|���u����]�^�C<br>
-    �ҥH���p�ܱo���I�V�áA�}�l���F��ɦ���A�}�l���W�\�C<br>
+    1. 不瞭解這些 macros 
+    的意義，所以不知道怎麼用。一開始會依樣畫葫蘆，<br>
+    但後來畫得不太好，也不知怎麼變化（因為葫蘆有三種）。偶然情況下<br>
+    把葫蘆拿掉，發現好像有時候也能 work。但是當需要如 dynamic creation<br>
+    或 serialization 等功能時，又發現糟糕（但不知道糟糕的真正原因）。<br>
+    所以情況變得有點混亂，開始挖東牆補西牆，開始做苦功。<br>
     <br>
-    2. �]�\����A�ѤF�o�� macros ���N�q�P�Ϊk�P�ܤơA���O project<br>
-    �w�g�i���~�A�j����½���A�ӥB�W�\�]���F�@�ǡA�ӤH���W����<br>
-    �S���W�γ���ı�i���A�ҥH�N�~��O�����Ʋz�Q���{�p�C<br>
+    2. 也許後來瞭解了這些 macros 的意義與用法與變化，但是 project<br>
+    已經進行兩年，大牛難翻身，而且苦功也做了一些，個人辛苦結晶<br>
+    沒派上用場甚覺可惜，所以就繼續保持不甚理想的現況。<br>
     <br>
     <br>
-    �b MFC �o���e�j�� framework ���A���F�E�楦���@�ǰ�¦���@�س]<br>
-    �]infrastructure�^�A�ҥH�]�p�X�o�ǧΦ�����²��A����ڤ��e�Ƭ�<br>
-    ������ macros�C�ڭ̶}�o MFC appliciations �ɡA�p�G�n�B�νѦh���n<br>
-    �ʽ�A�����q�ڥ��W�A�ѳo�� macros 
-    ���Ϊk�A�A���a�B�Υ��̡C���M�A<br>
-    �n�ڥ��A�Ѩ�Ϊk�A�̦n�O���N�q���۷��{�ת��{�ѡC<br>
+    在 MFC 這個龐大的 framework 中，為了遂行它的一些基礎公共建設<br>
+    （infrastructure），所以設計出這些形式極為簡單，但實際內容甚為<br>
+    複雜的 macros。我們開發 MFC appliciations 時，如果要運用諸多美好<br>
+    性質，必須從根本上瞭解這些 macros 
+    的用法，適當地運用它們。當然，<br>
+    要根本瞭解其用法，最好是對其意義有相當程度的認識。<br>
     <br>
-    �A�ݧڡG<br>
+    你問我：<br>
     <br>
-    <font color="#0000FF">&gt; �Q�бХ��� RUNTIME_CLASS �� Dynamic Creation 
-    �ϥΪ��ɾ�<br>
-    &gt; �Φp��ϥΡH�]�p�ŧi static CRunimeClass pointer�^</font><br>
+    <font color="#0000FF">&gt; 想請教先生 RUNTIME_CLASS 及 Dynamic Creation 
+    使用的時機<br>
+    &gt; 及如何使用？（如宣告 static CRunimeClass pointer）</font><br>
     <br>
-    �ѤW�����F��A�ڴN���b�O�W���u�F�C�p�B���Ӫ��g�j�סC<br>
+    書上有的東西，我就不在板上重彈了。況且講來長篇大論。<br>
     <br>
-    ����o�� macros ���ϥήɾ��M��k�A�\�h VC/MFC ���y��������C<br>
-    �p�G�A�n�`�J�A�� why �Ӥ��u�O how�A�H�β`�J�A�Ѩ��� macros<br>
-    �p��i�}����H���ʧ@�A�i�Ѧҡm�`�J�L�X MFC�nchap8, chap9�A<br>
-    �άO�m�h���P�����nchap5�C�e�̪����� MFC source �ӻ����A<br>
-    ��̧e�{�@�ӥi�b console mode �����檺 MFC-lite�A�����²�C<br>
+    關於這些 macros 的使用時機和方法，許多 VC/MFC 書籍都有提到。<br>
+    如果你要深入瞭解 why 而不只是 how，以及深入瞭解那些 macros<br>
+    如何展開其驚人的動作，可參考《深入淺出 MFC》chap8, chap9，<br>
+    或是《多型與虛擬》chap5。前者直接拿 MFC source 來說明，<br>
+    後者呈現一個可在 console mode 中執行的 MFC-lite，比較精簡。<br>
     <br>
-    �A�ѳo�� macros ���Ƨ@�άO�A�i�H�� C++ �� operator # �M<br>
-    operator ## ����h���{�ѡA�õy�s��¤O�C�]�i�H���u�p��غc<br>
-    �@�� framework ����¦���@�س]�]infrastructure�^�v�����p�����U�C<br>
+    瞭解這些 macros 的副作用是，可以對 C++ 的 operator # 和<br>
+    operator ## 有更多的認識，並稍窺其威力。也可以對於「如何建構<br>
+    一個 framework 的基礎公共建設（infrastructure）」有不小的幫助。<br>
     <br>
-    �A���ĤG�Ӱ��D�G<br>
+    你的第二個問題：<br>
     <br>
-    <font color="#0000FF">&gt; 2. �ϥ� AppWizard Project file ���Q�n�[�J .cpp file<br>
-    &gt; �b Compiling �L�{�|�Q�n�D�Х[�J &quot;stdafx.h&quot;<br>
-    &gt; �аݥi�H�קK�ܡH</font><br>
+    <font color="#0000FF">&gt; 2. 使用 AppWizard Project file 中想要加入 .cpp file<br>
+    &gt; 在 Compiling 過程會被要求請加入 &quot;stdafx.h&quot;<br>
+    &gt; 請問可以避免嗎？</font><br>
     <br>
-    �A�O�ݡu�@�� project �����i�_���n stdafx.h�v�ܡH���׬O�i�H�A<br>
-    ���A����l�|�q���󨯳ҨǡC<br>
+    你是問「一個 project 之中可否不要 stdafx.h」嗎？答案是可以，<br>
+    但你的日子會從此更辛勞些。<br>
     <br>
-    �H�K�ݤ@�ӥ� AppWizard ���ͪ� project�A�� stdafx.h ���O�@��<br>
-    ���n�� include files�]�Ҧp afxwin.h�^�C������ stdafx.h �h��<br>
-    �@�� stdafx.cpp�A�䤺�u�O #include &quot;stdafx.h&quot;�C�o������ηN�H<br>
+    隨便看一個由 AppWizard 產生的 project，其 stdafx.h 內是一些<br>
+    必要的 include files（例如 afxwin.h）。對應於 stdafx.h 則有<br>
+    一個 stdafx.cpp，其內只是 #include &quot;stdafx.h&quot;。這有什麼用意？<br>
     <br>
-    �ηN�O�A�� stdafx.cpp �sĶ�X�@�� stdafx.obj�A����<br>
-    �ҿת� &quot;pre-compile-header&quot;�]�ݷf�t�S�� compile option�C<br>
-    AppWizard �|���ڭ̪� project �۰ʳ]�w�o�ӯS���� option�^�A<br>
-    �i�j�T���C�ĤG���]�H���^���sĶ�һݮɶ��]�]���з� MFC headers<br>
-    ���ݦA�sĶ�@���^�C<br>
+    用意是，讓 stdafx.cpp 編譯出一個 stdafx.obj，成為<br>
+    所謂的 &quot;pre-compile-header&quot;（需搭配特殊 compile option。<br>
+    AppWizard 會為我們的 project 自動設定這個特殊的 option），<br>
+    可大幅降低第二次（以降）的編譯所需時間（因為標準 MFC headers<br>
+    不需再編譯一次）。<br>
     <br>
-    ����A�A�C�ϥ� ClassWizard ��U�}�o���{���AClassWizard �K��<br>
-    �i��b stdafx.h ���W�[�s�� include files�C�Ҧp�A�A�Y���<br>
-    MFC template classes�Astdafx.h ���K�|�W�[ #include &lt;afxtempl.h&gt;�C<br>
+    往後，你每使用 ClassWizard 協助開發此程式，ClassWizard 便有<br>
+    可能在 stdafx.h 中增加新的 include files。例如，你若選用<br>
+    MFC template classes，stdafx.h 中便會增加 #include &lt;afxtempl.h&gt;。<br>
     <br>
-    �p�G�A���n afxstd.h�A�N���A�o�ۤv take care �o�ǨƱ��C<br>
+    如果你不要 afxstd.h，意味你得自己 take care 這些事情。<br>
     <br>
     --- the end<br>
     <br>
     </p>
 <!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
-    <p><big><big>�m�`�J�L�X MFC�n���Ȱ� (3)</big></big><br>
+    <p><big><big>《深入淺出 MFC》答客問 (3)</big></big><br>
     1999.11.07 <br>
     <br>
     Hugo wrote (1999/11/02)<br>
     <br>
-    <font color="#0000FF">&gt; �J�Ѯv�z�n�G<br>
-    &gt; �_�N�g�o�ʫH���z�A�ڥثe���b�ǲ�VC++�A���X�Ӱ��D�Q�ббz�A<br>
-    &gt; �Ʊ椣�|���Z�z�I�I<br>
+    <font color="#0000FF">&gt; 侯老師您好：<br>
+    &gt; 冒昧寫這封信給您，我目前正在學習VC++，有幾個問題想請教您，<br>
+    &gt; 希望不會打擾您！！<br>
     &gt;<br>
-    &gt; 1.�аݷ��ڤ@�Өϥ�MFC���{���g�n��A�n�p��]�ˡA�~��w�˨�O�����x�H<br>
-    &gt; �S�p�󪾹D�ݧt�A�����ɮשO�H<br>
+    &gt; 1.請問當我一個使用MFC的程式寫好後，要如何包裝，才能安裝到別的機台？<br>
+    &gt; 又如何知道需含括哪些檔案呢？<br>
     &gt;<br>
-    &gt; 2.������ڼg�F�@��Dialog-Base�������{���A�ϥΤF���C��control�A�sĶ<br>
-    &gt; �X�Ӫ������ɫo�n1MB�h�A<br>
-    &gt; ���O�P�˪��\��A�ڬݤ��e�O�H�g���{���o�u���֤֪���ʦhK�I<br>
-    &gt; �аݦ��ϵ{����Ϊ���k�ܡH<br>
-    &gt; �Ϊ̬O�ڼg���F��V�O�H<br>
+    &gt; 2.為什麼我寫了一個Dialog-Base的關機程式，使用了六七個control，編譯<br>
+    &gt; 出來的執行檔卻要1MB多，<br>
+    &gt; 但是同樣的功能，我看之前別人寫的程式卻只有少少的兩百多K！<br>
+    &gt; 請問有使程式減肥的方法嗎？<br>
+    &gt; 或者是我寫錯了方向呢？<br>
     &gt;<br>
-    &gt; 3.�p�G��K���ܡA�i�_���Ь������ѥص��ڡH���¡I�I<br>
-    &gt; ������ �I�I<br>
+    &gt; 3.如果方便的話，可否介紹相關的書目給我？謝謝！！<br>
+    &gt; 祝順心 ！！<br>
     </font><br>
     <br>
-    �J���^�СG<br>
+    侯捷回覆：<br>
     <br>
-    �p�G�A�Ʊ����ۤv�� MFC application �����W�ߡB���̿���� DLLs�A<br>
-    ���O���藍�i���쪺�C���� Windows �{���`�O�]�ܤ֡^�ݭn�@��<br>
-    �t�δ��Ѫ� DLLs�]�Ѧp USER, KERNEL, GDI �T�j DLLs�^�C<br>
+    如果你希望讓自己的 MFC application 完全獨立、不依賴任何 DLLs，<br>
+    那是絕對不可能辦到的。任何 Windows 程式總是（至少）需要一些<br>
+    系統提供的 DLLs（諸如 USER, KERNEL, GDI 三大 DLLs）。<br>
     <br>
-    �p�G�A�O�Ʊ����b���w�� Visual C++ �����x�W�]�A���{���A�]�N�O��<br>
-    �b�S�� MFC library �����ҤU�]�A����N���� (1) �� MFC library ��Ӥ��O<br>
-    ��A���{�����A�άO (2) �N MFC library �P�A���{���@�_ distribute �X�h<br>
-    �]�L�n���\�A�o�򰵡^�CAppWizard step 5 of 6 �i���A���� (1) �����@�C<br>
-    �m�`�J�L�X MFC�n2/e p.262 ���ϥܡA���|�ݧA &quot;How would you like<br>
-    to use the MFC library ?&quot; ��� &quot;as a statically linked library&quot;<br>
-    �Y�i�C�ѤW�惡�]����r�����A���ڤ@�U�l�䤣��b���@���C<br>
+    如果你是希望能夠在未安裝 Visual C++ 的平台上跑你的程式，也就是說<br>
+    在沒有 MFC library 的環境下跑，那麼就必須 (1) 把 MFC library 整個內嵌<br>
+    到你的程式中，或是 (2) 將 MFC library 與你的程式一起 distribute 出去<br>
+    （微軟允許你這麼做）。AppWizard step 5 of 6 可讓你完成 (1) 的心願。<br>
+    《深入淺出 MFC》2/e p.262 有圖示，它會問你 &quot;How would you like<br>
+    to use the MFC library ?&quot; 選擇 &quot;as a statically linked library&quot;<br>
+    即可。書上對此也有文字說明，但我一下子找不到在哪一頁。<br>
     <br>
-    �A���ĤG�Ӱ��D�A�ڵL�k�^���Csorry<br>
+    你的第二個問題，我無法回答。sorry<br>
     <br>
-    �A���ĤT�Ӱ��D�A���� MFC ���y�A�i�ѦҫJ������<br>
+    你的第三個問題，關於 MFC 書籍，可參考侯捷網站<br>
     <a href="review3-5.htm" tppabs="http://jjhou.boolan.com/review3-5.htm">http://www.jjhou.com/review3-5.htm</a><br>
-    �ڦb�䤤���˥|�� MFC ���y�A�ں٤����u�|�j�Ѥ��v�C<br>
+    我在其中推薦四本 MFC 書籍，我稱之為「四大天王」。<br>
     <br>
     --- the end<br>
     <br>
     &#26;</p>
 <!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
-    <p><big><big>�m�`�J�L�X MFC�n2/e ���Ȱ� (4)</big></big> - �W�ߥX CStroke<br>
+    <p><big><big>《深入淺出 MFC》2/e 答客問 (4)</big></big> - 獨立出 CStroke<br>
     2000.03.25 <br>
     <br>
     mfc42 wrote (2000/03/14) :<br>
     <br>
-    <font color="#0000FF">&gt; �JSir�z�n�G<br>
-    &gt; �̪�b�g�@�ӵ��ۤv�Ϊ��p�{���ɡA�K��X���`�J�L�XMFC 2/e���ӷ�<br>
-    &gt; ���ѦҡA��M�o�{�b�ĤK����Document-View�`�J���Q�����d�ҵ{���n������<br>
-    &gt; ���D�A�Ӥ�����]�X�ۦ�B�A�ҥH�S�ӽбЫJSir�C<br>
+    <font color="#0000FF">&gt; 侯Sir您好：<br>
+    &gt; 最近在寫一個給自己用的小程式時，便找出〝深入淺出MFC 2/e〞來當<br>
+    &gt; 做參考，突然發現在第八章〝Document-View深入探討〞的範例程式好像有些<br>
+    &gt; 問題，而不知原因出自何處，所以特來請教侯Sir。<br>
     &gt;<br>
-    &gt; �bScribble���d�ҵ{�����A���OCStroke�O�g�bScribble.h�MScribble.cpp<br>
-    &gt; ���A���O�ڦۦ��d�ҵ{��������CStroke���{���X�ӧO���X�ӡA��bStroke.h�M<br>
-    &gt; Stroke.cpp���ɮפ��A�@�� Compile �K�X�{�H�U��error<br>
-    &gt; (�U���O�H�ק�L��Step1��error)<br>
+    &gt; 在Scribble的範例程式中，類別CStroke是寫在Scribble.h和Scribble.cpp<br>
+    &gt; 中，但是我自行把範例程式中有關CStroke的程式碼個別移出來，放在Stroke.h和<br>
+    &gt; Stroke.cpp的檔案中，一旦 Compile 便出現以下的error<br>
+    &gt; (下面是以修改過的Step1的error)<br>
     &gt;<br>
     &gt; ------------Configuration: Scribble - Win32 Release----------------<br>
     &gt; Compiling...<br>
     &gt; Scribble.cpp<br>
-    &gt; E:\�d�ҵ{��\�`�J�L�XMFC2e\scribble\STEP1\Scribble.cpp(13) :<br>
+    &gt; E:\範例程式\深入淺出MFC2e\scribble\STEP1\Scribble.cpp(13) :<br>
     &gt; fatal error C1853: '.\Release/Scribble.pch' is not a<br>
     &gt; precompiled header file created with this compiler<br>
     &gt; ScribDoc.cpp<br>
     &gt;<br>
-    &gt; E:\�d�ҵ{��\�`�J�L�XMFC2e\scribble\STEP1\ScribDoc.cpp(13) :<br>
+    &gt; E:\範例程式\深入淺出MFC2e\scribble\STEP1\ScribDoc.cpp(13) :<br>
     &gt; fatal error C1853: '.\Release/Scribble.pch' is not a<br>
     &gt; precompiled header file created with this compiler<br>
     &gt; ScribVw.cpp<br>
     &gt;<br>
-    &gt; E:\�d�ҵ{��\�`�J�L�XMFC2e\scribble\STEP1\ScribVw.cpp(13) :<br>
+    &gt; E:\範例程式\深入淺出MFC2e\scribble\STEP1\ScribVw.cpp(13) :<br>
     &gt; fatal error C1853: '.\Release/Scribble.pch' is not a<br>
     &gt; precompiled header file created with this compiler<br>
     &gt; stroke.cpp<br>
     &gt;<br>
-    &gt; E:\�d�ҵ{��\�`�J�L�XMFC2e\scribble\Step1\stroke.cpp(43) :<br>
+    &gt; E:\範例程式\深入淺出MFC2e\scribble\Step1\stroke.cpp(43) :<br>
     &gt; fatal error C1010: unexpected end of file while looking for<br>
     &gt; precompiled header directive<br>
     &gt;<br>
@@ -216,233 +216,233 @@ vlink="#996600" alink="#FF0066">
     &gt;<br>
     &gt; Scribble.exe - 4 error(s), 0 warning(s)<br>
     &gt;<br>
-    &gt; �`�@�X�{�F���error�A��ı�o�ܩ_�ǡA�u���L��CStroke���X�ӦӤw�A�o�sĶ����<br>
-    &gt; (�N��ڳsDoc�ҧt�J�����Y�ɤ]�t�J�A�]�٬O����)�C�����O���i�H��CStroke���X<br>
-    &gt; Doc���~�ܡH(���|�a�I�H)�F�٬O�ڦ��S���Ҽ{�쪺�������H�ЫJSir���ڸѵ��A���¡I<br>
+    &gt; 總共出現了兩種error，我覺得很奇怪，只不過把CStroke移出來而已，卻編譯失敗<br>
+    &gt; (就算我連Doc所含入的表頭檔也含入，也還是失敗)。不知是不可以把CStroke移出<br>
+    &gt; Doc之外嗎？(不會吧！？)；還是我有沒有考慮到的部份咧？請侯Sir為我解答，謝謝！<br>
     </font><br>
-    �J���^�СG<br>
+    侯捷回覆：<br>
     <br>
-    �|�� error msg ���O���� precompiled header�A�ݨӬO���ҳ]�w���]���C<br>
-    �o�N�L�k�M�A�b�Ť��Q�װաC<br>
+    四個 error msg 都是關於 precompiled header，看來是環境設定的因素。<br>
+    這就無法和你在空中討論啦。<br>
     <br>
-    �i�H�T�w���O�ACStroke �@�w�i�H�W�ߥX�ӡC<br>
+    可以確定的是，CStroke 一定可以獨立出來。<br>
     <br>
-    �t�A�Ъ`�N p477 �W�ݪ��Ǧ��������C<br>
+    另，請注意 p477 上端的灰色方塊說明。<br>
     <br>
     -- the end<br>
     <br>
     &#26;</p>
 <!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
-    <p><big><big>�m�`�J�L�X MFC�n2/e ���Ȱ� (5)</big></big> - dispatch ��f���<br>
+    <p><big><big>《深入淺出 MFC》2/e 答客問 (5)</big></big> - dispatch 對口單位<br>
     2000.03.25 <br>
     <br>
-    <font color="#0000FF">&gt; �˷R���ԦѮv:<br>
-    &gt; �z�n!<br>
+    <font color="#0000FF">&gt; 親愛的候老師:<br>
+    &gt; 您好!<br>
     &gt;<br>
-    &gt; �ڬO�@�W�j�����j�ǥ�,�R�n�q��,�åB��windows�s�{�ܷP����.<br>
-    &gt; �b��Ū�F�z��&lt;&lt;�`�J�L�XMFC&gt;&gt;��,�ڷP���MFC���F�`�J���z��,�]����<br>
-    &gt; �F��`�J��sMFC������.---�o���o�P�±z���_��!!!!<br>
+    &gt; 我是一名大陸的大學生,愛好電腦,並且對windows編程很感興趣.<br>
+    &gt; 在拜讀了您的&lt;&lt;深入淺出MFC&gt;&gt;後,我感到對MFC有了深入的理解,也提高<br>
+    &gt; 了對深入研究MFC的興趣.---這都得感謝您的寶書!!!!<br>
     &gt;<br>
-    &gt; �̪�,�ڥ��b�ǲ�com�޳N,���L�ڭ̳o��com�譱���Ѥ��h,�D�n<br>
-    &gt; ��&lt;&lt;inside com &gt;&gt; �M &lt;&lt;inside visual c++ 6 &gt;&gt; �M<br>
-    &gt; &lt;&lt; inside ole 2 &gt;&gt;,�ڲ{�b�w�g��B�z�ѤFcom��z,���O��MFC<br>
-    &gt; ����������dispatch���f,�p��̿�CCmdTarge��{�٤���,�S�O�O<br>
-    &gt; dispatch_map�Φ����R�Aentry�p��N���FCTypeInfo����{,<br>
-    &gt; �ڬd�F�X��MFC��N�X,�i�S����,�Ʊ�z��b�ʦ�������ū��I�@�G!<br>
-    &gt; �ǥͤ��ӷP�E.<br>
+    &gt; 最近,我正在學習com技術,不過我們這裡com方面的書不多,主要<br>
+    &gt; 有&lt;&lt;inside com &gt;&gt; 和 &lt;&lt;inside visual c++ 6 &gt;&gt; 和<br>
+    &gt; &lt;&lt; inside ole 2 &gt;&gt;,我現在已經初步理解了com原理,但是對MFC<br>
+    &gt; 內部的關於dispatch接口,如何依賴CCmdTarge實現還不懂,特別是<br>
+    &gt; dispatch_map形成的靜態entry如何代替了CTypeInfo的實現,<br>
+    &gt; 我查了幾天MFC原代碼,可沒明白,希望您能在百忙之中抽空指點一二!<br>
+    &gt; 學生不勝感激.<br>
     &gt;<br>
-    &gt; �ǥͷq�W<br>
+    &gt; 學生敬上<br>
     &gt; 1999.12.14<br>
     &gt; please write to visual.basic@263.net</font><br>
     <br>
     <br>
-    �J���^�СG<br>
+    侯捷回覆：<br>
     <br>
-    �کm�J�A���m�� :)<br>
+    我姓侯，不姓候 :)<br>
     <br>
-    �즳�@���s�ѭp���]��W�� �j�������XOLE/COM/ActiveX�^�A<br>
-    �䤤������ dispatch_map �������A�N���b�m�`�J�L�X MFC�n�Ѥ�<br>
-    ���L�� macros �H�� data structure �������@�ˡC������<br>
-    �ثe�w���b�ڪ��X���p�����A��Z��w�H���]���ܩ�ᱼ�A�u�O����<br>
-    �I�æb�ѩЪ����Ө����^�C<br>
+    原有一本新書計劃（原名為 大分水嶺—OLE/COM/ActiveX），<br>
+    其中有挖掘 dispatch_map 的奧秘，就像在《深入淺出 MFC》書中<br>
+    對其他的 macros 以及 data structure 的挖掘一樣。但此書<br>
+    目前已不在我的出版計劃中，原稿亦已佚失（不至於丟掉，只是不知<br>
+    埋藏在書房的哪個角落）。<br>
     <br>
-    anyway�A�o�O�j�D�ءA��]���i�వ�Ť��оǡC<br>
+    anyway，這是大題目，原也不可能做空中教學。<br>
     <br>
-    ���ӻ��h�A�n���S�����A�������U�C���L�ڻ��I�ۤv���ǲ߸g��C<br>
-    �ڦb½Ķ Essential COM�]��Ķ�W�mCOM ����סn�^���ɭԡA<br>
-    ���� MFC ���� COM �����u���f�v�p IMPLEMENT_UNKNOWN,<br>
-    IMPLEMENT_INTERFACE, INTERFACE_ENTRY, �������L��X<br>
-    �l�ܻP���R�A�q���� MFC ����M�ުk�A�]�A���Ω�@��{�����W<br>
-    ���]�p�m�`�J�L�X MFC�n�ҭz�^�B���Ω� dispatch ���W���B<br>
-    ���Ω� COM ���W���A�����骺�x���CĲ���ǳq�A�ܦ��N��A<br>
-    �]�ܦ����U�C<br>
+    說來說去，好像沒有給你什麼幫助。不過我說點自己的學習經驗。<br>
+    我在翻譯 Essential COM（中譯名《COM 本質論》）的時候，<br>
+    曾對 MFC 中的 COM 相關「接口」如 IMPLEMENT_UNKNOWN,<br>
+    IMPLEMENT_INTERFACE, INTERFACE_ENTRY, 等等做過原碼<br>
+    追蹤與分析，從此對 MFC 的整套技法，包括應用於一般程式身上<br>
+    的（如《深入淺出 MFC》所述）、應用於 dispatch 身上的、<br>
+    應用於 COM 身上的，有整體的掌握。觸類旁通，很有意思，<br>
+    也很有幫助。<br>
     <br>
     -- the end<br>
     <br>
     &#26;</p>
 <!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
-    <p><big><big>�m�`�J�L�X MFC�n���Ȱ� (6)</big></big> - �Y��<br>
+    <p><big><big>《深入淺出 MFC》答客問 (6)</big></big> - 欣慰<br>
     2000.03.25<br>
     <br>
     wanglihe wrote (2000/03/01) :<br>
     <br>
-    <font color="#0000FF">&gt; �L�q���Աб�,�z�n:<br>
+    <font color="#0000FF">&gt; 尊敬的候教授,您好:<br>
     &gt;<br>
-    &gt; ��{�ѱz,�ڲ`�P�a���C�ڬO�@�W����j��98�~���~���p����M�~���j�ǥ͡C<br>
-    &gt; �b�ڲߺD�_�ϥ�C�MC++�y���i��winodws�{�ǽs�{��(�ϥ�SDK�n��}�o�])�A<br>
-    &gt; ���ʶR�}�Բӫ�Ū�F�z���j�@�m�`�J�L�XWINDOWS MFC�{�ǳ]�p�n�A�o����<br>
-    &gt; �ϧ���q��L�A�q���ڹ�ϥ�MFC�M���V��H�s�{���F��B���{�ѡC�b�H�Z<br>
-    &gt; ���Ƥ�A��Ū�F��10�������ϥ�VC++�s�{�����y�A�}�bMSDN�w�d�\�F�j�q<br>
-    &gt; ���q�l��ƦZ,�s�g�F &quot;Scale2000�٭��ƾں޲z�t��&quot;�C<br>
+    &gt; 能認識您,我深感榮幸。我是一名中國大陸98年畢業的計算機專業的大學生。<br>
+    &gt; 在我習慣于使用C和C++語言進行winodws程序編程時(使用SDK軟件開發包)，<br>
+    &gt; 我購買并詳細拜讀了您的大作《深入淺出WINDOWS MFC程序設計》，這本書<br>
+    &gt; 使我獲益匪淺，從中我對使用MFC和面向對象編程有了初步的認識。在隨后<br>
+    &gt; 的數月，我讀了近10本有關使用VC++編程的書籍，并在MSDN庫查閱了大量<br>
+    &gt; 的電子資料后,編寫了 &quot;Scale2000稱重數據管理系統&quot;。<br>
     &gt;<br>
-    &gt; ���ӻ�,�ϥ�VB,PB,VFP�i��ƾڮw�s�{�O�ܤ�K���A�Өϥ�VC++�i��ƾڮw<br>
-    &gt; �s�{�Ǩ㦳�ܤj���D�ԩʡC����VC++�\��O�D�`�j�j���A²���i�H���O<br>
-    &gt; �L�Ҥ���A������ƾڮw�s�{������o�ܤ���,�S�O�OVC++����ACTIVEX����<br>
-    &gt; ��ƾڮw�s�{�������o�a�յL�O�A�ݯʤ���(��pRDO����)�A�Ʀ����H<br>
-    &gt; ���ΡC�\�hVC++ 
-    ���y��ƾڮw�s�{�����Хu�O�@���a�L�C�b�j����VC++<br>
+    &gt; 應該說,使用VB,PB,VFP進行數據庫編程是很方便的，而使用VC++進行數據庫<br>
+    &gt; 編程序具有很大的挑戰性。雖說VC++功能是非常強大的，簡直可以說是<br>
+    &gt; 無所不能，但它對數據庫編程的支持卻很不夠,特別是VC++中的ACTIVEX控件<br>
+    &gt; 對數據庫編程的支持顯得蒼白無力，殘缺不全(比如RDO控件)，甚至難以<br>
+    &gt; 應用。許多VC++ 
+    書籍對數據庫編程的介紹只是一筆帶過。在大陸用VC++<br>
     &gt; 
-    �s�g�ƾڮw�{�Ǫ��H�ܤ֡A���q���H��֡A�o�ϧڳ��J�t�ߵL�����Ҧa�A<br>
-    &gt; �I�쪺�x���i�Q�Ӫ��C<br>
+    編寫數據庫程序的人很少，能精通的人更少，這使我陷入孤立無援的境地，<br>
+    &gt; 碰到的困難可想而知。<br>
     &gt;<br>
-    &gt; �`��ӤѤ��t���ߤH,�g�L�}�W���V�O�A�ڲפ_�J�A�F�����x���A�����F<br>
-    &gt; &quot;Scale2000�٭��ƾں޲z�t��&quot; 
-    �{�ǽs��u�@�C�ɺ޸ӵ{�Ǫ��N�X���@�w<br>
-    &gt; �����M�u��,�i���٦��ʳ��A���o�����O�ڦb�ϥέ��V��H�s�{(�ר�O<br>
-    &gt; �ϥ�VC++�s�g�ƾڮw�^���D���W�ڥX�����\���@�B�C�ڪ���F�ϥ�MFC�M<br>
-    &gt; ���V��H�s�{���ֽ�C<br>
+    &gt; 總算皇天不負有心人,經過艱苦的努力，我終于克服了重重困難，完成了<br>
+    &gt; &quot;Scale2000稱重數據管理系統&quot; 
+    程序編制工作。盡管該程序的代碼不一定<br>
+    &gt; 完善和優化,可能還有缺陷，但這畢竟是我在使用面向對象編程(尤其是<br>
+    &gt; 使用VC++編寫數據庫）的道路上邁出的成功的一步。我初嘗了使用MFC和<br>
+    &gt; 面向對象編程的樂趣。<br>
     &gt;<br>
-    &gt; �ۧڸ�iVC++������,���ƾ����b�ءA�Y���D�O�]�Ԫ��}���A�]�����\���߮��C<br>
-    &gt; �ں@�N�ڪ��o�ǻP�z�@�P���ɡG�ڷQ�N�ڽs�g���{�ǱH���z---�ڪ��һX�Ѯv�A<br>
-    &gt; �ڼ����߱��o��z�����СC<br>
+    &gt; 自我跨進VC++的殿堂,往事歷歷在目，即有挑燈夜戰的艱辛，也有成功的喜悅。<br>
+    &gt; 我愿將我的這些與您共同分享：我想將我編寫的程序寄給您---我的啟蒙老師，<br>
+    &gt; 我熱切盼望能得到您的指教。<br>
     &gt;<br>
-    &gt; �ӵ{�ǽsĶ�Z��14 M,���Y�Z��8 M���k(����6�i�n�L),�����z���q�l�H�c��<br>
-    &gt; �h�j�Ŷ��A��_�@���������A�p�G�z�P�N����,�Х��o�ӹq�l�l�󵹧�<br>
-    &gt; ���¡C�����鰷�d�A�U�Ʀp�N!<br>
+    &gt; 該程序編譯后有14 M,壓縮后有8 M左右(分為6張軟盤),不知您的電子信箱有<br>
+    &gt; 多大空間，能否一次接受完，如果您同意的話,請先發個電子郵件給我<br>
+    &gt; 謝謝。祝身體健康，萬事如意!<br>
     &gt;<br>
-    &gt; �`:<br>
-    &gt; �ڤw�g���z�o�F�L��E-mail(jjhou@ccca.nctu.edu.tw)�F,���O����<br>
-    &gt; �O���]���Q�h�^,�]���u�n�ЪQ�^�Ȥ�A�ȳ���o�o�ʫH�C�z��_�b<br>
-    &gt; �^�H���i���z���̷s��E-mail�a�}�A�H�K�i�@�B�p�t�A���¡I</font><br>
+    &gt; 注:<br>
+    &gt; 我已經給您發了几封E-mail(jjhou@ccca.nctu.edu.tw)了,但是不知<br>
+    &gt; 是何原因均被退回,因此只好請松崗客戶服務部轉發這封信。您能否在<br>
+    &gt; 回信中告知您的最新的E-mail地址，以便進一步聯系，謝謝！</font><br>
     <br>
-    �J���^�СG<br>
+    侯捷回覆：<br>
     <br>
-    Ū��Ū�F�ڪ��ѡA���٬O�ڪ��ǥ͡A�S�@�N��ߦ嵲���P�ڤ��ɡC<br>
-    �����@�ӱШ|�u�@�̡A�o�O�̥O�ڪY�����ƤF�C<br>
+    讀者讀了我的書，謙稱是我的學生，又願意把心血結晶與我分享。<br>
+    做為一個教育工作者，這是最令我欣慰的事了。<br>
     <br>
-    wanglihe�A�ڷP���A�������P�n�N�C�ܩ�A���@�~�A�ˬO�����H��<br>
-    ���ڡA�]����b���j���A�ӥB�ڮ��ȨS���ɶ��Ӳӫ~���õ��A�N���C<br>
-    ���O�A���o���ߡA�ܥO�H�P�ʻP�}�ߡC<br>
+    wanglihe，我感受你的誠懇與好意。至於你的作品，倒是不必寄來<br>
+    給我，因為實在滿大的，而且我恐怕沒有時間細細品味並給你意見。<br>
+    但是你的這份心，很令人感動與開心。<br>
     <br>
-    �ܩ�ڪ��u�̷sE-mail�a�}�v�A���A�ڨS���u�̷sE-mail�a�}�v�A<br>
-    �ڪ� email address �@���S�ܡA�N�o��@�ӡG�����H�̤W�C<br>
+    至於我的「最新E-mail地址」，不，我沒有「最新E-mail地址」，<br>
+    我的 email address 一直沒變，就這麼一個：見本信最上。<br>
     <br>
-    ���A����j���i�B�A��n�����Z�C<br>
+    祝你有更大的進步，更好的成績。<br>
     <br>
     -- the end<br>
     <br>
     &#26;</p>
 <!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
-    <p><big><big>�m�`�J�L�X MFC�n���Ȱ� (7)</big></big> - �u�Oø�ϡH<br>
+    <p><big><big>《深入淺出 MFC》答客問 (7)</big></big> - 只是繪圖？<br>
     2000.05.12 <br>
     <br>
     zeuss wrote (2000/05/10) :<br>
     <br>
-    <font color="#0000FF">&gt; ��W���z�n�X����: �`�J�L�XMFC,�`�JVC++,C++ 
+    <font color="#0000FF">&gt; 手上有您好幾本書: 深入淺出MFC,深入VC++,C++ 
     Primer,<br>
-    &gt; Windows95�j���� ,System programming for Windows95<br>
-    &gt; ���O�b�ǥͮɥN�άO�b�x�����ӥ��o�ɶ�����<br>
-    &gt; �̪�}�l�H�ͲĤ@���u�@,�ݭn��VC++�Ӷ}�o�n��,�B�h�O<br>
-    &gt; �ݭn�Ψ�w��譱���{��,�ڭ̳o�s�泾�u�n�ۤv��study<br>
-    &gt; �]���H�e�ǮըèS����VC++���m,���M�ڦ��ǹLC++. �Q��<br>
-    &gt; ��VC++����]�Q���O�]����MFC�a?�ګܦn�_���O�ڸӦp��<br>
-    &gt; �h�ǲ�MFC,½�}�C�@����,���O���e��, Windows�}��, �άO<br>
-    &gt; ��ܤ���e�j�v,�Q�Q�ڦn���ä��ݭn�o�ǪF�F�a.<br>
-    &gt; �Q�_�H�e�bunix�W�� c porgramming, �� system call �Ϊk<br>
-    &gt; ������.�O���OMFC�N���O����?(�ݪ��n�����O�M�~�ݪk)<br>
-    &gt; �ڸӦp��h�ǲߩO?��άO�ڸӦp�󪾹D����ɭԸ��~��<br>
-    &gt; ���Ǥw���Ѫ�MFC�O? �گu�����O�ܷQ��ɶ��b�ǵ����e��<br>
-    &gt; �W��.<br>
+    &gt; Windows95大奧秘 ,System programming for Windows95<br>
+    &gt; 都是在學生時代或是在軍中拿來打發時間的書<br>
+    &gt; 最近開始人生第一份工作,需要用VC++來開發軟體,且多是<br>
+    &gt; 需要用到硬體方面的程式,我們這群菜鳥只好自己先study<br>
+    &gt; 因為以前學校並沒有為VC++熟練,雖然我有學過C++. 想到<br>
+    &gt; 用VC++的原因想必是因為其MFC吧?我很好奇的是我該如何<br>
+    &gt; 去學習MFC,翻開每一本書,都是講畫圖, Windows開啟, 或是<br>
+    &gt; 對話方塊占大宗,想想我好像並不需要這些東東吧.<br>
+    &gt; 想起以前在unix上的 c porgramming, 找 system call 用法<br>
+    &gt; 的往事.是不是MFC就像是那樣?(問的好像不是專業問法)<br>
+    &gt; 我該如何去學習呢?亦或是我該如何知道什麼時候該繼承<br>
+    &gt; 哪些已提供的MFC呢? 我真的不是很想花時間在學視窗畫圖<br>
+    &gt; 上面.<br>
     &gt;<br>
-    &gt; �� �Цw.<br>
+    &gt; 祝 教安.<br>
     &gt;<br>
-    &gt; ���� Ū��</font><br>
+    &gt; 高雄 讀者</font><br>
     <br>
     <br>
     zeuss wrote (2000/05/10) :<br>
     <br>
-    <font color="#0000FF">&gt; �ڬO�z��Ū�̥ثe��W��:�`�J�L�Xmfc,�`�JVC++,windows95 
-    �j����,<br>
+    <font color="#0000FF">&gt; 我是您的讀者目前手上有:深入淺出mfc,深入VC++,windows95 
+    大奧秘,<br>
     &gt; system programming for windows95, C++ primer<br>
-    &gt; ���ǬO�ǥͮɥN���ǫh�O�b�x�����o�ɶ���Ū��<br>
-    &gt; �ثe�ڶ}�l�ڪ��u�@, �ݭn�Ψ�VC++�Ӷ}�o�@������w���<br>
-    &gt; �X�ʵ{���譱���{��,�ڭ̳o�ǵ泾�]���@�Ӯɶ��Ӥ[�S�I�M�~<br>
-    &gt; �G�ӹ�VC++�]�h�����x �ثe���V�O study ��,���O�ڵo�{��VC++<br>
-    &gt; �L�D�O�Ʊ� mfc��{�������U,�i�O½�}�U�خ��y, ���j�g�T<br>
-    &gt; ���b�e�ϤW����,�ګܦn�_�O���Dmfc�N�O�o�˶�??(�n���ݪ�<br>
-    &gt; �ܤ��M�~) ���ڷQ�_�H�e�bunix�W�gc programming ,���ɧ�<br>
-    &gt; system call���g�L. �]�\mfc���ӴN���O���ˬO���O�O?<br>
-    &gt; �O���O�]�����Ѩ�L�j�j���\��Ҧp����,�w��譱�άO<br>
-    &gt; ��ƳB�z�W...<br>
-    &gt; �ڨ쩳�Ӧp��h�ǲ�mfc�����U�ڪ��{���o�i,�����j��,<br>
-    &gt; �ڸӦp�󪾹D�䤤�����e?�]�\�ڤ��ӾǨ��ǵe�ϵ{���a??<br>
+    &gt; 有些是學生時代有些則是在軍中打發時間的讀物<br>
+    &gt; 目前我開始我的工作, 需要用到VC++來開發一些關於硬體或<br>
+    &gt; 驅動程式方面的程式,我們這些菜鳥因為一來時間太久沒碰專業<br>
+    &gt; 二來對VC++也多不熟悉 目前正努力 study 中,但是我發現用VC++<br>
+    &gt; 無非是希望 mfc對程式的幫助,可是翻開各種書籍, 絕大篇幅<br>
+    &gt; 都在畫圖上打轉,我很好奇是難道mfc就是這樣嗎??(好像問的<br>
+    &gt; 很不專業) 讓我想起以前在unix上寫c programming ,當時找<br>
+    &gt; system call的經過. 也許mfc應該就像是那樣是不是呢?<br>
+    &gt; 是不是也有提供其他強大的功能例如網路,硬體方面或是<br>
+    &gt; 資料處理上...<br>
+    &gt; 我到底該如何去學習mfc來幫助我的程式發展,茫茫大海,<br>
+    &gt; 我該如何知道其中的內容?也許我不該學那些畫圖程式吧??<br>
     &gt;<br>
-    &gt; ���Цw<br>
+    &gt; 祝教安<br>
     &gt;<br>
-    &gt; ���� Ū��</font><br>
+    &gt; 高雄 讀者</font><br>
     <br>
     <br>
-    �J���^�СG<br>
+    侯捷回覆：<br>
     <br>
-    �o�O�P�@�ɶ����쪺�P�@Ū�̪���ʫH�C���M�A���D�O�@�˪��G<br>
-    MFC ���\�Φb���̡H�u�Oø�϶ܡH����̴M��귽�H<br>
+    這是同一時間收到的同一讀者的兩封信。當然，問題是一樣的：<br>
+    MFC 的功用在哪裡？只是繪圖嗎？到哪裡尋找資源？<br>
     <br>
-    MFC �J�M�O�ҿת� application framework�A�N��K�O�i�H��U<br>
-    �A�N�@�����ε{���� &quot;��¦�޽u&quot; 
-    ���[�]�n�C�P�ɡA�������~�A<br>
-    ���ѤF�@�Ǧn�Ϊ� classes �ѧA���Ω�U�ӻ��C�]�A�A�һ���<br>
-    �������Ρ]�����]�A�A�һ����ҿ׵w��譱�����ΡC�ڤ����D<br>
-    �A�ҿסu�w��譱�����Ρv�O����N��CMFC ���G�èS���S�O��<br>
-    �w��]�p�X���� classes�^<br>
+    MFC 既然是所謂的 application framework，意思便是可以協助<br>
+    你將一個應用程式的 &quot;基礎管線&quot; 
+    都架設好。同時，除此之外，<br>
+    提供了一些好用的 classes 供你應用於各個領域。包括你所說的<br>
+    網路應用（但不包括你所說的所謂硬體方面的應用。我不知道<br>
+    你所謂「硬體方面的應用」是什麼意思。MFC 似乎並沒有特別為<br>
+    硬體設計出什麼 classes）<br>
     <br>
-    �{�����y�h�Hø�Ϩ����� MFC ���\�ΡA�o�ܮe���z�ѡA�]��ø��<br>
-    �̯ઽ�����ʾǲߪ̪��ߡA�S���ߧY�����ġC<br>
+    坊間書籍多以繪圖來講解 MFC 的功用，這很容易理解，因為繪圖<br>
+    最能直接打動學習者的心，又有立即的成效。<br>
     <br>
-    �ǲ� MFC�A�p�G�n�`�J�]²��a���A�Ʊ榳¾���W����O�^�A<br>
-    ���ӱN MFC ���[�c�ǰ_�ӡA�M��A���A�����λ��A�ǲ߬���<br>
-    �� MFC classes�C<br>
+    學習 MFC，如果要深入（簡單地說，希望有職場上的能力），<br>
+    應該將 MFC 的架構學起來，然後再視你的應用領域，學習相關<br>
+    的 MFC classes。<br>
     <br>
-    ���� MFC �[�c�A�m�`�J�L�X MFC�n2/e �惡���Q�סA�|�@�L���F<br>
+    關於 MFC 架構，《深入淺出 MFC》2/e 對此的討論，舉世無雙；<br>
     &quot;MFC Internals&quot; 
-    ��Y�ǳ�����`�J�A������@��H�Ө��L���p��C<br>
+    於某些部份更深入，但恐對一般人而言過於鑽研。<br>
     <br>
-    ���� MFC classes �����ЩM�B�ΡA&quot;Inside Visual C++&quot; ���\�h<br>
-    �״I�D���CMSDN ��O�j�_�w�CVC++ �����Ҫ��� samples ���<br>
-    �C�@�� MFC classes �����d�ҡA�]�O���θ귽�C<br>
+    關於 MFC classes 的介紹和運用，&quot;Inside Visual C++&quot; 有許多<br>
+    豐富題材。MSDN 更是大寶庫。VC++ 本身所附的 samples 對於<br>
+    每一個 MFC classes 都有範例，也是極佳資源。<br>
     <br>
-    &quot;Programming Windows with MFC&quot; �ݨ�[�c���Q�שM�U�� classes<br>
-    �����Υܽd�A���L��[�c���������m�`�J�L�X MFC�n2/e�A�d��<br>
-    �h��礣�W�V Inside Visual C++�C���O�嵧�y�Z�A��ݧ��šA<br>
-    �O���ή��y�C<br>
+    &quot;Programming Windows with MFC&quot; 兼具架構的討論和各類 classes<br>
+    的應用示範，不過其架構說明略遜《深入淺出 MFC》2/e，範例<br>
+    多寡亦不超越 Inside Visual C++。但是文筆流暢，兩端均衡，<br>
+    是極佳書籍。<br>
     <br>
-    �� Inside Visual C++ �s���w���W�� Programming Visual C++.<br>
+    ※ Inside Visual C++ 新版已易名為 Programming Visual C++.<br>
     <br>
-    ��A MFC�]�Υ����L�� classes library �� framework ��<br>
-    component library...�^�A�@�w�g����s�j�� classes �O�L�����C<br>
-    ���D�u�㤧�\��s�աA�h���o�������u�L�զY���\�v���[���C<br>
-    �ߤ�]�R���A�V�O���x�A�Τߤ�����|�A�O�L���|�I<br>
+    初涉 MFC（或任何其他的 classes library 或 framework 或<br>
+    component library...），一定迷失於廣大的 classes 叢林之中。<br>
+    欲求工具之功能廣博，則不得不接受「無白吃午餐」的觀念。<br>
+    唯日夜愛撫，努力熟悉，用心分類體會，別無捷徑！<br>
     <br>
     -- the end<br>
     </p>
 <!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
-    <p>�@</p>
+    <p>　</p>
     <p><br>
     &#26;<!--mstheme--></font></td>
   </tr>
 </table>
 </center></div>
 
-<p>�@ </p>
+<p>　 </p>
 <!--mstheme--></font>
 </body>
 </html>

@@ -1,23 +1,23 @@
-<html>«J¦Ñ®v±z¦n¡A§Ú¬O¤W¦¸½Ò«á¹ïoperator  overloading¦³ºÃ´bªº¾Ç¥Í¡A
-§ÚªººÃ´b±Ô­z¦p¤U¡A·Ğ½Ğ¦Ñ®v«üÂI°g¬z¡G
+<html>ä¾¯è€å¸«æ‚¨å¥½ï¼Œæˆ‘æ˜¯ä¸Šæ¬¡èª²å¾Œå°operator  overloadingæœ‰ç–‘æƒ‘çš„å­¸ç”Ÿï¼Œ
+æˆ‘çš„ç–‘æƒ‘æ•˜è¿°å¦‚ä¸‹ï¼Œç…©è«‹è€å¸«æŒ‡é»è¿·æ´¥ï¼š
  
-¦b§Úªºµ{¦¡·í¤¤¡A·í§Ú¨Ï¥Î pair<int,int> ·í®e¾¹ªº®É­Ô¡A
-±ı¦Û¦æ¬° pair<int,int> ¦h¸ü '<' ¹Bºâ¤l¡A
-ÁöµM§Ú¥i¥H¦h¸ü¦¨¥\¡A¦ı¥Ñ©ó STL ­ì¥»´N¤w¸g¦³©w¸q pair ªº '<' ¹Bºâ¤l¡A
-§Ú²£¥Í¤F¤@¨Ç§x´b¡G
+åœ¨æˆ‘çš„ç¨‹å¼ç•¶ä¸­ï¼Œç•¶æˆ‘ä½¿ç”¨ pair<int,int> ç•¶å®¹å™¨çš„æ™‚å€™ï¼Œ
+æ¬²è‡ªè¡Œç‚º pair<int,int> å¤šè¼‰ '<' é‹ç®—å­ï¼Œ
+é›–ç„¶æˆ‘å¯ä»¥å¤šè¼‰æˆåŠŸï¼Œä½†ç”±æ–¼ STL åŸæœ¬å°±å·²ç¶“æœ‰å®šç¾© pair çš„ '<' é‹ç®—å­ï¼Œ
+æˆ‘ç”¢ç”Ÿäº†ä¸€äº›å›°æƒ‘ï¼š
  
-1. ¬JµM STL ¸Ì­±¦³©w¸q pair ªº '<' ¹Bºâ¤l¡A¬°¦ó§Ú¦Û¦æ¦h¸üªº '<' ·|³q¹L½sÄ¶¡H
-2. ¦p¦¹¤@¨Ó¡A§Ú¦p¦ó½T©w½sÄ¶¾¹¤@©w·|¨Ï¥Î§Úªº¦h¸üª©¥»¡H 
+1. æ—¢ç„¶ STL è£¡é¢æœ‰å®šç¾© pair çš„ '<' é‹ç®—å­ï¼Œç‚ºä½•æˆ‘è‡ªè¡Œå¤šè¼‰çš„ '<' æœƒé€šéç·¨è­¯ï¼Ÿ
+2. å¦‚æ­¤ä¸€ä¾†ï¼Œæˆ‘å¦‚ä½•ç¢ºå®šç·¨è­¯å™¨ä¸€å®šæœƒä½¿ç”¨æˆ‘çš„å¤šè¼‰ç‰ˆæœ¬ï¼Ÿ 
  
-(p.s. §Ú¨Ï¥Îg++½sÄ¶ )
+(p.s. æˆ‘ä½¿ç”¨g++ç·¨è­¯ )
  
-//========¥H¤U¬O§Úªº´ú¸Õµ{¦¡=============================================
+//========ä»¥ä¸‹æ˜¯æˆ‘çš„æ¸¬è©¦ç¨‹å¼=============================================
 #include<iostream>
 #include<utility>
 using namespace std;
  
-//¥H¤U©w¸q op<
-// ¦pªG (p1.first)*(p2.second)-(p1.second)*(p2.first) > 0, «h p1<p2 ¬°true¡C 
+//ä»¥ä¸‹å®šç¾© op<
+// å¦‚æœ (p1.first)*(p2.second)-(p1.second)*(p2.first) > 0, å‰‡ p1<p2 ç‚ºtrueã€‚ 
 inline bool operator < (const pair<int, int>& p1, const pair<int, int>& p2)
 {
     return(  (p1.first)*(p2.second)-(p1.second)*(p2.first) > 0   );       
@@ -33,7 +33,7 @@ int main()
     return 0;
 }
  
-//======== ¥H¤U¬O¤w¸g¦s¦b©ó STL ªº pair ¤¤ªº operator< ==========
+//======== ä»¥ä¸‹æ˜¯å·²ç¶“å­˜åœ¨æ–¼ STL çš„ pair ä¸­çš„ operator< ==========
 
 template <class _T1, class _T2>
 inline bool operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
@@ -42,21 +42,21 @@ inline bool operator<(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
          (!(__y.first < __x.first) && __x.second < __y.second); 
 }
 
-¡´«J±¶¦^ÂĞ¡G
+â—ä¾¯æ·å›è¦†ï¼š
 
-§A©Ò¼gªº¡A¬Oªx¤Æªº op< for pair<T1,T2> ªº¤@­Ó¯S¤Æª©¡]specialization¡^
-¤U­±¬O STL ·½½X¡G
+ä½ æ‰€å¯«çš„ï¼Œæ˜¯æ³›åŒ–çš„ op< for pair<T1,T2> çš„ä¸€å€‹ç‰¹åŒ–ç‰ˆï¼ˆspecializationï¼‰
+ä¸‹é¢æ˜¯ STL æºç¢¼ï¼š
 
 template <class T1, class T2>
 inline bool operator<(const pair<T1, T2>& x, const pair<T1, T2>& y)
 
-¤U­±¬O§Aªºª©¥»¡G
+ä¸‹é¢æ˜¯ä½ çš„ç‰ˆæœ¬ï¼š
 
 inline bool operator<(const pair<int, int>& p1, const pair<int, int>& p2)
 
-§A¬İ¡A§Aªºª©¥»´N¬O±N STL ªºªx«¬ª© op< for pari<T1, T2> 
-¯S¤Æ¬° op< for pair<int,int>¡C
-½sÄ¶¾¹·íµM¬D¯S¤Æªºª©¥»¨Ó¥Î¡]³o´N¬O¯S¤Æªº·N¸q¡^¡C³o«K¸ÑÄÀ¤F 
-(1) ¬°¤°»ò§Aªºª©¥»¥i¥H½sÄ¶³q¹L
-(2) ½sÄ¶¾¹¤@©w¿ï¥Î§Aªº¯S¤Æª©¥»¡A¦]¬°¨º¬O§A¬°¥»¨Ò¤¤ªº¸ê®Æ«¬§O¡]int¡^
-    ¯S§O¥´³yªº¡C
+ä½ çœ‹ï¼Œä½ çš„ç‰ˆæœ¬å°±æ˜¯å°‡ STL çš„æ³›å‹ç‰ˆ op< for pari<T1, T2> 
+ç‰¹åŒ–ç‚º op< for pair<int,int>ã€‚
+ç·¨è­¯å™¨ç•¶ç„¶æŒ‘ç‰¹åŒ–çš„ç‰ˆæœ¬ä¾†ç”¨ï¼ˆé€™å°±æ˜¯ç‰¹åŒ–çš„æ„ç¾©ï¼‰ã€‚é€™ä¾¿è§£é‡‹äº† 
+(1) ç‚ºä»€éº¼ä½ çš„ç‰ˆæœ¬å¯ä»¥ç·¨è­¯é€šé
+(2) ç·¨è­¯å™¨ä¸€å®šé¸ç”¨ä½ çš„ç‰¹åŒ–ç‰ˆæœ¬ï¼Œå› ç‚ºé‚£æ˜¯ä½ ç‚ºæœ¬ä¾‹ä¸­çš„è³‡æ–™å‹åˆ¥ï¼ˆintï¼‰
+    ç‰¹åˆ¥æ‰“é€ çš„ã€‚
