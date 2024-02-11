@@ -3,515 +3,515 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 <meta name="GENERATOR" content="Microsoft FrontPage 3.0">
-<title>�ɻ~�mC++ �]�p�s����n�c�骩</title>
+<title>勘誤《C++ 設計新思維》繁體版</title>
 </head>
 
 <body>
 
-<pre>���ɻ~�ɧ�s���: 2003/07/01
+<pre>本勘誤檔更新日期: 2003/07/01
 
-�mC++ �]�p�s����n�]�c�骩�^
-�֮p��T�ѥ��������q�X�� 2003
+《C++ 設計新思維》（繁體版）
+碁峰資訊股份有限公司出版 2003
 
-��ۡGModern C++ Design, by Andrei Alexandrescu
+原著：Modern C++ Design, by Andrei Alexandrescu
       Addison Wesley, 2001</pre>
 
-<pre><font color="#0000FF">��<a name="special-thanks">�S�O�P��</a> 2003/03/17
-</font>�Юe�ڦb���S�O�P��Ū�� Jiang Hong ���͡A�z�����Ѱɻ~���X�F�ܤj�^�m�C
-�ګܺF�\�e�T���X�{�o��h½Ķ�~���CJH �Ө窽���G�u�z���ѽ�q�u�����ҤU���v�A
-�oĲ�ʧڤߤ��̬X�n���P���@���I�C�o��~�ӡ]2001,2002�^�A�ڥH�XĶ�覡���X�F
-���hĶ���A�ܤj���߷N�O (1) ����h�n�Ѧ��@�w�{�ת���Ķ�~�� (2) ���i�n�]�l�C
-���O�ڪ��ɶ��M�t���O�����A�o�ر��p�U�A�h���a�Ӫ��~��v�T�A�����O�קK�A
-�o�]�ש󤣯ण�����I��CŪ�̴��g�]�`�O�^�n�D�ڡA�Ʊ�ڦh�g�hĶ�A
-�ڤ]���g�^���A���@�@�~���⥻95�����ѡA���@�@�~���Q��85�����ѡF
-���@���ζH�W�����H/�W�ҤW���ܾ��A���@���W�ҤW�����H/�ζH�W���ܾ��C
-�M�ӡA�r�ީ�u�ݵ��ѤU�v�M�u�W���䨭�v���ø����A�J�����ĿW��A�U�߱I��C
-�a�h�W���䨭�A�F�h�ݵ��ѤU�F�ƵL����A�������w�C���]���P�A���������I</pre>
+<pre><font color="#0000FF">●<a name="special-thanks">特別感謝</a> 2003/03/17
+</font>請容我在此特別感謝讀者 Jiang Hong 先生，您為本書勘誤做出了很大貢獻。
+我很慚愧前三章出現這麼多翻譯誤失。JH 來函直言：「您的書質量真的有所下降」，
+這觸動我心中最柔軟易感的一個點。這兩年來（2001,2002），我以合譯方式產出了
+較多譯本，很大的心意是 (1) 讓更多好書有一定程度的中譯品質 (2) 培養好苗子。
+但是我的時間和負荷力有限，這種情況下，多產帶來的品質影響，雖極力避免，
+卻也終於不能不掩面沉思。讀者曾經（總是）要求我，希望我多寫多譯，
+我也曾經回答，寧願一年做兩本95分的書，不願一年做十本85分的書；
+寧願做形象上的巨人/規模上的侏儒，不願做規模上的巨人/形象上的侏儒。
+然而，徘徊於「兼善天下」和「獨善其身」的岔路中，侯捷踽踽獨行，顧盼寂寞。
+窮則獨善其身，達則兼善天下；事無兩全，取捨難定。今夜有感，筆墨難言！</pre>
 
-<pre>���a�����G�ڴ��_Ķ�Ǥ������g�XĶ�� <u>��K��</u>���͡u��Ķ�Z�K�����Ϋ~��v�C
-���ѫe�T����Ķ�Z�ëD�K���Ҭ��A�K���D�q�ĥ|������C���M�A�e�T���`�שʽ�A
-���׷����A��Ķ�̤]�w�ܺɩү�C�ڬO�w�Z�H�A�d���b�ڡC�Ԧ��C</pre>
+<pre>附帶說明：我曾于譯序之中盛讚合譯者 <u>於春景</u>先生「初譯稿便有極佳品質」。
+此書前三章初譯稿並非春景所為，春景乃從第四章接手。當然，前三章總論性質，
+難度極高，初譯者也已竭盡所能。我是定稿人，責任在我。謹此。</pre>
 
-<p>�@</p>
+<p>　</p>
 
-<pre>�`�N�G�H�U���ץ�����ƧǡC</pre>
-
-<pre>======================================================</pre>
-
-<pre>���y���e�󥿡A����ا@�k�A�@�O�b���ں����W���ӱM�ݰɻ~
-�����A���j�a�W�h�ݡC�o�O����Y�ɪ��@�k�C�ӧ�z�Q��t�d
-���@�k�O�G�������ɻ~�����A�åB�b�s�ꤤ���H�� �X �p�G
-���s�ꪺ�� :)</pre>
-
-<pre>���L�A�z�Q�P�{�ꤧ���ݭn�@�I��աC���y���s�@�O�o�˪��A
-�s���P�L��ɡA�O�H�i�]8 �� 16 ���^�����C�]���A�C���@
-���A�P�i���U���βέn���L�C�o�K�y���L�s�������j�q�W�[�C</pre>
-
-<pre>�H�e�A�ڱq���Ҽ{�����A�u�n�ڻ{�����y���e���ק沈�n�A�Y
-�ϥu�O�Y�Ӧr���αo���Ʋz�Q�A�ڳ��|�ХX������s�C�X����
-�]�����O�t�X�]�o�@�I���ګD�`�P�¡^�C</pre>
-
-<pre>�C�C�a�A�ڪ���Ƥ��A�o���R�E�A��ı�o�ڦh�֤]�n���b�X��
-�����߳��Q�Q�C�ҥH�ڥ���A�p�G�O���Y�������~���ڥ���
-���D�A�ګK�@�w�b�s��ץ��C�p�G�O���P�O�����O�r�αƪ��~
-���Υε����ܫ���K�����A�ګK���b�ɻ~�����W�����A�����D
-�@�w��s�ꤤ�󥿡C���즬���Ӫ��o���~�������K���F�A�~�@
-�֩�U�@��ץ��C</pre>
-
-<pre>���ǬO�s��w�ץ����A���ǬO�Ƚ�Ū�̦ۦ�ʤ��諸�A�ڷ|
-�b�ɻ~�����]���}���ѫʩ��^�W�M�������C</pre>
-
-<pre>�o�O�ӫK�y�k���A��Ū�̨��̡C</pre>
-
-<pre>���y���Ӧb�X���e�N�Բ��ˬd�A�H���������X�{�C���O������
-���F��C���U�C�j�j�p�p�����������~���A���ԦVŪ�̻���
-�p�C</pre>
-
-<pre>�����w��s���y�ǡA���¡C</pre>
-
-<pre>�H�U����s�O���C�p�G�z�ʶR���O�� n ��A�бN�H�U�� n+1
-�ꤧ�᪺��s���e�ۦ�ץ��ܮѤW�C����</pre>
+<pre>注意：以下按修正日期排序。</pre>
 
 <pre>======================================================</pre>
 
-<pre>�H�U�Ƚ�Ū�̦ۦ�󥿡G
-�]�`�N�ALm ���ܲ� m ��AL-n ���ܭ˼Ʋ� n ��^</pre>
+<pre>書籍內容更正，有兩種作法，一是在網際網路上做個專屬勘誤
+網頁，讓大家上去看。這是比較即時的作法。而更理想更負責
+的作法是：不但有勘誤網頁，並且在新刷中予以更正 — 如果
+有新刷的話 :)</pre>
 
-<pre>��p5, L-1�]�~Ķ�^
-���G<font color="#FF0000">�q���Ӯɭ԰_�AC++ �N�A�S�����ҹL�h���~��</font>�C
-�󥿡G<font
-color="#0000FF">���� C++ �|�����h���~��</font>�C
-�P�¡GZMelody
-����G2003/02/19</pre>
+<pre>不過，理想與現實之間需要一點協調。書籍的製作是這樣的，
+製版與印刷時，是以檯（8 或 16 頁）為單位。因此，每換一
+頁，同檯的各頁統統要換過。這便造成印製成本的大量增加。</pre>
 
-<pre>��pxviii,L5�]���~�^
-���G�q<font color="#FF0000">��V</font>�Ŷ��ӬݡA�ѩ�o�ǲե�...
-�󥿡G�q<font
-color="#0000FF">�a�V</font>�Ŷ��ӬݡA�ѩ�o�ǲե�...
-�P�¡Gs882236
-����G2003/03/14
+<pre>以前，我從不考慮成本，只要我認為書籍內容有修改必要，即
+使只是某個字詞用得不甚理想，我都會請出版社更新。出版社
+也都全力配合（這一點讓我非常感謝）。</pre>
 
-��pxiii, L10�]���~�^
-���G�@�w�O�]���A�Ǯ�I�I<font
-color="#FF0000">�^</font>�C
-�󥿡G�@�w�O�]���A�Ǯ�I�I�C
-�P�¡Gjjhou
-����G2003/03/14
+<pre>慢慢地，我的行事不再這麼霹靂，我覺得我多少也要站在出版
+社的立場想想。所以我打算，如果是關係到對錯正誤的根本性
+問題，我便一定在新刷修正。如果是易判別的錯別字或排版誤
+失或用詞不很恰當…等等，我便先在勘誤網頁上明載，但不求
+一定於新刷中更正。直到收集來的這類誤失較為密集了，才一
+併於下一刷修正。</pre>
 
-��p132,L1,L2�]�^�媩���~�^
-���G<font
+<pre>哪些是新刷已修正的，哪些是暫請讀者自行動手更改的，我會
+在勘誤網頁（網址見書封底）上清楚說明。</pre>
+
+<pre>這是個便宜法門，請讀者見諒。</pre>
+
+<pre>書籍應該在出版前就詳細檢查，以完美之姿出現。但是完美很
+難達到。對於下列大大小小輕重不等的誤失，我謹向讀者說抱
+歉。</pre>
+
+<pre>本檔歡迎廣為流傳，謝謝。</pre>
+
+<pre>以下為更新記錄。如果您購買的是第 n 刷，請將以下第 n+1
+刷之後的更新內容自行修正至書上。謝謝</pre>
+
+<pre>======================================================</pre>
+
+<pre>以下暫請讀者自行更正：
+（注意，Lm 表示第 m 行，L-n 表示倒數第 n 行）</pre>
+
+<pre>■p5, L-1（誤譯）
+原文：<font color="#FF0000">從那個時候起，C++ 就再沒有提倡過多重繼承</font>。
+更正：<font
+color="#0000FF">當時 C++ 尚未有多重繼承</font>。
+感謝：ZMelody
+日期：2003/02/19</pre>
+
+<pre>■pxviii,L5（筆誤）
+原文：從<font color="#FF0000">橫向</font>空間來看，由於這些組件...
+更正：從<font
+color="#0000FF">縱向</font>空間來看，由於這些組件...
+感謝：s882236
+日期：2003/03/14
+
+■pxiii, L10（筆誤）
+原文：一定是因為你暮氣沉沉<font
+color="#FF0000">）</font>。
+更正：一定是因為你暮氣沉沉。
+感謝：jjhou
+日期：2003/03/14
+
+■p132,L1,L2（英文版筆誤）
+原文：<font
 color="#FF0000">I</font>nstance_
-�󥿡G<font color="#0000FF">i</font>nstance_
-�P�¡Gsunseeker
-����G2003/03/14
+更正：<font color="#0000FF">i</font>nstance_
+感謝：sunseeker
+日期：2003/03/14
 
-���Q��
+■討論
 <font
-color="#408080">Ū�̨Ө�G
-Andrei Alexandrescu �ҳ]�p�� smart pointer template ���A�����N���� handle �� 
-pointee_ ���Ц^�ǡA���N�ǤF Scott Meyers �b &quot;Effective C++&quot; item29 �һ����j��:
+color="#408080">讀者來函：
+Andrei Alexandrescu 所設計的 smart pointer template 中，直接將做為 handle 的 
+pointee_ 指標回傳，不就犯了 Scott Meyers 在 &quot;Effective C++&quot; item29 所說的大忌:
 Avoid returning &quot;handles&quot; to internal data
-�O�_���ӧ�^�ǭȬ� const T&amp; �� const T* �~���קK�ϥΪ̧Q�Φ^�ǫ����ܧ󪫥�C</font></pre>
+是否應該改回傳值為 const T&amp; 及 const T* 才能避免使用者利用回傳指標變更物件。</font></pre>
 
-<pre>�J���^�СG
-�Щ��T���X�����A�ڤ~�n�ֳt�i�J���p�C
-�P�¡Gsunseeker
-����G2003/03/14
+<pre>侯捷回覆：
+請明確指出頁次，我才好快速進入情況。
+感謝：sunseeker
+日期：2003/03/14
 
-��p158,L6�]�Q�ס^
-���Gexplicit SmartPtr(T* pointee) : pointee_(pointee);
-��ĳ�Gexplicit SmartPtr(T* pointee) : pointee_(pointee) <font
+■p158,L6（討論）
+原文：explicit SmartPtr(T* pointee) : pointee_(pointee);
+建議：explicit SmartPtr(T* pointee) : pointee_(pointee) <font
 color="#0000FF">{}</font>
-�J�������G���ɭԧ@�̪��g�k�u�O���� interface�C�����ӭp�� :)
-�P�¡Gsunseeker
-����G2003/03/14
+侯捷說明：有時候作者的寫法只是表示 interface。不必太計較 :)
+感謝：sunseeker
+日期：2003/03/14
 
-��Ū�̷N��
+■讀者意見
 <font
-color="#408080">Ū�̨Ө�G
-Modern C++ Design ���媩�ש�W�[�F,�P�ƭ̤w�g���n�[�F.�\Ū�o���ѩһݪ� C++
-�h�����T�n�ܰ�,�_�h�ݤF�����L. �٦n�ӤH�w�g�ǲ� Design Pattern �@�}�l�F,���
-�p������ Design Pattern ��M�פ��w�g���Ҥ߱o, �A�[�W���e�\Ū�L���ͪ� STL ��
-�X��R,�ǲ߳\�h C++ Template ���ޥ�,�N�O�]�����o�ˤl����¦,�ҥH,�ݳo������
-�ⶶ�Q,��ì����.�̪�,�ڦb�P���q�P�ƶ����,���|���˳o����.���F&quot;���y&quot;�L�̬�
-�o����,�ڳ��|��:
-�u�ۻ{�ۤv�F�� C++ ��?�Ӭ� Modern C++ Design �a!�O�ҫH�ߥ��L.�v
-�G����M,�s���q����o�D�ޤ]���]�h�R�o���ѨӬݤF,����,�p�ѱo�x.:)
-�ڷ|�ݥL�̬ݳo���Ѫ��߱o,���������e���`��,�O���n��;�����������F,�ݤF�X���N��
-���U�h�F,�w�g��j�^�ʬ���ѩ�b�@�_�F;�����|�ݧڤ@�ǰ��D,�ګK�|�ХL�̥h��
-[STL ���X��R] �M [Design Pattern].
-�n�ѭn�h�h���s,�~���|�d�t�@�̪��V�O.</font>
+color="#408080">讀者來函：
+Modern C++ Design 中文版終於上架了,同事們已經等好久了.閱讀這本書所需的 C++
+層次的確要很高,否則看了很難過. 還好個人已經學習 Design Pattern 一陣子了,對於
+如何應用 Design Pattern 到專案中已經有所心得, 再加上之前閱讀過先生的 STL 源
+碼剖析,學習許多 C++ Template 的技巧,就是因為有這樣子的基礎,所以,看這本書還
+算順利,收穫頗豐.最近,我在與公司同事閒聊時,都會推薦這本書.為了&quot;鼓勵&quot;他們看
+這本書,我都會說:
+「自認自己了解 C++ 嗎?來看 Modern C++ Design 吧!保證信心全無.」
+果不其然,連公司的研發主管也都跑去買這本書來看了,哈哈,計謀得逞.:)
+我會問他們看這本書的心得,有的說內容有深度,是本好書;有的說太難了,看了幾頁就看
+不下去了,已經跟大英百科全書放在一起了;有的會問我一些問題,我便會教他們去看
+[STL 源碼頗析] 和 [Design Pattern].
+好書要多多推廣,才不會辜負作者的努力.</font>
 
-�P�¡Gken
-����G2003/03/14
+感謝：ken
+日期：2003/03/14
 
-��p45, L13�]���~�^
-���Gconst size_t n = last<font
+■p45, L13（筆誤）
+原文：const size_t n = last<font
 color="#FF0000">--</font>first;
-�󥿡Gconst size_t n = last<font color="#0000FF">-</font>first;
-�P�¡Gg921002
-����G2003/03/14
+更正：const size_t n = last<font color="#0000FF">-</font>first;
+感謝：g921002
+日期：2003/03/14
 
-��p39, L-6�]��Ķ�����~ - �r���j�p�g�^
-���G<font
+■p39, L-6（中譯本筆誤 - 字母大小寫）
+原文：<font
 color="#FF0000">C</font>lass NullType;  // no definition
-�󥿡G<font color="#0000FF">c</font>lass NullType;  // no definition
-�P�¡Gjjhou
-����G2003/03/14
+更正：<font color="#0000FF">c</font>lass NullType;  // no definition
+感謝：jjhou
+日期：2003/03/14
 
-��p28, L18�]���~�^
-���GMakeAdapter<font
+■p28, L18（筆誤）
+原文：MakeAdapter<font
 color="#FF0000">y</font>
-�󥿡GMakeAdapter
-�P�¡Gikai
-����G2003/03/14
+更正：MakeAdapter
+感謝：ikai
+日期：2003/03/14
 
-��p42,L11�]Ū�̸߰ݡ^
+■p42,L11（讀者詢問）
 <font
-color="#408080">Ū�̸߰ݡGstruct PToMtraits&lt;U V::*&gt;
-          �H�W�O�֤@�ӳr���ܡH</font>
-�J���^�СG�S���֡C�o�O pointer to member function ���ŧi�Φ��C
-�P�¡Gikai
-����G2003/03/14
+color="#408080">讀者詢問：struct PToMtraits&lt;U V::*&gt;
+          以上是少一個逗號嗎？</font>
+侯捷回覆：沒有少。這是 pointer to member function 的宣告形式。
+感謝：ikai
+日期：2003/03/14
 
-��p47, ����ĥ|���]��Ķ���B�z���~�^
-���GisReference 	<font
+■p47, 表格第四橫行（中譯本處理錯誤）
+原文：isReference 	<font
 color="#FF0000">Type</font>
-�󥿡GisReference 	<font color="#0000FF">Boolean �`��</font>
-�P�¡Gikai
-����G2003/03/14
+更正：isReference 	<font color="#0000FF">Boolean 常數</font>
+感謝：ikai
+日期：2003/03/14
 
-��p4, L7�]�׼��^
-���G<font
-color="#FF0000">�n���F�M</font>�g��ѽm���]�p�v���D...
-�󥿡G<font
-color="#0000FF">�u�q��</font>�g��ѽm���]�p�v���D...
-�P�¡GJiang Hong
-����G2003/03/17
+■p4, L7（修潤）
+原文：<font
+color="#FF0000">好極了﹐</font>經驗老練的設計師知道...
+更正：<font
+color="#0000FF">優秀而</font>經驗老練的設計師知道...
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p4, L-13�]�׼��^
-���G�åB���u...�v�ɦV�A<font
-color="#FF0000">�ϱo�{���X�����u�s�@�ٺC</font>�C
-�󥿡G�åB���u...�v�ɦV�A<font
-color="#0000FF">�����u�s�X�ٺC</font>�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p4, L-13（修潤）
+原文：並且有「...」傾向，<font
+color="#FF0000">使得程式碼遠比手工製作還慢</font>。
+更正：並且有「...」傾向，<font
+color="#0000FF">遠比手工編碼還慢</font>。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p4, L-6�]�~Ķ�^
-���G<font
-color="#FF0000">�{���w�]library�^���B�ΦV�Ӧb</font>�u�y�k���ġv�M�u�y�N���ġv����<font
-color="#FF0000">�s�b��</font>�_�ءC
-�󥿡G<font color="#0000FF">�o�˪��{���w�]library�^�X�j�F</font>�u�y�k���ġv�M�u�y�N���ġv����<font
-color="#0000FF">��</font>�_�ءC
-�P�¡GJiang Hong
-����G2003/03/17
+■p4, L-6（誤譯）
+原文：<font
+color="#FF0000">程式庫（library）的運用向來在</font>「語法有效」和「語意有效」之間<font
+color="#FF0000">存在著</font>縫隙。
+更正：<font color="#0000FF">這樣的程式庫（library）擴大了</font>「語法有效」和「語意有效」之間<font
+color="#0000FF">的</font>縫隙。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p6, L1�]�~Ķ�^
-���G���R<font
-color="#FF0000">�h���~�Ӫ����ѭ�]�A���U�󲣥ͧ�I�u�ʪ��]�p�A�o</font>�i�H��...
-�󥿡G���R<font
-color="#0000FF">�u�h���~�Ӭ�����L�k���U�󲣥ͧ��F�����]�p�v�A</font>�i�H��...
-�P�¡GJiang Hong
-����G2003/03/17
+■p6, L1（誤譯）
+原文：分析<font
+color="#FF0000">多重繼承的失敗原因，有助於產生更富彈性的設計，這</font>可以對...
+更正：分析<font
+color="#0000FF">「多重繼承為什麼無法有助於產生更靈活的設計」，</font>可以對...
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p6, L8�]���~�^
-���GBase<font
-color="#FF0000">d</font> classes �èS�����������O��T���~�򧹦����̪��u�@�C
-�󥿡GBase classes �èS�����������O��T���~�򧹦����̪��u�@�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p6, L8（筆誤）
+原文：Base<font
+color="#FF0000">d</font> classes 並沒有足夠的型別資訊來繼續完成它們的工作。
+更正：Base classes 並沒有足夠的型別資訊來繼續完成它們的工作。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p6, L-10�]�׼��^
-���G<font
-color="#FF0000">�M�@�몺 class ���P�Mclass templates �i�H���P���覡�q��</font>�C
-�󥿡G<font
-color="#0000FF">Class templates �i�H�H�u�@�� classes ���䴩���覡�v�[�H�q�s</font>�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p6, L-10（修潤）
+原文：<font
+color="#FF0000">和一般的 class 不同﹐class templates 可以不同的方式訂做</font>。
+更正：<font
+color="#0000FF">Class templates 可以以「一般 classes 不支援的方式」加以訂製</font>。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p8, L1�]�~Ķ�^
-���GPolicies <font
-color="#FF0000">�]�Q��L�H�Ω� traits</font>
-�󥿡GPolicies <font color="#0000FF">�b�\�h�譱�M traits �ۦ�</font>
-�P�¡GJiang Hong
-����G2003/03/17
+■p8, L1（誤譯）
+原文：Policies <font
+color="#FF0000">也被其他人用於 traits</font>
+更正：Policies <font color="#0000FF">在許多方面和 traits 相似</font>
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p8, L2�]�~Ķ�^
-���G�u���L policies <font
-color="#FF0000">�Y���sĶ���]�ҿ�</font> compile-time bound�^�C
-�󥿡G�u���L policies <font
-color="#0000FF">�O�sĶ��ô��</font>�]compile-time bound�^�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p8, L2（誤譯）
+原文：只不過 policies <font
+color="#FF0000">吃緊於編譯期（所謂</font> compile-time bound）。
+更正：只不過 policies <font
+color="#0000FF">是編譯期繫結</font>（compile-time bound）。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p9, L21�]�׼��^
-���GHosts �t�d�� policies <font
-color="#FF0000">����</font>�����c�M�欰<font color="#FF0000">�զ��@�ӧ���������c�M�欰</font>�C
-�󥿡GHosts �t�d�� policies �����c�M�欰<font
-color="#0000FF">�ո˨�@�ӳ�W�ӽ������椸��</font>�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p9, L21（修潤）
+原文：Hosts 負責把 policies <font
+color="#FF0000">提供</font>的結構和行為<font color="#FF0000">組成一個更複雜的結構和行為</font>。
+更正：Hosts 負責把 policies 的結構和行為<font
+color="#0000FF">組裝到一個單獨而複雜的單元中</font>。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p12, L8�]�~Ķ�^
-���G���L�ϥΪ̥i�H<font
-color="#FF0000">�}�o�X</font>���״I�������C
-�󥿡G���L�ϥΪ̥i�H<font
-color="#0000FF">�ϥγo��</font>���״I�������C
-�P�¡GJiang Hong
-����G2003/03/17
+■p12, L8（誤譯）
+原文：不過使用者可以<font
+color="#FF0000">開發出</font>更豐富的介面。
+更正：不過使用者可以<font
+color="#0000FF">使用這個</font>更豐富的介面。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p12, L19�]�׼��^
-���G�ϥΪ̦p�G�ݭn<font
-color="#FF0000">�X�R policies�A�i�H�b���v�T host class �쥻�\�઺�e���U�A
-      �q���״I���\�त�o��n�B</font>�C
-�󥿡G�ϥΪ̦p�G�ݭn<font
-color="#0000FF">���״I���\��A�i�H�q�u�\����״I�� policies�v���W��q�A
-      �ӥB���v�T host class ���򥻥\��</font>�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p12, L19（修潤）
+原文：使用者如果需要<font
+color="#FF0000">擴充 policies，可以在不影響 host class 原本功能的前提下，
+      從更豐富的功能中得到好處</font>。
+更正：使用者如果需要<font
+color="#0000FF">更豐富的功能，可以從「功能更豐富的 policies」身上獲益，
+      而且不影響 host class 的基本功能</font>。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p13, L21�]�~Ķ�^
-���G�sĶ�����z�|��<font
-color="#FF0000">�A�Ʀܤ]�\���|�����i��y�k����</font>�C
-�󥿡G�sĶ��<font
-color="#0000FF">�ڥ�</font>���z�|��<font color="#0000FF">�]���γ\�|�復�i��y�k�ˬd�^</font>�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p13, L21（誤譯）
+原文：編譯器不理會它<font
+color="#FF0000">，甚至也許不會為它進行語法檢驗</font>。
+更正：編譯器<font
+color="#0000FF">根本</font>不理會它<font color="#0000FF">（但或許會對它進行語法檢查）</font>。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p14 L18�]�~Ķ�^
-���G������ϥ��B�~���S�ʡA<font
-color="#FF0000">�ï�����A�u���a�N�h�����C�ܬ��ߩʰ����̤p�� policies�C</font>
-�󥿡G������ϥ��B�~���S�ʡA<font
-color="#0000FF">���u���a���C�h���A���²�檺�B�̤p���� policies�C</font>
-�P�¡GJiang Hong
-����G2003/03/17
+■p14 L18（誤譯）
+原文：它能夠使用額外的特性，<font
+color="#FF0000">並能夠姿態優雅地將層次降低至紀律性高的最小化 policies。</font>
+更正：它能夠使用額外的特性，<font
+color="#0000FF">並優雅地降低層次，改採簡單的、最小型的 policies。</font>
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p16, L13�]�~Ķ�^
-���G<font
-color="#FF0000">�|���{�X��ؤ��P������]orthogonal�^�欰</font>�C
-�󥿡G<font
-color="#0000FF">�|�b��ӥ�����ס]orthogonal dimensions�^�W���{�X���P���欰</font>�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p16, L13（誤譯）
+原文：<font
+color="#FF0000">會表現出兩種不同的正交（orthogonal）行為</font>。
+更正：<font
+color="#0000FF">會在兩個正交維度（orthogonal dimensions）上表現出不同的行為</font>。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p17, L-17�]�~Ķ�^
-���G�o�O�]�� C++ ��N���<font
-color="#FF0000">�����ഫ�]implicit conversion�^�A���L�]�s�b�@�ǭ���A</font>�Ҧp...
-�󥿡G�o�O�]�� C++ ��N�䴩<font
-color="#0000FF">�u�|�Φ���h�����v�������ഫ�]implicit conversion�^�A</font>�Ҧp...
-�P�¡GJiang Hong
-����G2003/03/17
+■p17, L-17（誤譯）
+原文：這是因為 C++ 原就支持<font
+color="#FF0000">隱式轉換（implicit conversion），不過也存在一些限制，</font>例如...
+更正：這是因為 C++ 原就支援<font
+color="#0000FF">「會形成更多束縛」的隱式轉換（implicit conversion），</font>例如...
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p17, L-14�]�~Ķ�^
-���G�u��<font
-color="#FF0000">�p���B�ݭn�Ҽ{�t��</font>���֤ߵ{���X�~�|...
-�󥿡G�u��<font
-color="#0000FF">�ֶq��t�׭n�D�ư�</font>���֤ߵ{���X�~�|...
-�P�¡GJiang Hong
-����G2003/03/17
+■p17, L-14（誤譯）
+原文：只有<font
+color="#FF0000">小型且需要考慮速度</font>的核心程式碼才會...
+更正：只有<font
+color="#0000FF">少量對速度要求甚高</font>的核心程式碼才會...
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p18, L-12�]���~�^
-���Gassigment �B��l�]���@�˪�������D�A
-�󥿡Gassig<font
-color="#0000FF">n</font>ment �B��l�]���@�˪�������D�A
-�P�¡GJiang Hong
-����G2003/03/17
+■p18, L-12（筆誤）
+原文：assigment 運算子也有一樣的難纏問題，
+更正：assig<font
+color="#0000FF">n</font>ment 運算子也有一樣的難纏問題，
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p18, L-8�]�~Ķ�^
-���G�Q���N�@�� reference-counted �����ഫ���@��<font
-color="#FF0000">�䴩��L�uownership�]�֦��v�^�����v</font>
-      ������<font
-color="#FF0000">�A�N�O�@�������ʪ� copy�]���I�� std::auto_ptr�^</font>�C�o�˪��ഫ�y���y�N�W��
-      ���~�C<font
-color="#FF0000">�ҿ� reference counting �O�u�Ҧ����V�P�@���󪺫��г����j�a�Ҫ��A
-      �åB�i�ھڤ@�ӿW�@�L�G���p�ƾ��[�H�l�ܡv�A</font>�@��...
-�󥿡G�Q���N�@�� reference-counted �����ഫ���@��<font
-color="#0000FF">�u�䴩��L ownership�����]�Ҧp
-      �Ѻc�� copy�^�v</font>������<font
-color="#0000FF">�]���Ostd::auto_ptr�^</font>�C�o�˪��ഫ<font color="#0000FF">�|</font>�y���y�N�W��
-      ���~�C<font
-color="#0000FF">Reference counting ���w�q�O�u���V�P�@���󪺩Ҧ����СA���Q�@�ӿW�@�L�G
-      ���p�ƾ��O���ðl�ܡv�A</font>�@��...
-�P�¡GJiang Hong
-����G2003/03/17
+■p18, L-8（誤譯）
+原文：想像將一個 reference-counted 指標轉換為一個<font
+color="#FF0000">支援其他「ownership（擁有權）策略」</font>
+      的指標<font
+color="#FF0000">，將是一場毀滅性的 copy（有點像 std::auto_ptr）</font>。這樣的轉換造成語意上的
+      錯誤。<font
+color="#FF0000">所謂 reference counting 是「所有指向同一物件的指標都為大家所知，
+      並且可根據一個獨一無二的計數器加以追蹤」，</font>一旦...
+更正：想像將一個 reference-counted 指標轉換為一個<font
+color="#0000FF">「支援其他 ownership策略（例如
+      解構性 copy）」</font>的指標<font
+color="#0000FF">（像是std::auto_ptr）</font>。這樣的轉換<font color="#0000FF">會</font>造成語意上的
+      錯誤。<font
+color="#0000FF">Reference counting 的定義是「指向同一物件的所有指標，都被一個獨一無二
+      的計數器記錄並追蹤」，</font>一旦...
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p19, L10�]�׼��^
-���G�o�˪� host class �u���L�O<font
-color="#FF0000">�Ӳ[�\ policies ���X���~�h�Ӥw�A�u��B�z policies �զX�X�Ӫ��欰�C</font>
-�󥿡G�o�˪� host class �u���L�O<font
-color="#0000FF">�o�� policies ���@�ӥ~�ߦӤw�A�u�t�d�N policies �X�z�ո˰_�ӡC</font>
-�P�¡GJiang Hong
-����G2003/03/17
+■p19, L10（修潤）
+原文：這樣的 host class 只不過是<font
+color="#FF0000">個涵蓋 policies 集合的外層而已，只能處理 policies 組合出來的行為。</font>
+更正：這樣的 host class 只不過是<font
+color="#0000FF">這些 policies 的一個外殼而已，只負責將 policies 合理組裝起來。</font>
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p19, L-9�]�~Ķ�^
-���G�Ҧ��{�����ĥ� WidgetPtr �Ӥ��ĥ�<font
-color="#FF0000">�u�w�H SmartPtr �g�X����@�~�v</font><font color="#000000">�O�ܭ��n��</font>�C
-�󥿡G�Ҧ��{�����ĥ� WidgetPtr �Ӥ��ĥ�<font
-color="#0000FF">�uSmartPtr ���Y�ӽs�w��{��]hardcoded instantiation�^�v</font>�O�ܭ��n���C
-�P�¡GJiang Hong
-����G2003/03/17
+■p19, L-9（誤譯）
+原文：所有程式都採用 WidgetPtr 而不採用<font
+color="#FF0000">「硬以 SmartPtr 寫出的實作品」</font><font color="#000000">是很重要的</font>。
+更正：所有程式都採用 WidgetPtr 而不採用<font
+color="#0000FF">「SmartPtr 的某個編定具現體（hardcoded instantiation）」</font>是很重要的。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p23, L-14�]�B�z���~�^
-���G<font
-color="#FF0000">���O��T</font>�A�H�Τ@�Ӯe���W�⪺ std::type_info �~�����O�]wrapper�^
-�󥿡G<font
-color="#0000FF">TypeInfo</font>�A�H�Τ@�Ӯe���W�⪺ std::type_info �~�����O�]wrapper�^
-�J�����GTypeInfo �O�� class �W�١C
-�P�¡GJiang Hong
-����G2003/03/17
+■p23, L-14（處理錯誤）
+原文：<font
+color="#FF0000">型別資訊</font>，以及一個容易上手的 std::type_info 外覆類別（wrapper）
+更正：<font
+color="#0000FF">TypeInfo</font>，以及一個容易上手的 std::type_info 外覆類別（wrapper）
+侯捷註：TypeInfo 是個 class 名稱。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p24, L20�]�~Ķ�^
-���G��²��<font
-color="#FF0000">���覡�٬� compile-time assertions�]Van Horn 1997�^�A
-      �b C �M C++ �y�������i�H�}�n�B�@�C��</font>�̿�@�Өƹ�G...
-�󥿡G��²��<font
-color="#0000FF">�åi�b C �M C++ �y�����}�n�B�@�� compile-time assertions�]Van Horn 1997�^</font>
+■p24, L20（誤譯）
+原文：最簡單<font
+color="#FF0000">的方式稱為 compile-time assertions（Van Horn 1997），
+      在 C 和 C++ 語言中都可以良好運作。它</font>依賴一個事實：...
+更正：最簡單<font
+color="#0000FF">並可在 C 和 C++ 語言中良好運作的 compile-time assertions（Van Horn 1997）</font>
       <font
-color="#0000FF">�Ѫk�A</font>�̿�@�Өƹ�G...
-�P�¡GJiang Hong
-����G2003/03/17
+color="#0000FF">解法，</font>依賴一個事實：...
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p29, L15�]�~Ķ�^
-���G�ΨӲ��ͫ��O�����Ӽƭ�<font
-color="#FF0000">�O�@�ӦC�|���]enumerator�^</font>�C
-�󥿡G�ΨӲ��ͫ��O�����Ӽƭ�<font
-color="#0000FF">�Q�x�s��C�|�����]enum member�^value ��</font>�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p29, L15（誤譯）
+原文：用來產生型別的那個數值<font
+color="#FF0000">是一個列舉元（enumerator）</font>。
+更正：用來產生型別的那個數值<font
+color="#0000FF">被儲存於列舉成員（enum member）value 中</font>。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p29, L-10�]�~Ķ�^
-���G�]�� if-else �z�y�n�D<font
-color="#FF0000">�C�@�Ӥ��䳣�o�sĶ���\�A�Y�ϸӱ�����զb�sĶ���~</font>���D�C
-�󥿡G�]�� if-else �z�y�n�D<font
-color="#0000FF">��Ӥ��䳣��Q���\�sĶ�A�Y�� if ���ձ���b�sĶ���N�w</font>���D���G�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p29, L-10（誤譯）
+原文：因為 if-else 述句要求<font
+color="#FF0000">每一個分支都得編譯成功，即使該條件測試在編譯期才</font>知道。
+更正：因為 if-else 述句要求<font
+color="#0000FF">兩個分支都能被成功編譯，即使 if 測試條件在編譯期就已</font>知道結果。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p30, L22�]�~Ķ�^
-���G���M�sĶ�����ܮe�����D���@������|�Q����_�ӡA���o<font
-color="#FF0000">�M�sĶ���L���A</font>
-      �]���Y�ϳ̨ΤƤu��<font
-color="#FF0000">�i�H�����X���@�����䤣�|�Q����A</font>�sĶ���٬O�|...
-�󥿡G���M�sĶ�����ܮe�����D���@������|�Q����_�ӡA���o<font
-color="#0000FF">�ä���sĶ���a�Ӽv�T�A</font>
-      �]���Y�ϳ̨ΤƤu��<font
-color="#0000FF">�y��|�h�����ǥ��Q���檺�X�A</font>�sĶ���٬O�|...
-�P�¡GJiang Hong
-����G2003/03/17
+■p30, L22（誤譯）
+原文：雖然編譯期間很容易知道哪一條分支會被執行起來，但這<font
+color="#FF0000">和編譯器無關，</font>
+      因為即使最佳化工具<font
+color="#FF0000">可以評估出哪一條分支不會被執行，</font>編譯器還是會...
+更正：雖然編譯期間很容易知道哪一條分支會被執行起來，但這<font
+color="#0000FF">並不對編譯器帶來影響，</font>
+      因為即使最佳化工具<font
+color="#0000FF">稍後會去除那些未被執行的碼，</font>編譯器還是會...
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p36, L-18�]�B�z���~�^
-���G�o�Ӥp�{���|�L�X &quot;<font
+■p36, L-18（處理錯誤）
+原文：這個小程式會印出 &quot;<font
 color="#FF0000">100</font>&quot;
-�󥿡G�o�Ӥp�{���|�L�X &quot;<font
+更正：這個小程式會印出 &quot;<font
 color="#0000FF">1 0 0</font> &quot;
-�P�¡GJiang Hong
-����G2003/03/17
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p43, L-5�]�^�媩���~�^
-���G�_�h ParameterType �N�O T&amp;�A�]��...
-�󥿡G�_�h ParameterType �N�O<font
-color="#0000FF"> const</font> T&amp;�A�]��...
-�J�����G��i�Ѧ� p47 ����C
-�P�¡GJiang Hong
-����G2003/03/17
+■p43, L-5（英文版錯誤）
+原文：否則 ParameterType 將是 T&amp;，因為...
+更正：否則 ParameterType 將是<font
+color="#0000FF"> const</font> T&amp;，因為...
+侯捷註：亦可參考 p47 表格。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p43, L-2�]���~�^
-���G�[�W���e�w�q�� <font
-color="#FF0000">r</font>eferencedType �M isPrimitive�A
-�󥿡G�[�W���e�w�q�� <font
-color="#0000FF">R</font>eferencedType �M isPrimitive�A
-�P�¡GJiang Hong
-����G2003/03/17
+■p43, L-2（筆誤）
+原文：加上先前定義的 <font
+color="#FF0000">r</font>eferencedType 和 isPrimitive，
+更正：加上先前定義的 <font
+color="#0000FF">R</font>eferencedType 和 isPrimitive，
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p46, L-11�]�~Ķ�^
-���G���U�{���w<font
-color="#FF0000">���x���X</font>���ͦ��N�q�����~�T���C
-�󥿡G���U�{���w<font
-color="#0000FF">�H templated code </font>���ͦ��N�q�����~�T���C
-�P�¡GJiang Hong
-����G2003/03/17
+■p46, L-11（誤譯）
+原文：幫助程式庫<font
+color="#FF0000">為泛型碼</font>產生有意義的錯誤訊息。
+更正：幫助程式庫<font
+color="#0000FF">以 templated code </font>產生有意義的錯誤訊息。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p46, L-8�]�~Ķ�^
-���G... ���A���Ǧ��쪺�ơA�S�O�O<font
-color="#FF0000">�� template �禡</font>�C
-�󥿡G... ���A���Ǧ��쪺�ơA�S�O�O<font
-color="#0000FF">�b template �禡��</font>�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p46, L-8（誤譯）
+原文：... 讓你做些有趣的事，特別是<font
+color="#FF0000">對 template 函式</font>。
+更正：... 讓你做些有趣的事，特別是<font
+color="#0000FF">在 template 函式中</font>。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p46, L-7�]���~�^
-���G�]Mapping integral <font
-color="#FF0000">contains</font> to types, 2.4 �`�^
-�󥿡G�]Mapping integral <font
-color="#0000FF">constants</font> to types, 2.4 �`�^
-�P�¡GJiang Hong
-����G2003/03/17
+■p46, L-7（筆誤）
+原文：（Mapping integral <font
+color="#FF0000">contains</font> to types, 2.4 節）
+更正：（Mapping integral <font
+color="#0000FF">constants</font> to types, 2.4 節）
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p47, �˼Ʋ� 7 ��]���~�^
-���GNonQulifiedType
-�󥿡GNonQu<font
+■p47, 倒數第 7 欄（筆誤）
+原文：NonQulifiedType
+更正：NonQu<font
 color="#0000FF">a</font>lifiedType
-�P�¡GJiang Hong
-����G2003/03/17
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p47, �˼Ʋ� 5 ��]���~�^
-���G       char, short int,int,long int
-�󥿡G<font
+■p47, 倒數第 5 欄（筆誤）
+原文：       char, short int,int,long int
+更正：<font
 color="#0000FF">signed</font> char, short int,int,long int
-�P�¡GJiang Hong
-����G2003/03/17
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p48, L5�]���~�^
-���GTypeTrait
-�󥿡GTypeTrait<font
+■p48, L5（筆誤）
+原文：TypeTrait
+更正：TypeTrait<font
 color="#0000FF">s</font>
-�P�¡GJiang Hong
-����G2003/03/17
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p51, L-1�]���~�^
-���G�o�O�@�Ӳ��Ҷg���� template �S�ʡM�ר�`�Q�Ψӹ�@ <font
-color="#FF0000">array</font>�A�Ҧp...
-�󥿡G�o�O�@�Ӳ��Ҷg���� template �S�ʡM�ר�`�Q�Ψӹ�@<font
-color="#0000FF">�x�}</font>�A�Ҧp...
-�P�¡GJiang Hong
-����G2003/03/17
+■p51, L-1（筆誤）
+原文：這是一個眾所週知的 template 特性﹐尤其常被用來實作 <font
+color="#FF0000">array</font>，例如...
+更正：這是一個眾所週知的 template 特性﹐尤其常被用來實作<font
+color="#0000FF">矩陣</font>，例如...
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p53, L13�]�~Ķ�^
-���G<font
-color="#FF0000">�}��</font>�u���j���]recursive�^templates�v...
-�󥿡G<font
-color="#0000FF">�B��</font>�u���j���]recursive�^templates�v...
-�P�¡GJiang Hong
-����G2003/03/17
+■p53, L13（誤譯）
+原文：<font
+color="#FF0000">開拓</font>「遞迴式（recursive）templates」...
+更正：<font
+color="#0000FF">運用</font>「遞迴式（recursive）templates」...
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p54, L-4�]�~Ķ�^
-���G�]���A���M C++ �O�@��<font
-color="#FF0000">�����n��</font>�y���A...
-�󥿡G�]���A���M C++ <font
-color="#0000FF">�X�G</font>�O�@��<font color="#0000FF">�R�O��</font>�y��<font
-color="#0000FF">�]imperative language�^</font>�A...
-�P�¡GJiang Hong
-����G2003/03/17
+■p54, L-4（誤譯）
+原文：因此，雖然 C++ 是一種<font
+color="#FF0000">極重要的</font>語言，...
+更正：因此，雖然 C++ <font
+color="#0000FF">幾乎</font>是一種<font color="#0000FF">命令式</font>語言<font
+color="#0000FF">（imperative language）</font>，...
+感謝：Jiang Hong
+日期：2003/03/17
 
 
-��p55, L13�]�׼��^
-���G���� Result �N�O�u�N TypeAt �I��� TList ����<font
-color="#FF0000">��</font> i-1�v�����G�C
-�󥿡G���� Result �N�O�u�N TypeAt �I��� TList ����<font
-color="#0000FF">�A�ð��� </font>i-1�v�����G�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p55, L13（修潤）
+原文：那麼 Result 就是「將 TypeAt 施行於 TList 尾端<font
+color="#FF0000">及</font> i-1」的結果。
+更正：那麼 Result 就是「將 TypeAt 施行於 TList 尾端<font
+color="#0000FF">，並執行 </font>i-1」的結果。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p55, L-8�]�׼��^
-���G�H NullType ���^�ǭȡA<font
-color="#FF0000">���N</font>�sĶ���~�T���C
-�󥿡G�H NullType ���^�ǭȡA<font
-color="#0000FF">�Ӥ��O���A�@��</font>�sĶ���~�T���C
-�P�¡GJiang Hong
-����G2003/03/17
+■p55, L-8（修潤）
+原文：以 NullType 為回傳值，<font
+color="#FF0000">取代</font>編譯錯誤訊息。
+更正：以 NullType 為回傳值，<font
+color="#0000FF">而不是給你一個</font>編譯錯誤訊息。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p65, �W��{���X�]�^�媩(1p)���~�M��|�^
-���G
+■p65, 上方程式碼（英文版(1p)錯誤和遺漏）
+原文：
 	// GenScatterHierarchy specialization: Typelist to Unit
 	template &lt;class T1, class T2, template &lt;class&gt; class Unit&gt;
 	class GenScatterHierarchy&lt;<font
@@ -531,7 +531,7 @@ color="#FF0000">TYPELIST_2(T1, T2)</font>, Unit&gt;
 	{
 	};
 
-�󥿡G
+更正：
 	// GenScatterHierarchy specialization: Typelist to Unit
 	template &lt;class T1, class T2, template &lt;class&gt; class Unit&gt;
 	class GenScatterHierarchy&lt;<font
@@ -557,89 +557,89 @@ color="#0000FF">          typedef Unit&lt;AtomicType&gt; LeftBase;</font>
 	{
 	};
 
-�P�¡GJiang Hong, hejunjunhe
-����G2003/03/17
+感謝：Jiang Hong, hejunjunhe
+日期：2003/03/17
 
-��p67, Field()�]�����t���^
+■p67, Field()（版本差異）
 <font
-color="#408080">Ū�̨Ө�GField() function body ����</font>
-�J���^�СGLoki ���򧹵����A�îɮɤ�������y�C�藍�ӧ�A�аѦҹ�ڷ��X�C
-�P�¡GJiang Hong
-����G2003/03/17
+color="#408080">讀者來函：Field() function body 有異</font>
+侯捷回覆：Loki 持續完善中，並時時反應於書籍。改不勝改，請參考實際源碼。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p69, FieldHelper()�]�����t���^
+■p69, FieldHelper()（版本差異）
 <font
-color="#408080">Ū�̨Ө�GFieldHelper() function body ����</font>
-�J���^�СGLoki ���򧹵����A�îɮɤ�������y�C�藍�ӧ�A�аѦҹ�ڷ��X�C
-�P�¡GJiang Hong
-����G2003/03/17
+color="#408080">讀者來函：FieldHelper() function body 有異</font>
+侯捷回覆：Loki 持續完善中，並時時反應於書籍。改不勝改，請參考實際源碼。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p74, L-2�]�׼��^
-���G�u���~����t���<font
-color="#FF0000">����</font>�A
-�󥿡G�u���~����t���<font color="#0000FF">�p�����</font>�A
-�P�¡GJiang Hong
-����G2003/03/17
+■p74, L-2（修潤）
+原文：線性繼承體系比較<font
+color="#FF0000">高效</font>，
+更正：線性繼承體系比較<font color="#0000FF">小巧緊湊</font>，
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p80, L11,L14�]�T�B���~�^
-���GFixAllocator
-�󥿡GFix<font
+■p80, L11,L14（三處筆誤）
+原文：FixAllocator
+更正：Fix<font
 color="#0000FF">ed</font>Allocator
-�P�¡GJiang Hong
-����G2003/03/17
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p85, FixedAllocator::Allocate()�]�����t���^
+■p85, FixedAllocator::Allocate()（版本差異）
 <font
-color="#408080">Ū�̨Ө�GFixedAllocator::Allocate() function body ����</font>
-�J���^�СGLoki ���򧹵����A�îɮɤ�������y�C�藍�ӧ�A�аѦҹ�ڷ��X�C
-�P�¡GJiang Hong
-����G2003/03/17
+color="#408080">讀者來函：FixedAllocator::Allocate() function body 有異</font>
+侯捷回覆：Loki 持續完善中，並時時反應於書籍。改不勝改，請參考實際源碼。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p88, L-7�]���~�^
-���G�u����<font
-color="#FF0000">�G</font>�v�ä��`�O�N���u����<font color="#FF0000">�v</font>�v�C
-�󥿡G�u����<font
-color="#0000FF">�v</font>�v�ä��`�O�N���u����<font color="#0000FF">�G</font>�v�C
-�P�¡GJiang Hong
-����G2003/03/17
+■p88, L-7（筆誤）
+原文：「有效<font
+color="#FF0000">果</font>」並不總是意味「有效<font color="#FF0000">率</font>」。
+更正：「有效<font
+color="#0000FF">率</font>」並不總是意味「有效<font color="#0000FF">果</font>」。
+感謝：Jiang Hong
+日期：2003/03/17
 
-��p90, L1�]�׼��^
-���G<font
-color="#FF0000">�o�O C++ ���@�Ӻ|�}�A�ڭ̹惡�|�}�ܷP����</font>
-�󥿡G<font
-color="#0000FF">C++ ���ѤF�@�ӥi��Q�Τ��B�A��ڭ̦������n</font>
-�P�¡GJiang Hong
-����G2003/03/17</pre>
+■p90, L1（修潤）
+原文：<font
+color="#FF0000">這是 C++ 的一個漏洞，我們對此漏洞很感興趣</font>
+更正：<font
+color="#0000FF">C++ 提供了一個可資利用之處，對我們至關重要</font>
+感謝：Jiang Hong
+日期：2003/03/17</pre>
 
-<pre>��p108, L-7�]���~�^
-���G<font face="�s�ө���">�]<font color="#FF0000">��</font></font> Functor<font
-face="�s�ө���"> �w�q�F�j�q�{���X</font>
-�󥿡G<font face="�s�ө���">�]<font
-color="#0000FF">��</font></font> Functor<font face="�s�ө���"> �w�q�F�j�q�{���X</font>
-�P�¡Gjjhou
-����G2003/03/20</pre>
+<pre>■p108, L-7（筆誤）
+原文：<font face="新細明體">因<font color="#FF0000">此</font></font> Functor<font
+face="新細明體"> 定義了大量程式碼</font>
+更正：<font face="新細明體">因<font
+color="#0000FF">為</font></font> Functor<font face="新細明體"> 定義了大量程式碼</font>
+感謝：jjhou
+日期：2003/03/20</pre>
 
-<pre>��p115, L13�]���~�^
-���G<font face="�s�ө���">����ɦV�{���]�p�P���ä�<font
-color="#FF0000">��</font>�P</font>
-�󥿡G<font face="�s�ө���">����ɦV�{���]�p�P���ä�<font
-color="#0000FF">��</font>�P</font>
-�P�¡Gjjhou
-����G2003/03/20</pre>
+<pre>■p115, L13（筆誤）
+原文：<font face="新細明體">物件導向程式設計與此並不<font
+color="#FF0000">不</font>同</font>
+更正：<font face="新細明體">物件導向程式設計與此並不<font
+color="#0000FF">相</font>同</font>
+感謝：jjhou
+日期：2003/03/20</pre>
 
-<pre>��p120, L-9�]��| + �^�媩���~�^
-���G         InComing::<font
+<pre>■p120, L-9（遺漏 + 英文版錯誤）
+原文：         InComing::<font
 color="#FF0000">Arguments</font>::Tail
-�󥿡G<font color="#0000FF">typename</font> InComing::<font
+更正：<font color="#0000FF">typename</font> InComing::<font
 color="#0000FF">ParmList</font>::Tail
-�P�¡Gjjhou
-����G2003/03/21</pre>
+感謝：jjhou
+日期：2003/03/21</pre>
 
-<pre>��p121, �����@��q�{���X�]�~�� +�^�媩���~�^
-�����G���媩�ĥγ̷s���� Loki ���e�C�Y���U�ΤW�U��ߵ��A
-      �̦n�٬O�ϥέ�ѩҦC���ª��{���X�A�����z�ѥB�e�ᦳ�ҷf�t�C</pre>
+<pre>■p121, 中間一整段程式碼（誤植 +英文版錯誤）
+說明：中文版採用最新版之 Loki 內容。若為顧及上下文脈絡，
+      最好還是使用原書所列的舊版程式碼，較易理解且前後有所搭配。</pre>
 
-<pre>�ثe���媩���e�]���s�� Loki �����^�G
+<pre>目前中文版內容（較新的 Loki 風貌）：
 
 <font color="#408080">  // See Functor.h for the definition of BinderFirstTraits
   template &lt;class Fctor&gt;
@@ -656,8 +656,8 @@ color="#FF0000">P</font><font color="#408080">rivate::BinderFirstTraits&lt;Fctor
 		new BinderFirst&lt;Fctor&gt;(fun, bound)));
   }</font>
 
-��ĳ��^�^�媩1p���e�]���G�^�媩(1p)��Ѧ��~�A<font
-color="#0000FF">�Ŧⳡ��</font>�O�󥿵��G�^�G
+建議改回英文版1p內容（註：英文版(1p)原書有誤，<font
+color="#0000FF">藍色部分</font>是更正結果）：
 
 <font color="#000000">  template &lt;class R, class TList&gt;
   Functor&lt;R, typename TList::Tail&gt;
@@ -673,232 +673,232 @@ color="#0000FF">typename TList</font><font color="#000000">::Head bound)
 		            new BinderFirst&lt;Incoming&gt;(fun, bound)));
   }</font>
 
-�P�¡Gjjhou
-����G2003/03/22</pre>
+感謝：jjhou
+日期：2003/03/22</pre>
 
-<pre>��p127, L1�]�׼��^
-���G<font FACE="�s�ө���">�A�i�H�H�@�Ө禡�B��禡<font
-color="#000000">�B</font></font><font FACE="Lucida Console" size="2">Functor</font><font
-FACE="�s�ө���" color="#000000">�B</font><font FACE="�s�ө���">������СB�����禡���СA...</font>
-�󥿡G<font
-FACE="�s�ө���">�A�i�H�H�@�Ө禡�B<font color="#0000FF">�@��</font>��禡�B<font
-color="#0000FF">�t�@��</font> </font><font FACE="Lucida Console" size="2">Functor</font><font
-FACE="�s�ө���"><font color="#000000"> </font><font color="#0000FF">����</font>�B�������<font
-color="#0000FF"> +</font> �����禡���СA...</font>
-�P�¡Gjjhou
-����G2003/03/22</pre>
+<pre>■p127, L1（修潤）
+原文：<font FACE="新細明體">你可以以一個函式、仿函式<font
+color="#000000">、</font></font><font FACE="Lucida Console" size="2">Functor</font><font
+FACE="新細明體" color="#000000">、</font><font FACE="新細明體">物件指標、成員函式指標，...</font>
+更正：<font
+FACE="新細明體">你可以以一個函式、<font color="#0000FF">一個</font>仿函式、<font
+color="#0000FF">另一個</font> </font><font FACE="Lucida Console" size="2">Functor</font><font
+FACE="新細明體"><font color="#000000"> </font><font color="#0000FF">物件</font>、物件指標<font
+color="#0000FF"> +</font> 成員函式指標，...</font>
+感謝：jjhou
+日期：2003/03/22</pre>
 
-<pre>��p136, L-13�]�^�媩���~�^
-���Gstatic void Create()<font color="#FF0000">;</font> {
-�󥿡Gstatic void Create()  {
-�P�¡Gjjhou
-����G2003/03/22</pre>
+<pre>■p136, L-13（英文版筆誤）
+原文：static void Create()<font color="#FF0000">;</font> {
+更正：static void Create()  {
+感謝：jjhou
+日期：2003/03/22</pre>
 
-<pre>��p137, L4�]�^�媩���~�^
-���G... disabled <font color="#FF0000">'</font>tor/operator= ...
-�󥿡G... disabled <font
+<pre>■p137, L4（英文版筆誤）
+原文：... disabled <font color="#FF0000">'</font>tor/operator= ...
+更正：... disabled <font
 color="#0000FF">c</font>tor/operator= ...
-�P�¡Gjjhou
-����G2003/03/22</pre>
+感謝：jjhou
+日期：2003/03/22</pre>
 
-<pre>��p165, L-14�]�׼��^
-���G<font FACE="�s�ө���"><font color="#FF0000">��ӳQ�I�s���禡����_</font>�P�@��</font> operator-&gt;<font
-FACE="�s�ө���">�F</font>
-�󥿡G<font color="#0000FF">�I�s�W�z��Ө禡�ɥΪ��O</font>�P�@�� operator-&gt;�F
-�P�¡Gjjhou
-����G2003/03/22</pre>
+<pre>■p165, L-14（修潤）
+原文：<font FACE="新細明體"><font color="#FF0000">兩個被呼叫的函式都喚起</font>同一個</font> operator-&gt;<font
+FACE="新細明體">；</font>
+更正：<font color="#0000FF">呼叫上述兩個函式時用的是</font>同一個 operator-&gt;；
+感謝：jjhou
+日期：2003/03/22</pre>
 
-<pre>��p201, L4�]��s�X���D�^
-���G<font FACE="�s�ө���">���O���ѲŸ��i�H���U �ͥX�㦳�X�A���O������C</font>
-�󥿡G<font
-FACE="�s�ө���">���O���ѲŸ��i�H���U</font><font size="2" color="#0000FF"> </font><font
-FACE="Lucida Sans" size="2" color="#0000FF">object factory</font><font FACE="�s�ө���"
-color="#0000FF"> ��</font><font FACE="�s�ө���">�ͥX�㦳�X�A���O������C
-���G</font>�ڱN�ХX������X�X�����`�]�i��O�q�l�ɻs�����ഫ���D�^�A�קK�A�o�ͦ������~�C
-�P�¡Gjjhou
-����G2003/03/23</pre>
+<pre>■p201, L4（後製出問題）
+原文：<font FACE="新細明體">型別標識符號可以幫助 生出具有合適型別的物件。</font>
+更正：<font
+FACE="新細明體">型別標識符號可以幫助</font><font size="2" color="#0000FF"> </font><font
+FACE="Lucida Sans" size="2" color="#0000FF">object factory</font><font FACE="新細明體"
+color="#0000FF"> 產</font><font FACE="新細明體">生出具有合適型別的物件。
+註：</font>我將請出版社找出出錯環節（可能是電子檔製版時轉換問題），避免再發生此類錯誤。
+感謝：jjhou
+日期：2003/03/23</pre>
 
-<pre>��p208, L-13�]�^�媩���~�^
-���Gtypedef std::map&lt;IdentifierType, <font
+<pre>■p208, L-13（英文版筆誤）
+原文：typedef std::map&lt;IdentifierType, <font
 color="#FF0000">AbstractProduct</font>&gt; AssocMap; 
-�󥿡Gtypedef std::map&lt;IdentifierType, <font
+更正：typedef std::map&lt;IdentifierType, <font
 color="#0000FF">ProductCreator</font>&gt; AssocMap; 
-�P�¡Gjjhou
-����G2003/03/23</pre>
+感謝：jjhou
+日期：2003/03/23</pre>
 
-<pre>��p213, L-7�]�Q�ס^
-���G�A�ǻ��@�� pointer to <font color="#FF0000">clone factory</font>�A�o��@�� pointer to cloned object�C
+<pre>■p213, L-7（討論）
+原文：你傳遞一個 pointer to <font color="#FF0000">clone factory</font>，得到一個 pointer to cloned object。
 <font
-color="#408080">�N���G�ڷQ�O�_�����G</font>
-     �A�ǻ��@�� pointer to <font
-color="#0000FF">AbstractProduct</font>�A�o��@�� pointer to cloned object�C
-�P�¡Gjjhou
-����G2003/03/23</pre>
+color="#408080">意見：我想是否應為：</font>
+     你傳遞一個 pointer to <font
+color="#0000FF">AbstractProduct</font>，得到一個 pointer to cloned object。
+感謝：jjhou
+日期：2003/03/23</pre>
 
-<pre>��p216, L-4�]�׼��^
-���GProductCreator �O<font color="#FF0000">�Ψӥͦ�����</font>�@�ӥi�I�s��]callable entity�^�C
-�󥿡GProductCreator �O�@�ӥi�I�s��]callable entity�^<font
-color="#0000FF">�A�Ψӥͦ�����</font>�C
-�P�¡Gjjhou
-����G2003/03/23</pre>
+<pre>■p216, L-4（修潤）
+原文：ProductCreator 是<font color="#FF0000">用來生成物件的</font>一個可呼叫體（callable entity）。
+更正：ProductCreator 是一個可呼叫體（callable entity）<font
+color="#0000FF">，用來生成物件</font>。
+感謝：jjhou
+日期：2003/03/23</pre>
 
-<pre>��p217, L18�]���~�A�������Ӧ��Ů�^
-���GAbstractProduct* (*)(Const AbstractProduct*),
-�󥿡GAbstractProduct* (*)(<font
+<pre>■p217, L18（筆誤，中間不該有空格）
+原文：AbstractProduct* (*)(Const AbstractProduct*),
+更正：AbstractProduct* (*)(<font
 color="#0000FF">ConstAbstractProduct</font>*),
-�P�¡Gjjhou
-����G2003/03/23</pre>
+感謝：jjhou
+日期：2003/03/23</pre>
 
-<pre>��p224, L-12�]�^�媩���~�^
-���G�C�@�Ө�{�鳣�w�q�F�@�ӯµ����禡 <font
-color="#FF0000">Create()</font>�A
-      �ҥH AbstractEnemyFactory ���T��<font
-color="#FF0000"> Create() </font>�����禡�C
-�󥿡G�C�@�Ө�{�鳣�w�q�F�@�ӯµ����禡<font
-color="#0000FF"> DoCreate()</font>�A
-      �ҥH AbstractEnemyFactory ���T�� <font
-color="#0000FF">DoCreate()</font> �����禡�C
-�P�¡Gjjhou
-����G2003/03/23</pre>
+<pre>■p224, L-12（英文版筆誤）
+原文：每一個具現體都定義了一個純虛擬函式 <font
+color="#FF0000">Create()</font>，
+      所以 AbstractEnemyFactory 有三個<font
+color="#FF0000"> Create() </font>重載函式。
+更正：每一個具現體都定義了一個純虛擬函式<font
+color="#0000FF"> DoCreate()</font>，
+      所以 AbstractEnemyFactory 有三個 <font
+color="#0000FF">DoCreate()</font> 重載函式。
+感謝：jjhou
+日期：2003/03/23</pre>
 
-<pre>��p224, L-1�]��s���D�^
-���G�A�i�H�ǥ� pointer to- �� to- AbstractFactory&lt;SuperMonster&gt; �өM...
-�󥿡G�A�i�H�ǥ� pointer to- �� <font
-color="#0000FF">reference</font> to- AbstractFactory&lt;SuperMonster&gt; �өM...
-���G�ڱN�ХX������X�X�����`�]�i��O�q�l�ɻs�����ഫ���D�^�A�קK�A�o�ͦ������~�C
-�P�¡Gjjhou
-����G2003/03/23</pre>
+<pre>■p224, L-1（後製問題）
+原文：你可以藉由 pointer to- 或 to- AbstractFactory&lt;SuperMonster&gt; 來和...
+更正：你可以藉由 pointer to- 或 <font
+color="#0000FF">reference</font> to- AbstractFactory&lt;SuperMonster&gt; 來和...
+註：我將請出版社找出出錯環節（可能是電子檔製版時轉換問題），避免再發生此類錯誤。
+感謝：jjhou
+日期：2003/03/23</pre>
 
-<pre>��p229, ��9.3, ��5��ء]�^�媩���~�^
-���GGenLinearHierarchy&lt;TYPELIST_2(SillyMonster, SillySoldier),<font
+<pre>■p229, 圖9.3, 第5橫框（英文版筆誤）
+原文：GenLinearHierarchy&lt;TYPELIST_2(SillyMonster, SillySoldier),<font
 color="#FF0000">OpNewCreator</font>, ...
-�󥿡GGenLinearHierarchy&lt;TYPELIST_2(SillyMonster, SillySoldier),<font
+更正：GenLinearHierarchy&lt;TYPELIST_2(SillyMonster, SillySoldier),<font
 color="#0000FF">OpNewFactoryUnit</font>, ...
-�P�¡Gjjhou
-����G2003/03/23</pre>
+感謝：jjhou
+日期：2003/03/23</pre>
 
-<pre>��p229, ��9.3, ��6��ء]���媩���~ + �^�媩���~�^
-���GOpNewFactoryUnit&lt;<font
+<pre>■p229, 圖9.3, 第6橫框（中文版筆誤 + 英文版筆誤）
+原文：OpNewFactoryUnit&lt;<font
 color="#FF0000">SillyMonster</font>,
         GenLinearHierarchy&lt;TYPELIST_2(SillyMonster, SillySoldier),<font
 color="#FF0000">OpNewCreator</font>, ...
-�󥿡GOpNewFactoryUnit&lt;<font color="#0000FF">SillySuperMonster</font>,
+更正：OpNewFactoryUnit&lt;<font color="#0000FF">SillySuperMonster</font>,
         GenLinearHierarchy&lt;TYPELIST_2(SillyMonster, SillySoldier),<font
 color="#0000FF">OpNewFactoryUnit</font>, ...
-�P�¡Gjjhou
-����G2003/03/23</pre>
+感謝：jjhou
+日期：2003/03/23</pre>
 
-<pre>��p114, L3,L6�]�^�媩���~�^
-���GFunctor&lt;void, <font color="#FF0000">int, double</font>&gt; 
-�󥿡GFunctor&lt;void, <font
+<pre>■p114, L3,L6（英文版筆誤）
+原文：Functor&lt;void, <font color="#FF0000">int, double</font>&gt; 
+更正：Functor&lt;void, <font
 color="#0000FF">TYPELIST_2(int, double)</font>&gt;
-�P�¡Gikai
-����G2003/03/24</pre>
+感謝：ikai
+日期：2003/03/24</pre>
 
-<pre>��p140, L-13�]�^�媩���~�^
-���GSetLongevity() ������ӰѼơA�@�ӬO <font
-color="#FF0000">reference</font>�A���V���N���O����...
-�󥿡GSetLongevity() ������ӰѼơA�@�ӬO <font
-color="#0000FF">pointer</font>�A���V���N���O����...
-�ɥR�G�p�G�� reference �����@��ʷ����]�ӫD�y���W���Y�ԪF��^�A����W�z���
-      �èS�����C���D�קK�V�c�A�אּ pointer �H�P��ڵ{����M�A�i���n�C
-�P�¡Gjjhou
-����G2003/03/28</pre>
+<pre>■p140, L-13（英文版筆誤）
+原文：SetLongevity() 接受兩個參數，一個是 <font
+color="#FF0000">reference</font>，指向任意型別物件...
+更正：SetLongevity() 接受兩個參數，一個是 <font
+color="#0000FF">pointer</font>，指向任意型別物件...
+補充：如果把 reference 視為一般性概念（而非語言上的嚴謹東西），那麼上述原文
+      並沒有錯。為求避免混淆，改為 pointer 以與實際程式對映，可能更好。
+感謝：jjhou
+日期：2003/03/28</pre>
 
-<pre>��p145, L20�]�^�媩���~�^
-���GSetLongevity(<font color="#FF0000">*this</font>, longevity_);
-�Q�סG�o�@��O�b static Create() ���A�� static �禡���ڥ����|�� 'this' ptr�C
-      ���L�o�@�q�{���O�]�p�L�綥�q�ALoki �̲רëD�H���覡��@�A�ҥH�̫᪺
-      Loki::SingletonHold �ä��s�b���~�C
-�P�¡Gjjhou
-����G2003/03/28
+<pre>■p145, L20（英文版錯誤）
+原文：SetLongevity(<font color="#FF0000">*this</font>, longevity_);
+討論：這一行是在 static Create() 內，而 static 函式內根本不會有 'this' ptr。
+      不過這一段程式是設計過渡階段，Loki 最終並非以此方式實作，所以最後的
+      Loki::SingletonHold 並不存在錯誤。
+感謝：jjhou
+日期：2003/03/28
 
-��p155, L7~9�]�^�媩���~�^
-���G
+■p155, L7~9（英文版筆誤）
+原文：
   typedef SingletonHolder&lt;KeyboardImpl, SingletonWithLongevity&gt; Keyboard;
   typedef SingletonHolder&lt;DisplayImpl, SingletonWithLongevity&gt; Display;
   typedef SingletonHolder&lt;LogImpl, SingletonWithLongevity&gt; Log; 
-�󥿡G
-  �C�@�泣���[�W�@�� &quot;Creation Policy&quot; �����ĤG template �޼ơC�Ҧp�G
+更正：
+  每一行都應加上一個 &quot;Creation Policy&quot; 做為第二 template 引數。例如：
   typedef SingletonHolder&lt;KeyboardImpl, <font
 color="#0000FF">CreateUsingNew,</font> SingletonWithLongevity&gt; Keyboard;
   typedef SingletonHolder&lt;DisplayImpl, <font
 color="#0000FF">CreateUsingNew, </font>SingletonWithLongevity&gt; Display;
   typedef SingletonHolder&lt;LogImpl, <font
 color="#0000FF">CreateUsingNew, </font>SingletonWithLongevity&gt; Log;   
-�P�¡Gjjhou
-����G2003/03/28</pre>
+感謝：jjhou
+日期：2003/03/28</pre>
 
-<pre>��p268, L20�]���媩��|�^
-���Gclass BaseLhs,
+<pre>■p268, L20（中文版遺漏）
+原文：class BaseLhs,
       class BaseRhs = BaseLhs,
-�󥿡Gclass BaseLhs,
+更正：class BaseLhs,
 <font
 color="#0000FF">      class TypesLhs,</font>
       class BaseRhs = BaseLhs,      
-�P�¡Gjjhou
-����G2003/03/29</pre>
+感謝：jjhou
+日期：2003/03/29</pre>
 
-<pre>��p270, L15�]�^�媩��|�^
-���Gclass BaseLhs,
+<pre>■p270, L15（英文版遺漏）
+原文：class BaseLhs,
       class BaseRhs,
-�󥿡Gclass BaseLhs,
+更正：class BaseLhs,
 <font
 color="#0000FF">      class TypesLhs,</font>
       class BaseRhs,      
-�P�¡Gjjhou
-����G2003/03/29</pre>
+感謝：jjhou
+日期：2003/03/29</pre>
 
-<pre>��p71, L21�]���媩���~�^
-���G�i�Ѧ�Inside The C++ Object Moel
-�󥿡G�i�Ѧ�Inside The C++ Object Mo<strong><font
+<pre>■p71, L21（中文版筆誤）
+原文：可參考Inside The C++ Object Moel
+更正：可參考Inside The C++ Object Mo<strong><font
 color="#0000FF">d</font></strong>el 
-�P�¡Gkingofark
-����G2003/04/16</pre>
+感謝：kingofark
+日期：2003/04/16</pre>
 
-<pre>��pxv, L-11�]�׼��^
-���G�A�|��<font color="#FF0000">�u����ȵ{�]round-trip�^�v</font>���D
-�󥿡G�A�|��<font
-color="#0000FF">���Фu�{�]���V�u�{�Fround-trip�^</font>���D
-�P�¡Gquinn
-����G2003/06/20
+<pre>■pxv, L-11（修潤）
+原文：你會有<font color="#FF0000">「往返旅程（round-trip）」</font>問題
+更正：你會有<font
+color="#0000FF">反覆工程（雙向工程；round-trip）</font>問題
+感謝：quinn
+日期：2003/06/20
 
-��p4, L4�]�~Ķ�^
-���G�M�ӥ��̦U�����P�W<font
-color="#FF0000">��</font>�åB�U���u���I�A
-�󥿡G�M�ӥ��̦U�����P�W<font
-color="#0000FF">��</font>�åB�U���u���I�A
-�P�¡Gquinn
-����G2003/06/20
+■p4, L4（誤譯）
+原文：然而它們各有不同規<font
+color="#FF0000">格</font>並且各有優缺點，
+更正：然而它們各有不同規<font
+color="#0000FF">模</font>並且各有優缺點，
+感謝：quinn
+日期：2003/06/20
 
-��p5, L17�]�|�r�^
-���G�ӥΨӪ������U�]�p - �o�O�̰������c - ���{���w�X�G�S���C
-�󥿡G�ӥΨӪ������U�]�p<font
-color="#0000FF"> application</font> - �o�O�̰������c - ���{���w�X�G�S���C
-�P�¡Gquinn
-����G2003/06/20
+■p5, L17（漏字）
+原文：而用來直接輔助設計 - 這是最高階結構 - 的程式庫幾乎沒有。
+更正：而用來直接輔助設計<font
+color="#0000FF"> application</font> - 這是最高階結構 - 的程式庫幾乎沒有。
+感謝：quinn
+日期：2003/06/20
 
-��p8, L1�]�~Ķ�^
-���G���P���O<font
-color="#FF0000">��</font>�̤�������欰�ӫD���O�C
-�󥿡G���P���O<font
-color="#0000FF">�e</font>�̤�������欰�ӫD���O�C
-�P�¡Gquinn
-����G2003/06/20</pre>
+■p8, L1（誤譯）
+原文：不同的是<font
+color="#FF0000">後</font>者比較重視行為而非型別。
+更正：不同的是<font
+color="#0000FF">前</font>者比較重視行為而非型別。
+感謝：quinn
+日期：2003/06/20</pre>
 
-<pre>��p63��-p64���]<font color="#FF0000">��Ѥ��e�ð�</font>�^
-Ū�̨Ө�G
-  DerivedToFront ���X���S�����j�A�F���� p62 �һ����ؼСC
-�J���^�СG<font
-color="#FF0000">�]���G�o�@�������٭n�h��ҡA�H�U�ȵ��^</font>
-  �P�N�C�ڻ{���Ap63��-p64�� �X�{�� DerivedToFront ���X�A�ҹ�{�̪��T�O p62 ���
-  �һ����ʧ@�C�u�O���ǰʧ@�o���O���㪺 DerivedToFront �����ʧ@�C
-  ���F�� p62 ��r�q���]�ӫD��ؤ����^�һ��� DerivedToFront �ĪG�A
-  ������ p62 ��ؤ��e�A�P�ɧ��� p63��-p64���� DerivedToFront ���X�C
-  �ѩ�u�{���j�A�]���OĶ�̪��v�Q�]�M�d���^�A�ҥH���ק�奻�A�u�b������Ū�̡C
-  �H�U���� Loki ���X�H�ήѤ� p63��-p64���� DerivedToFront�A���@����C
+<pre>■p63底-p64頂（<font color="#FF0000">原書內容疑問</font>）
+讀者來函：
+  DerivedToFront 源碼內沒有遞迴，達不到 p62 所說的目標。
+侯捷回覆：<font
+color="#FF0000">（註：這一部分我還要多思考，以下暫答）</font>
+  同意。我認為，p63底-p64頂 出現的 DerivedToFront 源碼，所實現者的確是 p62 方框
+  所說的動作。只是那些動作卻不是完整的 DerivedToFront 應有動作。
+  為達到 p62 文字段落（而非方框之中）所說的 DerivedToFront 效果，
+  應改變 p62 方框內容，同時改變 p63底-p64頂的 DerivedToFront 源碼。
+  由於工程較大，也不是譯者的權利（和責任），所以不修改文本，只在此提醒讀者。
+  以下取自 Loki 源碼以及書中 p63底-p64頂的 DerivedToFront，做一比較。
   
-���]p63��-p64���^�G
+原文（p63底-p64頂）：
 	template &lt;class Head, class Tail&gt;
 	struct DerivedToFront&lt; Typelist&lt;Head, Tail&gt; &gt;
 	{
@@ -911,7 +911,7 @@ color="#FF0000">	    typedef typename Replace&lt;Tail,
 	public:
 	    typedef Typelist&lt;TheMostDerived, L&gt; Result;
 	};
-�󥿡]�Ѧ� Loki���X�^�]�`�N�G�ä����� p62 ��ةҭz���t��k�^
+更正（參考 Loki源碼）（注意：並不反應 p62 方框所述的演算法）
         template &lt;class Head, class Tail&gt;
         struct DerivedToFront&lt; Typelist&lt;Head, Tail&gt; &gt;
         {
@@ -925,18 +925,18 @@ color="#0000FF">            typedef typename Replace&lt;Tail,
         public:
             typedef Typelist&lt;TheMostDerived, L&gt; Result;
         };
-�P�¡Gluo-larrin
-����G2003/06/20</pre>
+感謝：luo-larrin
+日期：2003/06/20</pre>
 
-<pre>��p224, L16�]���~�^
-���GUnit &lt;T&gt;&amp; unit = *this;
+<pre>■p224, L16（筆誤）
+原文：Unit &lt;T&gt;&amp; unit = *this;
       return <font
 color="#FF0000">this</font>.DoCreate(Type2Type&lt;T&gt;());
-�󥿡GUnit &lt;T&gt;&amp; unit = *this;
+更正：Unit &lt;T&gt;&amp; unit = *this;
       return <font
 color="#0000FF">unit</font>.DoCreate(Type2Type&lt;T&gt;());
-�P�¡Gluo-larrin
-����G2003/07/01</pre>
+感謝：luo-larrin
+日期：2003/07/01</pre>
 
 <pre>-- the end
 </pre>

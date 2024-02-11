@@ -4,67 +4,67 @@
 <head>
 <meta content="text/html; charset=big5" http-equiv="Content-Type">
 <meta content="Microsoft FrontPage 3.0" name="GENERATOR">
-<title>Serialize ªºÁp·Q (2)</title>
+<title>Serialize çš„è¯æƒ³ (2)</title>
 </head>
 
 <body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
 
 <hr>
 
-<h2 align="center">Serialize ªºÁp·Q (2)</h2>
+<h2 align="center">Serialize çš„è¯æƒ³ (2)</h2>
 
 <blockquote>
-  <p align="center">«J±¶ 1998.12.15</p>
+  <p align="center">ä¾¯æ· 1998.12.15</p>
 </blockquote>
 
 <hr>
 
 <blockquote>
-  <p><font color="#000000">¡´william »¡¡G</font><br>
+  <p><font color="#000000">â—william èªªï¼š</font><br>
   <br>
-  <font color="#408080">&gt; ¦³ÂI·Q¤£³z, ¬°¤°»ò MFC ¤£¨Ï¥Î¦b OO 
-  ¬É¦­¤w²ßºÙªº &quot;persistence&quot; ³N»y,<br>
-  &gt; §ï§Ë¥X¤@­Ó &quot;serialization&quot; ³N»y?<br>
-  &gt; ³æ´N¦r­±¤W¨Ó»¡, &quot;serialization&quot; ¤@µü, «Ü®e©ö¸ò database¡BOS 
-  ¬É±`½Íªº<br>
-  &gt; &quot;serializable&quot;¡B&quot;serializability&quot; ¬Û²V²c¡C<br>
+  <font color="#408080">&gt; æœ‰é»æƒ³ä¸é€, ç‚ºä»€éº¼ MFC ä¸ä½¿ç”¨åœ¨ OO 
+  ç•Œæ—©å·²ç¿’ç¨±çš„ &quot;persistence&quot; è¡“èª,<br>
+  &gt; æ”¹å¼„å‡ºä¸€å€‹ &quot;serialization&quot; è¡“èª?<br>
+  &gt; å–®å°±å­—é¢ä¸Šä¾†èªª, &quot;serialization&quot; ä¸€è©, å¾ˆå®¹æ˜“è·Ÿ databaseã€OS 
+  ç•Œå¸¸è«‡çš„<br>
+  &gt; &quot;serializable&quot;ã€&quot;serializability&quot; ç›¸æ··æ·†ã€‚<br>
   &gt;<br>
-  &gt; ¬O¦]¬° MFC ªº object persistence ¥u¯à°µ¨ì &quot;serial (sequential) 
-  read/write&quot; ¶Ü?<br>
-  &gt; ¨º»ò, ¹ï¤@­Ó object collection ©Ò°µªº serialization °Ê§@,<br>
-  &gt; ´N¤@©w«D±o¬O sequential ¦Ó¤£¯à random access ©Î partial update ¶Ü¡H<br>
-  &gt; §Ú·Q¤£¬O³o¼Ëªº, ¦]¬° MFC ªº collection classes ¦³­Ó¥s°µ<br>
-  &gt; SerializeElements ªº virtual ¦¨­û¨ç¼Æ,<br>
-  &gt; ¤]´N¬O»¡¡Gµ{¦¡­û¥i¥H¦Û¤v°µ¥X³Ì¾A¦Xªº¦s¨ú¤è¦¡, 
-  §Y¨Ï¬O¸õÅD¦s¨ú¤]¦æ¡C</font><br>
+  &gt; æ˜¯å› ç‚º MFC çš„ object persistence åªèƒ½åšåˆ° &quot;serial (sequential) 
+  read/write&quot; å—?<br>
+  &gt; é‚£éº¼, å°ä¸€å€‹ object collection æ‰€åšçš„ serialization å‹•ä½œ,<br>
+  &gt; å°±ä¸€å®šéå¾—æ˜¯ sequential è€Œä¸èƒ½ random access æˆ– partial update å—ï¼Ÿ<br>
+  &gt; æˆ‘æƒ³ä¸æ˜¯é€™æ¨£çš„, å› ç‚º MFC çš„ collection classes æœ‰å€‹å«åš<br>
+  &gt; SerializeElements çš„ virtual æˆå“¡å‡½æ•¸,<br>
+  &gt; ä¹Ÿå°±æ˜¯èªªï¼šç¨‹å¼å“¡å¯ä»¥è‡ªå·±åšå‡ºæœ€é©åˆçš„å­˜å–æ–¹å¼, 
+  å³ä½¿æ˜¯è·³èºå­˜å–ä¹Ÿè¡Œã€‚</font><br>
   <br>
-  <font color="#000000">¡´QueenLin »¡¡G</font><br>
+  <font color="#000000">â—QueenLin èªªï¼š</font><br>
   <br>
-  <font color="#408080">&gt; SerializeElements¬Ofree function template, ¤£¬Ocollection 
+  <font color="#408080">&gt; SerializeElementsæ˜¯free function template, ä¸æ˜¯collection 
   classes<br>
-  &gt; ªº¦¨­û¨ç¼Æ.<br>
+  &gt; çš„æˆå“¡å‡½æ•¸.<br>
   <br>
-  &gt; ¾¨ºŞMFC´£¨Ñpersistenceªº¾÷¨î,¥i¥H¥ÃÄòª«¥óªº¥Í©R¶g´Á,¦ı½T¹ê¥H³o­Ó¾÷¨î<br>
-  &gt; ©Ò®i²{ªº¥\¯à¨Ó¬İ, ¥¦¥u¬O&quot;¨Ì§Ç&quot;ªº±Nª«¥ó¸ê®Æ¼g¨ì¥~³¡Àx¦sÅé¤¤,§Y¨Ï¥i¥H<br>
-  &gt; ÂĞ¼gSerializeElements function, ¦ı³oÁÙ¬O´`§Çªº¤è¦¡. ¥Î&quot;persistence&quot;<br>
-  &gt; ½T¹ê¥i²Å¦XOO ¬É¥Î»yªº¤@­P©Ê­°¤]Á×§K³N»yªº²V²c, ¤£¹L&quot;serialization&quot;<br>
-  &gt; ¤@µü¤]¥¿»¡©úMFC¹ïpersistenceªº¤ä´©¦³­­¤Î¨ä¯S©Ê.<br>
+  &gt; å„˜ç®¡MFCæä¾›persistenceçš„æ©Ÿåˆ¶,å¯ä»¥æ°¸çºŒç‰©ä»¶çš„ç”Ÿå‘½é€±æœŸ,ä½†ç¢ºå¯¦ä»¥é€™å€‹æ©Ÿåˆ¶<br>
+  &gt; æ‰€å±•ç¾çš„åŠŸèƒ½ä¾†çœ‹, å®ƒåªæ˜¯&quot;ä¾åº&quot;çš„å°‡ç‰©ä»¶è³‡æ–™å¯«åˆ°å¤–éƒ¨å„²å­˜é«”ä¸­,å³ä½¿å¯ä»¥<br>
+  &gt; è¦†å¯«SerializeElements function, ä½†é€™é‚„æ˜¯å¾ªåºçš„æ–¹å¼. ç”¨&quot;persistence&quot;<br>
+  &gt; ç¢ºå¯¦å¯ç¬¦åˆOO ç•Œç”¨èªçš„ä¸€è‡´æ€§é™ä¹Ÿé¿å…è¡“èªçš„æ··æ·†, ä¸é&quot;serialization&quot;<br>
+  &gt; ä¸€è©ä¹Ÿæ­£èªªæ˜MFCå°persistenceçš„æ”¯æ´æœ‰é™åŠå…¶ç‰¹æ€§.<br>
   <br>
-  &gt; ­n¯àÀH¾÷³B²z¦s¦b©ó¥~³¡Àx¦sÅé¤¤ªºª«¥ó, 
-  ¨º±o¦h¥I¥X¤@¨ÇÃB¥~ªº§V¤O, ¦]¬°<br>
-  &gt; ¨ì¤F³o¨à¥Ø«eMFCÀ°¤£¤W¤°»ò¤j¦£, ¦Ó³o¨Ç¤u§@¤S¸òDatabase¬°§Ú­Ì©Ò°µªº¦³<br>
-  &gt; Ãö. ¦Ü©ó¸Ó¤£¸Ó¥ÎDatabase system, ³o»İ­n§ó¦hªº¦]¯Àºî¦X¦Ò¶q. 
-  ¦Ó§Ú­Ìªº<br>
-  &gt; §@ªk´N¬O¦Û¦æ¹ê§@§Ú­Ì©Ò­nªºrandom access, partial update¥\¯à.</font><br>
+  &gt; è¦èƒ½éš¨æ©Ÿè™•ç†å­˜åœ¨æ–¼å¤–éƒ¨å„²å­˜é«”ä¸­çš„ç‰©ä»¶, 
+  é‚£å¾—å¤šä»˜å‡ºä¸€äº›é¡å¤–çš„åŠªåŠ›, å› ç‚º<br>
+  &gt; åˆ°äº†é€™å…’ç›®å‰MFCå¹«ä¸ä¸Šä»€éº¼å¤§å¿™, è€Œé€™äº›å·¥ä½œåˆè·ŸDatabaseç‚ºæˆ‘å€‘æ‰€åšçš„æœ‰<br>
+  &gt; é—œ. è‡³æ–¼è©²ä¸è©²ç”¨Database system, é€™éœ€è¦æ›´å¤šçš„å› ç´ ç¶œåˆè€ƒé‡. 
+  è€Œæˆ‘å€‘çš„<br>
+  &gt; ä½œæ³•å°±æ˜¯è‡ªè¡Œå¯¦ä½œæˆ‘å€‘æ‰€è¦çš„random access, partial updateåŠŸèƒ½.</font><br>
   <br>
-  <font color="#000000">¡´jjhou ªº¾ã²z</font><br>
+  <font color="#000000">â—jjhou çš„æ•´ç†</font><br>
   <br>
-  ­ì¥»¤£´¿ª`·N¹L MFC's SerializeElements()¡C¥Ñ©ó william ªº´£°_©MQueenLin 
-  ªº¦^ÂĞ¡A§Ú¨M©w§â¥¦·d²M·¡¡C¬JµM·d²M·¡¤F¡A¯Á©Ê¾ã²z¤U¨Ó¨Ñ¤j®a°Ñ¦Ò¡C¦p¦³¿ù»~¡A½Ğ«ü¥¿¡C<br>
+  åŸæœ¬ä¸æ›¾æ³¨æ„é MFC's SerializeElements()ã€‚ç”±æ–¼ william çš„æèµ·å’ŒQueenLin 
+  çš„å›è¦†ï¼Œæˆ‘æ±ºå®šæŠŠå®ƒææ¸…æ¥šã€‚æ—¢ç„¶ææ¸…æ¥šäº†ï¼Œç´¢æ€§æ•´ç†ä¸‹ä¾†ä¾›å¤§å®¶åƒè€ƒã€‚å¦‚æœ‰éŒ¯èª¤ï¼Œè«‹æŒ‡æ­£ã€‚<br>
   <br>
-  ¡»template classes in MFC<br>
+  â—†template classes in MFC<br>
   <br>
-  MFC ´£¨Ñ 6 ­Ó template classes¡G<br>
+  MFC æä¾› 6 å€‹ template classesï¼š<br>
   <br>
   CArray,<br>
   CList,<br>
@@ -73,17 +73,17 @@
   CTypedPtrList,<br>
   CTypedPtrMap<br>
   <br>
-  ¡»SerializeElements() »P CArray, CList, CMap<br>
+  â—†SerializeElements() èˆ‡ CArray, CList, CMap<br>
   <br>
-  CArray, CList, CMap ³o¤T­Ó template class ³£¥u¯à©ñ¸m¬Û¦P type 
-  ªº¤¸¯À¡]­Y­n¹B¥Î polymorphism ©Ê½è¦b template container ¤¤©ñ¸mCObject-derived 
-  type¡A«h¥²¶·¨Ï¥Î CTypedPtrArray, CTypedPtrList, CTypedPtrMap ¤TªÌ¡^¡C<br>
+  CArray, CList, CMap é€™ä¸‰å€‹ template class éƒ½åªèƒ½æ”¾ç½®ç›¸åŒ type 
+  çš„å…ƒç´ ï¼ˆè‹¥è¦é‹ç”¨ polymorphism æ€§è³ªåœ¨ template container ä¸­æ”¾ç½®CObject-derived 
+  typeï¼Œå‰‡å¿…é ˆä½¿ç”¨ CTypedPtrArray, CTypedPtrList, CTypedPtrMap ä¸‰è€…ï¼‰ã€‚<br>
   <br>
-  ¥Ñ©ó¨C¤@­Ó¤¸¯Àªº type ³£¬Û¦P¡A¦]¦¹¤W­z¤T­Ó template classes 
-  ´N¤£¥²¬°¨C­Ó¤¸¯À¼g¥X class info¡]¥u­n¾ã­Ó container 
-  ¼g¤@¦¸´N¨¬°÷¡^¡C¦]¦¹¡Adefault ±¡ªp¤U¥¦­Ìªº Serialize() ³£¬O¥H bitwise 
-  ¤è¦¡±N¾ã¥÷ container ¼gÀÉ¡]©ÎÅªÀÉ¡^¡CÆ[¹î AFXTEMPL.H¡A¥i¬İ¨ì CArray, 
-  CList, CMap ªºSerialize() ³£©I¥s SerializeElements()¡]¤@­Ó global template function¡^¦p¤U¡G<br>
+  ç”±æ–¼æ¯ä¸€å€‹å…ƒç´ çš„ type éƒ½ç›¸åŒï¼Œå› æ­¤ä¸Šè¿°ä¸‰å€‹ template classes 
+  å°±ä¸å¿…ç‚ºæ¯å€‹å…ƒç´ å¯«å‡º class infoï¼ˆåªè¦æ•´å€‹ container 
+  å¯«ä¸€æ¬¡å°±è¶³å¤ ï¼‰ã€‚å› æ­¤ï¼Œdefault æƒ…æ³ä¸‹å®ƒå€‘çš„ Serialize() éƒ½æ˜¯ä»¥ bitwise 
+  æ–¹å¼å°‡æ•´ä»½ container å¯«æª”ï¼ˆæˆ–è®€æª”ï¼‰ã€‚è§€å¯Ÿ AFXTEMPL.Hï¼Œå¯çœ‹åˆ° CArray, 
+  CList, CMap çš„Serialize() éƒ½å‘¼å« SerializeElements()ï¼ˆä¸€å€‹ global template functionï¼‰å¦‚ä¸‹ï¼š<br>
   <br>
   <font face="Courier New"><small>template&lt;class TYPE&gt;<br>
   void AFXAPI SerializeElements(CArchive&amp; ar, TYPE* pElements, int nCount)<br>
@@ -98,18 +98,18 @@
   &nbsp;&nbsp;&nbsp; ar.Read((void*)pElements, nCount * sizeof(TYPE));<br>
   }</small></font><br>
   <br>
-  ¦¹³B ar.Write() ©M ar.Read() ·|³ê°_ ar ¤º§tªº CFile member ªºWrite() ©M Read()¡A°õ¦æ 
-  bitwise ÀÉ®×Åª¼g¡C(ref &lt;¦h«¬»PµêÀÀ&gt; chap5 MFC-Lite sample, p285, #0298 and 
-  #0305¡^<br>
+  æ­¤è™• ar.Write() å’Œ ar.Read() æœƒå–šèµ· ar å…§å«çš„ CFile member çš„Write() å’Œ Read()ï¼ŒåŸ·è¡Œ 
+  bitwise æª”æ¡ˆè®€å¯«ã€‚(ref &lt;å¤šå‹èˆ‡è™›æ“¬&gt; chap5 MFC-Lite sample, p285, #0298 and 
+  #0305ï¼‰<br>
   <br>
-  ¡»SerializeElements() ªº¹B¥Î<br>
+  â—†SerializeElements() çš„é‹ç”¨<br>
   <br>
-  ¦pªG§Aº¡·N©ó CArray, CList, CMap ¹ï¨C­Ó¤¸¯Àªº bitwise 
-  ÀÉ®×Åª¼g¡A¨º»ò¤£ºŞ§A¨Ï¥Î¤°»ò¼Ëªº type 
-  °µ¬°¤¸¯À«¬§O¡A³£¤£¥²¦A¦h¶O¤â¸}°µ¨ä¥LÃB¥~¤u§@¡C<br>
+  å¦‚æœä½ æ»¿æ„æ–¼ CArray, CList, CMap å°æ¯å€‹å…ƒç´ çš„ bitwise 
+  æª”æ¡ˆè®€å¯«ï¼Œé‚£éº¼ä¸ç®¡ä½ ä½¿ç”¨ä»€éº¼æ¨£çš„ type 
+  åšç‚ºå…ƒç´ å‹åˆ¥ï¼Œéƒ½ä¸å¿…å†å¤šè²»æ‰‹è…³åšå…¶ä»–é¡å¤–å·¥ä½œã€‚<br>
   <br>
-  ¦pªG§A¤£³ßÅw¤W­zªº bitwise ÀÉ®×Åª¼g¡A¥i§ï¼g SerializeElements()¡C°²³]§Ú­Ì³]­p¤@­Ó 
-  CMyStruct¡]°Ñ¦Ò MFC COLLECT sample¡^¡G<br>
+  å¦‚æœä½ ä¸å–œæ­¡ä¸Šè¿°çš„ bitwise æª”æ¡ˆè®€å¯«ï¼Œå¯æ”¹å¯« SerializeElements()ã€‚å‡è¨­æˆ‘å€‘è¨­è¨ˆä¸€å€‹ 
+  CMyStructï¼ˆåƒè€ƒ MFC COLLECT sampleï¼‰ï¼š<br>
   <br>
   <font face="Courier New"><small>class CMyStruct<br>
   {<br>
@@ -118,16 +118,16 @@
   &nbsp; CString m_str;<br>
   };</small></font><br>
   <br>
-  ¨Ã¥´ºâ³o»ò¥Î¡G<br>
+  ä¸¦æ‰“ç®—é€™éº¼ç”¨ï¼š<br>
   <br>
   <font face="Courier New"><small>CMap&lt;DWORD,DWORD,CMyStruct*,CMyStruct*&amp;&gt; 
   m_mapDWordToMyStruct;</small></font><br>
   <br>
-  ¨º»ò¡A¦pªG¤£³ßÅw bitwise ÀÉ®×Åª¼g¡A§Ú­Ì¥i§ï¼g SerializeElements() 
-  ¦p¤U¡G<br>
+  é‚£éº¼ï¼Œå¦‚æœä¸å–œæ­¡ bitwise æª”æ¡ˆè®€å¯«ï¼Œæˆ‘å€‘å¯æ”¹å¯« SerializeElements() 
+  å¦‚ä¸‹ï¼š<br>
   <br>
-  <small><font face="Courier New">// in VC 5.0</font>¡]ª`·N¡G<font face="Courier New">VC 
-  4.2 </font>¦³¤£¦Pªº¼gªk¡^<br>
+  <small><font face="Courier New">// in VC 5.0</font>ï¼ˆæ³¨æ„ï¼š<font face="Courier New">VC 
+  4.2 </font>æœ‰ä¸åŒçš„å¯«æ³•ï¼‰<br>
   <font face="Courier New">template &lt;&gt; void AFXAPI 
   SerializeElements&lt;CMyStruct*&gt;(CArchive&amp; ar,<br>
   CMyStruct** ppElements,<br>
@@ -138,23 +138,23 @@
   IMPLEMENT_SERIAL<br>
   }</font></small><br>
   <br>
-  ¡»SerializeElements() ªº¥S§Ì<br>
+  â—†SerializeElements() çš„å…„å¼Ÿ<br>
   <br>
-  ConstructElements() ©M DestructElements()<br>
+  ConstructElements() å’Œ DestructElements()<br>
   <br>
-  ¡»SerializeElements() ªºÀË°Q<br>
+  â—†SerializeElements() çš„æª¢è¨<br>
   <br>
-  1. SerializeElements() ¥u»P CArray, CList, CMap ¦³Ãö¡C<br>
-  2. ¥¦¬O­Ó template function¡A¥i§ï¼g¡]override¡^¡C<br>
-  3. §Y¨Ï¥H«Ü©_©Çªº¤è¦¡¨Ó§ï¼g SerializeElements()¡A¨Ò¦p¸õÅDÅª¼g array ©Î 
-  list ©Î map 
-  ¤¤ªº¤º®e¡AÅª»P¼gªº¹Lµ{¤´µM¬O´`§Ç¡C´«¨¥¤§¡A«ç»ò¼g¥X¥h¡A 
-  ´N«ç»òÅª¶i¨Ó¡F¼g¥X¥h¦h¤Ö¡A´NÅª¶i¨Ó¦h¤Ö¡F§¹¥şµLªk¥Î©ó random 
-  access ©Î partial update¡C<br>
+  1. SerializeElements() åªèˆ‡ CArray, CList, CMap æœ‰é—œã€‚<br>
+  2. å®ƒæ˜¯å€‹ template functionï¼Œå¯æ”¹å¯«ï¼ˆoverrideï¼‰ã€‚<br>
+  3. å³ä½¿ä»¥å¾ˆå¥‡æ€ªçš„æ–¹å¼ä¾†æ”¹å¯« SerializeElements()ï¼Œä¾‹å¦‚è·³èºè®€å¯« array æˆ– 
+  list æˆ– map 
+  ä¸­çš„å…§å®¹ï¼Œè®€èˆ‡å¯«çš„éç¨‹ä»ç„¶æ˜¯å¾ªåºã€‚æ›è¨€ä¹‹ï¼Œæ€éº¼å¯«å‡ºå»ï¼Œ 
+  å°±æ€éº¼è®€é€²ä¾†ï¼›å¯«å‡ºå»å¤šå°‘ï¼Œå°±è®€é€²ä¾†å¤šå°‘ï¼›å®Œå…¨ç„¡æ³•ç”¨æ–¼ random 
+  access æˆ– partial updateã€‚<br>
   <br>
-  ¡»CTypedPtrArray, CTypedPtrList, CTypedPtrMap ªº±¡ªp©O¡H<br>
+  â—†CTypedPtrArray, CTypedPtrList, CTypedPtrMap çš„æƒ…æ³å‘¢ï¼Ÿ<br>
   <br>
-  ¤U­±¬O³o¤T­Ó template class ªº«Å§i¡]in AFXTEMPL.H¡^¡G<br>
+  ä¸‹é¢æ˜¯é€™ä¸‰å€‹ template class çš„å®£å‘Šï¼ˆin AFXTEMPL.Hï¼‰ï¼š<br>
   <br>
   <font face="Courier New"><small>template&lt;class BASE_CLASS, class TYPE&gt;<br>
   class CTypedPtrArray : public BASE_CLASS<br>
@@ -174,38 +174,38 @@
   ...<br>
   };</small></font><br>
   <br>
-  ¨ä¤¤³£¨S¦³§ï¼g Serialize()¡A¦]¦¹­Y³ê°_¤W­z¥ô¤@­Ó class ªºSerialize()¡A§Y¬O³ê°_¨ä 
-  BASE_CLASS ªº Serialize()¡C¾\Åª&lt;²`¤J²L¥X MFC&gt; p503 ©Î &lt;¦h«¬»PµêÀÀ&gt; 
-  p284, p289¡A§Y¥i¿sª¾CDWordArray ©M CObList ªº Serialize() ¨ç¦¡©w¸q¡C<br>
+  å…¶ä¸­éƒ½æ²’æœ‰æ”¹å¯« Serialize()ï¼Œå› æ­¤è‹¥å–šèµ·ä¸Šè¿°ä»»ä¸€å€‹ class çš„Serialize()ï¼Œå³æ˜¯å–šèµ·å…¶ 
+  BASE_CLASS çš„ Serialize()ã€‚é–±è®€&lt;æ·±å…¥æ·ºå‡º MFC&gt; p503 æˆ– &lt;å¤šå‹èˆ‡è™›æ“¬&gt; 
+  p284, p289ï¼Œå³å¯çªºçŸ¥CDWordArray å’Œ CObList çš„ Serialize() å‡½å¼å®šç¾©ã€‚<br>
   <br>
-  µù¡G&lt;²`¤J²L¥X MFC&gt; ½Íªº¬O¯u¥¿ªº MFC source¡A &lt;¦h«¬»PµêÀÀ&gt; 
-  chap5 ½Íªº¬O¼ÒÀÀªº¡BÂ²©öªº¡B¥i¾A¥Î¥ô¦ó¥­¥xªº MFC-Lite¡C<br>
+  è¨»ï¼š&lt;æ·±å…¥æ·ºå‡º MFC&gt; è«‡çš„æ˜¯çœŸæ­£çš„ MFC sourceï¼Œ &lt;å¤šå‹èˆ‡è™›æ“¬&gt; 
+  chap5 è«‡çš„æ˜¯æ¨¡æ“¬çš„ã€ç°¡æ˜“çš„ã€å¯é©ç”¨ä»»ä½•å¹³å°çš„ MFC-Liteã€‚<br>
   <br>
-  <font color="#000000">¡´§ÚªººÃ´b¤§¤@</font><br>
+  <font color="#000000">â—æˆ‘çš„ç–‘æƒ‘ä¹‹ä¸€</font><br>
   <br>
-  IMPLEMENT_SERIAL ¥¨¶°±µ¨ü¤@­Ó &quot;schema no&quot; °Ñ¼Æ¡C·í Serialize() 
-  Åª¨ì¤£¦Xª©¥»¸¹½Xªº class info¡A«K·|¦Û°Êµ¹¤@­Ó msg box ¡]&lt;²`¤J²L¥X 
-  MFC&gt; p634¡^¡C<br>
+  IMPLEMENT_SERIAL å·¨é›†æ¥å—ä¸€å€‹ &quot;schema no&quot; åƒæ•¸ã€‚ç•¶ Serialize() 
+  è®€åˆ°ä¸åˆç‰ˆæœ¬è™Ÿç¢¼çš„ class infoï¼Œä¾¿æœƒè‡ªå‹•çµ¦ä¸€å€‹ msg box ï¼ˆ&lt;æ·±å…¥æ·ºå‡º 
+  MFC&gt; p634ï¼‰ã€‚<br>
   <br>
-  ¦ı¬O¡A¥HÂÂª©³nÅéÅª¨ú·sª©ÀÉ®×¡A©Î¥H·sª©³nÅéÅª¨úÂÂª©ÀÉ®×¡A³q±`§Ú­Ì¨Ã¤£§Æ±æ¤@ÀË¬d¥Xª©¥»¤£²Å«KÄY®m©Úµ´¡C³q±`§Ú­Ì§Æ±æ°µ¥X¤@­Ó¬Û®e©Ê¡C<br>
-  ¦p¦óÁ×§K¨º­Ó &quot;Unexpected file format&quot; msg box ¶]¥X¨Ó¡H¬O§_¦³¤°»ò 
-  virtual function ¥i§ï¼g¡H§Ú©|¥¼¬d¾\ MFC source ©Î MFC manual¡A¦p±z¦³¦¹¸gÅç¡A½Ğ«ü±Ğ¡AÁÂÁÂ¡C<br>
+  ä½†æ˜¯ï¼Œä»¥èˆŠç‰ˆè»Ÿé«”è®€å–æ–°ç‰ˆæª”æ¡ˆï¼Œæˆ–ä»¥æ–°ç‰ˆè»Ÿé«”è®€å–èˆŠç‰ˆæª”æ¡ˆï¼Œé€šå¸¸æˆ‘å€‘ä¸¦ä¸å¸Œæœ›ä¸€æª¢æŸ¥å‡ºç‰ˆæœ¬ä¸ç¬¦ä¾¿åš´å³»æ‹’çµ•ã€‚é€šå¸¸æˆ‘å€‘å¸Œæœ›åšå‡ºä¸€å€‹ç›¸å®¹æ€§ã€‚<br>
+  å¦‚ä½•é¿å…é‚£å€‹ &quot;Unexpected file format&quot; msg box è·‘å‡ºä¾†ï¼Ÿæ˜¯å¦æœ‰ä»€éº¼ 
+  virtual function å¯æ”¹å¯«ï¼Ÿæˆ‘å°šæœªæŸ¥é–± MFC source æˆ– MFC manualï¼Œå¦‚æ‚¨æœ‰æ­¤ç¶“é©—ï¼Œè«‹æŒ‡æ•™ï¼Œè¬è¬ã€‚<br>
   <br>
-  <font color="#000000">¡´§ÚªººÃ´b¤§¤G<br>
+  <font color="#000000">â—æˆ‘çš„ç–‘æƒ‘ä¹‹äºŒ<br>
   </font><br>
-  STL ¤w¦¨¬°¼Ğ·Ç C++ ªº¤@³¡¥÷¡C¥i¥H¹w¨£¡A¥¼¨Ó¨Ï¥Î STL 
-  ªº±¡ªp±N»P¤é­Ñ¼W¡C¦ı STL ¨S¦³¹ê§@ persistence¡]¦¹Äİ¥²µM¡A¦]¬° STL 
-  §Æ±æ platform-independent¡F¦Ó persistence ¯A¤ÎÀÉ®×¨t²Î¡A«o¤S¤@©w¬O 
-  platform-dependent¡^¡C<br>
+  STL å·²æˆç‚ºæ¨™æº– C++ çš„ä¸€éƒ¨ä»½ã€‚å¯ä»¥é è¦‹ï¼Œæœªä¾†ä½¿ç”¨ STL 
+  çš„æƒ…æ³å°‡èˆ‡æ—¥ä¿±å¢ã€‚ä½† STL æ²’æœ‰å¯¦ä½œ persistenceï¼ˆæ­¤å±¬å¿…ç„¶ï¼Œå› ç‚º STL 
+  å¸Œæœ› platform-independentï¼›è€Œ persistence æ¶‰åŠæª”æ¡ˆç³»çµ±ï¼Œå»åˆä¸€å®šæ˜¯ 
+  platform-dependentï¼‰ã€‚<br>
   <br>
-  STL µL persistence 
-  ©Ê½è¡A³oÂI¤j®a¦³¦ó¬İªk¡H¬O§_¡]¥i¯à¡^¦³¤°»ò²£«~¥i·f°t¡H©ÎÃø¹D 
-  STL user ±o¦Û¦æ±N container 
-  ¤¸¯À¤@¤@¨ú¥X¡A¦Û¦æ§¹¦¨ÀÉ®×¦s¨ú°Ê§@¡H³o¼Ëªº«ººA¦n¹³¤£°÷Àu¶®¡A¦n¹³¦³ÂI»¹¡C<br>
+  STL ç„¡ persistence 
+  æ€§è³ªï¼Œé€™é»å¤§å®¶æœ‰ä½•çœ‹æ³•ï¼Ÿæ˜¯å¦ï¼ˆå¯èƒ½ï¼‰æœ‰ä»€éº¼ç”¢å“å¯æ­é…ï¼Ÿæˆ–é›£é“ 
+  STL user å¾—è‡ªè¡Œå°‡ container 
+  å…ƒç´ ä¸€ä¸€å–å‡ºï¼Œè‡ªè¡Œå®Œæˆæª”æ¡ˆå­˜å–å‹•ä½œï¼Ÿé€™æ¨£çš„å§¿æ…‹å¥½åƒä¸å¤ å„ªé›…ï¼Œå¥½åƒæœ‰é»éœã€‚<br>
   <br>
-  <font color="#000000">¡´§ÚªººÃ´b¤§¤T</font><br>
+  <font color="#000000">â—æˆ‘çš„ç–‘æƒ‘ä¹‹ä¸‰</font><br>
   <br>
-  MFC collection classes ¬O§_¥i§¹¥ş¨ú¥N STL¡H©¼¦¹Àu¦H¦p¦ó¡H¤j®a¬İªk¦p¦ó¡H<br>
+  MFC collection classes æ˜¯å¦å¯å®Œå…¨å–ä»£ STLï¼Ÿå½¼æ­¤å„ªåŠ£å¦‚ä½•ï¼Ÿå¤§å®¶çœ‹æ³•å¦‚ä½•ï¼Ÿ<br>
   <br>
   --- the end</p>
 </blockquote>

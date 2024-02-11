@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=big5" http-equiv="Content-Type">
 <meta content="Microsoft FrontPage 4.0" name="GENERATOR">
-<title>Traits: ������else-if-then���s</title>
+<title>Traits: 類型的else-if-then機製</title>
 </head>
 
 <body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
@@ -13,46 +13,46 @@
 
 <hr>
 
-<h2 align="center"><font color="#800000">Traits: ������else-if-then���s<br> 
+<h2 align="center"><font color="#800000">Traits: 類型的else-if-then機製<br> 
 </font></h2>
 
 <h3 align="center"><font color="#800000">Andrei Alexandrescu</font><br> 
 <br>
-<font color="#800000">�s�� Ķ</font></h3> 
+<font color="#800000">孟岩 譯</font></h3> 
 
 <blockquote>
-  <p align="center">�J���`�R�����Ķ��<font color="#000000">�s�����������M<br>
-  ����󦹥H�W�x�WŪ�̡M�D�`�P�¡C<br>
+  <p align="center">侯捷注﹕本文承譯者<font color="#000000">孟岩先生應允﹐<br>
+  轉載於此以饗台灣讀者﹐非常感謝。<br>
   <br>
-  ���o�s�����ͤ��P�N�M����H�ФűN����A������C<br>
+  未得孟岩先生之同意﹐任何人請勿將此文再做轉載。<br>
   <br>
-  �H�U</font><font color="#FF0000">����</font><font color="#000000">��Ķ�`�M</font><font
-  color="#FF00FF">����</font><font color="#000000">���J���ӤH�{���y�A�r�u���B�C<br>
-  </font><font color="#8080FF">�L�Ŧ�</font><font color="#000000">�O�J���ӤH�\Ū�ɪ������аO�C<br>
+  以下</font><font color="#FF0000">紅色</font><font color="#000000">為譯注﹐</font><font
+  color="#FF00FF">紫色</font><font color="#000000">為侯捷個人認為宜再斟酌之處。<br>
+  </font><font color="#8080FF">淺藍色</font><font color="#000000">是侯捷個人閱讀時的神秘標記。<br>
   <br>
-  ����t��GB²�X�����ରBIG5�c�X�M�å��N�j���D�γN�y�ഫ���x�W�D�γN�y�C</font></p>
+  本文系由GB簡碼直接轉為BIG5繁碼﹐並未將大陸慣用術語轉換為台灣慣用術語。</font></p>
 </blockquote>
 
 <hr>
 
 <blockquote>
-  <pre>����Otraits�M������H�̧⥦�{���O C++ Generic Programming �����n�޳N�S</pre>
-  <pre>²�u�I���Mtraits�p�����n�M�O�]�������޳N���\�t�Φb�sĶ�ɮھ������@�@�ǨM�_�M
-�N�n���b�B��ɮھڭȨӧ@�X�M�_�@�ˡC��i�@�B�M���޳N���`���t�W�@�Ӷ����h��
-���λy�M�ѨM�F���ֳn��u�{���D�Mtraits�ϱz��ھڨ䲣�ͪ��I��(context)
-�ӧ@�X��ܡC�o�˳̲ת��N�X�N�ܱo�M����Ū�M�e�����@�C�p�G�A���T�B�ΤFtraits
-�޳N�M�A�N��b���I�X����ʯ�M�w���N�����P�ɱo��o�Ǧn�B�M�Ϊ̯�����X��L
-�ѨM��פW���ݨD�C</pre>
-  <pre>�Ҥl�RTraits���ȬO�x���{�ǳ]�p���֤ߤu��M�ӥB�ڧƱ�H�U���Ҥl����ϧA�۫H�M
-�b�D�`�S�w�����D���M���]�O�ܦ��Ϊ��C</pre>
-  <pre>���]�A�{�b���b�s�g�@�����Y�ƾڮw���ε{�ǡC�i��z�@�}�l�μƾڮw�����Ӵ��Ѫ�
-API�w�Ӷi��ϰݼƾڮw���ާ@�C���O�z�ҷ��M���M���[����A�|�P�줣�o���g�@��
-�]�˨�ƨӲ�´���ǭ�l��API�M�@�譱�O���F²��M�t�@�譱�]�i�H��n�a�A��
-�A��W�����ȡC�o�N�O�ͬ����ֽ�Ҧb�M���O�ܡS</pre>
-  <pre>�@�Ө嫬��API�O�o�˪��R���Ѥ@�Ӱ򥻪���k�Ψӧ���(cursor, �@�Ӧ涰�M��
-�̬d�ߵ��G)�B����l�ƾڶǰe�줺�s���C�{�b�ڭ̨Ӽg�@�Ӱ��Ū���ơM�Ψӧ�Y
-�@�C���Ȩ��X�ӡM�P���קK���S���h���Ӹ`�C�o�Ө�ƥi��|�O�o�Ӽˤl�R
-�]���Q��DB API��db��DB�}�Y�^</pre>
+  <pre>什麼是traits﹐為什麼人們把它認為是 C++ Generic Programming 的重要技術﹖</pre>
+  <pre>簡短截說﹐traits如此重要﹐是因為此項技術允許系統在編譯時根據類型作一些決斷﹐
+就好像在運行時根據值來作出決斷一樣。更進一步﹐此技術遵循“另增一個間接層”
+的諺語﹐解決了不少軟件工程問題﹐traits使您能根據其產生的背景(context)
+來作出抉擇。這樣最終的代碼就變得清晰易讀﹐容易維護。如果你正確運用了traits
+技術﹐你就能在不付出任何性能和安全代價的同時得到這些好處﹐或者能夠契合其他
+解決方案上的需求。</pre>
+  <pre>例子﹕Traits不僅是泛型程序設計的核心工具﹐而且我希望以下的例子能夠使你相信﹐
+在非常特定的問題中﹐它也是很有用的。</pre>
+  <pre>假設你現在正在編寫一個關係數據庫應用程序。可能您一開始用數據庫供應商提供的
+API庫來進行反問數據庫的操作。但是理所當然的﹐不久之後你會感到不得不寫一些
+包裝函數來組織那些原始的API﹐一方面是為了簡潔﹐另一方面也可以更好地適應
+你手上的任務。這就是生活的樂趣所在﹐不是嗎﹖</pre>
+  <pre>一個典型的API是這樣的﹕提供一個基本的方法用來把游標(cursor, 一個行集和或
+者查詢結果)處的原始數據傳送到內存中。現在我們來寫一個高級的函數﹐用來把某
+一列的值取出來﹐同時避免暴露底層的細節。這個函數可能會是這個樣子﹕
+（假想的DB API用db或DB開頭）</pre>
   <pre>// Example 1: Wrapping a raw cursor int fetch
 // operation.
 // Fetch an integer from the
@@ -78,16 +78,16 @@ void FetchIntField(db_cursor&amp; cr,
     // Convert from the database native type to int
     val = static_cast&lt;int&gt;(temp);
 }</pre>
-  <pre>�o�ر��f��Ƨڭ̩Ҧ��H���i�ण�o���b�Y�ӮɭԼg�W�@�M�M�����n��I���S�D�`��
-�n�M�B�z�F�j�q�Ӹ`�M�ӥB�o�٥u�O�@��²�檺�Ҥl�CFetchIntField��H�M���ѤF
-���@�h�����\��M������q��гB���o�@�Ӿ�ơM�����A��ߨ��ǯ��c���Ӹ`�C</pre>
-  <pre>�J�M�o�Ө�Ʀp�����ΡM�ڭ̷��M�Ʊ澨�i�୫�Υ��C���O��򰵡S�@�ӫܭ��n���x��
-�B�J�N�O���o�Ө�Ư���B�zint���~�������C���F����o�@�I�M�ڭ̱o�J�ӦҼ{�N�X��
-��int���������������C�������MDB_INTEGER�Mdb_integer�O����N��M���̬O������
-�Ӫ��S�O�o�ˡM���Y�ƾڮw�����ӳq�`�HAPI���Ѥ@��type-mapping helpers�M�����
-������C�������M²�檺���c�w�q�@�ӲŸ��`�q�Ϊ�typedef�M��ƾڮw����������
-C/C++�����W�C</pre>
-  <pre>�U���O�@�q���Q���ƾڮwAPI�Y���R</pre>
+  <pre>這種接口函數我們所有人都可能不得不在某個時候寫上一遍﹐它不好對付但又非常重
+要﹐處理了大量細節﹐而且這還只是一個簡單的例子。FetchIntField抽象﹐提供了
+高一層次的功能﹐它能夠從游標處取得一個整數﹐不必再擔心那些紛繁的細節。</pre>
+  <pre>既然這個函數如此有用﹐我們當然希望儘可能重用它。但是怎麼做﹖一個很重要的泛化
+步驟就是讓這個函數能夠處理int之外的類型。為了做到這一點﹐我們得仔細考慮代碼中
+跟int類型相關的部份。但首先﹐DB_INTEGER和db_integer是什麼意思﹐它們是打哪兒
+來的﹖是這樣﹐關係數據庫供應商通常隨API提供一些type-mapping helpers﹐為其所
+支持的每種類型和簡單的結構定義一個符號常量或者typedef﹐把數據庫類型對應到
+C/C++類型上。</pre>
+  <pre>下面是一段假想的數據庫API頭文件﹕</pre>
   <pre>#define DB_INTEGER 1
 #define DB_STRING 2
 #define DB_CURRENCY 3
@@ -99,10 +99,10 @@ typedef struct {
     unsigned char fractionary_part;
 } db_currency;
 ...</pre>
-  <pre>�ڭ̸�  �Ӽg�@��FetchDoubleField��ơM�@�����V�x���ƪ��Ĥ@�B�C����Ʊq��гB�o��
-�@��double�ȡC�ƾڮw�������Ѫ������M��(type mapping)�Odb_currency�M���O�ڭ̧Ʊ�
-���double���Φ��Ӿާ@�CFetchDoubleField�ݤW�h��FetchIntField�ܬۦ��M²���N�O�p
-�ͥS�̡C��2�R</pre>
+  <pre>我們試  來寫一個FetchDoubleField函數﹐作為走向泛型化的第一步。此函數從游標處得到
+一個double值。數據庫本身提供的類型映像(type mapping)是db_currency﹐但是我們希望
+能用double的形式來操作。FetchDoubleField看上去跟FetchIntField很相似﹐簡直就是孿
+生兄弟。例2﹕</pre>
   <pre>// Example 2: Wrapping a raw cursor double fetch operation.
 //
 void FetchDoubleField(db_cursor&amp; cr, unsigned int col, double&amp; val)
@@ -116,25 +116,25 @@ void FetchDoubleField(db_cursor&amp; cr, unsigned int col, double&amp; val)
     db_release_column(&amp;cr, col);
     val = temp.integral_part + temp.fractionary_part / 100.;
 }</pre>
-  <pre>�ݤW�h�ܹ�FetchIntField�a  �ڭ̥i���Q��C�@���������g�@�ӳ�W����ơM�ҥH
-�p�G����b�@�Ӧa���FetchIntField, FetchDoubleField�H�Ψ�L��Fetch��ƦX
-���@��N�n�F�C</pre>
-  <pre>�ڭ̧�o����N�X�����P���B�C�|�p�U�R</pre>
-  <pre>  �E��J�����Rdouble/int
-  �E���������Rdb_currency/db_integer
-  �E�`�ƭ������RDB_CURRENCY/DB_INTEGER
-  �E��k�R�@�Ӫ��F��/static_cast</pre>
-  <pre>��J����(int/double)�P��L�X�I�������������Y�ݤW�h�S����W�ߥi�`�M�ӬO���H�N�M
-��ƾڮw�����ӡ]��n�^���Ѫ��������Y�K���CTemplate���s�����L�ର�O�M���S������
-�p�����i���������z���s�C�]�S�k�⤣�P���������~�����Y��´�_�ӡM<font
-color="#8080FF">�]���ڭ̳B�z���O
-��l����</font>�C����API������H�ΰ��D���������h�S�ʡM�E�ݤW�h�ڭ̦n���S��F�C���L�ڭ�
-�٦��@�������C</pre>
-  <pre>�i�JTRAITS�j���RTraits�޳N�N�O�ΨӸѨM�W�z���D���R��P�U�������������N�X���_�X��M
-�åB�㦳����and/or���c����O�M���<font
-color="#8080FF">�i�H�ھڤ��P���������ͤ��P������</font>�C</pre>
-  <pre><font color="#8080FF">Traits�̿��㦡�Ҫ��S����(explicit template specialization)���s</font>����o�o�ص��G�C
-�o�@�S�ʨϧA�i�H���C�@�ӯS�w���������ѼҪO�����@�ӳ�W��{�M����3�R</pre>
+  <pre>看上去很像FetchIntField吧  我們可不想對每一個類型都寫一個單獨的函數﹐所以
+如果能夠在一個地方把FetchIntField, FetchDoubleField以及其他的Fetch函數合
+為一體就好了。</pre>
+  <pre>我們把這兩片代碼的不同之處列舉如下﹕</pre>
+  <pre>  ‧輸入類型﹕double/int
+  ‧內部類型﹕db_currency/db_integer
+  ‧常數值類型﹕DB_CURRENCY/DB_INTEGER
+  ‧算法﹕一個表達式/static_cast</pre>
+  <pre>輸入類型(int/double)與其他幾點之間的對應關係看上去沒什麼規律可循﹐而是很隨意﹐
+跟數據庫供應商（恰好）提供的類型關係密切。Template機製本身無能為力﹐它沒有提供
+如此先進的類型推理機製。也沒法把不同的類型用繼承關係組織起來﹐<font
+color="#8080FF">因為我們處理的是
+原始類型</font>。受到API的限制以及問題本身的底層特性﹐乍看上去我們好像沒轍了。不過我們
+還有一條活路。</pre>
+  <pre>進入TRAITS大門﹕Traits技術就是用來解決上述問題的﹕把與各種類型相關的代碼片斷合體﹐
+並且具有類似and/or結構的能力﹐到時<font
+color="#8080FF">可以根據不同的類型產生不同的變體</font>。</pre>
+  <pre><font color="#8080FF">Traits依賴顯式模版特殊化(explicit template specialization)機製</font>來獲得這種結果。
+這一特性使你可以為每一個特定的類型提供模板類的一個單獨實現﹐見例3﹕</pre>
   <pre>// Example 3: A traits example
 //
 template &lt;class T&gt;
@@ -143,7 +143,7 @@ class SomeTemplate
     // generic implementation (1)
     ...
 };</pre>
-  <pre>// �`�N�U���S�����y�k
+  <pre>// 注意下面特異的語法
 <font color="#8080FF">template &lt;&gt;</font>
 class SomeTemplate<font
 color="#8080FF">&lt;char&gt;</font>
@@ -155,22 +155,22 @@ color="#8080FF">&lt;char&gt;</font>
 SomeTemplate&lt;int&gt; a;      // will use (1)
 SomeTemplate&lt;char*&gt; b;    // will use (1)
 SomeTemplate&lt;char&gt; c;     // will use (2)</pre>
-  <pre>�p�G�A��char�����ӹ�Ҥ�SomeTemplate���ҪO�M�sĶ���|�Ψ����㦡���ҪO�n���ӯS���ơC
-�ܩ��L�������M���M�N�Ψ��ӳq�μҪO�ӹ�ҤơC�o�N���@�ӥ������X��if-statement�C
-�q�`�̳q�Ϊ��ҪO(�۷��_else����)�̥��w�q�Mif-statement�a��@�I�C<font
-color="#8080FF">�A�Ʀܥi�H�M�w
-���������ѳq�Ϊ��ҪO�M�o�˥u���S�w����ҤƬO���\���M��L�����|�ɭP�sĶ���~�C</font></pre>
-  <pre>�{�b�ڭ̧�o�ӻy���S�ʸ��W�����D�pô�_�ӡC�ڭ̭n��{�@�ӼҪO���FetchField�M
-�λݭnŪ���������@���T�ƨӹ�ҤơC�b�Ө�Ƥ����M�ڷ|�Τ@�ӥs��TypeId���F��N��
-���ӲŸ��`�q�M���n���int���Ȯɥ����ȴN�ODB_INTEGER�M���n���double���Ȯɥ���
-�ȴN�ODB_CURRENCY�C�_�h�M�N�����b�sĶ�ɳ����C�������M�ھڭn��������������P�M
-�ڭ��ٻݭn�ާ@���P��API����(db_integer/db_currency)�M���P���ഫ��k�]���F��/static_cast).</pre>
-  <pre>���ڭ̥��㦡�ҪO�S���ƾ��s�ӸѨM�o�Ӱ��D�C�ڭ̱o���@��FetchField�M�i�H�w��@��
-�ҪO���Ӳ��ͤ��P������M�Ө��ӼҪO���S����w��int�Mdouble�i���㦡�S���ơC�C��
-�S���Ƴ��������o�����鴣�ѲΤ@���W�١C</pre>
+  <pre>如果你用char類型來實例化SomeTemplate類模板﹐編譯器會用那個顯式的模板聲明來特殊化。
+至於其他的類型﹐當然就用那個通用模板來實例化。這就像一個由類型驅動if-statement。
+通常最通用的模板(相當于else部份)最先定義﹐if-statement靠後一點。<font
+color="#8080FF">你甚至可以決定
+完全不提供通用的模板﹐這樣只有特定的實例化是允許的﹐其他的都會導致編譯錯誤。</font></pre>
+  <pre>現在我們把這個語言特性跟手上的問題聯繫起來。我們要實現一個模板函數FetchField﹐
+用需要讀取的類型作為三數來實例化。在該函數內部﹐我會用一個叫做TypeId的東西代表
+那個符號常量﹐當要獲取int型值時它的值就是DB_INTEGER﹐當要獲取double型值時它的
+值就是DB_CURRENCY。否則﹐就必須在編譯時報錯。類似的﹐根據要獲取的類型的不同﹐
+我們還需要操作不同的API類型(db_integer/db_currency)和不同的轉換算法（表達式/static_cast).</pre>
+  <pre>讓我們用顯式模板特殊化機製來解決這個問題。我們得有一個FetchField﹐可以針對一個
+模板類來產生不同的變體﹐而那個模板類又能夠針對int和double進行顯式特殊化。每個
+特殊化都必須為這些變體提供統一的名稱。</pre>
   <pre>// Example 4: Defining DbTraits
 //
-// Most general case not implemented  �̳q�Ϊ����p�S����{
+// Most general case not implemented  最通用的情況沒有實現
 template &lt;typename T&gt; struct DbTraits;
 // Specialization for int
 template &lt;&gt;
@@ -178,7 +178,7 @@ struct DbTraits&lt;int&gt;
 {
     enum { TypeId = DB_INTEGER };
     typedef db_integer DbNativeType;
-    // �`�N�U����Convert�Ostatic member function      Ķ��
+    // 注意下面的Convert是static member function      譯者
     static void Convert(DbNativeType from, int&amp; to)
     {
         to = static_cast&lt;int&gt;(from);
@@ -190,20 +190,20 @@ struct DbTraits&lt;double&gt;
 {
     enum { TypeId = DB_CURRENCY };
     typedef db_currency DbNativeType;
-    // �`�N�U����Convert�Ostatic member function      Ķ��
+    // 注意下面的Convert是static member function      譯者
     static void Convert(const DbNativeType&amp; from, double&amp; to)
     {
         to = from.integral_part + from.fractionary_part / 100.;
     }
 };</pre>
-  <pre>�{�b�M�p�G�A�gDbTraits&lt;int&gt;::TypeId�M�A�o�쪺�N�ODB_INTEGER�M�ӹ��
-DbTraits&lt;double&gt;::TypeId�M�o�쪺�N�ODB_CURRENCY�M���
-DbTraits&lt;anything_else&gt;::TypeId�M�o�쪺�O����O�SCompile-time error!
-�]���ҪO�������u�O�n��<font
-color="#FF00FF">�F</font>�M�èS���w�q�C</pre>
-  <pre>�O���O�@�ҥöh�F�S�ݬݧڭ̦p��Q��DbTraits�ӹ�{FetchField�N��ߤF�C
-�ڭ̧�Ҧ��ܤƪ�����    �T�|����  API����  �ഫ��k    ����b�FDbTraits
-�̡M�o�U�ڭ̪���Ƹ̥u�]�tFetchIntField�MFetchDoubleField���ۦP�����F�R</pre>
+  <pre>現在﹐如果你寫DbTraits&lt;int&gt;::TypeId﹐你得到的就是DB_INTEGER﹐而對於
+DbTraits&lt;double&gt;::TypeId﹐得到的就是DB_CURRENCY﹐對於
+DbTraits&lt;anything_else&gt;::TypeId﹐得到的是什麼呢﹖Compile-time error!
+因為模板類本身只是聲明<font
+color="#FF00FF">了</font>﹐並沒有定義。</pre>
+  <pre>是不是一勞永逸了﹖看看我們如何利用DbTraits來實現FetchField就放心了。
+我們把所有變化的部份    枚舉類型  API類型  轉換算法    都放在了DbTraits
+裡﹐這下我們的函數裡只包含FetchIntField和FetchDoubleField的相同部份了﹕</pre>
   <pre>// Example 5: A generic, extensible FetchField using DbTraits
 //
 template &lt;class T&gt;
@@ -220,33 +220,33 @@ void FetchField(db_cursor&amp; cr, unsigned int col, T&amp; val)
     Traits::Convert(temp, val);
     db_release_column(&amp;cr, col);
 }</pre>
-  <pre>�d�w�F  �ڭ̥u���L��{�M�ϥΤF�@��traits�ҪO���Ӥw  </pre>
-  <pre><font color="#8080FF">Traits�̾a�㦡�ҪO�S���ƨӧ�N�X���]�������P�ӵo���ܤƪ����_��X�ӡM�βΤ@��
-���f�ӥ]�ˡC�o�ӱ��f�i�H�]�t�@��C++���ү�]�t������F��R���O�����M������ơM
-�����ܶq</font>�M�@���Ȥ᪺�ҪO�N�X�i�H�q�Ltraits�ҪO���Ҥ��}�����f�Ӷ����X�ݤ��C</pre>
-  <pre>�o�˪�traits���f�q�`�O�������M�������f���p���ñ�W(function signatures)����
-�Y��M�Ҧp�M����DbTraits&lt;int&gt;::Convert�MDbTraits&lt;double&gt;::Convert��  �D�`��
-�P��ñ�W�M�����̳��i�H���`�u�@�C</pre>
-  <pre>Traits�ҪO���b�U�������W�إߤ@�ӲΤ@�����f�M�ӤS�w��U���������Ѥ��P����{�Ӹ`�C
-�ѩ�Traits����F�@�ӷ����M�@�Ӭ����p����ܶ��M�ҥH����b�ۦ���contexts���Q���ΡC</pre>
-  <pre><font color="#8080FF">�w�q�R A traits template is a template class, possibly explicitly 
+  <pre>搞定了  我們只不過實現和使用了一個traits模板類而已  </pre>
+  <pre><font color="#8080FF">Traits依靠顯式模板特殊化來把代碼中因類型不同而發生變化的片斷拖出來﹐用統一的
+接口來包裝。這個接口可以包含一個C++類所能包含的任何東西﹕內嵌類型﹐成員函數﹐
+成員變量</font>﹐作為客戶的模板代碼可以通過traits模板類所公開的接口來間接訪問之。</pre>
+  <pre>這樣的traits接口通常是隱式的﹐隱式接口不如函數簽名(function signatures)那麼
+嚴格﹐例如﹐儘管DbTraits&lt;int&gt;::Convert和DbTraits&lt;double&gt;::Convert有  非常不
+同的簽名﹐但它們都可以正常工作。</pre>
+  <pre>Traits模板類在各種類型上建立一個統一的接口﹐而又針對各種類型提供不同的實現細節。
+由於Traits抓住了一個概念﹐一個相關聯的選擇集﹐所以能夠在相似的contexts中被重用。</pre>
+  <pre><font color="#8080FF">定義﹕ A traits template is a template class, possibly explicitly 
 specialized, that provides a uniform symbolic interface over a coherent 
 set of design choices that vary from one type to another. 
 </font>       </pre>
-  <pre>       Traits�ҪO�O�@�ӼҪO���M�ܥi��O�㦡�S���ƪ��ҪO���M�����@�t�C�ھڤ��P��
-   �����X���]�p��ܴ��ѤF�@�ӲΤ@��  �Ÿ��ƪ����f�C</pre>
-  <pre>TRAITS AS ADAPTERS: �Χ@�A�t�l��TRAITS</pre>
-  <pre>�ƾڮw�����D���o���h�F�M�{�b�ڭ̨Ӭݤ@�ӧ�@�몺�Ҥl    smart pointers�C</pre>
-  <pre>���]�A���b�]�p�@��SmartPtr�ҪO���C���@��smart pointer�ӻ��M�̬������Ʊ��O����
-�i�H�۰ʺ޲z���s���D�M�P�ɦb��L�譱�S���@�ӱ`�W���w�C�Ӥ�����������Ʊ��O�M����
-����{�N�X�i���O�n��I���M����C++��smart pointer��{�޳N²���N�O�b�·t�������k�C
-�o�@�ݻŪ��ƹ�a�ӤF�@�ӭ��n���g��R�A�̦n�ɤ@���i��@�ҥöh�M�g�X�@�ӥX�⪺  
-�㦳�u�~�j�ת�smart pointer�Ӻ����A�Ҧ����ݨD�C���~�M�A�q�`����ק�@�����ӾA��
-�A��smart pointer�M�ҥH�A��SmartPtr�@�w�n�����F���C</pre>
-  <pre>���������h���ϥ�<font color="#8080FF">�ޥέp��(reference counting)</font>�H�ά�������ƺ޲z��H���ͦs���C�M�ӡM
-�èS��reference counting���зǹ�{��k�M�C�@��C++�w�������Ӧb��{���y�k�M/�λy�q�W
-�����Ҥ��P�C�Ҧp�M�b�A�����ε{�Ǥ����o�˨��interfaces�R</pre>
-  <pre>�j����������{�FRefCounted���f: 
+  <pre>       Traits模板是一個模板類﹐很可能是顯式特殊化的模板類﹐它為一系列根據不同類
+   型做出的設計選擇提供了一個統一的  符號化的接口。</pre>
+  <pre>TRAITS AS ADAPTERS: 用作適配子的TRAITS</pre>
+  <pre>數據庫的問題說得夠多了﹐現在我們來看一個更一般的例子    smart pointers。</pre>
+  <pre>假設你正在設計一個SmartPtr模板類。對於一個smart pointer來說﹐最美妙的事情是它們
+可以自動管理內存問題﹐同時在其他方面又像一個常規指針。而不那麼美妙的事情是﹐它們
+的實現代碼可不是好對付的﹐有些C++的smart pointer實現技術簡直就是在黑暗中變戲法。
+這一殘酷的事實帶來了一個重要實踐經驗﹕你最好盡一切可能一勞永逸﹐寫出一個出色的  
+具有工業強度的smart pointer來滿足你所有的需求。此外﹐你通常不能修改一個類來適應
+你的smart pointer﹐所以你的SmartPtr一定要足夠靈活。</pre>
+  <pre>有不少類層次使用<font color="#8080FF">引用計數(reference counting)</font>以及相應的函數管理對象的生存期。然而﹐
+並沒有reference counting的標準實現方法﹐每一個C++庫的供應商在實現的語法和/或語義上
+都有所不同。例如﹐在你的應用程序中有這樣兩個interfaces﹕</pre>
+  <pre>大部份的類實現了RefCounted接口: 
 class RefCounted
 {
 public:
@@ -256,7 +256,7 @@ public:
         // automatically and DecRef() returns true
     virtual ~RefCounted() {}
 };</pre>
-  <pre>�ӥѲĤT�责�Ѫ�Widget���ϥΤ��P�����f�R
+  <pre>而由第三方提供的Widget類使用不同的接口﹕
 class Widget
 {
 public:
@@ -266,9 +266,9 @@ public:
         // responsibility to destroy the object
     ...
 };</pre>
-  <pre>���L�A�ä��Q���@���smart pointer���M�A�Q��������@�ɤ@��SmartPtr�C�@�Ӱ��traits��
-�ѨM��ק��ؤ��P�����f�λy�k�M�y�q�W�Τ@�����f�]�˰_�ӡM�إ߰w�ﴶ�q�����q�μҪO�M
-�Ӱw��Widget�إߤ@�ӯS���ƪ����M�p�U�R</pre>
+  <pre>不過你並不想維護兩個smart pointer類﹐你想讓兩種類共享一個SmartPtr。一個基於traits的
+解決方案把兩種不同的接口用語法和語義上統一的接口包裝起來﹐建立針對普通類的通用模板﹐
+而針對Widget建立一個特殊化版本﹐如下﹕</pre>
   <pre>// Example 6: Reference counting traits
 //
 template &lt;class T&gt;
@@ -297,7 +297,7 @@ class RefCountingTraits&lt;Widget&gt;
             delete p;
     }
 };</pre>
-  <pre>�bSmartPtr�̡M�ڭ̹��o�˨ϥ�RefCountingTraits:</pre>
+  <pre>在SmartPtr裡﹐我們像這樣使用RefCountingTraits:</pre>
   <pre>template &lt;class T&gt;
 class SmartPtr
 {
@@ -310,12 +310,12 @@ public:
     {
         RCTraits::Unrefer(pointee_);
     }
-}�Q</pre>
-  <pre>���M�b�W�����Ҥl�̡M�A�i��|���׻��A�i�H�����S����Widget����SmartPtr���c�y�P�R�c��ơC
-�A�i�H�ϥΧ�ҪO�S���Ƨ޳N�ΦbSmartPtr�����M�Ӥ��O�Φbtrait�W�Y�M�o���٥i�H�����B�~��
-���C���޹�o�Ӱ��D�ӻ��o�طQ�k�S���M���٬O�Ѥ@�ǧA�ݭn�`�N���ʳ��R</pre>
-  <pre>[Ķ�̬��F�����_���M���Ѥ@�Ӱw��SmartPtr�����i���㦡�S���ƪ��d�Ҩѧ@�̧�P:]
-// �q��������
+}﹔</pre>
+  <pre>當然在上面的例子裡﹐你可能會爭論說你可以直接特殊化Widget類的SmartPtr的構造與析構函數。
+你可以使用把模板特殊化技術用在SmartPtr本身﹐而不是用在trait上頭﹐這樣還可以消除額外的
+類。儘管對這個問題來說這種想法沒錯﹐但還是由一些你需要注意的缺陷﹕</pre>
+  <pre>[譯者為了說明起見﹐提供一個針對SmartPtr本身進行顯式特殊化的範例供作者批判:]
+// 通用類型版
 template &lt;class T&gt;
 class SmartPtr {
 private:
@@ -330,7 +330,7 @@ public:
 	pointee_-&gt;DecRef();
     }
 };</pre>
-  <pre>// Widget���M�Ϊ�
+  <pre>// Widget類專用版
 template &lt;&gt;
 class SmartPtr&lt;Widget&gt; {
 private:
@@ -346,37 +346,37 @@ public:
 	    delete pointee_;
     }
 };</pre>
-  <pre>  �E�o��z�ʥF�i�X�i�ʡC�p�G����SmartPtr�A�W�[�@�ӼҪO�T�ơM�o�M�����J�F  �A����S��
-    �Ƴo�ˤ@��SmartPtr&lt;T. U&gt;������ơM�䤤�ҪO�T��T�OWidget�M��U�i�H����L���������C���M�A��
-    ����C���a���@�y�Msmart pointer�g�`�Χ@�ҪO�T�ơC
-[Ķ�̪����R�@�̻������쪺���Φp�U�R
+  <pre>  ‧這麼干缺乏可擴展性。如果給給SmartPtr再增加一個模板三數﹐喏﹐全完蛋了  你不能特殊
+    化這樣一個SmartPtr&lt;T. U&gt;成員函數﹐其中模板三數T是Widget﹐而U可以為其他任何類型。不﹐你做
+    不到。附帶說一句﹐smart pointer經常用作模板三數。
+[譯者附釋﹕作者說做不到的情形如下﹕
  template &lt;class T, class U&gt;
  class Demo {
  public:
-	void dostuff() {...}  //Generic����dostuff()
+	void dostuff() {...}  //Generic版本dostuff()
  };
 
  template&lt;&gt;
- void Demo&lt;char, int&gt;::dostuff() {...}  //�o�O�i�H���M�w�令����ƶi��specialize
+ void Demo&lt;char, int&gt;::dostuff() {...}  //這是可以的﹐針對成員函數進行specialize
 
  template &lt;class U&gt;
- void Demo&lt;Widget, U&gt;::dostuff() {...} // �o�O���檺�M�sĶ���|�h�M��@��Demo&lt;Widget, U&gt;��
-                                       // partial specialization defination, �ѩ�èS���o
-				       // ��@��defination�M�ҥH�sĶ���ѡC
+ void Demo&lt;Widget, U&gt;::dostuff() {...} // 這是不行的﹐編譯器會去尋找一個Demo&lt;Widget, U&gt;的
+                                       // partial specialization defination, 由於並沒有這
+				       // 麼一個defination﹐所以編譯失敗。
 </pre>
-  <pre>  �E�̲ץN�X������M���CTrait���@�ӦW�r�M�ӥB��������F��ܦn����´�_�ӡM�]���ϥ�traits��
-    �N�X��[�e���z�ѡC�ۤ񤧤U�M�Ϊ����S����SmartPtr������ƪ��N�X�M�ݤW�h��۶«Ȫ����w�C</pre>
-  <pre>  �E�A�S�k��@�������ϥΦh��traits�C</pre>
-  <pre>���~�Ӿ��s���ѨM��סM�N�⥻�������L��M�]�ܤ֦s�b�W�z���ʳ��C�ѨM�o�ˤ@��������D�M
-�ϥ��~�ӹ�b�O�Ӳ­��F�C���~�M�q�`�ΥH���N�~�Ӥ�ת��t�@�ظg����s    containment�M
-�Φb�o�̤]��o�e�D�K���M�c�������C�ۤϡMtraits��װ��b�Q���M²�����ġM���X��ΡM���n�B�C</pre>
-  <pre>Traits���@�ӭ��n�����άO��interface glue���]���f���X���^�M�q�Ϊ�  �i�A���ʷ��j��
-�A�t�l�C�p�G���P�������@�ӵ��w��������  ���P����{�Mtraits�i�H��o�ǹ�{�A��´��
-�@���@�Ӥ��@�����f�C</pre>
-  <pre>���@�ӵ��w�������Ѧh��TRAITS�R�{�b�M�ڭ̰��]�Ҧ����H���ܳ��w�A��SmartPtr�ҪO���M
-���즳�@�ѡM�b�A���h�u�{���ε{�Ǹ̶}�l�{�F������bug�M���ڳQ����F�C�A�o�{�o���׭�
-�OWidget�M�����ޥέp�ƨ�ƨä��O�u�{�w�����C�{�b�A���o���˦۹�{Widget::AddReference�M
-Widget::RemoveReference�M�̦X�z����m���ӬO�bRefCountingTraits���M���W�ӸɤB�a�R</pre>
+  <pre>  ‧最終代碼不那麼清晰。Trait有一個名字﹐而且把相關的東西很好的組織起來﹐因此使用traits的
+    代碼更加容易理解。相比之下﹐用直接特殊化SmartPtr成員函數的代碼﹐看上去更招黑客的喜歡。</pre>
+  <pre>  ‧你沒法對一種類型使用多種traits。</pre>
+  <pre>用繼承機製的解決方案﹐就算本身完美無瑕﹐也至少存在上述的缺陷。解決這樣一個變體問題﹐
+使用繼承實在是太笨重了。此外﹐通常用以取代繼承方案的另一種經典機製    containment﹐
+用在這裡也顯得畫蛇添足﹐繁瑣不堪。相反﹐traits方案乾淨利落﹐簡明有效﹐物合其用﹐恰到好處。</pre>
+  <pre>Traits的一個重要的應用是“interface glue”（接口膠合劑）﹐通用的  可適應性極強的
+適配子。如果不同的類對於一個給定的概念有  不同的實現﹐traits可以把這些實現再組織統
+一成一個公共的接口。</pre>
+  <pre>對於一個給定類型提供多種TRAITS﹕現在﹐我們假設所有的人都很喜歡你的SmartPtr模板類﹐
+直到有一天﹐在你的多線程應用程序裡開始現了神秘的bug﹐美夢被驚醒了。你發現罪魁禍首
+是Widget﹐它的引用計數函數並不是線程安全的。現在你不得不親自實現Widget::AddReference和
+Widget::RemoveReference﹐最合理的位置應該是在RefCountingTraits中﹐打上個補丁吧﹕</pre>
   <pre>// Example 7: Patching Widget's traits for thread safety
 //
 template &lt;&gt;
@@ -396,19 +396,19 @@ class RefCountingTraits&lt;Widget&gt;
 private:
     static Lock lock_;
 };</pre>
-  <pre>�������O�M���M�A���s�sĶ  ���դ��᥿�T�B��M���O�{�ǺC�o�������C�J�Ӥ��R����o�{�M�A
-���ת��ҧ@�Ҭ����{�Ǹ̶�F�@���V�|���~�V�C��ڤW�u���ּƴX��Widget�O�ݭn����Q�n�X��
-�u�{�X�ݪ��M�E�U�����j�h��Widget���O�u�Q�@�ӽu�{�X�ݪ��C</pre>
-  <pre>�A�n�����O�i�D�sĶ�����A���ݨD���O�ϥΦh�u�{traits�M��u�{traits�o��Ӥ��P�����C
-�A���N�X�D�n�ϥγ�u�{traits.</pre>
-  <pre>�p��i�D�sĶ���ϥΨ���traits�S�o��z�R��traits�@���t�@�ӼҪO�T�ƶǵ�SmartPtr�C�ʬ�
-���p�U�ǻ��Ѧ���traits�ҪO�M�ӥίS�w��������ҤƯS�w���ҪO�C</pre>
+  <pre>不幸的是﹐雖然你重新編譯  測試之後正確運行﹐但是程序慢得像蝸牛。仔細分析之後發現﹐你
+剛纔的所作所為往程序裡塞了一個糟糕的瓶頸。實際上只有少數幾個Widget是需要能夠被好幾個
+線程訪問的﹐余下的絕大多數Widget都是只被一個線程訪問的。</pre>
+  <pre>你要做的是告訴編譯器按你的需求分別使用多線程traits和單線程traits這兩個不同版本。
+你的代碼主要使用單線程traits.</pre>
+  <pre>如何告訴編譯器使用那個traits﹖這麼干﹕把traits作為另一個模板三數傳給SmartPtr。缺省
+情況下傳遞老式的traits模板﹐而用特定的類型實例化特定的模板。</pre>
   <pre>template &lt;class T, class RCTraits = RefCountingTraits&lt;T&gt; &gt;
 class SmartPtr
 {
     ...
 };</pre>
-  <pre>�A���u�{����RefCountingTraits&lt;Widget&gt;������ʡM�ӧ�h�u�{����b�@�ӳ�W�������R</pre>
+  <pre>你對單線程版的RefCountingTraits&lt;Widget&gt;不做改動﹐而把多線程版放在一個單獨的類中﹕</pre>
   <pre>class MtRefCountingTraits
 {
     static void Refer(Widget* p)
@@ -425,18 +425,18 @@ class SmartPtr
 private:
     static Lock lock_;
 };</pre>
-  <pre>�{�b�A�i�NSmartPtr&lt;Widget&gt;�Τ_��u�{�ت��M�NSmartPtr&lt;Widget, MtRefCountingTraits&gt;
-�Τ_�h�u�{�ت��C�o�N�O�F  <font
-color="#8080FF">�N��Scott Meyers�i��|�������ˡM���A�n�O�S��|�L�ּ֡M
-�N�����D����֡C��</font></pre>
-  <pre>�p�G�@�������u�n�@��trait�ѥi�H���I�M����u�n���㦡�ҪO�S���ƴN���F�C�{�b�Y�Ϥ@������
-�ݭn�h��trait�����I�ڭ̤]�d�o�w�C�ҥH�Mtraits��������q�~�ɶ�i�ӡM�Ӥ��O�b��������X�ӡ��C
-�@�������԰O���D�Ϊk�O���Ѥ@��traits���@���̫�@�ӼҪO�T�ơC�ʬ٪�traits�q�L�ҪO�T�Ư�
-�٭ȵ��w�C</pre>
-  <pre>�w�q�R�@��traits���]�Ptraits�ҪO���۹�^�Ϊ̬O�@��traits�ҪO������ҡM�Ϊ̬O�@�ӻPtraits
-�ҪO���i�{�X�ۦP���f����W�����C</pre>
-  <pre>�]��)</pre>
-  <pre>Andrei Alexandrescu�b���ز��y�{�趮�ϥ���RealNetworks���q�����}�o�g�z�C</pre>
+  <pre>現在你可將SmartPtr&lt;Widget&gt;用于單線程目的﹐將SmartPtr&lt;Widget, MtRefCountingTraits&gt;
+用于多線程目的。這就是了  <font
+color="#8080FF">就跟Scott Meyers可能會說的那樣﹐“你要是沒體會過快樂﹐
+就不知道怎麼找樂。”</font></pre>
+  <pre>如果一種類型只要一個trait由可以應付﹐那麼只要用顯式模板特殊化就夠了。現在即使一個類型
+需要多個trait來應付我們也搞得定。所以﹐traits必須能夠從外界塞進來﹐而不是在內部“算出來”。
+一個應當謹記的慣用法是提供一個traits類作為最後一個模板三數。缺省的traits通過模板三數缺
+省值給定。</pre>
+  <pre>定義﹕一個traits類（與traits模板類相對）或者是一個traits模板類的實例﹐或者是一個與traits
+模板類展現出相同接口的單獨的類。</pre>
+  <pre>（完)</pre>
+  <pre>Andrei Alexandrescu在位於華盛頓州西雅圖市的RealNetworks公司中任開發經理。</pre>
 </blockquote>
 
 <p>  </p>

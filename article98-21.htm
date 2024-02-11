@@ -4,108 +4,108 @@
 <head>
 <meta content="text/html; charset=big5" http-equiv="Content-Type">
 <meta content="Microsoft FrontPage 3.0" name="GENERATOR">
-<title>Serialize ªºÁp·Q(1)</title>
+<title>Serialize çš„è¯æƒ³(1)</title>
 </head>
 
 <body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
 
 <hr>
 
-<h2 align="center">Serialize ªºÁp·Q(1)</h2>
+<h2 align="center">Serialize çš„è¯æƒ³(1)</h2>
 
 <blockquote>
-  <p align="center">«J±¶ 1998.12.13</p>
+  <p align="center">ä¾¯æ· 1998.12.13</p>
 </blockquote>
 
 <hr>
 
 <blockquote>
-  <p>Windows GDI ¼Ò²Õ¤ä´© DIB¡]Device Independent Bitmap¡^Ã¸¹Ï®æ¦¡¡A¦Ó MFC 
-  «o¨S¦³¬° DIB ¥]¸Ë¤@­Ó¦n¥Îªº class¡A³o¯u¥O¤H§ãµÃ¡]MFC ¤¤¥u¦³¤@­Ó 
-  CBitmap¡A¨º¬O¬° Device Dependent Bitmap ¦Ó·Ç³Æªº¡^¡C<br>
+  <p>Windows GDI æ¨¡çµ„æ”¯æ´ DIBï¼ˆDevice Independent Bitmapï¼‰ç¹ªåœ–æ ¼å¼ï¼Œè€Œ MFC 
+  å»æ²’æœ‰ç‚º DIB åŒ…è£ä¸€å€‹å¥½ç”¨çš„ classï¼Œé€™çœŸä»¤äººæ‰¼è…•ï¼ˆMFC ä¸­åªæœ‰ä¸€å€‹ 
+  CBitmapï¼Œé‚£æ˜¯ç‚º Device Dependent Bitmap è€Œæº–å‚™çš„ï¼‰ã€‚<br>
   <br>
-  <font color="#0000FF">¡´©¯¹Bªº¬O...</font><br>
+  <font color="#0000FF">â—å¹¸é‹çš„æ˜¯...</font><br>
   <br>
-  ©¯¹Bªº¬O David Kruglinski ©ÒµÛªº¡m<a href="review3-5.htm" tppabs="http://jjhou.boolan.com/review3-5.htm" target="main">Inside 
-  Visual C++ 4.0</a>¡n¡]¤¤Ä¶¡m<a href="jjtbooks-inside-vc40.htm" tppabs="http://jjhou.boolan.com/jjtbooks-inside-vc40.htm" target="main">²`¤J 
-  Visual C++ 4.0</a>¡n¡A«J«T³Ç/ùÖ®p¡^chap10 ¦³¤@­Ó¦n¥Îªº CDib¡C¦³ÀÉ®×Åª¼g¥\¯à¡A¦³Åã¥Ü¥\¯à¡A¦³½Õ¦â½L¥\¯à¡C®Ñ¤¤½d¨Òµ{¦¡ 
-  Ex10c ¥u¨Ï¥Î¤F CDib ªºÅªÀÉ¡BÅã¥Ü¨â¥\¯à¡A¥¼¥Ü½d¨ä¼gÀÉ¥\¯à¡C<br>
+  å¹¸é‹çš„æ˜¯ David Kruglinski æ‰€è‘—çš„ã€Š<a href="review3-5.htm" tppabs="http://jjhou.boolan.com/review3-5.htm" target="main">Inside 
+  Visual C++ 4.0</a>ã€‹ï¼ˆä¸­è­¯ã€Š<a href="jjtbooks-inside-vc40.htm" tppabs="http://jjhou.boolan.com/jjtbooks-inside-vc40.htm" target="main">æ·±å…¥ 
+  Visual C++ 4.0</a>ã€‹ï¼Œä¾¯ä¿Šå‚‘/ç¢å³°ï¼‰chap10 æœ‰ä¸€å€‹å¥½ç”¨çš„ CDibã€‚æœ‰æª”æ¡ˆè®€å¯«åŠŸèƒ½ï¼Œæœ‰é¡¯ç¤ºåŠŸèƒ½ï¼Œæœ‰èª¿è‰²ç›¤åŠŸèƒ½ã€‚æ›¸ä¸­ç¯„ä¾‹ç¨‹å¼ 
+  Ex10c åªä½¿ç”¨äº† CDib çš„è®€æª”ã€é¡¯ç¤ºå…©åŠŸèƒ½ï¼Œæœªç¤ºç¯„å…¶å¯«æª”åŠŸèƒ½ã€‚<br>
   <br>
-  <font color="#0000FF">¡´¤£©¯ªº¬O...</font><br>
+  <font color="#0000FF">â—ä¸å¹¸çš„æ˜¯...</font><br>
   <br>
-  ¤£©¯ªº¬O³o­Ó CDib ªº¼gÀÉ¥\¯à¦³°İÃD¡A¦b cdib.cpp ªº #344 ªºCDib::Write() 
-  ¨ç¦¡¤¤¡A¦³¥H¤U°Ê§@¡]®Ñ¤W¨S¦³¦Cªí¡A»İ¦Û¦æ¬İ¥úºĞÀÉ®×¡^¡G<br>
+  ä¸å¹¸çš„æ˜¯é€™å€‹ CDib çš„å¯«æª”åŠŸèƒ½æœ‰å•é¡Œï¼Œåœ¨ cdib.cpp çš„ #344 çš„CDib::Write() 
+  å‡½å¼ä¸­ï¼Œæœ‰ä»¥ä¸‹å‹•ä½œï¼ˆæ›¸ä¸Šæ²’æœ‰åˆ—è¡¨ï¼Œéœ€è‡ªè¡Œçœ‹å…‰ç¢Ÿæª”æ¡ˆï¼‰ï¼š<br>
   <br>
   <font face="Courier New"><small>TRY {<br>
   &nbsp; pFile-&gt;Write(LPVOID)&amp;bmfh, sizeof(BITMAPFILEHEADER));<br>
   &nbsp; pFile-&gt;Write(LPVOID)&amp;m_lpBMIH, nSize);<br>
   }</small></font><br>
   <br>
-  «ç»ò¬İ³£¤£¹ï«l¨à¡A¥u¼g¤F DIB ÀÉÀY©M¸ê°TªíÀY¡A«o¨S¦³§âDIB 
-  ªº¹ê»Ú¤º®e¡]image¡^¼g¨ìÀÉ®×¥h¡C<br>
+  æ€éº¼çœ‹éƒ½ä¸å°å‹å…’ï¼Œåªå¯«äº† DIB æª”é ­å’Œè³‡è¨Šè¡¨é ­ï¼Œå»æ²’æœ‰æŠŠDIB 
+  çš„å¯¦éš›å…§å®¹ï¼ˆimageï¼‰å¯«åˆ°æª”æ¡ˆå»ã€‚<br>
   <br>
-  <font color="#0000FF">¡´©¯¹Bªº¬O...</font><br>
+  <font color="#0000FF">â—å¹¸é‹çš„æ˜¯...</font><br>
   <br>
-  ©¯¹Bªº¬O§Ú¦AÀË¬d &lt;Inside Visual C++ 5.0&gt;¡]¦¹ª©¥»µL¤¤Ä¶¥»¡^ªº¥úºĞÀÉ®×¡Aµo²{ 
-  David ¤w¸g­×§ï¹L¨Ó¤F¡A·s¤º®e¦p¤U¡G<br>
+  å¹¸é‹çš„æ˜¯æˆ‘å†æª¢æŸ¥ &lt;Inside Visual C++ 5.0&gt;ï¼ˆæ­¤ç‰ˆæœ¬ç„¡ä¸­è­¯æœ¬ï¼‰çš„å…‰ç¢Ÿæª”æ¡ˆï¼Œç™¼ç¾ 
+  David å·²ç¶“ä¿®æ”¹éä¾†äº†ï¼Œæ–°å…§å®¹å¦‚ä¸‹ï¼š<br>
   <br>
   <small><font face="Courier New">TRY {<br>
   &nbsp; pFile-&gt;Write((LPVOID)&amp;bmfh, sizeof(BITMAPFILEHEADER));<br>
   &nbsp; pFile-&gt;Write((LPVOID)&amp;m_lpBMIH, nSize);<br>
   &nbsp; </font><font color="#0000FF" face="Courier New">pFile-&gt;Write((LPVOID)&amp;m_lpImage, 
-  m_dwImageSize); // </font><font color="#0000FF">·s¼W¦¹¦æ</font><br>
+  m_dwImageSize); // </font><font color="#0000FF">æ–°å¢æ­¤è¡Œ</font><br>
   <font face="Courier New">}</font></small><br>
   <br>
-  §Ú¼g¤F­Ó´ú¸Õµ{¦¡¡AÅçÃÒ¦¹­×§ïµL»~¡C¦]¦¹¡A&lt;Inside Visual C++ 4.0&gt; 
-  ©Î&lt;²`¤J Visual C++ 4.0&gt; ªºÅªªÌ¥u»İ¨Ì¼Ë­×§ï¡A´N¦³¤@­Ó¦n¥Îªº CDib 
-  ¤F¡C<br>
+  æˆ‘å¯«äº†å€‹æ¸¬è©¦ç¨‹å¼ï¼Œé©—è­‰æ­¤ä¿®æ”¹ç„¡èª¤ã€‚å› æ­¤ï¼Œ&lt;Inside Visual C++ 4.0&gt; 
+  æˆ–&lt;æ·±å…¥ Visual C++ 4.0&gt; çš„è®€è€…åªéœ€ä¾æ¨£ä¿®æ”¹ï¼Œå°±æœ‰ä¸€å€‹å¥½ç”¨çš„ CDib 
+  äº†ã€‚<br>
   <br>
-  <font color="#0000FF">¡´bitmap ®æ¦¡</font><br>
+  <font color="#0000FF">â—bitmap æ ¼å¼</font><br>
   <br>
-  ´¿¸g¦b BBS ªO¤W¬İ¨ì¦³ºô¤Í·QÁA¸Ñ Bitmap ®æ¦¡¡C±z¥i°Ñ¦Ò&lt;Inside Visual 
-  C++ 4.0&gt; ©Î &lt;²`¤J Visual C++ 4.0&gt; ²Ä 10 ³¹¡A©Î &lt;Inside Visual C++ 
-  5.0&gt; ²Ä 10 ³¹¡A¥H¤Î \msdev\include\wingdi.h¡A¦A®³¦¹ CDib source ¹ï·Ó¬İ¡A<font
-  color="#0000FF">«Ü§Ö´N¥i§¹¥ş´x´¤ bitmap ®æ¦¡¤F</font>¡C³o¸Ì©Ò¿×ªº bitmap¡A´N¬O«ü 
-  DIB¡]Device Independent Bitmap¡^¡C§A©Ò¬İ¨ìªº .bmp ÀÉ¡A¨ä¹ê³£¬O DIB¡C<br>
+  æ›¾ç¶“åœ¨ BBS æ¿ä¸Šçœ‹åˆ°æœ‰ç¶²å‹æƒ³ç­è§£ Bitmap æ ¼å¼ã€‚æ‚¨å¯åƒè€ƒ&lt;Inside Visual 
+  C++ 4.0&gt; æˆ– &lt;æ·±å…¥ Visual C++ 4.0&gt; ç¬¬ 10 ç« ï¼Œæˆ– &lt;Inside Visual C++ 
+  5.0&gt; ç¬¬ 10 ç« ï¼Œä»¥åŠ \msdev\include\wingdi.hï¼Œå†æ‹¿æ­¤ CDib source å°ç…§çœ‹ï¼Œ<font
+  color="#0000FF">å¾ˆå¿«å°±å¯å®Œå…¨æŒæ¡ bitmap æ ¼å¼äº†</font>ã€‚é€™è£¡æ‰€è¬‚çš„ bitmapï¼Œå°±æ˜¯æŒ‡ 
+  DIBï¼ˆDevice Independent Bitmapï¼‰ã€‚ä½ æ‰€çœ‹åˆ°çš„ .bmp æª”ï¼Œå…¶å¯¦éƒ½æ˜¯ DIBã€‚<br>
   <br>
-  <font color="#0000FF">¡´·½¥Ñ...</font><br>
+  <font color="#0000FF">â—æºç”±...</font><br>
   <br>
-  §Ú«ç»ò·|µo²{ David ªº³o­Ó¿ù»~©O¡H<br>
+  æˆ‘æ€éº¼æœƒç™¼ç¾ David çš„é€™å€‹éŒ¯èª¤å‘¢ï¼Ÿ<br>
   <br>
-  ¤W­Ó¤ë¬°µØ¨¹¹q¤lªºªB¤Í­Ì¶}¤F¤@ªù C++ ½Òµ{¡A¶¶±a½Í¨ì MFC ªº<br>
-  Serialize()¡C¦b®y¸ê²`ªº MFC programmer¡A¹ï©ó Serialize() 
-  ªº¥\¯à«Ü·PÃhºÃ¡C¥L­ÌÃhºÃ¡G<br>
+  ä¸Šå€‹æœˆç‚ºè¯é‚¦é›»å­çš„æœ‹å‹å€‘é–‹äº†ä¸€é–€ C++ èª²ç¨‹ï¼Œé †å¸¶è«‡åˆ° MFC çš„<br>
+  Serialize()ã€‚åœ¨åº§è³‡æ·±çš„ MFC programmerï¼Œå°æ–¼ Serialize() 
+  çš„åŠŸèƒ½å¾ˆæ„Ÿæ‡·ç–‘ã€‚ä»–å€‘æ‡·ç–‘ï¼š<br>
   <br>
-  (1) ¸Ó¦p¦ó¹B¥Î Serialize() ¨Ó³B²z¯S©w®æ¦¡¡]¦p Word ©Î bitmap 
-  ®æ¦¡¡^ªºÀÉ®×¡H<br>
+  (1) è©²å¦‚ä½•é‹ç”¨ Serialize() ä¾†è™•ç†ç‰¹å®šæ ¼å¼ï¼ˆå¦‚ Word æˆ– bitmap 
+  æ ¼å¼ï¼‰çš„æª”æ¡ˆï¼Ÿ<br>
   <br>
-  (2) Serialize() ªº®Ä²v¦n¶Ü¡H±q &lt;¦h«¬»PµêÀÀ&gt; chap5 ¹ï MFC Serialize 
-  ªº¼ÒÀÀ¡A©Î±q &lt;²`¤J²L¥X MFC&gt; chap8 ¹ï MFC Serialize 
-  ªº­åªR¡A³£¥i¬İ¥X¡A³Q serialized 
-  ¥X¥hªºÀÉ®×¡A¨ä¤¤¦³¨Ç¦ü¥G¤£¤Ó¯à´x±±ªº overhead 
-  ¡]´N¬O¨º¨ÇÅªÀÉ®É­n¥Î©ó dynamic creation ªº¤@¨Ç class information¡^¡A¦]¦¹µLªk¡uºë·Ç­pºâ¥XÀÉ®×¤¤¬Yµ§¸ê®Æªº 
-  offset¡AµM«á¤@Á|¨ì¦ìª½±µÅª¨ú¸Ó¸ê®Æ¡v¡C³o´X¦ìªB¤Íªº¸gÅç¬O¡Aª½±µ¨Ï¥Î 
-  CFile °µ§C¶¥ÀÉ®×°Ê§@¡A®Ú¥»±Ë±ó Serialize()¡C<br>
+  (2) Serialize() çš„æ•ˆç‡å¥½å—ï¼Ÿå¾ &lt;å¤šå‹èˆ‡è™›æ“¬&gt; chap5 å° MFC Serialize 
+  çš„æ¨¡æ“¬ï¼Œæˆ–å¾ &lt;æ·±å…¥æ·ºå‡º MFC&gt; chap8 å° MFC Serialize 
+  çš„å‰–æï¼Œéƒ½å¯çœ‹å‡ºï¼Œè¢« serialized 
+  å‡ºå»çš„æª”æ¡ˆï¼Œå…¶ä¸­æœ‰äº›ä¼¼ä¹ä¸å¤ªèƒ½æŒæ§çš„ overhead 
+  ï¼ˆå°±æ˜¯é‚£äº›è®€æª”æ™‚è¦ç”¨æ–¼ dynamic creation çš„ä¸€äº› class informationï¼‰ï¼Œå› æ­¤ç„¡æ³•ã€Œç²¾æº–è¨ˆç®—å‡ºæª”æ¡ˆä¸­æŸç­†è³‡æ–™çš„ 
+  offsetï¼Œç„¶å¾Œä¸€èˆ‰åˆ°ä½ç›´æ¥è®€å–è©²è³‡æ–™ã€ã€‚é€™å¹¾ä½æœ‹å‹çš„ç¶“é©—æ˜¯ï¼Œç›´æ¥ä½¿ç”¨ 
+  CFile åšä½éšæª”æ¡ˆå‹•ä½œï¼Œæ ¹æœ¬æ¨æ£„ Serialize()ã€‚<br>
   <br>
-  ¬°¤F¹êÅç¥H Serialize() ³B²z bitmap¡A§Ú·Q¨ì &lt;Inside Visual C++&gt; 
-  ®Ñ¤¤²{¦¨ªº class CDib¡A©ó¬O¤~µo²{¤W­zªº¿ù»~»P§ó·s¡C<br>
+  ç‚ºäº†å¯¦é©—ä»¥ Serialize() è™•ç† bitmapï¼Œæˆ‘æƒ³åˆ° &lt;Inside Visual C++&gt; 
+  æ›¸ä¸­ç¾æˆçš„ class CDibï¼Œæ–¼æ˜¯æ‰ç™¼ç¾ä¸Šè¿°çš„éŒ¯èª¤èˆ‡æ›´æ–°ã€‚<br>
   <br>
-  §Ú¹ïµØ¨¹¤uµ{®vªººÃ´b¡A¦^µª¦p¤U¡G<br>
+  æˆ‘å°è¯é‚¦å·¥ç¨‹å¸«çš„ç–‘æƒ‘ï¼Œå›ç­”å¦‚ä¸‹ï¼š<br>
   <br>
-  (1) ±ı¥H Serialize() ³B²z¯S©w®æ¦¡ªºÀÉ®×¤º®e¡A¥u»İÆ[¹î¤@¤U¤W­z CDib 
-  ªºSerialize()¡A§Y¥iÀò±oÆF·P¡C<font color="#0000FF">À³¥Î¤W¡A°²³]¦Û¤vªºÃ¸¹Ï³nÅé»İ²[»\ 
-  DIB ¹Ï§Î¡A¨º»ò´N¦b¦Û¤vªº CMyDoc::Serialize() ¤¤©I¥s CDib::Serialize() 
-  §Y¥i¡C</font><br>
+  (1) æ¬²ä»¥ Serialize() è™•ç†ç‰¹å®šæ ¼å¼çš„æª”æ¡ˆå…§å®¹ï¼Œåªéœ€è§€å¯Ÿä¸€ä¸‹ä¸Šè¿° CDib 
+  çš„Serialize()ï¼Œå³å¯ç²å¾—éˆæ„Ÿã€‚<font color="#0000FF">æ‡‰ç”¨ä¸Šï¼Œå‡è¨­è‡ªå·±çš„ç¹ªåœ–è»Ÿé«”éœ€æ¶µè“‹ 
+  DIB åœ–å½¢ï¼Œé‚£éº¼å°±åœ¨è‡ªå·±çš„ CMyDoc::Serialize() ä¸­å‘¼å« CDib::Serialize() 
+  å³å¯ã€‚</font><br>
   <br>
-  (2) ¦pªG¾\Åª¤F &lt;²`¤J²L¥X MFC&gt; chap8 ¹ï MFC Serialize 
-  ªº­åªR¡A¨ä¹ê¥i¥H§¹¥ş´x´¤ Serialize() ªº overhead¡A±q¦Ó¥i¥Hºë½T­pºâ¥X¬Yµ§¸ê®Æ¦bÀÉ®×¤¤ªººë½T 
-  offset¡AµM«á¤@Á|¨ì¦ì¦aª½±µÅª¨ú¸Óµ§¸ê®Æ¡C¤£¹L¡A³oºØÀ³¥Î¨ä¹ê¤w¸g¶W¶V¤F 
-  &quot;serialize&quot; ªº¦r­±·N¸q¡C&quot;serialize&quot; ´N¬O &quot;´`§Ç&quot; 
-  Åª¼g¡C¦]¦¹¡A¦pªG§AªºÀ³¥Î³nÅé½T¦³¥²­n¸õÅD¦¡Åª¨ú¸ê®Æ¡A§A»İ­n¤@­Ó 
-  database ¡]¤£ºŞ¬O¦Û¤v¼gªºÂ²©ö database ©Î¬OÁÊ¶Rªº¦¨«~¡^¡A¦Ó¤£¬O 
-  Serialize()¡C<br>
+  (2) å¦‚æœé–±è®€äº† &lt;æ·±å…¥æ·ºå‡º MFC&gt; chap8 å° MFC Serialize 
+  çš„å‰–æï¼Œå…¶å¯¦å¯ä»¥å®Œå…¨æŒæ¡ Serialize() çš„ overheadï¼Œå¾è€Œå¯ä»¥ç²¾ç¢ºè¨ˆç®—å‡ºæŸç­†è³‡æ–™åœ¨æª”æ¡ˆä¸­çš„ç²¾ç¢º 
+  offsetï¼Œç„¶å¾Œä¸€èˆ‰åˆ°ä½åœ°ç›´æ¥è®€å–è©²ç­†è³‡æ–™ã€‚ä¸éï¼Œé€™ç¨®æ‡‰ç”¨å…¶å¯¦å·²ç¶“è¶…è¶Šäº† 
+  &quot;serialize&quot; çš„å­—é¢æ„ç¾©ã€‚&quot;serialize&quot; å°±æ˜¯ &quot;å¾ªåº&quot; 
+  è®€å¯«ã€‚å› æ­¤ï¼Œå¦‚æœä½ çš„æ‡‰ç”¨è»Ÿé«”ç¢ºæœ‰å¿…è¦è·³èºå¼è®€å–è³‡æ–™ï¼Œä½ éœ€è¦ä¸€å€‹ 
+  database ï¼ˆä¸ç®¡æ˜¯è‡ªå·±å¯«çš„ç°¡æ˜“ database æˆ–æ˜¯è³¼è²·çš„æˆå“ï¼‰ï¼Œè€Œä¸æ˜¯ 
+  Serialize()ã€‚<br>
   <br>
-  µù¡G¤Z¯à°÷ random access, partial update ªº¡A³£¬O§Ú¤W­z©Ò¿×ªº database¡C<br>
+  è¨»ï¼šå‡¡èƒ½å¤  random access, partial update çš„ï¼Œéƒ½æ˜¯æˆ‘ä¸Šè¿°æ‰€è¬‚çš„ databaseã€‚<br>
   <br>
   --- the end</p>
 </blockquote>

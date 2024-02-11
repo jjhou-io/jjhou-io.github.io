@@ -4,35 +4,35 @@
 <head>
 <meta content="text/html; charset=big5" http-equiv="Content-Type">
 <meta content="Microsoft FrontPage 3.0" name="GENERATOR">
-<title>C++ Primer µª«È°İ 61-70</title>
+<title>C++ Primer ç­”å®¢å• 61-70</title>
 </head>
 
 <body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
 
-<p>¡@</p>
+<p>ã€€</p>
 
 <hr>
 
-<h2 align="center"><big><big>C++ Primer µª«È°İ</big></big><font color="#800000"> 61-70<br>
+<h2 align="center"><big><big>C++ Primer ç­”å®¢å•</big></big><font color="#800000"> 61-70<br>
 </font></h2>
 
-<h3 align="center"><font color="#800000">«J±¶</font></h3>
+<h3 align="center"><font color="#800000">ä¾¯æ·</font></h3>
 
 <hr>
 
 <blockquote>
   <p><br>
-  <a name="C++ Primer qa61"><big><big>C++ Primer µª«È°İ (61)</big></big></a> - <big>ctor 
-  ©M tempotary object</big><br>
-  2001.03.16 ²Ä¤@¦¸µoªí</p>
+  <a name="C++ Primer qa61"><big><big>C++ Primer ç­”å®¢å• (61)</big></big></a> - <big>ctor 
+  å’Œ tempotary object</big><br>
+  2001.03.16 ç¬¬ä¸€æ¬¡ç™¼è¡¨</p>
   <pre><font color="#408080">animaster wrote (2001/03/14) :</font></pre>
-  <pre><font color="#408080">&gt; ¤é´Á: 2001¦~3¤ë14¤é PM 05:46
-&gt; ¥D¦®: ½Ğ±Ğ C++ Constructors (Essential C++)
+  <pre><font color="#408080">&gt; æ—¥æœŸ: 2001å¹´3æœˆ14æ—¥ PM 05:46
+&gt; ä¸»æ—¨: è«‹æ•™ C++ Constructors (Essential C++)
 &gt;
-&gt; ¦Ñ®v±z¦n:
-&gt; §Ú¦³¤@­Ó°İÃD·Q½Ğ±Ğ, ·Ğ½Ğ¥N¬°¸Ñµª.
+&gt; è€å¸«æ‚¨å¥½:
+&gt; æˆ‘æœ‰ä¸€å€‹å•é¡Œæƒ³è«‹æ•™, ç…©è«‹ä»£ç‚ºè§£ç­”.
 &gt;
-&gt; ¥H¤Uµ{¦¡ §Ú«Å§i¤F¤@­Ó Class temp , ¨Ã¹ê§@¥¦ªº Constructors , Destructors....
+&gt; ä»¥ä¸‹ç¨‹å¼ æˆ‘å®£å‘Šäº†ä¸€å€‹ Class temp , ä¸¦å¯¦ä½œå®ƒçš„ Constructors , Destructors....
 &gt;
 &gt; // class temp .h
 &gt; class temp {
@@ -64,13 +64,13 @@
 &gt;
 &gt;      temp m_obj1; // def m_obj1
 &gt;      m_obj1.temp::temp(); // call m_obj1 constructor
-&gt;      // m_obj1.temp(); ³o¦æ¤£¯à©I¥s«Øºc¦¡
+&gt;      // m_obj1.temp(); é€™è¡Œä¸èƒ½å‘¼å«å»ºæ§‹å¼
 &gt;      cout&lt;&lt;&quot;After call m_obj1.temp::temp()&quot;&lt;&lt;endl;
 &gt;
 &gt;  return 0;
 &gt; }
 &gt;
-&gt; ¿é¥X¦p¤U-------------
+&gt; è¼¸å‡ºå¦‚ä¸‹-------------
 &gt;
 &gt; This is func and var i = 12
 &gt; This is Constructors and var i = 12
@@ -84,48 +84,48 @@
 &gt; After call m_obj1.temp::temp()
 &gt; This is Destructors
 &gt;
-&gt; §Ú¬O¥Î VC++ 6.0 compiler , ¦b²Ä¤@¬q¿é¥X§Ú¨S¦³«Å§i¥ô¦óª«¥ó,
-&gt; ¦ı¬O©~µM¯à©I¥s class temp ªº«Øºc¦¡.
-&gt; ¦Ó²Ä¤G¬q§Ú«Å§i¤F¤@­Ó class temp ªºª«¥ó m_obj1, ¦ı¬O§Ú«o¥²¶·
-&gt; ¥Î m_obj1.temp::temp(); ¤~¯à©I¥s¥¦
-&gt; ªº«Øºc¥Ü, temp class ªº«Øºc¦¡¬O public member function ,
-&gt; ¦ı¬O«o¤£¯à¥Î m_obj1.temp(); ¨Ó©I¥s
+&gt; æˆ‘æ˜¯ç”¨ VC++ 6.0 compiler , åœ¨ç¬¬ä¸€æ®µè¼¸å‡ºæˆ‘æ²’æœ‰å®£å‘Šä»»ä½•ç‰©ä»¶,
+&gt; ä½†æ˜¯å±…ç„¶èƒ½å‘¼å« class temp çš„å»ºæ§‹å¼.
+&gt; è€Œç¬¬äºŒæ®µæˆ‘å®£å‘Šäº†ä¸€å€‹ class temp çš„ç‰©ä»¶ m_obj1, ä½†æ˜¯æˆ‘å»å¿…é ˆ
+&gt; ç”¨ m_obj1.temp::temp(); æ‰èƒ½å‘¼å«å®ƒ
+&gt; çš„å»ºæ§‹ç¤º, temp class çš„å»ºæ§‹å¼æ˜¯ public member function ,
+&gt; ä½†æ˜¯å»ä¸èƒ½ç”¨ m_obj1.temp(); ä¾†å‘¼å«
 &gt;
-&gt; §ÚµLªk·Q³q³o­Ó±¡§Î ·Ğ½Ğ¦Ñ®vÀ°¦£.
-&gt; ÅªªÌ Asima
+&gt; æˆ‘ç„¡æ³•æƒ³é€šé€™å€‹æƒ…å½¢ ç…©è«‹è€å¸«å¹«å¿™.
+&gt; è®€è€… Asima
 </font></pre>
-  <pre>¡´«J±¶¦^ÂĞ¡G</pre>
-  <pre>§Aªº°İÃD¬O¡G</pre>
-  <pre>(1) object ¤£¦s¦bªº±¡ªp¤U¡A³ºµM¥i¥Hª½±µ©I¥s¨ä ctor
-(2) ¤W­z±¡ªp¡A³ºµMÁÙªşÃØ¤@­Ó dtor
-(3) ²£¥Í¤@­Ó object ¤§«á¡A¨âºØ¤è¦¡©I¥s ctor¡A¦³ªº¦¨¥\¦³ªº¥¢±Ñ</pre>
-  <pre>µª®×¡G</pre>
-  <pre>(1) ¥H§Aªºµ{¦¡¬°¨Ò¡Atemp::temp(); ¨ä¹ê¬O²£¥Í¤F¤@­Ó¼È®Éª«¥ó¡C
-¨ä·N¸q©M temp(); ¤@¼Ë¡C¼È®Éª«¥óªº¥Í©R¦b¸Ó¦¡¤lµ²§ô¤§«á¡A¨ä
-¥Í©R¤]´Nµ²§ô¤F ¡X ©¼®É·|³ê°_ dtor¡C¦b®Ä²vÄ³ÃD¤W¡A¼È®Éª«¥ó
-¬O¤@­Ó­È±o­«µøªºÃD¥Ø¡A¤×¨ä¦b NRVO (Named Return Value Optimization¡^
-ªº°Q½×¡C¨£ More Effective C++, item20¡C
-À³¥Îµ{¦¡¨Ï¥Î STL function objects ®É¡A±`¨Ï¥Î¼È®Éª«¥ó¡C</pre>
-  <pre>¦Ü©ó¬°¤°»ò temp::temp(); µ¥¦P©ó temp(); ³o®£©È­n¬İ &quot;D&amp;E&quot;:
+  <pre>â—ä¾¯æ·å›è¦†ï¼š</pre>
+  <pre>ä½ çš„å•é¡Œæ˜¯ï¼š</pre>
+  <pre>(1) object ä¸å­˜åœ¨çš„æƒ…æ³ä¸‹ï¼Œç«Ÿç„¶å¯ä»¥ç›´æ¥å‘¼å«å…¶ ctor
+(2) ä¸Šè¿°æƒ…æ³ï¼Œç«Ÿç„¶é‚„é™„è´ˆä¸€å€‹ dtor
+(3) ç”¢ç”Ÿä¸€å€‹ object ä¹‹å¾Œï¼Œå…©ç¨®æ–¹å¼å‘¼å« ctorï¼Œæœ‰çš„æˆåŠŸæœ‰çš„å¤±æ•—</pre>
+  <pre>ç­”æ¡ˆï¼š</pre>
+  <pre>(1) ä»¥ä½ çš„ç¨‹å¼ç‚ºä¾‹ï¼Œtemp::temp(); å…¶å¯¦æ˜¯ç”¢ç”Ÿäº†ä¸€å€‹æš«æ™‚ç‰©ä»¶ã€‚
+å…¶æ„ç¾©å’Œ temp(); ä¸€æ¨£ã€‚æš«æ™‚ç‰©ä»¶çš„ç”Ÿå‘½åœ¨è©²å¼å­çµæŸä¹‹å¾Œï¼Œå…¶
+ç”Ÿå‘½ä¹Ÿå°±çµæŸäº† â€” å½¼æ™‚æœƒå–šèµ· dtorã€‚åœ¨æ•ˆç‡è­°é¡Œä¸Šï¼Œæš«æ™‚ç‰©ä»¶
+æ˜¯ä¸€å€‹å€¼å¾—é‡è¦–çš„é¡Œç›®ï¼Œå°¤å…¶åœ¨ NRVO (Named Return Value Optimizationï¼‰
+çš„è¨è«–ã€‚è¦‹ More Effective C++, item20ã€‚
+æ‡‰ç”¨ç¨‹å¼ä½¿ç”¨ STL function objects æ™‚ï¼Œå¸¸ä½¿ç”¨æš«æ™‚ç‰©ä»¶ã€‚</pre>
+  <pre>è‡³æ–¼ç‚ºä»€éº¼ temp::temp(); ç­‰åŒæ–¼ temp(); é€™ææ€•è¦çœ‹ &quot;D&amp;E&quot;:
 The Design and Evolution of C++, by Bjarne Stroustrup.</pre>
-  <pre>(2) ­ì¦]¨£ (1)</pre>
-  <pre>(3) °ò¥»¤W§Aªºµ{¦¡¤£¥iª½±µ©I¥s ctor¡A¤£½×§A¬O«ç»ò¼g¡G
-  m_obj1.temp::temp();    // ³o¤£¥i¥H   (A)
-  m_obj1.temp();          // ³o¤]¤£¥i¥H (B)
-§Aªº (A) ¤§©Ò¥H¥i¥H¡A¦]¬° VC ¦³¯äÂÎ¡CCB ©M GCC ³£¤£Åı¥¦³q¹L¡C</pre>
-  <pre>ªş±a¤@´£¡A§Aªº object ©R¦W¤è¦¡¤£²z·Q¡Am_ ³q±`¥Î©ó data members ªº©R¦W¡C</pre>
+  <pre>(2) åŸå› è¦‹ (1)</pre>
+  <pre>(3) åŸºæœ¬ä¸Šä½ çš„ç¨‹å¼ä¸å¯ç›´æ¥å‘¼å« ctorï¼Œä¸è«–ä½ æ˜¯æ€éº¼å¯«ï¼š
+  m_obj1.temp::temp();    // é€™ä¸å¯ä»¥   (A)
+  m_obj1.temp();          // é€™ä¹Ÿä¸å¯ä»¥ (B)
+ä½ çš„ (A) ä¹‹æ‰€ä»¥å¯ä»¥ï¼Œå› ç‚º VC æœ‰è‡­èŸ²ã€‚CB å’Œ GCC éƒ½ä¸è®“å®ƒé€šéã€‚</pre>
+  <pre>é™„å¸¶ä¸€æï¼Œä½ çš„ object å‘½åæ–¹å¼ä¸ç†æƒ³ï¼Œm_ é€šå¸¸ç”¨æ–¼ data members çš„å‘½åã€‚</pre>
   <pre>-- jjhou</pre>
   <p><br>
   <br>
   </p>
-  <p><a name="C++ Primer qa62"><big><big>C++ Primer µª«È°İ (62)</big></big></a> - <big>private 
+  <p><a name="C++ Primer qa62"><big><big>C++ Primer ç­”å®¢å• (62)</big></big></a> - <big>private 
   inheritance, why BCC error.</big></p>
-  <pre>2001.07.20 ²Ä¤@¦¸µoªí</pre>
-  <pre><font color="#408080">??? wrote (2001/??/??) :  // ¬O¤£¬O kylin ´£°İ¡H§Ú§Ñ¤F¡C</font></pre>
-  <pre><font color="#408080">½Ğ¥ÎVC6.0¸Õ¸Õ¤U­±³o¬qµ{¦¡, ±z¬O§_Ä±±o¦³¦ó¤£¹ï«l?
-¦b§ÚªºÀô¹Ò¤¤½sÄ¶OK, ¦ı¬O, Derived«Y¥HprivateÄ~©ÓBase,
-¤SBaseªºconstructor¬°protected,¨º»ò, A¬O¤£¬OµLªk³Q«Øºc¤~¬O?
-¬O§Ú&quot;ªá¤F&quot;, ÁÙ¬OVC6 compiler¦³°İÃD?</font></pre>
+  <pre>2001.07.20 ç¬¬ä¸€æ¬¡ç™¼è¡¨</pre>
+  <pre><font color="#408080">??? wrote (2001/??/??) :  // æ˜¯ä¸æ˜¯ kylin æå•ï¼Ÿæˆ‘å¿˜äº†ã€‚</font></pre>
+  <pre><font color="#408080">è«‹ç”¨VC6.0è©¦è©¦ä¸‹é¢é€™æ®µç¨‹å¼, æ‚¨æ˜¯å¦è¦ºå¾—æœ‰ä½•ä¸å°å‹?
+åœ¨æˆ‘çš„ç’°å¢ƒä¸­ç·¨è­¯OK, ä½†æ˜¯, Derivedä¿‚ä»¥privateç¹¼æ‰¿Base,
+åˆBaseçš„constructorç‚ºprotected,é‚£éº¼, Aæ˜¯ä¸æ˜¯ç„¡æ³•è¢«å»ºæ§‹æ‰æ˜¯?
+æ˜¯æˆ‘&quot;èŠ±äº†&quot;, é‚„æ˜¯VC6 compileræœ‰å•é¡Œ?</font></pre>
   <pre><font color="#408080">class Base
 {
 protected:
@@ -151,90 +151,90 @@ public:
     A a(1);
 }
 </font></pre>
-  <pre>¡´«J±¶¦^ÂĞ¡G</pre>
-  <pre>§Aªº³o­Óµ{¦¡¡A§Ú¦b¤T­Ó½sÄ¶¾¹¤Wªº´ú¸Õµ²ªG¬O¡G</pre>
+  <pre>â—ä¾¯æ·å›è¦†ï¼š</pre>
+  <pre>ä½ çš„é€™å€‹ç¨‹å¼ï¼Œæˆ‘åœ¨ä¸‰å€‹ç·¨è­¯å™¨ä¸Šçš„æ¸¬è©¦çµæœæ˜¯ï¼š</pre>
   <pre>VC6[o]
 GCC29[o]
 BCB4[x] :'Base::Base()' is not accessible in function A::A(int)</pre>
-  <pre>¨s³º BCB4 ¬O¡u²³¤H¬Ò¾K§Ú¿W¿ô¡v©O¡HÁÙ¬O¡u²³¤H¬Ò¿ô§Ú¿W¾K¡v©O¡H</pre>
-  <pre>µª®×¬O«áªÌ¡C</pre>
-  <pre>·í§Ú­Ì±Ä¥Î private inheritance¡Abase class ªº public ctor ¤£·|¦]¦¹
-¦¨¬° private¡A§_«h¡Aprivate inheritance ´N¤@ÂI¥Î³~³£¨S¦³¤F¡C
-¡X ¥¦ªº ctor ¦pªGµLªk³Q derived class ³ê°_¡A¥¦ÁÙ¦³¤°»ò¥Î³~©O¡H</pre>
-  <pre><font color="#0000FF">¡¹private inheritance ªº¹B¥Î¡A½Ğ¨£
+  <pre>ç©¶ç«Ÿ BCB4 æ˜¯ã€Œçœ¾äººçš†é†‰æˆ‘ç¨é†’ã€å‘¢ï¼Ÿé‚„æ˜¯ã€Œçœ¾äººçš†é†’æˆ‘ç¨é†‰ã€å‘¢ï¼Ÿ</pre>
+  <pre>ç­”æ¡ˆæ˜¯å¾Œè€…ã€‚</pre>
+  <pre>ç•¶æˆ‘å€‘æ¡ç”¨ private inheritanceï¼Œbase class çš„ public ctor ä¸æœƒå› æ­¤
+æˆç‚º privateï¼Œå¦å‰‡ï¼Œprivate inheritance å°±ä¸€é»ç”¨é€”éƒ½æ²’æœ‰äº†ã€‚
+â€” å®ƒçš„ ctor å¦‚æœç„¡æ³•è¢« derived class å–šèµ·ï¼Œå®ƒé‚„æœ‰ä»€éº¼ç”¨é€”å‘¢ï¼Ÿ</pre>
+  <pre><font color="#0000FF">â˜…private inheritance çš„é‹ç”¨ï¼Œè«‹è¦‹
 CUJ 1998/04 &quot;Object Counting in C++&quot;, by Scott Meyers
 DDJ 1999/10 &quot;Implementing operator-&gt;* for Smart Pointers&quot;, by Scott Meyers
 Effective C++ 2/e, item42: Using Private Inheritance Judiciously. 
 </font>
-¦]¦¹¡A¬O BCB4 ªí²{®t¡C</pre>
-  <pre>¦ı¬O¡A¤W­zÃö©ó private inheritance ªº°Q½×¡A¨Ã¤£¬O¤°»ò°ª²`©Î±âÀßªº¥DÃD¡A
-BCC ²z·í¤£¸Óªí²{³o»ò®t¡C¦b°¸¦Óªº±¡ªp¤U¡A§Ú»{¬°§Aªº¡G
+å› æ­¤ï¼Œæ˜¯ BCB4 è¡¨ç¾å·®ã€‚</pre>
+  <pre>ä½†æ˜¯ï¼Œä¸Šè¿°é—œæ–¼ private inheritance çš„è¨è«–ï¼Œä¸¦ä¸æ˜¯ä»€éº¼é«˜æ·±æˆ–æ™¦æ¾€çš„ä¸»é¡Œï¼Œ
+BCC ç†ç•¶ä¸è©²è¡¨ç¾é€™éº¼å·®ã€‚åœ¨å¶è€Œçš„æƒ…æ³ä¸‹ï¼Œæˆ‘èªç‚ºä½ çš„ï¼š
 class Derived : <font
 color="#0000FF">private virtual</font> Base
-¨ä¤¤ªº virtual ¦b¦¹¨ÃµL·N¸q¡A¦]¦¹±N¥¦®³±¼¡AÅÜ¦¨¡G
+å…¶ä¸­çš„ virtual åœ¨æ­¤ä¸¦ç„¡æ„ç¾©ï¼Œå› æ­¤å°‡å®ƒæ‹¿æ‰ï¼Œè®Šæˆï¼š
 class Derived : <font
 color="#0000FF">private</font> Base
-µM«á§Úµo²{¡A¤T­Ó½sÄ¶¾¹³£§t¯º³q¹L¤F¡C</pre>
-  <pre>ÅãµM¡ABCB4 ¬O³Q virtual ·d©üÀY¤F¡C¤£¹L¡A¥¦¨S¦³®¼¹L¨Ó¡A©Ò¥HÁÙ¬O­n»¡¥¦ªí²{
-®t¤FÂI¡C</pre>
-  <p>¡@</p>
-  <pre>¡¹¡¹¡¹ 2001/08/22 ¸É¥R</pre>
-  <pre><font color="#000000">ÅªªÌ</font>³¯¯§¤Z¥ı¥Í¨Ó«H¤@«Ê¦p¤U¡G</pre>
-  <pre><font color="#408080">¶Ç°e¤é´Á: 2001¦~8¤ë8¤é PM 01:23
-¥D¦®: µêÀÀÄ~©ÓªººÃ°İ??
-&gt; ±z¦n:
-&gt; §Ú¦b±zªººô¯¸¤W¬İ¨ì&quot;C++ Primer µª«È°İ(62)&quot;¡A¤ß¸ÌÄ±±o©Ç©Çªº¡A
-&gt; ¦]¦¹°¨¤W¥Î¤âÃäªºcompiler°µ´ú¸Õ(gcc 2.95.3 and IBM VisualAge
-&gt; for C++)¡A±o¨ìªº³£¬OÃş¦ü&quot;`Base::Base()' is protected&quot;ªº¿ù»~°T®§¡C
+ç„¶å¾Œæˆ‘ç™¼ç¾ï¼Œä¸‰å€‹ç·¨è­¯å™¨éƒ½å«ç¬‘é€šéäº†ã€‚</pre>
+  <pre>é¡¯ç„¶ï¼ŒBCB4 æ˜¯è¢« virtual ææ˜é ­äº†ã€‚ä¸éï¼Œå®ƒæ²’æœ‰æŒºéä¾†ï¼Œæ‰€ä»¥é‚„æ˜¯è¦èªªå®ƒè¡¨ç¾
+å·®äº†é»ã€‚</pre>
+  <p>ã€€</p>
+  <pre>â˜…â˜…â˜… 2001/08/22 è£œå……</pre>
+  <pre><font color="#000000">è®€è€…</font>é™³ç¥å‡¡å…ˆç”Ÿä¾†ä¿¡ä¸€å°å¦‚ä¸‹ï¼š</pre>
+  <pre><font color="#408080">å‚³é€æ—¥æœŸ: 2001å¹´8æœˆ8æ—¥ PM 01:23
+ä¸»æ—¨: è™›æ“¬ç¹¼æ‰¿çš„ç–‘å•??
+&gt; æ‚¨å¥½:
+&gt; æˆ‘åœ¨æ‚¨çš„ç¶²ç«™ä¸Šçœ‹åˆ°&quot;C++ Primer ç­”å®¢å•(62)&quot;ï¼Œå¿ƒè£¡è¦ºå¾—æ€ªæ€ªçš„ï¼Œ
+&gt; å› æ­¤é¦¬ä¸Šç”¨æ‰‹é‚Šçš„compileråšæ¸¬è©¦(gcc 2.95.3 and IBM VisualAge
+&gt; for C++)ï¼Œå¾—åˆ°çš„éƒ½æ˜¯é¡ä¼¼&quot;`Base::Base()' is protected&quot;çš„éŒ¯èª¤è¨Šæ¯ã€‚
 &gt; 
-&gt; ©ó¬OÂ½¤@Â½ C++ primer ¡A­è¦n¦b 18.5.2¸`¬İ¨ì¬ÛÃö°T®§:
-&gt; &quot;¦b«DµêÀÀ­l¤Æ¦æ¬°¤¤........&quot;
+&gt; æ–¼æ˜¯ç¿»ä¸€ç¿» C++ primer ï¼Œå‰›å¥½åœ¨ 18.5.2ç¯€çœ‹åˆ°ç›¸é—œè¨Šæ¯:
+&gt; &quot;åœ¨éè™›æ“¬è¡åŒ–è¡Œç‚ºä¸­........&quot;
 &gt; 
-&gt; ¥Ñ¦¹¬İ¨Ó¡A¨º¬qµ{¦¡¦ü¥G¤£¬O¦p±z»¡©Òªº¬OBCBªºerror¡A¦Ó¬O»y¨¥
-&gt; ¥»¨­´N¬O¦p¦¹¡A¤£ª¾±zÄ±±o¦p¦ó??</font>
+&gt; ç”±æ­¤çœ‹ä¾†ï¼Œé‚£æ®µç¨‹å¼ä¼¼ä¹ä¸æ˜¯å¦‚æ‚¨èªªæ‰€çš„æ˜¯BCBçš„errorï¼Œè€Œæ˜¯èªè¨€
+&gt; æœ¬èº«å°±æ˜¯å¦‚æ­¤ï¼Œä¸çŸ¥æ‚¨è¦ºå¾—å¦‚ä½•??</font>
 
-¡´«J±¶¦^ÂĞ¡GÁöµM±z´£¿ô¤F§Ú¥t¤@±ø½u¯Á¡A¦ı§ÚÁÙ¬O­n»¡ BCB4 ¬O
-¡u²³¤H¬Ò¿ô§Ú¿W¾K¡v¡C<font
-color="#000000">C++ primer 18.5.2¸`§i¶D§Ú­Ì¡AµêÀÀÄ~©ÓÅé¨t¤¤ªº
+â—ä¾¯æ·å›è¦†ï¼šé›–ç„¶æ‚¨æé†’äº†æˆ‘å¦ä¸€æ¢ç·šç´¢ï¼Œä½†æˆ‘é‚„æ˜¯è¦èªª BCB4 æ˜¯
+ã€Œçœ¾äººçš†é†’æˆ‘ç¨é†‰ã€ã€‚<font
+color="#000000">C++ primer 18.5.2ç¯€å‘Šè¨´æˆ‘å€‘ï¼Œè™›æ“¬ç¹¼æ‰¿é«”ç³»ä¸­çš„
 </font><font
-color="#0000FF">³Ì©³¼h­l¥ÍÃş§O</font><font color="#000000">¡A¦³¸q°È©ú¥Õ³ê°_ virtual base class's ctor¡F
+color="#0000FF">æœ€åº•å±¤è¡ç”Ÿé¡åˆ¥</font><font color="#000000">ï¼Œæœ‰ç¾©å‹™æ˜ç™½å–šèµ· virtual base class's ctorï¼›
 </font><font
-color="#0000FF">¤¤¤¶¼h­l¥ÍÃş§O</font><font color="#000000">¦b ctor ¤º¹ïvirtual base class's ctor ªº³ê°_°Ê§@
-«h¤@·§³QÀ£¨î¡C¦]¦¹¡A¥»¨Òªº A ctor ¤ºÀ³¸Ó¼g¥X¹ï Base ctor ªºª½±µ³ê°_
-°Ê§@¤~¬O¡C¦ıC++ primer 18.5.2¸`¤]§i¶D§Ú­Ì¡A¦pªG§Ú­Ì¨S³o»ò°µªº¸Ü¡A
-Base ªº default ctor ·|³Q³ê°_¡F¦pªG Base ¯Ê¥F default ctor¡A
-³o®É­Ô¤~·|³y¦¨½sÄ¶¿ù»~¡C</font></pre>
-  <pre><font color="#000000">§Ú­Ìªº¨Ò¤l¤¤¡ABase ¾Ö¦³ default ctor¡A©Ò¥H¤£À³¦³¿ù¡C</font></pre>
-  <pre><font color="#000000">¤£¹L¡A§Ú¥ı«e»¡VC6ªº½Ç´­¡A¤]¤Ó½Ä°Ê¤F¡A¦]¬°¡AC++ primer 18.5.2¸`
-ªº¨Ò¤l¡A¦b VC6,BCB4,BCB5³£³q¤£¹L¡]¥u¦³GCC29¥i¥H¡^¡C©Ò¥HVC6¦b¥»¨Ò¤¤ªº
-¦nªí²{¡A¥u¬O¬n¥´¥¿µÛ¦Ó¤w¡C</font></pre>
-  <pre><font color="#000000">µêÀÀÄ~©Ó¯u¬O¤@­Ó±â·tªº¦a±a¡C</font></pre>
-  <p>¡@</p>
-  <p>¡@</p>
-  <p><a name="C++ Primer qa63"><big><big>C++ Primer µª«È°İ (63)</big></big></a> - 
-  translation units¤§¶¡¥i¤¹³\re-definition ?<br>
+color="#0000FF">ä¸­ä»‹å±¤è¡ç”Ÿé¡åˆ¥</font><font color="#000000">åœ¨ ctor å…§å°virtual base class's ctor çš„å–šèµ·å‹•ä½œ
+å‰‡ä¸€æ¦‚è¢«å£“åˆ¶ã€‚å› æ­¤ï¼Œæœ¬ä¾‹çš„ A ctor å…§æ‡‰è©²å¯«å‡ºå° Base ctor çš„ç›´æ¥å–šèµ·
+å‹•ä½œæ‰æ˜¯ã€‚ä½†C++ primer 18.5.2ç¯€ä¹Ÿå‘Šè¨´æˆ‘å€‘ï¼Œå¦‚æœæˆ‘å€‘æ²’é€™éº¼åšçš„è©±ï¼Œ
+Base çš„ default ctor æœƒè¢«å–šèµ·ï¼›å¦‚æœ Base ç¼ºä¹ default ctorï¼Œ
+é€™æ™‚å€™æ‰æœƒé€ æˆç·¨è­¯éŒ¯èª¤ã€‚</font></pre>
+  <pre><font color="#000000">æˆ‘å€‘çš„ä¾‹å­ä¸­ï¼ŒBase æ“æœ‰ default ctorï¼Œæ‰€ä»¥ä¸æ‡‰æœ‰éŒ¯ã€‚</font></pre>
+  <pre><font color="#000000">ä¸éï¼Œæˆ‘å…ˆå‰èªªVC6çš„è¤’æšï¼Œä¹Ÿå¤ªè¡å‹•äº†ï¼Œå› ç‚ºï¼ŒC++ primer 18.5.2ç¯€
+çš„ä¾‹å­ï¼Œåœ¨ VC6,BCB4,BCB5éƒ½é€šä¸éï¼ˆåªæœ‰GCC29å¯ä»¥ï¼‰ã€‚æ‰€ä»¥VC6åœ¨æœ¬ä¾‹ä¸­çš„
+å¥½è¡¨ç¾ï¼Œåªæ˜¯æ­ªæ‰“æ­£è‘—è€Œå·²ã€‚</font></pre>
+  <pre><font color="#000000">è™›æ“¬ç¹¼æ‰¿çœŸæ˜¯ä¸€å€‹æ™¦æš—çš„åœ°å¸¶ã€‚</font></pre>
+  <p>ã€€</p>
+  <p>ã€€</p>
+  <p><a name="C++ Primer qa63"><big><big>C++ Primer ç­”å®¢å• (63)</big></big></a> - 
+  translation unitsä¹‹é–“å¯å…è¨±re-definition ?<br>
   </p>
-  <pre>2001.08.17 ²Ä¤@¦¸µoªí</pre>
-  <pre>¡´«J±¶°İ¡G
-STL ªº³\¦hÀÉ®×³£©w¸q¬° headers, ¦ı¨ä¤¤¦³³\¦h classes implementation.
-¬°¤°»ò¦P¤@­ÓÀ³¥Îµ{¦¡ªº³\¦h .cpp §t¤J³o¨Ç headers ¤§«á¡A
-¤£·|³y¦¨½Ä¬ğ (re-defined) ?</pre>
-  <pre>¡´«J±¶µª¡G
-1. non-inline, non-member functions ¤@©w±o©ñ¦b implementation file ¤¤¡C
-2. inline non-member functions ¥i©ñ¦b header file ¤¤¡C
-3. member function «h·íµM¥i©ñ¦b header file ¤¤¡]§Y¨Ï¬O¦b class body ¥~©w¸q¡^¡C</pre>
-  <pre>¼F®`ªº¬O BCB4, BCB5¡A¥¦¤¹³\§A§â non-inline, non-member functions
-©ñ¦b headers ¤¤¡A³Q¦P¤@µ{¦¡ªº¦h­Ó .cpp §t¤J¡A¦Ó¤£·|¥X°İÃD¡C
-VC6, GCC ´NµL¦¹¯à­@¡CBCB ªº³oºØ¯S²§¥\¯à¡A¦b¬YºØ±¡ªp¤U¬O¦nªº
-¡]¨Ò¦p¤¹³\§Ú­Ì¦b header ¤¤©w¸q global functions¡^¡A
-¦b¬YºØ±¡ªp¤U«Ü¤£¦n¡]¨Ò¦p§Ú­Ì¤@¤£¤p¤ß¦b¤£¦Pªº cpp ÀÉ¤¤©w¸q¤F
-¦P¦W¦Ó·N¸q¤£¦Pªº global functions¡A³ºµM·|Àò³q¹L¡^¡C</pre>
-  <pre>¡´YHChuang ¸É¥R¡G
-¬İ¨ì§Aªº°İÃD¥H¨Ó¡A¤@ª½«ä¯ÁµÛcompiler¬O¦p¦ó°µ¨ì
-¦P¤@­ÓÀ³¥Îµ{¦¡ªº³\¦h .cpp §t¤J³o¨ÇSTL headers ¤§«á
-¤£·|³y¦¨½Ä¬ğ (re-defined) ?</pre>
-  <pre>«ä¦Òªº¹Lµ{¤¤§Úµo²{¤F¤@­Ó«Ü¦³½ìªº°İÃD¡A¥i¥H°Ñ¦Ò¬İ¬İ¡C
-§Ú¼g¤F¤@­ÓÂ²³æªºµ{¦¡¡G</pre>
+  <pre>2001.08.17 ç¬¬ä¸€æ¬¡ç™¼è¡¨</pre>
+  <pre>â—ä¾¯æ·å•ï¼š
+STL çš„è¨±å¤šæª”æ¡ˆéƒ½å®šç¾©ç‚º headers, ä½†å…¶ä¸­æœ‰è¨±å¤š classes implementation.
+ç‚ºä»€éº¼åŒä¸€å€‹æ‡‰ç”¨ç¨‹å¼çš„è¨±å¤š .cpp å«å…¥é€™äº› headers ä¹‹å¾Œï¼Œ
+ä¸æœƒé€ æˆè¡çª (re-defined) ?</pre>
+  <pre>â—ä¾¯æ·ç­”ï¼š
+1. non-inline, non-member functions ä¸€å®šå¾—æ”¾åœ¨ implementation file ä¸­ã€‚
+2. inline non-member functions å¯æ”¾åœ¨ header file ä¸­ã€‚
+3. member function å‰‡ç•¶ç„¶å¯æ”¾åœ¨ header file ä¸­ï¼ˆå³ä½¿æ˜¯åœ¨ class body å¤–å®šç¾©ï¼‰ã€‚</pre>
+  <pre>å²å®³çš„æ˜¯ BCB4, BCB5ï¼Œå®ƒå…è¨±ä½ æŠŠ non-inline, non-member functions
+æ”¾åœ¨ headers ä¸­ï¼Œè¢«åŒä¸€ç¨‹å¼çš„å¤šå€‹ .cpp å«å…¥ï¼Œè€Œä¸æœƒå‡ºå•é¡Œã€‚
+VC6, GCC å°±ç„¡æ­¤èƒ½è€ã€‚BCB çš„é€™ç¨®ç‰¹ç•°åŠŸèƒ½ï¼Œåœ¨æŸç¨®æƒ…æ³ä¸‹æ˜¯å¥½çš„
+ï¼ˆä¾‹å¦‚å…è¨±æˆ‘å€‘åœ¨ header ä¸­å®šç¾© global functionsï¼‰ï¼Œ
+åœ¨æŸç¨®æƒ…æ³ä¸‹å¾ˆä¸å¥½ï¼ˆä¾‹å¦‚æˆ‘å€‘ä¸€ä¸å°å¿ƒåœ¨ä¸åŒçš„ cpp æª”ä¸­å®šç¾©äº†
+åŒåè€Œæ„ç¾©ä¸åŒçš„ global functionsï¼Œç«Ÿç„¶æœƒç²é€šéï¼‰ã€‚</pre>
+  <pre>â—YHChuang è£œå……ï¼š
+çœ‹åˆ°ä½ çš„å•é¡Œä»¥ä¾†ï¼Œä¸€ç›´æ€ç´¢è‘—compileræ˜¯å¦‚ä½•åšåˆ°
+åŒä¸€å€‹æ‡‰ç”¨ç¨‹å¼çš„è¨±å¤š .cpp å«å…¥é€™äº›STL headers ä¹‹å¾Œ
+ä¸æœƒé€ æˆè¡çª (re-defined) ?</pre>
+  <pre>æ€è€ƒçš„éç¨‹ä¸­æˆ‘ç™¼ç¾äº†ä¸€å€‹å¾ˆæœ‰è¶£çš„å•é¡Œï¼Œå¯ä»¥åƒè€ƒçœ‹çœ‹ã€‚
+æˆ‘å¯«äº†ä¸€å€‹ç°¡å–®çš„ç¨‹å¼ï¼š</pre>
   <pre>1. qa63.cpp   (include main())
 2. qa63-2.cpp</pre>
   <pre><font color="#0000FF">//----qa63.cpp-----
@@ -298,15 +298,15 @@ public:
     i = inlineFunc();
 }</pre>
   <pre>int func() { return 2; }</pre>
-  <p>¡@</p>
-  <pre>¥HVC°µ¤F¤@¤U´ú¸Õ¡A±o¨ìªºµ²ªG¬O¡G</pre>
+  <p>ã€€</p>
+  <pre>ä»¥VCåšäº†ä¸€ä¸‹æ¸¬è©¦ï¼Œå¾—åˆ°çš„çµæœæ˜¯ï¼š</pre>
   <pre>func1() in test1 module
 CA::Call() in test1 module
 inlineFunc in test1 module
 func2() in test2 module
 CA::Call() in test1 module
 inlineFunc in test1 module</pre>
-  <pre>³o¬O¤@­Ó«D±`©_©Çªºµ²ªG¡A·Ó²z¨Ó»¡¤£¬OÀ³¸Ó¬°¡G</pre>
+  <pre>é€™æ˜¯ä¸€å€‹éå¸¸å¥‡æ€ªçš„çµæœï¼Œç…§ç†ä¾†èªªä¸æ˜¯æ‡‰è©²ç‚ºï¼š</pre>
   <pre>func1() in test1 module
 CA::Call() in test1 module
 inlineFunc in test1 module
@@ -314,27 +314,27 @@ func2() in test2 module
 <font
 color="#0000FF">CA::Call() in test2 module  &lt;-- note
 inlineFunc in test2 module  &lt;-- note</font></pre>
-  <pre>¥i¨£complier¬°¤F§Ú­Ì°µ¤F¤£¤Ö©_©Çªº¨Æ±¡¡A©Ò¥H¥i¬İ±o¥X¨Ó¡G
-µ²½×¥i¥H¬O«ÜÂ²³æ¥i¬O¨ä¤¤ªº¹Lµ{¥i´N¤£Â²³æ¤F¡I</pre>
-  <pre>¡´«J±¶¦^ÂĞ¡G
-­º¥ı¡A§Aªº¨â­Ó½sÄ¶¼Ò²Õ©w¸q¤F¦P¦Wªº class name¡A
-³oÀ³¸Ó¬O¤@ºØ½sµ{¿ù»~¡C´ú¸Õµ²ªG¡GVC, GCC, BCB ³£¤¹³\¡C</pre>
-  <pre>¨ä¦¸¡A§Aªº¨â­Ó½sÄ¶¼Ò²Õ©w¸q¤F¦P¦Wªº inline function name¡A
-³oÀ³¸Ó¤]¬O¤@ºØ½sµ{¿ù»~¡C´ú¸Õµ²ªG¡GVC, GCC, BCB ³£¤¹³\¡C</pre>
-  <pre>³Ì«á¡A¤T®a½sÄ¶¾¹ªºµ²ªG¡A°õ¦æ®É¦U¦³¤£¦P¡CGCC ªºµ²ªG¦p¦P VC¡A
-BCB ªºµ²ªG«h¦p¦P§A©Ò»¡ªº¡u«ö²zÀ³¸Ó¦p¦¹¡v¡C</pre>
-  <pre>¥t¤@­Ó´ú¸Õ¡G¦pªG§Ú¦b§Aªº¨â­Ó½sÄ¶¼Ò²Õ¤¤¡A©w¸q¤F¦P¦Wªº global functions
-¡]¤£½×¨ä function body ¬O§_¬Û¦P¡^¡A³oÀ³¸Ó¤]¬O­Ó½sµ{¿ù»~¡C
-´ú¸Õµ²ªG¡GVC, GCC Ápµ²¿ù»~¡]¦n²{¶H¡^,BCB ³q¹L¡]¾÷ÃöºâºÉ¤ÓÁo©ú¡^¡C</pre>
-  <pre>§Ú»{¬°¡A¥Ñ©ó¤W­z³oÃş¼g½X¡A®Ú¥»¤W¬O¤@ºØ³´¨À¡]©Î»¡¤@ºØ¿ù»~¡^¡A
-©Ò¥HÄ~Äò°Q½×¤U¥hªº·N¸q¤£¤j¡C¦pªG§Ú­Ì§ïÅÜ¼gªk¡A±N¦P¦WªºªF¦è
-©ñ¦b header ¤¤¡]·íµM¨º´N¤£¯à¤]¤£·|¦³­«½Æ©w¸q¡^¡AÅÜ¦¨³o¼Ë¡G</pre>
+  <pre>å¯è¦‹complierç‚ºäº†æˆ‘å€‘åšäº†ä¸å°‘å¥‡æ€ªçš„äº‹æƒ…ï¼Œæ‰€ä»¥å¯çœ‹å¾—å‡ºä¾†ï¼š
+çµè«–å¯ä»¥æ˜¯å¾ˆç°¡å–®å¯æ˜¯å…¶ä¸­çš„éç¨‹å¯å°±ä¸ç°¡å–®äº†ï¼</pre>
+  <pre>â—ä¾¯æ·å›è¦†ï¼š
+é¦–å…ˆï¼Œä½ çš„å…©å€‹ç·¨è­¯æ¨¡çµ„å®šç¾©äº†åŒåçš„ class nameï¼Œ
+é€™æ‡‰è©²æ˜¯ä¸€ç¨®ç·¨ç¨‹éŒ¯èª¤ã€‚æ¸¬è©¦çµæœï¼šVC, GCC, BCB éƒ½å…è¨±ã€‚</pre>
+  <pre>å…¶æ¬¡ï¼Œä½ çš„å…©å€‹ç·¨è­¯æ¨¡çµ„å®šç¾©äº†åŒåçš„ inline function nameï¼Œ
+é€™æ‡‰è©²ä¹Ÿæ˜¯ä¸€ç¨®ç·¨ç¨‹éŒ¯èª¤ã€‚æ¸¬è©¦çµæœï¼šVC, GCC, BCB éƒ½å…è¨±ã€‚</pre>
+  <pre>æœ€å¾Œï¼Œä¸‰å®¶ç·¨è­¯å™¨çš„çµæœï¼ŒåŸ·è¡Œæ™‚å„æœ‰ä¸åŒã€‚GCC çš„çµæœå¦‚åŒ VCï¼Œ
+BCB çš„çµæœå‰‡å¦‚åŒä½ æ‰€èªªçš„ã€ŒæŒ‰ç†æ‡‰è©²å¦‚æ­¤ã€ã€‚</pre>
+  <pre>å¦ä¸€å€‹æ¸¬è©¦ï¼šå¦‚æœæˆ‘åœ¨ä½ çš„å…©å€‹ç·¨è­¯æ¨¡çµ„ä¸­ï¼Œå®šç¾©äº†åŒåçš„ global functions
+ï¼ˆä¸è«–å…¶ function body æ˜¯å¦ç›¸åŒï¼‰ï¼Œé€™æ‡‰è©²ä¹Ÿæ˜¯å€‹ç·¨ç¨‹éŒ¯èª¤ã€‚
+æ¸¬è©¦çµæœï¼šVC, GCC è¯çµéŒ¯èª¤ï¼ˆå¥½ç¾è±¡ï¼‰,BCB é€šéï¼ˆæ©Ÿé—œç®—ç›¡å¤ªè°æ˜ï¼‰ã€‚</pre>
+  <pre>æˆ‘èªç‚ºï¼Œç”±æ–¼ä¸Šè¿°é€™é¡å¯«ç¢¼ï¼Œæ ¹æœ¬ä¸Šæ˜¯ä¸€ç¨®é™·é˜±ï¼ˆæˆ–èªªä¸€ç¨®éŒ¯èª¤ï¼‰ï¼Œ
+æ‰€ä»¥ç¹¼çºŒè¨è«–ä¸‹å»çš„æ„ç¾©ä¸å¤§ã€‚å¦‚æœæˆ‘å€‘æ”¹è®Šå¯«æ³•ï¼Œå°‡åŒåçš„æ±è¥¿
+æ”¾åœ¨ header ä¸­ï¼ˆç•¶ç„¶é‚£å°±ä¸èƒ½ä¹Ÿä¸æœƒæœ‰é‡è¤‡å®šç¾©ï¼‰ï¼Œè®Šæˆé€™æ¨£ï¼š</pre>
   <pre>1. qa63.h    (include class CA and inline non-member function)
 2. qa63.cpp  (include main())
 3. qa63-2.cpp  (another module)</pre>
-  <pre>¨º¤~¬O¥¿½Tªº¦w±Æ¡C</pre>
-  <pre>2001.09.30¸Éµù¡G¦¹ÃD¬O§_»P©Ò¿× Interface Principle¦³Ãö¡H
-¨£¡mExceptional C++¡np123</pre>
+  <pre>é‚£æ‰æ˜¯æ­£ç¢ºçš„å®‰æ’ã€‚</pre>
+  <pre>2001.09.30è£œè¨»ï¼šæ­¤é¡Œæ˜¯å¦èˆ‡æ‰€è¬‚ Interface Principleæœ‰é—œï¼Ÿ
+è¦‹ã€ŠExceptional C++ã€‹p123</pre>
   <pre>-- the end</pre>
   <p><br>
   </p>

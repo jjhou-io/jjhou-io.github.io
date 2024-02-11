@@ -4,156 +4,156 @@
 <head>
 <meta content="text/html; charset=big5" http-equiv="Content-Type">
 <meta content="Microsoft FrontPage 3.0" name="GENERATOR">
-<title>Re: �~�Ӫ��S�� ?</title>
+<title>Re: 繼承的特性 ?</title>
 </head>
 
 <body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
 
 <hr>
 
-<h2 align="center">�~�Ӫ��S�� ?</h2>
+<h2 align="center">繼承的特性 ?</h2>
 
 <blockquote>
-  <p align="center">�J�� 2000.04.16</p>
+  <p align="center">侯捷 2000.04.16</p>
 </blockquote>
 
 <hr>
 
 <blockquote>
-  <p>�o�̦��@�� BBS/News OOP �����K�H�A�ް_�ڪ�����C��H�p�U�G<br>
+  <p>這裡有一封 BBS/News OOP 版的貼信，引起我的興趣。原信如下：<br>
   <br>
-  <font color="#408080">�o�H�H: Leaf.bbs@bbs.yzu.edu.tw (�۬O�ŬX�̶ˤH), �ݪO: 
+  <font color="#408080">發信人: Leaf.bbs@bbs.yzu.edu.tw (自是溫柔最傷人), 看板: 
   oop<br>
-  �� �D: Re: �~�Ӫ��S�� ??<br>
-  �o�H��: �����j�ǭ����� (Wed Apr 12 22:01:15 2000)<br>
+  標 題: Re: 繼承的特性 ??<br>
+  發信站: 元智大學風之塔 (Wed Apr 12 22:01:15 2000)<br>
   <br>
-  &gt; &gt;�����~�Ӫ��ϥΡA�ä����u�{��W���[��<br>
-  &gt; &gt;�Ҧp:<br>
-  &gt; &gt;��O�@�ؾ��<br>
-  &gt; &gt;�ҥH�~�ӮɡA���ӭn���g�@�Ӿ��<br>
-  &gt; &gt;�M��g�@�Ӷ�h�~�Ӿ��<br>
+  &gt; &gt;有時繼承的使用，並不遵守現實上的觀念<br>
+  &gt; &gt;例如:<br>
+  &gt; &gt;圓是一種橢圓<br>
+  &gt; &gt;所以繼承時，應該要先寫一個橢圓<br>
+  &gt; &gt;然後寫一個圓去繼承橢圓<br>
   <br>
-  &gt; �o���~�Ӫ��覡���i��|�H�� Liskov-Substitution Principle<br>
+  &gt; 這種繼承的方式有可能會違反 Liskov-Substitution Principle<br>
   <br>
-  &gt; &gt;�ҥH ��� �� �� �h�F�@�� data member<br>
-  &gt; &gt;�G�ڭ̷|�g��<br>
-  &gt; &gt;����~�ӤF��<br>
+  &gt; &gt;所以 橢圓 比 圓 多了一個 data member<br>
+  &gt; &gt;故我們會寫成<br>
+  &gt; &gt;橢圓繼承了圓<br>
   <br>
-  &gt; �o�ؤ覡�u�O���F�~�Ӷꪺ implementation ��O���~�ܽd.<br>
-  &gt; �J�M��ꤣ�O��N�����~�Ӷ�.<br>
-  &gt; �b�o�ӱ��ΤU�̦n����ꤣ�n�����~��, ���i�H�����<br>
-  &gt; ���@�Ӧ@�P�~�Ӫ� base class.<br>
+  &gt; 這種方式只是為了繼承圓的 implementation 更是錯誤示範.<br>
+  &gt; 既然橢圓不是圓就不該繼承圓.<br>
+  &gt; 在這個情形下最好圓跟橢圓不要互相繼承, 但可以讓兩者<br>
+  &gt; 有一個共同繼承的 base class.<br>
   <br>
-  ��...���ΥS�Ҩ��ƬO<br>
+  恩...王蟲兄所言甚是<br>
   <br>
-  ����W �J Sir �}���Ү�, �Nı�o�L�|�o�ӨҤl�ǩǣx<br>
-  ���@���䤣�줰�򻡪k�Ӹ���<br>
-  �{�b�`��@�y�D�}�F��<br>
+  當初上 侯 Sir 開的課時, 就覺得他舉這個例子怪怪ㄉ<br>
+  但一直找不到什麼說法來解釋<br>
+  現在總算一語道破了說<br>
   <br>
-  �]�N�O��<br>
-  �~�Ӿ�N�|�ܦ�<br>
+  也就是說<br>
+  繼承樹就會變成<br>
   </font><br>
   [fig]<br>
   <br>
-  <font color="#408080">��������.....<br>
-  �i�O�o�˷|���|�W�[�޲z�������װ�....<br>
+  <font color="#408080">恩恩恩恩.....<br>
+  可是這樣會不會增加管理的複雜度啊....<br>
   </font></p>
   <p><br>
-  �H�U�O�J�����P�Q�G<br>
+  以下是侯捷的感想：<br>
   <br>
   1. 
-  �W�ұоǩ��|�Ҥl�A���ɭԵ����ɨϥήɾ��]�O�_���D�����I�A�Υu�O���F�����~����t�H����L���D�γ~�^�B���ҹ�H���{�ס]�O�_���@�b�H�W���H�q��ť�D�ҿ� 
-  interface inheritance�^�A�Ӧ����P�`�ת��Q�סC�p���P�ǵ{�׶W�L�Ѯv���w���A�y��W�ҩΤU���~��l�ݺ��I�A�i�קK���ۤv���ôb�@�������ôb�C<br>
+  上課教學所舉例子，有時候視當時使用時機（是否為主講重點，或只是為了有個繼承體系以做其他講題用途）、講課對象的程度（是否有一半以上的人從未聽聞所謂 
+  interface inheritance），而有不同深度的討論。如有同學程度超過老師的預期，宜於上課或下課繼續追問疑點，可避免讓自己的疑惑一直成為疑惑。<br>
   <br>
   2. 
-  �m�h���P�����n�Ѥ��紿�|�L�����W�z�u�H����~�Ӷ�v���Ҥl�A�T�ݲ��W�C�M�礣�i�����ɭ�R 
-  implementation inheritance �M interface inheritance 
-  ���ϧO�C�]�����ɪ����p�O�Ʊ浹�@�ӡu���q²�ơv���~����t�A�H�����u�h���v���޽m��H�C<br>
+  《多型與虛擬》書中亦曾舉過類似上述「以橢圓繼承圓」的例子，確屬粗糙。然亦不可能於當時剖析 
+  implementation inheritance 和 interface inheritance 
+  的區別。因為當時的情況是希望給一個「儘量簡化」的繼承體系，以做為「多型」之操練對象。<br>
   <br>
   3. 
-  ���W�N�O���W�A�ҥH����n���@�k�O�b�|�u�H����~�Ӷ�v���Ҥl�ɡA�[���ֶq�ɥR�����P�����C�ڱN��m�h���P�����n2/e 
-  ���o�򰵡C<br>
+  粗糙就是粗糙，所以比較好的作法是在舉「以橢圓繼承圓」的例子時，加註少量補充說明與提醒。我將於《多型與虛擬》2/e 
+  中這麼做。<br>
   <br>
-  4. inheritance �O�ӽ������D�ءA�[�\ public/protected/private<br>
-  base classes�Avirtual/nonvirtual base classes�Fvirtual/nonvirtual<br>
-  member functions�C����M�Ҧ��o���[���A�H�����W��²�u�Q�װ���<br>
-  �ǲߤ��D�ëD���|�C�̨ο�k�N�O��@���n�ѡC<br>
+  4. inheritance 是個複雜的題目，涵蓋 public/protected/private<br>
+  base classes，virtual/nonvirtual base classes；virtual/nonvirtual<br>
+  member functions。欲釐清所有這些觀念，以網路上的簡短討論做為<br>
+  學習之道並非智舉。最佳辦法就是找一本好書。<br>
   <br>
-  5. ���ˤ@���n�ѡGEffective C++ 2/e�A�䤤���@���M�סu�~�Ӿ���P����ɦV�]�p�]Inheritance 
-  and Object-Oriented Design�^�C���e�]�A�G<br>
+  5. 推薦一本好書：Effective C++ 2/e，其中有一章專論「繼承機制與物件導向設計（Inheritance 
+  and Object-Oriented Design）。內容包括：<br>
   <br>
-  <font color="#8080FF">����35�G�T�w�A�� public inheritance �Ҷ�X &quot;isa&quot; 
-  �����Y<br>
+  <font color="#8080FF">條款35：確定你的 public inheritance 模塑出 &quot;isa&quot; 
+  的關係<br>
   Item 35: Make sure public inheritance models &quot;isa.&quot;<br>
   <br>
-  ����36�G�Ϥ��u�����~�ӡ]interface inheritance�^�v�M<br>
-  �u��@�~�ӡ]implementation inheritance�^�v<br>
+  條款36：區分「介面繼承（interface inheritance）」和<br>
+  「實作繼承（implementation inheritance）」<br>
   Item 36: Differentiate between inheritance of interface and<br>
   inheritance of implementation.<br>
   <br>
-  ����37�G���藍�n���s�w�q�@���~�ӦӨӪ��D�����禡<br>
+  條款37：絕對不要重新定義一個繼承而來的非虛擬函式<br>
   Item 37: Never redefine an inherited nonvirtual function.<br>
   <br>
-  ����38�G���藍�n���s�w�q�@���~�ӦӨӪ��w�]�Ѽƭ�<br>
+  條款38：絕對不要重新定義一個繼承而來的預設參數值<br>
   Item 38: Never redefine an inherited default parameter value.<br>
   <br>
-  ����39�G�קK�b�~����t���� cast down�]�V�U�૬�^���ʧ@<br>
+  條款39：避免在繼承體系中做 cast down（向下轉型）的動作<br>
   Item 39: Avoid casts down the inheritance hierarchy.<br>
   <br>
-  ����40�G�z�L layering�]���h�޳N�^�ӼҶ� has-a ��<br>
-  is-implemented-in-terms-of �����Y<br>
+  條款40：透過 layering（分層技術）來模塑 has-a 或<br>
+  is-implemented-in-terms-of 的關係<br>
   Item 40: Model &quot;has-a&quot; or &quot;is-implemented-in-terms-of&quot;<br>
   through layering.<br>
   <br>
-  ����41�G�Ϥ� inheritance �M templates<br>
+  條款41：區分 inheritance 和 templates<br>
   Item 41: Differentiate between inheritance and templates.<br>
   <br>
-  ����42�G�����a�B�� private inheritance�]�p���~�ӡ^<br>
+  條款42：明智地運用 private inheritance（私有繼承）<br>
   Item 42: Use private inheritance judiciously.<br>
   <br>
-  ����43�G�����a�B�Φh���~�ӡ]multiple inheritance�AMI�^<br>
+  條款43：明智地運用多重繼承（multiple inheritance，MI）<br>
   Item 43: Use multiple inheritance judiciously.<br>
   <br>
-  ����44�G���X�A���N����A�ѧA�һ����C�@�y��<br>
+  條款44：說出你的意思並瞭解你所說的每一句話<br>
   Item 44: Say what you mean; understand what you're saying.<br>
   </font><br>
-  6. �b�u����ΩM�x�Ρv�]�άO���ΩM��Ρ^���~�����Y�W�A<br>
-  Effective C++ 2/e item35 ���o�˪��ԭz�]�K���^�G<br>
+  6. 在「正方形和矩形」（或是橢圓形和圓形）的繼承關係上，<br>
+  Effective C++ 2/e item35 有這樣的敘述（摘錄）：<br>
   <br>
   p158~p160 :<br>
-  <font color="#8080FF">�γ\�A�|���A�A�������b�ʥF��ı�A���O�A���X��ǾǱo�����C��A�O�ܡH�ڷQ�����O�A����ΩM�x�Τ����i�঳�h������H<br>
+  <font color="#8080FF">或許你會說，你對於鳥類實在缺乏直覺，但是你的幾何學學得不錯。喔，是嗎？我想說的是，正方形和矩形之間可能有多麼複雜？<br>
   <br>
-  �n�A�ЧA�^���o�Ӱ��D�Gclass Square ���ӥH public ���覡�~�� class 
-  Rectangle �ܡH<br>
+  好，請你回答這個問題：class Square 應該以 public 的方式繼承 class 
+  Rectangle 嗎？<br>
   <br>
-  ��<br>
+  圖<br>
   <br>
-  �y�F�I�z�A���A�y���M���Ӧp���I�C�@�ӤH�����D����άO�@�دx�ΡA�Ϥ��h���@�w�z�C�o�O�u�z�A�ܤְ����ƾǽҥ��O�o��Ъ��C���O�ڤ��{���A�{�b�٬O�����ǥ͡C<br>
+  『咄！』你說，『當然應該如此！每一個人都知道正方形是一種矩形，反之則不一定』。這是真理，至少高中數學課本是這麼教的。但是我不認為你現在還是高中學生。<br>
   <br>
-  �Ҽ{�o���X�G<br>
+  考慮這份碼：<br>
   ...<br>
-  �{�b�A�Ҽ{�o���X�A�䤤�ϥ� public inheritance�A���\����γQ�����@�دx�ΡG<br>
+  現在再考慮這份碼，其中使用 public inheritance，允許正方形被視為一種矩形：<br>
   ...<br>
   <br>
-  �w��Ө� public inheritance 
-  ���_���@�ɡC�A�b��L���]�]�A�ƾǡ^�ǲߦӱo����ı�A�b�o�̮��ȵL�k�p�w����a���Ҫ��{�C���Ҫ��ڥ��x���O�A�Y�ǨƱ��i�I���x�Ψ��W�]�Ҧp�e�ץi��W�Q�ק�^�A�o���i�I��󥿤�Ψ��W�]��e���`�O���өM���פ@�ˡ^�C���O 
-  public inheritance�D�i�A�C�@��Ʊ��u�n����I��� base class objects ���W 
-  �X �C��Ʊ���I �X �N�@�w�i�H�I��� derived class objects 
-  ���W�C�b����ΩM�x�Ϊ��Ҥl���]�t�@���������Ҥl�O sets �M lists�A������40�^�A���˪��D�i�L�k�O���A�ҥH�H 
+  歡迎來到 public inheritance 
+  的奇異世界。你在其他領域（包括數學）學習而得的直覺，在這裡恐怕無法如預期般地有所表現。本例的根本困難是，某些事情可施行於矩形身上（例如寬度可單獨被修改），卻不可施行於正方形身上（其寬度總是應該和高度一樣）。但是 
+  public inheritance主張，每一件事情只要能夠施行於 base class objects 身上 
+  — 每件事情唷！ — 就一定可以施行於 derived class objects 
+  身上。在正方形和矩形的例子中（另一個類似的例子是 sets 和 lists，見條款40），那樣的主張無法保持，所以以 
   public inheritance 
-  �ӼҶ쥦�̤��������Y�O���~���C�sĶ���|���A�q�L�A���O�@�p�ڭ̩Ҩ��A�o�ä��O�ҵ{�����欰�A���]�Υ��T�^�C�C�ӵ{�����������Ǳo�@�ӱаV�G�{���X�q�L�sĶ�A�ä����ܴN�i�H���T�B�@�C<br>
+  來模塑它們之間的關係是錯誤的。編譯器會讓你通過，但是一如我們所見，這並不保證程式的行為適當（或正確）。每個程式員都必須學得一個教訓：程式碼通過編譯，並不表示就可以正確運作。<br>
   <br>
-  �{�b�A���n�]���A�o�i�g�~���n�骽ı�b�P����ɦV�[������D���L�{�����h�ĥΡA�K�߷W�N�ð_�ӡC���Ǫ����٬O�����Ȫ��A���{�b�A�w�g���A���x��w�[�W 
-  inheritance�]�~�ӡ^�o��j���A�A�]�������A����ı�K�[�s���}��O�A�H�K�޾ɧA�A���a�B��inheritance 
-  �o�䯫�L�Q���C�����@�Ѧ��H�i�ܤ@�Ӽƭ������禡���A�ݡA�A�ױN�^�а_�u�O 
-  Penguin �~�� Bird�A�άO�O Square �~�� Rectangle�v�������M����F�o���~�Ӥ覡���i�౵��ƹ�u�H�A���]���i�ण�O�C<br>
+  現在，不要因為你發展經年的軟體直覺在與物件導向觀念打交道的過程中失去效用，便心慌意亂起來。那些知識還是有價值的，但現在你已經為你的軍械庫加上 
+  inheritance（繼承）這支大砲，你也必須為你的直覺添加新的洞察力，以便引導你適當地運用inheritance 
+  這支神兵利器。當有一天有人展示一個數頁長的函式給你看，你終將回憶起「令 
+  Penguin 繼承 Bird，或是令 Square 繼承 Rectangle」的概念和趣味；這種繼承方式有可能接近事實真象，但也有可能不是。<br>
   <br>
-  �O���A���M�A�u�O�@�ء]isa�^�v�ä��O�ߤ@�s�b�� classes 
-  ���������Y�C�t��ӱ`�����Y�O�u���@�ӡ]has-a�^�v�M�u�ھڬY����@�X�]is-implemented-in-terms-of�^�v�C�o�����Y�N�b����40�M42�Q�סC�N�W�z�o�ǭ��n���ۤ����Y��������@�ӻ~�쬰 
-  isa �ӳy�������~�]�p�A�b C++ 
-  ���ꤣ�u���A�ҥH�A���ӽT�w�A�T���A�ѳo�ǡuclasses 
-  �ۤ����Y�v�����t���A�åB���D<br>
-  �b C++ ���p���y���̡C<br>
+  是的，當然，「是一種（isa）」並不是唯一存在於 classes 
+  之間的關係。另兩個常見關係是「有一個（has-a）」和「根據某物實作出（is-implemented-in-terms-of）」。這些關係將在條款40和42討論。將上述這些重要的相互關係中的任何一個誤塑為 
+  isa 而造成的錯誤設計，在 C++ 
+  中實不罕見，所以你應該確定你確實瞭解這些「classes 
+  相互關係」間的差異，並且知道<br>
+  在 C++ 中如何塑造它們。<br>
   </font><br>
   -- the end</p>
 </blockquote>

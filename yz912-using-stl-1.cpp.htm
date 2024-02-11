@@ -1,13 +1,13 @@
-<html>// ²Ä¤G¶gµ{¦¡
+<html>// ç¬¬äºŒé€±ç¨‹å¼
 
-// headers À³±Ä¥Î·sªº³W®æ
+// headers æ‡‰æ¡ç”¨æ–°çš„è¦æ ¼
 #include <iostream>
 #include <vector>
 #include <list>
 #include <algorithm>
 using namespace std;
 
-// ¤@­Ó¥Î¥H¦C¦Lªº functor
+// ä¸€å€‹ç”¨ä»¥åˆ—å°çš„ functor
 
 template<typename T>
 class printElem
@@ -24,26 +24,26 @@ int main()
   int ia[10] = {2,6,9,14,49,70,38,90,71,28};
 
   {
-  // ¨Ï¥Î vector
+  // ä½¿ç”¨ vector
 
   vector<int>  vi(&ia[0], &ia[10]);
   vi.push_back(38);
 
   cout << vi.size() << endl;      // 11
-  cout << vi.capacity() << endl;  // 20¡]¨C¦¸¦¨ªø¨â­¿¡^
+  cout << vi.capacity() << endl;  // 20ï¼ˆæ¯æ¬¡æˆé•·å…©å€ï¼‰
   for(int i=0; i<vi.size(); ++i)
       cout << vi[i] << ' ';
 
-  // ¨Ï¥Î iterators
+  // ä½¿ç”¨ iterators
   vector<int>::iterator  ite1 = find(vi.begin(), vi.end(), 49);
   vector<int>::iterator  ite2 = find(vi.begin(), vi.end(), 90);
 
   cout << *ite1 << endl;  // 49
   cout << *ite2 << endl;  // 90
 
-  // erasing...¡]«İ¬d¡^
+  // erasing...ï¼ˆå¾…æŸ¥ï¼‰
 
-  cout << "jjhou" << int(5) << endl; // ¼È®Éª«¥ó
+  cout << "jjhou" << int(5) << endl; // æš«æ™‚ç‰©ä»¶
 
   sort(vi.begin(), vi.end());
 
@@ -57,14 +57,14 @@ int main()
   cout << *(++ite3) << endl;   // 38
   }
 
-  // ¨Ï¥Î¦UºØ algorithms
+  // ä½¿ç”¨å„ç¨® algorithms
 
 
 
-  // ¨Ï¥Î functors
+  // ä½¿ç”¨ functors
 
 
 
-  // ¨Ï¥Î adapters
+  // ä½¿ç”¨ adapters
 
 }

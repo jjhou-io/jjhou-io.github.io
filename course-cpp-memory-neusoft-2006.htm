@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=big5" http-equiv="Content-Type">
 <meta content="Microsoft FrontPage 3.0" name="GENERATOR">
-<title>memory management in C++ �F�n 2006 �ҵ{�Ƨѿ�</title>
+<title>memory management in C++ 東軟 2006 課程備忘錄</title>
 </head>
 
 <body background %22bgColor=-#ffffff%22%22 tppabs="http://jjhou.boolan.com/bgColor=%22#ffffff%22" text="#000000">
@@ -13,46 +13,46 @@
 
 <h2 align="center"><font color="#800000">Memory Management in C++<br>
 <br>
-�F�n 2006 �ҵ{�Ƨѿ� (18 �p��)<br>
+東軟 2006 課程備忘錄 (18 小時)<br>
 <br>
-<small>�J��</small></font></h2>
+<small>侯捷</small></font></h2>
 
-<p align="center"><font color="#0000FF">�����Ƨѿ��A���O����Ч��ξǲ߰Q�ת��a��</font></p>
+<p align="center"><font color="#0000FF">此為備忘錄，不是完整教材或學習討論的地方</font></p>
 
-<p align="center">2006 �V�u</p>
+<p align="center">2006 冬季</p>
 
 <hr>
 
 <blockquote>
-  <p><font color="#0000FF">�D��</font>�G�����ǲ� C++ memory management 
-  ���򥻤u��M�����޲z��k�A�þǲߦU�j���W�{���w�� Pooled Allocation 
-  �޳N�C </p>
-  <p><font color="#0000FF">����</font>�GMemory management �@�V�O C++ programmer 
-  ���h�I�A�D�n�]�� C++ ������ Garbage Collection�C�o�����O�į��U�{�U���@�ب��ˡC�{��p���A�ڭ̥����l�D�b�p�����{��U�p��S�֤S�n�a�B�� 
-  memory�A�ϲŦX�t�שM�Ŷ����̤j�Q�q�C���ҵ{�b�C���W�������� C++ 
-  ���Ѫ��U�� memory �޲z�u��]�U�� overloadable operators�^�A�b�����W�`��ǲߦU�j�{���w�]�]�A 
-  STL, Loki, MFC, Boost�^�� Pooled Allocation 
-  ���@�k�A�ô��ѥ��̪����ץi���Ӫ��]�ѫJ����s�^�C</p>
-  <p><font color="#0000FF">�Ч�</font>�G�۽s���q�APDF �榡�C<br>
+  <p><font color="#0000FF">主旨</font>：全面學習 C++ memory management 
+  的基本工具和高階管理手法，並學習各大知名程式庫的 Pooled Allocation 
+  技術。 </p>
+  <p><font color="#0000FF">說明</font>：Memory management 一向是 C++ programmer 
+  的痛點，主要因為 C++ 不提供 Garbage Collection。這畢竟是效能顧慮下的一種取捨。現實如此，我們必須追求在如此的現實下如何又快又好地運用 
+  memory，使符合速度和空間的最大利益。本課程在低階上全面介紹 C++ 
+  提供的各種 memory 管理工具（各種 overloadable operators），在高階上深刻學習各大程式庫（包括 
+  STL, Loki, MFC, Boost）的 Pooled Allocation 
+  的作法，並提供它們的高度可移植版（由侯捷改編）。</p>
+  <p><font color="#0000FF">教材</font>：自編講義，PDF 格式。<br>
   </p>
   <table BORDER="1" CELLSPACING="1" CELLPADDING="1" WIDTH="529">
     <tr>
-      <td WIDTH="32" VALIGN="TOP"><font FACE="�s�ө���" size="3">�Ҧ�</font></td>
-      <td WIDTH="36" VALIGN="TOP"><font FACE="�s�ө���" size="3">�ɼ�</font></td>
-      <td WIDTH="338" VALIGN="TOP"><font FACE="�s�ө���" size="3">���e</font></td>
-      <td WIDTH="41" VALIGN="TOP"><font FACE="�s�ө���" size="3">�Ƶ�</font></td>
+      <td WIDTH="32" VALIGN="TOP"><font FACE="新細明體" size="3">課次</font></td>
+      <td WIDTH="36" VALIGN="TOP"><font FACE="新細明體" size="3">時數</font></td>
+      <td WIDTH="338" VALIGN="TOP"><font FACE="新細明體" size="3">內容</font></td>
+      <td WIDTH="41" VALIGN="TOP"><font FACE="新細明體" size="3">備註</font></td>
     </tr>
     <tr>
       <td WIDTH="32" VALIGN="TOP"><font size="3">1</font></td>
       <td WIDTH="36" VALIGN="TOP"><font size="3">3</font></td>
-      <td WIDTH="338" VALIGN="TOP"><font FACE="�s�ө���" size="3">�ҵ{²���B����Ū������</font><br>
+      <td WIDTH="338" VALIGN="TOP"><font FACE="新細明體" size="3">課程簡介、相關讀物評介</font><br>
       new expression vs. operator new<br>
       delete expression vs. operator delete<br>
       array new and array delete.<br>
       placement new<br>
       overhead of C malloc and C++ operator new <br>
       examples for opeator new/delete overloading.</td>
-      <td WIDTH="41" VALIGN="TOP">�@<p>�@</td>
+      <td WIDTH="41" VALIGN="TOP">　<p>　</td>
     </tr>
     <tr>
       <td WIDTH="32" VALIGN="TOP"><font size="3">2</font></td>
@@ -61,44 +61,44 @@
       boost::shared_ptr<br>
       How to inherit operator new/delete<br>
       Introduction to std::allocator</td>
-      <td WIDTH="41" VALIGN="TOP">�@</td>
+      <td WIDTH="41" VALIGN="TOP">　</td>
     </tr>
     <tr>
       <td WIDTH="32" VALIGN="TOP"><font size="3">3</font></td>
       <td WIDTH="36" VALIGN="TOP"><font size="3">3</font></td>
-      <td WIDTH="338" VALIGN="TOP">SGI STL allocator<font FACE="�s�ө���">���]�p����</font></td>
-      <td WIDTH="41" VALIGN="TOP">�@</td>
+      <td WIDTH="338" VALIGN="TOP">SGI STL allocator<font FACE="新細明體">的設計概念</font></td>
+      <td WIDTH="41" VALIGN="TOP">　</td>
     </tr>
     <tr>
       <td WIDTH="32" VALIGN="TOP"><font size="3">4</font></td>
       <td WIDTH="36" VALIGN="TOP"><font size="3">3</font></td>
-      <td WIDTH="338" VALIGN="TOP">SGI STL allocator<font FACE="�s�ө���">����@�޳N�P���X��R</font></td>
-      <td WIDTH="41" VALIGN="TOP">�@</td>
+      <td WIDTH="338" VALIGN="TOP">SGI STL allocator<font FACE="新細明體">的實作技術與源碼剖析</font></td>
+      <td WIDTH="41" VALIGN="TOP">　</td>
     </tr>
     <tr>
       <td WIDTH="32" VALIGN="TOP"><font size="3">5</font></td>
       <td WIDTH="36" VALIGN="TOP"><font size="3">3</font></td>
-      <td WIDTH="338" VALIGN="TOP">loki allocator<font FACE="�s�ө���">���]�p����</font></td>
-      <td WIDTH="41" VALIGN="TOP">�@</td>
+      <td WIDTH="338" VALIGN="TOP">loki allocator<font FACE="新細明體">的設計概念</font></td>
+      <td WIDTH="41" VALIGN="TOP">　</td>
     </tr>
     <tr>
       <td WIDTH="32" VALIGN="TOP"><font size="3">6</font></td>
       <td WIDTH="36" VALIGN="TOP"><font size="3">3</font></td>
-      <td WIDTH="338" VALIGN="TOP">loki allocator<font FACE="�s�ө���">����@�޳N�P���X��R</font> 
+      <td WIDTH="338" VALIGN="TOP">loki allocator<font FACE="新細明體">的實作技術與源碼剖析</font> 
       </td>
-      <td WIDTH="41" VALIGN="TOP">�@</td>
+      <td WIDTH="41" VALIGN="TOP">　</td>
     </tr>
     <tr>
       <td WIDTH="32" VALIGN="TOP"><font color="#C0C0C0"><font size="3">7</font></font></td>
       <td WIDTH="36" VALIGN="TOP"><font color="#C0C0C0"><font size="3">3</font></font></td>
-      <td WIDTH="338" VALIGN="TOP"><font color="#C0C0C0">MFC allocator<font FACE="�s�ө���">���]�p�����P��@�޳N</font></font></td>
-      <td WIDTH="41" VALIGN="TOP"><font color="#C0C0C0">�@</font></td>
+      <td WIDTH="338" VALIGN="TOP"><font color="#C0C0C0">MFC allocator<font FACE="新細明體">的設計概念與實作技術</font></font></td>
+      <td WIDTH="41" VALIGN="TOP"><font color="#C0C0C0">　</font></td>
     </tr>
     <tr>
       <td WIDTH="32" VALIGN="TOP"><font size="3" color="#C0C0C0">8</font></td>
       <td WIDTH="36" VALIGN="TOP"><font size="3" color="#C0C0C0">3</font></td>
-      <td WIDTH="338" VALIGN="TOP"><font color="#C0C0C0">Boost.Pool<font FACE="�s�ө���">���]�p�����P��@�޳N</font></font></td>
-      <td WIDTH="41" VALIGN="TOP"><font color="#C0C0C0">�@</font></td>
+      <td WIDTH="338" VALIGN="TOP"><font color="#C0C0C0">Boost.Pool<font FACE="新細明體">的設計概念與實作技術</font></font></td>
+      <td WIDTH="41" VALIGN="TOP"><font color="#C0C0C0">　</font></td>
     </tr>
   </table>
   <p><br>

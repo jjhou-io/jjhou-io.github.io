@@ -1,8 +1,8 @@
 <html>// porting : VC6[o], CB5[o], GCC[o]
-// µù¡GVC6 <iostream> ¹ï friend ªº¤ä´©¦³°İÃD¡C
+// è¨»ï¼šVC6 <iostream> å° friend çš„æ”¯æ´æœ‰å•é¡Œã€‚
 
 #ifdef _MSC_VER
-#include <iostream.h>     // VC6 <iostream> ¹ï friend ªº¤ä´©¦³°İÃD
+#include <iostream.h>     // VC6 <iostream> å° friend çš„æ”¯æ´æœ‰å•é¡Œ
 #include <string.h>       // for strxxx()
 #include <stddef.h>       // for size_t
 #include <stdio.h>        // for gets()
@@ -26,13 +26,13 @@ public:
    String& operator=(const String& str);   // str1 = str2;
 
 private:  
-   char* m_data;             // ³o¬O¤@­Ó pointer member¡A»İ¯S§O·í¤ß¡C
+   char* m_data;             // é€™æ˜¯ä¸€å€‹ pointer memberï¼Œéœ€ç‰¹åˆ¥ç•¶å¿ƒã€‚
 };
 
 inline
 String::String()
 {
-   m_data = new char[1];   // ª`·N¡Aarray-new. 
+   m_data = new char[1];   // æ³¨æ„ï¼Œarray-new. 
    *m_data = '\0';         // empty string
 }
 
@@ -43,8 +43,8 @@ String::String(const char* cstr)
       m_data = new char[ strlen(cstr) + 1 ];
       strcpy(m_data, cstr);
    }
-   else {  // ¨S¦³«ü©wªì­È
-      m_data = new char[1];   // ª`·N¡Aarray-new. 
+   else {  // æ²’æœ‰æŒ‡å®šåˆå€¼
+      m_data = new char[1];   // æ³¨æ„ï¼Œarray-new. 
       *m_data = '\0';
    }
 }

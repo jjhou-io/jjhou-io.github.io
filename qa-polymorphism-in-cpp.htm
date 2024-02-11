@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 <meta name="GENERATOR" content="Microsoft FrontPage 3.0">
-<title>�m�h���P�����n���Ȱ�</title>
+<title>《多型與虛擬》答客問</title>
 <meta name="Microsoft Theme" content="construc 111, default">
 <meta name="Microsoft Border" content="tl, default">
 </head>
@@ -24,234 +24,234 @@ vlink="#996600" alink="#FF0066">
     </font><!--mstheme--></font></td>
     <td width="21"><!--mstheme--></font></td>
     <td valign="top" width="613"><br>
-    <big><big>�m�h���P�����n���Ȱ� (1)</big></big>&nbsp; 1999.12.11 <br>
+    <big><big>《多型與虛擬》答客問 (1)</big></big>&nbsp; 1999.12.11 <br>
     <br>
     Arix wrote (1999/10/29) :<br>
     <br>
-    <font color="#0000FF">&gt; �A�n�G<br>
+    <font color="#0000FF">&gt; 你好：<br>
     &gt;<br>
-    &gt; �̪�Ū�F�z���j�@ &quot;�h���P����&quot; 
-    ����A���X�I�ðݷQ�n�бФ@�U�F<br>
+    &gt; 最近讀了您的大作 &quot;多型與虛擬&quot; 
+    之後，有幾點疑問想要請教一下；<br>
     &gt;<br>
-    &gt; 1.�b�Ĥ��� COM to COM ������A�@�� application �n�I�s�@�� .dll �ɮ�<br>
-    &gt; �u�n�@�� import library ���O�b�䤤�A�ӥt�@�Ӥ覡�O�ϥ�<br>
-    &gt; LoadLibrary() �M GetPorcAddress()�C�аݤ@�U�ALoadLibrary()<br>
-    &gt; �M GetPorcAddress() �O�p��ʧ@�H���󤣻ݭn .dll �� import library?<br>
+    &gt; 1.在第六章 COM to COM 中提到，一個 application 要呼叫一個 .dll 檔時<br>
+    &gt; 只要一個 import library 內嵌在其中，而另一個方式是使用<br>
+    &gt; LoadLibrary() 和 GetPorcAddress()。請問一下，LoadLibrary()<br>
+    &gt; 和 GetPorcAddress() 是如何動作？為何不需要 .dll 的 import library?<br>
     &gt;<br>
-    &gt; 2.�b����ѨM binary level �ʸ˰��D���ɭԡA�N�O���n�b client 
-    �ݵo��<br>
-    &gt; object instantiation�C����O object instantiation�H<br>
+    &gt; 2.在提到解決 binary level 封裝問題的時候，就是不要在 client 
+    端發生<br>
+    &gt; object instantiation。什麼是 object instantiation？<br>
     &gt;<br>
-    &gt; 3.�T�� calling convention:pascal�Ac�Astdcall�C<br>
-    &gt; �i���i�H�����ԲӤ@�I�H<br>
+    &gt; 3.三種 calling convention:pascal，c，stdcall。<br>
+    &gt; 可不可以說的詳細一點？<br>
     &gt;<br>
-    &gt; ���±z���ѵ�</font><br>
+    &gt; 謝謝您的解答</font><br>
     <br>
     <br>
-    �J���^�СG<br>
+    侯捷回覆：<br>
     <br>
-    1. LoadLibrary() �O�n�D system loader ��A���w�� library (.dll)<br>
-    ���J�ثe��{����}�Ŷ����CGetProcAddress() �O���o�Y�� procedure<br>
-    �]��Y function�^����}�C���F�o�Ӧ�}�]�i�����禡���С^�A�N�i�H<br>
-    �I�s�� procedure �F�A�ҥH���� import library�C�o��Ӱʧ@���O<br>
-    run-time �ѨM��סA�p�G�ϥ� import library�A�O link-time �ѨM��סC<br>
+    1. LoadLibrary() 是要求 system loader 把你指定的 library (.dll)<br>
+    載入目前行程的位址空間中。GetProcAddress() 是取得某個 procedure<br>
+    （亦即 function）的位址。有了這個位址（可視為函式指標），就可以<br>
+    呼叫該 procedure 了，所以不需 import library。這兩個動作都是<br>
+    run-time 解決方案，如果使用 import library，是 link-time 解決方案。<br>
     <br>
-    �o��� Windows API ���Ӹ`�]�����ʧ@�^�A�i�ѦҡG<br>
-    �mWindows 95 �t�ε{���]�p�j�����n�]�J�T��Ķ/�X��/1997�^<br>
-    �]��� Windows 95 System Programming SECRETS�^<br>
+    這兩個 Windows API 的細節（內部動作），可參考：<br>
+    《Windows 95 系統程式設計大奧秘》（侯俊傑譯/旗標/1997）<br>
+    （原著 Windows 95 System Programming SECRETS）<br>
     <br>
-    2. object instantiation �N�O�u���� object ���欰�v�C<br>
-    �O���A������ object�A�N���������D object size�A����N�|�M�`��<br>
-    binary level ���ʸˡC<br>
+    2. object instantiation 就是「產生 object 的行為」。<br>
+    是的，欲產生 object，就必須先知道 object size，那麼就會危害到<br>
+    binary level 的封裝。<br>
     <br>
-    3. �ҿ� call convention �O��禡�I�s�ɪ� �G<br>
-    (1) �Ѽƶǻ�����<br>
-    (2) �M�z stack frame ���d���k��<br>
-    ���@�سW�d�C<br>
+    3. 所謂 call convention 是對函式呼叫時的 ：<br>
+    (1) 參數傳遞次序<br>
+    (2) 清理 stack frame 的責任歸屬<br>
+    的一種規範。<br>
     <br>
-    pascal convention �W�w�G�Ѽƶǻ����ǥѥ��ӥk�Astack frame ���M�z<br>
-    �ѳQ�I�s�ݡ]callee�^�t�d�C<br>
+    pascal convention 規定：參數傳遞次序由左而右，stack frame 的清理<br>
+    由被呼叫端（callee）負責。<br>
     <br>
-    c convention �W�w�G�Ѽƶǻ����ǥѥk�ӥ��Astack frame ���M�z<br>
-    �ѩI�s�ݡ]caller�^�t�d�C<br>
+    c convention 規定：參數傳遞次序由右而左，stack frame 的清理<br>
+    由呼叫端（caller）負責。<br>
     <br>
-    �ѩ� pascal convention �W�w stack frame ���M�z�ѳQ�I�s�ݡ]callee�^<br>
-    �t�d�A�]���p��P�@�禡�I�s�@�d���A�� stack frame cleanup routine<br>
-    �u�ݤ@���]��� callee ���A�ѽsĶ���[�J�^�C<br>
+    由於 pascal convention 規定 stack frame 的清理由被呼叫端（callee）<br>
+    負責，因此如對同一函式呼叫一千次，其 stack frame cleanup routine<br>
+    只需一份（位於 callee 內，由編譯器加入）。<br>
     <br>
-    �ѩ� c convention �W�w stack frame ���M�z�ѩI�s�ݡ]caller�^<br>
-    �t�d�A�]����P�@�Ө禡�I�s�@�d���A�� stack frame cleanup routine<br>
-    �� 1000 ���]���I�s�I�A�ѽsĶ���[�J�^�C<br>
+    由於 c convention 規定 stack frame 的清理由呼叫端（caller）<br>
+    負責，因此對同一個函式呼叫一千次，其 stack frame cleanup routine<br>
+    需 1000 份（位於呼叫點，由編譯器加入）。<br>
     <br>
-    �]���A�ĥ� pascal calling convention�A��󭰧C�{���X�j�p<br>
-    �]�æ]�ӼW�[����t�ס^�A�b�Y�Ǳ��p�U�ܦ����U�C�o�O������<br>
-    ���� Windows �t�Τ����X�G�����ĥ� pascal calling convention ����]�C<br>
+    因此，採用 pascal calling convention，對於降低程式碼大小<br>
+    （並因而增加執行速度），在某些情況下很有幫助。這是為什麼<br>
+    早期 Windows 系統內部幾乎完全採用 pascal calling convention 的原因。<br>
     <br>
-    ���O pascall convention ���䴩�u�ӼƤ��w���޼ơv�C�Ҧp printf()<br>
-    ���޼ƭӼƤ��@�w�A���N�@�w�o�ϥ� c calling convention�C<br>
+    但是 pascall convention 不支援「個數不定之引數」。例如 printf()<br>
+    的引數個數不一定，那就一定得使用 c calling convention。<br>
     <br>
-    stdcall �O c �M pascal ����X��A�����u�ӥh����C<br>
+    stdcall 是 c 和 pascal 的綜合體，取其優而去其弊。<br>
     <br>
-    �p�G�A�� MSDN�A�W�h�j�M�@�U�A�ܮe���N�i�H�d��o�Ǹ�ơI<br>
+    如果你有 MSDN，上去搜尋一下，很容易就可以查到這些資料！<br>
     <br>
     --- the end<br>
 <!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
-    <p><big><big>�m�h���P�����n���Ȱ� (2)</big></big>&nbsp; 1999.12.11 <br>
+    <p><big><big>《多型與虛擬》答客問 (2)</big></big>&nbsp; 1999.12.11 <br>
     <br>
     r7526059 wrote (1999/11/25) :<br>
     <br>
-    <font color="#0000FF">&gt; �J���ͱz�n�G<br>
-    &gt; �b�h���P�����@�Ѫ�32�����A��<br>
-    &gt; �H�U��ر��p�A�|��_ copy constructor:<br>
-    &gt; ���p 1. �N�@��object���@�Ѽƶǵ��Y�@�Ө禡�C<br>
-    &gt; ���p 2. �N�@��object���@�禡�^��ȡC<br>
+    <font color="#0000FF">&gt; 侯先生您好：<br>
+    &gt; 在多型與虛擬一書的32頁中，說<br>
+    &gt; 以下兩種情況，會喚起 copy constructor:<br>
+    &gt; 情況 1. 將一個object當作參數傳給某一個函式。<br>
+    &gt; 情況 2. 將一個object當作函式回返值。<br>
     &gt;<br>
-    &gt; ���ڼg�{���o�{�G (compiler: Borland C++ 3.1)<br>
+    &gt; 但我寫程式發現： (compiler: Borland C++ 3.1)<br>
     &gt;<br>
     <small><font face="Courier New">&gt; CA aCA1;<br>
     &gt; CA aCA2=aCA1;</font></small><br>
     &gt;<br>
-    &gt; �]�|��_aCA2��copy constructor�C<br>
+    &gt; 也會喚起aCA2的copy constructor。<br>
     &gt;<br>
-    &gt; �аݬ���<br>
+    &gt; 請問為何<br>
     <small><font face="Courier New">&gt; CA aCA1;<br>
     &gt; CA aCA2=aCA1;</font></small><br>
-    &gt; �ɭn�I�scopy constructor�A��<br>
+    &gt; 時要呼叫copy constructor，而<br>
     &gt;<br>
     <small><font face="Courier New">&gt; CA aCA1;<br>
     &gt; CA aCA2;<br>
     &gt; aCA2=aCA1;</font></small><br>
-    &gt; �ɫo�n�I�scopy assignment constructor �O�H<br>
+    &gt; 時卻要呼叫copy assignment constructor 呢？<br>
     &gt;<br>
-    &gt; �o�˪��]�p�O������Ҷq�b���ܡH(����Ĳv�H)<br>
-    &gt; ���¡I</font><br>
+    &gt; 這樣的設計是有什麼考量在內嗎？(執行效率？)<br>
+    &gt; 謝謝！</font><br>
     <br>
-    �J���^�СG<br>
+    侯捷回覆：<br>
     <br>
     <small><font face="Courier New">CA a1;<br>
     CA a2(a1);&nbsp;&nbsp; // (1) initialization<br>
     CA a3 = a1;&nbsp; // (2) initialization, not assignment.<br>
     a3 = a2;&nbsp;&nbsp;&nbsp;&nbsp; // (3) assignment.<br>
     </font></small><br>
-    (1) �� (2) ���O initialization �ʧ@�A���|��_ copy ctor�C<br>
-    (3) �O assignment �ʧ@�A�|��_ assignment operator.<br>
+    (1) 或 (2) 都是 initialization 動作，都會喚起 copy ctor。<br>
+    (3) 是 assignment 動作，會喚起 assignment operator.<br>
     <br>
-    �ܩ󬰤�����o��ءA�O�_������Ҷq�b�� (����Ĳv�H)<br>
-    ���A�ڪ�B�{���A�u�O��¦a�� initialization �M assignment �����A<br>
-    ���P���ʧ@�Ѩ������ member functions �h�t�d�ާ@�A�p���Ӥw�C<br>
+    至於為什麼分這兩種，是否有什麼考量在內 (執行效率？)<br>
+    唔，我初步認為，只是單純地把 initialization 和 assignment 分類，<br>
+    不同的動作由其對應的 member functions 去負責操作，如此而已。<br>
     <br>
-    �p�G�A�H�@�q���骺�X�A�߰ݧڨ䶡�� assignment �M initialization<br>
-    ���Ĳv���D�A�ڥi�����i�H����^���C<br>
+    如果你以一段具體的碼，詢問我其間的 assignment 和 initialization<br>
+    的效率問題，我可能比較可以具體回答。<br>
     <br>
-    default ctor, copy ctor, assignment operator�A�ú� &quot;Big Three&quot;�A<br>
-    �ЯS�O�d�M�����̪�����C<br>
+    default ctor, copy ctor, assignment operator，並稱 &quot;Big Three&quot;，<br>
+    請特別搞清楚它們的角色。<br>
     <br>
     * * * * * * * * * * * * * * * * * * * * * *<br>
     <br>
     <font color="#FF0000">william</font> wrote (1999/12/12) :<br>
     <br>
-    <font color="#0000FF">�Y�A�[���{���X�G<br>
+    <font color="#0000FF">若再加兩行程式碼：<br>
     <br>
     <small><font face="Courier New">CA a4;<br>
     a4 = a1;</font></small><br>
     <br>
-    �ܩ��㪺, �سy a2 ��, �u��F�@�D copy ctor �I�s�F<br>
-    �سy a4, �o��F��D�I�s�G�� default ctor�B�A assignment�C<br>
+    很明顯的, 建造 a2 時, 只花了一道 copy ctor 呼叫；<br>
+    建造 a4, 卻花了兩道呼叫：先 default ctor、再 assignment。<br>
     <br>
-    �t�@�Ӯt�O�O�G<br>
+    另一個差別是：<br>
     <br>
-    ��.�@�몺 ctor ���|���ۨ�����<br>
-    1. �t�m�@�Ǹ귽<br>
-    2. ��l�Ƹ귽�C<br>
+    Ａ.一般的 ctor 都會替自身物件<br>
+    1. 配置一些資源<br>
+    2. 初始化資源。<br>
     <br>
-    ��.�ܩ� assignment, �h�q�`�|�G<br>
-    1. ���N�ۨ����󪺬J���귽������B�z�]�����B����B�Ѱ���w...�^<br>
-    2. ���s�t�m�@�Ǹ귽<br>
-    3. �ھڰѦ��骫�󪺸귽, �ӫ��@���L�ӡC<br>
+    Ｂ.至於 assignment, 則通常會：<br>
+    1. 先將自身物件的既有資源做善後處理（關閉、釋放、解除鎖定...）<br>
+    2. 重新配置一些資源<br>
+    3. 根據參考體物件的資源, 照拷一份過來。<br>
     <br>
-    �ҿת� copy ctor, �u�O�H B.3 ���޿�Ӱ� A.2 ���ơC<br>
+    所謂的 copy ctor, 只是以 B.3 的邏輯來做 A.2 之事。<br>
     <br>
-    �p�G�귽���e�i�������]�p�G�¶q�ȡ^, �h B.1 �i�١C<br>
-    �p�G�귽�����i�A�^���Q�Ρ]�p�G�O����^, �h B.2 
-    �i��i�H�٤U�ӡC<br>
+    如果資源內容可直接丟棄（如：純量值）, 則 B.1 可省。<br>
+    如果資源本身可再回收利用（如：記憶體）, 則 B.2 
+    可能可以省下來。<br>
     <br>
-    �ҥH, �� �M �� ���Ĳv���C, ���G�o�����p�өw�C</font><br>
+    所以, Ａ 和 Ｂ 的效率高低, 似乎得視情況而定。</font><br>
     <br>
     <br>
     --- the end<br>
     <br>
     &#26;</p>
 <!--msthemeseparator-->    <p align="left"><img src="urbhorsa.gif" tppabs="http://jjhou.boolan.com/urbhorsa.gif"></p>
-    <p><big><big>�m�h���P�����n���Ȱ� (3)</big></big> �ɤJ�^�b�o<br>
+    <p><big><big>《多型與虛擬》答客問 (3)</big></big> 盡入吾彀矣<br>
     1999.12.14 <br>
     <br>
-    �ڦb BBS/News �W�ݨ� qing �g���@�g�`�誺�峹�C<br>
+    我在 BBS/News 上看到 qing 寫的一篇深刻的文章。<br>
     <br>
-    <font color="#0000FF">&gt; �@��: </font><font color="#FF0000">qing</font><font
-    color="#0000FF"> (��ʦ��N�z��) �ݪO: talk<br>
-    &gt; ���D: �����~��<br>
-    &gt; �ɶ�: Sat Nov 20 03:46:10 1999<br>
+    <font color="#0000FF">&gt; 作者: </font><font color="#FF0000">qing</font><font
+    color="#0000FF"> (行動式代理狗) 看板: talk<br>
+    &gt; 標題: 關於繼承<br>
+    &gt; 時間: Sat Nov 20 03:46:10 1999<br>
     &gt;<br>
-    &gt; ���@���M wiliam, dreamon, Xshadow �E�|���ɭ�, �ڴ����X<br>
-    &gt; �@�Ӱ��D, �]�N�O, �p�G�n�q����ɦV���X�ح��n�ݩ�, �D��X<br>
-    &gt; �@�ӳ̨�����ʪ��ݩ�, ����j�a�|�D�墨�@��?<br>
+    &gt; 有一次和 wiliam, dreamon, Xshadow 聚會的時候, 我曾提出<br>
+    &gt; 一個問題, 也就是, 如果要從物件導向的幾種重要屬性, 挑選出<br>
+    &gt; 一個最具關鍵性的屬性, 那麼大家會挑選那一個?<br>
     &gt;<br>
-    &gt; �o�Ӱ��D, �O�_���� jjhou ���@����, �]�N�O����, &quot;�����P�h��<br>
-    &gt; - ����ɦV������&quot;, �ѦW�ڰO�o������T, ���O�q�o�Ӵy�z, 
-    �j��<br>
-    &gt; ���|�y���~��.<br>
+    &gt; 這個問題, 是起源於 jjhou 的一本書, 也就是那本, &quot;虛擬與多型<br>
+    &gt; - 物件導向的精髓&quot;, 書名我記得不夠精確, 但是從這個描述, 
+    大概<br>
+    &gt; 不會造成誤解.<br>
     &gt;<br>
-    &gt; �q�o�Ӯ��D�Ӭ�, �H jjhou �����רӥ[�H�f��, �����P�h���O�L�|<br>
-    &gt; �D��X�Ӫ��ݩ�.<br>
-    &gt; ���o�ؿ�ܪ����G, �i�H���O�U�a�U���U�����k, ���H���_���U��<br>
-    &gt; �άO�O�D. ���L, �b���Ӯɭ�, �ڸ�j�a��������, �O�~��.<br>
+    &gt; 從這個書題來看, 以 jjhou 的角度來加以審視, 虛擬與多型是他會<br>
+    &gt; 挑選出來的屬性.<br>
+    &gt; 像這種選擇的結果, 可以說是各家各有各的說法, 難以論斷高下抑<br>
+    &gt; 或是是非. 不過, 在那個時候, 我跟大家說的答案, 是繼承.<br>
     &gt;<br>
-    &gt; ���ڦb�յۿ�X�@�ӧڻ{���̭��n���ݩʮ�, �کҧP�_���̾�, ��<br>
-    &gt; ���O�sĶ������, ���F�n�F��o�ӯ�O, �I�������ƪ��륩����<br>
-    &gt; , �ӬO OO �o�س]�p������, ���ڦۤv�Ө�, ����гy�X�Ӫ���<br>
-    &gt; �Ȩs�����h��.<br>
+    &gt; 當我在試著選出一個我認為最重要的屬性時, 我所判斷的依據, 並<br>
+    &gt; 不是編譯器本身, 為了要達到這個能力, 背後所應具備的精巧機制<br>
+    &gt; , 而是 OO 這種設計的概念, 對於我自己而言, 能夠創造出來的價<br>
+    &gt; 值究竟有多少.<br>
     &gt;<br>
-    &gt; [...�Ფ (���e�ܦh)]</font><br>
+    &gt; [...後略 (內容很多)]</font><br>
     <br>
-    ���ڪ��ݪk<br>
+    ●我的看法<br>
     <br>
-    �]�N�y�Gpolymorphism �h��. genericity �x��. inheritance �~�ӡ^<br>
+    （術語：polymorphism 多型. genericity 泛型. inheritance 繼承）<br>
     <br>
-    ����ɦV�޳N�̭��n�믫�P���ȡA�ڥH���N�O�u�@��ơv<br>
-    �Ggeneric, genericity, general, generialization.<br>
+    物件導向技術最重要精神與價值，我以為就是「一般化」<br>
+    ：generic, genericity, general, generialization.<br>
     <br>
-    �u�@��ơv�ϧڭ̪��{���X�A���׬O���� conatiners�]�t�d��Ƶ��c�A<br>
-    �H�ι��Ƶ��c���ާ@�^�A�άO���� algorithms�]�x�Ϋ��ΦۥΫ��^�A<br>
-    ���i�H�B�z�U�ؤ��P���O -- �ƦܬO�ثe���s�b�����O -- ����ơC<br>
+    「一般化」使我們的程式碼，不論是做為 conatiners（負責資料結構，<br>
+    以及對資料結構的操作），或是做為 algorithms（泛用型或自用型），<br>
+    都可以處理各種不同型別 -- 甚至是目前未存在的型別 -- 的資料。<br>
     <br>
-    �]���M�A�S���H����O�Ҧۤv���]�p������@�w����䴩���ӥi�઺<br>
-    �U�ظ�ƫ��O�C���ثe�w�����U�ث��O���Ѥ@�Ӧ@�P�]�@��ơ^�����A<br>
-    �O����i�వ�쪺�ؼСC�t�Ϊ��t�Ʀ���^�X�P�ծաC�^<br>
+    （當然，沒有人能夠保證自己的設計完善到一定能夠支援未來可能的<br>
+    各種資料型別。為目前已知的各種型別提供一個共同（一般化）介面，<br>
+    是比較可能做到的目標。系統的演化有賴回饋與調校。）<br>
     <br>
-    �u�@��ơv�޳N���ܦb�u�h���vpolymorphism ���W�C<br>
+    「一般化」技術表示在「多型」polymorphism 身上。<br>
     <br>
-    �ǲΪ� polymorphism�A�O�� virtual functions �����A�����M�N<br>
-    �����} inheritance�C�������Apolymorphism ���e���O inheritance�C<br>
-    �O���Apolymorphism �[�\ inheritance�I<br>
+    傳統的 polymorphism，是由 virtual functions 完成，那當然就<br>
+    離不開 inheritance。換言之，polymorphism 的前提是 inheritance。<br>
+    是的，polymorphism 涵蓋 inheritance！<br>
     <br>
-    �o�ضǲΫ����� polymorphism�A�٬� Polymorphism using Virtual<br>
-    Methods�A�S�٬� Vertical Genericity�C<br>
+    這種傳統型式的 polymorphism，稱為 Polymorphism using Virtual<br>
+    Methods，又稱為 Vertical Genericity。<br>
     <br>
     * * * * * * * * * * * * * * * * * * * * * * * * * * * * *<br>
     <br>
-    Template �]�i�H�����u�@��ơv�C�o�ا޳N�٬��x���]Generic,<br>
-    Genericity�^�C�o���P�󪫥�ɦV�A���O�t�@�ث���Ҧ��C�����i�P<br>
-    ����ɦV�޳N�ۻ��ۦ��C<br>
+    Template 也可以完成「一般化」。這種技術稱為泛型（Generic,<br>
+    Genericity）。這不同於物件導向，它是另一種思維模式。但它可與<br>
+    物件導向技術相輔相成。<br>
     <br>
-    Polymorphism �o�ӵ��A�b�o�̦��F�@�ǷN�q�W���X�R�C�o�ر��p�U�A<br>
-    ���H�٤��� Polymorphism using Templates�A�S�٬�<br>
+    Polymorphism 這個詞，在這裡有了一些意義上的擴充。這種情況下，<br>
+    有人稱之為 Polymorphism using Templates，又稱為<br>
     Horizental Genericity.<br>
     <br>
     * * * * * * * * * * * * * * * * * * * * * * * * * * * * *<br>
     <br>
-    �ҥH�A�p�G�n�ڱq Object Oriented Programming Paradigm ���X��<br>
-    ���n�ݩʤ��A�D��X�@�ӳ̨����䪺�ݩʡA���٬O��� polymorphism<br>
-    �]�Ө�N�q�ƦܤΩ� Generic Programming Paradigm�^�C<br>
+    所以，如果要我從 Object Oriented Programming Paradigm 的幾種<br>
+    重要屬性中，挑選出一個最具關鍵的屬性，我還是選擇 polymorphism<br>
+    （而其意義甚至及於 Generic Programming Paradigm）。<br>
     <br>
     --- the end<br>
     <br>
@@ -260,7 +260,7 @@ vlink="#996600" alink="#FF0066">
 </table>
 </center></div>
 
-<p>�@ </p>
+<p>　 </p>
 <!--mstheme--></font>
 </body>
 </html>

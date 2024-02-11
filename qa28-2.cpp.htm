@@ -1,8 +1,8 @@
 <html>// vc6[x]  cb4[o]  g++[o]
-// vc6 ¤£¯à¦¨¥\¬O¦]¬° vc6 ªº <iostream> ¤£¤ä´© friend¡C
-// ³o¬O vc6 ªº¤@­Ó bug¡C¨£ "C++ µª«È°İ (27)".
+// vc6 ä¸èƒ½æˆåŠŸæ˜¯å› ç‚º vc6 çš„ <iostream> ä¸æ”¯æ´ friendã€‚
+// é€™æ˜¯ vc6 çš„ä¸€å€‹ bugã€‚è¦‹ "C++ ç­”å®¢å• (27)".
 
-// ¥»¨Ò­n´ú¸Õ sort ©M stable_sort¡A¦Ó¥B conatiner ªº¤¸¯À¬O class type¡C
+// æœ¬ä¾‹è¦æ¸¬è©¦ sort å’Œ stable_sortï¼Œè€Œä¸” conatiner çš„å…ƒç´ æ˜¯ class typeã€‚
 
 #include <iostream>
 #include <vector>
@@ -22,19 +22,19 @@ public:
   student(const student& rhs)
     : _name(rhs._name), _cscore(rhs._cscore), _mscore(rhs._mscore) {  }
 
-  // §Ú³]­p³o­Ó operator< ¬O¬°¤F sort() ¤§¥Î¡C­ì¥»§Ú¨Ã«D³]­p¬°
-  //   'const' member function¡AµLªk³q¹L½sÄ¶¡I
-  //   william : ¦b¨ç¦¡³Ì«á¥[¤W const¡A§Y¥i³q¹L BCB4 ©M G++2.81
+  // æˆ‘è¨­è¨ˆé€™å€‹ operator< æ˜¯ç‚ºäº† sort() ä¹‹ç”¨ã€‚åŸæœ¬æˆ‘ä¸¦éè¨­è¨ˆç‚º
+  //   'const' member functionï¼Œç„¡æ³•é€šéç·¨è­¯ï¼
+  //   william : åœ¨å‡½å¼æœ€å¾ŒåŠ ä¸Š constï¼Œå³å¯é€šé BCB4 å’Œ G++2.81
   bool operator<(const student& rhs) const
-    {  return (this->_cscore < rhs._cscore); }  // ¥H°ê¾Ç¤À¼Æ°ª§C°µ¬°¤ñ¸û¼Ğ·Ç
+    {  return (this->_cscore < rhs._cscore); }  // ä»¥åœ‹å­¸åˆ†æ•¸é«˜ä½åšç‚ºæ¯”è¼ƒæ¨™æº–
 
   int cscore() { return _cscore; }
   int mscore() { return _mscore; }
 
 private:
-  string _name;  // ¤H¦W
-  int _cscore;   // °ê¾Ç¤À¼Æ
-  int _mscore;   // ¼Æ¾Ç¤À¼Æ
+  string _name;  // äººå
+  int _cscore;   // åœ‹å­¸åˆ†æ•¸
+  int _mscore;   // æ•¸å­¸åˆ†æ•¸
 };
 
 ostream& operator<<(ostream& os, const student& rhs)
@@ -49,25 +49,25 @@ ostream& operator<<(ostream& os, const student& rhs)
 void printstudent(const student& elem)
 {   cout << elem;  }
 
-// ¥H°ê¾Ç¤À¼Æ°ª§C°µ¬°¤ñ¸û¼Ğ·Ç
+// ä»¥åœ‹å­¸åˆ†æ•¸é«˜ä½åšç‚ºæ¯”è¼ƒæ¨™æº–
 bool lessthan_cscore(const student& lhs, const student& rhs)
 {   return lhs.cscore() < rhs.cscore();  }
 
-// ¥H¼Æ¾Ç¤À¼Æ°ª§C°µ¬°¤ñ¸û¼Ğ·Ç
+// ä»¥æ•¸å­¸åˆ†æ•¸é«˜ä½åšç‚ºæ¯”è¼ƒæ¨™æº–
 bool lessthan_mscore(const student& lhs, const student& rhs)
 {   return lhs.mscore() < rhs.mscore();  }
 
 int main()
 {
   vector<student> v;
-  v.push_back(student("Ä¬¸ı", 99, 20));
-  v.push_back(student("§ù¨j", 99, 20));
-  v.push_back(student("«J±¶", 59, 95));
-  v.push_back(student("§õ¥Õ", 99, 20));
-  v.push_back(student("¤Õ¿Ä", 95, 30));
-  v.push_back(student("Áú·U", 95, 40));
+  v.push_back(student("è˜‡è»¾", 99, 20));
+  v.push_back(student("æœç”«", 99, 20));
+  v.push_back(student("ä¾¯æ·", 59, 95));
+  v.push_back(student("æç™½", 99, 20));
+  v.push_back(student("å­”è", 95, 30));
+  v.push_back(student("éŸ“æ„ˆ", 95, 40));
 
-  /* ´ú¸Õ operator< ©M¨â­Ó comparison functions
+  /* æ¸¬è©¦ operator< å’Œå…©å€‹ comparison functions
   cout << (v[0] < v[2]) ;   // 0
   cout << (v[1] < v[2]) ;   // 0
   cout << (v[2] < v[2]) ;   // 0
@@ -81,36 +81,36 @@ int main()
 
   for_each(v.begin(), v.end(), printstudent);
   cout << endl;
-  // <Ä¬¸ı,99,20><§ù¨j,99,20><«J±¶,59,95><§õ¥Õ,99,20><¤Õ¿Ä,95,30><Áú·U,95,40>
+  // <è˜‡è»¾,99,20><æœç”«,99,20><ä¾¯æ·,59,95><æç™½,99,20><å­”è,95,30><éŸ“æ„ˆ,95,40>
 
   stable_sort(v.begin(), v.end());
   for_each(v.begin(), v.end(), printstudent);
   cout << endl;
-  // <«J±¶,59,95><¤Õ¿Ä,95,30><Áú·U,95,40><Ä¬¸ı,99,20><§ù¨j,99,20><§õ¥Õ,99,20>
+  // <ä¾¯æ·,59,95><å­”è,95,30><éŸ“æ„ˆ,95,40><è˜‡è»¾,99,20><æœç”«,99,20><æç™½,99,20>
 
   sort(v.begin(), v.end());
   for_each(v.begin(), v.end(), printstudent);
   cout << endl;
-  // <«J±¶,59,95><¤Õ¿Ä,95,30><Áú·U,95,40><Ä¬¸ı,99,20><§ù¨j,99,20><§õ¥Õ,99,20>
+  // <ä¾¯æ·,59,95><å­”è,95,30><éŸ“æ„ˆ,95,40><è˜‡è»¾,99,20><æœç”«,99,20><æç™½,99,20>
 
-  // ®Ú¾Ú csorce ¨Ó±Æ§Ç
+  // æ ¹æ“š csorce ä¾†æ’åº
   stable_sort(v.begin(), v.end(), lessthan_cscore);
   for_each(v.begin(), v.end(), printstudent);
   cout << endl;
-  // <«J±¶,59,95><¤Õ¿Ä,95,30><Áú·U,95,40><Ä¬¸ı,99,20><§ù¨j,99,20><§õ¥Õ,99,20>
+  // <ä¾¯æ·,59,95><å­”è,95,30><éŸ“æ„ˆ,95,40><è˜‡è»¾,99,20><æœç”«,99,20><æç™½,99,20>
 
-  // ®Ú¾Ú msorce ¨Ó±Æ§Ç
+  // æ ¹æ“š msorce ä¾†æ’åº
   stable_sort(v.begin(), v.end(), lessthan_mscore);
   for_each(v.begin(), v.end(), printstudent);
   cout << endl;
-  // <Ä¬¸ı,99,20><§ù¨j,99,20><§õ¥Õ,99,20><¤Õ¿Ä,95,30><Áú·U,95,40><«J±¶,59,95>
+  // <è˜‡è»¾,99,20><æœç”«,99,20><æç™½,99,20><å­”è,95,30><éŸ“æ„ˆ,95,40><ä¾¯æ·,59,95>
 
-  // ª`·N¡A§Ú¥»¥H¬°©Ò¿×¥ı¨Ì¬Y­È¨Ó±Æ§Ç¡A¦A¨Ì¥t¤@­È¨Ó±Æ§Ç¡A¥u­n¨Ï¥Î
-  //   stable_sort §Y¥i¹F¨ì¥Øªº¡C¦ı«D¦p¦¹¡C§Ú·Q¥¿½T§@ªkÀ³¸Ó¬O¡A®Ú¾Ú key1
-  //   ±Æ§Ç¤@¦¸«á¡A§Q¥Î find §ä¥X¤@¬q¬q key1 ¬Û¦Pªº½d³ò¡A¦A®Ú¾Ú key2¡A¦b
-  //   ¦¹½d³ò¤¤¥H stable_sort ±Æ§Ç¡C²Ä¤G¦¸±Æ§Ç¥ş³¡§¹¦¨«á¡A¦A§Q¥Î find §ä¥X
-  //   ¤@¬q¬q key2 ¬Û¦Pªº½d³ò¡A¦A®Ú¾Ú key3¡A¦b¦¹½d³ò¤¤¥H stable_sort ±Æ§Ç¡C
-  //   ¨Ì¦¹Ãş±À¡K¡C
+  // æ³¨æ„ï¼Œæˆ‘æœ¬ä»¥ç‚ºæ‰€è¬‚å…ˆä¾æŸå€¼ä¾†æ’åºï¼Œå†ä¾å¦ä¸€å€¼ä¾†æ’åºï¼Œåªè¦ä½¿ç”¨
+  //   stable_sort å³å¯é”åˆ°ç›®çš„ã€‚ä½†éå¦‚æ­¤ã€‚æˆ‘æƒ³æ­£ç¢ºä½œæ³•æ‡‰è©²æ˜¯ï¼Œæ ¹æ“š key1
+  //   æ’åºä¸€æ¬¡å¾Œï¼Œåˆ©ç”¨ find æ‰¾å‡ºä¸€æ®µæ®µ key1 ç›¸åŒçš„ç¯„åœï¼Œå†æ ¹æ“š key2ï¼Œåœ¨
+  //   æ­¤ç¯„åœä¸­ä»¥ stable_sort æ’åºã€‚ç¬¬äºŒæ¬¡æ’åºå…¨éƒ¨å®Œæˆå¾Œï¼Œå†åˆ©ç”¨ find æ‰¾å‡º
+  //   ä¸€æ®µæ®µ key2 ç›¸åŒçš„ç¯„åœï¼Œå†æ ¹æ“š key3ï¼Œåœ¨æ­¤ç¯„åœä¸­ä»¥ stable_sort æ’åºã€‚
+  //   ä¾æ­¤é¡æ¨â€¦ã€‚
 }
 
 

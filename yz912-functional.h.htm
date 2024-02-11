@@ -1,13 +1,13 @@
 <html>// yz912-functional.h
 
-// ³]­p¤@¨Ç functors
-// °Ñ¦Ò¡G¡mSTL·½½X­åªR¡np416~p421
+// ç ç’¸ï¿½@ã„‡ functors
+// æŠŠÏƒï¿½Gï¿½mSTLæ–¹çµï¿½æ¿¯Rï¿½np416~p421
 // unary_function, binary_function
 // plus, minus, multiplies, divides
 // equal_to, greater, greater_equal, less, less_equal
 
-// ³]­p¤@¨Ç function adapters
-// °Ñ¦Ò¡G¡mSTL·½½X­åªR¡n8.4 ¸`
+// ç ç’¸ï¿½@ã„‡ function adapters
+// æŠŠÏƒï¿½Gï¿½mSTLæ–¹çµï¿½æ¿¯Rï¿½n8.4 ç«Š
 // bind2nd, binder2nd
 
 
@@ -17,14 +17,14 @@
 namespace YZ
 {
 
-// C++ Standard ³W©w¡A¨C¤@­Ó Adaptable Unary Function ³£¥²¶·Ä~©Ó¦¹Ãş§O
+// C++ Standard ç ï¹šï¿½Aâ€“ï¿½@ï¿½ï¿½ Adaptable Unary Function å¸¸ã‚²æ–—è†¥â”¯ï¿½å§‘ï¿½ï¿½O
 template <class Arg, class Result>
 struct unary_function {
     typedef Arg argument_type;
     typedef Result result_type;
 };
 
-// C++ Standard ³W©w¡A¨C¤@­Ó Adaptable Binary Function ³£¥²¶·Ä~©Ó¦¹Ãş§O
+// C++ Standard ç ï¹šï¿½Aâ€“ï¿½@ï¿½ï¿½ Adaptable Binary Function å¸¸ã‚²æ–—è†¥â”¯ï¿½å§‘ï¿½ï¿½O
 template <class Arg1, class Arg2, class Result>
 struct binary_function {
     typedef Arg1 first_argument_type;
@@ -32,7 +32,7 @@ struct binary_function {
     typedef Result result_type;
 };      
 
-// ¥H¤U6­Ó¬°ºâ³NÃş¡]Arithmetic¡^¥é¨ç¦¡
+// ï¿½Hï¿½U6ï¿½è‡æ˜‚ç¬Næ‘¸ï¿½]Arithmeticï¿½^ãƒ©ã„§Î‘
 template <class T>
 struct plus : public binary_function<T, T, T> {
     T operator()(const T& x, const T& y) const { return x + y; }
@@ -63,7 +63,7 @@ struct negate : public unary_function<T, T> {
     T operator()(const T& x) const { return -x; }
 };
 
-// ¥H¤U6­Ó¬°¬Û¹ïÃö«YÃş¡]Relational¡^¥é¨ç¦¡
+// ï¿½Hï¿½U6ï¿½è‡è‰¾é…ƒé”©éœYæ‘¸ï¿½]Relationalï¿½^ãƒ©ã„§Î‘
 template <class T>
 struct equal_to : public binary_function<T, T, bool> {
     bool operator()(const T& x, const T& y) const { return x == y; }
@@ -94,7 +94,7 @@ struct less_equal : public binary_function<T, T, bool> {
     bool operator()(const T& x, const T& y) const { return x <= y; }
 };
 
-// ¥H¤U3­Ó¬°ÅŞ¿è¹BºâÃş¡]Logical¡^¥é¨ç¦¡
+// ï¿½Hï¿½U3ï¿½è‡èŠ­è˜…éŸ«Bè¡¡æ‘¸ï¿½]Logicalï¿½^ãƒ©ã„§Î‘
 template <class T>
 struct logical_and : public binary_function<T, T, bool> {
     bool operator()(const T& x, const T& y) const { return x && y; }
@@ -111,9 +111,9 @@ struct logical_not : public unary_function<T, bool> {
 };
 
 
-// ---- ¥H¤W³£¬O functor¡A¥H¤U³£¬O function adapter
+// ---- ï¿½Hï¿½Wå¸¸çŒ functorï¿½Aï¿½Hï¿½Uå¸¸çŒ function adapter
 
-// ¥H¤U°t±µ¾¹¥Î¨Óªí¥Ü¬Y­Ó Adaptable Predicate ªºÅŞ¿è­t­È¡]logical negation¡^
+// ï¿½Hï¿½UçšŒé’¡ç«Ÿãƒã„“ï¿½æå¢Yï¿½ï¿½ Adaptable Predicate ï¿½å·è˜…ç’€tï¿½å–]logical negationï¿½^
 template <class Predicate>
 class unary_negate
   : public unary_function<typename Predicate::argument_type, bool> {
@@ -126,14 +126,14 @@ public:
   }
 };
 
-// »²§U¨ç¦¡¡A¨Ï§Ú­Ì±o¥H¤è«K¨Ï¥Î unary_negate<Pred>
+// å¾Šï¿½Uã„§Î‘ï¿½Aã„Ğ¸ï¿½ç˜«oï¿½Hã‚ˆç½ã„ãƒ unary_negate<Pred>
 template <class Predicate>
 inline unary_negate<Predicate> not1(const Predicate& pred) {
   return unary_negate<Predicate>(pred);
 }
 
 
-// ¥H¤U°t±µ¾¹¥Î¨Ó±N¬Y­Ó Adaptable Binary function Âà´«¬° Unary Function
+// ï¿½Hï¿½UçšŒé’¡ç«Ÿãƒã„“ç›¢ç˜ï¿½ï¿½ Adaptable Binary function é”£ä¼ ï¿½ï¿½ Unary Function
 template <class Operation> 
 class binder2nd
   : public unary_function<typename Operation::first_argument_type,
@@ -142,26 +142,26 @@ protected:
   Operation op;
   typename Operation::second_argument_type value;
 public:
-  // ¥H¤U ctor «Ø¥ß op ©M value¡C
+  // ï¿½Hï¿½U ctor ï¿½å»¿ï¿½ op ã valueï¿½C
   binder2nd(const Operation& x,
             const typename Operation::second_argument_type& y) 
       : op(x), value(y) {}
   typename Operation::result_type
   operator()(const typename Operation::first_argument_type& x) const {
-    return op(x, value); 	// ±N value Ã´µ²¡]binding¡^¬°²Ä¤G¤Ş¼Æ
-                             	// operator() ³Q©I¥s®Éªº¤Ş¼Æ¡A±N¦¨¬°opªº²Ä¤@¤Ş¼Æ 
+    return op(x, value); 	// ç›¢ value ä¹ˆæŒ¡ï¿½]bindingï¿½^ï¿½å®‰è†œGã¾è®¡
+                             	// operator() ç †ãŠ£ï¿½sï¿½ç‘Ÿæ°¦è—œå•¤Aç›¢Î˜ï¿½çšpï¿½ç¿°è†œ@ã¾è®¡ 
   }
 };
 
-// »²§U¨ç¦¡¡AÅı§Ú­Ì±o¥H¤è«K¨Ï¥Î binder2nd<Op>
-// ¥Îªk¡G¨Ò¦p bind2nd(less<int>(), 5)
+// å¾Šï¿½Uã„§Î‘ï¿½AçµĞ¸ï¿½ç˜«oï¿½Hã‚ˆç½ã„ãƒ binder2nd<Op>
+// ãƒçŒ­ï¿½Gã„’ï¿½p bind2nd(less<int>(), 5)
 template <class Operation, class T>
 inline binder2nd<Operation> bind2nd(const Operation& op, const T& x) {
   typedef typename Operation::second_argument_type arg2_type;
   return binder2nd<Operation>(op, arg2_type(x));
-          // ¥H¤W§âx·í°µopªº²Ä¤G¤Ş¼Æ«¬§O
-          // »yªk¤ÀªR¡Gbinder2nd<T>() ¬O²£¥Í¤@­Ó¼È®Éª«¥ó¡A() ¤§¤º¬Octor°Ñ¼Æ¡C
-          // arg2_type() ¬O±j¨îÂà«¬°Ê§@¡C
+          // ï¿½Hï¿½WÑ€xè®½æš—opï¿½ç¿°è†œGã¾è®¡ï¿½ï¿½ï¿½O
+          // ç²‚çŒ­ã çŒ‚ï¿½Gbinder2nd<T>() çŒç»ãƒï¿½@ï¿½è›¹çŠ¬ç‘Ÿï¿½ãƒ³ï¿½A() ã‡ãšçŒctoræŠŠè®¡ï¿½C
+          // arg2_type() çŒçœï¿½ç›¥å–ƒï¿½ç¬†ï¿½@ï¿½C
 }
 
 

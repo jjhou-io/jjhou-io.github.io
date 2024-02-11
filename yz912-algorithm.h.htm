@@ -1,7 +1,7 @@
 <html>// yz912-algorithm.h
 
-// ³]­p¤@¨Ç algorithms
-// °Ñ¦Ò¡G¡mSTL·½½X­åªR¡np334~p360
+// è¨­è¨ˆä¸€äº› algorithms
+// åƒè€ƒï¼šã€ŠSTLæºç¢¼å‰–æã€‹p334~p360
 // count, count_if, find, find_if, generate, for_each,
 // max, min, max_element, min_element,
 // replace, replace_copy, replace_if, replace_copy_if
@@ -19,7 +19,7 @@ template <class InputIterator, class Function>
 Function 
 for_each(InputIterator first, InputIterator last, Function f) {
   for ( ; first != last; ++first)
-    f(*first);	// ³ê°_¥é¨ç¦¡ f ªº function call ¹Bºâ¤l. ¶Ç¦^­È³Q©¿²¤
+    f(*first);	// å–šèµ·ä»¿å‡½å¼ f çš„ function call é‹ç®—å­. å‚³å›å€¼è¢«å¿½ç•¥
   return f;
 }
 
@@ -32,15 +32,15 @@ find(InputIterator first, InputIterator last,
 }
 
 
-// ³o¬O·sª©ªº count_if()
+// é€™æ˜¯æ–°ç‰ˆçš„ count_if()
 template <class InputIterator, class Predicate>
 typename iterator_traits<InputIterator>::difference_type
 count_if(InputIterator first, InputIterator last, Predicate pred) {
-  // ¥H¤U«Å§i¤@­Ó­p¼Æ¾¹ n
+  // ä»¥ä¸‹å®£å‘Šä¸€å€‹è¨ˆæ•¸å™¨ n
   typename iterator_traits<InputIterator>::difference_type n = 0;
-  for ( ; first != last; ++first)	// ¾ã­Ó½d³ò¨«¤@½g
-    if (pred(*first))			// ¦pªG¤¸¯À±a¤Jpred ªº¹Bºâµ²ªG¬° true
-      ++n;				// ­p¼Æ¾¹²Ö¥[1
+  for ( ; first != last; ++first)	// æ•´å€‹ç¯„åœèµ°ä¸€ç¯‡
+    if (pred(*first))			// å¦‚æœå…ƒç´ å¸¶å…¥pred çš„é‹ç®—çµæœç‚º true
+      ++n;				// è¨ˆæ•¸å™¨ç´¯åŠ 1
   return n;
 }
 

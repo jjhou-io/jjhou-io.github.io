@@ -1,7 +1,7 @@
 <html>// yz912-iterator.h
 
-// ³]­p iterator ©Ò»İªº¤@¨Ç¬ÛÃö¤ä´©
-// °Ñ¦Ò¡G¡mSTL·½½X­åªR¡nch3
+// è¨­è¨ˆ iterator æ‰€éœ€çš„ä¸€äº›ç›¸é—œæ”¯æ´
+// åƒè€ƒï¼šã€ŠSTLæºç¢¼å‰–æã€‹ch3
 
 
 #ifndef _YZ_ITERATOR_
@@ -26,7 +26,7 @@ struct iterator_traits {
   typedef typename Iterator::reference         reference;
 };
 
-// °w¹ï­ì¥Í«ü¼Ğ¡]native pointer¡^¦Ó³]­pªº traits °¾¯S¤Æª©¡C
+// é‡å°åŸç”ŸæŒ‡æ¨™ï¼ˆnative pointerï¼‰è€Œè¨­è¨ˆçš„ traits åç‰¹åŒ–ç‰ˆã€‚
 template <class T>
 struct iterator_traits<T*> {
   typedef random_access_iterator_tag iterator_category;
@@ -36,7 +36,7 @@ struct iterator_traits<T*> {
   typedef T&                         reference;
 };
 
-// °w¹ï­ì¥Í¤§ pointer-to-const ¦Ó³]­pªº traits °¾¯S¤Æª©¡C
+// é‡å°åŸç”Ÿä¹‹ pointer-to-const è€Œè¨­è¨ˆçš„ traits åç‰¹åŒ–ç‰ˆã€‚
 template <class T>
 struct iterator_traits<const T*> {
   typedef random_access_iterator_tag iterator_category;
@@ -47,7 +47,7 @@ struct iterator_traits<const T*> {
 };
 
 
-// ³o­Ó¨ç¦¡¥i¥H«Ü¤è«K¦a¨M©w¬Y­Ó­¡¥N¾¹ªºÃş«¬¡]category¡^
+// é€™å€‹å‡½å¼å¯ä»¥å¾ˆæ–¹ä¾¿åœ°æ±ºå®šæŸå€‹è¿­ä»£å™¨çš„é¡å‹ï¼ˆcategoryï¼‰
 template <class Iterator>
 inline typename iterator_traits<Iterator>::iterator_category
 iterator_category(const Iterator&) {
@@ -58,7 +58,7 @@ iterator_category(const Iterator&) {
 
 	
 /*
-// ¼È®É³]­p¡]¥¼¦Ò¼{ iterator_category¡^
+// æš«æ™‚è¨­è¨ˆï¼ˆæœªè€ƒæ…® iterator_categoryï¼‰
 template <class InputIterator, class Distance>
 inline void 
 distance(InputIterator first, InputIterator last, Distance& n) {
@@ -66,7 +66,7 @@ distance(InputIterator first, InputIterator last, Distance& n) {
 }
 */
 
-// ¥H¤U¬O¾ã²Õ distance ¨ç¦¡
+// ä»¥ä¸‹æ˜¯æ•´çµ„ distance å‡½å¼
 template <class InputIterator>
 inline iterator_traits<InputIterator>::difference_type
 __distance(InputIterator first, InputIterator last, input_iterator_tag) {
@@ -94,7 +94,7 @@ distance(InputIterator first, InputIterator last) {
 
 
 
-// ¥H¤U¬O¾ã²Õ advance ¨ç¦¡
+// ä»¥ä¸‹æ˜¯æ•´çµ„ advance å‡½å¼
 template <class InputIterator, class Distance>
 inline void __advance(InputIterator& i, Distance n, input_iterator_tag) {
   while (n--) ++i;
